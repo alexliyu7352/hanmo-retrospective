@@ -1,0 +1,48 @@
+{
+  "source_checkpoint": "834c826d6776f7ac8456b55e4bd4424d60b2bde3",
+  "verification_followup": "decoder tail formatting and additional focused assertions; exact tested bytes listed below",
+  "source_sha256": {
+    "native/world/tests/resident/state_presentation.cpp": "0666e111e6bf6d97ca904661ad1736370accb42f64826a5a13b315e519327441",
+    "native/world/src/resident/views/common_presentation.cpp": "a0e09326b217be66f27af83e3ab8e99fa2d0f28870aa8c7560ad769f08f26b0f",
+    "native/world/src/resident/views/common_presentation.hpp": "5f547364cd86c9fbc0333aa79e691ff996462290558c13303124206328149d2d",
+    "native/world/src/resident/storage/common_codec.cpp": "f5118328af89cdb5f6baabb4aa445a7ca0f2a0e13d6203a8373d6b69706b55b7",
+    "native/world/src/resident/storage/common_codec.hpp": "8bdde81d9f2b109a5c49b5e3f51fc1cc62460504a4c214e687f43d55797462a2",
+    "native/world/src/resident/storage/common_store.cpp": "023b61c1656f28bd6b8e30028537ab646aae463f68833c94f87f0c438bb22e6c",
+    "native/world/src/resident/storage/common_store.hpp": "e53eb601da328d029c1c9f228c2d76665e73dec49c253f5ef2d4622c9967b662",
+    "native/world/src/resident/storage/common_validation.cpp": "f865c5a343b692809a698742b3a45bddaa983b7351696083aa0b29a23f54d587",
+    "native/world/src/resident/model/common_model.hpp": "8e8e9a721a7663bc2707bdcc1a72ec6282cf80b836d6a183c185a6ca9a112c3f",
+    "native/world/src/resident/model/common_operations.hpp": "cedda60cf3cb31a0fe957746d6e1273c981714a7f9bf2922b26f308d5fb7eb35",
+    "native/world/src/resident/model/common_rng.hpp": "0899073920ddd9f3c40229bd61cffe18b81ea6271833785308f33f950173ec0b",
+    "native/world/src/resident/checkpoint/ordered_value.cpp": "5535414b5d86b886406fe30f4008d38e1c38535825d722ba7926a997989b6193",
+    "native/world/src/resident/checkpoint/ordered_value.hpp": "19dbbaffb75d79df0d7442d9057429840f46d39f5e4e3eb7d56b601ebfd75254",
+    "native/world/include/hanmo/resident/model_contract.hpp": "b0f811fb50c249c259900b4e23e61693e307044988b30df5fec4c94c68794e62",
+    "native/world/include/hanmo/resident/presentation_contract.hpp": "ee4df2f8f2426a5f6f7a16b8a5a37b56780db0e2f8c9301e008d89a53df23611",
+    "native/world/include/hanmo/resident/command_contract.hpp": "a0be605849624057e9e99fc4ef6e25ba6f45037473b47778758b4814edbae197"
+  },
+  "compiler": "g++ (Debian 14.2.0-19) 14.2.0",
+  "flags": "-std=c++17 -O0 -g -fsanitize=address,undefined -fno-omit-frame-pointer -Wall -Wextra -Wpedantic -Wno-attributes",
+  "binary_sha256": "74941ef41ac0ee053bd20cc82bdfec21c73379450437d434def0b6f82233ff13",
+  "compile_returncode": 0,
+  "compile_output": "",
+  "runs": [
+    {
+      "sanitizers": "address,undefined,leak",
+      "returncode": 1,
+      "output": "==5==LeakSanitizer has encountered a fatal error.\n==5==HINT: For debugging, try setting environment variable LSAN_OPTIONS=verbosity=1:log_threads=1\n==5==HINT: LeakSanitizer does not work under ptrace (strace, gdb, etc)\n",
+      "classification": "LeakSanitizer unsupported under executor ptrace; no claim of leak verification"
+    },
+    {
+      "environment": {
+        "ASAN_OPTIONS": "detect_leaks=0:halt_on_error=1",
+        "UBSAN_OPTIONS": "halt_on_error=1"
+      },
+      "returncode": 0,
+      "output": "state_presentation: actual initial names=100 exact; common state unchanged\nstate_presentation: PASS (name/prototype/empty-key fallback, Unicode limits, exact text errors, deep-owned results, clone rebinding, cold typed decode)\n"
+    }
+  ],
+  "input_sha256": {
+    "expanded-catalog.json": "81529c4cfb82e0c834a85c0a8a0ab36a56c9593676883d48ca72af06511b2926",
+    "state-12815e78fea3e7950546b270d1b6316d121435c1a21291e8043d263e528534b7.json": "12815e78fea3e7950546b270d1b6316d121435c1a21291e8043d263e528534b7"
+  },
+  "scope": "Finite presentation source and one actual initial cold read only; no world advancement, Main/GUI, performance, RNG draws or repeated scale trip."
+}

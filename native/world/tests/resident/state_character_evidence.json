@@ -1,0 +1,38 @@
+{
+  "source_commit": "4a9e8a6742eaab0932b66e39fe1ae04cb8b216a6",
+  "header_commit": "c0f4fe94e6619941393a6e61d85b8853388f1012",
+  "files_sha256": {
+    "native/world/src/resident/views/character_presentation.hpp": "25ffd18e6b9eceb66913ab40dfa41122e4973e75d7b0cc9421e15f143c2c948e",
+    "native/world/src/resident/views/character_presentation.cpp": "14f96354b5c1deea5cd8b7910fef942e1116e985476c4ccd37e3788bc9993a51",
+    "native/world/src/resident/model/common_model.hpp": "18aa115dc327f2e9bce389a1db7d70b4dd397996806f315bad81bc2ac19bbe90",
+    "native/world/src/resident/storage/common_codec.cpp": "3e6de890e4ea5ce458192f5c005b4a88a999482a21fd29ee0f2ffab162a64780",
+    "native/world/tests/resident/state_character_presentation.cpp": "17b1064ea5c405ddf2e47950185c3c898c4bdadc6c197a1c0b85e93e09251b3c",
+    "native/world/tests/resident/state_character_oracle.gd": "298565fb392edcc09aaf00569f17b37dad5023420e295c5240c79e6aef4c3368",
+    "game/core/views/character_input.gd": "039dc05aeb4fca5138ffd9ac12d3db3399c0da7acaca7c2a273df2b2246358d4",
+    "game/core/actor_identity.gd": "ee145da2008408a68435cf6930d4cc14f80f07d4808686dfe534b3d41b476a74",
+    "game/core/domains/identity/actor_appearance.gd": "59b23d72e4c39657b7b60d1777532b75589c478efab98f09c02b4aa31ae1aede"
+  },
+  "source_note": "Only the descriptive comment on ActorNameDefinition was clarified after compilation; executable code and declarations are the tested bytes.",
+  "native_binary_sha256": "68c694892cb42ade8e40d4d09212738c0362fc92721a1b0d26440be728a93c2f",
+  "vectors_sha256": "9850403613cecba6de0438e305d5c6a77ed0754c489422ef23a2238ddc3c9918",
+  "compile_returncode": 0,
+  "compile_output": "",
+  "sanitizer_environment": {
+    "ASAN_OPTIONS": "detect_leaks=0:halt_on_error=1",
+    "UBSAN_OPTIONS": "halt_on_error=1"
+  },
+  "native_test": {
+    "returncode": 0,
+    "cases": 39,
+    "output": "state_character_presentation: PASS cases=39 gd_vectors=38 (six/five field whitelist, identity/appearance order, exact age/name/features, no mutation, clone/owned output)\n"
+  },
+  "godot_oracle": {
+    "engine": "4.7.2.stable.official.ed1daf0bf",
+    "engine_sha256": "8d106cbe6144c2dc7e881d61d2429c1a8a76e6b22ef48bd5e48dcf934953f71e",
+    "returncode": 0,
+    "supported_cases": 38,
+    "output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\nCHARACTER_GD_ORACLE_CASES=38 FAILURES=0 SCOPE=existing selected projector only\n",
+    "prior_runner_failure": "Initial runner name Projection collided with a Godot builtin; parse failure exited 1, then the new test runner identifier was corrected. Original projector code unchanged."
+  },
+  "scope": "Selected read-only character leaf; exact visible whitelist and original GD values/types/order. No new inherited-profile admission, private source fields, full-world runs, Main or GUI gate."
+}

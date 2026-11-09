@@ -1,0 +1,31 @@
+const fs=require('fs'),path=require('path'),crypto=require('crypto'),assert=require('assert');
+const {createCanvas,loadImage}=require(process.env.CODEX_PRIMARY_RUNTIME_NODE_MODULES ? process.env.CODEX_PRIMARY_RUNTIME_NODE_MODULES + '/@napi-rs/canvas' : '@napi-rs/canvas');
+const {makeRenderer}=require('./renderer.js');
+(async()=>{
+  const images={};for(const n of ['head','body','hair','beard'])images[n]=await loadImage(path.join(__dirname,'assets',n+'-atlas.png'));
+  const r=makeRenderer(createCanvas,images), base={...r.manifest.defaults};
+  const hash=(c,rect=[0,0,c.width,c.height])=>crypto.createHash('sha256').update(c.getContext('2d').getImageData(...rect).data).digest('hex');
+  const renderHash=(state,rect)=>{const c=r.compose(state);const result=hash(c,rect);c.width=1;c.height=1;if(global.gc)global.gc();return result;};
+  const layerHashes=new Map();
+  const layerHash=(name,state)=>{const key=name+JSON.stringify(state);if(!layerHashes.has(key)){layerHashes.set(key,hash(r.layer(name,state)));if(global.gc)global.gc();}return layerHashes.get(key);};
+  const results=[];
+  const check=(name,test)=>{try{test();results.push({name,passed:true});}catch(e){results.push({name,passed:false,error:e.message});}};
+  const hashes=new Set(),all=r.states();
+  check('all 128 option states render distinct portraits',()=>{for(const state of all)hashes.add(renderHash(state));assert.equal(hashes.size,128);});
+  check('changing clothing preserves all face pixels above collar',()=>{for(const state of all){const other={...state,body:1-state.body};assert.equal(renderHash(state,[120,105,270,165]),renderHash(other,[120,105,270,165]));}});
+  check('expression preserves head shape nose clothing hair beard layers',()=>{for(const name of ['head','nose','body','hair','beard'])for(const state of all)assert.equal(layerHash(name,state),layerHash(name,{...state,expression:1-state.expression}));});
+  check('eyes nose mouth only change their own face layers',()=>{for(const key of ['eyes','nose','mouth']){const changed={...base,[key]:1};assert.notEqual(hash(r.layer(key,base)),hash(r.layer(key,changed)));for(const other of r.manifest.layerOrder.filter(n=>n!==key))assert.equal(hash(r.layer(other,base)),hash(r.layer(other,changed)));}});
+  check('facial pieces stay inside the base face silhouette',()=>{const hd=r.layer('head',base).getContext('2d').getImageData(0,0,512,768).data;for(const name of ['eyes','nose','mouth'])for(const variant of [0,1]){const d=r.layer(name,{...base,[name]:variant}).getContext('2d').getImageData(0,0,512,768).data;for(let i=3;i<d.length;i+=4)assert(!(d[i]>50&&hd[i]<50));}});
+  check('serialized appearance restores exact portrait',()=>{for(const state of all)assert.equal(renderHash(state),renderHash(JSON.parse(JSON.stringify(state))));});
+  check('88 and 96 pixel avatars use the same composed character',()=>{for(const size of [88,96]){const a=r.avatar(base,size);assert.equal(a.width,size);assert.equal(a.height,size);assert.notEqual(hash(a),hash(createCanvas(size,size)));const expected=createCanvas(size,size),v=r.manifest.avatar;expected.getContext('2d').drawImage(r.compose(base),v.x,v.y,v.width,v.height,0,0,size,size);assert.equal(hash(a),hash(expected));}});
+  check('all source textures contain real alpha transparency',()=>{for(const image of Object.values(images)){const c=createCanvas(image.width,image.height);c.getContext('2d').drawImage(image,0,0);const d=c.getContext('2d').getImageData(0,0,c.width,c.height).data;let zero=0,solid=0;for(let i=3;i<d.length;i+=4){zero+=d[i]===0;solid+=d[i]>240;}assert(zero>1000&&solid>1000);}});
+  const sheet=createCanvas(1024,896),ctx=sheet.getContext('2d');ctx.fillStyle='#e9e0cd';ctx.fillRect(0,0,1024,896);
+  all.forEach((s,i)=>{const x=i%16*64,y=Math.floor(i/16)*112;ctx.drawImage(r.avatar(s,96),x,y,64,64);ctx.fillStyle='#252a28';ctx.font='14px sans-serif';ctx.fillText(String(i+1).padStart(3,'0'),x+15,y+86);});
+  fs.writeFileSync(path.join(__dirname,'qa','all-options.png'),sheet.toBuffer('image/png'));
+  fs.mkdirSync(path.join(__dirname,'exports','layers'),{recursive:true});
+  const exports=[];
+  for(const name of r.manifest.layerOrder){const variants=['head'].includes(name)?[0]:[0,1];const expressions=['eyes','mouth'].includes(name)?[0,1]:[0];for(const v of variants)for(const expression of expressions){if(name==='beard'&&v===0)continue;const filename=name+'-'+v+'-'+expression+'.png';const out=r.layer(name,{...base,[name]:v,expression});fs.writeFileSync(path.join(__dirname,'exports','layers',filename),out.toBuffer('image/png'));exports.push({filename,layer:name,variant:v,expression,width:512,height:768});}}
+  fs.writeFileSync(path.join(__dirname,'exports','layers','index.json'),JSON.stringify({version:r.manifest.version,canvas:r.manifest.canvas,layerOrder:r.manifest.layerOrder,layers:exports},null,2));
+  const report={optionStates:all.length,uniquePortraits:hashes.size,exportedLayers:exports.length,results,passed:results.every(x=>x.passed)};
+  fs.writeFileSync(path.join(__dirname,'qa','verification.json'),JSON.stringify(report,null,2));console.log(JSON.stringify(report));if(!report.passed)process.exitCode=1;
+})();

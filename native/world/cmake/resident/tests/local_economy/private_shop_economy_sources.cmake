@@ -1,0 +1,7 @@
+# 地方经济与责任账消费者登记：保留本组目标、测试、条件与局部变量的原执行顺序。
+# 私约只沿原 LE 钱账，早来源结构与末经营全验均须保留。
+add_executable(test_resident_private_shop_economy_sources tests/resident/economic_world/private_shop_economy_sources_test.cpp)
+target_link_libraries(test_resident_private_shop_economy_sources PRIVATE hanmo_resident)
+target_include_directories(test_resident_private_shop_economy_sources PRIVATE src)
+target_compile_options(test_resident_private_shop_economy_sources PRIVATE -UNDEBUG -fno-fast-math -ffp-contract=off)
+add_test(NAME resident_private_shop_economy_sources COMMAND test_resident_private_shop_economy_sources)

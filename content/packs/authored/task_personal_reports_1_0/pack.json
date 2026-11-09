@@ -1,0 +1,60 @@
+{
+  "format": "HM-PACK",
+  "format_version": 1,
+  "id": "hanmo.task_personal_reports",
+  "version": "1.0.0",
+  "namespace": "personal_report",
+  "rules_api": {
+    "id": "hanmo.rules",
+    "min_version": "1.0.0",
+    "max_version_exclusive": "2.0.0"
+  },
+  "dependencies": [
+    {
+      "id": "hanmo.local_society",
+      "min_version": "1.11.0",
+      "max_version_exclusive": "1.12.0"
+    }
+  ],
+  "conflicts": [],
+  "required_capabilities": [
+    "cultivation",
+    "dialogue",
+    "economy",
+    "estates",
+    "family",
+    "military",
+    "multi_actor",
+    "named_membership_v1",
+    "native_dynamic_world",
+    "npc_society",
+    "personal_combat",
+    "places",
+    "population_military_v1",
+    "regional_life_v1",
+    "road_encounters",
+    "services",
+    "tasks.procurement",
+    "tasks.message",
+    "tasks.escort",
+    "companions",
+    "task_offer_responses_v1",
+    "task_message_handoffs_v1",
+    "task_message_reports_v2",
+    "task_static_assets_v1",
+    "party_provider_consent_v1",
+    "visit_messages_v1",
+    "visit_reception_v1",
+    "task_personal_message_deliveries_v1",
+    "known_personal_dialogues_v1",
+    "family_life_v1",
+    "task_personal_message_reports_v1"
+  ],
+  "content_entries": [
+    "content.json"
+  ],
+  "presentation_entries": [],
+  "resources": [],
+  "author": "Hanmo project authors",
+  "license": "NOASSERTION"
+}

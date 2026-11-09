@@ -1,0 +1,63 @@
+{
+  "source_checkpoint": "4950d5d51d20da9ba8c5b7ef8289a8a29b892e58",
+  "template_id": "qingchuan.grain.city",
+  "place_mapping": {
+    "place.grain": {
+      "scene_template_ids": {
+        "city": "qingchuan.grain.city"
+      }
+    }
+  },
+  "assets": [
+    {
+      "id": "city.ground",
+      "source_path": "game/assets/art/layered-city/ground.png",
+      "path": "res://assets/art/layered-city/ground.png",
+      "sha256": "9dabdd5940b3ab31c57d524c1a6471a7cf8a1bdcc26d2585555470261b153628",
+      "source_size": [
+        1672,
+        941
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        1672,
+        941
+      ]
+    },
+    {
+      "id": "city.grainshop_uncovered",
+      "source_path": "game/assets/art/layered-city/grainshop_uncovered.png",
+      "path": "res://assets/art/layered-city/grainshop_uncovered.png",
+      "sha256": "7bbfeff1e056555d8b068fe0c062259f61434e9c2a2af0286480ff01437d73b7",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "alpha_bounds": [
+        0,
+        15,
+        1536,
+        1009
+      ]
+    },
+    {
+      "id": "city.grainshop_awning",
+      "source_path": "game/assets/art/layered-city/grainshop_awning.png",
+      "path": "res://assets/art/layered-city/grainshop_awning.png",
+      "sha256": "7a0f330bb6531b1a89d606dbb0e5cceb09b2ef7bee3f5ed6e8c21a9be6ebbe7e",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "alpha_bounds": [
+        65,
+        25,
+        1401,
+        975
+      ]
+    }
+  ],
+  "runtime_registry": "Merged by integration into game/data/presentation.json and installed successor pack presentation.json; this fragment is not read by game runtime.",
+  "visual_status": "Existing raw approved limited market sample assets; new formal composition has geometry checks only until graphical access is approved."
+}

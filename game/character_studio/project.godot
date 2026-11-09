@@ -1,0 +1,14 @@
+; 独立人物工作台，仅用于组合表现；不连接主游戏或存档。
+config_version=5
+[application]
+config/name="汉末行记 · 人物工坊"
+run/main_scene="res://studio.tscn"
+config/features=PackedStringArray("4.7", "GL Compatibility")
+[display]
+window/size/viewport_width=1440
+window/size/viewport_height=940
+window/stretch/mode="canvas_items"
+[rendering]
+renderer/rendering_method="gl_compatibility"
+textures/default_filters/use_nearest_mipmap_filter=false
+environment/defaults/default_clear_color=Color(0.08,0.1,0.1,1)

@@ -1,0 +1,17 @@
+{
+  "count.topic": "宴席筹备先核对什么？",
+  "count.stance": "主人已明示：先核实来宾人数，再确定席数。",
+  "count.register": "先登记来宾人数",
+  "count.seats": "先定十席",
+  "count.agenda": "先整理议程",
+  "confirm.topic": "下一次答复如何承接此前的安排？",
+  "confirm.stance": "接待方要求后续答复与此前已经选择的安排一致。",
+  "confirm.register": "先完成登记，再报告席数",
+  "confirm.seats": "报告已经先定的席数",
+  "confirm.agenda": "报告议程整理情况",
+  "close.topic": "最后怎样确认筹备计划？",
+  "close.stance": "前两步已明确的安排须在最后确认中保持一致。",
+  "close.register": "确认登记人数后再定席的计划",
+  "close.seats": "确认此前先定席数的安排",
+  "close.agenda": "暂记议程，待人数另行核实"
+}

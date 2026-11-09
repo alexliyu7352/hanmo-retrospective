@@ -1,0 +1,21 @@
+{
+  "pose": "guard-03",
+  "tool": "built-in image_gen.imagegen",
+  "original_path": "<本地路径>",
+  "source_size": [
+    1254,
+    1254
+  ],
+  "mode": "RGBA",
+  "sha256": "c4eea5ed782fa3a2ab03b23227985d457442c64dde0e6965352f480001548e4a",
+  "alpha_zero": 1216522,
+  "visible_bbox": [
+    345,
+    10,
+    960,
+    1236
+  ],
+  "status": "CANDIDATE_WHOLE_POSE_REVIEWED",
+  "notes": "Same visible weapon hand retained. Source remains WIP, no final production approval. Movement pair reads as lead-foot advance/gather, not alternate-leg walking.",
+  "pixel_mutation": false
+}

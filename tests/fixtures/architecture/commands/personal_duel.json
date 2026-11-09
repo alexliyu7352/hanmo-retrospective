@@ -1,0 +1,65 @@
+{
+  "case_id": "personal_duel",
+  "scenario_id": "scenario.alpha_life",
+  "content": "res://data/generated/alpha_life.hmcatalog.json",
+  "description": "固定作者seed，输入经实际Kernel展开；稳定节点包含完整字节存档",
+  "commands": [
+    {
+      "op": "submit",
+      "kind": "move_local",
+      "params": {
+        "place_id": "west.training"
+      }
+    },
+    {
+      "op": "submit",
+      "kind": "talk",
+      "params": {
+        "role_id": "role.wei"
+      }
+    },
+    {
+      "op": "submit",
+      "kind": "dialogue_next",
+      "params": {}
+    },
+    {
+      "op": "submit",
+      "kind": "dialogue_choose",
+      "params": {
+        "option_id": "spar"
+      }
+    },
+    {
+      "op": "checkpoint",
+      "label": "01-before-start"
+    },
+    {
+      "op": "submit",
+      "kind": "dialogue_confirm",
+      "params": {}
+    },
+    {
+      "op": "checkpoint",
+      "label": "02-after-start"
+    },
+    {
+      "op": "battle_until_result"
+    },
+    {
+      "op": "checkpoint",
+      "label": "03-before-close"
+    },
+    {
+      "op": "submit",
+      "kind": "battle_close",
+      "params": {
+        "battle_id": "@battle"
+      }
+    },
+    {
+      "op": "checkpoint",
+      "label": "04-after-completion"
+    }
+  ]
+}

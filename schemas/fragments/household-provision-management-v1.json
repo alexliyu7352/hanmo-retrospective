@@ -1,0 +1,24 @@
+{
+  "format": "hanmo.schema.fragment/1",
+  "version": "household_provision_management/1",
+  "$defs": {
+    "dynamic_household_provision_management": {
+      "type": "object",
+      "properties": {
+        "version": {"type": "integer", "const": 1},
+        "authorization_ids": {"type": "array", "minItems": 1, "maxItems": 65536, "uniqueItems": true, "items": {"$ref": "#/$defs/entity_id"}}
+      },
+      "required": ["version", "authorization_ids"],
+      "additionalProperties": false,
+      "description": "私务受托者安排下一完整周期的实际用粮上限；原口粮需求、唯一供养绑定和已结算收据保持权威。"
+    }
+  },
+  "property_target": "/$defs/dynamic_world/properties/household_provision_management",
+  "property_schema": {"$ref": "#/$defs/dynamic_household_provision_management"},
+  "integration_notes": [
+    "存在此块才启用独立 household_provision_management/1 module 和冷 section；不改原 local_economy 编码。",
+    "同时要求原 household_provisioning/1 和 Family initial_household_stewardship_v1；普通家庭自养不自动授玩家控制权。",
+    "调用 check_household_provision_management(pack,index)，随后正常 Family links 校验人物/私务角色/期限。",
+    "required_capabilities 沿用 native_dynamic_world，不新增全局能力摘要。"
+  ]
+}

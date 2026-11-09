@@ -1,0 +1,45 @@
+{
+  "format": "HM-PACK",
+  "format_version": 1,
+  "id": "base",
+  "version": "1.0.0",
+  "namespace": "base",
+  "rules_api": {
+    "id": "hanmo.rules",
+    "min_version": "1.0.0",
+    "max_version_exclusive": "2.0.0"
+  },
+  "dependencies": [],
+  "conflicts": [],
+  "required_capabilities": [
+    "multi_actor",
+    "places",
+    "dialogue",
+    "tasks.procurement",
+    "economy"
+  ],
+  "content_entries": [
+    "content.json"
+  ],
+  "presentation_entries": [
+    "presentation.json"
+  ],
+  "resources": [
+    {
+      "path": "assets/art/pixel.png",
+      "kind": "image",
+      "required": true,
+      "sha256": "1c98316a22280de1e7af3ab645d620ce26caa469799dbb11b13c1e8087392288",
+      "license": "CC0-1.0"
+    },
+    {
+      "path": "assets/art/portrait.png",
+      "kind": "image",
+      "required": true,
+      "sha256": "b71e193aacf275c230b35e2e7e2a3f033822d245f0c32ef116807832953b079a",
+      "license": "CC0-1.0"
+    }
+  ],
+  "author": "汉末组合边界fixture",
+  "license": "CC0-1.0"
+}

@@ -1,0 +1,173 @@
+{
+  "portraits": {
+    "adult_blade_whole_v1_neutral": {
+      "path": "res://assets/art/adult-blade-whole-pose/v1/neutral.png"
+    },
+    "adult_blade_whole_v1_prepare": {
+      "path": "res://assets/art/adult-blade-whole-pose/v1/prepare.png"
+    },
+    "adult_blade_whole_v1_move_a": {
+      "path": "res://assets/art/adult-blade-whole-pose/v1/move_a.png"
+    },
+    "adult_blade_whole_v1_move_b": {
+      "path": "res://assets/art/adult-blade-whole-pose/v1/move_b.png"
+    },
+    "adult_blade_whole_v1_strike": {
+      "path": "res://assets/art/adult-blade-whole-pose/v1/strike.png"
+    },
+    "adult_blade_whole_v1_guard": {
+      "path": "res://assets/art/adult-blade-whole-pose/v1/guard.png"
+    },
+    "adult_blade_whole_v1_hit": {
+      "path": "res://assets/art/adult-blade-whole-pose/v1/hit.png"
+    },
+    "adult_blade_whole_v1_fallen": {
+      "path": "res://assets/art/adult-blade-whole-pose/v1/fallen.png"
+    }
+  },
+  "battle_pose_profiles": {
+    "alpha_player_ring_dao_whole_v1": {
+      "version": 1,
+      "family": "adult_male_dao_whole_pose_v1",
+      "actor_id": "actor.player",
+      "portrait_kind": "player",
+      "portrait_rgba_sha256": "fd07de3ee98f06acdc6fcf736b10cb7c11ec7676aa1f4e2d5067ed7fa97108b1",
+      "appearance_generator": "legacy-portrait-v1",
+      "ages": [
+        18,
+        59
+      ],
+      "weapon_id": "item.sword",
+      "view": "three_quarter_right",
+      "source_definition": {
+        "schema": "adult_blade_pose_sources/1",
+        "family": "adult_male_dao_whole_pose_v1",
+        "reference_height": 1204,
+        "poses": {
+          "neutral": {
+            "sha256": "4ac3c15a23dbfb4b85823cb592833b4a579797f70b515eb2a282c350ee75e7a3",
+            "rgba_sha256": "bdbca74413b8a0fac6ec3c19cf11cbde969f69a63185ed6a78ebbb5a94718d17",
+            "size": [
+              1254,
+              1254
+            ],
+            "ground_anchor": [
+              647,
+              1226
+            ],
+            "uniform_scale": 1.0,
+            "asset_id": "adult_blade_whole_v1_neutral",
+            "imported_rgba_sha256": "b5909543122cc3fd9c626f87aeba3c4d4817af5a3f1ca214d95b4987e19b5cb8"
+          },
+          "prepare": {
+            "sha256": "44454dab30c8c057abf48e46ab85cfbeca4debf80c5faa334b90d89ac90e03e1",
+            "rgba_sha256": "aec7f558d2fa9b3b0e6987194505f9249f03e6851e48852f2ca577f4a7c2b96e",
+            "size": [
+              1254,
+              1254
+            ],
+            "ground_anchor": [
+              710,
+              1235
+            ],
+            "uniform_scale": 1.0,
+            "asset_id": "adult_blade_whole_v1_prepare",
+            "imported_rgba_sha256": "a86c41f7afb013cc7d07e46f15ce7f0119954089e2fa35a2ba09f0167a897cdc"
+          },
+          "move_a": {
+            "sha256": "a4eb8c308f33bab0074b521321363e09da75e1e22cc24ce86a08dadfb05755b6",
+            "rgba_sha256": "ed0cda469578648640e756e54550c46eba3e4ac63cd01a980a7d85c4685ed8b4",
+            "size": [
+              1254,
+              1254
+            ],
+            "ground_anchor": [
+              657,
+              1210
+            ],
+            "uniform_scale": 1.0,
+            "asset_id": "adult_blade_whole_v1_move_a",
+            "imported_rgba_sha256": "463b5acb056588f47461aed587774fef978884e3e246889d46334b12796e2598"
+          },
+          "move_b": {
+            "sha256": "344f49e40b4089d0b0a19e15ad4c07babdaa7aee5cfd8195a3570239e6bbe2ff",
+            "rgba_sha256": "258931343459073271edd81fbd993c1cb482cdf94e3848c57ebeee30d8e46531",
+            "size": [
+              1254,
+              1254
+            ],
+            "ground_anchor": [
+              641,
+              1223
+            ],
+            "uniform_scale": 1.0,
+            "asset_id": "adult_blade_whole_v1_move_b",
+            "imported_rgba_sha256": "4bd3b64a1b5d9a04b5165747c8aa80f83df67bfc3c960333bdb178801a41721d"
+          },
+          "strike": {
+            "sha256": "0101b6f8f1892ccafd087cb7412c35413fb8270b10b2714271b325288096798b",
+            "rgba_sha256": "358ce6dbf3fb6987435daf6159d5940d6268633d22b79f724f35b436952f196f",
+            "size": [
+              1254,
+              1254
+            ],
+            "ground_anchor": [
+              521,
+              1192
+            ],
+            "uniform_scale": 1.0,
+            "asset_id": "adult_blade_whole_v1_strike",
+            "imported_rgba_sha256": "1c769c601e0d99836e7beeb7c292cd1c919daea5bee48a08c7e8903ba1b8f52a"
+          },
+          "guard": {
+            "sha256": "c4eea5ed782fa3a2ab03b23227985d457442c64dde0e6965352f480001548e4a",
+            "rgba_sha256": "251f24498f0d22f7237f0a069487ef9d7e72550c86726a23d9c594c0a6b5ee01",
+            "size": [
+              1254,
+              1254
+            ],
+            "ground_anchor": [
+              653,
+              1235
+            ],
+            "uniform_scale": 1.0,
+            "asset_id": "adult_blade_whole_v1_guard",
+            "imported_rgba_sha256": "0d3ce007947d55e8697f1380a8dd23321f1813981daf6eede080387a0fc8e63c"
+          },
+          "hit": {
+            "sha256": "a6b5fd555681738f0a9fa54ba6d129f363c0c38d02b701a918ccef63c6de4ec0",
+            "rgba_sha256": "bfd5012704c640eef8b41a205e17ae474fde0a6eac53cbd1ddb2d79a3168bd85",
+            "size": [
+              1254,
+              1254
+            ],
+            "ground_anchor": [
+              663,
+              1202
+            ],
+            "uniform_scale": 1.0,
+            "asset_id": "adult_blade_whole_v1_hit",
+            "imported_rgba_sha256": "733924608fa0b5fc0afe69a88029fa3a6bf94a28a6cbb2f738ee674fc51dda77"
+          },
+          "fallen": {
+            "sha256": "fd37cfcbf3647f72cb126c6a32851b6a614cf56364e15224ba284bd3a740f5fd",
+            "rgba_sha256": "c90e9e7fccb86b2d5a4c4bd9ea0ab2acc3152a4564288a4ca16dd669df376dd4",
+            "size": [
+              1254,
+              1254
+            ],
+            "ground_anchor": [
+              650,
+              875
+            ],
+            "uniform_scale": 0.82,
+            "asset_id": "adult_blade_whole_v1_fallen",
+            "imported_rgba_sha256": "258f95ecb3d1290927d28e1450bcc7526f75b722cc215e5be3e7e55dbd098c4f"
+          }
+        }
+      },
+      "portrait_imported_rgba_sha256": "aeb076add8ae246b767fff488f81ae9677b88969ade21c262c0bfbaffa69a8db",
+      "catalog_sha256": "0ff2fae4e65ddc6283f0b890cb93b0e65660a0fb2f33fdf1db9c3015d128ea9c"
+    }
+  }
+}

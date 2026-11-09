@@ -1,0 +1,11 @@
+#pragma once
+#include "provision_management.hpp"
+namespace hanmo::resident {
+Outcome<HouseholdProvisionManagementCatalog> decode_household_provision_management_catalog(const BoundaryValue&);
+BoundaryValue encode_household_provision_management_catalog(const HouseholdProvisionManagementCatalog&);
+Outcome<HouseholdProvisionManagementState> decode_household_provision_management_state(const BoundaryValue&);
+class ProjectionWriter;
+Status emit_household_provision_management_state_fields(ProjectionWriter&,const HouseholdProvisionManagementState&);
+BoundaryValue encode_household_provision_management_state(const HouseholdProvisionManagementState&);
+Status visit_household_provision_management_checkpoint(CodecVisitor&,HouseholdProvisionManagementState&);
+}

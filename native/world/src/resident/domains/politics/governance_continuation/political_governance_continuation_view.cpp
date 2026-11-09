@@ -1,0 +1,29 @@
+#include "political_governance_continuation_view.hpp"
+#include "political_governance_continuation_detail.hpp"
+#include "resident/domains/tasks/governance_task_state.hpp"
+#include "resident/domains/politics/politics_internal.hpp"
+#include <limits>
+namespace hanmo::resident {namespace {
+using V=BoundaryValue;
+// 整页绑定观察者/地点与原世界身份，界面不能把旧按钮带到另一个候选。
+V identity(const WorldIdentity& s){StableId id;constexpr char digits[]="0123456789abcdef";for(auto b:s.world_id){id+=digits[b>>4];id+=digits[b&15];}return boundary::obj({{"world_id",V{id}},{"execution_epoch",V{s.execution_epoch}},{"revision",V{s.revision}},{"tick",V{s.tick}}});}
+}
+BoundaryValue encode_political_governance_continuation_quote(const PoliticalGovernanceContinuationQuote& q){const auto& s=q.source;return boundary::obj({{"source_identity",identity(q.identity)},{"actor_id",V{q.command.authority.actor_id}},{"duration",V{Integer{0}}},{"command_kind",V{StableId{political_governance_continue_command}}},{"params",encode_political_continue_governance_command(q.command)},{"task_id",V{s.task_id}},{"contract_id",V{s.contract_id}},{"executor_actor_id",V{s.executor_actor_id}},{"original_organization_id",V{s.original_organization_id}},{"executing_organization_id",V{s.authority.organization_id}},{"public_wallet_id",V{s.public_wallet_id}},{"public_inventory_id",V{s.public_inventory_id}},{"grant_id",V{s.grant_id}},{"scope",V{StableId{"接续原安民责任；原人、原工期、原预约钱粮及原受益人保持。"}}}});}
+Outcome<BoundaryValue> query_political_governance_continuations(const PoliticalGovernanceContinuationContext& x,const GovernanceTaskState& state,const StableId& place,Integer cursor){
+ using namespace governance_continue_detail;if(x.phase)return {false,{},common_failure("GovernanceContinuationRequiresCommittedClock").error};if(cursor<0||cursor>std::numeric_limits<Integer>::max()-16)return {false,{},common_failure("InvalidGovernanceContinuationCursor").error};const auto actor=x.common.state().metadata.player_actor_id;auto at=politics_detail::place(x.common,actor);if(!at||at->place_id!=place)return {false,{},common_failure("GovernanceContinuationLocalQueryRequired",place).error};auto checked=validate_political_governance_continuations(x);if(!checked.ok)return {false,{},checked.error};V::Array rows;Integer count=0;
+ for(const auto& row:state.governance_contracts.rows()){
+  const auto& accepted=row.second.acceptance;if(accepted.site_id!=place)continue;auto source=x.tasks.governance_task_source(row.first);if(!source.ok)return {false,{},source.error};if(source.value.acceptance.fact_id!=accepted.fact_id||source.value.acceptance.task_id!=row.first)return {false,{},common_failure("GovernanceContinuationWrongTaskRead",row.first).error};
+  if(source.value.completion||source.value.interruption)continue;auto authority=x.original_authority.governance_authority_approval(accepted.authority_source_fact_id);if(!authority.ok)return {false,{},authority.error};
+  // 原执行人可看自己的暂停/续办来源，但没有新政权签字按钮；不向无关本地人披露公约。
+  std::optional<ActingAuthority> signer;for(const auto& office:x.organizations.offices.rows()){if(office.second.holder_actor_id!=std::optional<StableId>{actor})continue;ActingAuthority current{office.second.organization_id,office.first,office.second.epoch,actor};if(current_grant(x,authority.value,current).ok){signer=current;break;}}
+  if(!signer&&accepted.executor_actor_id!=actor)continue;
+  auto takeover=x.takeover.find_political_responsibility_for_execution({PoliticalResponsibilityKind::relief_contract,accepted.contract_id,{},{}},x.common.state().identity);if(!takeover.ok)return {false,{},takeover.error};if(!takeover.value||!takeover.value->decision||takeover.value->status!=PoliticalResponsibilityExecutionStatus::approved||takeover.value->decision->disposition!=PoliticalResponsibilityDisposition::assume_by_successor)continue;
+  const auto& execution=*takeover.value;if(signer&&signer->organization_id!=execution.registration.successor_organization_id){if(accepted.executor_actor_id!=actor)continue;signer.reset();}
+  if(count==std::numeric_limits<Integer>::max())return {false,{},common_failure("GovernanceContinuationPageOverflow").error};const auto index=count++;if(index<cursor||index>=cursor+16)continue;
+  PoliticalGovernanceContinuationAccess continuity(x);auto progress=continuity.governance_continuity(accepted.authority_source_fact_id,accepted.executor_actor_id);if(!progress.ok)return {false,{},progress.error};V::Dict item{{"task_id",V{accepted.task_id}},{"contract_id",V{accepted.contract_id}},{"executor_actor_id",V{accepted.executor_actor_id}},{"task_status",V{source.value.task_status}},{"deadline_tick",V{accepted.deadline_tick}},{"continuity_code",V{progress.value.code}},{"continuing",V{progress.value.kind==GovernanceContinuityKind::continue_work}},{"label",V{StableId{"接续原安民责任"}}}};if(progress.value.source_fact_id)item.emplace_back("continuation_fact_id",V{*progress.value.source_fact_id});
+  if(signer){PoliticalContinueGovernance command{*signer,accepted.task_id,execution.registration_fact_id,execution.decision->takeover_fact_id,execution.decision->decision_fact_id};auto quote=preview_political_governance_continuation(x,actor,command);item.emplace_back("command",V{StableId{political_governance_continue_command}});item.emplace_back("params",encode_political_continue_governance_command(command));item.emplace_back("available",V{quote.ok});item.emplace_back("code",V{quote.ok?StableId{}:quote.error.original.code});}
+  rows.emplace_back(std::move(item));
+ }
+ if(cursor>count)return {false,{},common_failure("InvalidGovernanceContinuationCursor").error};V::Dict page{{"ok",V{true}},{"enabled",V{count>0}},{"source_identity",identity(x.common.state().identity)},{"observer_actor_id",V{actor}},{"place_id",V{place}},{"cursor",V{cursor}},{"rows",V{std::move(rows)}}};if(count>cursor+16)page.emplace_back("next_cursor",V{cursor+16});return {true,V{std::move(page)},{}};
+}
+}

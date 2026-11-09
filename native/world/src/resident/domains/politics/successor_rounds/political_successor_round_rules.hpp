@@ -1,0 +1,17 @@
+// 每一新轮保真实任期根；意愿与原Office正式交割分开，由同候选完整冷源闭合。
+#pragma once
+#include "political_successor_round_contract.hpp"
+namespace hanmo::resident {
+struct PoliticalSuccessorRoundContext {
+ const CommonStore& common;const CommonCatalog& common_catalog;const OrganizationState& organizations;const OrganizationCatalog& organization_catalog;
+ const LocalEconomyState& economy;const ActivityRead& activity;const PoliticalHeadSourceContext& heads;
+ const PoliticalSuccessorRoundCatalog& catalog;const PoliticalSuccessorRoundState& state;
+ FamilyDeathOriginRead death_origin;PoliticalSuccessionSeatRead seat;PoliticalSuccessionPlayerRead player_before;
+};
+using PoliticalSuccessorRoundNominationCommand=std::variant<PoliticalNominateNextSuccessor,PoliticalAnswerNextSuccession,PoliticalWithdrawNextSuccession>;
+struct PoliticalSuccessorRoundNominationQuote {WorldIdentity identity;StableId actor_id;PoliticalSuccessorRoundNominationCommand command;};
+Status validate_political_successor_round_nominations(const PoliticalSuccessorRoundContext&);
+Outcome<PoliticalSuccessorRoundNominationQuote> preview_political_successor_round_nomination(const PoliticalSuccessorRoundContext&,const StableId& actor,const PoliticalSuccessorRoundNominationCommand&);
+// 只追加生前意愿，外层原Common保存点负责任何晚失败；此writer不改Office或任一资产。
+Outcome<StableId> apply_political_successor_round_nomination_in_candidate(CommonStore&,PoliticalSuccessorRoundState&,const PoliticalSuccessorRoundContext&,const StableId&,const PoliticalSuccessorRoundNominationCommand&,const PoliticalSuccessorRoundNominationQuote&);
+}

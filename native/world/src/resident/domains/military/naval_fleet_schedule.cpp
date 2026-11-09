@@ -1,0 +1,47 @@
+// 真实NPC先受任/受令/征募/编军；本叶只在原mustered防守军令下依作者计划编舰和前往水上待命点。
+#include "naval_fleet_schedule.hpp"
+#include "resident/storage/common_codec.hpp"
+#include <algorithm>
+#include <deque>
+#include <map>
+#include <set>
+namespace hanmo::resident {
+namespace {
+template<class T>const T* find(const std::vector<T>& rows,const StableId& id){for(const auto& row:rows)if(row.id==id)return &row;return nullptr;}
+bool has(const std::vector<StableId>& rows,const StableId& id){return std::find(rows.begin(),rows.end(),id)!=rows.end();}
+template<class T>Outcome<T> fail(const StableId& code,const StableId& id={}){return {false,{},common_failure(code,id).error};}
+// 仍走作者passages的原首段；不能从营舍直接改成城外锚点。
+std::optional<StableId> first_step(const CommonCatalog& catalog,const StableId& from,const StableId& to){std::deque<StableId> queue{from};std::map<StableId,StableId> seen{{from,{}}};while(!queue.empty()){auto id=queue.front();queue.pop_front();const auto* place=catalog.places.find(id);if(!place)return {};for(const auto& next:place->passages){if(seen.count(next))continue;seen[next]=id==from?next:seen[id];if(next==to)return seen[next];queue.push_back(next);}}return {};}
+}
+Outcome<std::vector<NavalFleetPlan>> decode_naval_fleet_plans(const BoundaryValue& value){try{std::vector<NavalFleetPlan> out;const auto& rows=boundary::array(value,"military_naval/fleet_plans");if(rows.empty()||rows.size()>128)return fail<std::vector<NavalFleetPlan>>("InvalidNavalFleetPlans");for(const auto& row:rows){const StableId path="military_naval/fleet_plans";boundary::fields(row,{"actor_id","order_id","vessel_ids","station"},{"departure_food","departure_money"},path);NavalFleetPlan plan;plan.actor_id=boundary::get_string(row,"actor_id",path);plan.order_id=boundary::get_string(row,"order_id",path);plan.vessel_ids=boundary::strings(boundary::field(row,"vessel_ids",path),path);const auto& point=boundary::array(boundary::field(row,"station",path),path);if(point.size()!=2)return fail<std::vector<NavalFleetPlan>>("InvalidNavalStation");plan.station={boundary::integer(point[0],path),boundary::integer(point[1],path)};if(auto value=row.find("departure_food"))plan.departure_food=boundary::integer(*value,path+"/departure_food");if(auto value=row.find("departure_money"))plan.departure_money=boundary::integer(*value,path+"/departure_money");out.push_back(std::move(plan));}return {true,std::move(out),{}};}catch(const boundary::DecodeFailure& e){return {false,{},e.error};}}
+// 部署只能引用原NPC计划、同营防守军令和同主实船；待命点必须为实际水路而非另一座营舍。
+Status validate_naval_fleet_plan_sources(const NavalCatalog& ships,const MilitaryCatalog& military,const CommonCatalog& common,const TravelCatalog& travel){
+ if(ships.fleet_plans.empty())return common_success();if(!ships.combat_policy)return common_failure("NavalFleetPlanCombatRequired");const auto* map=travel.maps.find(ships.world_map_id);if(!map)return common_failure("NavalWaterMapRequired");std::set<StableId> actors,vessels;
+ for(const auto& plan:ships.fleet_plans){const MilitaryPlan* scheduled=nullptr;for(const auto& p:military.plans)if(p.actor_id==plan.actor_id)scheduled=&p;const auto* order=find(military.orders,plan.order_id);const auto* fort=order?find(military.strongholds,order->target_stronghold_id):nullptr;const auto* camp=order?find(military.garrisons,order->garrison_id):nullptr;
+  if(plan.departure_food<0||plan.departure_food>1000000||plan.departure_money<0||plan.departure_money>1000000)return common_failure("InvalidNavalDepartureSupply",plan.actor_id);
+  if(!actors.insert(plan.actor_id).second||!has(common.actor_ids,plan.actor_id)||!scheduled||scheduled->order_id!=plan.order_id||!order||order->objective_kind!="relieve"||!fort||!camp||fort->garrison_id!=camp->id||plan.vessel_ids.size()!=scheduled->unit_ids.size()||plan.vessel_ids.empty())return common_failure("NavalDefensePlanSourceRequired",plan.actor_id);
+  for(const auto& id:plan.vessel_ids){const auto* vessel=find(ships.vessels,id);if(!vessel||!vessels.insert(id).second||vessel->owner.kind!=Owner::Kind::organization||vessel->owner.id!=camp->organization_id||vessel->owner.extra||vessel->berth_id!=camp->place_id)return common_failure("NavalFleetPlanVesselSourceMismatch",id);}
+  if(!terrain::point_valid_prepared(*map,plan.station,terrain::Mode::boat,{}))return common_failure("NavalStationWaterRequired",plan.actor_id);for(const auto& city:travel.settlements.rows())if(city.second.map_xy.x==plan.station.x&&city.second.map_xy.y==plan.station.y)return common_failure("NavalStationMustBeOutsideSettlement",plan.actor_id);
+ }
+ return common_success();
+}
+// 明确接管原军令下一步：普通规则拒绝时等待，军令终结/失效立即交回原返营调度，不永久截留。
+Outcome<NavalFleetProposal> naval_fleet_plan_proposal(const CommonRead& c,const MilitaryState& state,const MilitaryCatalog& military,const CommonCatalog& common,const TravelCatalog& travel,const MilitaryAccess& access,const NavalAssetState& assets,const NavalCatalog& ships,const MilitaryPlan& schedule,const CampaignRecord& campaign){
+ const NavalFleetPlan* plan=nullptr;for(const auto& p:ships.fleet_plans)if(p.actor_id==schedule.actor_id&&p.order_id==campaign.template_id)plan=&p;
+ if(!plan||campaign.status!="mustered"||campaign.objective_result||campaign.deadline_tick<=c.tick())return {true,{}, {}};auto valid=validate_naval_fleet_plan_sources(ships,military,common,travel);if(!valid.ok)return {false,{},valid.error};NavalFleetProposal out;out.handled=true;const auto* army=find(state.armies,campaign.army_id);const auto* actor=c.actor(schedule.actor_id);if(!army||army->status!="active"||army->commander_actor_id!=schedule.actor_id||!actor)return fail<NavalFleetProposal>("NavalFleetPlanArmyRequired",schedule.actor_id);
+ const NavalFleetRecord* fleet=nullptr;for(const auto& f:assets.fleets)if(f.army_id==army->id){if(f.status=="active"){if(fleet)return fail<NavalFleetProposal>("NavalArmyAssignedTwice",army->id);fleet=&f;}else if(f.request_key=="naval-station:"+campaign.id)return {true,std::move(out),{}};}
+ if(!fleet){
+  // 只在首编舰前用原补给命令从本营公库补差。真实完成receipt避免每半日耗粮后反复补满。
+  bool supplied=false;for(const auto& fact:state.logistics_facts)if(fact.command=="army_resupply"&&fact.phase=="completed"&&fact.success&&fact.actor_id==schedule.actor_id&&fact.terms.army_id==army->id&&fact.terms.garrison_id==army->garrison_id&&fact.result&&fact.result->army_id==army->id)supplied=true;
+  const auto* wallet=c.wallet(army->wallet_id);if(!wallet)return fail<NavalFleetProposal>("ArmyWalletRequired",army->id);auto provisions=preview_army_supply(c,state,military,army->id);if(!provisions.ok)return {false,{},provisions.error};const auto food=supplied?Integer{0}:std::max<Integer>(0,plan->departure_food-provisions.value.available);const auto money=std::max<Integer>(0,plan->departure_money-wallet->balance);
+  if(food>0||money>0){ArmyLogistics supply;supply.kind="army_resupply";supply.army_id=army->id;supply.garrison_id=army->garrison_id;supply.food_quantity=food;supply.money=money;MilitaryCommand command{supply};auto quote=preview_military(c,state,military,access,schedule.actor_id,command);if(!quote.ok)return quote.error.kind==ErrorKind::rule?Outcome<NavalFleetProposal>{true,std::move(out),{}}:Outcome<NavalFleetProposal>{false,{},quote.error};out.proposal=ResidentMilitaryProposal{schedule.actor_id,std::move(command)};return {true,std::move(out),{}};}
+  if(army->unit_ids!=schedule.unit_ids||plan->vessel_ids.size()!=army->unit_ids.size())return fail<NavalFleetProposal>("NavalFleetPlanRosterChanged",army->id);NavalForm form;form.request_key="naval-station:"+campaign.id;form.formation.army_id=army->id;std::set<StableId> captains;
+  for(std::size_t i=0;i<army->unit_ids.size();++i){const auto* unit=find(state.military_units,army->unit_ids[i]);if(!unit)return fail<NavalFleetProposal>("NavalUnitSourceRequired",army->unit_ids[i]);captains.insert(unit->commander_actor_id);captains.insert(unit->fit.begin(),unit->fit.end());captains.insert(unit->wounded.begin(),unit->wounded.end());NavalVesselAssignment assignment;assignment.vessel_id=plan->vessel_ids[i];assignment.unit_id=unit->id;form.formation.assignments.push_back(std::move(assignment));}
+  auto& first=form.formation.assignments.front();for(const auto& person:army->member_actor_ids)if(!captains.count(person))first.passenger_ids.push_back(person);first.prisoner_ids=army->prisoner_ids;first.extra_inventory_ids={army->inventory_id};NavalCommand command{form};auto quote=preview_naval_command(c,state,military,access,assets,ships,schedule.actor_id,command,true);if(!quote.ok)return quote.error.kind==ErrorKind::rule?Outcome<NavalFleetProposal>{true,std::move(out),{}}:Outcome<NavalFleetProposal>{false,{},quote.error};out.proposal=ResidentMilitaryProposal{schedule.actor_id,std::move(command)};return {true,std::move(out),{}};
+ }
+ if(const auto* at=std::get_if<WildernessLocation>(&actor->location)){if(at->map_id==ships.world_map_id&&at->point.x==plan->station.x&&at->point.y==plan->station.y)return {true,std::move(out),{}};}
+ else if(const auto* at=std::get_if<SettlementLocation>(&actor->location)){const auto* city=travel.settlements.find(at->settlement_id);if(!city)return fail<NavalFleetProposal>("UnknownSettlement",at->settlement_id);if(at->place_id!=city->entry_place){auto step=first_step(common,at->place_id,city->entry_place);if(step)out.proposal=ResidentMilitaryProposal{schedule.actor_id,TravelCommandPayload{MoveLocalCommand{*step}}};return {true,std::move(out),{}};}}
+ else return {true,std::move(out),{}};
+ out.proposal=ResidentMilitaryProposal{schedule.actor_id,TravelCommandPayload{TravelCommand{plan->station,{}}}};return {true,std::move(out),{}};
+}
+}

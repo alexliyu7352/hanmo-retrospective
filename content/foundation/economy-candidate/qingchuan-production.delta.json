@@ -1,0 +1,159 @@
+{
+  "format": "hanmo.economic_author_delta/1",
+  "status": "AUTHORING_ONLY",
+  "runtime_verified": false,
+  "base_blob_oid": "11d59ec0ce5198f50571ee173e8afd8cc08d95ea",
+  "base_path": "docs/native/shared-world-foundation-20261008/author-qualified/foundation-author-qualified.hmcatalog.json",
+  "prerequisite": {
+    "commit": "9ef1056210e0869238435744a7d8e8c060a53b57",
+    "path": "content/foundation/politics-candidate/qingchuan-politics.delta.json",
+    "blob_oid": "1d27e3e6d9bf8b0baa3c6c993726b21af7f986d4"
+  },
+  "scenario_id": "society::scenario.qingchuan_political_career",
+  "target": "catalog_after_political_delta",
+  "operations": [
+    {
+      "op": "add",
+      "path": "/scenarios/society::scenario.qingchuan_political_career/dynamic_world/local_economy/production_management",
+      "value": {
+        "version": 1,
+        "assets": {
+          "asset.production.city.land": {
+            "id": "asset.production.city.land",
+            "site_id": "society::place.courtyard",
+            "source_key": "macro_capacity:production.city",
+            "owner": {
+              "id": "society::org.city",
+              "kind": "organization"
+            },
+            "kind": "land",
+            "capacity_units": 6
+          },
+          "asset.production.sect.land": {
+            "id": "asset.production.sect.land",
+            "site_id": "society::place.sword_gate",
+            "source_key": "macro_capacity:production.sect",
+            "owner": {
+              "id": "society::org.sect",
+              "kind": "organization"
+            },
+            "kind": "land",
+            "capacity_units": 2
+          }
+        },
+        "seasons": {},
+        "plans": {
+          "production.city": {
+            "unit_id": "production.city",
+            "season_profile_id": "",
+            "asset_uses": [
+              {
+                "asset_id": "asset.production.city.land",
+                "units": 6,
+                "batches_per_unit": 1
+              }
+            ]
+          },
+          "production.sect": {
+            "unit_id": "production.sect",
+            "season_profile_id": "",
+            "asset_uses": [
+              {
+                "asset_id": "asset.production.sect.land",
+                "units": 2,
+                "batches_per_unit": 1
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "op": "add",
+      "path": "/scenarios/society::scenario.qingchuan_political_career/dynamic_world/organization/grants/grant.qingchuan_appointment/allowed_command_kinds/-",
+      "value": "configure_local_production"
+    },
+    {
+      "op": "add",
+      "path": "/scenarios/society::scenario.qingchuan_political_career/dynamic_world/organization/grants/grant.qingchuan_appointment/scopes/-",
+      "value": {
+        "kind": "account",
+        "id": "society::wallet.city"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/scenarios/society::scenario.qingchuan_political_career/dynamic_world/organization/grants/grant.qingchuan_appointment/scopes/-",
+      "value": {
+        "kind": "account",
+        "id": "society::wallet.city_wages"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/scenarios/society::scenario.qingchuan_political_career/dynamic_world/organization/grants/grant.qingchuan_appointment/wallet_ids/-",
+      "value": "society::wallet.city_wages"
+    },
+    {
+      "op": "add",
+      "path": "/scenarios/society::scenario.qingchuan_political_career/dynamic_world/organization/grants/grant.qingchuan_governance/allowed_command_kinds/-",
+      "value": "configure_local_production"
+    },
+    {
+      "op": "add",
+      "path": "/scenarios/society::scenario.qingchuan_political_career/dynamic_world/organization/grants/grant.qingchuan_governance/scopes/-",
+      "value": {
+        "kind": "account",
+        "id": "society::wallet.city"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/scenarios/society::scenario.qingchuan_political_career/dynamic_world/organization/grants/grant.qingchuan_governance/scopes/-",
+      "value": {
+        "kind": "account",
+        "id": "society::wallet.city_wages"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/scenarios/society::scenario.qingchuan_political_career/dynamic_world/organization/grants/grant.qingchuan_governance/wallet_ids/-",
+      "value": "society::wallet.city_wages"
+    },
+    {
+      "op": "add",
+      "path": "/scenarios/society::scenario.qingchuan_political_career/dynamic_world/politics/command_name_keys/configure_local_production",
+      "value": "society::economy.command.configure"
+    },
+    {
+      "op": "add",
+      "path": "/texts/society::economy.command.configure",
+      "value": "安排下一周期生产"
+    }
+  ],
+  "required_native_modules": {
+    "production_management": "1"
+  },
+  "development_parameters": {
+    "land_capacity": {
+      "production.city": 6,
+      "production.sect": 2,
+      "source": "Exact existing ProductionUnit.capacity; represents original macro production footprint, no extra productive source."
+    },
+    "batches_per_unit": {
+      "value": 1,
+      "source": "One existing capacity unit remains one batch of original recipe; no yield change."
+    },
+    "season_profile_id": {
+      "value": "",
+      "source": "Use exact existing recipe region and season factors; no new climate or balance coefficient."
+    }
+  },
+  "scope_notes": [
+    "Original two-person spring_reserve scenario, all existing people, balances, goods, labor, obligations and production units remain identical.",
+    "Both parent appointment grant and child governance grant receive the same explicit production command and account scope; authority still requires actual Office holder or deputy.",
+    "Account scope city_wages reveals actual public wage debt only; household and Actor private wallets are not granted.",
+    "This delta adds no global required_capabilities; explicit module and local economy codec selection remain central registration work.",
+    "No household private production ownership is fabricated to make grain taxable. Fiscal source authoring remains separate."
+  ]
+}

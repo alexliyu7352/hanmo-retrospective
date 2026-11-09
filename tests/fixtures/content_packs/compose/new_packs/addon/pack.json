@@ -1,0 +1,30 @@
+{
+  "format": "HM-PACK",
+  "format_version": 1,
+  "id": "addon",
+  "version": "1.0.0",
+  "namespace": "addon",
+  "rules_api": {
+    "id": "hanmo.rules",
+    "min_version": "1.0.0",
+    "max_version_exclusive": "2.0.0"
+  },
+  "dependencies": [
+    {
+      "id": "base",
+      "min_version": "1.0.0",
+      "max_version_exclusive": "2.0.0"
+    }
+  ],
+  "conflicts": [],
+  "required_capabilities": [
+    "multi_actor"
+  ],
+  "content_entries": [
+    "content.json"
+  ],
+  "presentation_entries": [],
+  "resources": [],
+  "author": "汉末组合边界fixture",
+  "license": "CC0-1.0"
+}

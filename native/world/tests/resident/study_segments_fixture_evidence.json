@@ -1,0 +1,74 @@
+{
+  "format": "HM-STUDY-SEGMENTS-FOCUSED-CONSUMER/1",
+  "scope": "Two-person direct growth-domain fixture; not complete-world, Main, Bridge, or physical-bank acceptance.",
+  "fixture_fix": "Declare original supported Godot RNG backend in fixture metadata. No production guard or library change.",
+  "environment_source": "<本地路径>",
+  "compiler": "g++ (Debian 14.2.0-19) 14.2.0",
+  "compile_command": [
+    "g++",
+    "-std=c++17",
+    "-O0",
+    "-g",
+    "-UNDEBUG",
+    "-I",
+    "native/world/src",
+    "-I",
+    "native/world/include",
+    "-I",
+    "<本地路径>",
+    "-I",
+    "<本地路径>",
+    "-I",
+    "<本地路径>",
+    "native/world/tests/resident/study_segments_test.cpp",
+    "<本地路径>",
+    "<本地路径>",
+    "<本地路径>",
+    "-pthread",
+    "-ldl",
+    "-lm",
+    "-o",
+    ".local/native-consumer-346/attempt01/test_resident_study_segments"
+  ],
+  "run_command": [
+    "<本地路径>"
+  ],
+  "library_sha256": {
+    "libhanmo_resident.a": "bdb6fe8c3e05471fdb7bcc44c2c22d83de720baec581f2e4c00452a2b0070591",
+    "libhanmo_world.a": "5288091b4e83ed52b8b4c413fefea15e85248f5000d9143c2b416bac432a83a2",
+    "libhanmo_flecs.a": "0165ec11335dd519270e20643d74defc66de2e7a128aadef9678f61eda38ee8c"
+  },
+  "header_sha256": {
+    "native/world/src/resident/domains/growth/growth_model.hpp": "2dd190829cfc27a4c2424b524ac8e8d2d9a1dc6a4e85b69bb685aaf84b2f3a8e",
+    "native/world/src/resident/model/common_model.hpp": "58833302dc269e7882fab911dffaf55f413389ba9a832771d2e3341fbd2e155e"
+  },
+  "first_red": {
+    "original_path": "<本地路径>",
+    "result": {
+      "source_commit": "34651c58afedd8e8ffd7ac37502f8765d03c6ae1",
+      "binary": "<本地路径>",
+      "binary_sha256": "2194381a39edddcd4f9f05fc1d6db092f7e8d7af2f0d79605dc77f8f36d8d722",
+      "started_unix": 1791324124.7801456,
+      "finished_unix": 1791324124.8855343,
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "STUDY_SEGMENTS_FAILURE=UnsupportedNativeCapability:rng_backend CHECKS=4\n"
+    }
+  },
+  "corrected_consumer": {
+    "library_source_commit": "34651c58afedd8e8ffd7ac37502f8765d03c6ae1",
+    "library_sha256": "bdb6fe8c3e05471fdb7bcc44c2c22d83de720baec581f2e4c00452a2b0070591",
+    "fixture_source_sha256": "ffd6f6a661b02b70004df0c8ba77612e178fdadaf7ffb2f7f4b1e6ffd00543ef",
+    "binary_sha256": "22003b35874f597d96a62832ba9736accc095f8ce07335ac55361dba5de804c6",
+    "started_unix": 1791324239.6428113,
+    "finished_unix": 1791324239.6844556,
+    "exit_code": 0,
+    "stdout": "STUDY_SEGMENTS_CHECKS=156 FAILURES=0\n",
+    "stderr": ""
+  },
+  "logs": {
+    "directory": "<本地路径>",
+    "build_log": "",
+    "run_log": "STUDY_SEGMENTS_CHECKS=156 FAILURES=0\n"
+  }
+}

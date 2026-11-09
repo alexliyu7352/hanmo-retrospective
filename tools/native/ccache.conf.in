@@ -1,0 +1,12 @@
+# 由下一运行工具替换绝对路径并锁定；不允许未替换模板直接执行。
+base_dir = @SOURCE_ROOT@
+hash_dir = false
+cache_dir = @CACHE_ROOT@
+compiler_check = content
+direct_mode = false
+depend_mode = false
+hard_link = false
+file_clone = false
+sloppiness = # explicit empty value
+max_size = @ADMITTED_CACHE_SIZE@
+remote_storage = # explicit empty value

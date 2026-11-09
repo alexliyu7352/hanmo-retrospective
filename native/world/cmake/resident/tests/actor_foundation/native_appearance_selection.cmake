@@ -1,0 +1,11 @@
+# 人物与控制底座消费者登记：保留本组目标、测试、条件与局部变量的原执行顺序。
+# 正式区域只构建本批新局选择与结果回访的受影响消费者，不扩大旧验证矩阵。
+add_executable(test_resident_native_appearance_selection tests/resident/native_appearance_selection_test.cpp)
+target_include_directories(test_resident_native_appearance_selection PRIVATE "${HANMO_PICOSHA2_ROOT}")
+target_link_libraries(test_resident_native_appearance_selection PRIVATE hanmo_resident)
+target_compile_options(test_resident_native_appearance_selection PRIVATE -UNDEBUG -fno-fast-math -ffp-contract=off)
+# 完整外貌只经生产session创建与恢复，调用者必须提供真实prepared目录而非作者header。
+add_executable(test_resident_native_appearance_world_roundtrip tests/resident/native_appearance_world_roundtrip_test.cpp)
+target_include_directories(test_resident_native_appearance_world_roundtrip PRIVATE "${HANMO_PICOSHA2_ROOT}")
+target_link_libraries(test_resident_native_appearance_world_roundtrip PRIVATE hanmo_resident)
+target_compile_options(test_resident_native_appearance_world_roundtrip PRIVATE -UNDEBUG -fno-fast-math -ffp-contract=off)

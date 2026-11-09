@@ -1,0 +1,5 @@
+# 地方经济与责任账消费者登记：保留本组目标、测试、条件与局部变量的原执行顺序。
+add_executable(hanmo_resident_private_shop_checkpoint_selection_test tests/resident/private_shop_checkpoint_selection_test.cpp)
+target_link_libraries(hanmo_resident_private_shop_checkpoint_selection_test PRIVATE hanmo_resident)
+target_include_directories(hanmo_resident_private_shop_checkpoint_selection_test PRIVATE src)
+target_compile_options(hanmo_resident_private_shop_checkpoint_selection_test PRIVATE -UNDEBUG -fno-fast-math -ffp-contract=off)

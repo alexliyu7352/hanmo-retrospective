@@ -1,0 +1,110 @@
+{
+  "id": "etiquette.planning",
+  "difficulty": 1,
+  "nodes": [
+    {
+      "id": "count",
+      "topic_key": "count.topic",
+      "stance_key": "count.stance",
+      "options": [
+        {
+          "id": "register",
+          "text_key": "count.register",
+          "points": 25,
+          "requires_choices": []
+        },
+        {
+          "id": "seats",
+          "text_key": "count.seats",
+          "points": 0,
+          "requires_choices": []
+        },
+        {
+          "id": "agenda",
+          "text_key": "count.agenda",
+          "points": 10,
+          "requires_choices": []
+        }
+      ]
+    },
+    {
+      "id": "confirm",
+      "topic_key": "confirm.topic",
+      "stance_key": "confirm.stance",
+      "options": [
+        {
+          "id": "register",
+          "text_key": "confirm.register",
+          "points": 25,
+          "requires_choices": [
+            {
+              "node_id": "count",
+              "option_id": "register"
+            }
+          ]
+        },
+        {
+          "id": "seats",
+          "text_key": "confirm.seats",
+          "points": 10,
+          "requires_choices": [
+            {
+              "node_id": "count",
+              "option_id": "seats"
+            }
+          ]
+        },
+        {
+          "id": "agenda",
+          "text_key": "confirm.agenda",
+          "points": 10,
+          "requires_choices": [
+            {
+              "node_id": "count",
+              "option_id": "agenda"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "close",
+      "topic_key": "close.topic",
+      "stance_key": "close.stance",
+      "options": [
+        {
+          "id": "register",
+          "text_key": "close.register",
+          "points": 25,
+          "requires_choices": [
+            {
+              "node_id": "count",
+              "option_id": "register"
+            },
+            {
+              "node_id": "confirm",
+              "option_id": "register"
+            }
+          ]
+        },
+        {
+          "id": "seats",
+          "text_key": "close.seats",
+          "points": 5,
+          "requires_choices": [
+            {
+              "node_id": "confirm",
+              "option_id": "seats"
+            }
+          ]
+        },
+        {
+          "id": "agenda",
+          "text_key": "close.agenda",
+          "points": 10,
+          "requires_choices": []
+        }
+      ]
+    }
+  ]
+}

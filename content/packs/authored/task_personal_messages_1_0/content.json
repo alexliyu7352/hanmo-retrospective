@@ -1,0 +1,5849 @@
+{
+  "format": "HM-CONTENT",
+  "schema_version": 1,
+  "id": "task_personal_messages",
+  "version": "1.0.0",
+  "required_capabilities": [
+    "cultivation",
+    "dialogue",
+    "economy",
+    "estates",
+    "family",
+    "military",
+    "multi_actor",
+    "named_membership_v1",
+    "native_dynamic_world",
+    "npc_society",
+    "personal_combat",
+    "places",
+    "population_military_v1",
+    "regional_life_v1",
+    "road_encounters",
+    "services",
+    "tasks.procurement",
+    "tasks.message",
+    "tasks.escort",
+    "companions",
+    "task_offer_responses_v1",
+    "task_message_handoffs_v1",
+    "task_message_reports_v2",
+    "task_static_assets_v1",
+    "party_provider_consent_v1",
+    "visit_messages_v1",
+    "visit_reception_v1",
+    "task_personal_message_deliveries_v1",
+    "known_personal_dialogues_v1",
+    "family_life_v1"
+  ],
+  "texts": {
+    "name.role.sender": "学师的私事",
+    "name.role.recipient": "剑院收信人",
+    "name.role.companion": "赴剑院的卫简先生",
+    "name.item.letter": "封好的问安书",
+    "name.objective.escort": "保护卫简先生",
+    "name.offer.letter": "剑院问安书",
+    "name.offer.escort": "卫简赴剑院",
+    "line.sender.welcome": "你来得正好。我有一封信要送到剑院，卫简先生也想走这一程。两件事各有各的约，办哪一件，由你自己应承。",
+    "line.menu": "学师把封好的信放在案边，等你说明来意。",
+    "option.ask_letter": "先问清送信的约定。",
+    "option.ask_escort": "卫简的行程怎样约定？",
+    "option.accept_letter": "这封信我来送。",
+    "option.accept_escort": "护送这一程，我应承。",
+    "option.leave": "先告辞，想清楚再来。",
+    "line.sender.letter_terms": "请把这封信亲手交给剑院执事本人。他今日外出，若在城中见到，可以先听他本人答允，再当面交付原信。仍须回来向我报告，依原期限办理，报酬一百二十钱。",
+    "line.sender.escort_terms": "陪卫简先生到剑院门前，人须平安抵达；再回来找我回报。受领办完后四十个半日内办妥，报酬一百八十钱。他是否同行，还须你当面同他说定。",
+    "line.sender.accepted_letter": "信已交托，认准封口和收信人。护送的事若还想问，我们再谈。",
+    "line.sender.accepted_escort": "护送的约已记下，动身前请同卫简本人说定同行。那封信若还没定，也可以继续问。",
+    "line.sender.unavailable": "眼下还办不成，请核清本人、凭据和实际条件；没有办成的事不算履约。",
+    "line.sender.recipient_welcome": "是学师托你送来的信么？请当面交给我。",
+    "line.recipient_menu": "执事等你取出实在携着的信件。",
+    "option.deliver": "把受托书信亲手交付。",
+    "option.recipient_leave": "先不打扰。",
+    "line.sender.recipient_done": "信已收下。请回去告诉学师，不必挂心。",
+    "line.recipient.unavailable": "眼下还不能接下，请核清实际信件和约定。",
+    "line.sender.companion_welcome": "我愿与你走这一程。路上每半日六钱吃用，停下歇脚不收路费。先说清楚，再一道动身。",
+    "line.companion_menu": "卫简拎着包袱，等你确认同行安排。",
+    "option.join": "按约同行，路上吃用由我照应。",
+    "option.companion_leave": "这次先不同行。",
+    "line.sender.joined": "同行的约定已说定；走到安全的地方，再商量分开。",
+    "line.companion.unavailable": "此时还不能动身，等人手和安排都核清再说。",
+    "name.scenario": "青川应承与回访",
+    "option.decline_letter": "送信这件事，这次暂不承接。",
+    "line.sender.decline_letter": "那就先搁下，信仍由我保管。你若改了主意，可以再来问；只有实际应承之后才算受托。",
+    "option.decline_escort": "护送这件事，这次暂不承接。",
+    "line.sender.decline_escort": "我记下了，这次不托你护送。以后若想承接，再来把约定说清；卫简是否同行仍须当面同本人说定。",
+    "name.scenario.following": "青川同行相邀",
+    "name.role.follow_caravanner": "行商的同行邀请",
+    "line.follow.welcome": "我还要照应手头的差事。你若愿意，可以跟我同路；先听清楚，再由你自己决定。",
+    "line.follow.invitation": "我愿带你同行。行程由我照手头事务安排；路上每半日六钱吃用，由我照应；停下来不收这笔路费。你愿意就当面应承，不愿也无妨。",
+    "option.follow.decline": "这次先不同行。",
+    "option.follow.leave": "我先告辞，再考虑一下。",
+    "line.follow.declined": "好，我们各自照应手头的事。以后有机会，再当面商量。",
+    "line.sender.remember_letter": "你上次当面说，送信这件事暂不承接。我记得。信仍由我保管；今日若愿意，再核清约定后应承便是。",
+    "line.sender.remember_escort": "护送这件事，你先前说过暂不承接。今日还可以再议；是否受托由你决定，同行也仍要同卫简当面说定。",
+    "name.scenario.dynamic_responses": "青川公开委托与回应",
+    "name.scenario.task_advances": "青川受托经费与自愿垫款",
+    "name.scenario.letter_handoffs": "青川文书交接",
+    "name.scenario.letter_reports": "青川文书返报",
+    "name.scenario.letter_returns": "青川私信：原物返还",
+    "name.scenario.recruitment": "青川招伴：本人说定",
+    "line.recruitment.greeting": "想邀我同行么？先说说去哪儿。我手头还有事，不是什么行程都去。",
+    "line.recruitment.menu": "卫简听你说明打算。",
+    "option.recruitment.near": "问他是否愿意一道走动。",
+    "option.recruitment.long": "问他是否愿意立刻远行数月。",
+    "line.recruitment.accept": "这一程我愿意同行。行路时每半日六钱吃用，由你照应；加入时不收钱，停驻也不收这笔路费。眼前说定，再一道走。",
+    "line.recruitment.decline": "数月远行，我现在不能答应。家中还有事，这次就不同行了。",
+    "option.recruitment.reconsider": "重新问清眼前的同行安排。",
+    "name.scenario.visits": "青川拜帖：当面托留",
+    "line.visit.greeting": "有事寻人么？若只是留个来访口信，我可在这里替你收着。须本人来取，不替谁答应会面。",
+    "line.visit.menu": "先向接待人说清要办理的事。",
+    "option.visit.deposit": "想给熟人留一封拜帖。",
+    "option.visit.receive": "问是否有留给本人的拜帖。",
+    "option.visit.withdraw": "想撤回本人托留的拜帖。",
+    "line.visit.deposit": "你若确认，我只记你来过、希望另约会面。不记其他消息，也不收费。对方何时来取，我不会隔空告诉你。",
+    "line.visit.receive": "我只将留给你的拜帖交给你本人。先核对，再亲自领读；领到也不等于答应赴约。",
+    "line.visit.withdraw": "还在我这里的原帖，你本人可以撤回。若已亲手交出去，就不能再收回。",
+    "option.visit.again": "换一件拜帖事务再问。",
+    "name.role.visit_reception": "拜帖接待",
+    "name.scenario.reception": "青川拜帖：本人来取",
+    "name.scenario.extension": "青川私信：当面延期一次",
+    "line.sender.extension": "这封问安书，我同意在原约定上再宽限八个半日，只此一次。须在原期限还没过、事情还没结清时由你确认；交信和回报仍照原约，报酬也不改。",
+    "personal_letter.name": "青川·当面寻人交信",
+    "personal_letter.hello": "我今日外出，暂不在剑院接待处。若有给我的私信，可以当面核明。",
+    "personal_letter.menu": "听取收件人自己的答复",
+    "personal_letter.ask": "询问是否愿意现在接收先生托送的原信",
+    "personal_letter.leave": "结束交谈",
+    "personal_letter.receive": "我愿在这里亲自核封接收先生托你送来的那封原信。请留半日当面交付；只听见这句话还不算已经交到我手里。"
+  },
+  "flags": {},
+  "actors": [],
+  "bargain_challenges": [],
+  "battlefields": [],
+  "dialogues": [
+    {
+      "id": "dialog.sender",
+      "context_role": "role.sender",
+      "entry": "welcome",
+      "nodes": [
+        {
+          "id": "welcome",
+          "kind": "say",
+          "speaker": "$provider",
+          "text_key": "line.sender.welcome",
+          "next": "remember_letter"
+        },
+        {
+          "id": "menu",
+          "kind": "choice",
+          "text_key": "line.menu",
+          "options": [
+            {
+              "id": "ask_letter",
+              "text_key": "option.ask_letter",
+              "conditions": [],
+              "next": "discover_letter"
+            },
+            {
+              "id": "ask_escort",
+              "text_key": "option.ask_escort",
+              "conditions": [],
+              "next": "discover_escort"
+            },
+            {
+              "id": "accept_letter",
+              "text_key": "option.accept_letter",
+              "conditions": [
+                {
+                  "op": "task_state",
+                  "offer_id": "offer.letter",
+                  "state": "known"
+                }
+              ],
+              "next": "accept_letter"
+            },
+            {
+              "id": "accept_escort",
+              "text_key": "option.accept_escort",
+              "conditions": [
+                {
+                  "op": "task_state",
+                  "offer_id": "offer.escort",
+                  "state": "known"
+                }
+              ],
+              "next": "accept_escort"
+            },
+            {
+              "id": "decline_letter",
+              "text_key": "option.decline_letter",
+              "conditions": [
+                {
+                  "op": "task_state",
+                  "offer_id": "offer.letter",
+                  "state": "known"
+                }
+              ],
+              "next": "decline_letter"
+            },
+            {
+              "id": "decline_escort",
+              "text_key": "option.decline_escort",
+              "conditions": [
+                {
+                  "op": "task_state",
+                  "offer_id": "offer.escort",
+                  "state": "known"
+                }
+              ],
+              "next": "decline_escort"
+            },
+            {
+              "id": "leave",
+              "text_key": "option.leave",
+              "conditions": [],
+              "next": "end"
+            }
+          ]
+        },
+        {
+          "id": "discover_letter",
+          "kind": "action",
+          "command": {
+            "kind": "discover_offer",
+            "offer_id": "offer.letter"
+          },
+          "on_success": "letter_terms",
+          "on_failure": "unavailable"
+        },
+        {
+          "id": "discover_escort",
+          "kind": "action",
+          "command": {
+            "kind": "discover_offer",
+            "offer_id": "offer.escort"
+          },
+          "on_success": "escort_terms",
+          "on_failure": "unavailable"
+        },
+        {
+          "id": "letter_terms",
+          "kind": "say",
+          "speaker": "$provider",
+          "text_key": "line.sender.letter_terms",
+          "next": "menu"
+        },
+        {
+          "id": "escort_terms",
+          "kind": "say",
+          "speaker": "$provider",
+          "text_key": "line.sender.escort_terms",
+          "next": "menu"
+        },
+        {
+          "id": "accept_letter",
+          "kind": "action",
+          "command": {
+            "kind": "accept_offer",
+            "offer_id": "offer.letter"
+          },
+          "on_success": "accepted_letter",
+          "on_failure": "unavailable"
+        },
+        {
+          "id": "accept_escort",
+          "kind": "action",
+          "command": {
+            "kind": "accept_offer",
+            "offer_id": "offer.escort"
+          },
+          "on_success": "accepted_escort",
+          "on_failure": "unavailable"
+        },
+        {
+          "id": "accepted_letter",
+          "kind": "say",
+          "speaker": "$provider",
+          "text_key": "line.sender.accepted_letter",
+          "next": "menu"
+        },
+        {
+          "id": "accepted_escort",
+          "kind": "say",
+          "speaker": "$provider",
+          "text_key": "line.sender.accepted_escort",
+          "next": "menu"
+        },
+        {
+          "id": "unavailable",
+          "kind": "say",
+          "speaker": "$provider",
+          "text_key": "line.sender.unavailable",
+          "next": "menu"
+        },
+        {
+          "id": "end",
+          "kind": "end"
+        },
+        {
+          "id": "decline_letter",
+          "kind": "action",
+          "command": {
+            "kind": "decline_offer",
+            "offer_id": "offer.letter"
+          },
+          "on_success": "decline_letter_recorded",
+          "on_failure": "unavailable"
+        },
+        {
+          "id": "decline_letter_recorded",
+          "kind": "say",
+          "speaker": "$provider",
+          "text_key": "line.sender.decline_letter",
+          "next": "menu"
+        },
+        {
+          "id": "decline_escort",
+          "kind": "action",
+          "command": {
+            "kind": "decline_offer",
+            "offer_id": "offer.escort"
+          },
+          "on_success": "decline_escort_recorded",
+          "on_failure": "unavailable"
+        },
+        {
+          "id": "decline_escort_recorded",
+          "kind": "say",
+          "speaker": "$provider",
+          "text_key": "line.sender.decline_escort",
+          "next": "menu"
+        },
+        {
+          "id": "remember_letter",
+          "kind": "branch",
+          "condition": {
+            "op": "all",
+            "terms": [
+              {
+                "op": "task_state",
+                "offer_id": "offer.letter",
+                "state": "known"
+              },
+              {
+                "op": "offer_declined_before",
+                "offer_id": "offer.letter",
+                "equals": true
+              }
+            ]
+          },
+          "if_true": "remember_letter_said",
+          "if_false": "remember_escort"
+        },
+        {
+          "id": "remember_letter_said",
+          "kind": "say",
+          "speaker": "$provider",
+          "text_key": "line.sender.remember_letter",
+          "next": "remember_escort"
+        },
+        {
+          "id": "remember_escort",
+          "kind": "branch",
+          "condition": {
+            "op": "all",
+            "terms": [
+              {
+                "op": "task_state",
+                "offer_id": "offer.escort",
+                "state": "known"
+              },
+              {
+                "op": "offer_declined_before",
+                "offer_id": "offer.escort",
+                "equals": true
+              }
+            ]
+          },
+          "if_true": "remember_escort_said",
+          "if_false": "menu"
+        },
+        {
+          "id": "remember_escort_said",
+          "kind": "say",
+          "speaker": "$provider",
+          "text_key": "line.sender.remember_escort",
+          "next": "menu"
+        }
+      ]
+    },
+    {
+      "id": "dialog.recipient",
+      "context_role": "role.recipient",
+      "entry": "recipient_welcome",
+      "nodes": [
+        {
+          "id": "recipient_welcome",
+          "kind": "say",
+          "speaker": "$provider",
+          "text_key": "line.sender.recipient_welcome",
+          "next": "recipient_menu"
+        },
+        {
+          "id": "recipient_menu",
+          "kind": "choice",
+          "text_key": "line.recipient_menu",
+          "options": [
+            {
+              "id": "deliver",
+              "text_key": "option.deliver",
+              "conditions": [
+                {
+                  "op": "task_state",
+                  "offer_id": "offer.letter",
+                  "state": "active"
+                }
+              ],
+              "next": "deliver"
+            },
+            {
+              "id": "recipient_leave",
+              "text_key": "option.recipient_leave",
+              "conditions": [],
+              "next": "end"
+            }
+          ]
+        },
+        {
+          "id": "deliver",
+          "kind": "action",
+          "command": {
+            "kind": "deliver_message",
+            "offer_id": "offer.letter"
+          },
+          "on_success": "recipient_done",
+          "on_failure": "unavailable"
+        },
+        {
+          "id": "recipient_done",
+          "kind": "say",
+          "speaker": "$provider",
+          "text_key": "line.sender.recipient_done",
+          "next": "end"
+        },
+        {
+          "id": "unavailable",
+          "kind": "say",
+          "speaker": "$provider",
+          "text_key": "line.recipient.unavailable",
+          "next": "end"
+        },
+        {
+          "id": "end",
+          "kind": "end"
+        }
+      ]
+    },
+    {
+      "id": "dialog.companion",
+      "context_role": "role.companion",
+      "entry": "companion_welcome",
+      "nodes": [
+        {
+          "id": "companion_welcome",
+          "kind": "say",
+          "speaker": "$provider",
+          "text_key": "line.sender.companion_welcome",
+          "next": "companion_menu"
+        },
+        {
+          "id": "companion_menu",
+          "kind": "choice",
+          "text_key": "line.companion_menu",
+          "options": [
+            {
+              "id": "join",
+              "text_key": "option.join",
+              "conditions": [
+                {
+                  "op": "party_member",
+                  "actor_id": "society::actor.study_scholar",
+                  "equals": false
+                }
+              ],
+              "next": "join"
+            },
+            {
+              "id": "companion_leave",
+              "text_key": "option.companion_leave",
+              "conditions": [],
+              "next": "end"
+            }
+          ]
+        },
+        {
+          "id": "join",
+          "kind": "action",
+          "command": {
+            "kind": "join_party"
+          },
+          "on_success": "joined",
+          "on_failure": "unavailable"
+        },
+        {
+          "id": "joined",
+          "kind": "say",
+          "speaker": "$provider",
+          "text_key": "line.sender.joined",
+          "next": "end"
+        },
+        {
+          "id": "unavailable",
+          "kind": "say",
+          "speaker": "$provider",
+          "text_key": "line.companion.unavailable",
+          "next": "end"
+        },
+        {
+          "id": "end",
+          "kind": "end"
+        }
+      ]
+    },
+    {
+      "id": "dialog.follow_caravanner",
+      "context_role": "role.follow_caravanner",
+      "entry": "welcome",
+      "nodes": [
+        {
+          "id": "welcome",
+          "kind": "say",
+          "speaker": "$provider",
+          "text_key": "line.follow.welcome",
+          "next": "invitation"
+        },
+        {
+          "id": "invitation",
+          "kind": "choice",
+          "text_key": "line.follow.invitation",
+          "options": [
+            {
+              "id": "decline",
+              "text_key": "option.follow.decline",
+              "conditions": [],
+              "next": "declined"
+            },
+            {
+              "id": "leave",
+              "text_key": "option.follow.leave",
+              "conditions": [],
+              "next": "end"
+            }
+          ]
+        },
+        {
+          "id": "declined",
+          "kind": "say",
+          "speaker": "$provider",
+          "text_key": "line.follow.declined",
+          "next": "end"
+        },
+        {
+          "id": "end",
+          "kind": "end"
+        }
+      ]
+    },
+    {
+      "id": "dialog.consent_companion",
+      "context_role": "role.consent_companion",
+      "entry": "greeting",
+      "nodes": [
+        {
+          "id": "greeting",
+          "kind": "say",
+          "speaker": "$provider",
+          "text_key": "line.recruitment.greeting",
+          "next": "request"
+        },
+        {
+          "id": "request",
+          "kind": "choice",
+          "text_key": "line.recruitment.menu",
+          "options": [
+            {
+              "id": "near",
+              "text_key": "option.recruitment.near",
+              "conditions": [],
+              "next": "willing"
+            },
+            {
+              "id": "long",
+              "text_key": "option.recruitment.long",
+              "conditions": [],
+              "next": "unwilling"
+            },
+            {
+              "id": "leave",
+              "text_key": "option.leave",
+              "conditions": [],
+              "next": "end"
+            }
+          ]
+        },
+        {
+          "id": "willing",
+          "kind": "say",
+          "speaker": "$provider",
+          "text_key": "line.recruitment.accept",
+          "next": "leave_menu"
+        },
+        {
+          "id": "unwilling",
+          "kind": "say",
+          "speaker": "$provider",
+          "text_key": "line.recruitment.decline",
+          "next": "leave_menu"
+        },
+        {
+          "id": "leave_menu",
+          "kind": "choice",
+          "text_key": "line.recruitment.menu",
+          "options": [
+            {
+              "id": "ask",
+              "text_key": "option.recruitment.reconsider",
+              "conditions": [],
+              "next": "request"
+            },
+            {
+              "id": "leave",
+              "text_key": "option.leave",
+              "conditions": [],
+              "next": "end"
+            }
+          ]
+        },
+        {
+          "id": "end",
+          "kind": "end"
+        }
+      ]
+    },
+    {
+      "id": "dialog.visit_reception",
+      "context_role": "role.visit_reception",
+      "entry": "greeting",
+      "nodes": [
+        {
+          "id": "greeting",
+          "kind": "say",
+          "speaker": "$provider",
+          "text_key": "line.visit.greeting",
+          "next": "menu"
+        },
+        {
+          "id": "menu",
+          "kind": "choice",
+          "text_key": "line.visit.menu",
+          "options": [
+            {
+              "id": "deposit",
+              "text_key": "option.visit.deposit",
+              "conditions": [],
+              "next": "deposit"
+            },
+            {
+              "id": "receive",
+              "text_key": "option.visit.receive",
+              "conditions": [],
+              "next": "receive"
+            },
+            {
+              "id": "withdraw",
+              "text_key": "option.visit.withdraw",
+              "conditions": [],
+              "next": "withdraw"
+            },
+            {
+              "id": "leave",
+              "text_key": "option.leave",
+              "conditions": [],
+              "next": "end"
+            }
+          ]
+        },
+        {
+          "id": "deposit",
+          "kind": "say",
+          "speaker": "$provider",
+          "text_key": "line.visit.deposit",
+          "next": "again"
+        },
+        {
+          "id": "receive",
+          "kind": "say",
+          "speaker": "$provider",
+          "text_key": "line.visit.receive",
+          "next": "again"
+        },
+        {
+          "id": "withdraw",
+          "kind": "say",
+          "speaker": "$provider",
+          "text_key": "line.visit.withdraw",
+          "next": "again"
+        },
+        {
+          "id": "again",
+          "kind": "choice",
+          "text_key": "line.visit.menu",
+          "options": [
+            {
+              "id": "again",
+              "text_key": "option.visit.again",
+              "conditions": [],
+              "next": "menu"
+            },
+            {
+              "id": "leave",
+              "text_key": "option.leave",
+              "conditions": [],
+              "next": "end"
+            }
+          ]
+        },
+        {
+          "id": "end",
+          "kind": "end"
+        }
+      ]
+    },
+    {
+      "id": "dialog.private_recipient",
+      "context_role": "",
+      "entry": "hello",
+      "nodes": [
+        {
+          "id": "hello",
+          "kind": "say",
+          "speaker": "$provider",
+          "text_key": "personal_letter.hello",
+          "next": "menu"
+        },
+        {
+          "id": "menu",
+          "kind": "choice",
+          "text_key": "personal_letter.menu",
+          "options": [
+            {
+              "id": "ask_receive",
+              "text_key": "personal_letter.ask",
+              "conditions": [],
+              "next": "receive"
+            },
+            {
+              "id": "leave",
+              "text_key": "personal_letter.leave",
+              "conditions": [],
+              "next": "end"
+            }
+          ]
+        },
+        {
+          "id": "receive",
+          "kind": "say",
+          "speaker": "$provider",
+          "text_key": "personal_letter.receive",
+          "next": "menu"
+        },
+        {
+          "id": "end",
+          "kind": "end"
+        }
+      ]
+    }
+  ],
+  "drill_challenges": [],
+  "estates": [],
+  "etiquette_challenges": [],
+  "events": [],
+  "garrisons": [],
+  "inventories": [],
+  "items": [
+    {
+      "id": "item.letter",
+      "name_key": "name.item.letter",
+      "kind": "message",
+      "base_price": 0,
+      "weight": 1
+    }
+  ],
+  "military_objectives": [],
+  "military_orders": [],
+  "offers": [
+    {
+      "id": "offer.letter",
+      "name_key": "name.offer.letter",
+      "template": "message",
+      "issuer": {
+        "kind": "actor",
+        "id": "society::actor.tutor"
+      },
+      "discovery_sources": [
+        {
+          "kind": "actor",
+          "id": "society::actor.tutor"
+        }
+      ],
+      "accept_role": "role.sender",
+      "report_role": "role.sender",
+      "funding_wallet": "society::wallet.tutor",
+      "budget": 0,
+      "reward": 120,
+      "deadline_ticks": 16,
+      "accept_ticks": 1,
+      "goal": {
+        "kind": "deliver_message",
+        "message_id": "item.letter",
+        "receiver_actor": "society::actor.sect_steward"
+      },
+      "on_unavailable": "wait_or_leave"
+    },
+    {
+      "id": "offer.escort",
+      "name_key": "name.offer.escort",
+      "template": "escort",
+      "issuer": {
+        "kind": "actor",
+        "id": "society::actor.tutor"
+      },
+      "discovery_sources": [
+        {
+          "kind": "actor",
+          "id": "society::actor.tutor"
+        }
+      ],
+      "accept_role": "role.sender",
+      "report_role": "role.sender",
+      "funding_wallet": "society::wallet.tutor",
+      "budget": 0,
+      "reward": 180,
+      "deadline_ticks": 40,
+      "accept_ticks": 1,
+      "goal": {
+        "kind": "escort",
+        "actor_id": "society::actor.study_scholar",
+        "destination_place_id": "society::place.sword_gate",
+        "objective_id": "objective.escort"
+      },
+      "on_unavailable": "wait_or_leave"
+    }
+  ],
+  "offices": [],
+  "organizations": [],
+  "personal_battlefields": [],
+  "personal_objectives": [
+    {
+      "id": "objective.escort",
+      "name_key": "name.objective.escort",
+      "kind": "escort",
+      "max_rounds": 24,
+      "injury_on_defeat": 1,
+      "allow_withdrawal": true
+    }
+  ],
+  "personal_skills": [],
+  "places": [],
+  "props": [],
+  "relations": [],
+  "roles": [
+    {
+      "id": "role.sender",
+      "name_key": "name.role.sender",
+      "organization_id": null,
+      "initial_actor": "society::actor.tutor",
+      "place_id": "society::place.school",
+      "services": [
+        "information",
+        "accept_offer",
+        "report_offer"
+      ],
+      "dialogue_id": "dialog.sender"
+    },
+    {
+      "id": "role.recipient",
+      "name_key": "name.role.recipient",
+      "organization_id": null,
+      "initial_actor": "society::actor.sect_steward",
+      "place_id": "society::place.sword_gate",
+      "services": [
+        "deliver_message"
+      ],
+      "dialogue_id": "dialog.recipient"
+    },
+    {
+      "id": "role.companion",
+      "name_key": "name.role.companion",
+      "organization_id": null,
+      "initial_actor": "society::actor.study_scholar",
+      "place_id": "society::place.school",
+      "services": [
+        "information",
+        "join_party"
+      ],
+      "companion_cost_per_tick": 6,
+      "companion_required_trust": 0,
+      "dialogue_id": "dialog.companion"
+    },
+    {
+      "id": "role.follow_caravanner",
+      "name_key": "name.role.follow_caravanner",
+      "organization_id": null,
+      "initial_actor": "society::actor.study_caravanner",
+      "place_id": "society::place.courtyard",
+      "services": [
+        "information",
+        "join_party"
+      ],
+      "companion_cost_per_tick": 6,
+      "companion_required_trust": 0,
+      "dialogue_id": "dialog.follow_caravanner"
+    },
+    {
+      "id": "role.consent_companion",
+      "name_key": "name.role.companion",
+      "organization_id": null,
+      "initial_actor": "society::actor.study_scholar",
+      "place_id": "society::place.school",
+      "services": [
+        "information",
+        "join_party"
+      ],
+      "companion_cost_per_tick": 6,
+      "companion_required_trust": 0,
+      "dialogue_id": "dialog.consent_companion"
+    },
+    {
+      "id": "role.visit_reception",
+      "initial_actor": "society::actor.tutor",
+      "place_id": "society::place.school",
+      "dialogue_id": "dialog.visit_reception",
+      "services": [
+        "information"
+      ],
+      "name_key": "name.role.visit_reception",
+      "organization_id": null
+    }
+  ],
+  "routes": [],
+  "scenarios": [
+    {
+      "dynamic_world": {
+        "affairs": {
+          "need_policies": {
+            "policy.city_need": {
+              "accept_role": "society::role.city_supply",
+              "cancellation_policy_id": "return_actual_cargo_v1",
+              "deadline_ticks": 4,
+              "funding_wallet_id": "society::wallet.city",
+              "id": "policy.city_need",
+              "inventory_id": "society::inventory.city",
+              "item_id": "society::item.millet",
+              "max_claim_quantity": 4,
+              "measure": "stock_gap",
+              "organization_id": "society::org.city",
+              "purchase_budget_per_unit": 20,
+              "report_role": "society::role.city_supply",
+              "reward_per_unit": 2,
+              "reward_wallet_id": "society::wallet.city",
+              "semantic_key": "grain.city",
+              "site_id": "society::place.courtyard",
+              "source_domain": "local_economy",
+              "source_key": "supply.city",
+              "template_id": "society::template.city_grain",
+              "terms_version": "1",
+              "unit": "unit"
+            },
+            "policy.sect_need": {
+              "accept_role": "society::role.sect_supply",
+              "cancellation_policy_id": "return_actual_cargo_v1",
+              "deadline_ticks": 24,
+              "funding_wallet_id": "society::wallet.sect",
+              "id": "policy.sect_need",
+              "inventory_id": "society::inventory.sect",
+              "item_id": "society::item.millet",
+              "max_claim_quantity": 4,
+              "measure": "stock_gap",
+              "organization_id": "society::org.sect",
+              "purchase_budget_per_unit": 20,
+              "report_role": "society::role.sect_supply",
+              "reward_per_unit": 2,
+              "reward_wallet_id": "society::wallet.sect",
+              "semantic_key": "grain.sect",
+              "site_id": "society::place.sword_gate",
+              "source_domain": "local_economy",
+              "source_key": "supply.sect",
+              "template_id": "society::template.sect_grain",
+              "terms_version": "1",
+              "unit": "unit"
+            }
+          }
+        },
+        "director": {
+          "candidates_per_subject": 4,
+          "decision_budget": 4,
+          "retry_delay_ticks": 1,
+          "review_interval_ticks": 1,
+          "subjects": {
+            "society::actor.city_steward": {
+              "decline_work_after_ticks": 2,
+              "leave_after_ticks": 3,
+              "organization_id": "society::org.city",
+              "recruitment_posts": [
+                {
+                  "candidate_actor_ids": [
+                    "society::actor.apprentice"
+                  ],
+                  "office_id": "office.city_steward",
+                  "terms_id": "terms.city_contract"
+                }
+              ],
+              "report_source_keys": [
+                "supply.city"
+              ],
+              "request_arrear_after_ticks": 1,
+              "templates": [
+                "maintain_commitment"
+              ]
+            },
+            "society::actor.study_caravanner": {
+              "decline_work_after_ticks": 2,
+              "leave_after_ticks": 3,
+              "named_membership_policy_id": "policy.named_accept",
+              "organization_id": "society::org.city",
+              "report_source_keys": [
+                "supply.city",
+                "source.market"
+              ],
+              "request_arrear_after_ticks": 1,
+              "templates": [
+                "maintain_commitment",
+                "replenish_supply",
+                "fulfill_contract",
+                "await_adjustment"
+              ]
+            },
+            "society::actor.study_swordswoman": {
+              "decline_work_after_ticks": 2,
+              "leave_after_ticks": 3,
+              "named_membership_policy_id": "policy.named_refuse",
+              "private_livelihood": {
+                "cash_reserve": 8,
+                "item_id": "society::item.millet",
+                "known_service_role_ids": [
+                  "society::role.sword_master"
+                ],
+                "return_place_id": "society::place.sword_gate",
+                "target_quantity": 2,
+                "work_fatigue_limit": 80
+              },
+              "report_source_keys": [
+                "source.market"
+              ],
+              "request_arrear_after_ticks": 1,
+              "templates": [
+                "private_livelihood"
+              ]
+            }
+          }
+        },
+        "founder_policy": "selected_existing_actor_v1",
+        "local_economy": {
+          "cohorts": {
+            "cohort.city": {
+              "affiliation_id": "society::org.city",
+              "assignment_id": null,
+              "headcount": 8,
+              "household_group_id": "household.city",
+              "id": "cohort.city",
+              "labor_capacity": 6,
+              "private_inventory_id": "society::inventory.city_households",
+              "private_wallet_id": "society::wallet.city_households",
+              "site_id": "society::place.courtyard",
+              "status": "civilian"
+            },
+            "cohort.city.training": {
+              "affiliation_id": "society::org.city",
+              "assignment_id": null,
+              "headcount": 0,
+              "household_group_id": "household.city",
+              "id": "cohort.city.training",
+              "labor_capacity": 0,
+              "private_inventory_id": "society::inventory.city_households",
+              "private_wallet_id": "society::wallet.city_households",
+              "site_id": "society::place.courtyard",
+              "status": "training"
+            },
+            "cohort.sect": {
+              "affiliation_id": "society::org.sect",
+              "assignment_id": null,
+              "headcount": 3,
+              "household_group_id": "household.sect",
+              "id": "cohort.sect",
+              "labor_capacity": 2,
+              "private_inventory_id": "society::inventory.sect_households",
+              "private_wallet_id": "society::wallet.sect_households",
+              "site_id": "society::place.sword_gate",
+              "status": "civilian"
+            },
+            "cohort.sect.training": {
+              "affiliation_id": "society::org.sect",
+              "assignment_id": null,
+              "headcount": 0,
+              "household_group_id": "household.sect",
+              "id": "cohort.sect.training",
+              "labor_capacity": 0,
+              "private_inventory_id": "society::inventory.sect_households",
+              "private_wallet_id": "society::wallet.sect_households",
+              "site_id": "society::place.sword_gate",
+              "status": "training"
+            }
+          },
+          "enabled": true,
+          "households": {
+            "household.city": {
+              "id": "household.city",
+              "inventory_id": "society::inventory.city_households",
+              "wallet_id": "society::wallet.city_households"
+            },
+            "household.sect": {
+              "id": "household.sect",
+              "inventory_id": "society::inventory.sect_households",
+              "wallet_id": "society::wallet.sect_households"
+            }
+          },
+          "labor_allocations": {
+            "allocation.city": {
+              "activity_or_production_id": "production.city",
+              "cohort_id": "cohort.city",
+              "commitment_id": "commitment.allocation.city",
+              "from_tick": 0,
+              "id": "allocation.city",
+              "through_tick": 2147483647,
+              "workers": 6
+            },
+            "allocation.sect": {
+              "activity_or_production_id": "production.sect",
+              "cohort_id": "cohort.sect",
+              "commitment_id": "commitment.allocation.sect",
+              "from_tick": 0,
+              "id": "allocation.sect",
+              "through_tick": 2147483647,
+              "workers": 2
+            }
+          },
+          "named_actors_excluded": [
+            "society::actor.apprentice",
+            "society::actor.tutor",
+            "society::actor.merchant",
+            "society::actor.sword_master",
+            "society::actor.city_steward",
+            "society::actor.sect_steward",
+            "society::actor.study_caravanner",
+            "society::actor.study_swordswoman",
+            "society::actor.home_keeper",
+            "society::actor.study_scholar"
+          ],
+          "obligations": {
+            "obligation.city_household_wage": {
+              "active": true,
+              "authority_ref": "issuer.city",
+              "beneficiary": {
+                "id": "cohort.city",
+                "kind": "cohort"
+              },
+              "destination": "society::wallet.city_households",
+              "id": "obligation.city_household_wage",
+              "item_id": "",
+              "kind": "wage",
+              "last_receipt_id": "",
+              "next_due_tick": 4,
+              "period_ticks": 4,
+              "principal": {
+                "id": "society::org.city",
+                "kind": "organization"
+              },
+              "rate_profile": "rate.city_household_wage",
+              "source_wallet_or_inventory": "society::wallet.city"
+            },
+            "obligation.city_ration": {
+              "active": true,
+              "authority_ref": "issuer.city",
+              "beneficiary": {
+                "id": "cohort.city",
+                "kind": "cohort"
+              },
+              "destination": "",
+              "id": "obligation.city_ration",
+              "item_id": "society::item.millet",
+              "kind": "ration",
+              "last_receipt_id": "",
+              "next_due_tick": 4,
+              "period_ticks": 4,
+              "principal": {
+                "id": "society::org.city",
+                "kind": "organization"
+              },
+              "rate_profile": "rate.city_ration",
+              "source_wallet_or_inventory": "society::inventory.city"
+            },
+            "obligation.city_ration.training": {
+              "active": true,
+              "authority_ref": "issuer.city",
+              "beneficiary": {
+                "id": "cohort.city.training",
+                "kind": "cohort"
+              },
+              "destination": "",
+              "id": "obligation.city_ration.training",
+              "item_id": "society::item.millet",
+              "kind": "ration",
+              "last_receipt_id": "",
+              "next_due_tick": 4,
+              "period_ticks": 4,
+              "principal": {
+                "id": "society::org.city",
+                "kind": "organization"
+              },
+              "rate_profile": "rate.city_ration",
+              "source_wallet_or_inventory": "society::inventory.city"
+            },
+            "obligation.city_salary": {
+              "active": true,
+              "authority_ref": "issuer.city",
+              "beneficiary": {
+                "id": "society::actor.city_steward",
+                "kind": "actor"
+              },
+              "destination": "society::wallet.city_steward",
+              "id": "obligation.city_salary",
+              "item_id": "",
+              "kind": "wage",
+              "last_receipt_id": "",
+              "next_due_tick": 4,
+              "period_ticks": 4,
+              "principal": {
+                "id": "society::org.city",
+                "kind": "organization"
+              },
+              "rate_profile": "rate.city_salary",
+              "source_wallet_or_inventory": "society::wallet.city_wages"
+            },
+            "obligation.sect_household_wage": {
+              "active": true,
+              "authority_ref": "issuer.sect",
+              "beneficiary": {
+                "id": "cohort.sect",
+                "kind": "cohort"
+              },
+              "destination": "society::wallet.sect_households",
+              "id": "obligation.sect_household_wage",
+              "item_id": "",
+              "kind": "wage",
+              "last_receipt_id": "",
+              "next_due_tick": 4,
+              "period_ticks": 4,
+              "principal": {
+                "id": "society::org.sect",
+                "kind": "organization"
+              },
+              "rate_profile": "rate.sect_household_wage",
+              "source_wallet_or_inventory": "society::wallet.sect"
+            },
+            "obligation.sect_ration": {
+              "active": true,
+              "authority_ref": "issuer.sect",
+              "beneficiary": {
+                "id": "cohort.sect",
+                "kind": "cohort"
+              },
+              "destination": "",
+              "id": "obligation.sect_ration",
+              "item_id": "society::item.millet",
+              "kind": "ration",
+              "last_receipt_id": "",
+              "next_due_tick": 4,
+              "period_ticks": 4,
+              "principal": {
+                "id": "society::org.sect",
+                "kind": "organization"
+              },
+              "rate_profile": "rate.sect_ration",
+              "source_wallet_or_inventory": "society::inventory.sect"
+            },
+            "obligation.sect_ration.training": {
+              "active": true,
+              "authority_ref": "issuer.sect",
+              "beneficiary": {
+                "id": "cohort.sect.training",
+                "kind": "cohort"
+              },
+              "destination": "",
+              "id": "obligation.sect_ration.training",
+              "item_id": "society::item.millet",
+              "kind": "ration",
+              "last_receipt_id": "",
+              "next_due_tick": 4,
+              "period_ticks": 4,
+              "principal": {
+                "id": "society::org.sect",
+                "kind": "organization"
+              },
+              "rate_profile": "rate.sect_ration",
+              "source_wallet_or_inventory": "society::inventory.sect"
+            },
+            "obligation.sect_salary": {
+              "active": true,
+              "authority_ref": "issuer.sect",
+              "beneficiary": {
+                "id": "society::actor.sword_master",
+                "kind": "actor"
+              },
+              "destination": "society::wallet.sword_master",
+              "id": "obligation.sect_salary",
+              "item_id": "",
+              "kind": "wage",
+              "last_receipt_id": "",
+              "next_due_tick": 4,
+              "period_ticks": 4,
+              "principal": {
+                "id": "society::org.sect",
+                "kind": "organization"
+              },
+              "rate_profile": "rate.sect_salary",
+              "source_wallet_or_inventory": "society::wallet.sect_wages"
+            }
+          },
+          "production_bindings": {
+            "production.city": {
+              "policy_owner": "macro",
+              "unit_id": "production.city"
+            },
+            "production.sect": {
+              "policy_owner": "macro",
+              "unit_id": "production.sect"
+            }
+          },
+          "production_units": {
+            "production.city": {
+              "capacity": 6,
+              "factor_remainder": 0,
+              "id": "production.city",
+              "input_inventory_ids": [],
+              "input_remainders": [],
+              "labor_allocation_ids": [
+                "allocation.city"
+              ],
+              "labor_remainder": 0,
+              "last_settlement_id": "",
+              "next_due_tick": 4,
+              "output_inventory_id": "society::inventory.city",
+              "output_remainders": [
+                0
+              ],
+              "owner": {
+                "id": "society::org.city",
+                "kind": "organization"
+              },
+              "recipe_id": "recipe.city",
+              "site_id": "society::place.courtyard"
+            },
+            "production.sect": {
+              "capacity": 2,
+              "factor_remainder": 0,
+              "id": "production.sect",
+              "input_inventory_ids": [],
+              "input_remainders": [],
+              "labor_allocation_ids": [
+                "allocation.sect"
+              ],
+              "labor_remainder": 0,
+              "last_settlement_id": "",
+              "next_due_tick": 4,
+              "output_inventory_id": "society::inventory.sect",
+              "output_remainders": [
+                0
+              ],
+              "owner": {
+                "id": "society::org.sect",
+                "kind": "organization"
+              },
+              "recipe_id": "recipe.sect",
+              "site_id": "society::place.sword_gate"
+            }
+          },
+          "provision_bindings": {
+            "provision.city": {
+              "from_tick": 0,
+              "id": "provision.city",
+              "obligation_id": "obligation.city_ration",
+              "payer_inventory": "society::inventory.city",
+              "policy_owner": "macro",
+              "subject": {
+                "id": "cohort.city",
+                "kind": "cohort"
+              },
+              "through_tick": 2147483647
+            },
+            "provision.city.training": {
+              "from_tick": 0,
+              "id": "provision.city.training",
+              "obligation_id": "obligation.city_ration.training",
+              "payer_inventory": "society::inventory.city",
+              "policy_owner": "macro",
+              "subject": {
+                "id": "cohort.city.training",
+                "kind": "cohort"
+              },
+              "through_tick": 2147483647
+            },
+            "provision.sect": {
+              "from_tick": 0,
+              "id": "provision.sect",
+              "obligation_id": "obligation.sect_ration",
+              "payer_inventory": "society::inventory.sect",
+              "policy_owner": "macro",
+              "subject": {
+                "id": "cohort.sect",
+                "kind": "cohort"
+              },
+              "through_tick": 2147483647
+            },
+            "provision.sect.training": {
+              "from_tick": 0,
+              "id": "provision.sect.training",
+              "obligation_id": "obligation.sect_ration.training",
+              "payer_inventory": "society::inventory.sect",
+              "policy_owner": "macro",
+              "subject": {
+                "id": "cohort.sect.training",
+                "kind": "cohort"
+              },
+              "through_tick": 2147483647
+            }
+          },
+          "rates": {
+            "rate.city_contract": {
+              "denominator": 2,
+              "id": "rate.city_contract",
+              "numerator": 5,
+              "per_capita": false
+            },
+            "rate.city_household_wage": {
+              "denominator": 1,
+              "id": "rate.city_household_wage",
+              "numerator": 1,
+              "per_capita": true
+            },
+            "rate.city_ration": {
+              "denominator": 1,
+              "id": "rate.city_ration",
+              "numerator": 1,
+              "per_capita": true
+            },
+            "rate.city_salary": {
+              "denominator": 1,
+              "id": "rate.city_salary",
+              "numerator": 12,
+              "per_capita": false
+            },
+            "rate.sect_household_wage": {
+              "denominator": 1,
+              "id": "rate.sect_household_wage",
+              "numerator": 1,
+              "per_capita": true
+            },
+            "rate.sect_ration": {
+              "denominator": 1,
+              "id": "rate.sect_ration",
+              "numerator": 1,
+              "per_capita": true
+            },
+            "rate.sect_salary": {
+              "denominator": 1,
+              "id": "rate.sect_salary",
+              "numerator": 20,
+              "per_capita": false
+            }
+          },
+          "recipes": {
+            "recipe.city": {
+              "id": "recipe.city",
+              "inputs": [],
+              "labor_per_batch": 1,
+              "outputs": [
+                {
+                  "denominator": 1,
+                  "item_id": "society::item.millet",
+                  "numerator": 1
+                }
+              ],
+              "period_ticks": 4,
+              "region_factor_bp": 10000,
+              "season_factor_bp": 10000
+            },
+            "recipe.sect": {
+              "id": "recipe.sect",
+              "inputs": [],
+              "labor_per_batch": 1,
+              "outputs": [
+                {
+                  "denominator": 1,
+                  "item_id": "society::item.millet",
+                  "numerator": 1
+                }
+              ],
+              "period_ticks": 4,
+              "region_factor_bp": 10000,
+              "season_factor_bp": 10000
+            }
+          },
+          "supply_sources": {
+            "source.market": {
+              "inventory_id": "society::inventory.grain",
+              "item_id": "society::item.millet",
+              "organization_id": "society::org.grain",
+              "public_report": true,
+              "site_id": "society::place.grain",
+              "source_key": "source.market",
+              "target_amount": 0
+            },
+            "supply.city": {
+              "inventory_id": "society::inventory.city",
+              "item_id": "society::item.millet",
+              "organization_id": "society::org.city",
+              "public_report": true,
+              "site_id": "society::place.courtyard",
+              "source_key": "supply.city",
+              "target_amount": 124
+            },
+            "supply.sect": {
+              "inventory_id": "society::inventory.sect",
+              "item_id": "society::item.millet",
+              "organization_id": "society::org.sect",
+              "public_report": true,
+              "site_id": "society::place.sword_gate",
+              "source_key": "supply.sect",
+              "target_amount": 64
+            }
+          }
+        },
+        "organization": {
+          "activity_terms": {
+            "terms.city_training": {
+              "consenting_cohort_ids": [
+                "cohort.city"
+              ],
+              "continuity_policy_id": "continue_under_organization",
+              "duration_ticks": 4,
+              "id": "terms.city_training",
+              "kind": "population_training",
+              "training_capacity": 4,
+              "training_site_id": "society::place.courtyard"
+            },
+            "terms.sect_training": {
+              "consenting_cohort_ids": [
+                "cohort.sect"
+              ],
+              "continuity_policy_id": "continue_under_organization",
+              "duration_ticks": 4,
+              "id": "terms.sect_training",
+              "kind": "population_training",
+              "training_capacity": 4,
+              "training_site_id": "society::place.sword_gate"
+            }
+          },
+          "duties": {
+            "duty.city": {
+              "active": true,
+              "activity_terms_id": null,
+              "actor_id": "society::actor.city_steward",
+              "commitment_ids": [],
+              "id": "duty.city",
+              "obligation_ids": [
+                "obligation.city_salary"
+              ],
+              "office_id": "",
+              "organization_id": "society::org.city",
+              "policy_id": "policy.city",
+              "role_id": "society::role.city_supply"
+            },
+            "duty.sect": {
+              "active": true,
+              "activity_terms_id": null,
+              "actor_id": "society::actor.sword_master",
+              "commitment_ids": [],
+              "id": "duty.sect",
+              "obligation_ids": [
+                "obligation.sect_salary"
+              ],
+              "office_id": "",
+              "organization_id": "society::org.sect",
+              "policy_id": "policy.sect",
+              "role_id": "society::role.sword_master"
+            }
+          },
+          "enabled": true,
+          "grants": {
+            "grant.city": {
+              "allowed_command_kinds": [
+                "recruit_population",
+                "organization_offer_membership",
+                "contract_executor",
+                "claim_need"
+              ],
+              "amount_limit": 1000,
+              "continuity_policy_id": "continue_under_organization",
+              "id": "grant.city",
+              "inventory_ids": [
+                "society::inventory.city"
+              ],
+              "may_delegate": true,
+              "office_id": "office.city_steward",
+              "scopes": [
+                {
+                  "id": "society::place.courtyard",
+                  "kind": "site"
+                }
+              ],
+              "valid_from": 0,
+              "valid_until": null,
+              "wallet_ids": [
+                "society::wallet.city",
+                "society::wallet.city_wages"
+              ]
+            },
+            "grant.sect": {
+              "allowed_command_kinds": [
+                "recruit_population"
+              ],
+              "amount_limit": 4,
+              "continuity_policy_id": "continue_under_organization",
+              "id": "grant.sect",
+              "inventory_ids": [
+                "society::inventory.sect"
+              ],
+              "may_delegate": false,
+              "office_id": "office.sect_steward",
+              "scopes": [
+                {
+                  "id": "society::place.sword_gate",
+                  "kind": "site"
+                }
+              ],
+              "valid_from": 0,
+              "valid_until": null,
+              "wallet_ids": [
+                "society::wallet.sect"
+              ]
+            }
+          },
+          "initial_activities": {},
+          "institutional_issuers": {
+            "issuer.city": {
+              "amount_limit": 1000,
+              "continuity_policy_id": "continue_under_organization",
+              "id": "issuer.city",
+              "obligation_ids": [
+                "obligation.city_ration",
+                "obligation.city_ration.training",
+                "obligation.city_salary",
+                "obligation.city_household_wage"
+              ],
+              "organization_id": "society::org.city",
+              "source_container_ids": [
+                "society::inventory.city",
+                "society::wallet.city",
+                "society::wallet.city_wages"
+              ]
+            },
+            "issuer.sect": {
+              "amount_limit": 1000,
+              "continuity_policy_id": "continue_under_organization",
+              "id": "issuer.sect",
+              "obligation_ids": [
+                "obligation.sect_ration",
+                "obligation.sect_ration.training",
+                "obligation.sect_salary",
+                "obligation.sect_household_wage"
+              ],
+              "organization_id": "society::org.sect",
+              "source_container_ids": [
+                "society::inventory.sect",
+                "society::wallet.sect",
+                "society::wallet.sect_wages"
+              ]
+            }
+          },
+          "member_policies": {
+            "policy.city": {
+              "id": "policy.city",
+              "leave_after_ticks": 12,
+              "may_leave": true,
+              "minimum_arrears": 1,
+              "refuse_after_ticks": 4,
+              "request_after_ticks": 1
+            },
+            "policy.city_contract": {
+              "id": "policy.city_contract",
+              "leave_after_ticks": 3,
+              "may_leave": true,
+              "minimum_arrears": 1,
+              "refuse_after_ticks": 2,
+              "request_after_ticks": 1
+            },
+            "policy.sect": {
+              "id": "policy.sect",
+              "leave_after_ticks": 12,
+              "may_leave": true,
+              "minimum_arrears": 1,
+              "refuse_after_ticks": 4,
+              "request_after_ticks": 1
+            }
+          },
+          "members": {
+            "member.city": {
+              "actor_id": "society::actor.city_steward",
+              "duty_ids": [
+                "duty.city"
+              ],
+              "id": "member.city",
+              "last_fact_id": "",
+              "next_review_tick": 1,
+              "organization_id": "society::org.city",
+              "policy_id": "policy.city",
+              "response": "serving",
+              "response_since_tick": 0
+            },
+            "member.sect": {
+              "actor_id": "society::actor.sword_master",
+              "duty_ids": [
+                "duty.sect"
+              ],
+              "id": "member.sect",
+              "last_fact_id": "",
+              "next_review_tick": 1,
+              "organization_id": "society::org.sect",
+              "policy_id": "policy.sect",
+              "response": "serving",
+              "response_since_tick": 0
+            }
+          },
+          "membership_terms": {
+            "terms.city_contract": {
+              "continuity_policy_id": "continue_under_organization",
+              "duty_kind": "contract_executor",
+              "id": "terms.city_contract",
+              "member_policy_id": "policy.city_contract",
+              "offer_duration_ticks": 24,
+              "organization_id": "society::org.city",
+              "payer_wallet_id": "society::wallet.city_wages",
+              "site_id": "society::place.courtyard",
+              "terminal_fraction_policy_id": "terminal_fraction_compensation_v1",
+              "wage_period_ticks": 2,
+              "wage_rate_profile_id": "rate.city_contract"
+            }
+          },
+          "named_membership_enabled": true,
+          "named_membership_policies": {
+            "policy.named_accept": {
+              "allowed_duty_kinds": [
+                "contract_executor"
+              ],
+              "decline_known_arrears": true,
+              "id": "policy.named_accept",
+              "minimum_wage_denominator": 1,
+              "minimum_wage_numerator": 2,
+              "minimum_wage_period_ticks": 2,
+              "review_interval_ticks": 1
+            },
+            "policy.named_refuse": {
+              "allowed_duty_kinds": [
+                "contract_executor"
+              ],
+              "decline_known_arrears": true,
+              "id": "policy.named_refuse",
+              "minimum_wage_denominator": 1,
+              "minimum_wage_numerator": 8,
+              "minimum_wage_period_ticks": 2,
+              "review_interval_ticks": 1
+            }
+          },
+          "offices": {
+            "office.city_steward": {
+              "deputy_actor_id": null,
+              "epoch": 1,
+              "grant_ids": [
+                "grant.city"
+              ],
+              "holder_actor_id": "society::actor.city_steward",
+              "id": "office.city_steward",
+              "organization_id": "society::org.city",
+              "status": "active"
+            },
+            "office.sect_steward": {
+              "deputy_actor_id": null,
+              "epoch": 1,
+              "grant_ids": [
+                "grant.sect"
+              ],
+              "holder_actor_id": "society::actor.sect_steward",
+              "id": "office.sect_steward",
+              "organization_id": "society::org.sect",
+              "status": "active"
+            }
+          },
+          "organizations": {
+            "society::org.city": {
+              "administrative_parent": null,
+              "branch_parent": null,
+              "headquarters_site": "society::place.courtyard",
+              "id": "society::org.city",
+              "kind": "city",
+              "office_ids": [
+                "office.city_steward"
+              ],
+              "policy_profile_id": "policy.city",
+              "status": "active",
+              "succession_policy_id": "declared_deputy_only"
+            },
+            "society::org.grain": {
+              "administrative_parent": null,
+              "branch_parent": null,
+              "headquarters_site": "society::place.grain",
+              "id": "society::org.grain",
+              "kind": "merchant",
+              "office_ids": [],
+              "policy_profile_id": "policy.city",
+              "status": "active",
+              "succession_policy_id": "declared_deputy_only"
+            },
+            "society::org.sect": {
+              "administrative_parent": null,
+              "branch_parent": null,
+              "headquarters_site": "society::place.sword_gate",
+              "id": "society::org.sect",
+              "kind": "sect",
+              "office_ids": [
+                "office.sect_steward"
+              ],
+              "policy_profile_id": "policy.sect",
+              "status": "active",
+              "succession_policy_id": "declared_deputy_only"
+            }
+          }
+        },
+        "profile": "local_society_v1",
+        "regional_life": {
+          "actor_topics": [
+            {
+              "activity": "work",
+              "actor_id": "society::actor.study_caravanner",
+              "cooldown_ticks": 2,
+              "dialogue_id": "society::dialog.life_caravanner_work",
+              "id": "topic.caravanner.work",
+              "source_kind": "life_result"
+            },
+            {
+              "activity": "trade",
+              "actor_id": "society::actor.study_caravanner",
+              "cooldown_ticks": 2,
+              "dialogue_id": "society::dialog.life_caravanner_trade",
+              "id": "topic.caravanner.trade",
+              "source_kind": "life_result"
+            },
+            {
+              "activity": "work",
+              "actor_id": "society::actor.study_swordswoman",
+              "cooldown_ticks": 2,
+              "dialogue_id": "society::dialog.life_swordswoman_work",
+              "id": "topic.swordswoman.work",
+              "source_kind": "life_result"
+            },
+            {
+              "activity": "trade",
+              "actor_id": "society::actor.study_swordswoman",
+              "cooldown_ticks": 2,
+              "dialogue_id": "society::dialog.life_swordswoman_trade",
+              "id": "topic.swordswoman.trade",
+              "source_kind": "life_result"
+            }
+          ],
+          "need_topics": [
+            {
+              "cooldown_ticks": 2,
+              "dialogue_id": "society::dialog.life_city_need",
+              "id": "topic.city.grain",
+              "item_id": "society::item.millet",
+              "role_id": "society::role.city_supply"
+            },
+            {
+              "cooldown_ticks": 2,
+              "dialogue_id": "society::dialog.life_sect_need",
+              "id": "topic.sect.grain",
+              "item_id": "society::item.millet",
+              "role_id": "society::role.sect_supply"
+            }
+          ],
+          "outcome_topics": [
+            {
+              "cooldown_ticks": 2,
+              "dialogue_id": "society::dialog.region_city_outcome",
+              "id": "topic.city.outcome",
+              "role_id": "society::role.city_supply",
+              "task_template_id": "society::template.city_grain"
+            },
+            {
+              "cooldown_ticks": 2,
+              "dialogue_id": "society::dialog.region_sect_outcome",
+              "id": "topic.sect.outcome",
+              "role_id": "society::role.sect_supply",
+              "task_template_id": "society::template.sect_grain"
+            }
+          ]
+        },
+        "known_personal_dialogues": {
+          "version": 1,
+          "templates": [
+            {
+              "id": "known.recipient",
+              "dialogue_id": "dialog.private_recipient",
+              "listener": {
+                "kind": "installed_actor",
+                "source_id": "society::actor.apprentice"
+              },
+              "provider": {
+                "kind": "installed_actor",
+                "source_id": "society::actor.sect_steward"
+              }
+            }
+          ]
+        },
+        "task_personal_message_deliveries": {
+          "version": 1,
+          "profile": "known_private_recipient_v1",
+          "policies": [
+            {
+              "id": "policy.original_letter",
+              "offer_id": "offer.letter",
+              "personal_template_id": "known.recipient",
+              "recipient_say_node_id": "receive"
+            }
+          ]
+        }
+      },
+      "enabled": {
+        "actors": [
+          "society::actor.apprentice",
+          "society::actor.tutor",
+          "society::actor.merchant",
+          "society::actor.sword_master",
+          "society::actor.city_steward",
+          "society::actor.sect_steward",
+          "society::actor.study_caravanner",
+          "society::actor.study_swordswoman",
+          "society::actor.home_keeper",
+          "society::actor.study_scholar"
+        ],
+        "dialogues": [
+          "society::dialog.tutor",
+          "society::dialog.merchant",
+          "society::dialog.sword_master",
+          "society::dialog.life_caravanner_work",
+          "society::dialog.life_caravanner_trade",
+          "society::dialog.life_swordswoman_work",
+          "society::dialog.life_swordswoman_trade",
+          "society::dialog.life_city_need",
+          "society::dialog.life_sect_need",
+          "society::dialog.region_courtyard",
+          "society::dialog.region_sect_gate",
+          "society::dialog.region_city_outcome",
+          "society::dialog.region_sect_outcome",
+          "dialog.sender",
+          "dialog.recipient",
+          "dialog.companion",
+          "dialog.private_recipient"
+        ],
+        "estates": [
+          "society::estate.apprentice_home"
+        ],
+        "garrisons": [],
+        "inventories": [
+          "society::inventory.grain",
+          "society::inventory.sword_counter",
+          "society::inventory.city",
+          "society::inventory.sect",
+          "society::inventory.city_households",
+          "society::inventory.sect_households",
+          "society::inventory.apprentice_home"
+        ],
+        "items": [
+          "society::item.millet",
+          "society::item.practice_sword",
+          "society::item.padded_body",
+          "society::item.training_spear",
+          "item.letter"
+        ],
+        "organizations": [
+          "society::org.grain",
+          "society::org.city",
+          "society::org.sect"
+        ],
+        "personal_battlefields": [
+          "society::field.sword_court"
+        ],
+        "personal_objectives": [
+          "society::objective.sword_spar",
+          "objective.escort"
+        ],
+        "personal_skills": [
+          "society::skill.measure_cut",
+          "society::skill.settle_breath",
+          "society::skill.answer_guard"
+        ],
+        "places": [
+          "society::place.courtyard",
+          "society::place.school",
+          "society::place.grain",
+          "society::place.sword_gate",
+          "society::place.sword_court"
+        ],
+        "relations": [
+          "society::relation.membership.apprentice.study_caravanner",
+          "society::relation.membership.study_caravanner.apprentice",
+          "society::relation.membership.apprentice.study_swordswoman",
+          "society::relation.membership.study_swordswoman.apprentice",
+          "society::relation.membership.apprentice.city_steward",
+          "society::relation.membership.city_steward.apprentice"
+        ],
+        "roles": [
+          "society::role.tutor",
+          "society::role.merchant",
+          "society::role.sword_master",
+          "society::role.city_supply",
+          "society::role.sect_supply",
+          "role.sender",
+          "role.recipient",
+          "role.companion"
+        ],
+        "routes": [
+          "society::route.to_sword_yard",
+          "society::route.from_sword_yard"
+        ],
+        "scenarios": [
+          "scenario.qingchuan_personal_letter"
+        ],
+        "settlements": [
+          "society::settlement.qingchuan",
+          "society::settlement.sword_yard"
+        ],
+        "shops": [
+          "society::shop.grain",
+          "society::shop.sword_counter"
+        ],
+        "task_templates": [
+          "society::template.city_grain",
+          "society::template.sect_grain"
+        ],
+        "troop_types": [],
+        "wallets": [
+          "society::wallet.apprentice",
+          "society::wallet.tutor",
+          "society::wallet.merchant",
+          "society::wallet.grain",
+          "society::wallet.sword_master",
+          "society::wallet.city_steward",
+          "society::wallet.sect_steward",
+          "society::wallet.city",
+          "society::wallet.sect",
+          "society::wallet.city_wages",
+          "society::wallet.sect_wages",
+          "society::wallet.sect_trade",
+          "society::wallet.city_households",
+          "society::wallet.sect_households",
+          "society::wallet.study_caravanner",
+          "society::wallet.study_swordswoman",
+          "society::wallet.apprentice_home",
+          "society::wallet.study_scholar"
+        ],
+        "offers": [
+          "offer.letter",
+          "offer.escort"
+        ]
+      },
+      "id": "scenario.qingchuan_personal_letter",
+      "initial": {
+        "actors": [
+          {
+            "actor_id": "society::actor.apprentice",
+            "age_years": 22,
+            "alive": true,
+            "appearance_definition": {
+              "attire_style": "plain",
+              "base_features": {
+                "beard": "none",
+                "brows": "arched",
+                "build": "normal",
+                "eyes": "open",
+                "face_shape": "medium_clear_long",
+                "hair": "bun",
+                "mouth": "neutral",
+                "nose": "straight",
+                "skin_palette": "warm"
+              },
+              "generator_version": "appearance-v1",
+              "kind": "fixed"
+            },
+            "attributes": {
+              "administration": 78,
+              "charisma": 72,
+              "intellect": 70,
+              "leadership": 42,
+              "martial": 38
+            },
+            "available": true,
+            "combat": {},
+            "initial_goods": [
+              {
+                "item_id": "society::item.millet",
+                "quantity": 2
+              }
+            ],
+            "place_id": "society::place.courtyard",
+            "skills": {
+              "archery": 0,
+              "cavalry": 0,
+              "commerce": 0,
+              "debate": 0,
+              "infantry": 0,
+              "martial": 0,
+              "negotiation": 0,
+              "rites": 0,
+              "tactics": 0,
+              "transport": 0
+            }
+          },
+          {
+            "actor_id": "society::actor.tutor",
+            "age_years": 47,
+            "alive": true,
+            "appearance_definition": {
+              "attire_style": "plain",
+              "base_features": {
+                "beard": "none",
+                "brows": "arched",
+                "build": "normal",
+                "eyes": "narrow",
+                "face_shape": "long_narrow",
+                "hair": "bun",
+                "mouth": "neutral",
+                "nose": "straight",
+                "skin_palette": "warm"
+              },
+              "generator_version": "appearance-v1",
+              "kind": "fixed"
+            },
+            "attributes": {
+              "administration": 75,
+              "charisma": 60,
+              "intellect": 78,
+              "leadership": 40,
+              "martial": 32
+            },
+            "available": true,
+            "combat": {},
+            "initial_goods": [],
+            "place_id": "society::place.school",
+            "skills": {
+              "archery": 0,
+              "cavalry": 0,
+              "commerce": 0,
+              "debate": 300,
+              "infantry": 0,
+              "martial": 0,
+              "negotiation": 0,
+              "rites": 650,
+              "tactics": 0,
+              "transport": 0
+            }
+          },
+          {
+            "actor_id": "society::actor.merchant",
+            "age_years": 38,
+            "alive": true,
+            "appearance_definition": {
+              "attire_style": "plain",
+              "base_features": {
+                "beard": "none",
+                "brows": "straight",
+                "build": "normal",
+                "eyes": "open",
+                "face_shape": "medium_square_jaw",
+                "hair": "bun",
+                "mouth": "neutral",
+                "nose": "straight",
+                "skin_palette": "warm"
+              },
+              "generator_version": "appearance-v1",
+              "kind": "fixed"
+            },
+            "attributes": {
+              "administration": 75,
+              "charisma": 68,
+              "intellect": 64,
+              "leadership": 42,
+              "martial": 35
+            },
+            "available": true,
+            "combat": {},
+            "initial_goods": [],
+            "place_id": "society::place.grain",
+            "skills": {
+              "archery": 0,
+              "cavalry": 0,
+              "commerce": 650,
+              "debate": 0,
+              "infantry": 0,
+              "martial": 0,
+              "negotiation": 300,
+              "rites": 0,
+              "tactics": 0,
+              "transport": 0
+            }
+          },
+          {
+            "actor_id": "society::actor.sword_master",
+            "age_years": 44,
+            "alive": true,
+            "appearance_definition": {
+              "attire_style": "plain",
+              "base_features": {
+                "beard": "none",
+                "brows": "arched",
+                "build": "normal",
+                "eyes": "open",
+                "face_shape": "long_straight_jaw",
+                "hair": "bun",
+                "mouth": "neutral",
+                "nose": "straight",
+                "skin_palette": "warm"
+              },
+              "generator_version": "appearance-v1",
+              "kind": "fixed"
+            },
+            "attributes": {
+              "administration": 52,
+              "charisma": 50,
+              "intellect": 58,
+              "leadership": 50,
+              "martial": 55
+            },
+            "available": true,
+            "combat": {
+              "armor_id": "society::item.padded_body",
+              "learned": [
+                {
+                  "mastery": 100,
+                  "skill_id": "society::skill.measure_cut"
+                },
+                {
+                  "mastery": 100,
+                  "skill_id": "society::skill.settle_breath"
+                },
+                {
+                  "mastery": 100,
+                  "skill_id": "society::skill.answer_guard"
+                }
+              ],
+              "weapon_id": "society::item.practice_sword"
+            },
+            "initial_goods": [
+              {
+                "item_id": "society::item.practice_sword",
+                "quantity": 1
+              },
+              {
+                "item_id": "society::item.padded_body",
+                "quantity": 1
+              }
+            ],
+            "place_id": "society::place.sword_court",
+            "skills": {
+              "archery": 0,
+              "cavalry": 0,
+              "commerce": 0,
+              "debate": 0,
+              "infantry": 0,
+              "martial": 1200,
+              "negotiation": 0,
+              "rites": 0,
+              "tactics": 0,
+              "transport": 0
+            }
+          },
+          {
+            "actor_id": "society::actor.city_steward",
+            "age_years": 47,
+            "alive": true,
+            "appearance_definition": {
+              "attire_style": "plain",
+              "base_features": {
+                "beard": "none",
+                "brows": "arched",
+                "build": "normal",
+                "eyes": "narrow",
+                "face_shape": "medium_high_cheek",
+                "hair": "bun",
+                "mouth": "neutral",
+                "nose": "straight",
+                "skin_palette": "warm"
+              },
+              "generator_version": "appearance-v1",
+              "kind": "fixed"
+            },
+            "attributes": {
+              "administration": 75,
+              "charisma": 60,
+              "intellect": 78,
+              "leadership": 40,
+              "martial": 32
+            },
+            "available": true,
+            "combat": {},
+            "initial_goods": [],
+            "place_id": "society::place.courtyard",
+            "skills": {
+              "archery": 0,
+              "cavalry": 0,
+              "commerce": 0,
+              "debate": 300,
+              "infantry": 0,
+              "martial": 0,
+              "negotiation": 0,
+              "rites": 650,
+              "tactics": 0,
+              "transport": 0
+            }
+          },
+          {
+            "actor_id": "society::actor.sect_steward",
+            "age_years": 38,
+            "alive": true,
+            "appearance_definition": {
+              "attire_style": "plain",
+              "base_features": {
+                "beard": "none",
+                "brows": "arched",
+                "build": "normal",
+                "eyes": "open",
+                "face_shape": "long_full_oval",
+                "hair": "bun",
+                "mouth": "neutral",
+                "nose": "round",
+                "skin_palette": "warm"
+              },
+              "generator_version": "appearance-v1",
+              "kind": "fixed"
+            },
+            "attributes": {
+              "administration": 75,
+              "charisma": 68,
+              "intellect": 64,
+              "leadership": 42,
+              "martial": 35
+            },
+            "available": true,
+            "combat": {},
+            "initial_goods": [],
+            "place_id": "society::place.courtyard",
+            "skills": {
+              "archery": 0,
+              "cavalry": 0,
+              "commerce": 650,
+              "debate": 0,
+              "infantry": 0,
+              "martial": 0,
+              "negotiation": 300,
+              "rites": 0,
+              "tactics": 0,
+              "transport": 0
+            }
+          },
+          {
+            "actor_id": "society::actor.study_caravanner",
+            "age_years": 49,
+            "alive": true,
+            "appearance_definition": {
+              "attire_style": "plain",
+              "base_features": {
+                "beard": "none",
+                "brows": "arched",
+                "build": "normal",
+                "eyes": "narrow",
+                "face_shape": "long_high_cheek",
+                "hair": "bun",
+                "mouth": "neutral",
+                "nose": "straight",
+                "skin_palette": "warm"
+              },
+              "generator_version": "appearance-v1",
+              "kind": "fixed"
+            },
+            "attributes": {
+              "administration": 75,
+              "charisma": 68,
+              "intellect": 64,
+              "leadership": 42,
+              "martial": 35
+            },
+            "available": true,
+            "combat": {},
+            "initial_goods": [
+              {
+                "item_id": "society::item.millet",
+                "quantity": 2
+              }
+            ],
+            "place_id": "society::place.courtyard",
+            "skills": {
+              "archery": 0,
+              "cavalry": 0,
+              "commerce": 1200,
+              "debate": 0,
+              "infantry": 0,
+              "martial": 0,
+              "negotiation": 1200,
+              "rites": 0,
+              "tactics": 0,
+              "transport": 1200
+            }
+          },
+          {
+            "actor_id": "society::actor.study_swordswoman",
+            "age_years": 43,
+            "alive": true,
+            "appearance_definition": {
+              "attire_style": "plain",
+              "base_features": {
+                "beard": "none",
+                "brows": "arched",
+                "build": "normal",
+                "eyes": "narrow",
+                "face_shape": "female_straight_jaw",
+                "hair": "bun",
+                "mouth": "smile",
+                "nose": "straight",
+                "skin_palette": "warm"
+              },
+              "generator_version": "appearance-v1",
+              "kind": "fixed"
+            },
+            "attributes": {
+              "administration": 52,
+              "charisma": 50,
+              "intellect": 58,
+              "leadership": 50,
+              "martial": 55
+            },
+            "available": true,
+            "combat": {},
+            "initial_goods": [
+              {
+                "item_id": "society::item.millet",
+                "quantity": 2
+              }
+            ],
+            "place_id": "society::place.courtyard",
+            "skills": {
+              "archery": 0,
+              "cavalry": 0,
+              "commerce": 0,
+              "debate": 0,
+              "infantry": 0,
+              "martial": 1200,
+              "negotiation": 0,
+              "rites": 0,
+              "tactics": 0,
+              "transport": 0
+            }
+          },
+          {
+            "actor_id": "society::actor.home_keeper",
+            "age_years": 48,
+            "alive": true,
+            "appearance_definition": {
+              "attire_style": "plain",
+              "base_features": {
+                "beard": "none",
+                "brows": "arched",
+                "build": "normal",
+                "eyes": "narrow",
+                "face_shape": "female_round_broad",
+                "hair": "bun",
+                "mouth": "smile",
+                "nose": "round",
+                "skin_palette": "warm"
+              },
+              "generator_version": "appearance-v1",
+              "kind": "fixed"
+            },
+            "attributes": {
+              "administration": 78,
+              "charisma": 72,
+              "intellect": 70,
+              "leadership": 42,
+              "martial": 38
+            },
+            "available": true,
+            "combat": {},
+            "initial_goods": [],
+            "place_id": "society::place.courtyard",
+            "skills": {
+              "archery": 0,
+              "cavalry": 0,
+              "commerce": 0,
+              "debate": 0,
+              "infantry": 0,
+              "martial": 0,
+              "negotiation": 0,
+              "rites": 0,
+              "tactics": 0,
+              "transport": 0
+            }
+          },
+          {
+            "actor_id": "society::actor.study_scholar",
+            "alive": true,
+            "available": true,
+            "place_id": "society::place.school",
+            "age_years": 52,
+            "attributes": {
+              "administration": 75,
+              "charisma": 60,
+              "intellect": 78,
+              "leadership": 40,
+              "martial": 32
+            },
+            "skills": {
+              "archery": 0,
+              "cavalry": 0,
+              "commerce": 0,
+              "debate": 1200,
+              "infantry": 0,
+              "martial": 0,
+              "negotiation": 0,
+              "rites": 1200,
+              "tactics": 0,
+              "transport": 0
+            },
+            "combat": {},
+            "initial_goods": [],
+            "appearance_definition": {
+              "attire_style": "plain",
+              "base_features": {
+                "beard": "plain",
+                "brows": "plain",
+                "build": "plain",
+                "eyes": "plain",
+                "face_shape": "plain",
+                "hair": "plain",
+                "mouth": "plain",
+                "nose": "plain",
+                "skin_palette": "plain"
+              },
+              "generator_version": "appearance-v1",
+              "kind": "fixed"
+            }
+          }
+        ],
+        "estates": [
+          {
+            "id": "society::estate.apprentice_home",
+            "initial_duties": [],
+            "initial_facilities": {
+              "farm": 0,
+              "granary": 1,
+              "palisade": 0
+            },
+            "manager_actor_id": "society::actor.home_keeper",
+            "owner_actor_id": "society::actor.apprentice",
+            "resident_actor_ids": [
+              "society::actor.home_keeper"
+            ]
+          }
+        ],
+        "garrisons": [],
+        "inventories": [
+          {
+            "capacity": 100,
+            "goods": [
+              {
+                "item_id": "society::item.millet",
+                "quantity": 40
+              }
+            ],
+            "id": "society::inventory.grain",
+            "owner": {
+              "id": "society::org.grain",
+              "kind": "organization"
+            }
+          },
+          {
+            "capacity": 40,
+            "goods": [
+              {
+                "item_id": "society::item.practice_sword",
+                "quantity": 2
+              },
+              {
+                "item_id": "society::item.padded_body",
+                "quantity": 2
+              }
+            ],
+            "id": "society::inventory.sword_counter",
+            "owner": {
+              "id": "society::org.sect",
+              "kind": "organization"
+            }
+          },
+          {
+            "capacity": 200,
+            "goods": [
+              {
+                "item_id": "society::item.millet",
+                "quantity": 120
+              }
+            ],
+            "id": "society::inventory.city",
+            "owner": {
+              "id": "society::org.city",
+              "kind": "organization"
+            }
+          },
+          {
+            "capacity": 200,
+            "goods": [
+              {
+                "item_id": "society::item.millet",
+                "quantity": 60
+              }
+            ],
+            "id": "society::inventory.sect",
+            "owner": {
+              "id": "society::org.sect",
+              "kind": "organization"
+            }
+          },
+          {
+            "capacity": 200,
+            "goods": [],
+            "id": "society::inventory.city_households",
+            "owner": {
+              "id": "household.city",
+              "kind": "household"
+            }
+          },
+          {
+            "capacity": 200,
+            "goods": [],
+            "id": "society::inventory.sect_households",
+            "owner": {
+              "id": "household.sect",
+              "kind": "household"
+            }
+          },
+          {
+            "capacity": 100,
+            "goods": [
+              {
+                "item_id": "society::item.millet",
+                "quantity": 40
+              }
+            ],
+            "id": "society::inventory.apprentice_home",
+            "owner": {
+              "id": "society::actor.apprentice",
+              "kind": "actor"
+            }
+          }
+        ],
+        "offer_ids": [
+          "offer.letter",
+          "offer.escort"
+        ],
+        "relations": [
+          {
+            "affinity": 0,
+            "from_actor": "society::actor.apprentice",
+            "id": "society::relation.membership.apprentice.study_caravanner",
+            "to_actor": "society::actor.study_caravanner",
+            "trust": 0
+          },
+          {
+            "affinity": 0,
+            "from_actor": "society::actor.study_caravanner",
+            "id": "society::relation.membership.study_caravanner.apprentice",
+            "to_actor": "society::actor.apprentice",
+            "trust": 0
+          },
+          {
+            "affinity": 0,
+            "from_actor": "society::actor.apprentice",
+            "id": "society::relation.membership.apprentice.study_swordswoman",
+            "to_actor": "society::actor.study_swordswoman",
+            "trust": 0
+          },
+          {
+            "affinity": 0,
+            "from_actor": "society::actor.study_swordswoman",
+            "id": "society::relation.membership.study_swordswoman.apprentice",
+            "to_actor": "society::actor.apprentice",
+            "trust": 0
+          },
+          {
+            "affinity": 0,
+            "from_actor": "society::actor.apprentice",
+            "id": "society::relation.membership.apprentice.city_steward",
+            "to_actor": "society::actor.city_steward",
+            "trust": 0
+          },
+          {
+            "affinity": 0,
+            "from_actor": "society::actor.city_steward",
+            "id": "society::relation.membership.city_steward.apprentice",
+            "to_actor": "society::actor.apprentice",
+            "trust": 0
+          }
+        ],
+        "roles": [
+          {
+            "actor_id": "society::actor.tutor",
+            "enabled": true,
+            "role_id": "society::role.tutor"
+          },
+          {
+            "actor_id": "society::actor.merchant",
+            "enabled": true,
+            "role_id": "society::role.merchant"
+          },
+          {
+            "actor_id": "society::actor.sword_master",
+            "enabled": true,
+            "role_id": "society::role.sword_master"
+          },
+          {
+            "actor_id": "society::actor.city_steward",
+            "enabled": true,
+            "role_id": "society::role.city_supply"
+          },
+          {
+            "actor_id": "society::actor.sect_steward",
+            "enabled": true,
+            "role_id": "society::role.sect_supply"
+          },
+          {
+            "role_id": "role.sender",
+            "actor_id": "society::actor.tutor",
+            "enabled": true
+          },
+          {
+            "role_id": "role.recipient",
+            "actor_id": "society::actor.sect_steward",
+            "enabled": true
+          },
+          {
+            "role_id": "role.companion",
+            "actor_id": "society::actor.study_scholar",
+            "enabled": true
+          }
+        ],
+        "wallets": [
+          {
+            "id": "society::wallet.apprentice",
+            "initial_balance": 240,
+            "owner": {
+              "id": "society::actor.apprentice",
+              "kind": "actor"
+            }
+          },
+          {
+            "id": "society::wallet.tutor",
+            "initial_balance": 300,
+            "owner": {
+              "id": "society::actor.tutor",
+              "kind": "actor"
+            }
+          },
+          {
+            "id": "society::wallet.merchant",
+            "initial_balance": 0,
+            "owner": {
+              "id": "society::actor.merchant",
+              "kind": "actor"
+            }
+          },
+          {
+            "id": "society::wallet.grain",
+            "initial_balance": 900,
+            "owner": {
+              "id": "society::org.grain",
+              "kind": "organization"
+            }
+          },
+          {
+            "id": "society::wallet.sword_master",
+            "initial_balance": 500,
+            "owner": {
+              "id": "society::actor.sword_master",
+              "kind": "actor"
+            }
+          },
+          {
+            "id": "society::wallet.study_caravanner",
+            "initial_balance": 8,
+            "owner": {
+              "id": "society::actor.study_caravanner",
+              "kind": "actor"
+            }
+          },
+          {
+            "id": "society::wallet.study_swordswoman",
+            "initial_balance": 8,
+            "owner": {
+              "id": "society::actor.study_swordswoman",
+              "kind": "actor"
+            }
+          },
+          {
+            "id": "society::wallet.city_steward",
+            "initial_balance": 0,
+            "owner": {
+              "id": "society::actor.city_steward",
+              "kind": "actor"
+            }
+          },
+          {
+            "id": "society::wallet.sect_steward",
+            "initial_balance": 0,
+            "owner": {
+              "id": "society::actor.sect_steward",
+              "kind": "actor"
+            }
+          },
+          {
+            "id": "society::wallet.city",
+            "initial_balance": 200,
+            "owner": {
+              "id": "society::org.city",
+              "kind": "organization"
+            }
+          },
+          {
+            "id": "society::wallet.sect",
+            "initial_balance": 200,
+            "owner": {
+              "id": "society::org.sect",
+              "kind": "organization"
+            }
+          },
+          {
+            "id": "society::wallet.city_wages",
+            "initial_balance": 240,
+            "owner": {
+              "id": "society::org.city",
+              "kind": "organization"
+            }
+          },
+          {
+            "id": "society::wallet.sect_wages",
+            "initial_balance": 240,
+            "owner": {
+              "id": "society::org.sect",
+              "kind": "organization"
+            }
+          },
+          {
+            "id": "society::wallet.sect_trade",
+            "initial_balance": 100,
+            "owner": {
+              "id": "society::org.sect",
+              "kind": "organization"
+            }
+          },
+          {
+            "id": "society::wallet.city_households",
+            "initial_balance": 0,
+            "owner": {
+              "id": "household.city",
+              "kind": "household"
+            }
+          },
+          {
+            "id": "society::wallet.sect_households",
+            "initial_balance": 0,
+            "owner": {
+              "id": "household.sect",
+              "kind": "household"
+            }
+          },
+          {
+            "id": "society::wallet.apprentice_home",
+            "initial_balance": 0,
+            "owner": {
+              "id": "society::actor.apprentice",
+              "kind": "actor"
+            }
+          },
+          {
+            "id": "society::wallet.study_scholar",
+            "initial_balance": 0,
+            "owner": {
+              "id": "society::actor.study_scholar",
+              "kind": "actor"
+            }
+          }
+        ]
+      },
+      "name_key": "personal_letter.name",
+      "playable_actor_appearance_policies": [
+        {
+          "actor_id": "society::actor.apprentice",
+          "policy": "fixed_actor_appearance_composition_v1"
+        },
+        {
+          "actor_id": "society::actor.study_swordswoman",
+          "policy": "preserve_existing_v1"
+        }
+      ],
+      "playable_actor_ids": [
+        "society::actor.apprentice",
+        "society::actor.study_swordswoman"
+      ],
+      "player_actor": "society::actor.apprentice",
+      "player_appearance_choices": [
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "arched",
+            "build": "normal",
+            "eyes": "open",
+            "face_shape": "medium_clear_long",
+            "hair": "bun",
+            "mouth": "neutral",
+            "nose": "straight",
+            "skin_palette": "warm"
+          },
+          "id": "medium_clear_long.arched.open.straight.neutral"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "arched",
+            "build": "normal",
+            "eyes": "open",
+            "face_shape": "medium_clear_long",
+            "hair": "bun",
+            "mouth": "smile",
+            "nose": "straight",
+            "skin_palette": "warm"
+          },
+          "id": "medium_clear_long.arched.open.straight.smile"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "arched",
+            "build": "normal",
+            "eyes": "open",
+            "face_shape": "medium_clear_long",
+            "hair": "bun",
+            "mouth": "neutral",
+            "nose": "round",
+            "skin_palette": "warm"
+          },
+          "id": "medium_clear_long.arched.open.round.neutral"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "arched",
+            "build": "normal",
+            "eyes": "open",
+            "face_shape": "medium_clear_long",
+            "hair": "bun",
+            "mouth": "smile",
+            "nose": "round",
+            "skin_palette": "warm"
+          },
+          "id": "medium_clear_long.arched.open.round.smile"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "arched",
+            "build": "normal",
+            "eyes": "narrow",
+            "face_shape": "medium_clear_long",
+            "hair": "bun",
+            "mouth": "neutral",
+            "nose": "straight",
+            "skin_palette": "warm"
+          },
+          "id": "medium_clear_long.arched.narrow.straight.neutral"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "arched",
+            "build": "normal",
+            "eyes": "narrow",
+            "face_shape": "medium_clear_long",
+            "hair": "bun",
+            "mouth": "smile",
+            "nose": "straight",
+            "skin_palette": "warm"
+          },
+          "id": "medium_clear_long.arched.narrow.straight.smile"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "arched",
+            "build": "normal",
+            "eyes": "narrow",
+            "face_shape": "medium_clear_long",
+            "hair": "bun",
+            "mouth": "neutral",
+            "nose": "round",
+            "skin_palette": "warm"
+          },
+          "id": "medium_clear_long.arched.narrow.round.neutral"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "arched",
+            "build": "normal",
+            "eyes": "narrow",
+            "face_shape": "medium_clear_long",
+            "hair": "bun",
+            "mouth": "smile",
+            "nose": "round",
+            "skin_palette": "warm"
+          },
+          "id": "medium_clear_long.arched.narrow.round.smile"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "straight",
+            "build": "normal",
+            "eyes": "open",
+            "face_shape": "medium_clear_long",
+            "hair": "bun",
+            "mouth": "neutral",
+            "nose": "straight",
+            "skin_palette": "warm"
+          },
+          "id": "medium_clear_long.straight.open.straight.neutral"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "straight",
+            "build": "normal",
+            "eyes": "open",
+            "face_shape": "medium_clear_long",
+            "hair": "bun",
+            "mouth": "smile",
+            "nose": "straight",
+            "skin_palette": "warm"
+          },
+          "id": "medium_clear_long.straight.open.straight.smile"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "straight",
+            "build": "normal",
+            "eyes": "open",
+            "face_shape": "medium_clear_long",
+            "hair": "bun",
+            "mouth": "neutral",
+            "nose": "round",
+            "skin_palette": "warm"
+          },
+          "id": "medium_clear_long.straight.open.round.neutral"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "straight",
+            "build": "normal",
+            "eyes": "open",
+            "face_shape": "medium_clear_long",
+            "hair": "bun",
+            "mouth": "smile",
+            "nose": "round",
+            "skin_palette": "warm"
+          },
+          "id": "medium_clear_long.straight.open.round.smile"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "straight",
+            "build": "normal",
+            "eyes": "narrow",
+            "face_shape": "medium_clear_long",
+            "hair": "bun",
+            "mouth": "neutral",
+            "nose": "straight",
+            "skin_palette": "warm"
+          },
+          "id": "medium_clear_long.straight.narrow.straight.neutral"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "straight",
+            "build": "normal",
+            "eyes": "narrow",
+            "face_shape": "medium_clear_long",
+            "hair": "bun",
+            "mouth": "smile",
+            "nose": "straight",
+            "skin_palette": "warm"
+          },
+          "id": "medium_clear_long.straight.narrow.straight.smile"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "straight",
+            "build": "normal",
+            "eyes": "narrow",
+            "face_shape": "medium_clear_long",
+            "hair": "bun",
+            "mouth": "neutral",
+            "nose": "round",
+            "skin_palette": "warm"
+          },
+          "id": "medium_clear_long.straight.narrow.round.neutral"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "straight",
+            "build": "normal",
+            "eyes": "narrow",
+            "face_shape": "medium_clear_long",
+            "hair": "bun",
+            "mouth": "smile",
+            "nose": "round",
+            "skin_palette": "warm"
+          },
+          "id": "medium_clear_long.straight.narrow.round.smile"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "arched",
+            "build": "normal",
+            "eyes": "open",
+            "face_shape": "medium_square_jaw",
+            "hair": "bun",
+            "mouth": "neutral",
+            "nose": "straight",
+            "skin_palette": "warm"
+          },
+          "id": "medium_square_jaw.arched.open.straight.neutral"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "arched",
+            "build": "normal",
+            "eyes": "open",
+            "face_shape": "medium_square_jaw",
+            "hair": "bun",
+            "mouth": "smile",
+            "nose": "straight",
+            "skin_palette": "warm"
+          },
+          "id": "medium_square_jaw.arched.open.straight.smile"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "arched",
+            "build": "normal",
+            "eyes": "open",
+            "face_shape": "medium_square_jaw",
+            "hair": "bun",
+            "mouth": "neutral",
+            "nose": "round",
+            "skin_palette": "warm"
+          },
+          "id": "medium_square_jaw.arched.open.round.neutral"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "arched",
+            "build": "normal",
+            "eyes": "open",
+            "face_shape": "medium_square_jaw",
+            "hair": "bun",
+            "mouth": "smile",
+            "nose": "round",
+            "skin_palette": "warm"
+          },
+          "id": "medium_square_jaw.arched.open.round.smile"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "arched",
+            "build": "normal",
+            "eyes": "narrow",
+            "face_shape": "medium_square_jaw",
+            "hair": "bun",
+            "mouth": "neutral",
+            "nose": "straight",
+            "skin_palette": "warm"
+          },
+          "id": "medium_square_jaw.arched.narrow.straight.neutral"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "arched",
+            "build": "normal",
+            "eyes": "narrow",
+            "face_shape": "medium_square_jaw",
+            "hair": "bun",
+            "mouth": "smile",
+            "nose": "straight",
+            "skin_palette": "warm"
+          },
+          "id": "medium_square_jaw.arched.narrow.straight.smile"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "arched",
+            "build": "normal",
+            "eyes": "narrow",
+            "face_shape": "medium_square_jaw",
+            "hair": "bun",
+            "mouth": "neutral",
+            "nose": "round",
+            "skin_palette": "warm"
+          },
+          "id": "medium_square_jaw.arched.narrow.round.neutral"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "arched",
+            "build": "normal",
+            "eyes": "narrow",
+            "face_shape": "medium_square_jaw",
+            "hair": "bun",
+            "mouth": "smile",
+            "nose": "round",
+            "skin_palette": "warm"
+          },
+          "id": "medium_square_jaw.arched.narrow.round.smile"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "straight",
+            "build": "normal",
+            "eyes": "open",
+            "face_shape": "medium_square_jaw",
+            "hair": "bun",
+            "mouth": "neutral",
+            "nose": "straight",
+            "skin_palette": "warm"
+          },
+          "id": "medium_square_jaw.straight.open.straight.neutral"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "straight",
+            "build": "normal",
+            "eyes": "open",
+            "face_shape": "medium_square_jaw",
+            "hair": "bun",
+            "mouth": "smile",
+            "nose": "straight",
+            "skin_palette": "warm"
+          },
+          "id": "medium_square_jaw.straight.open.straight.smile"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "straight",
+            "build": "normal",
+            "eyes": "open",
+            "face_shape": "medium_square_jaw",
+            "hair": "bun",
+            "mouth": "neutral",
+            "nose": "round",
+            "skin_palette": "warm"
+          },
+          "id": "medium_square_jaw.straight.open.round.neutral"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "straight",
+            "build": "normal",
+            "eyes": "open",
+            "face_shape": "medium_square_jaw",
+            "hair": "bun",
+            "mouth": "smile",
+            "nose": "round",
+            "skin_palette": "warm"
+          },
+          "id": "medium_square_jaw.straight.open.round.smile"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "straight",
+            "build": "normal",
+            "eyes": "narrow",
+            "face_shape": "medium_square_jaw",
+            "hair": "bun",
+            "mouth": "neutral",
+            "nose": "straight",
+            "skin_palette": "warm"
+          },
+          "id": "medium_square_jaw.straight.narrow.straight.neutral"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "straight",
+            "build": "normal",
+            "eyes": "narrow",
+            "face_shape": "medium_square_jaw",
+            "hair": "bun",
+            "mouth": "smile",
+            "nose": "straight",
+            "skin_palette": "warm"
+          },
+          "id": "medium_square_jaw.straight.narrow.straight.smile"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "straight",
+            "build": "normal",
+            "eyes": "narrow",
+            "face_shape": "medium_square_jaw",
+            "hair": "bun",
+            "mouth": "neutral",
+            "nose": "round",
+            "skin_palette": "warm"
+          },
+          "id": "medium_square_jaw.straight.narrow.round.neutral"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "straight",
+            "build": "normal",
+            "eyes": "narrow",
+            "face_shape": "medium_square_jaw",
+            "hair": "bun",
+            "mouth": "smile",
+            "nose": "round",
+            "skin_palette": "warm"
+          },
+          "id": "medium_square_jaw.straight.narrow.round.smile"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "arched",
+            "build": "normal",
+            "eyes": "open",
+            "face_shape": "medium_round_chin",
+            "hair": "bun",
+            "mouth": "neutral",
+            "nose": "straight",
+            "skin_palette": "warm"
+          },
+          "id": "medium_round_chin.arched.open.straight.neutral"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "arched",
+            "build": "normal",
+            "eyes": "open",
+            "face_shape": "medium_round_chin",
+            "hair": "bun",
+            "mouth": "smile",
+            "nose": "straight",
+            "skin_palette": "warm"
+          },
+          "id": "medium_round_chin.arched.open.straight.smile"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "arched",
+            "build": "normal",
+            "eyes": "open",
+            "face_shape": "medium_round_chin",
+            "hair": "bun",
+            "mouth": "neutral",
+            "nose": "round",
+            "skin_palette": "warm"
+          },
+          "id": "medium_round_chin.arched.open.round.neutral"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "arched",
+            "build": "normal",
+            "eyes": "open",
+            "face_shape": "medium_round_chin",
+            "hair": "bun",
+            "mouth": "smile",
+            "nose": "round",
+            "skin_palette": "warm"
+          },
+          "id": "medium_round_chin.arched.open.round.smile"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "arched",
+            "build": "normal",
+            "eyes": "narrow",
+            "face_shape": "medium_round_chin",
+            "hair": "bun",
+            "mouth": "neutral",
+            "nose": "straight",
+            "skin_palette": "warm"
+          },
+          "id": "medium_round_chin.arched.narrow.straight.neutral"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "arched",
+            "build": "normal",
+            "eyes": "narrow",
+            "face_shape": "medium_round_chin",
+            "hair": "bun",
+            "mouth": "smile",
+            "nose": "straight",
+            "skin_palette": "warm"
+          },
+          "id": "medium_round_chin.arched.narrow.straight.smile"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "arched",
+            "build": "normal",
+            "eyes": "narrow",
+            "face_shape": "medium_round_chin",
+            "hair": "bun",
+            "mouth": "neutral",
+            "nose": "round",
+            "skin_palette": "warm"
+          },
+          "id": "medium_round_chin.arched.narrow.round.neutral"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "arched",
+            "build": "normal",
+            "eyes": "narrow",
+            "face_shape": "medium_round_chin",
+            "hair": "bun",
+            "mouth": "smile",
+            "nose": "round",
+            "skin_palette": "warm"
+          },
+          "id": "medium_round_chin.arched.narrow.round.smile"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "straight",
+            "build": "normal",
+            "eyes": "open",
+            "face_shape": "medium_round_chin",
+            "hair": "bun",
+            "mouth": "neutral",
+            "nose": "straight",
+            "skin_palette": "warm"
+          },
+          "id": "medium_round_chin.straight.open.straight.neutral"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "straight",
+            "build": "normal",
+            "eyes": "open",
+            "face_shape": "medium_round_chin",
+            "hair": "bun",
+            "mouth": "smile",
+            "nose": "straight",
+            "skin_palette": "warm"
+          },
+          "id": "medium_round_chin.straight.open.straight.smile"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "straight",
+            "build": "normal",
+            "eyes": "open",
+            "face_shape": "medium_round_chin",
+            "hair": "bun",
+            "mouth": "neutral",
+            "nose": "round",
+            "skin_palette": "warm"
+          },
+          "id": "medium_round_chin.straight.open.round.neutral"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "straight",
+            "build": "normal",
+            "eyes": "open",
+            "face_shape": "medium_round_chin",
+            "hair": "bun",
+            "mouth": "smile",
+            "nose": "round",
+            "skin_palette": "warm"
+          },
+          "id": "medium_round_chin.straight.open.round.smile"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "straight",
+            "build": "normal",
+            "eyes": "narrow",
+            "face_shape": "medium_round_chin",
+            "hair": "bun",
+            "mouth": "neutral",
+            "nose": "straight",
+            "skin_palette": "warm"
+          },
+          "id": "medium_round_chin.straight.narrow.straight.neutral"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "straight",
+            "build": "normal",
+            "eyes": "narrow",
+            "face_shape": "medium_round_chin",
+            "hair": "bun",
+            "mouth": "smile",
+            "nose": "straight",
+            "skin_palette": "warm"
+          },
+          "id": "medium_round_chin.straight.narrow.straight.smile"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "straight",
+            "build": "normal",
+            "eyes": "narrow",
+            "face_shape": "medium_round_chin",
+            "hair": "bun",
+            "mouth": "neutral",
+            "nose": "round",
+            "skin_palette": "warm"
+          },
+          "id": "medium_round_chin.straight.narrow.round.neutral"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "straight",
+            "build": "normal",
+            "eyes": "narrow",
+            "face_shape": "medium_round_chin",
+            "hair": "bun",
+            "mouth": "smile",
+            "nose": "round",
+            "skin_palette": "warm"
+          },
+          "id": "medium_round_chin.straight.narrow.round.smile"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "arched",
+            "build": "normal",
+            "eyes": "open",
+            "face_shape": "medium_high_cheek",
+            "hair": "bun",
+            "mouth": "neutral",
+            "nose": "straight",
+            "skin_palette": "warm"
+          },
+          "id": "medium_high_cheek.arched.open.straight.neutral"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "arched",
+            "build": "normal",
+            "eyes": "open",
+            "face_shape": "medium_high_cheek",
+            "hair": "bun",
+            "mouth": "smile",
+            "nose": "straight",
+            "skin_palette": "warm"
+          },
+          "id": "medium_high_cheek.arched.open.straight.smile"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "arched",
+            "build": "normal",
+            "eyes": "open",
+            "face_shape": "medium_high_cheek",
+            "hair": "bun",
+            "mouth": "neutral",
+            "nose": "round",
+            "skin_palette": "warm"
+          },
+          "id": "medium_high_cheek.arched.open.round.neutral"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "arched",
+            "build": "normal",
+            "eyes": "open",
+            "face_shape": "medium_high_cheek",
+            "hair": "bun",
+            "mouth": "smile",
+            "nose": "round",
+            "skin_palette": "warm"
+          },
+          "id": "medium_high_cheek.arched.open.round.smile"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "arched",
+            "build": "normal",
+            "eyes": "narrow",
+            "face_shape": "medium_high_cheek",
+            "hair": "bun",
+            "mouth": "neutral",
+            "nose": "straight",
+            "skin_palette": "warm"
+          },
+          "id": "medium_high_cheek.arched.narrow.straight.neutral"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "arched",
+            "build": "normal",
+            "eyes": "narrow",
+            "face_shape": "medium_high_cheek",
+            "hair": "bun",
+            "mouth": "smile",
+            "nose": "straight",
+            "skin_palette": "warm"
+          },
+          "id": "medium_high_cheek.arched.narrow.straight.smile"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "arched",
+            "build": "normal",
+            "eyes": "narrow",
+            "face_shape": "medium_high_cheek",
+            "hair": "bun",
+            "mouth": "neutral",
+            "nose": "round",
+            "skin_palette": "warm"
+          },
+          "id": "medium_high_cheek.arched.narrow.round.neutral"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "arched",
+            "build": "normal",
+            "eyes": "narrow",
+            "face_shape": "medium_high_cheek",
+            "hair": "bun",
+            "mouth": "smile",
+            "nose": "round",
+            "skin_palette": "warm"
+          },
+          "id": "medium_high_cheek.arched.narrow.round.smile"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "straight",
+            "build": "normal",
+            "eyes": "open",
+            "face_shape": "medium_high_cheek",
+            "hair": "bun",
+            "mouth": "neutral",
+            "nose": "straight",
+            "skin_palette": "warm"
+          },
+          "id": "medium_high_cheek.straight.open.straight.neutral"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "straight",
+            "build": "normal",
+            "eyes": "open",
+            "face_shape": "medium_high_cheek",
+            "hair": "bun",
+            "mouth": "smile",
+            "nose": "straight",
+            "skin_palette": "warm"
+          },
+          "id": "medium_high_cheek.straight.open.straight.smile"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "straight",
+            "build": "normal",
+            "eyes": "open",
+            "face_shape": "medium_high_cheek",
+            "hair": "bun",
+            "mouth": "neutral",
+            "nose": "round",
+            "skin_palette": "warm"
+          },
+          "id": "medium_high_cheek.straight.open.round.neutral"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "straight",
+            "build": "normal",
+            "eyes": "open",
+            "face_shape": "medium_high_cheek",
+            "hair": "bun",
+            "mouth": "smile",
+            "nose": "round",
+            "skin_palette": "warm"
+          },
+          "id": "medium_high_cheek.straight.open.round.smile"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "straight",
+            "build": "normal",
+            "eyes": "narrow",
+            "face_shape": "medium_high_cheek",
+            "hair": "bun",
+            "mouth": "neutral",
+            "nose": "straight",
+            "skin_palette": "warm"
+          },
+          "id": "medium_high_cheek.straight.narrow.straight.neutral"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "straight",
+            "build": "normal",
+            "eyes": "narrow",
+            "face_shape": "medium_high_cheek",
+            "hair": "bun",
+            "mouth": "smile",
+            "nose": "straight",
+            "skin_palette": "warm"
+          },
+          "id": "medium_high_cheek.straight.narrow.straight.smile"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "straight",
+            "build": "normal",
+            "eyes": "narrow",
+            "face_shape": "medium_high_cheek",
+            "hair": "bun",
+            "mouth": "neutral",
+            "nose": "round",
+            "skin_palette": "warm"
+          },
+          "id": "medium_high_cheek.straight.narrow.round.neutral"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "straight",
+            "build": "normal",
+            "eyes": "narrow",
+            "face_shape": "medium_high_cheek",
+            "hair": "bun",
+            "mouth": "smile",
+            "nose": "round",
+            "skin_palette": "warm"
+          },
+          "id": "medium_high_cheek.straight.narrow.round.smile"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "arched",
+            "build": "normal",
+            "eyes": "open",
+            "face_shape": "female_round_broad",
+            "hair": "bun",
+            "mouth": "neutral",
+            "nose": "straight",
+            "skin_palette": "warm"
+          },
+          "id": "female_round_broad.arched.open.straight.neutral"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "arched",
+            "build": "normal",
+            "eyes": "open",
+            "face_shape": "female_round_broad",
+            "hair": "bun",
+            "mouth": "smile",
+            "nose": "straight",
+            "skin_palette": "warm"
+          },
+          "id": "female_round_broad.arched.open.straight.smile"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "arched",
+            "build": "normal",
+            "eyes": "open",
+            "face_shape": "female_round_broad",
+            "hair": "bun",
+            "mouth": "neutral",
+            "nose": "round",
+            "skin_palette": "warm"
+          },
+          "id": "female_round_broad.arched.open.round.neutral"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "arched",
+            "build": "normal",
+            "eyes": "open",
+            "face_shape": "female_round_broad",
+            "hair": "bun",
+            "mouth": "smile",
+            "nose": "round",
+            "skin_palette": "warm"
+          },
+          "id": "female_round_broad.arched.open.round.smile"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "arched",
+            "build": "normal",
+            "eyes": "narrow",
+            "face_shape": "female_round_broad",
+            "hair": "bun",
+            "mouth": "neutral",
+            "nose": "straight",
+            "skin_palette": "warm"
+          },
+          "id": "female_round_broad.arched.narrow.straight.neutral"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "arched",
+            "build": "normal",
+            "eyes": "narrow",
+            "face_shape": "female_round_broad",
+            "hair": "bun",
+            "mouth": "smile",
+            "nose": "straight",
+            "skin_palette": "warm"
+          },
+          "id": "female_round_broad.arched.narrow.straight.smile"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "arched",
+            "build": "normal",
+            "eyes": "narrow",
+            "face_shape": "female_round_broad",
+            "hair": "bun",
+            "mouth": "neutral",
+            "nose": "round",
+            "skin_palette": "warm"
+          },
+          "id": "female_round_broad.arched.narrow.round.neutral"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "arched",
+            "build": "normal",
+            "eyes": "narrow",
+            "face_shape": "female_round_broad",
+            "hair": "bun",
+            "mouth": "smile",
+            "nose": "round",
+            "skin_palette": "warm"
+          },
+          "id": "female_round_broad.arched.narrow.round.smile"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "straight",
+            "build": "normal",
+            "eyes": "open",
+            "face_shape": "female_round_broad",
+            "hair": "bun",
+            "mouth": "neutral",
+            "nose": "straight",
+            "skin_palette": "warm"
+          },
+          "id": "female_round_broad.straight.open.straight.neutral"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "straight",
+            "build": "normal",
+            "eyes": "open",
+            "face_shape": "female_round_broad",
+            "hair": "bun",
+            "mouth": "smile",
+            "nose": "straight",
+            "skin_palette": "warm"
+          },
+          "id": "female_round_broad.straight.open.straight.smile"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "straight",
+            "build": "normal",
+            "eyes": "open",
+            "face_shape": "female_round_broad",
+            "hair": "bun",
+            "mouth": "neutral",
+            "nose": "round",
+            "skin_palette": "warm"
+          },
+          "id": "female_round_broad.straight.open.round.neutral"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "straight",
+            "build": "normal",
+            "eyes": "open",
+            "face_shape": "female_round_broad",
+            "hair": "bun",
+            "mouth": "smile",
+            "nose": "round",
+            "skin_palette": "warm"
+          },
+          "id": "female_round_broad.straight.open.round.smile"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "straight",
+            "build": "normal",
+            "eyes": "narrow",
+            "face_shape": "female_round_broad",
+            "hair": "bun",
+            "mouth": "neutral",
+            "nose": "straight",
+            "skin_palette": "warm"
+          },
+          "id": "female_round_broad.straight.narrow.straight.neutral"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "straight",
+            "build": "normal",
+            "eyes": "narrow",
+            "face_shape": "female_round_broad",
+            "hair": "bun",
+            "mouth": "smile",
+            "nose": "straight",
+            "skin_palette": "warm"
+          },
+          "id": "female_round_broad.straight.narrow.straight.smile"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "straight",
+            "build": "normal",
+            "eyes": "narrow",
+            "face_shape": "female_round_broad",
+            "hair": "bun",
+            "mouth": "neutral",
+            "nose": "round",
+            "skin_palette": "warm"
+          },
+          "id": "female_round_broad.straight.narrow.round.neutral"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "straight",
+            "build": "normal",
+            "eyes": "narrow",
+            "face_shape": "female_round_broad",
+            "hair": "bun",
+            "mouth": "smile",
+            "nose": "round",
+            "skin_palette": "warm"
+          },
+          "id": "female_round_broad.straight.narrow.round.smile"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "arched",
+            "build": "normal",
+            "eyes": "open",
+            "face_shape": "female_straight_jaw",
+            "hair": "bun",
+            "mouth": "neutral",
+            "nose": "straight",
+            "skin_palette": "warm"
+          },
+          "id": "female_straight_jaw.arched.open.straight.neutral"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "arched",
+            "build": "normal",
+            "eyes": "open",
+            "face_shape": "female_straight_jaw",
+            "hair": "bun",
+            "mouth": "smile",
+            "nose": "straight",
+            "skin_palette": "warm"
+          },
+          "id": "female_straight_jaw.arched.open.straight.smile"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "arched",
+            "build": "normal",
+            "eyes": "open",
+            "face_shape": "female_straight_jaw",
+            "hair": "bun",
+            "mouth": "neutral",
+            "nose": "round",
+            "skin_palette": "warm"
+          },
+          "id": "female_straight_jaw.arched.open.round.neutral"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "arched",
+            "build": "normal",
+            "eyes": "open",
+            "face_shape": "female_straight_jaw",
+            "hair": "bun",
+            "mouth": "smile",
+            "nose": "round",
+            "skin_palette": "warm"
+          },
+          "id": "female_straight_jaw.arched.open.round.smile"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "arched",
+            "build": "normal",
+            "eyes": "narrow",
+            "face_shape": "female_straight_jaw",
+            "hair": "bun",
+            "mouth": "neutral",
+            "nose": "straight",
+            "skin_palette": "warm"
+          },
+          "id": "female_straight_jaw.arched.narrow.straight.neutral"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "arched",
+            "build": "normal",
+            "eyes": "narrow",
+            "face_shape": "female_straight_jaw",
+            "hair": "bun",
+            "mouth": "smile",
+            "nose": "straight",
+            "skin_palette": "warm"
+          },
+          "id": "female_straight_jaw.arched.narrow.straight.smile"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "arched",
+            "build": "normal",
+            "eyes": "narrow",
+            "face_shape": "female_straight_jaw",
+            "hair": "bun",
+            "mouth": "neutral",
+            "nose": "round",
+            "skin_palette": "warm"
+          },
+          "id": "female_straight_jaw.arched.narrow.round.neutral"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "arched",
+            "build": "normal",
+            "eyes": "narrow",
+            "face_shape": "female_straight_jaw",
+            "hair": "bun",
+            "mouth": "smile",
+            "nose": "round",
+            "skin_palette": "warm"
+          },
+          "id": "female_straight_jaw.arched.narrow.round.smile"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "straight",
+            "build": "normal",
+            "eyes": "open",
+            "face_shape": "female_straight_jaw",
+            "hair": "bun",
+            "mouth": "neutral",
+            "nose": "straight",
+            "skin_palette": "warm"
+          },
+          "id": "female_straight_jaw.straight.open.straight.neutral"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "straight",
+            "build": "normal",
+            "eyes": "open",
+            "face_shape": "female_straight_jaw",
+            "hair": "bun",
+            "mouth": "smile",
+            "nose": "straight",
+            "skin_palette": "warm"
+          },
+          "id": "female_straight_jaw.straight.open.straight.smile"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "straight",
+            "build": "normal",
+            "eyes": "open",
+            "face_shape": "female_straight_jaw",
+            "hair": "bun",
+            "mouth": "neutral",
+            "nose": "round",
+            "skin_palette": "warm"
+          },
+          "id": "female_straight_jaw.straight.open.round.neutral"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "straight",
+            "build": "normal",
+            "eyes": "open",
+            "face_shape": "female_straight_jaw",
+            "hair": "bun",
+            "mouth": "smile",
+            "nose": "round",
+            "skin_palette": "warm"
+          },
+          "id": "female_straight_jaw.straight.open.round.smile"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "straight",
+            "build": "normal",
+            "eyes": "narrow",
+            "face_shape": "female_straight_jaw",
+            "hair": "bun",
+            "mouth": "neutral",
+            "nose": "straight",
+            "skin_palette": "warm"
+          },
+          "id": "female_straight_jaw.straight.narrow.straight.neutral"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "straight",
+            "build": "normal",
+            "eyes": "narrow",
+            "face_shape": "female_straight_jaw",
+            "hair": "bun",
+            "mouth": "smile",
+            "nose": "straight",
+            "skin_palette": "warm"
+          },
+          "id": "female_straight_jaw.straight.narrow.straight.smile"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "straight",
+            "build": "normal",
+            "eyes": "narrow",
+            "face_shape": "female_straight_jaw",
+            "hair": "bun",
+            "mouth": "neutral",
+            "nose": "round",
+            "skin_palette": "warm"
+          },
+          "id": "female_straight_jaw.straight.narrow.round.neutral"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "straight",
+            "build": "normal",
+            "eyes": "narrow",
+            "face_shape": "female_straight_jaw",
+            "hair": "bun",
+            "mouth": "smile",
+            "nose": "round",
+            "skin_palette": "warm"
+          },
+          "id": "female_straight_jaw.straight.narrow.round.smile"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "arched",
+            "build": "normal",
+            "eyes": "open",
+            "face_shape": "female_short_chin",
+            "hair": "bun",
+            "mouth": "neutral",
+            "nose": "straight",
+            "skin_palette": "warm"
+          },
+          "id": "female_short_chin.arched.open.straight.neutral"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "arched",
+            "build": "normal",
+            "eyes": "open",
+            "face_shape": "female_short_chin",
+            "hair": "bun",
+            "mouth": "smile",
+            "nose": "straight",
+            "skin_palette": "warm"
+          },
+          "id": "female_short_chin.arched.open.straight.smile"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "arched",
+            "build": "normal",
+            "eyes": "open",
+            "face_shape": "female_short_chin",
+            "hair": "bun",
+            "mouth": "neutral",
+            "nose": "round",
+            "skin_palette": "warm"
+          },
+          "id": "female_short_chin.arched.open.round.neutral"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "arched",
+            "build": "normal",
+            "eyes": "open",
+            "face_shape": "female_short_chin",
+            "hair": "bun",
+            "mouth": "smile",
+            "nose": "round",
+            "skin_palette": "warm"
+          },
+          "id": "female_short_chin.arched.open.round.smile"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "arched",
+            "build": "normal",
+            "eyes": "narrow",
+            "face_shape": "female_short_chin",
+            "hair": "bun",
+            "mouth": "neutral",
+            "nose": "straight",
+            "skin_palette": "warm"
+          },
+          "id": "female_short_chin.arched.narrow.straight.neutral"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "arched",
+            "build": "normal",
+            "eyes": "narrow",
+            "face_shape": "female_short_chin",
+            "hair": "bun",
+            "mouth": "smile",
+            "nose": "straight",
+            "skin_palette": "warm"
+          },
+          "id": "female_short_chin.arched.narrow.straight.smile"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "arched",
+            "build": "normal",
+            "eyes": "narrow",
+            "face_shape": "female_short_chin",
+            "hair": "bun",
+            "mouth": "neutral",
+            "nose": "round",
+            "skin_palette": "warm"
+          },
+          "id": "female_short_chin.arched.narrow.round.neutral"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "arched",
+            "build": "normal",
+            "eyes": "narrow",
+            "face_shape": "female_short_chin",
+            "hair": "bun",
+            "mouth": "smile",
+            "nose": "round",
+            "skin_palette": "warm"
+          },
+          "id": "female_short_chin.arched.narrow.round.smile"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "straight",
+            "build": "normal",
+            "eyes": "open",
+            "face_shape": "female_short_chin",
+            "hair": "bun",
+            "mouth": "neutral",
+            "nose": "straight",
+            "skin_palette": "warm"
+          },
+          "id": "female_short_chin.straight.open.straight.neutral"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "straight",
+            "build": "normal",
+            "eyes": "open",
+            "face_shape": "female_short_chin",
+            "hair": "bun",
+            "mouth": "smile",
+            "nose": "straight",
+            "skin_palette": "warm"
+          },
+          "id": "female_short_chin.straight.open.straight.smile"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "straight",
+            "build": "normal",
+            "eyes": "open",
+            "face_shape": "female_short_chin",
+            "hair": "bun",
+            "mouth": "neutral",
+            "nose": "round",
+            "skin_palette": "warm"
+          },
+          "id": "female_short_chin.straight.open.round.neutral"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "straight",
+            "build": "normal",
+            "eyes": "open",
+            "face_shape": "female_short_chin",
+            "hair": "bun",
+            "mouth": "smile",
+            "nose": "round",
+            "skin_palette": "warm"
+          },
+          "id": "female_short_chin.straight.open.round.smile"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "straight",
+            "build": "normal",
+            "eyes": "narrow",
+            "face_shape": "female_short_chin",
+            "hair": "bun",
+            "mouth": "neutral",
+            "nose": "straight",
+            "skin_palette": "warm"
+          },
+          "id": "female_short_chin.straight.narrow.straight.neutral"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "straight",
+            "build": "normal",
+            "eyes": "narrow",
+            "face_shape": "female_short_chin",
+            "hair": "bun",
+            "mouth": "smile",
+            "nose": "straight",
+            "skin_palette": "warm"
+          },
+          "id": "female_short_chin.straight.narrow.straight.smile"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "straight",
+            "build": "normal",
+            "eyes": "narrow",
+            "face_shape": "female_short_chin",
+            "hair": "bun",
+            "mouth": "neutral",
+            "nose": "round",
+            "skin_palette": "warm"
+          },
+          "id": "female_short_chin.straight.narrow.round.neutral"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "straight",
+            "build": "normal",
+            "eyes": "narrow",
+            "face_shape": "female_short_chin",
+            "hair": "bun",
+            "mouth": "smile",
+            "nose": "round",
+            "skin_palette": "warm"
+          },
+          "id": "female_short_chin.straight.narrow.round.smile"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "arched",
+            "build": "normal",
+            "eyes": "open",
+            "face_shape": "female_high_cheek",
+            "hair": "bun",
+            "mouth": "neutral",
+            "nose": "straight",
+            "skin_palette": "warm"
+          },
+          "id": "female_high_cheek.arched.open.straight.neutral"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "arched",
+            "build": "normal",
+            "eyes": "open",
+            "face_shape": "female_high_cheek",
+            "hair": "bun",
+            "mouth": "smile",
+            "nose": "straight",
+            "skin_palette": "warm"
+          },
+          "id": "female_high_cheek.arched.open.straight.smile"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "arched",
+            "build": "normal",
+            "eyes": "open",
+            "face_shape": "female_high_cheek",
+            "hair": "bun",
+            "mouth": "neutral",
+            "nose": "round",
+            "skin_palette": "warm"
+          },
+          "id": "female_high_cheek.arched.open.round.neutral"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "arched",
+            "build": "normal",
+            "eyes": "open",
+            "face_shape": "female_high_cheek",
+            "hair": "bun",
+            "mouth": "smile",
+            "nose": "round",
+            "skin_palette": "warm"
+          },
+          "id": "female_high_cheek.arched.open.round.smile"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "arched",
+            "build": "normal",
+            "eyes": "narrow",
+            "face_shape": "female_high_cheek",
+            "hair": "bun",
+            "mouth": "neutral",
+            "nose": "straight",
+            "skin_palette": "warm"
+          },
+          "id": "female_high_cheek.arched.narrow.straight.neutral"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "arched",
+            "build": "normal",
+            "eyes": "narrow",
+            "face_shape": "female_high_cheek",
+            "hair": "bun",
+            "mouth": "smile",
+            "nose": "straight",
+            "skin_palette": "warm"
+          },
+          "id": "female_high_cheek.arched.narrow.straight.smile"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "arched",
+            "build": "normal",
+            "eyes": "narrow",
+            "face_shape": "female_high_cheek",
+            "hair": "bun",
+            "mouth": "neutral",
+            "nose": "round",
+            "skin_palette": "warm"
+          },
+          "id": "female_high_cheek.arched.narrow.round.neutral"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "arched",
+            "build": "normal",
+            "eyes": "narrow",
+            "face_shape": "female_high_cheek",
+            "hair": "bun",
+            "mouth": "smile",
+            "nose": "round",
+            "skin_palette": "warm"
+          },
+          "id": "female_high_cheek.arched.narrow.round.smile"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "straight",
+            "build": "normal",
+            "eyes": "open",
+            "face_shape": "female_high_cheek",
+            "hair": "bun",
+            "mouth": "neutral",
+            "nose": "straight",
+            "skin_palette": "warm"
+          },
+          "id": "female_high_cheek.straight.open.straight.neutral"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "straight",
+            "build": "normal",
+            "eyes": "open",
+            "face_shape": "female_high_cheek",
+            "hair": "bun",
+            "mouth": "smile",
+            "nose": "straight",
+            "skin_palette": "warm"
+          },
+          "id": "female_high_cheek.straight.open.straight.smile"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "straight",
+            "build": "normal",
+            "eyes": "open",
+            "face_shape": "female_high_cheek",
+            "hair": "bun",
+            "mouth": "neutral",
+            "nose": "round",
+            "skin_palette": "warm"
+          },
+          "id": "female_high_cheek.straight.open.round.neutral"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "straight",
+            "build": "normal",
+            "eyes": "open",
+            "face_shape": "female_high_cheek",
+            "hair": "bun",
+            "mouth": "smile",
+            "nose": "round",
+            "skin_palette": "warm"
+          },
+          "id": "female_high_cheek.straight.open.round.smile"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "straight",
+            "build": "normal",
+            "eyes": "narrow",
+            "face_shape": "female_high_cheek",
+            "hair": "bun",
+            "mouth": "neutral",
+            "nose": "straight",
+            "skin_palette": "warm"
+          },
+          "id": "female_high_cheek.straight.narrow.straight.neutral"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "straight",
+            "build": "normal",
+            "eyes": "narrow",
+            "face_shape": "female_high_cheek",
+            "hair": "bun",
+            "mouth": "smile",
+            "nose": "straight",
+            "skin_palette": "warm"
+          },
+          "id": "female_high_cheek.straight.narrow.straight.smile"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "straight",
+            "build": "normal",
+            "eyes": "narrow",
+            "face_shape": "female_high_cheek",
+            "hair": "bun",
+            "mouth": "neutral",
+            "nose": "round",
+            "skin_palette": "warm"
+          },
+          "id": "female_high_cheek.straight.narrow.round.neutral"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "straight",
+            "build": "normal",
+            "eyes": "narrow",
+            "face_shape": "female_high_cheek",
+            "hair": "bun",
+            "mouth": "smile",
+            "nose": "round",
+            "skin_palette": "warm"
+          },
+          "id": "female_high_cheek.straight.narrow.round.smile"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "arched",
+            "build": "normal",
+            "eyes": "open",
+            "face_shape": "long_narrow",
+            "hair": "bun",
+            "mouth": "neutral",
+            "nose": "straight",
+            "skin_palette": "warm"
+          },
+          "id": "long_narrow.arched.open.straight.neutral"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "arched",
+            "build": "normal",
+            "eyes": "open",
+            "face_shape": "long_narrow",
+            "hair": "bun",
+            "mouth": "smile",
+            "nose": "straight",
+            "skin_palette": "warm"
+          },
+          "id": "long_narrow.arched.open.straight.smile"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "arched",
+            "build": "normal",
+            "eyes": "open",
+            "face_shape": "long_narrow",
+            "hair": "bun",
+            "mouth": "neutral",
+            "nose": "round",
+            "skin_palette": "warm"
+          },
+          "id": "long_narrow.arched.open.round.neutral"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "arched",
+            "build": "normal",
+            "eyes": "open",
+            "face_shape": "long_narrow",
+            "hair": "bun",
+            "mouth": "smile",
+            "nose": "round",
+            "skin_palette": "warm"
+          },
+          "id": "long_narrow.arched.open.round.smile"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "arched",
+            "build": "normal",
+            "eyes": "narrow",
+            "face_shape": "long_narrow",
+            "hair": "bun",
+            "mouth": "neutral",
+            "nose": "straight",
+            "skin_palette": "warm"
+          },
+          "id": "long_narrow.arched.narrow.straight.neutral"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "arched",
+            "build": "normal",
+            "eyes": "narrow",
+            "face_shape": "long_narrow",
+            "hair": "bun",
+            "mouth": "smile",
+            "nose": "straight",
+            "skin_palette": "warm"
+          },
+          "id": "long_narrow.arched.narrow.straight.smile"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "arched",
+            "build": "normal",
+            "eyes": "narrow",
+            "face_shape": "long_narrow",
+            "hair": "bun",
+            "mouth": "neutral",
+            "nose": "round",
+            "skin_palette": "warm"
+          },
+          "id": "long_narrow.arched.narrow.round.neutral"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "arched",
+            "build": "normal",
+            "eyes": "narrow",
+            "face_shape": "long_narrow",
+            "hair": "bun",
+            "mouth": "smile",
+            "nose": "round",
+            "skin_palette": "warm"
+          },
+          "id": "long_narrow.arched.narrow.round.smile"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "straight",
+            "build": "normal",
+            "eyes": "open",
+            "face_shape": "long_narrow",
+            "hair": "bun",
+            "mouth": "neutral",
+            "nose": "straight",
+            "skin_palette": "warm"
+          },
+          "id": "long_narrow.straight.open.straight.neutral"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "straight",
+            "build": "normal",
+            "eyes": "open",
+            "face_shape": "long_narrow",
+            "hair": "bun",
+            "mouth": "smile",
+            "nose": "straight",
+            "skin_palette": "warm"
+          },
+          "id": "long_narrow.straight.open.straight.smile"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "straight",
+            "build": "normal",
+            "eyes": "open",
+            "face_shape": "long_narrow",
+            "hair": "bun",
+            "mouth": "neutral",
+            "nose": "round",
+            "skin_palette": "warm"
+          },
+          "id": "long_narrow.straight.open.round.neutral"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "straight",
+            "build": "normal",
+            "eyes": "open",
+            "face_shape": "long_narrow",
+            "hair": "bun",
+            "mouth": "smile",
+            "nose": "round",
+            "skin_palette": "warm"
+          },
+          "id": "long_narrow.straight.open.round.smile"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "straight",
+            "build": "normal",
+            "eyes": "narrow",
+            "face_shape": "long_narrow",
+            "hair": "bun",
+            "mouth": "neutral",
+            "nose": "straight",
+            "skin_palette": "warm"
+          },
+          "id": "long_narrow.straight.narrow.straight.neutral"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "straight",
+            "build": "normal",
+            "eyes": "narrow",
+            "face_shape": "long_narrow",
+            "hair": "bun",
+            "mouth": "smile",
+            "nose": "straight",
+            "skin_palette": "warm"
+          },
+          "id": "long_narrow.straight.narrow.straight.smile"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "straight",
+            "build": "normal",
+            "eyes": "narrow",
+            "face_shape": "long_narrow",
+            "hair": "bun",
+            "mouth": "neutral",
+            "nose": "round",
+            "skin_palette": "warm"
+          },
+          "id": "long_narrow.straight.narrow.round.neutral"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "straight",
+            "build": "normal",
+            "eyes": "narrow",
+            "face_shape": "long_narrow",
+            "hair": "bun",
+            "mouth": "smile",
+            "nose": "round",
+            "skin_palette": "warm"
+          },
+          "id": "long_narrow.straight.narrow.round.smile"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "arched",
+            "build": "normal",
+            "eyes": "open",
+            "face_shape": "long_straight_jaw",
+            "hair": "bun",
+            "mouth": "neutral",
+            "nose": "straight",
+            "skin_palette": "warm"
+          },
+          "id": "long_straight_jaw.arched.open.straight.neutral"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "arched",
+            "build": "normal",
+            "eyes": "open",
+            "face_shape": "long_straight_jaw",
+            "hair": "bun",
+            "mouth": "smile",
+            "nose": "straight",
+            "skin_palette": "warm"
+          },
+          "id": "long_straight_jaw.arched.open.straight.smile"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "arched",
+            "build": "normal",
+            "eyes": "open",
+            "face_shape": "long_straight_jaw",
+            "hair": "bun",
+            "mouth": "neutral",
+            "nose": "round",
+            "skin_palette": "warm"
+          },
+          "id": "long_straight_jaw.arched.open.round.neutral"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "arched",
+            "build": "normal",
+            "eyes": "open",
+            "face_shape": "long_straight_jaw",
+            "hair": "bun",
+            "mouth": "smile",
+            "nose": "round",
+            "skin_palette": "warm"
+          },
+          "id": "long_straight_jaw.arched.open.round.smile"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "arched",
+            "build": "normal",
+            "eyes": "narrow",
+            "face_shape": "long_straight_jaw",
+            "hair": "bun",
+            "mouth": "neutral",
+            "nose": "straight",
+            "skin_palette": "warm"
+          },
+          "id": "long_straight_jaw.arched.narrow.straight.neutral"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "arched",
+            "build": "normal",
+            "eyes": "narrow",
+            "face_shape": "long_straight_jaw",
+            "hair": "bun",
+            "mouth": "smile",
+            "nose": "straight",
+            "skin_palette": "warm"
+          },
+          "id": "long_straight_jaw.arched.narrow.straight.smile"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "arched",
+            "build": "normal",
+            "eyes": "narrow",
+            "face_shape": "long_straight_jaw",
+            "hair": "bun",
+            "mouth": "neutral",
+            "nose": "round",
+            "skin_palette": "warm"
+          },
+          "id": "long_straight_jaw.arched.narrow.round.neutral"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "arched",
+            "build": "normal",
+            "eyes": "narrow",
+            "face_shape": "long_straight_jaw",
+            "hair": "bun",
+            "mouth": "smile",
+            "nose": "round",
+            "skin_palette": "warm"
+          },
+          "id": "long_straight_jaw.arched.narrow.round.smile"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "straight",
+            "build": "normal",
+            "eyes": "open",
+            "face_shape": "long_straight_jaw",
+            "hair": "bun",
+            "mouth": "neutral",
+            "nose": "straight",
+            "skin_palette": "warm"
+          },
+          "id": "long_straight_jaw.straight.open.straight.neutral"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "straight",
+            "build": "normal",
+            "eyes": "open",
+            "face_shape": "long_straight_jaw",
+            "hair": "bun",
+            "mouth": "smile",
+            "nose": "straight",
+            "skin_palette": "warm"
+          },
+          "id": "long_straight_jaw.straight.open.straight.smile"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "straight",
+            "build": "normal",
+            "eyes": "open",
+            "face_shape": "long_straight_jaw",
+            "hair": "bun",
+            "mouth": "neutral",
+            "nose": "round",
+            "skin_palette": "warm"
+          },
+          "id": "long_straight_jaw.straight.open.round.neutral"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "straight",
+            "build": "normal",
+            "eyes": "open",
+            "face_shape": "long_straight_jaw",
+            "hair": "bun",
+            "mouth": "smile",
+            "nose": "round",
+            "skin_palette": "warm"
+          },
+          "id": "long_straight_jaw.straight.open.round.smile"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "straight",
+            "build": "normal",
+            "eyes": "narrow",
+            "face_shape": "long_straight_jaw",
+            "hair": "bun",
+            "mouth": "neutral",
+            "nose": "straight",
+            "skin_palette": "warm"
+          },
+          "id": "long_straight_jaw.straight.narrow.straight.neutral"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "straight",
+            "build": "normal",
+            "eyes": "narrow",
+            "face_shape": "long_straight_jaw",
+            "hair": "bun",
+            "mouth": "smile",
+            "nose": "straight",
+            "skin_palette": "warm"
+          },
+          "id": "long_straight_jaw.straight.narrow.straight.smile"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "straight",
+            "build": "normal",
+            "eyes": "narrow",
+            "face_shape": "long_straight_jaw",
+            "hair": "bun",
+            "mouth": "neutral",
+            "nose": "round",
+            "skin_palette": "warm"
+          },
+          "id": "long_straight_jaw.straight.narrow.round.neutral"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "straight",
+            "build": "normal",
+            "eyes": "narrow",
+            "face_shape": "long_straight_jaw",
+            "hair": "bun",
+            "mouth": "smile",
+            "nose": "round",
+            "skin_palette": "warm"
+          },
+          "id": "long_straight_jaw.straight.narrow.round.smile"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "arched",
+            "build": "normal",
+            "eyes": "open",
+            "face_shape": "long_full_oval",
+            "hair": "bun",
+            "mouth": "neutral",
+            "nose": "straight",
+            "skin_palette": "warm"
+          },
+          "id": "long_full_oval.arched.open.straight.neutral"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "arched",
+            "build": "normal",
+            "eyes": "open",
+            "face_shape": "long_full_oval",
+            "hair": "bun",
+            "mouth": "smile",
+            "nose": "straight",
+            "skin_palette": "warm"
+          },
+          "id": "long_full_oval.arched.open.straight.smile"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "arched",
+            "build": "normal",
+            "eyes": "open",
+            "face_shape": "long_full_oval",
+            "hair": "bun",
+            "mouth": "neutral",
+            "nose": "round",
+            "skin_palette": "warm"
+          },
+          "id": "long_full_oval.arched.open.round.neutral"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "arched",
+            "build": "normal",
+            "eyes": "open",
+            "face_shape": "long_full_oval",
+            "hair": "bun",
+            "mouth": "smile",
+            "nose": "round",
+            "skin_palette": "warm"
+          },
+          "id": "long_full_oval.arched.open.round.smile"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "arched",
+            "build": "normal",
+            "eyes": "narrow",
+            "face_shape": "long_full_oval",
+            "hair": "bun",
+            "mouth": "neutral",
+            "nose": "straight",
+            "skin_palette": "warm"
+          },
+          "id": "long_full_oval.arched.narrow.straight.neutral"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "arched",
+            "build": "normal",
+            "eyes": "narrow",
+            "face_shape": "long_full_oval",
+            "hair": "bun",
+            "mouth": "smile",
+            "nose": "straight",
+            "skin_palette": "warm"
+          },
+          "id": "long_full_oval.arched.narrow.straight.smile"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "arched",
+            "build": "normal",
+            "eyes": "narrow",
+            "face_shape": "long_full_oval",
+            "hair": "bun",
+            "mouth": "neutral",
+            "nose": "round",
+            "skin_palette": "warm"
+          },
+          "id": "long_full_oval.arched.narrow.round.neutral"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "arched",
+            "build": "normal",
+            "eyes": "narrow",
+            "face_shape": "long_full_oval",
+            "hair": "bun",
+            "mouth": "smile",
+            "nose": "round",
+            "skin_palette": "warm"
+          },
+          "id": "long_full_oval.arched.narrow.round.smile"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "straight",
+            "build": "normal",
+            "eyes": "open",
+            "face_shape": "long_full_oval",
+            "hair": "bun",
+            "mouth": "neutral",
+            "nose": "straight",
+            "skin_palette": "warm"
+          },
+          "id": "long_full_oval.straight.open.straight.neutral"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "straight",
+            "build": "normal",
+            "eyes": "open",
+            "face_shape": "long_full_oval",
+            "hair": "bun",
+            "mouth": "smile",
+            "nose": "straight",
+            "skin_palette": "warm"
+          },
+          "id": "long_full_oval.straight.open.straight.smile"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "straight",
+            "build": "normal",
+            "eyes": "open",
+            "face_shape": "long_full_oval",
+            "hair": "bun",
+            "mouth": "neutral",
+            "nose": "round",
+            "skin_palette": "warm"
+          },
+          "id": "long_full_oval.straight.open.round.neutral"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "straight",
+            "build": "normal",
+            "eyes": "open",
+            "face_shape": "long_full_oval",
+            "hair": "bun",
+            "mouth": "smile",
+            "nose": "round",
+            "skin_palette": "warm"
+          },
+          "id": "long_full_oval.straight.open.round.smile"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "straight",
+            "build": "normal",
+            "eyes": "narrow",
+            "face_shape": "long_full_oval",
+            "hair": "bun",
+            "mouth": "neutral",
+            "nose": "straight",
+            "skin_palette": "warm"
+          },
+          "id": "long_full_oval.straight.narrow.straight.neutral"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "straight",
+            "build": "normal",
+            "eyes": "narrow",
+            "face_shape": "long_full_oval",
+            "hair": "bun",
+            "mouth": "smile",
+            "nose": "straight",
+            "skin_palette": "warm"
+          },
+          "id": "long_full_oval.straight.narrow.straight.smile"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "straight",
+            "build": "normal",
+            "eyes": "narrow",
+            "face_shape": "long_full_oval",
+            "hair": "bun",
+            "mouth": "neutral",
+            "nose": "round",
+            "skin_palette": "warm"
+          },
+          "id": "long_full_oval.straight.narrow.round.neutral"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "straight",
+            "build": "normal",
+            "eyes": "narrow",
+            "face_shape": "long_full_oval",
+            "hair": "bun",
+            "mouth": "smile",
+            "nose": "round",
+            "skin_palette": "warm"
+          },
+          "id": "long_full_oval.straight.narrow.round.smile"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "arched",
+            "build": "normal",
+            "eyes": "open",
+            "face_shape": "long_high_cheek",
+            "hair": "bun",
+            "mouth": "neutral",
+            "nose": "straight",
+            "skin_palette": "warm"
+          },
+          "id": "long_high_cheek.arched.open.straight.neutral"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "arched",
+            "build": "normal",
+            "eyes": "open",
+            "face_shape": "long_high_cheek",
+            "hair": "bun",
+            "mouth": "smile",
+            "nose": "straight",
+            "skin_palette": "warm"
+          },
+          "id": "long_high_cheek.arched.open.straight.smile"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "arched",
+            "build": "normal",
+            "eyes": "open",
+            "face_shape": "long_high_cheek",
+            "hair": "bun",
+            "mouth": "neutral",
+            "nose": "round",
+            "skin_palette": "warm"
+          },
+          "id": "long_high_cheek.arched.open.round.neutral"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "arched",
+            "build": "normal",
+            "eyes": "open",
+            "face_shape": "long_high_cheek",
+            "hair": "bun",
+            "mouth": "smile",
+            "nose": "round",
+            "skin_palette": "warm"
+          },
+          "id": "long_high_cheek.arched.open.round.smile"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "arched",
+            "build": "normal",
+            "eyes": "narrow",
+            "face_shape": "long_high_cheek",
+            "hair": "bun",
+            "mouth": "neutral",
+            "nose": "straight",
+            "skin_palette": "warm"
+          },
+          "id": "long_high_cheek.arched.narrow.straight.neutral"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "arched",
+            "build": "normal",
+            "eyes": "narrow",
+            "face_shape": "long_high_cheek",
+            "hair": "bun",
+            "mouth": "smile",
+            "nose": "straight",
+            "skin_palette": "warm"
+          },
+          "id": "long_high_cheek.arched.narrow.straight.smile"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "arched",
+            "build": "normal",
+            "eyes": "narrow",
+            "face_shape": "long_high_cheek",
+            "hair": "bun",
+            "mouth": "neutral",
+            "nose": "round",
+            "skin_palette": "warm"
+          },
+          "id": "long_high_cheek.arched.narrow.round.neutral"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "arched",
+            "build": "normal",
+            "eyes": "narrow",
+            "face_shape": "long_high_cheek",
+            "hair": "bun",
+            "mouth": "smile",
+            "nose": "round",
+            "skin_palette": "warm"
+          },
+          "id": "long_high_cheek.arched.narrow.round.smile"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "straight",
+            "build": "normal",
+            "eyes": "open",
+            "face_shape": "long_high_cheek",
+            "hair": "bun",
+            "mouth": "neutral",
+            "nose": "straight",
+            "skin_palette": "warm"
+          },
+          "id": "long_high_cheek.straight.open.straight.neutral"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "straight",
+            "build": "normal",
+            "eyes": "open",
+            "face_shape": "long_high_cheek",
+            "hair": "bun",
+            "mouth": "smile",
+            "nose": "straight",
+            "skin_palette": "warm"
+          },
+          "id": "long_high_cheek.straight.open.straight.smile"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "straight",
+            "build": "normal",
+            "eyes": "open",
+            "face_shape": "long_high_cheek",
+            "hair": "bun",
+            "mouth": "neutral",
+            "nose": "round",
+            "skin_palette": "warm"
+          },
+          "id": "long_high_cheek.straight.open.round.neutral"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "straight",
+            "build": "normal",
+            "eyes": "open",
+            "face_shape": "long_high_cheek",
+            "hair": "bun",
+            "mouth": "smile",
+            "nose": "round",
+            "skin_palette": "warm"
+          },
+          "id": "long_high_cheek.straight.open.round.smile"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "straight",
+            "build": "normal",
+            "eyes": "narrow",
+            "face_shape": "long_high_cheek",
+            "hair": "bun",
+            "mouth": "neutral",
+            "nose": "straight",
+            "skin_palette": "warm"
+          },
+          "id": "long_high_cheek.straight.narrow.straight.neutral"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "straight",
+            "build": "normal",
+            "eyes": "narrow",
+            "face_shape": "long_high_cheek",
+            "hair": "bun",
+            "mouth": "smile",
+            "nose": "straight",
+            "skin_palette": "warm"
+          },
+          "id": "long_high_cheek.straight.narrow.straight.smile"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "straight",
+            "build": "normal",
+            "eyes": "narrow",
+            "face_shape": "long_high_cheek",
+            "hair": "bun",
+            "mouth": "neutral",
+            "nose": "round",
+            "skin_palette": "warm"
+          },
+          "id": "long_high_cheek.straight.narrow.round.neutral"
+        },
+        {
+          "attire_style": "plain",
+          "base_features": {
+            "beard": "none",
+            "brows": "straight",
+            "build": "normal",
+            "eyes": "narrow",
+            "face_shape": "long_high_cheek",
+            "hair": "bun",
+            "mouth": "smile",
+            "nose": "round",
+            "skin_palette": "warm"
+          },
+          "id": "long_high_cheek.straight.narrow.round.smile"
+        }
+      ],
+      "player_plan_profile": "known_life_v1",
+      "player_start_descriptions": [
+        {
+          "actor_id": "society::actor.apprentice",
+          "text_key": "society::start.apprentice.description"
+        },
+        {
+          "actor_id": "society::actor.study_swordswoman",
+          "text_key": "society::start.swordswoman.description"
+        }
+      ],
+      "seed_text": "qingchuan-actual-letter-reports-v2",
+      "start_date": {
+        "day_of_year": 61,
+        "half_day": 0,
+        "year": 207
+      },
+      "task_offer_response_profile": "known_offers_v1",
+      "task_message_handoff_profile": "known_personal_delivery_and_report_v3",
+      "task_static_asset_profile": "original_task_assets_v1",
+      "family_life": {
+        "profile": "verified_military_deaths_v1",
+        "player_death": "await_explicit_continuation"
+      }
+    }
+  ],
+  "settlements": [],
+  "shops": [],
+  "siege_topologies": [],
+  "strongholds": [],
+  "task_templates": [],
+  "troop_types": [],
+  "wallets": [],
+  "world_maps": []
+}

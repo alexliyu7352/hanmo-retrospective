@@ -1,0 +1,23 @@
+// Original RepairPolicy and item_instances/3 repair tail, one field table.
+#pragma once
+#include "repair_model.hpp"
+namespace hanmo::resident::repair_fields {
+template<class C>void fields(C&c,RepairPolicyRef&v){c("policy_id",v.policy_id);c("version",v.version);}
+template<class C>void fields(C&c,RepairMaterialRequirement&v){c("definition_id",v.definition_id);c("quantity",v.quantity);}
+template<class C>void fields(C&c,RepairPolicy&v){c("policy_id",v.policy_id);c("version",v.version);c("applicable_definitions",v.applicable_definitions);c("required_skill_id",v.required_skill_id);c("minimum_skill_level",v.minimum_skill_level);c("minimum_equipment_level",v.minimum_equipment_level);c("workstation_slot_kind",v.workstation_slot_kind);c("materials",v.materials);c("duration_half_days",v.duration_half_days);c("fee_qian",v.fee_qian);c("condition_rule",v.condition_rule);c("fee_policy_ref",v.fee_policy_ref);c("custody_policy_ref",v.custody_policy_ref);}
+template<class C>void fields(C&c,RepairPolicyCatalog&v){c("policies",v.policies);}
+template<class C,class V>void condition_head_fields(C&c,V&v){c("instance_id",v.instance_id);c("instance_version",v.instance_version);c("last_condition_result_ref",v.last_condition_result_ref);}
+template<class C>void fields(C&c,ItemConditionHead&v){condition_head_fields(c,v);}
+template<class C>void fields(C&c,const ItemConditionHeadBuildView&v){condition_head_fields(c,v);}
+template<class C>void fields(C&c,RepairMaterialSelection&v){c("material_index",v.material_index);c("selected",v.selected);c("legal_owner",v.legal_owner);}
+template<class C>void fields(C&c,RepairReservedMaterial&v){c("selection_ordinal",v.selection_ordinal);c("original",v.original);c("held",v.held);c("definition_id",v.definition_id);c("legal_owner",v.legal_owner);c("properties_ref",v.properties_ref);}
+template<class C>void fields(C&c,RepairAcceptedTerms&v){c("policy_ref",v.policy_ref);c("instance_id",v.instance_id);c("worker_id",v.worker_id);c("original_item",v.original_item);c("legal_owner",v.legal_owner);c("condition_head",v.condition_head);c("workstation",v.workstation);c("actual_contact_ref",v.actual_contact_ref);c("owner_authority_ref",v.owner_authority_ref);c("fee_terms_ref",v.fee_terms_ref);c("return_terms_ref",v.return_terms_ref);c("delivered_custody_source_ref",v.delivered_custody_source_ref);c("terms_revision",v.terms_revision);}
+template<class C>void fields(C&c,RepairAcceptedSource&v){c("id",v.id);c("terms",v.terms);c("accepted_at",v.accepted_at);}
+template<class C>void fields(C&c,RepairUnstartedInterruptionSource&v){c("id",v.id);c("accepted_service_ref",v.accepted_service_ref);c("occurred_at",v.occurred_at);c("actual_cause",v.actual_cause);}
+template<class C>void fields(C&c,RepairTerms&v){c("policy_ref",v.policy_ref);c("instance_id",v.instance_id);c("worker_id",v.worker_id);c("accepted_service_ref",v.accepted_service_ref);c("custody_source_ref",v.custody_source_ref);c("original_item",v.original_item);c("legal_owner",v.legal_owner);c("service_holder",v.service_holder);c("condition_head",v.condition_head);c("worker_condition_head",v.worker_condition_head);c("materials",v.materials);c("workstation",v.workstation);c("fee_terms_ref",v.fee_terms_ref);c("return_terms_ref",v.return_terms_ref);c("accepted_at",v.accepted_at);c("terms_revision",v.terms_revision);}
+template<class C>void fields(C&c,RepairJob&v){c("id",v.id);c("action_id",v.action_id);c("terms",v.terms);c("started_at",v.started_at);c("material_reservations",v.material_reservations);c("claim_refs",v.claim_refs);c("control_refs",v.control_refs);c("facility_occupancy_event_refs",v.facility_occupancy_event_refs);c("completed_ref",v.completed_ref);c("interrupted_ref",v.interrupted_ref);c("returned_ref",v.returned_ref);c("phase",v.phase);}
+template<class C>void fields(C&c,RepairControlSource&v){c("id",v.id);c("job_id",v.job_id);c("kind",v.kind);c("occurred_at",v.occurred_at);c("actual_cause",v.actual_cause);c("adopted_inputs",v.adopted_inputs);c("facility_until",v.facility_until);}
+template<class C>void fields(C&c,RepairCompletedSource&v){c("id",v.id);c("job_id",v.job_id);c("occurred_at",v.occurred_at);c("consumed_materials",v.consumed_materials);c("actual_fee_sources",v.actual_fee_sources);c("condition_result_ref",v.condition_result_ref);}
+template<class C>void fields(C&c,RepairInterruptedSource&v){c("id",v.id);c("job_id",v.job_id);c("occurred_at",v.occurred_at);c("actual_cause",v.actual_cause);}
+template<class C>void fields(C&c,RepairJobsState&v){c("acceptances",v.acceptances);c("jobs",v.jobs);c("controls",v.controls);c("completions",v.completions);c("interruptions",v.interruptions);c("unstarted_interruptions",v.unstarted_interruptions);}
+}

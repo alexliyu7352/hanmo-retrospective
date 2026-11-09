@@ -1,0 +1,15 @@
+#include "authority_registry.hpp"
+#include "resident/checkpoint/codec_visitor.hpp"
+namespace hanmo::resident {
+namespace {bool same(const SourceRef& a,const SourceRef& b){return a.domain==b.domain&&a.kind==b.kind&&a.id==b.id;}}
+Outcome<AuthorityBasisRef> register_authority_basis_for_fact(CommonStore& common,AuthorityBasisRegistry& registry,const OrganizationState& state,const OrganizationCatalog& catalog,const CatalogIdentity& identity,const SingleGrantAuthorityRequest& request,const SingleGrantAuthorityRead& captured,const SourceRef& source,const AuthorityIssueSourceRead& sources,const std::optional<BudgetAuthorizationRef>& budget,const AuthorityBudgetRead* budgets){
+ if(registry.find(source.id))return {false,{},common_failure("AuthorityBasisAlreadyIssued",source.id).error};
+ auto basis=make_authority_basis_for_fact(common,state,catalog,identity,request,captured,source,sources,budget,budgets);if(!basis.ok)return {false,{},basis.error};
+ if(!registry.insert(source.id,std::move(basis.value)))return {false,{},common_failure("DuplicateAuthorityBasis",source.id).error};return {true,{source,1},{}};
+}
+Outcome<const AuthorityBasis*> read_registered_authority_basis(const CommonStore& common,const AuthorityBasisRegistry& registry,const OrganizationState& state,const OrganizationCatalog& catalog,const CatalogIdentity& identity,const AuthorityBasisRef& ref,const AuthorityIssueSourceRead& sources,const AuthorityBudgetRead* budgets){
+ if(ref.source_schema!=1)return {false,nullptr,common_failure("UnsupportedAuthorityBasisSchema",ref.issued_source.id).error};const auto* basis=registry.find(ref.issued_source.id);if(!basis||!same(basis->issued_source,ref.issued_source))return {false,nullptr,common_failure("AuthorityBasisReferenceMissing",ref.issued_source.id).error};auto valid=validate_historical_authority_basis(common,state,catalog,identity,*basis,sources,budgets);return {valid.ok,valid.ok?basis:nullptr,valid.error};
+}
+Status validate_authority_basis_registry(const CommonStore& common,const AuthorityBasisRegistry& registry,const OrganizationState& state,const OrganizationCatalog& catalog,const CatalogIdentity& identity,const AuthorityIssueSourceRead& sources,const AuthorityBudgetRead* budgets){for(const auto& row:registry.rows()){if(row.first!=row.second.issued_source.id)return common_failure("AuthorityBasisRegistryKeyMismatch",row.first);auto valid=read_registered_authority_basis(common,registry,state,catalog,identity,{row.second.issued_source,1},sources,budgets);if(!valid.ok)return {false,{},valid.error};}return common_success();}
+Status visit_authority_basis_ref(CodecVisitor& codec,AuthorityBasisRef& ref){codec.object("issued_source",[&](CodecVisitor& c){c.field("domain",ref.issued_source.domain);c.field("kind",ref.issued_source.kind);return c.field("id",ref.issued_source.id);});codec.field("source_schema",ref.source_schema);if(codec.status().ok&&(ref.source_schema!=1||ref.issued_source.domain.empty()||ref.issued_source.kind.empty()||ref.issued_source.id.empty()))return codec.reject("InvalidAuthorityBasisRef");return codec.status();}
+}

@@ -1,0 +1,13 @@
+// 新任期继位只按独立module版本选择，不占原32位feature或宽化旧PoliticsEffects授权。
+#pragma once
+#include "political_successor_round_business.hpp"
+#include "resident/domains/politics/politics_model.hpp"
+namespace hanmo::resident {
+Outcome<Integer> political_successor_round_selected_version(const std::vector<std::pair<StableId,StableId>>&);
+Outcome<std::optional<PoliticalSuccessorRoundCatalog>> decode_political_successor_round_profile(const BoundaryValue&,const std::vector<StableId>&);
+Status validate_political_successor_round_layout(const CommonStore&,const std::vector<std::pair<StableId,StableId>>&,const PoliticalSuccessorRoundState*);
+Status validate_political_successor_round_fact_header(const CommonStore&,const PoliticalSuccessorRoundState&,const FactRecord&);
+bool is_political_successor_round_fact_kind(const StableId&);
+// 明细只允许该命令对应的规范来源ID；真正任职/永久结果由完整本账冷验。
+bool valid_political_successor_round_effect(const StableId&,const PoliticsEffects&);
+}

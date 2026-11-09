@@ -1,0 +1,14 @@
+{
+  "format": "HM-PACK-SELECTION",
+  "format_version": 1,
+  "packs": [
+    {
+      "id": "hanmo.local_society",
+      "version": "1.8.0"
+    },
+    {
+      "id": "hanmo.private_shops",
+      "version": "1.2.0"
+    }
+  ]
+}

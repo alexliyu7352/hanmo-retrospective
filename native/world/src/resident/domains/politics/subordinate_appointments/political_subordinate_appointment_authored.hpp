@@ -1,0 +1,10 @@
+// 仅内部政治事业提案可附作者来源，原外部decoder没有该包装命令。
+#pragma once
+#include "political_subordinate_appointment_intents.hpp"
+#include "political_subordinate_appointment_state.hpp"
+namespace hanmo::resident {
+struct AuthoredSubordinateAppointmentCommand {PoliticalSubordinateAppointmentAuthoredOrigin origin;PoliticalSubordinateAppointmentCommand command;};
+Status validate_political_subordinate_authored_command(const CommonStore&,const PoliticalSubordinateAppointmentState&,const PoliticsCatalog&,const PoliticalSubordinateAppointmentCatalog&,const PoliticalSubordinateAppointmentIntentCatalog&,const PoliticalSubordinateCareerPolicyRead&,const PoliticalSubordinateAppointmentAuthoredOrigin&,const StableId&,const PoliticalSubordinateAppointmentCommand&);
+// 完整本业务、Office、Family控制前置；明确原事实前非玩家，不能靠无回执推断NPC。
+Status validate_political_subordinate_authored_source(const CommonStore&,const PoliticalSubordinateAppointmentState&,const PoliticsCatalog&,const PoliticalSubordinateAppointmentCatalog&,const PoliticalSubordinateAppointmentIntentCatalog&,const PoliticalSubordinateCareerPolicyRead&,const StableId& actual_fact,const PoliticalSuccessionPlayerRead&);
+}

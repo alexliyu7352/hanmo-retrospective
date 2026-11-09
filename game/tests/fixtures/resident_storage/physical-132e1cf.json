@@ -1,0 +1,29 @@
+{
+  "test_commit": "b0cf461cffb2b909402b61390fdddf4d44050cc5",
+  "writer_commit": "132e1cfcbf798fd5fe60ebef6c9255e45b63de8c",
+  "writer_sha256": "dc80eb282533379964a56f75d4bc06a7d560d8a8e23606d0ae59fd70b47309ef",
+  "test_sha256": "4e7517c928bb472c3232c4aa571ea6b9a76436c2b3ce1956f8f8139634e55f45",
+  "codec_sha256": "0881a5b19a3d5a62fe799f60775f219b071cb6630a4b067e75b1d7a3cddf0715",
+  "engine_version": "4.7.2.stable.official.ed1daf0bf",
+  "returncode": 0,
+  "checks": 104,
+  "failures": 0,
+  "output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\nRESIDENT_NATIVE_STORAGE_CHECKS=104 FAILURES=0 ROOT=<本地路径> SCOPE=physical writer with explicit binding fixtures; no semantic core acceptance\n",
+  "case_files_sha256": {
+    "after-temp-drift/manual-1.A.hmcheckpoint.tmp": "a661b851436069c7f3c22f7b477d3a704eb591dcfedc5142ad22f5dbbeb60131",
+    "after-temp-drift/manual-1.B.hmcheckpoint": "3308c75a26b699e87df10340795095ce4bcb6950ff1375a38dccdb91e8282afb",
+    "corrupt-one/manual-1.A.hmcheckpoint": "be302461cda285db3ed2d45fb767b23e08ca8808b35a638009937df22b332d73",
+    "corrupt-one/manual-1.A.hmcheckpoint.tmp": "a661b851436069c7f3c22f7b477d3a704eb591dcfedc5142ad22f5dbbeb60131",
+    "corrupt-one/manual-1.B.hmcheckpoint": "49ebc9bbe4db4b5164e771052daa5285a29e3aae8b4a378851b434885bf48804",
+    "pre-write-drift/manual-1.B.hmcheckpoint": "3308c75a26b699e87df10340795095ce4bcb6950ff1375a38dccdb91e8282afb",
+    "same-generation-conflict/manual-1.A.hmcheckpoint": "3308c75a26b699e87df10340795095ce4bcb6950ff1375a38dccdb91e8282afb",
+    "same-generation-conflict/manual-1.B.hmcheckpoint": "49ebc9bbe4db4b5164e771052daa5285a29e3aae8b4a378851b434885bf48804",
+    "temp-open-failed/manual-1.B.hmcheckpoint": "49ebc9bbe4db4b5164e771052daa5285a29e3aae8b4a378851b434885bf48804",
+    "unsupported-version/manual-1.A.hmcheckpoint": "de60966ba90f9a56c902a7bacb8050d23f62e6fa908bcc50bde444b3ee6e5fdd",
+    "unsupported-version/manual-1.B.hmcheckpoint": "49ebc9bbe4db4b5164e771052daa5285a29e3aae8b4a378851b434885bf48804",
+    "writes/manual-1.A.hmcheckpoint": "a661b851436069c7f3c22f7b477d3a704eb591dcfedc5142ad22f5dbbeb60131",
+    "writes/manual-1.B.hmcheckpoint": "49ebc9bbe4db4b5164e771052daa5285a29e3aae8b4a378851b434885bf48804",
+    "writes/manual-1.B.hmsave": "2da2b0b7c115925b12ff180984ee2e8b71b1cc1e8d4553b8d6c0fafd1c4cd975"
+  },
+  "scope": "Actual NativeStorage filesystem/CAS/tmp/rename path with explicit synthetic binding dictionaries. No core semantic validation, Main routing or GUI acceptance. All created case files retained; original fixtures not modified."
+}

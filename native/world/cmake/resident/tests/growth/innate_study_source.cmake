@@ -1,0 +1,7 @@
+# 成长与教学消费者登记：保留本组目标、测试、条件与局部变量的原执行顺序。
+# 先天课程仅用原禀赋来源与有界逐期加成，坏源及截断不得变为免费成长。
+add_executable(test_resident_innate_study_source tests/resident/innate_study_source_test.cpp)
+target_link_libraries(test_resident_innate_study_source PRIVATE hanmo_resident)
+target_include_directories(test_resident_innate_study_source PRIVATE src)
+target_compile_options(test_resident_innate_study_source PRIVATE -UNDEBUG -fno-fast-math -ffp-contract=off)
+add_test(NAME resident_innate_study_source COMMAND test_resident_innate_study_source)

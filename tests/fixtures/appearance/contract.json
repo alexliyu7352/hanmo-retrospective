@@ -1,0 +1,196 @@
+{
+  "fixed": {
+    "kind": "fixed",
+    "generator_version": "appearance-v1",
+    "attire_style": "plain",
+    "base_features": {
+      "face_shape": "plain",
+      "eyes": "plain",
+      "brows": "plain",
+      "nose": "plain",
+      "mouth": "plain",
+      "hair": "plain",
+      "beard": "plain",
+      "skin_palette": "plain",
+      "build": "plain"
+    }
+  },
+  "generated": {
+    "kind": "generated",
+    "generator_version": "appearance-v1",
+    "attire_style": "plain",
+    "candidates": {
+      "face_shape": [
+        "soft",
+        "plain",
+        "angular"
+      ],
+      "eyes": [
+        "soft",
+        "plain",
+        "angular"
+      ],
+      "brows": [
+        "soft",
+        "plain",
+        "angular"
+      ],
+      "nose": [
+        "soft",
+        "plain",
+        "angular"
+      ],
+      "mouth": [
+        "soft",
+        "plain",
+        "angular"
+      ],
+      "hair": [
+        "soft",
+        "plain",
+        "angular"
+      ],
+      "beard": [
+        "soft",
+        "plain",
+        "angular"
+      ],
+      "skin_palette": [
+        "soft",
+        "plain",
+        "angular"
+      ],
+      "build": [
+        "soft",
+        "plain",
+        "angular"
+      ]
+    },
+    "inheritance_features": [
+      "face_shape",
+      "eyes",
+      "skin_palette"
+    ]
+  },
+  "actor_id": "actor:31",
+  "seed": "appearance-world-甲",
+  "expected_features": {
+    "face_shape": "angular",
+    "eyes": "angular",
+    "brows": "soft",
+    "nose": "plain",
+    "mouth": "angular",
+    "hair": "angular",
+    "beard": "angular",
+    "skin_palette": "plain",
+    "build": "soft"
+  },
+  "mutations": [
+    {
+      "name": "empty-pool",
+      "path": [
+        "candidates",
+        "eyes"
+      ],
+      "value": []
+    },
+    {
+      "name": "duplicate-choice",
+      "path": [
+        "candidates",
+        "eyes"
+      ],
+      "value": [
+        "plain",
+        "plain"
+      ]
+    },
+    {
+      "name": "path",
+      "path": [
+        "candidates",
+        "eyes"
+      ],
+      "value": [
+        "res://face.png"
+      ]
+    },
+    {
+      "name": "newline",
+      "path": [
+        "candidates",
+        "eyes"
+      ],
+      "value": [
+        "plain\n"
+      ]
+    },
+    {
+      "name": "numeric",
+      "path": [
+        "candidates",
+        "eyes"
+      ],
+      "value": [
+        1
+      ]
+    },
+    {
+      "name": "extra-feature",
+      "path": [
+        "candidates",
+        "power"
+      ],
+      "value": [
+        "strong"
+      ]
+    },
+    {
+      "name": "unknown-version",
+      "path": [
+        "generator_version"
+      ],
+      "value": "appearance-v2"
+    },
+    {
+      "name": "mixed-fixed",
+      "path": [
+        "kind"
+      ],
+      "value": "fixed"
+    },
+    {
+      "name": "bad-inheritance",
+      "path": [
+        "inheritance_features"
+      ],
+      "value": [
+        "wisdom"
+      ]
+    },
+    {
+      "name": "duplicate-inheritance",
+      "path": [
+        "inheritance_features"
+      ],
+      "value": [
+        "eyes",
+        "eyes"
+      ]
+    },
+    {
+      "name": "extra-resource",
+      "path": [
+        "texture"
+      ],
+      "value": "res://face.png"
+    },
+    {
+      "name": "empty-attire",
+      "path": [
+        "attire_style"
+      ],
+      "value": ""
+    }
+  ]
+}

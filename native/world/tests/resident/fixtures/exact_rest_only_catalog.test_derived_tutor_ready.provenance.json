@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "fixture_kind": "test_derived_tutor_ready",
+  "business_delta": "Only initial society::actor.tutor available changes false to true; content_digest is recomputed integrity metadata.",
+  "authorized_modes": [
+    "PENDING-STARTED-TEST-DERIVED",
+    "PENDING-COMMON-PATHS-TEST-DERIVED"
+  ],
+  "prohibited_uses": [
+    "K5-1",
+    "ECO-6",
+    "all checklist rows"
+  ],
+  "origin_commit": "4b5db01f2f1f1f619ee625fed9dfec4a15245f9b",
+  "origin_native_tree": "22c31e3faccd481863431d48d032b99f921668e4",
+  "original": {
+    "path": "native/world/tests/resident/fixtures/exact_rest_only_catalog.json",
+    "bytes": 330342,
+    "sha256": "2840aad48f2993ce55634df727e8b15e8ace8076b47e9deeb139cb0debc10677",
+    "git_blob_oid": "f1db3d9004e6af17d4147472710711ea24d43a0f",
+    "content_digest": "0ec05c061fbd80e27ef9d5509b44da7b428f4df400b8c08bd724ac6b5fd4f3ff"
+  },
+  "derived": {
+    "path": "native/world/tests/resident/fixtures/exact_rest_only_catalog.test_derived_tutor_ready.json",
+    "bytes": 330341,
+    "sha256": "32aace0a7513918629bb84714ea28d31bbc889c4028d1216eb7dd21ec624fc5e",
+    "content_digest": "e40f3ef7065ec5851f3ac29056bace5965c561c0bd09531f66650c3f92f58aa4"
+  },
+  "semantic_deltas": [
+    {
+      "path": "/data/scenarios/complete_market::scenario.complete_market/initial/actors/13/available",
+      "before": false,
+      "after": true
+    },
+    {
+      "path": "/content_digest",
+      "before": "0ec05c061fbd80e27ef9d5509b44da7b428f4df400b8c08bd724ac6b5fd4f3ff",
+      "after": "e40f3ef7065ec5851f3ac29056bace5965c561c0bd09531f66650c3f92f58aa4"
+    }
+  ],
+  "changed_lines": [
+    2,
+    5981
+  ],
+  "digest_helper": {
+    "symbol": "tools.content.io.canonical",
+    "path": "tools/content/io.py",
+    "sha256": "54b68d1ce7433662880f50b8f29a3f847afdb928f83e9abdffa446aef01d9d45",
+    "contract": "sha256(canonical(data)); sorted compact UTF-8 JSON plus newline; allow_nan=False"
+  },
+  "native_artifact_identity": {
+    "status": "not_executed",
+    "contract": "read_native_catalog_identity on actual whole ordered wrapper; artifact_sha256 is not raw file SHA256"
+  },
+  "preserved": [
+    "content_id",
+    "content_version",
+    "schema_sha256",
+    "all other ordered data and wrapper values"
+  ],
+  "original_F_coverage_gap": "society::actor.tutor starts unavailable and no selected original-F path enables availability; defer to unified testing."
+}

@@ -1,0 +1,74 @@
+{
+  "format": "hanmo.economic_author_delta/1",
+  "status": "AUTHORING_ONLY",
+  "runtime_verified": false,
+  "scenario_id": "society::scenario.qingchuan_political_career",
+  "prerequisite": {
+    "political_commit": "9ef1056210e0869238435744a7d8e8c060a53b57",
+    "political_delta_oid": "1d27e3e6d9bf8b0baa3c6c993726b21af7f986d4",
+    "production_delta_oid": "8d9cf1c8145fa7bccc52c1351867ca8cdcbe6454"
+  },
+  "operations": [
+    {
+      "op": "add",
+      "path": "/scenarios/society::scenario.qingchuan_political_career/dynamic_world/fiscal_settlement",
+      "value": {
+        "version": 1,
+        "districts": {
+          "fiscal.qingchuan": {
+            "id": "fiscal.qingchuan",
+            "site_id": "society::place.courtyard",
+            "period_ticks": 60,
+            "first_due_tick": 60,
+            "initial_tax_base_bp": 10000,
+            "normal_recovery_bp": 100,
+            "sources": {
+              "tax.city_households": {
+                "id": "tax.city_households",
+                "taxpayer": {
+                  "kind": "cohort",
+                  "id": "cohort.city"
+                },
+                "wallet_id": "society::wallet.city_households",
+                "inventory_id": "society::inventory.city_households",
+                "grain_item_id": "society::item.millet",
+                "production_unit_ids": [],
+                "base_cash_due": 8,
+                "grain_share_bp": 0,
+                "civilian_grain_reserve": 8
+              }
+            }
+          }
+        }
+      }
+    }
+  ],
+  "development_parameters": {
+    "period_ticks": {
+      "value": 60,
+      "source": "Monthly assessment candidate: 30 days at two half-day ticks per day, following GDD monthly responsibility."
+    },
+    "base_cash_due": {
+      "value": 8,
+      "source": "Explicit bounded author candidate, equal to one original 8-person household wage installment (8 x rate1), not a claimed fixed GDD tax rate. Actual money remains limited by household funds and reservations."
+    },
+    "grain_share_bp": {
+      "value": 0,
+      "source": "Original existing production is public-owned; no private producer is fabricated or relabelled to obtain taxable grain."
+    },
+    "civilian_grain_reserve": {
+      "value": 8,
+      "source": "One original cohort.city ration installment, based on real 8 people and rate1."
+    },
+    "normal_recovery_bp": {
+      "value": 100,
+      "source": "Explicit development parameter already documented: +1 percentage point toward 100% after a normal period, bounded0..300. GDD does not fix this recovery speed."
+    }
+  },
+  "scope_notes": [
+    "No initial policy fact or tax: real S6 authorized policy must become effective for the due period.",
+    "Original scenario and all initial persons/assets/resources/labor/production/obligations unchanged.",
+    "Actor private wallet is not a tax source; public treasury destination comes only from real policy snapshot.",
+    "Cash-only current source is explicit; private grain production can be authored later with actual ownership and a new content identity."
+  ]
+}

@@ -1,0 +1,199 @@
+{
+  "format": "HANMO-TOOLCHAIN/1",
+  "version": "4.7.2",
+  "editor_build": "4.7.2.stable.official.ed1daf0bf",
+  "template_version": "4.7.2.stable",
+  "install_directory": "godot-4.7.2",
+  "release": {
+    "repo": "（原私有仓库）",
+    "tag": "toolchain-godot-4.7.2",
+    "url": "（原私有仓库）"
+  },
+  "evidence": {
+    "historical_manifest": "verification/godot-2026-09-10/sdk-manifest.json",
+    "official_recovery_date": "2026-10-01",
+    "integrity_scope": "官方原包实测摘要与历史 SDK 身份一致；未获得独立官方签名或公开官方摘要，不宣称签名验证。"
+  },
+  "archives": {
+    "editor": {
+      "asset": "Godot_v4.7.2-stable_linux.x86_64.zip",
+      "bytes": 77860424,
+      "sha256": "cadd3204e728a35d3f13adb7fd0d7902636b79f6b95c40c265eb73b6c35329e4",
+      "official_url": "https://downloads.godotengine.org/?version=4.7.2&flavor=stable&slug=linux.x86_64.zip&platform=linux.64",
+      "official_redirect_url": "https://godot-releases.nbg1.your-objectstorage.com/4.7.2-stable/Godot_v4.7.2-stable_linux.x86_64.zip",
+      "entries": {
+        "Godot_v4.7.2-stable_linux.x86_64": {
+          "bytes": 146414384,
+          "install": "godot/4.7.2-stable/Godot_v4.7.2-stable_linux.x86_64",
+          "sha256": "8d106cbe6144c2dc7e881d61d2429c1a8a76e6b22ef48bd5e48dcf934953f71e",
+          "executable": true
+        }
+      }
+    },
+    "templates": {
+      "asset": "Godot_v4.7.2-stable_export_templates.tpz",
+      "bytes": 1281349702,
+      "sha256": "f298490b8d44d934be425a5a65a51bf15f422428b229a06a6e11d9ffea248011",
+      "official_url": "https://downloads.godotengine.org/?version=4.7.2&flavor=stable&slug=export_templates.tpz&platform=templates",
+      "official_redirect_url": "https://godot-releases.nbg1.your-objectstorage.com/4.7.2-stable/Godot_v4.7.2-stable_export_templates.tpz",
+      "entries": {
+        "templates/android_debug.apk": {
+          "bytes": 127260725,
+          "install": null
+        },
+        "templates/android_release.apk": {
+          "bytes": 104803333,
+          "install": null
+        },
+        "templates/android_source.zip": {
+          "bytes": 214418211,
+          "install": null
+        },
+        "templates/icudt_godot.dat": {
+          "bytes": 4797472,
+          "install": "runtime/data/godot/export_templates/4.7.2.stable/icudt_godot.dat",
+          "sha256": "64e407b570a21a4b740531a14cd95f0cefc46cef3d8224fd09a0dd386fb7016a",
+          "executable": false
+        },
+        "templates/ios.zip": {
+          "bytes": 202976946,
+          "install": null
+        },
+        "templates/linux_debug.arm32": {
+          "bytes": 67185452,
+          "install": null
+        },
+        "templates/linux_debug.arm64": {
+          "bytes": 68160800,
+          "install": null
+        },
+        "templates/linux_debug.x86_32": {
+          "bytes": 75323448,
+          "install": null
+        },
+        "templates/linux_debug.x86_64": {
+          "bytes": 73703800,
+          "install": "runtime/data/godot/export_templates/4.7.2.stable/linux_debug.x86_64",
+          "sha256": "1a291d3d15e4180b60b0af96cf6458f11fe143636d76575ddf1e23d1a3f24f2e",
+          "executable": true
+        },
+        "templates/linux_release.arm32": {
+          "bytes": 65784612,
+          "install": null
+        },
+        "templates/linux_release.arm64": {
+          "bytes": 67079432,
+          "install": null
+        },
+        "templates/linux_release.x86_32": {
+          "bytes": 75679864,
+          "install": null
+        },
+        "templates/linux_release.x86_64": {
+          "bytes": 73519416,
+          "install": "runtime/data/godot/export_templates/4.7.2.stable/linux_release.x86_64",
+          "sha256": "d9f79ab89b5ae369aeed11c6052d402e8218cd503bf85b4a235f9c30c46a7c63",
+          "executable": true
+        },
+        "templates/macos.zip": {
+          "bytes": 123597580,
+          "install": null
+        },
+        "templates/version.txt": {
+          "bytes": 13,
+          "install": "runtime/data/godot/export_templates/4.7.2.stable/version.txt",
+          "sha256": "38885c88f75abbc797a1db7559719800279a00cfb9fa8b2e2868a7f6f84bad2e",
+          "executable": false
+        },
+        "templates/web_debug.zip": {
+          "bytes": 10342534,
+          "install": "runtime/data/godot/export_templates/4.7.2.stable/web_debug.zip",
+          "sha256": "5e6696b42ce07f908fce1698cc227e11807399456b6ab986e69a125eae3596ee",
+          "executable": false
+        },
+        "templates/web_dlink_debug.zip": {
+          "bytes": 12125435,
+          "install": null
+        },
+        "templates/web_dlink_nothreads_debug.zip": {
+          "bytes": 12014273,
+          "install": null
+        },
+        "templates/web_dlink_nothreads_release.zip": {
+          "bytes": 11549046,
+          "install": null
+        },
+        "templates/web_dlink_release.zip": {
+          "bytes": 11568406,
+          "install": null
+        },
+        "templates/web_nothreads_debug.zip": {
+          "bytes": 10232720,
+          "install": "runtime/data/godot/export_templates/4.7.2.stable/web_nothreads_debug.zip",
+          "sha256": "08962aefef811b603541d7951ac67ef00413aad2d978855183c28adee98f626a",
+          "executable": false
+        },
+        "templates/web_nothreads_release.zip": {
+          "bytes": 10245903,
+          "install": "runtime/data/godot/export_templates/4.7.2.stable/web_nothreads_release.zip",
+          "sha256": "d3ee2f08cef0cf3cf6678a6355a92a8db48ccdd35cbd2e8bfd5f0e8a0b4032a0",
+          "executable": false
+        },
+        "templates/web_release.zip": {
+          "bytes": 10290815,
+          "install": "runtime/data/godot/export_templates/4.7.2.stable/web_release.zip",
+          "sha256": "02f0dca13ed3d8343fa68f8f88ac80295562408d71aa67157e8b96ddebaa67a3",
+          "executable": false
+        },
+        "templates/windows_debug_arm64_console.exe": {
+          "bytes": 159744,
+          "install": null
+        },
+        "templates/windows_debug_arm64.exe": {
+          "bytes": 98958848,
+          "install": null
+        },
+        "templates/windows_debug_x86_32_console.exe": {
+          "bytes": 192000,
+          "install": null
+        },
+        "templates/windows_debug_x86_32.exe": {
+          "bytes": 113264640,
+          "install": null
+        },
+        "templates/windows_debug_x86_64_console.exe": {
+          "bytes": 188928,
+          "install": null
+        },
+        "templates/windows_debug_x86_64.exe": {
+          "bytes": 103176704,
+          "install": null
+        },
+        "templates/windows_release_arm64_console.exe": {
+          "bytes": 159744,
+          "install": null
+        },
+        "templates/windows_release_arm64.exe": {
+          "bytes": 91662336,
+          "install": null
+        },
+        "templates/windows_release_x86_32_console.exe": {
+          "bytes": 192000,
+          "install": null
+        },
+        "templates/windows_release_x86_32.exe": {
+          "bytes": 122176000,
+          "install": null
+        },
+        "templates/windows_release_x86_64_console.exe": {
+          "bytes": 188928,
+          "install": null
+        },
+        "templates/windows_release_x86_64.exe": {
+          "bytes": 109268480,
+          "install": null
+        }
+      }
+    }
+  }
+}

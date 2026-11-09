@@ -1,0 +1,106 @@
+{
+  "format": "hanmo.schema.fragment/1",
+  "version": "political_takeover/1",
+  "status": "candidate; pending registration and explicit responsibility decisions",
+  "property_target": "/$defs/dynamic_world/properties/political_takeover",
+  "property_schema": {
+    "$ref": "#/$defs/political_takeover_catalog"
+  },
+  "$defs": {
+    "political_takeover_occupation_rule": {
+      "type": "object",
+      "properties": {
+        "rule_id": {
+          "$ref": "#/$defs/entity_id"
+        },
+        "rule_version": {
+          "const": 1
+        },
+        "integration_ticks": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 2147483647
+        },
+        "income_basis_points": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 10000
+        }
+      },
+      "required": [
+        "rule_id",
+        "rule_version",
+        "integration_ticks",
+        "income_basis_points"
+      ],
+      "additionalProperties": false
+    },
+    "political_takeover_rule": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/entity_id"
+        },
+        "jurisdiction_id": {
+          "$ref": "#/$defs/entity_id"
+        },
+        "site_id": {
+          "type": "string",
+          "minLength": 1,
+          "x-hanmo-ref": "places"
+        },
+        "stronghold_id": {
+          "type": "string",
+          "minLength": 1,
+          "x-hanmo-ref": "strongholds"
+        },
+        "garrison_id": {
+          "type": "string",
+          "minLength": 1,
+          "x-hanmo-ref": "garrisons"
+        },
+        "successor_office_id": {
+          "$ref": "#/$defs/entity_id"
+        },
+        "occupation_rule": {
+          "$ref": "#/$defs/political_takeover_occupation_rule"
+        }
+      },
+      "required": [
+        "id",
+        "jurisdiction_id",
+        "site_id",
+        "stronghold_id",
+        "garrison_id",
+        "successor_office_id",
+        "occupation_rule"
+      ],
+      "additionalProperties": false
+    },
+    "political_takeover_catalog": {
+      "type": "object",
+      "properties": {
+        "version": {
+          "const": 1
+        },
+        "enabled": {
+          "const": true
+        },
+        "rules": {
+          "type": "object",
+          "minProperties": 1,
+          "maxProperties": 4096,
+          "additionalProperties": {
+            "$ref": "#/$defs/political_takeover_rule"
+          }
+        }
+      },
+      "required": [
+        "version",
+        "enabled",
+        "rules"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

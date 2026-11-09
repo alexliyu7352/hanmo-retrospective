@@ -1,0 +1,10 @@
+# move-a-01 完整姿态
+
+Use case: identity-preserve. The sole reference is neutral-01.png. Paint ONE complete full-body image of exactly that same adult man: same face, moustache and chin beard, tied black topknot, pale tie, medium 7–7.5-head proportions, olive crossed-collar tunic, cream inner collar/cuffs/trousers, brown sash and shoes, dark leg wraps. Same refined hand-painted semi-realism, fine ink contours, cloth texture, soft front-left lighting and three-quarter camera toward screen right. Preserve the identical SINGLE-EDGED CURVED DAO with the same relative blade size, bronze guard, wrapped grip and ring pommel; it is not a straight jian. One weapon only.
+Natural continuous complete anatomy and clothing, fingers/thumb convincingly around the real hilt behind its guard. No cut joints, detached limbs, patches, double collar, extra fingers, floating blade or costume changes. Retain approximately the reference's anatomical head size on a 1254x1254 square canvas; keep the complete head, hands, shoes and blade inside with safe margins. True transparent RGBA including negative spaces; no scene, floor/shadow, text, effects, enemy, gore, comparison panel or extra pose. Do not modify the reference or create separate parts.
+
+POSE: Natural short advancing step to screen right, phase A. Near/right foot advances with heel just reaching ground; far/left foot pushes behind with heel lifted. Moderate stride, stable torso, no leap or deep lunge. Carry dao low outside thigh, blade down-forward clear of legs. Free hand counterbalances. Show actual gait, not shifted neutral art.
+
+CRITICAL HANDEDNESS: keep the weapon in the SAME hand as the neutral reference, the near-side hand on the VIEWER RIGHT of his torso. The other hand on viewer LEFT is empty. Do not reinterpret anatomical left/right or transfer the dao to the other hand. Keep the reference's modest blade curve, not a more curved saber.
+
+The reference is LEFT-HANDED anatomically: the DAO stays in the LEFT hand on VIEWER RIGHT; the anatomical RIGHT/VIEWER LEFT hand remains empty. Follow the reference arm continuity exactly.

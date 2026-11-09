@@ -1,0 +1,1995 @@
+{
+  "settlements": [],
+  "routes": [],
+  "places": [],
+  "actors": [],
+  "organizations": [],
+  "roles": [],
+  "wallets": [],
+  "items": [],
+  "inventories": [],
+  "shops": [],
+  "props": [],
+  "offers": [],
+  "dialogues": [],
+  "events": [],
+  "relations": [],
+  "scenarios": [
+    {
+      "dynamic_world": {
+        "affairs": {
+          "need_policies": {}
+        },
+        "director": {
+          "registry_version": 1,
+          "review_interval_ticks": 1,
+          "retry_delay_ticks": 1,
+          "decision_budget": 4,
+          "candidates_per_subject": 4,
+          "policies": {
+            "policy.field": {
+              "organization_id": "qingxi::org.north",
+              "templates": [
+                "maintain_commitment",
+                "field_appointment",
+                "await_adjustment"
+              ],
+              "request_arrear_after_ticks": 1,
+              "decline_work_after_ticks": 4,
+              "leave_after_ticks": 12
+            }
+          },
+          "admissions": {
+            "admission.field": {
+              "kind": "organization_members",
+              "policy_id": "policy.field",
+              "organization_id": "qingxi::org.north",
+              "minimum_age_years": 18,
+              "excluded_actor_ids": [
+                "qingxi::actor.player",
+                "qingxi::actor.north_officer"
+              ]
+            }
+          }
+        },
+        "founder_policy": "fixed_actor",
+        "local_economy": {
+          "cohorts": {
+            "cohort.south.captive": {
+              "affiliation_id": "qingxi::org.south",
+              "assignment_id": null,
+              "headcount": 0,
+              "household_group_id": "household.south_guard",
+              "id": "cohort.south.captive",
+              "labor_capacity": 0,
+              "private_inventory_id": "qingxi::inventory.south.household",
+              "private_wallet_id": "qingxi::wallet.south.household",
+              "site_id": "qingxi::place.south.camp",
+              "status": "captive"
+            },
+            "cohort.south.displaced": {
+              "affiliation_id": "qingxi::org.south",
+              "assignment_id": null,
+              "headcount": 0,
+              "household_group_id": "household.south_guard",
+              "id": "cohort.south.displaced",
+              "labor_capacity": 0,
+              "private_inventory_id": "qingxi::inventory.south.household",
+              "private_wallet_id": "qingxi::wallet.south.household",
+              "site_id": "qingxi::place.south.camp",
+              "status": "displaced"
+            },
+            "cohort.south.reserve": {
+              "affiliation_id": "qingxi::org.south",
+              "assignment_id": null,
+              "headcount": 4,
+              "household_group_id": "household.south_guard",
+              "id": "cohort.south.reserve",
+              "labor_capacity": 4,
+              "private_inventory_id": "qingxi::inventory.south.household",
+              "private_wallet_id": "qingxi::wallet.south.household",
+              "site_id": "qingxi::place.south.camp",
+              "status": "trained_reserve"
+            },
+            "cohort.south.serving": {
+              "affiliation_id": "qingxi::org.south",
+              "assignment_id": null,
+              "headcount": 0,
+              "household_group_id": "household.south_guard",
+              "id": "cohort.south.serving",
+              "labor_capacity": 0,
+              "private_inventory_id": "qingxi::inventory.south.household",
+              "private_wallet_id": "qingxi::wallet.south.household",
+              "site_id": "qingxi::place.south.camp",
+              "status": "serving"
+            },
+            "cohort.south.wounded": {
+              "affiliation_id": "qingxi::org.south",
+              "assignment_id": null,
+              "headcount": 0,
+              "household_group_id": "household.south_guard",
+              "id": "cohort.south.wounded",
+              "labor_capacity": 0,
+              "private_inventory_id": "qingxi::inventory.south.household",
+              "private_wallet_id": "qingxi::wallet.south.household",
+              "site_id": "qingxi::place.south.camp",
+              "status": "wounded"
+            }
+          },
+          "enabled": true,
+          "households": {
+            "household.south_guard": {
+              "id": "household.south_guard",
+              "inventory_id": "qingxi::inventory.south.household",
+              "wallet_id": "qingxi::wallet.south.household"
+            }
+          },
+          "labor_allocations": {},
+          "named_actors_excluded": [
+            "qingxi::actor.player",
+            "qingxi::actor.north_officer",
+            "qingxi::actor.south_officer",
+            "qingxi::actor.south_patrol",
+            "qingxi::actor.south_guard",
+            "field_handover::actor.river_scribe",
+            "woundcare::actor.healer"
+          ],
+          "obligations": {
+            "obligation.north.ration.displaced": {
+              "active": false,
+              "authority_ref": "issuer.north.rations",
+              "beneficiary": {
+                "id": "cohort.south.displaced",
+                "kind": "cohort"
+              },
+              "destination": "",
+              "id": "obligation.north.ration.displaced",
+              "item_id": "qingxi::item.grain",
+              "kind": "ration",
+              "last_receipt_id": "",
+              "next_due_tick": 1,
+              "period_ticks": 1,
+              "principal": {
+                "id": "qingxi::org.north",
+                "kind": "organization"
+              },
+              "rate_profile": "rate.daily_ration",
+              "source_wallet_or_inventory": "qingxi::inventory.south.public"
+            },
+            "obligation.north.ration.officer": {
+              "active": false,
+              "authority_ref": "issuer.north.rations",
+              "beneficiary": {
+                "id": "qingxi::actor.south_officer",
+                "kind": "actor"
+              },
+              "destination": "",
+              "id": "obligation.north.ration.officer",
+              "item_id": "qingxi::item.grain",
+              "kind": "ration",
+              "last_receipt_id": "",
+              "next_due_tick": 1,
+              "period_ticks": 1,
+              "principal": {
+                "id": "qingxi::org.north",
+                "kind": "organization"
+              },
+              "rate_profile": "rate.daily_ration",
+              "source_wallet_or_inventory": "qingxi::inventory.south.public"
+            },
+            "obligation.north.ration.reserve": {
+              "active": false,
+              "authority_ref": "issuer.north.rations",
+              "beneficiary": {
+                "id": "cohort.south.reserve",
+                "kind": "cohort"
+              },
+              "destination": "",
+              "id": "obligation.north.ration.reserve",
+              "item_id": "qingxi::item.grain",
+              "kind": "ration",
+              "last_receipt_id": "",
+              "next_due_tick": 1,
+              "period_ticks": 1,
+              "principal": {
+                "id": "qingxi::org.north",
+                "kind": "organization"
+              },
+              "rate_profile": "rate.daily_ration",
+              "source_wallet_or_inventory": "qingxi::inventory.south.public"
+            },
+            "obligation.north.service.captive": {
+              "active": false,
+              "authority_ref": "issuer.north.service",
+              "beneficiary": {
+                "id": "cohort.south.captive",
+                "kind": "cohort"
+              },
+              "destination": "qingxi::wallet.south.household",
+              "id": "obligation.north.service.captive",
+              "item_id": "",
+              "kind": "wage",
+              "last_receipt_id": "",
+              "next_due_tick": 4,
+              "period_ticks": 4,
+              "principal": {
+                "id": "qingxi::org.north",
+                "kind": "organization"
+              },
+              "rate_profile": "rate.service_wage",
+              "source_wallet_or_inventory": "qingxi::wallet.north.service"
+            },
+            "obligation.north.service.displaced": {
+              "active": false,
+              "authority_ref": "issuer.north.service",
+              "beneficiary": {
+                "id": "cohort.south.displaced",
+                "kind": "cohort"
+              },
+              "destination": "qingxi::wallet.south.household",
+              "id": "obligation.north.service.displaced",
+              "item_id": "",
+              "kind": "wage",
+              "last_receipt_id": "",
+              "next_due_tick": 4,
+              "period_ticks": 4,
+              "principal": {
+                "id": "qingxi::org.north",
+                "kind": "organization"
+              },
+              "rate_profile": "rate.service_wage",
+              "source_wallet_or_inventory": "qingxi::wallet.north.service"
+            },
+            "obligation.north.service.reserve": {
+              "active": false,
+              "authority_ref": "issuer.north.service",
+              "beneficiary": {
+                "id": "cohort.south.reserve",
+                "kind": "cohort"
+              },
+              "destination": "qingxi::wallet.south.household",
+              "id": "obligation.north.service.reserve",
+              "item_id": "",
+              "kind": "wage",
+              "last_receipt_id": "",
+              "next_due_tick": 4,
+              "period_ticks": 4,
+              "principal": {
+                "id": "qingxi::org.north",
+                "kind": "organization"
+              },
+              "rate_profile": "rate.service_wage",
+              "source_wallet_or_inventory": "qingxi::wallet.north.service"
+            },
+            "obligation.north.service.serving": {
+              "active": false,
+              "authority_ref": "issuer.north.service",
+              "beneficiary": {
+                "id": "cohort.south.serving",
+                "kind": "cohort"
+              },
+              "destination": "qingxi::wallet.south.household",
+              "id": "obligation.north.service.serving",
+              "item_id": "",
+              "kind": "wage",
+              "last_receipt_id": "",
+              "next_due_tick": 4,
+              "period_ticks": 4,
+              "principal": {
+                "id": "qingxi::org.north",
+                "kind": "organization"
+              },
+              "rate_profile": "rate.service_wage",
+              "source_wallet_or_inventory": "qingxi::wallet.north.service"
+            },
+            "obligation.north.service.wounded": {
+              "active": false,
+              "authority_ref": "issuer.north.service",
+              "beneficiary": {
+                "id": "cohort.south.wounded",
+                "kind": "cohort"
+              },
+              "destination": "qingxi::wallet.south.household",
+              "id": "obligation.north.service.wounded",
+              "item_id": "",
+              "kind": "wage",
+              "last_receipt_id": "",
+              "next_due_tick": 4,
+              "period_ticks": 4,
+              "principal": {
+                "id": "qingxi::org.north",
+                "kind": "organization"
+              },
+              "rate_profile": "rate.service_wage",
+              "source_wallet_or_inventory": "qingxi::wallet.north.service"
+            },
+            "obligation.south.ration.displaced": {
+              "active": true,
+              "authority_ref": "issuer.south.rations",
+              "beneficiary": {
+                "id": "cohort.south.displaced",
+                "kind": "cohort"
+              },
+              "destination": "",
+              "id": "obligation.south.ration.displaced",
+              "item_id": "qingxi::item.grain",
+              "kind": "ration",
+              "last_receipt_id": "",
+              "next_due_tick": 1,
+              "period_ticks": 1,
+              "principal": {
+                "id": "qingxi::org.south",
+                "kind": "organization"
+              },
+              "rate_profile": "rate.daily_ration",
+              "source_wallet_or_inventory": "qingxi::inventory.south.public"
+            },
+            "obligation.south.ration.officer": {
+              "active": true,
+              "authority_ref": "issuer.south.rations",
+              "beneficiary": {
+                "id": "qingxi::actor.south_officer",
+                "kind": "actor"
+              },
+              "destination": "",
+              "id": "obligation.south.ration.officer",
+              "item_id": "qingxi::item.grain",
+              "kind": "ration",
+              "last_receipt_id": "",
+              "next_due_tick": 1,
+              "period_ticks": 1,
+              "principal": {
+                "id": "qingxi::org.south",
+                "kind": "organization"
+              },
+              "rate_profile": "rate.daily_ration",
+              "source_wallet_or_inventory": "qingxi::inventory.south.public"
+            },
+            "obligation.south.ration.reserve": {
+              "active": true,
+              "authority_ref": "issuer.south.rations",
+              "beneficiary": {
+                "id": "cohort.south.reserve",
+                "kind": "cohort"
+              },
+              "destination": "",
+              "id": "obligation.south.ration.reserve",
+              "item_id": "qingxi::item.grain",
+              "kind": "ration",
+              "last_receipt_id": "",
+              "next_due_tick": 1,
+              "period_ticks": 1,
+              "principal": {
+                "id": "qingxi::org.south",
+                "kind": "organization"
+              },
+              "rate_profile": "rate.daily_ration",
+              "source_wallet_or_inventory": "qingxi::inventory.south.public"
+            },
+            "obligation.south.service.captive": {
+              "active": true,
+              "authority_ref": "issuer.south.service",
+              "beneficiary": {
+                "id": "cohort.south.captive",
+                "kind": "cohort"
+              },
+              "destination": "qingxi::wallet.south.household",
+              "id": "obligation.south.service.captive",
+              "item_id": "",
+              "kind": "wage",
+              "last_receipt_id": "",
+              "next_due_tick": 4,
+              "period_ticks": 4,
+              "principal": {
+                "id": "qingxi::org.south",
+                "kind": "organization"
+              },
+              "rate_profile": "rate.service_wage",
+              "source_wallet_or_inventory": "qingxi::wallet.south.service"
+            },
+            "obligation.south.service.displaced": {
+              "active": true,
+              "authority_ref": "issuer.south.service",
+              "beneficiary": {
+                "id": "cohort.south.displaced",
+                "kind": "cohort"
+              },
+              "destination": "qingxi::wallet.south.household",
+              "id": "obligation.south.service.displaced",
+              "item_id": "",
+              "kind": "wage",
+              "last_receipt_id": "",
+              "next_due_tick": 4,
+              "period_ticks": 4,
+              "principal": {
+                "id": "qingxi::org.south",
+                "kind": "organization"
+              },
+              "rate_profile": "rate.service_wage",
+              "source_wallet_or_inventory": "qingxi::wallet.south.service"
+            },
+            "obligation.south.service.reserve": {
+              "active": true,
+              "authority_ref": "issuer.south.service",
+              "beneficiary": {
+                "id": "cohort.south.reserve",
+                "kind": "cohort"
+              },
+              "destination": "qingxi::wallet.south.household",
+              "id": "obligation.south.service.reserve",
+              "item_id": "",
+              "kind": "wage",
+              "last_receipt_id": "",
+              "next_due_tick": 4,
+              "period_ticks": 4,
+              "principal": {
+                "id": "qingxi::org.south",
+                "kind": "organization"
+              },
+              "rate_profile": "rate.service_wage",
+              "source_wallet_or_inventory": "qingxi::wallet.south.service"
+            },
+            "obligation.south.service.serving": {
+              "active": true,
+              "authority_ref": "issuer.south.service",
+              "beneficiary": {
+                "id": "cohort.south.serving",
+                "kind": "cohort"
+              },
+              "destination": "qingxi::wallet.south.household",
+              "id": "obligation.south.service.serving",
+              "item_id": "",
+              "kind": "wage",
+              "last_receipt_id": "",
+              "next_due_tick": 4,
+              "period_ticks": 4,
+              "principal": {
+                "id": "qingxi::org.south",
+                "kind": "organization"
+              },
+              "rate_profile": "rate.service_wage",
+              "source_wallet_or_inventory": "qingxi::wallet.south.service"
+            },
+            "obligation.south.service.wounded": {
+              "active": true,
+              "authority_ref": "issuer.south.service",
+              "beneficiary": {
+                "id": "cohort.south.wounded",
+                "kind": "cohort"
+              },
+              "destination": "qingxi::wallet.south.household",
+              "id": "obligation.south.service.wounded",
+              "item_id": "",
+              "kind": "wage",
+              "last_receipt_id": "",
+              "next_due_tick": 4,
+              "period_ticks": 4,
+              "principal": {
+                "id": "qingxi::org.south",
+                "kind": "organization"
+              },
+              "rate_profile": "rate.service_wage",
+              "source_wallet_or_inventory": "qingxi::wallet.south.service"
+            }
+          },
+          "production_bindings": {},
+          "production_units": {},
+          "provision_bindings": {
+            "provision.south.captive": {
+              "from_tick": 0,
+              "id": "provision.south.captive",
+              "military_source_id": "source.south_guard",
+              "obligation_id": "",
+              "payer_inventory": "",
+              "policy_owner": "military",
+              "subject": {
+                "id": "cohort.south.captive",
+                "kind": "cohort"
+              },
+              "through_tick": 2147483647
+            },
+            "provision.south.displaced": {
+              "from_tick": 0,
+              "id": "provision.south.displaced",
+              "military_source_id": "",
+              "obligation_id": "obligation.south.ration.displaced",
+              "payer_inventory": "qingxi::inventory.south.public",
+              "policy_owner": "macro",
+              "subject": {
+                "id": "cohort.south.displaced",
+                "kind": "cohort"
+              },
+              "through_tick": 2147483647
+            },
+            "provision.south.officer": {
+              "from_tick": 0,
+              "id": "provision.south.officer",
+              "military_source_id": "",
+              "obligation_id": "obligation.south.ration.officer",
+              "payer_inventory": "qingxi::inventory.south.public",
+              "policy_owner": "macro",
+              "subject": {
+                "id": "qingxi::actor.south_officer",
+                "kind": "actor"
+              },
+              "through_tick": 2147483647
+            },
+            "provision.south.reserve": {
+              "from_tick": 0,
+              "id": "provision.south.reserve",
+              "military_source_id": "",
+              "obligation_id": "obligation.south.ration.reserve",
+              "payer_inventory": "qingxi::inventory.south.public",
+              "policy_owner": "macro",
+              "subject": {
+                "id": "cohort.south.reserve",
+                "kind": "cohort"
+              },
+              "through_tick": 2147483647
+            },
+            "provision.south.serving": {
+              "from_tick": 0,
+              "id": "provision.south.serving",
+              "military_source_id": "source.south_guard",
+              "obligation_id": "",
+              "payer_inventory": "",
+              "policy_owner": "military",
+              "subject": {
+                "id": "cohort.south.serving",
+                "kind": "cohort"
+              },
+              "through_tick": 2147483647
+            },
+            "provision.south.wounded": {
+              "from_tick": 0,
+              "id": "provision.south.wounded",
+              "military_source_id": "source.south_guard",
+              "obligation_id": "",
+              "payer_inventory": "",
+              "policy_owner": "military",
+              "subject": {
+                "id": "cohort.south.wounded",
+                "kind": "cohort"
+              },
+              "through_tick": 2147483647
+            }
+          },
+          "rates": {
+            "rate.daily_ration": {
+              "denominator": 1,
+              "id": "rate.daily_ration",
+              "numerator": 1,
+              "per_capita": true
+            },
+            "rate.service_wage": {
+              "denominator": 1,
+              "id": "rate.service_wage",
+              "numerator": 1,
+              "per_capita": true
+            }
+          },
+          "recipes": {},
+          "supply_sources": {}
+        },
+        "organization": {
+          "activity_terms": {},
+          "duties": {},
+          "enabled": true,
+          "grants": {
+            "grant.north_received_service": {
+              "allowed_command_kinds": [
+                "release_reserve"
+              ],
+              "amount_limit": 4,
+              "continuity_policy_id": "continue_under_organization",
+              "id": "grant.north_received_service",
+              "inventory_ids": [],
+              "may_delegate": false,
+              "office_id": "office.north_received_service",
+              "scopes": [
+                {
+                  "id": "qingxi::place.south.camp",
+                  "kind": "site"
+                }
+              ],
+              "valid_from": 0,
+              "valid_until": null,
+              "wallet_ids": []
+            },
+            "grant.south_service": {
+              "allowed_command_kinds": [
+                "mobilize_reserve",
+                "release_reserve"
+              ],
+              "amount_limit": 4,
+              "continuity_policy_id": "continue_under_organization",
+              "id": "grant.south_service",
+              "inventory_ids": [
+                "qingxi::inventory.south.public"
+              ],
+              "may_delegate": false,
+              "office_id": "office.south_service",
+              "scopes": [
+                {
+                  "id": "qingxi::place.south.camp",
+                  "kind": "site"
+                }
+              ],
+              "valid_from": 0,
+              "valid_until": null,
+              "wallet_ids": [
+                "qingxi::wallet.south.service"
+              ]
+            },
+            "grant.camp": {
+              "id": "grant.camp",
+              "office_id": "office.north_civil",
+              "allowed_command_kinds": [
+                "political_assign_military_officer"
+              ],
+              "scopes": [
+                {
+                  "kind": "site",
+                  "id": "qingxi::place.north.camp"
+                }
+              ],
+              "wallet_ids": [],
+              "inventory_ids": [],
+              "amount_limit": 1,
+              "valid_from": 0,
+              "valid_until": null,
+              "may_delegate": false,
+              "continuity_policy_id": "continue_under_organization"
+            },
+            "grant.field_unit": {
+              "id": "grant.field_unit",
+              "office_id": "office.field_scribe",
+              "allowed_command_kinds": [
+                "political_assign_field_unit"
+              ],
+              "scopes": [
+                {
+                  "kind": "site",
+                  "id": "qingxi::place.north.camp"
+                }
+              ],
+              "wallet_ids": [],
+              "inventory_ids": [],
+              "amount_limit": 1,
+              "valid_from": 0,
+              "valid_until": null,
+              "may_delegate": false,
+              "continuity_policy_id": "continue_under_organization"
+            },
+            "grant.field_army": {
+              "id": "grant.field_army",
+              "office_id": "office.field_scribe",
+              "allowed_command_kinds": [
+                "political_assign_field_army"
+              ],
+              "scopes": [
+                {
+                  "kind": "site",
+                  "id": "qingxi::place.north.camp"
+                }
+              ],
+              "wallet_ids": [],
+              "inventory_ids": [],
+              "amount_limit": 1,
+              "valid_from": 0,
+              "valid_until": null,
+              "may_delegate": false,
+              "continuity_policy_id": "continue_under_organization"
+            }
+          },
+          "initial_activities": {},
+          "institutional_issuers": {
+            "issuer.north.rations": {
+              "amount_limit": 120,
+              "continuity_policy_id": "continue_under_organization",
+              "id": "issuer.north.rations",
+              "obligation_ids": [
+                "obligation.north.ration.reserve",
+                "obligation.north.ration.displaced",
+                "obligation.north.ration.officer"
+              ],
+              "organization_id": "qingxi::org.north",
+              "source_container_ids": [
+                "qingxi::inventory.south.public"
+              ]
+            },
+            "issuer.north.service": {
+              "amount_limit": 100,
+              "continuity_policy_id": "continue_under_organization",
+              "id": "issuer.north.service",
+              "obligation_ids": [
+                "obligation.north.service.reserve",
+                "obligation.north.service.serving",
+                "obligation.north.service.wounded",
+                "obligation.north.service.captive",
+                "obligation.north.service.displaced"
+              ],
+              "organization_id": "qingxi::org.north",
+              "source_container_ids": [
+                "qingxi::wallet.north.service"
+              ]
+            },
+            "issuer.south.rations": {
+              "amount_limit": 120,
+              "continuity_policy_id": "continue_under_organization",
+              "id": "issuer.south.rations",
+              "obligation_ids": [
+                "obligation.south.ration.reserve",
+                "obligation.south.ration.displaced",
+                "obligation.south.ration.officer"
+              ],
+              "organization_id": "qingxi::org.south",
+              "source_container_ids": [
+                "qingxi::inventory.south.public"
+              ]
+            },
+            "issuer.south.service": {
+              "amount_limit": 100,
+              "continuity_policy_id": "continue_under_organization",
+              "id": "issuer.south.service",
+              "obligation_ids": [
+                "obligation.south.service.reserve",
+                "obligation.south.service.serving",
+                "obligation.south.service.wounded",
+                "obligation.south.service.captive",
+                "obligation.south.service.displaced"
+              ],
+              "organization_id": "qingxi::org.south",
+              "source_container_ids": [
+                "qingxi::wallet.south.service"
+              ]
+            }
+          },
+          "member_policies": {
+            "policy.north": {
+              "id": "policy.north",
+              "leave_after_ticks": 12,
+              "may_leave": true,
+              "minimum_arrears": 1,
+              "refuse_after_ticks": 4,
+              "request_after_ticks": 1
+            },
+            "policy.south": {
+              "id": "policy.south",
+              "leave_after_ticks": 12,
+              "may_leave": true,
+              "minimum_arrears": 1,
+              "refuse_after_ticks": 4,
+              "request_after_ticks": 1
+            }
+          },
+          "members": {
+            "member.scribe": {
+              "id": "member.scribe",
+              "actor_id": "field_handover::actor.river_scribe",
+              "organization_id": "qingxi::org.north",
+              "policy_id": "policy.north",
+              "duty_ids": [],
+              "response": "serving",
+              "response_since_tick": 0,
+              "next_review_tick": 1,
+              "last_fact_id": ""
+            }
+          },
+          "offices": {
+            "office.north_received_service": {
+              "deputy_actor_id": null,
+              "epoch": 1,
+              "grant_ids": [
+                "grant.north_received_service"
+              ],
+              "holder_actor_id": "qingxi::actor.player",
+              "id": "office.north_received_service",
+              "organization_id": "qingxi::org.north",
+              "status": "active"
+            },
+            "office.south_service": {
+              "deputy_actor_id": null,
+              "epoch": 1,
+              "grant_ids": [
+                "grant.south_service"
+              ],
+              "holder_actor_id": "qingxi::actor.south_guard",
+              "id": "office.south_service",
+              "organization_id": "qingxi::org.south",
+              "status": "active"
+            },
+            "office.field_scribe": {
+              "id": "office.field_scribe",
+              "organization_id": "qingxi::org.north",
+              "holder_actor_id": "field_handover::actor.river_scribe",
+              "deputy_actor_id": null,
+              "epoch": 1,
+              "status": "active",
+              "grant_ids": [
+                "grant.field_unit",
+                "grant.field_army"
+              ]
+            },
+            "office.north_civil": {
+              "id": "office.north_civil",
+              "organization_id": "qingxi::org.north",
+              "holder_actor_id": "qingxi::actor.player",
+              "deputy_actor_id": null,
+              "epoch": 1,
+              "status": "active",
+              "grant_ids": [
+                "grant.camp"
+              ]
+            }
+          },
+          "organizations": {
+            "qingxi::org.north": {
+              "administrative_parent": null,
+              "branch_parent": null,
+              "headquarters_site": "qingxi::place.north.camp",
+              "id": "qingxi::org.north",
+              "kind": "political",
+              "office_ids": [
+                "office.north_received_service",
+                "office.field_scribe",
+                "office.north_civil"
+              ],
+              "policy_profile_id": "policy.north",
+              "status": "active",
+              "succession_policy_id": "declared_deputy_only"
+            },
+            "qingxi::org.south": {
+              "administrative_parent": null,
+              "branch_parent": null,
+              "headquarters_site": "qingxi::place.south.camp",
+              "id": "qingxi::org.south",
+              "kind": "political",
+              "office_ids": [
+                "office.south_service"
+              ],
+              "policy_profile_id": "policy.south",
+              "status": "active",
+              "succession_policy_id": "declared_deputy_only"
+            }
+          }
+        },
+        "population_military": {
+          "consents": {
+            "consent.south_guard.north": {
+              "cohort_id": "cohort.south.reserve",
+              "from_tick": 0,
+              "garrison_id": "qingxi::garrison.north",
+              "id": "consent.south_guard.north",
+              "max_active_count": 4,
+              "organization_id": "qingxi::org.north",
+              "through_tick": 2147483647
+            },
+            "consent.south_guard.south": {
+              "cohort_id": "cohort.south.reserve",
+              "from_tick": 0,
+              "garrison_id": "qingxi::garrison.south",
+              "id": "consent.south_guard.south",
+              "max_active_count": 4,
+              "organization_id": "qingxi::org.south",
+              "through_tick": 2147483647
+            }
+          },
+          "enabled": true,
+          "integration_policies": {
+            "integration.south_guard_to_north": {
+              "id": "integration.south_guard_to_north",
+              "ration_obligation_ids": [
+                "obligation.north.ration.reserve",
+                "obligation.north.ration.displaced",
+                "obligation.north.ration.officer"
+              ],
+              "receiving_garrison_id": "qingxi::garrison.north",
+              "receiving_organization_id": "qingxi::org.north",
+              "service_consent_source_id": "consent.south_guard.north",
+              "source_id": "source.south_guard",
+              "target_stronghold_id": "qingxi::stronghold.south",
+              "wage_obligation_ids": [
+                "obligation.north.service.reserve",
+                "obligation.north.service.serving",
+                "obligation.north.service.wounded",
+                "obligation.north.service.captive",
+                "obligation.north.service.displaced"
+              ]
+            }
+          },
+          "sources": {
+            "source.south_guard": {
+              "capacity": 4,
+              "captive_cohort_id": "cohort.south.captive",
+              "displaced_cohort_id": "cohort.south.displaced",
+              "garrison_id": "qingxi::garrison.south",
+              "home_site_id": "qingxi::place.south.camp",
+              "household_group_id": "household.south_guard",
+              "id": "source.south_guard",
+              "initial_fatigue": 0,
+              "initial_morale": 70,
+              "initial_training": 20,
+              "military_office_id": "qingxi::office.south_guard",
+              "organization_id": "qingxi::org.south",
+              "organization_office_id": "office.south_service",
+              "reserve_cohort_id": "cohort.south.reserve",
+              "service_consent_source_id": "consent.south_guard.south",
+              "serving_cohort_id": "cohort.south.serving",
+              "unit_id": "qingxi::unit.south.guard",
+              "wage_obligation_ids": [
+                "obligation.south.service.reserve",
+                "obligation.south.service.serving",
+                "obligation.south.service.wounded",
+                "obligation.south.service.captive",
+                "obligation.south.service.displaced"
+              ],
+              "wounded_cohort_id": "cohort.south.wounded"
+            }
+          }
+        },
+        "profile": "local_society_v1",
+        "siege_integration": {
+          "default_terms": {
+            "kind": "preserve_units_v1",
+            "population_policy_ids": [
+              "integration.south_guard_to_north"
+            ],
+            "preserve_private_property": true,
+            "preserve_unit_command": true,
+            "recipient_future_service_responsibility": true,
+            "retain_original_arrears": true,
+            "transfer_current_public_assets": true,
+            "transfer_prisoner_custody": true
+          },
+          "enabled": true,
+          "officer_policies": [
+            {
+              "actor_id": "qingxi::actor.south_patrol",
+              "allowed_recipient_organization_ids": [
+                "qingxi::org.north"
+              ],
+              "allowed_terms": [
+                "preserve_units_v1"
+              ],
+              "minimum_willingness": 50,
+              "require_private_property": true,
+              "require_unit_command": true
+            },
+            {
+              "actor_id": "qingxi::actor.south_guard",
+              "allowed_recipient_organization_ids": [
+                "qingxi::org.north"
+              ],
+              "allowed_terms": [
+                "preserve_units_v1"
+              ],
+              "minimum_willingness": 50,
+              "require_private_property": true,
+              "require_unit_command": true
+            }
+          ]
+        },
+        "politics": {
+          "enabled": true,
+          "jurisdictions": {
+            "jurisdiction.north": {
+              "id": "jurisdiction.north",
+              "name_key": "field_handover::name.jurisdiction.north",
+              "office_name_key": "field_handover::name.office.north",
+              "seat_place_id": "qingxi::place.north.camp",
+              "political_organization_id": "qingxi::org.north",
+              "controlling_organization_id": "qingxi::org.north",
+              "office_id": "office.north_civil",
+              "public_wallet_id": "qingxi::wallet.north.public",
+              "public_inventory_ids": [
+                "qingxi::inventory.north.public"
+              ],
+              "revision": 0
+            }
+          },
+          "appointment_policies": {
+            "appointment.local": {
+              "id": "appointment.local",
+              "name_key": "field_handover::name.appointment.local",
+              "response_ticks": 24,
+              "arrival_ticks": 24,
+              "minimum_administration": 1,
+              "minimum_merit": 0
+            }
+          },
+          "command_name_keys": {
+            "political_assign_military_officer": "field_handover::name.command.camp",
+            "political_assign_field_unit": "field_handover::name.command.unit",
+            "political_assign_field_army": "field_handover::name.command.army"
+          }
+        },
+        "political_military_appointments": {
+          "enabled": true,
+          "version": 1,
+          "policies": {
+            "appointment.camp": {
+              "id": "appointment.camp",
+              "organization_id": "qingxi::org.north",
+              "garrison_id": "qingxi::garrison.north",
+              "site_id": "qingxi::place.north.camp",
+              "response_ticks": 8,
+              "arrival_ticks": 16
+            }
+          }
+        },
+        "political_field_appointments": {
+          "enabled": true,
+          "version": 1,
+          "policies": {
+            "appointment.field": {
+              "id": "appointment.field",
+              "organization_id": "qingxi::org.north",
+              "origin_garrison_id": "qingxi::garrison.north",
+              "origin_site_id": "qingxi::place.north.camp",
+              "response_ticks": 8,
+              "arrival_ticks": 16,
+              "allow_unit": true,
+              "allow_army": true
+            }
+          }
+        },
+        "regional_life": {
+          "actor_topics": [],
+          "need_topics": []
+        },
+        "personal_injury_recovery": {
+          "version": 1,
+          "services": [
+            {
+              "role_id": "woundcare::role.clinic",
+              "method": "qualified_clinic"
+            }
+          ]
+        }
+      },
+      "enabled": {
+        "actors": [
+          "qingxi::actor.player",
+          "qingxi::actor.north_officer",
+          "qingxi::actor.south_officer",
+          "qingxi::actor.south_patrol",
+          "qingxi::actor.south_guard",
+          "field_handover::actor.river_scribe",
+          "woundcare::actor.healer"
+        ],
+        "battlefields": [
+          "qingxi::field.road",
+          "qingxi::field.fort",
+          "riverwatch::field.river"
+        ],
+        "dialogues": [
+          "qingxi::dialog.north",
+          "qingxi::dialog.south",
+          "woundcare::dialog.clinic"
+        ],
+        "garrisons": [
+          "qingxi::garrison.north",
+          "qingxi::garrison.south"
+        ],
+        "inventories": [
+          "qingxi::inventory.north.public",
+          "qingxi::inventory.south.public",
+          "qingxi::inventory.south.household",
+          "riverwatch::inventory.hold.north.1",
+          "riverwatch::inventory.hold.north.2",
+          "riverwatch::inventory.hold.south.1",
+          "riverwatch::inventory.hold.south.2",
+          "field_handover::inventory.river_house"
+        ],
+        "items": [
+          "qingxi::item.grain",
+          "qingxi::item.timber",
+          "qingxi::item.iron",
+          "qingxi::item.ram",
+          "qingxi::item.spear",
+          "qingxi::item.bow"
+        ],
+        "military_objectives": [
+          "qingxi::objective.road",
+          "qingxi::objective.fort"
+        ],
+        "military_orders": [
+          "qingxi::order.north_clear",
+          "qingxi::order.south_patrol",
+          "qingxi::order.south_guard"
+        ],
+        "offices": [
+          "qingxi::office.north_leader",
+          "qingxi::office.south_patrol",
+          "qingxi::office.south_guard"
+        ],
+        "organizations": [
+          "qingxi::org.north",
+          "qingxi::org.south"
+        ],
+        "places": [
+          "qingxi::place.north.gate",
+          "qingxi::place.north.camp",
+          "qingxi::place.south.gate",
+          "qingxi::place.south.camp"
+        ],
+        "roles": [
+          "qingxi::role.north.officer",
+          "qingxi::role.south.officer",
+          "woundcare::role.clinic"
+        ],
+        "routes": [
+          "qingxi::route.north_south",
+          "qingxi::route.south_north"
+        ],
+        "scenarios": [
+          "scenario.garrison_rest"
+        ],
+        "settlements": [
+          "qingxi::settlement.north",
+          "qingxi::settlement.south"
+        ],
+        "siege_topologies": [
+          "qingxi::topology.north",
+          "qingxi::topology.south"
+        ],
+        "strongholds": [
+          "qingxi::stronghold.north",
+          "qingxi::stronghold.south"
+        ],
+        "troop_types": [
+          "qingxi::troop.infantry",
+          "qingxi::troop.archer"
+        ],
+        "wallets": [
+          "qingxi::wallet.north.public",
+          "qingxi::wallet.south.public",
+          "qingxi::wallet.player",
+          "qingxi::wallet.north_officer",
+          "qingxi::wallet.south_officer",
+          "qingxi::wallet.south_patrol",
+          "qingxi::wallet.south_guard",
+          "qingxi::wallet.north.service",
+          "qingxi::wallet.south.service",
+          "qingxi::wallet.south.household",
+          "field_handover::wallet.river_house",
+          "field_handover::wallet.river_scribe",
+          "woundcare::wallet.healer"
+        ],
+        "world_maps": [
+          "qingxi::map.grain_road"
+        ],
+        "estates": [
+          "field_handover::estate.river_house"
+        ]
+      },
+      "id": "scenario.garrison_rest",
+      "initial": {
+        "actors": [
+          {
+            "actor_id": "qingxi::actor.player",
+            "age_years": 28,
+            "alive": true,
+            "appearance_definition": {
+              "attire_style": "plain",
+              "base_features": {
+                "beard": "plain",
+                "brows": "plain",
+                "build": "plain",
+                "eyes": "plain",
+                "face_shape": "plain",
+                "hair": "plain",
+                "mouth": "plain",
+                "nose": "plain",
+                "skin_palette": "plain"
+              },
+              "generator_version": "appearance-v1",
+              "kind": "fixed"
+            },
+            "attributes": {
+              "administration": 60,
+              "charisma": 60,
+              "intellect": 60,
+              "leadership": 60,
+              "martial": 60
+            },
+            "available": true,
+            "combat": {},
+            "initial_goods": [],
+            "place_id": "qingxi::place.north.gate",
+            "skills": {
+              "agriculture": 0,
+              "archery": 0,
+              "cavalry": 0,
+              "commerce": 0,
+              "debate": 0,
+              "espionage": 0,
+              "forging": 0,
+              "fortification": 0,
+              "infantry": 100,
+              "martial": 0,
+              "medicine": 0,
+              "naval": 300,
+              "negotiation": 0,
+              "rites": 0,
+              "tactics": 100,
+              "transport": 0
+            }
+          },
+          {
+            "actor_id": "qingxi::actor.north_officer",
+            "age_years": 45,
+            "alive": true,
+            "appearance_definition": {
+              "attire_style": "plain",
+              "base_features": {
+                "beard": "plain",
+                "brows": "plain",
+                "build": "plain",
+                "eyes": "plain",
+                "face_shape": "plain",
+                "hair": "plain",
+                "mouth": "plain",
+                "nose": "plain",
+                "skin_palette": "plain"
+              },
+              "generator_version": "appearance-v1",
+              "kind": "fixed"
+            },
+            "attributes": {
+              "administration": 60,
+              "charisma": 60,
+              "intellect": 60,
+              "leadership": 60,
+              "martial": 55
+            },
+            "available": true,
+            "combat": {},
+            "initial_goods": [],
+            "place_id": "qingxi::place.north.camp",
+            "skills": {
+              "agriculture": 0,
+              "archery": 0,
+              "cavalry": 0,
+              "commerce": 0,
+              "debate": 0,
+              "espionage": 0,
+              "forging": 0,
+              "fortification": 0,
+              "infantry": 300,
+              "martial": 0,
+              "medicine": 0,
+              "naval": 300,
+              "negotiation": 0,
+              "rites": 0,
+              "tactics": 300,
+              "transport": 0
+            }
+          },
+          {
+            "actor_id": "qingxi::actor.south_officer",
+            "age_years": 46,
+            "alive": true,
+            "appearance_definition": {
+              "attire_style": "plain",
+              "base_features": {
+                "beard": "plain",
+                "brows": "plain",
+                "build": "plain",
+                "eyes": "plain",
+                "face_shape": "plain",
+                "hair": "plain",
+                "mouth": "plain",
+                "nose": "plain",
+                "skin_palette": "plain"
+              },
+              "generator_version": "appearance-v1",
+              "kind": "fixed"
+            },
+            "attributes": {
+              "administration": 60,
+              "charisma": 60,
+              "intellect": 60,
+              "leadership": 60,
+              "martial": 55
+            },
+            "available": true,
+            "combat": {},
+            "initial_goods": [],
+            "place_id": "qingxi::place.south.camp",
+            "skills": {
+              "agriculture": 0,
+              "archery": 0,
+              "cavalry": 0,
+              "commerce": 0,
+              "debate": 0,
+              "espionage": 0,
+              "forging": 0,
+              "fortification": 0,
+              "infantry": 300,
+              "martial": 0,
+              "medicine": 0,
+              "naval": 0,
+              "negotiation": 0,
+              "rites": 0,
+              "tactics": 300,
+              "transport": 0
+            }
+          },
+          {
+            "actor_id": "qingxi::actor.south_patrol",
+            "age_years": 32,
+            "alive": true,
+            "appearance_definition": {
+              "attire_style": "plain",
+              "base_features": {
+                "beard": "plain",
+                "brows": "plain",
+                "build": "plain",
+                "eyes": "plain",
+                "face_shape": "plain",
+                "hair": "plain",
+                "mouth": "plain",
+                "nose": "plain",
+                "skin_palette": "plain"
+              },
+              "generator_version": "appearance-v1",
+              "kind": "fixed"
+            },
+            "attributes": {
+              "administration": 60,
+              "charisma": 60,
+              "intellect": 60,
+              "leadership": 60,
+              "martial": 55
+            },
+            "available": true,
+            "combat": {},
+            "initial_goods": [],
+            "place_id": "qingxi::place.south.camp",
+            "skills": {
+              "agriculture": 0,
+              "archery": 0,
+              "cavalry": 0,
+              "commerce": 0,
+              "debate": 0,
+              "espionage": 0,
+              "forging": 0,
+              "fortification": 0,
+              "infantry": 300,
+              "martial": 0,
+              "medicine": 0,
+              "naval": 300,
+              "negotiation": 0,
+              "rites": 0,
+              "tactics": 100,
+              "transport": 0
+            }
+          },
+          {
+            "actor_id": "qingxi::actor.south_guard",
+            "age_years": 37,
+            "alive": true,
+            "appearance_definition": {
+              "attire_style": "plain",
+              "base_features": {
+                "beard": "plain",
+                "brows": "plain",
+                "build": "plain",
+                "eyes": "plain",
+                "face_shape": "plain",
+                "hair": "plain",
+                "mouth": "plain",
+                "nose": "plain",
+                "skin_palette": "plain"
+              },
+              "generator_version": "appearance-v1",
+              "kind": "fixed"
+            },
+            "attributes": {
+              "administration": 60,
+              "charisma": 60,
+              "intellect": 60,
+              "leadership": 60,
+              "martial": 55
+            },
+            "available": true,
+            "combat": {},
+            "initial_goods": [],
+            "place_id": "qingxi::place.south.camp",
+            "skills": {
+              "agriculture": 0,
+              "archery": 300,
+              "cavalry": 0,
+              "commerce": 0,
+              "debate": 0,
+              "espionage": 0,
+              "forging": 0,
+              "fortification": 0,
+              "infantry": 0,
+              "martial": 0,
+              "medicine": 0,
+              "naval": 300,
+              "negotiation": 0,
+              "rites": 0,
+              "tactics": 100,
+              "transport": 0
+            }
+          },
+          {
+            "actor_id": "field_handover::actor.river_scribe",
+            "age_years": 32,
+            "alive": true,
+            "appearance_definition": {
+              "attire_style": "plain",
+              "base_features": {
+                "beard": "plain",
+                "brows": "plain",
+                "build": "plain",
+                "eyes": "plain",
+                "face_shape": "plain",
+                "hair": "plain",
+                "mouth": "plain",
+                "nose": "plain",
+                "skin_palette": "plain"
+              },
+              "generator_version": "appearance-v1",
+              "kind": "fixed"
+            },
+            "attributes": {
+              "administration": 45,
+              "charisma": 45,
+              "intellect": 45,
+              "leadership": 45,
+              "martial": 45
+            },
+            "available": true,
+            "combat": {},
+            "initial_goods": [],
+            "place_id": "qingxi::place.north.camp",
+            "skills": {
+              "agriculture": 0,
+              "archery": 0,
+              "cavalry": 0,
+              "commerce": 0,
+              "debate": 0,
+              "espionage": 0,
+              "forging": 0,
+              "fortification": 0,
+              "infantry": 80,
+              "martial": 0,
+              "medicine": 0,
+              "naval": 100,
+              "negotiation": 0,
+              "rites": 0,
+              "tactics": 0,
+              "transport": 0
+            }
+          },
+          {
+            "actor_id": "woundcare::actor.healer",
+            "age_years": 47,
+            "alive": true,
+            "appearance_definition": {
+              "attire_style": "plain",
+              "base_features": {
+                "beard": "plain",
+                "brows": "plain",
+                "build": "plain",
+                "eyes": "plain",
+                "face_shape": "plain",
+                "hair": "plain",
+                "mouth": "plain",
+                "nose": "plain",
+                "skin_palette": "plain"
+              },
+              "generator_version": "appearance-v1",
+              "kind": "fixed"
+            },
+            "attributes": {
+              "administration": 45,
+              "charisma": 45,
+              "intellect": 45,
+              "leadership": 45,
+              "martial": 45
+            },
+            "available": true,
+            "combat": {},
+            "initial_goods": [],
+            "place_id": "qingxi::place.north.camp",
+            "skills": {
+              "agriculture": 0,
+              "archery": 0,
+              "cavalry": 0,
+              "commerce": 0,
+              "debate": 0,
+              "espionage": 0,
+              "forging": 0,
+              "fortification": 0,
+              "infantry": 0,
+              "martial": 0,
+              "medicine": 0,
+              "naval": 0,
+              "negotiation": 0,
+              "rites": 0,
+              "tactics": 0,
+              "transport": 0
+            }
+          }
+        ],
+        "garrisons": [
+          {
+            "id": "qingxi::garrison.north",
+            "organization_id": "qingxi::org.north",
+            "units": [
+              {
+                "commander_actor_id": "qingxi::actor.player",
+                "equipment": [
+                  {
+                    "item_id": "qingxi::item.spear",
+                    "quantity_per_person": 1
+                  },
+                  {
+                    "item_id": "qingxi::item.timber",
+                    "quantity_per_person": 3
+                  },
+                  {
+                    "item_id": "qingxi::item.iron",
+                    "quantity_per_person": 1
+                  }
+                ],
+                "id": "qingxi::unit.north.work_detail",
+                "initial_fatigue": 0,
+                "initial_soldiers": 6,
+                "initial_training": 10,
+                "name_key": "qingxi::name.unit.north.work_detail",
+                "troop_type_id": "qingxi::troop.infantry"
+              },
+              {
+                "commander_actor_id": "qingxi::actor.north_officer",
+                "equipment": [
+                  {
+                    "item_id": "qingxi::item.spear",
+                    "quantity_per_person": 1
+                  },
+                  {
+                    "item_id": "qingxi::item.timber",
+                    "quantity_per_person": 3
+                  },
+                  {
+                    "item_id": "qingxi::item.iron",
+                    "quantity_per_person": 1
+                  }
+                ],
+                "id": "qingxi::unit.north.blockade",
+                "initial_soldiers": 6,
+                "name_key": "qingxi::name.unit.north.blockade",
+                "troop_type_id": "qingxi::troop.infantry"
+              }
+            ]
+          },
+          {
+            "id": "qingxi::garrison.south",
+            "organization_id": "qingxi::org.south",
+            "units": [
+              {
+                "commander_actor_id": "qingxi::actor.south_patrol",
+                "equipment": [
+                  {
+                    "item_id": "qingxi::item.spear",
+                    "quantity_per_person": 1
+                  }
+                ],
+                "id": "qingxi::unit.south.patrol",
+                "initial_soldiers": 8,
+                "name_key": "qingxi::name.unit.south.patrol",
+                "troop_type_id": "qingxi::troop.infantry"
+              },
+              {
+                "commander_actor_id": "qingxi::actor.south_guard",
+                "equipment": [
+                  {
+                    "item_id": "qingxi::item.bow",
+                    "quantity_per_person": 1
+                  },
+                  {
+                    "item_id": "qingxi::item.timber",
+                    "quantity_per_person": 2
+                  }
+                ],
+                "id": "qingxi::unit.south.guard",
+                "initial_fatigue": 0,
+                "initial_training": 20,
+                "name_key": "qingxi::name.unit.south.guard",
+                "population_source_id": "source.south_guard",
+                "troop_type_id": "qingxi::troop.archer"
+              }
+            ]
+          }
+        ],
+        "inventories": [
+          {
+            "capacity": 2000,
+            "goods": [
+              {
+                "item_id": "qingxi::item.grain",
+                "quantity": 480
+              },
+              {
+                "item_id": "qingxi::item.spear",
+                "quantity": 12
+              },
+              {
+                "item_id": "qingxi::item.timber",
+                "quantity": 36
+              },
+              {
+                "item_id": "qingxi::item.iron",
+                "quantity": 12
+              }
+            ],
+            "id": "qingxi::inventory.north.public",
+            "owner": {
+              "id": "qingxi::org.north",
+              "kind": "organization"
+            }
+          },
+          {
+            "capacity": 2000,
+            "goods": [
+              {
+                "item_id": "qingxi::item.grain",
+                "quantity": 120
+              },
+              {
+                "item_id": "qingxi::item.spear",
+                "quantity": 8
+              },
+              {
+                "item_id": "qingxi::item.bow",
+                "quantity": 4
+              },
+              {
+                "item_id": "qingxi::item.timber",
+                "quantity": 12
+              }
+            ],
+            "id": "qingxi::inventory.south.public",
+            "owner": {
+              "id": "qingxi::org.south",
+              "kind": "organization"
+            }
+          },
+          {
+            "capacity": 100,
+            "goods": [],
+            "id": "qingxi::inventory.south.household",
+            "owner": {
+              "id": "household.south_guard",
+              "kind": "household"
+            }
+          },
+          {
+            "capacity": 2000,
+            "goods": [],
+            "id": "riverwatch::inventory.hold.north.1",
+            "owner": {
+              "id": "qingxi::org.north",
+              "kind": "organization"
+            }
+          },
+          {
+            "capacity": 2000,
+            "goods": [],
+            "id": "riverwatch::inventory.hold.north.2",
+            "owner": {
+              "id": "qingxi::org.north",
+              "kind": "organization"
+            }
+          },
+          {
+            "capacity": 2000,
+            "goods": [],
+            "id": "riverwatch::inventory.hold.south.1",
+            "owner": {
+              "id": "qingxi::org.south",
+              "kind": "organization"
+            }
+          },
+          {
+            "capacity": 2000,
+            "goods": [],
+            "id": "riverwatch::inventory.hold.south.2",
+            "owner": {
+              "id": "qingxi::org.south",
+              "kind": "organization"
+            }
+          },
+          {
+            "id": "field_handover::inventory.river_house",
+            "owner": {
+              "kind": "actor",
+              "id": "qingxi::actor.player"
+            },
+            "capacity": 200,
+            "goods": [
+              {
+                "item_id": "qingxi::item.grain",
+                "quantity": 40
+              }
+            ]
+          }
+        ],
+        "offer_ids": [],
+        "offices": [
+          {
+            "id": "qingxi::office.north_leader"
+          },
+          {
+            "id": "qingxi::office.south_patrol"
+          },
+          {
+            "id": "qingxi::office.south_guard"
+          }
+        ],
+        "roles": [
+          {
+            "actor_id": "qingxi::actor.north_officer",
+            "enabled": true,
+            "role_id": "qingxi::role.north.officer"
+          },
+          {
+            "actor_id": "qingxi::actor.south_officer",
+            "enabled": true,
+            "role_id": "qingxi::role.south.officer"
+          },
+          {
+            "role_id": "woundcare::role.clinic",
+            "actor_id": "woundcare::actor.healer",
+            "enabled": true
+          }
+        ],
+        "strongholds": [
+          {
+            "id": "qingxi::stronghold.north"
+          },
+          {
+            "id": "qingxi::stronghold.south"
+          }
+        ],
+        "wallets": [
+          {
+            "id": "qingxi::wallet.north.public",
+            "initial_balance": 500,
+            "owner": {
+              "id": "qingxi::org.north",
+              "kind": "organization"
+            }
+          },
+          {
+            "id": "qingxi::wallet.south.public",
+            "initial_balance": 200,
+            "owner": {
+              "id": "qingxi::org.south",
+              "kind": "organization"
+            }
+          },
+          {
+            "id": "qingxi::wallet.player",
+            "initial_balance": 120,
+            "owner": {
+              "id": "qingxi::actor.player",
+              "kind": "actor"
+            }
+          },
+          {
+            "id": "qingxi::wallet.north_officer",
+            "initial_balance": 0,
+            "owner": {
+              "id": "qingxi::actor.north_officer",
+              "kind": "actor"
+            }
+          },
+          {
+            "id": "qingxi::wallet.south_officer",
+            "initial_balance": 0,
+            "owner": {
+              "id": "qingxi::actor.south_officer",
+              "kind": "actor"
+            }
+          },
+          {
+            "id": "qingxi::wallet.south_patrol",
+            "initial_balance": 0,
+            "owner": {
+              "id": "qingxi::actor.south_patrol",
+              "kind": "actor"
+            }
+          },
+          {
+            "id": "qingxi::wallet.south_guard",
+            "initial_balance": 0,
+            "owner": {
+              "id": "qingxi::actor.south_guard",
+              "kind": "actor"
+            }
+          },
+          {
+            "id": "qingxi::wallet.north.service",
+            "initial_balance": 100,
+            "owner": {
+              "id": "qingxi::org.north",
+              "kind": "organization"
+            }
+          },
+          {
+            "id": "qingxi::wallet.south.service",
+            "initial_balance": 100,
+            "owner": {
+              "id": "qingxi::org.south",
+              "kind": "organization"
+            }
+          },
+          {
+            "id": "qingxi::wallet.south.household",
+            "initial_balance": 0,
+            "owner": {
+              "id": "household.south_guard",
+              "kind": "household"
+            }
+          },
+          {
+            "id": "field_handover::wallet.river_house",
+            "owner": {
+              "kind": "actor",
+              "id": "qingxi::actor.player"
+            },
+            "initial_balance": 60
+          },
+          {
+            "id": "field_handover::wallet.river_scribe",
+            "owner": {
+              "kind": "actor",
+              "id": "field_handover::actor.river_scribe"
+            },
+            "initial_balance": 20
+          },
+          {
+            "id": "woundcare::wallet.healer",
+            "owner": {
+              "kind": "actor",
+              "id": "woundcare::actor.healer"
+            },
+            "initial_balance": 100
+          }
+        ],
+        "estates": [
+          {
+            "id": "field_handover::estate.river_house",
+            "owner_actor_id": "qingxi::actor.player",
+            "manager_actor_id": "field_handover::actor.river_scribe",
+            "resident_actor_ids": [
+              "field_handover::actor.river_scribe"
+            ],
+            "initial_facilities": {
+              "farm": 0,
+              "granary": 1,
+              "palisade": 0
+            },
+            "initial_duties": []
+          }
+        ]
+      },
+      "name_key": "name.scenario",
+      "playable_actor_ids": [
+        "qingxi::actor.player"
+      ],
+      "player_actor": "qingxi::actor.player",
+      "seed_text": "military-rout-retreat-1.0.0",
+      "skill_profile": "full_sixteen_v1",
+      "start_date": {
+        "day_of_year": 151,
+        "half_day": 0,
+        "year": 207
+      },
+      "world_map_id": "qingxi::map.grain_road",
+      "military_officer_assignments": {
+        "profile": "political_appointment_v1"
+      },
+      "military_field_commands": {
+        "profile": "casualty_appointment_v1"
+      },
+      "family_life": {
+        "profile": "verified_military_deaths_v1",
+        "player_death": "await_explicit_continuation"
+      },
+      "military_wounded_recovery": {
+        "profile": "supplied_wound_batches_v1",
+        "garrison_ids": [
+          "qingxi::garrison.north",
+          "qingxi::garrison.south"
+        ]
+      },
+      "military_supply_attrition": {
+        "profile": "anonymous_shortage_v1",
+        "shortage_threshold_half_days": 2,
+        "desertion_basis_points": 200,
+        "morale_loss": 10
+      },
+      "military_rout_retreat": {
+        "profile": "two_blocked_rounds_v1",
+        "blocked_rounds_before_capture": 2,
+        "battlefield_ids": [
+          "qingxi::field.road"
+        ]
+      },
+      "military_command_shock": {
+        "profile": "army_commander_once_v1",
+        "morale_loss": 10
+      },
+      "military_garrison_rest": {
+        "profile": "supplied_garrison_rest_v1",
+        "garrison_ids": [
+          "qingxi::garrison.north",
+          "qingxi::garrison.south"
+        ],
+        "fatigue_reduction": 10
+      }
+    }
+  ],
+  "personal_skills": [],
+  "personal_battlefields": [],
+  "personal_objectives": [],
+  "world_maps": [],
+  "estates": [],
+  "battlefields": [],
+  "troop_types": [],
+  "military_objectives": [],
+  "offices": [],
+  "garrisons": [],
+  "military_orders": [],
+  "strongholds": [],
+  "siege_topologies": [],
+  "etiquette_challenges": [],
+  "bargain_challenges": [],
+  "drill_challenges": [],
+  "task_templates": [],
+  "required_capabilities": [
+    "multi_actor",
+    "places",
+    "dialogue",
+    "economy",
+    "military",
+    "world_terrain",
+    "native_dynamic_world",
+    "population_military_v1",
+    "siege_integration_v1",
+    "military_naval_v1",
+    "military_naval_combat_v1",
+    "military_naval_commanders_v1",
+    "estates",
+    "military_officer_assignments_v1",
+    "political_military_appointments_v1",
+    "military_field_commands_v1",
+    "political_field_appointments_v1",
+    "regional_life_v1",
+    "services",
+    "family",
+    "family_life_v1",
+    "personal_injury_recovery_v1",
+    "military_wounded_recovery_v1",
+    "military_supply_attrition_v1",
+    "military_rout_retreat_v1",
+    "military_command_shock_v1",
+    "military_garrison_rest_v1"
+  ],
+  "format": "HM-CONTENT",
+  "schema_version": 1,
+  "id": "hanmo.military_garrison_rest",
+  "version": "1.0.0",
+  "flags": {},
+  "texts": {
+    "name.scenario": "驻营休整"
+  }
+}

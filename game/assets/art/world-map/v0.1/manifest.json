@@ -1,0 +1,63 @@
+{
+  "tool": "built-in image_gen.imagegen",
+  "created_utc": "2026-10-08",
+  "pixel_postprocessing": "none",
+  "entries": {
+    "city": {
+      "source": "<本地路径>",
+      "path": "game/assets/art/world-map/v0.1/city.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alpha_bounds": [
+        0,
+        21,
+        1245,
+        1254
+      ],
+      "visible_bounds_alpha32": [
+        35,
+        223,
+        1238,
+        1000
+      ],
+      "sha256": "e3a67a946c08311ce1c5ff9ef9c7b3b65a52ae9e027a665449658624435a7345",
+      "bytes": 1883700,
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "status": "生成候选，已目视；未经过用户美术评审或GUI验收"
+    },
+    "village": {
+      "source": "<本地路径>",
+      "path": "game/assets/art/world-map/v0.1/village.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alpha_bounds": [
+        0,
+        19,
+        1234,
+        1254
+      ],
+      "visible_bounds_alpha32": [
+        131,
+        187,
+        1196,
+        1029
+      ],
+      "sha256": "155d42407e63c7a02dbdacf2cb461491154bad1b799f1be8d3fd53c979d6c2b9",
+      "bytes": 1869584,
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "status": "生成候选，已目视；未经过用户美术评审或GUI验收"
+    }
+  }
+}

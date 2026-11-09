@@ -1,0 +1,29 @@
+{
+  "schema": "adult_sword_shoulder_pixel_inspection/1",
+  "candidate_sha256": "5cce7022529b91bf5e1fa2ca45453176521fb2773b8c3ee59365cf9e5538f0d5",
+  "source_sha256": "5cace2bcb6b4fee16184311b2c575ae80243e1c5787f7bef43dc59b6d42909ba",
+  "source_size": [
+    1254,
+    1254
+  ],
+  "region": [
+    0,
+    0,
+    960,
+    1020
+  ],
+  "all_alpha_ge16_inside_region": true,
+  "near_cover_anchor_projected_from_neck": [
+    91.98,
+    44.94
+  ],
+  "base_near_shoulder_from_neck": [
+    92,
+    45
+  ],
+  "arms_part_definitions_unchanged": true,
+  "arms_atlas_bytes_unchanged": true,
+  "base_atlas_bytes_unchanged": true,
+  "base_definition_sha256": "65ffc7546f3ebe110ad9e7cf8e424e94c4908a1ea66f320bcec67b771f3a6a24",
+  "pixel_mutation": false
+}

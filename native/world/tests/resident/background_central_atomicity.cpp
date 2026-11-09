@@ -1,0 +1,30 @@
+// 真实中央NPC入口的一个故障注入回归；人为碰撞不是合法自然状态，也不替代完整世界压力门。
+#include "resident/kernel/world_codec.hpp"
+#include "resident/domains/military/military_codec.hpp"
+#include <cassert>
+#include <fstream>
+#include <iostream>
+using namespace hanmo::resident;
+namespace {
+BoundaryValue read_source(const std::string& path){std::ifstream input(path);assert(input.good());std::string bytes((std::istreambuf_iterator<char>(input)),{});auto parsed=parse_boundary_json(bytes);if(!parsed.ok){std::cerr<<parsed.error.original.code<<":"<<parsed.error.original.path<<"\n";std::abort();}return std::move(parsed.value);}
+template<class T>T value(Outcome<T> result){if(!result.ok){std::cerr<<result.error.original.code<<":"<<result.error.original.path<<"\n";std::abort();}return std::move(result.value);}
+void require(Status status){if(!status.ok){std::cerr<<status.error.original.code<<":"<<status.error.original.path<<"\n";std::abort();}}
+void exact(const BoundaryValue& expected,const BoundaryValue& actual){auto compared=compare_boundary(expected,actual);if(!compared.exact()){auto mismatch=compared.value_difference?compared.value_difference:compared.order_difference;std::cerr<<mismatch->path<<":"<<mismatch->reason<<"\n";std::abort();}}
+// 版本不是输出世界字段，因此另取所有共同资源、活动army及即将写入的action键，逐项核回滚。
+std::vector<ReadVersion> versions(const WorldBundle& world,const StableId& prospective_action){std::vector<ReadVersion> result;auto add=[&](ResourceKey::Kind kind,const StableId& id){result.push_back(world.common.read_version({kind,id}));};for(auto& id:world.common.actor_order())add(ResourceKey::Kind::actor,id);for(auto& row:world.common.state().wallets.rows())add(ResourceKey::Kind::wallet,row.first);for(auto& row:world.common.state().inventories.rows())add(ResourceKey::Kind::inventory,row.first);for(auto& id:world.common.action_order())add(ResourceKey::Kind::action,id);for(auto& row:world.common.state().parties.rows())add(ResourceKey::Kind::party,row.first);for(auto& army:world.military.armies)add(ResourceKey::Kind::army,army.id);add(ResourceKey::Kind::action,prospective_action);return result;}
+}
+int main(int argc,char** argv){
+    assert(argc==2);const std::string root=argv[1];auto index=read_source(root+"/oracle-index.json");auto& commands=*index.find("commands")->as<BoundaryValue::Array>();auto source=read_source(root+"/"+boundary::get_string(*commands[3].find("after"),"file","after"));auto catalog=read_source(root+"/expanded-catalog.json");auto prepared=value(prepare_catalog(catalog,source));auto seed=value(decode_world_seed(source,*prepared));WorldBundle world(prepared,std::move(seed));require(world.validate());
+    auto diagnostic=read_source(root+"/command-004.json");std::optional<BoundaryValue> params;for(auto& call:*diagnostic.find("observed_calls")->as<BoundaryValue::Array>())if(boundary::get_string(call,"entry","call")=="apply"&&boundary::get_string(call,"kind","call")=="army_form"&&boundary::get_string(call,"actor_id","call")=="actor.blackwater.commander")params=*call.find("params");assert(params);auto military=value(decode_military_command("army_form",*params));CommandPayload command{"army_form",military};assert(prepare_command(world,"actor.blackwater.commander",command).ok);
+    const auto collision="action:"+std::to_string(world.common.state().next_instance_id);assert(!world.common.state().facts.find(collision));assert(!world.military.supply_facts.empty());
+    // 故意放置不合法的新ID碰撞；完整payload只为使导出仍可比较，不调用验证/发布将其当合法世界。
+    auto injected=world.military.supply_facts.front();injected.id=collision;world.military.supply_facts.push_back(injected);require(world.common.append_fact({collision,"military_supply","military"}));
+    // 独立副本直接调用同一中央apply，证明此注入确实发生在真实预留之后，而非更早的preview拒绝。
+    {WorldBundle probe(world);auto quote=value(prepare_command(probe,"actor.blackwater.commander",command));auto failure=apply_command(probe,"actor.blackwater.commander",*quote->operation);assert(!failure.ok&&failure.error.kind==ErrorKind::rule&&failure.error.original.code=="DuplicateFactId");assert(probe.common.state().next_instance_id>world.common.state().next_instance_id);bool held=false;for(auto& lot:probe.common.inventory("inventory.blackwater.camp")->lots)if(lot.reserved_by==collision)held=true;assert(held);bool mobilizing=false;for(auto& unit:probe.military.military_units)if(unit.mobilizing_action_id==collision)mobilizing=true;assert(mobilizing);}
+    const auto before=value(export_world_state(world));const auto typed_before=value(encode_world_checkpoint(world));const auto before_versions=versions(world,collision);const auto before_id=world.common.state().next_instance_id;bool applied=true;
+    // 直接调用phase tail实际使用的中央函数；测试不复制savepoint/领域备份/restore流程。
+    require(try_npc_command(world,"actor.blackwater.commander",command,applied));assert(!applied);assert(world.common.state().next_instance_id==before_id);assert(!world.common.action(collision));assert(world.common.actor("actor.blackwater.commander")->action_id.empty());exact(before,value(export_world_state(world)));assert(typed_before==value(encode_world_checkpoint(world)));for(auto& version:before_versions)assert(world.common.read_version(version.resource).version==version.version);
+    // 同一候选后续普通NPC仍会提交；不需要修复非法注入或领号来证明队列没有错误终止。
+    CommandPayload move{"move_local",TravelCommandPayload{MoveLocalCommand{"east.entrance"}}};applied=false;require(try_npc_command(world,"actor.blackwater.commander",move,applied));assert(applied);auto location=std::get_if<SettlementLocation>(&world.common.actor("actor.blackwater.commander")->location);assert(location&&location->place_id=="east.entrance");assert(world.common.state().next_instance_id==before_id);assert(world.common.read_version({ResourceKey::Kind::actor,"actor.blackwater.commander"}).version>0);assert(!compare_boundary(before,value(export_world_state(world))).values_equal);
+    std::cout<<"background_central_atomicity: PASS (real try_npc_command; synthetic post-reservation DuplicateFactId rollback preserves full export/checkpoint/ID/read versions; next move_local adopted)\n";
+}

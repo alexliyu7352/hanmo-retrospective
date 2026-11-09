@@ -1,0 +1,539 @@
+{
+  "version": 1,
+  "rig": "adult_male_long_v1",
+  "canvas": [
+    512,
+    768
+  ],
+  "avatar_crop": [
+    115,
+    9,
+    306,
+    306
+  ],
+  "scope_label": "成年男性 · 偏长比例 · 平静交谈",
+  "defaults": {
+    "face": 0,
+    "brows": 0,
+    "eyes": 1,
+    "nose": 0,
+    "mouth": 0,
+    "hair": 0,
+    "beard": 0,
+    "skin": 0,
+    "hair_color": 0,
+    "outfit": 0,
+    "cloth_color": 0
+  },
+  "groups": [
+    {
+      "id": "face",
+      "label": "骨相与五官",
+      "fields": [
+        "face",
+        "brows",
+        "eyes",
+        "nose",
+        "mouth"
+      ]
+    },
+    {
+      "id": "hair",
+      "label": "发冠与胡须",
+      "fields": [
+        "hair",
+        "beard",
+        "hair_color"
+      ]
+    },
+    {
+      "id": "dress",
+      "label": "衣装与肤色",
+      "fields": [
+        "outfit",
+        "cloth_color",
+        "skin"
+      ]
+    }
+  ],
+  "fields": {
+    "face": {
+      "label": "脸型",
+      "options": [
+        "长窄脸",
+        "长方脸"
+      ]
+    },
+    "brows": {
+      "label": "眉形",
+      "options": [
+        "锋眉",
+        "平眉"
+      ]
+    },
+    "eyes": {
+      "label": "眼形",
+      "options": [
+        "明眸",
+        "平睑"
+      ]
+    },
+    "nose": {
+      "label": "鼻形",
+      "options": [
+        "挺鼻",
+        "圆鼻"
+      ]
+    },
+    "mouth": {
+      "label": "唇形",
+      "options": [
+        "平唇",
+        "丰唇含笑"
+      ]
+    },
+    "hair": {
+      "label": "发冠",
+      "options": [
+        "束髻",
+        "巾帻"
+      ]
+    },
+    "beard": {
+      "label": "胡须",
+      "options": [
+        "无须",
+        "短髭须"
+      ]
+    },
+    "skin": {
+      "label": "肤色",
+      "options": [
+        "暖肤",
+        "日晒",
+        "浅暖"
+      ]
+    },
+    "hair_color": {
+      "label": "发须色",
+      "options": [
+        "墨黑",
+        "栗褐",
+        "霜灰"
+      ]
+    },
+    "outfit": {
+      "label": "衣身",
+      "options": [
+        "素面常服",
+        "行旅行装"
+      ]
+    },
+    "cloth_color": {
+      "label": "衣色",
+      "options": [
+        "本色",
+        "苍绿",
+        "绛红"
+      ]
+    }
+  },
+  "compatibility": [
+    {
+      "when": {
+        "beard": 1
+      },
+      "requires": {
+        "face": 0,
+        "mouth": 0
+      },
+      "reason": "这款短髭须适配长窄脸与平唇；请先选择这两项，其他选件会保留。"
+    }
+  ],
+  "assets": {
+    "head-0": "res://assets/runtime/long/head-0.png",
+    "head-1": "res://assets/runtime/long/head-1.png",
+    "hair-0": "res://assets/runtime/long/hair-0.png",
+    "hair-1": "res://assets/runtime/long/hair-1.png",
+    "outfit-0": "res://assets/runtime/long/outfit-0.png",
+    "outfit-1": "res://assets/runtime/long/outfit-1.png",
+    "features-soft": "res://assets/runtime/long/features-soft.png",
+    "features-beard": "res://assets/runtime/long/features-beard.png",
+    "cap": "res://assets/runtime/long/cap.png",
+    "cap-mask": "res://assets/runtime/long/cap-mask.png",
+    "features-base": "res://assets/runtime/long/features-base.png"
+  },
+  "regions": {
+    "brows": [
+      [
+        276.0,
+        157.5,
+        32.5,
+        11.0
+      ],
+      [
+        324.5,
+        168.0,
+        22.0,
+        10.5
+      ]
+    ],
+    "eyes": [
+      [
+        272.5,
+        175.0,
+        28.0,
+        12.0
+      ],
+      [
+        323.5,
+        185.5,
+        21.5,
+        11.5
+      ]
+    ],
+    "nose": [
+      [
+        296.5,
+        209.0,
+        19.0,
+        23.5
+      ]
+    ],
+    "mouth": [
+      [
+        287.0,
+        242.0,
+        26.5,
+        14.5
+      ]
+    ],
+    "beard": [
+      [
+        289.5,
+        239.0,
+        31.0,
+        17.0
+      ],
+      [
+        275.5,
+        267.0,
+        40.5,
+        23.0
+      ]
+    ]
+  },
+  "source_canvas": [
+    1024,
+    1536
+  ],
+  "composition_policy": "compose source-size disjoint layers first, then uniformly downsample finished portrait",
+  "choice_semantics": {
+    "face": [
+      "base_contour",
+      "angular_contour"
+    ],
+    "brows": [
+      "arched",
+      "straight"
+    ],
+    "eyes": [
+      "open",
+      "narrow"
+    ],
+    "nose": [
+      "straight",
+      "round"
+    ],
+    "mouth": [
+      "neutral",
+      "smile"
+    ],
+    "hair": [
+      "bun",
+      "headwrap"
+    ],
+    "beard": [
+      "none",
+      "short"
+    ],
+    "skin": [
+      "warm",
+      "tanned",
+      "light_warm"
+    ],
+    "hair_color": [
+      "black",
+      "brown",
+      "gray"
+    ],
+    "outfit": [
+      "plain",
+      "traveler"
+    ],
+    "cloth_color": [
+      "original",
+      "green",
+      "red"
+    ]
+  },
+  "feature_sources": {
+    "brows": [
+      "features-base",
+      "features-soft"
+    ],
+    "eyes": [
+      "features-soft",
+      "features-base"
+    ],
+    "nose": [
+      "features-base",
+      "features-soft"
+    ],
+    "mouth": [
+      "features-base",
+      "features-soft"
+    ]
+  },
+  "portrait_crop": [
+    54,
+    24,
+    920,
+    1380
+  ],
+  "skin_rect": [
+    177,
+    111,
+    176,
+    255
+  ],
+  "hair_tint_height": 256,
+  "cap_tint_bounds": [
+    165,
+    149
+  ],
+  "outfit_tint": [
+    {
+      "mode": "warm",
+      "scales": [
+        [
+          0.82,
+          1.1,
+          0.84
+        ],
+        [
+          1.2,
+          0.8,
+          0.8
+        ]
+      ],
+      "belt": [
+        [
+          158,
+          607
+        ],
+        [
+          391,
+          605
+        ],
+        [
+          402,
+          629
+        ],
+        [
+          398,
+          671
+        ],
+        [
+          379,
+          687
+        ],
+        [
+          401,
+          768
+        ],
+        [
+          337,
+          768
+        ],
+        [
+          339,
+          690
+        ],
+        [
+          160,
+          684
+        ]
+      ],
+      "collar": [
+        [
+          177,
+          252
+        ],
+        [
+          198,
+          259
+        ],
+        [
+          233,
+          305
+        ],
+        [
+          281,
+          358
+        ],
+        [
+          290,
+          323
+        ],
+        [
+          293,
+          282
+        ],
+        [
+          312,
+          313
+        ],
+        [
+          322,
+          403
+        ],
+        [
+          303,
+          445
+        ],
+        [
+          277,
+          403
+        ],
+        [
+          238,
+          351
+        ],
+        [
+          199,
+          301
+        ],
+        [
+          176,
+          268
+        ]
+      ]
+    },
+    {
+      "mode": "cool",
+      "scales": [
+        [
+          0.83,
+          1.1,
+          0.84
+        ],
+        [
+          1.25,
+          0.8,
+          0.74
+        ]
+      ],
+      "belt": [
+        [
+          158,
+          607
+        ],
+        [
+          391,
+          605
+        ],
+        [
+          402,
+          629
+        ],
+        [
+          398,
+          671
+        ],
+        [
+          379,
+          687
+        ],
+        [
+          401,
+          768
+        ],
+        [
+          337,
+          768
+        ],
+        [
+          339,
+          690
+        ],
+        [
+          160,
+          684
+        ]
+      ],
+      "collar": [
+        [
+          177,
+          252
+        ],
+        [
+          198,
+          259
+        ],
+        [
+          233,
+          305
+        ],
+        [
+          281,
+          358
+        ],
+        [
+          290,
+          323
+        ],
+        [
+          293,
+          282
+        ],
+        [
+          312,
+          313
+        ],
+        [
+          322,
+          403
+        ],
+        [
+          303,
+          445
+        ],
+        [
+          277,
+          403
+        ],
+        [
+          238,
+          351
+        ],
+        [
+          199,
+          301
+        ],
+        [
+          176,
+          268
+        ]
+      ],
+      "strap": [
+        117,
+        310,
+        366,
+        621,
+        25
+      ],
+      "protect_cool": true
+    }
+  ]
+}

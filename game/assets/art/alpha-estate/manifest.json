@@ -1,0 +1,14 @@
+{
+  "tool": "built-in image_gen.imagegen",
+  "source": "<本地路径>",
+  "file": "estate-courtyard.png",
+  "size": [
+    1672,
+    941
+  ],
+  "mode": "RGB",
+  "sha256": "646597c8227c656b710bf57e0f7b63d103ddd2c09e738c69152cc9d0f45332d4",
+  "purpose": "原工程庄园背景；人物、物品数量与文字由真实场景叠加",
+  "modified_pixels": false,
+  "limitations": "原创生成资源，不是实机截图；表现入口仍须在原场景检查。"
+}

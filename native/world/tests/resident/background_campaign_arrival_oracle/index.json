@@ -1,0 +1,13 @@
+{
+  "format": "HM-RESIDENT-CAMPAIGN-ARRIVAL-GD-INDEX/1",
+  "status": "ORIGINAL_GD_TICK7_VERIFIED",
+  "initial_sha256": "35b9609651e95a7ae35949a7f9ca336ea3a569bb27105b12a74dba7ed372b7f0",
+  "initial_file": "../background_post_arrival_oracle/state-35b9609651e95a7ae35949a7f9ca336ea3a569bb27105b12a74dba7ed372b7f0.json.gz",
+  "final_sha256": "1a4f1372748037c60a7808c29ae280876ba8781849604864d0c987e8dc9f423a",
+  "final_file": "state-1a4f1372748037c60a7808c29ae280876ba8781849604864d0c987e8dc9f423a.json.gz",
+  "compressed_sha256": "0d6c2904538fd9a8115027f09bdc82345ff6db68201dde183a5ff7ec22ed40cb",
+  "source_catalog_sha256": "b1fb03a4e7202b543280bdaed6e9c7760ef4496243e0e63c111755d9f4835cf7",
+  "oracle_script_sha256": "1c99014cd43ff9cbc492e4b213f3ef61c5efde769d25a48b97437a508b582296",
+  "command_file": "command-000.json",
+  "scope": "One actual GD public advance from captured tick6 to tick7; no native or performance claim"
+}

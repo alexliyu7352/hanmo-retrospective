@@ -1,0 +1,13 @@
+// 回执缓存/序号/历史必须可安全重放；测试真实CommonStore校验，不以checksum代替不变量。
+#include "resident/storage/common_checkpoint.hpp"
+#include "hanmo/resident/command_contract.hpp"
+#include <fstream>
+#include <iostream>
+#ifdef NDEBUG
+#undef NDEBUG
+#endif
+#include <cassert>
+using namespace hanmo::resident;
+BoundaryValue read(const char* path){std::ifstream file(path);auto decoded=parse_boundary_json(std::string((std::istreambuf_iterator<char>(file)),{}));assert(decoded.ok);return std::move(decoded.value);}
+// 以真实目录/种子建立共同schema，然后只构造合法的原submit回执后缀，允许请求序号跳号。
+int main(int argc,char** argv){assert(argc==3);auto raw=read(argv[1]),source=read(argv[2]);auto catalog=decode_common_catalog(*raw.find("data"));assert(catalog.ok);auto decoded=decode_common_seed(source,catalog.value);assert(decoded.ok);auto shared=std::make_shared<const CommonCatalog>(catalog.value);CommonState state=decoded.value;state.identity.revision=7;state.identity.tick=4;state.next_instance_id=800;state.request_sequences.set("actor.player",40);const Integer sequences[]={1,3,8,9,15,22,40};for(Integer i=1;i<=7;++i){auto result=std::make_shared<CommitResult>();result->ok=true;result->kind="wait";result->result_id="result:"+std::to_string(680+i);result->revision=i;result->tick=std::min(Integer(4),i-1);state.results.insert("actor.player:"+std::to_string(sequences[i-1]),result);state.history.push_back({result->tick,result->kind,"actor.player",result->result_id});}assert(CommonStore(state,shared).validate_common().ok);auto null=state;null.results.set("actor.player:1",nullptr);auto invalid=CommonStore(null,shared).validate_common();if(invalid.ok){std::cerr<<"NULL_CACHED_RECEIPT_ACCEPTED\n";return 1;}assert(invalid.error.original.code=="InvalidCachedResult");auto rejects=[&](auto mutate,const StableId& code){auto broken=state;auto receipt=std::make_shared<CommitResult>(*broken.results.find("actor.player:1")->get());mutate(*receipt);broken.results.set("actor.player:1",receipt);auto status=CommonStore(broken,shared).validate_common();assert(!status.ok&&status.error.original.code==code);};rejects([](CommitResult& r){r.ok=false;},"InvalidCachedResult");rejects([](CommitResult& r){r.kind.clear();},"InvalidCachedResult");rejects([](CommitResult& r){r.tick=5;},"InvalidCachedResult");rejects([](CommitResult& r){r.revision=8;},"InvalidCachedResult");rejects([](CommitResult& r){r.result_id="result:01";},"InvalidCachedResult");rejects([](CommitResult& r){r.result_id="result:800";},"InstanceCounterCollision");auto trimmed=state;trimmed.results.erase("actor.player:1");assert(CommonStore(trimmed,shared).validate_common().ok);std::cout<<"state_receipts: PASS (null/failed/malformed/future receipt shells rejected; sequence gaps and trimmed cache preserved)\n";}

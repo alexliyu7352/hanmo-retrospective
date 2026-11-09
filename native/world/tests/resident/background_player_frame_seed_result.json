@@ -1,0 +1,45 @@
+{
+  "format": "HM-PLAYER-FRAME-SEED-C-GATE/1",
+  "status": "PASS",
+  "test_source_commit": "9e5f6e0cf671605a4c9bbbed4027707c129e2f4b",
+  "integrated_source": "07ee3fa31c2179803b3f61248e00acbe23cb252d",
+  "library_sha256": {
+    "libhanmo_resident.a": "92476d4e2105ae69a1a80be3412d2b7cc48839c11b54f96efab1a297ac03d8a6",
+    "libhanmo_world.a": "5288091b4e83ed52b8b4c413fefea15e85248f5000d9143c2b416bac432a83a2",
+    "libhanmo_flecs.a": "3ffd22212ca3af8eb69c890a150ce6211db4574ab9128f446b388da607e1862a"
+  },
+  "test_sha256": "bff1404c2322859969c8547d25f9e1eb073221cdfeb8002dc878e6bf5a5cd6bf",
+  "executable_sha256": "bed01d31cad6825042360197b12b2e7d4d83e3366d138b5bf43791f96db3eec0",
+  "actual_sessions": 3,
+  "fixtures": [
+    "actual26 initial",
+    "actual26 walker choice",
+    "actual100 final after15 commands"
+  ],
+  "fixture_manifest": "native/world/tests/resident/background_live_projection_oracle.json",
+  "fixture_manifest_sha256": "fa76d76c304d2f4b6c2e97d03238a47de1a2f1238554294f570e0e6d597b84cc",
+  "exit_code": 0,
+  "coverage": [
+    "Existing signed query and preview leaves compared exactly in original values, scalar types and ordered dictionary/array structure",
+    "Encounter branch omits companion/logistics/travel reads; selected self/peer/current-speaker portraits retain only original six actor and five appearance fields",
+    "Ordinary negative fixed previews remain exact child results",
+    "Caller cannot add actor_id, army_id, observer or arbitrary queries",
+    "Returned object mutation cannot affect later query, full world or checkpoint",
+    "Pure frame read preserves world ID, execution epoch, revision, tick, full state and checkpoint bytes",
+    "Old revision rejects StalePreview; restored same revision under new epoch rejects StaleWorld before poisoned caller args"
+  ],
+  "red": {
+    "integrated_source": "0236316aa04ac4a0deb07abacf2ea374403366d4",
+    "resident_archive_sha256": "308a9c1181e9a5f0c8647865fd8e2b0f299d612ed6c857c4e029bceb9d5eabde",
+    "exit_code": 134,
+    "error": "UnsupportedLiveQuery",
+    "evidence": "<本地路径>"
+  },
+  "green_evidence": "<本地路径>",
+  "performance_claim": false,
+  "notes": [
+    "Only one small test executable compiled/linked against immutable central archives and exact git-archived07 headers. No core rebuild, engine run or scale replay.",
+    "Raw previous GUI trace identified22 serial normal-frame jobs; its accepted-to-observed wall time is not worker CPU time.",
+    "Main consumer/cadence measurement is owned separately by central, A/B/D."
+  ]
+}

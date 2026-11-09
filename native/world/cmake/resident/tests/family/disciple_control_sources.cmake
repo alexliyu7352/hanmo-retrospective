@@ -1,0 +1,21 @@
+# 家庭与生命阶段消费者登记：保留本组目标、测试、条件与局部变量的原执行顺序。
+# 弟子原控制账与实际结果绑定必要门；不代自然死亡全链。
+add_executable(test_resident_disciple_control_sources tests/resident/disciple_control_sources_test.cpp)
+target_link_libraries(test_resident_disciple_control_sources PRIVATE hanmo_resident)
+target_include_directories(test_resident_disciple_control_sources PRIVATE src)
+target_compile_options(test_resident_disciple_control_sources PRIVATE -UNDEBUG -fno-fast-math -ffp-contract=off)
+add_test(NAME resident_disciple_control_sources COMMAND test_resident_disciple_control_sources)
+
+# 弟子原控制账与实际结果绑定必要门；不代自然死亡全链。
+add_executable(test_resident_disciple_legacy tests/resident/disciple_legacy_test.cpp)
+target_link_libraries(test_resident_disciple_legacy PRIVATE hanmo_resident)
+target_include_directories(test_resident_disciple_legacy PRIVATE src)
+target_compile_options(test_resident_disciple_legacy PRIVATE -UNDEBUG -fno-fast-math -ffp-contract=off)
+add_test(NAME resident_disciple_legacy COMMAND test_resident_disciple_legacy)
+
+# 弟子原控制账与实际结果绑定必要门；不代自然死亡全链。
+add_executable(test_resident_disciple_control_receipts tests/resident/disciple_control_receipts_test.cpp)
+target_link_libraries(test_resident_disciple_control_receipts PRIVATE hanmo_resident)
+target_include_directories(test_resident_disciple_control_receipts PRIVATE src)
+target_compile_options(test_resident_disciple_control_receipts PRIVATE -UNDEBUG -fno-fast-math -ffp-contract=off)
+add_test(NAME resident_disciple_control_receipts COMMAND test_resident_disciple_control_receipts)

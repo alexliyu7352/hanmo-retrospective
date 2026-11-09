@@ -1,0 +1,76 @@
+{
+  "format": "HM-PACK",
+  "format_version": 1,
+  "id": "qingchuan.study",
+  "version": "1.3.0",
+  "namespace": "qingstudy",
+  "rules_api": {
+    "id": "hanmo.rules",
+    "min_version": "1.0.0",
+    "max_version_exclusive": "2.0.0"
+  },
+  "dependencies": [],
+  "conflicts": [],
+  "required_capabilities": [
+    "multi_actor",
+    "places",
+    "services",
+    "economy",
+    "dialogue",
+    "cultivation",
+    "military",
+    "personal_combat"
+  ],
+  "content_entries": [
+    "content.json"
+  ],
+  "presentation_entries": [
+    "presentation.json"
+  ],
+  "resources": [
+    {
+      "path": "assets/art/project/alpha-visual/city.png",
+      "kind": "image",
+      "required": true,
+      "sha256": "96c0256ee3c12671c8829400f9a14b9c13274964cc54ce41e8273554bd57c4b7",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "assets/art/project/alpha-visual/merchant.png",
+      "kind": "image",
+      "required": true,
+      "sha256": "5e33b90d7fb2cc541f064612c7ad68ca23993f1d3e62d100376641b7b8729a66",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "assets/art/project/alpha-visual/shop.png",
+      "kind": "image",
+      "required": true,
+      "sha256": "3be27424e052c9f1bc6b8982f0cc55d621a49895744c94625c3f43a4d862673a",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "assets/art/project/provenance.json",
+      "kind": "data",
+      "required": true,
+      "sha256": "e8076868440ae4ff8104972f8145680bdfa843546467f1d0c031c6094cf6155c",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "assets/art/project/alpha-personal/practice-clearing.png",
+      "kind": "image",
+      "required": true,
+      "sha256": "23ece77ebfaea5ed515abaeccc2f8068a52a4db971cb6b4af6483aa682853ab0",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "assets/art/project/alpha-personal/swordsman.png",
+      "kind": "image",
+      "required": true,
+      "sha256": "20aa39ffc3e3f2da45ba311810c17c47ff319566eb7e925de266f474afd87d3e",
+      "license": "project-local-authorized-use"
+    }
+  ],
+  "author": "Hanmo project authors",
+  "license": "NOASSERTION"
+}

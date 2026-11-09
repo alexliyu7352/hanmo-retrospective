@@ -1,0 +1,1909 @@
+{
+  "format": "HM-CONTENT",
+  "schema_version": 1,
+  "id": "foundation.journey_life",
+  "version": "0.6.1",
+  "required_capabilities": [
+    "multi_actor",
+    "places",
+    "dialogue",
+    "tasks.procurement",
+    "economy",
+    "tasks.message",
+    "events",
+    "services",
+    "companions",
+    "road_encounters"
+  ],
+  "texts": {
+    "name.city.west": "青川城",
+    "name.west.street": "青川长街",
+    "name.west.office": "官署前厅",
+    "name.west.grain": "郑记粮铺",
+    "name.actor.player": "行旅人",
+    "name.actor.chen": "陈衡",
+    "name.actor.zheng": "郑伯",
+    "name.actor.apprentice": "阿成",
+    "name.org.office": "西城公仓",
+    "name.org.grain": "郑氏粮铺",
+    "name.role.office": "公仓经办",
+    "name.role.merchant": "掌柜",
+    "name.role.clerk": "当值伙计",
+    "name.item.grain": "粮食",
+    "name.shop.grain": "郑氏粮铺货单",
+    "name.notice.grain": "公仓采买告示",
+    "name.offer.grain": "公仓采买",
+    "office.remember": "“又见面了。”陈衡抬头认出你，手里的笔没有再放下。\n“上回的粮已经入仓。往后有合适的差事，我记着你。今天是来叙话，还是路过？”",
+    "office.hello": "陈衡搁下笔，把案边一卷竹简压住。\n“从门前过来的？先坐。有事慢慢说，别被外头那些催粮的人吓着。”",
+    "office.menu": "他把案上的账册往旁边挪了挪，等你开口。",
+    "office.ask": "听说公仓在雇人采买？",
+    "office.accept": "条款明白了，这一趟我来办。",
+    "office.report": "粮已经带来，请验收。",
+    "common.leave": "先不打扰，告辞。",
+    "office.terms": "“公仓缺十份粮。六百五十钱先支给你，从办妥受领算起，八个半日内送到这里。\n按约余款归你，另付八十钱。来回脚程自己算好，别只盯着哪家便宜。”",
+    "office.done": "“经费和凭据都齐了。先办事，不必急着答谢。\n交粮仍来这张案前找我；路上有变故，也回来把缘由讲清楚。”",
+    "office.unavailable": "陈衡重新看了看凭据。\n“眼下还办不成，先核清缺的是什么。是粮数、经费，还是该来的人不在？事情没谈妥前，不会动你的钱。”",
+    "dialog.shop.hello": "郑伯从粮袋里捻起几粒谷，摊在手心给你看。\n“先看成色，再谈钱。自家吃，还是替人采买？”",
+    "dialog.shop.menu": "柜台上放着木斗和一摞旧账。郑伯示意你慢慢挑。",
+    "dialog.shop.goods": "请掌柜把货单给我看看。",
+    "dialog.shop.leave": "我再看看，先告辞。",
+    "dialog.shop.done": "“账清了。”郑伯朝阿成点点头。\n“把袋口扎牢，别到半路漏了。下次来，看准铺门上那只旧木斗就认得路。”",
+    "dialog.shop.error": "“没谈妥的买卖不算。”郑伯合上账本，没有动柜台上的货。",
+    "dialog.clerk.hello": "阿成把一袋粮靠墙放稳，抹了把汗。\n“掌柜就在那边。寻常买卖我也能办，只是赊账、举荐这些事，得问他老人家。”",
+    "dialog.clerk.menu": "阿成站在粮袋旁，等着装货。",
+    "dialog.clerk.goods": "先看看你这里的货。",
+    "dialog.clerk.leave": "你忙，我先走了。",
+    "dialog.clerk.done": "“数目都核过了。要是带去公仓，记得让那边当面点清。”",
+    "dialog.clerk.error": "“这一笔还没成，货还在铺里。您再核一遍？”",
+    "name.scenario.procurement": "官署采购验收",
+    "name.west.tavern": "桥头酒肆",
+    "name.village.east": "东里",
+    "name.east.entrance": "东里村口",
+    "name.east.home": "何家小院",
+    "name.actor.shen": "沈安",
+    "name.actor.he": "何氏",
+    "name.role.sender": "写信的人",
+    "name.role.recipient": "收信人",
+    "name.item.family_letter": "家书",
+    "name.offer.letter": "送达家书",
+    "letter.hello": "沈安把封好的信在指间转了半圈，又放回桌上。\n“客官是往东走的人么？别误会，不是请你替我跑官府——只是家里一封信。”",
+    "letter.menu": "窗外有人收起空酒坛。沈安压低了声音。",
+    "letter.details": "这信要送给谁？",
+    "letter.accept": "我会亲手交给她，再回来回话。",
+    "letter.report": "信已亲手交到何氏手里。",
+    "letter.leave": "容我想想，先告辞。",
+    "letter.terms": "“送到东里的何家，交何氏本人。她手上有旧伤，话不多，你别认错人。\n十六个半日内回来报个平安，我付一百二十钱。信没交到她手里，别算送到了。”",
+    "letter.done": "沈安把信交给你，手却迟了半拍才松开。\n“封口不要拆。她看过便好。路上稳当些，我在这儿等你的回话。”",
+    "letter.unavailable": "沈安看着你，没有伸手拿钱。\n“先把事情问清楚。信在谁手里、交给了谁，总要说得准。”",
+    "recipient.hello": "何氏在门里应了一声，并没有马上打开院门。\n“从青川来？你找哪一位？”",
+    "recipient.menu": "门开了一道缝，她在等你说明来意。",
+    "recipient.deliver": "沈安托我给您一封家书。",
+    "recipient.leave": "打扰了，我先告辞。",
+    "recipient.done": "何氏辨过封口，终于把信接过去。\n“让他少挂心。我这儿一切照旧。你也歇歇脚再走，村口的井水是干净的。”",
+    "recipient.error": "这封信现在不能交到我手里。",
+    "recipient.none": "“今日没有托你捎带的东西。既然路过，走累了便在院外歇一歇。”",
+    "name.event.letter": "酒肆里的托付",
+    "name.scenario.two_stories": "采购与送信共存",
+    "name.scenario.lived_city": "初到青川",
+    "office.reported": "陈衡验过粮数，在册上落下一笔。\n“十份，不差。你答应的事做到了。余款依约留下，这八十钱也是你该得的。”",
+    "letter.reported": "沈安听完，先松了一口气，才想起去摸钱袋。\n“她收下了就好。多谢你跑这一趟。这份报酬说好的，一钱不少。”",
+    "letter.remember": "“信的事，多亏了你。”沈安把旁边的凳子拉开。\n“这回不托你跑腿了，坐一会儿罢。她肯收信，我心里那块石头也落了地。”",
+    "flavour.west.street": "车轮碾过石缝，门口的酒旗轻轻晃着。城里的人各忙着自己的事。",
+    "flavour.west.office": "案上的账册还没合拢。门吏在边上听来意，办事的人在案后等回话。",
+    "flavour.west.grain": "谷香混着麻袋的气味。掌柜核价，伙计装货，谁也没闲着。",
+    "flavour.west.tavern": "酒还温着，窗边有人一遍遍捋平信封。另一桌的车夫正在说路上的见闻。",
+    "flavour.west.inn": "门帘挡住了街上的尘土。店家留着一盏灯，等赶路人歇脚。",
+    "flavour.east.home": "院里的草席晾得半干，门后传来一声应答。",
+    "flavour.east.entrance": "树荫遮着村口。何家的院门在前面，来人看得到、也走得进去。",
+    "office.budget.ask": "办妥后，余款怎样处理？",
+    "office.budget": "“这份是包干的约。办妥后，合约允许的结余归你；办不妥便得把未用的公款和公粮交回。\n不是每份差事都这样，接前看清，省得回来扯不明白。”",
+    "name.actor.gate": "周平",
+    "name.role.gate": "门吏",
+    "dialog.gate.hello": "“别站在门风里，往里挪一步。”周平朝案后示意。\n“陈主事在。公仓的事归他，找人、问路先问我。”",
+    "dialog.gate.directions.ask": "我第一次来，这里怎样办事？",
+    "dialog.gate.directions.answer": "“那边贴着告示，先看明白。领经费找陈主事，回来交粮也找他。\n内堂不必去，十份粮还用不着跑三间屋子。”",
+    "dialog.gate.town.ask": "城里哪里可以落脚？",
+    "dialog.gate.town.answer": "“西街有粮铺，桥边有酒肆。想睡个囫囵觉，去客舍找吴掌柜。\n认准人，问明价，旁人的便宜话别急着信。”",
+    "dialog.gate.menu": "你想说些什么？",
+    "dialog.gate.denied": "“眼下办不成。先看看人手和钱物，不能让你白等，也不能算一笔糊涂账。”",
+    "name.actor.host": "柳娘",
+    "name.role.host": "酒肆店家",
+    "dialog.host.hello": "柳娘把温着的酒壶放回炉边，抬眼看你。\n“坐哪儿都成，窗边那张桌子有人候信，别把他的信压湿了。”",
+    "dialog.host.people.ask": "那位客人有什么心事？",
+    "dialog.host.people.answer": "“沈安在等一封回话。他没喝多少，倒把信拿出来看了好几回。\n真想帮他，自己过去问。我可不能替他把家事说完。”",
+    "dialog.host.work.ask": "店里缺不缺帮手？",
+    "dialog.host.work.answer": "柳娘点清八十钱，推到你面前。\n“桌椅拾掇得利落。工钱说好了，拿着。日后有空，再来坐坐。”",
+    "dialog.host.road.ask": "听车夫说，往东的路怎样？",
+    "dialog.host.road.answer": "“车把式就在那张桌边。走过路的是他，问他比听我转述稳当。\n何家若要捎信，记着交本人。”",
+    "dialog.host.menu": "你想说些什么？",
+    "dialog.host.denied": "“眼下办不成。先看看人手和钱物，不能让你白等，也不能算一笔糊涂账。”",
+    "name.actor.carter": "老邱",
+    "name.role.carter": "车夫",
+    "dialog.carter.hello": "老邱拍了拍鞋底的干泥。\n“他们只会说东路近。近是近，装粮时袋口不扎牢，再近也一路漏。”",
+    "dialog.carter.road.ask": "我正打算往东里去。",
+    "dialog.carter.road.answer": "“从街口出城，沿东路走就到村口。何家院子挨着小路，不用绕进田里。\n我说的是刚走过的路，可不是保你明日风雨都不变。”",
+    "dialog.carter.life.ask": "你天天都走这一趟？",
+    "dialog.carter.life.answer": "“有货才走。前些日子没活，我把车轴拆了又安。\n世道好不好，车轮最先知道。今日能把一车东西安稳送到，就算好日子。”",
+    "dialog.carter.menu": "你想说些什么？",
+    "dialog.carter.denied": "“眼下办不成。先看看人手和钱物，不能让你白等，也不能算一笔糊涂账。”",
+    "name.west.inn": "青川客舍",
+    "name.actor.innkeeper": "吴掌柜",
+    "name.role.inn": "客舍店家",
+    "dialog.inn.hello": "吴掌柜用布掸了掸柜台。\n“赶路累了罢？二十钱，歇半日。屋里干净，行囊放在手边，醒了再动身。”",
+    "dialog.inn.rest.ask": "付二十钱，歇半日。",
+    "dialog.inn.rest.answer": "推开窗时，街上的声音又清楚起来。\n吴掌柜在楼下招呼：“醒了？急事再多，也得留点精神走路。”",
+    "dialog.inn.town.ask": "这里住的都是些什么人？",
+    "dialog.inn.town.answer": "“有商人，有跑腿的，也有只想躲一夜雨的。客人的姓名我不随便讲。\n你若寻人，先说清来由，我替你问一句。”",
+    "dialog.inn.menu": "你想说些什么？",
+    "dialog.inn.denied": "“眼下办不成。先看看人手和钱物，不能让你白等，也不能算一笔糊涂账。”",
+    "dialog.host.remember": "“又来了？上回那些桌椅，是你帮着拾掇的。”\n柳娘抬手招呼你进来：“这回不用站在门口说明来意，先坐。”",
+    "companion.carter.ask": "一道走一程，如何？",
+    "companion.carter.familiar": "老邱把包袱往身边挪了挪。「同行的约定还算数，歇好了便走。还有什么想问的？」",
+    "companion.carter.terms": "「可以一道走。路上的吃用劳你照应，停下来歇脚时不算路费。到了安全的地方，你我再商量分开。」他伸出手，等你把约定确认。",
+    "companion.carter.joined": "「那便说定了。」老邱提起包袱，站到了你身边。",
+    "companion.carter.declined": "老邱点点头。「不急，出门的事，想清楚再说。」",
+    "name.actor.walker": "许成",
+    "name.role.walker": "行路商旅",
+    "walker.hello": "对面的旅人收住脚步，扶了扶肩上的包袱。「在下许成，常在青川和东里之间走动。借个道，别碰着你的行李。」",
+    "walker.menu": "许成看看前路，等你开口。",
+    "walker.ask": "常走这条路吗？",
+    "walker.answer": "「往返有些年头了。走得快不如走得稳，遇见同行人，问一句总比闷头赶路强。」"
+  },
+  "flags": {
+    "office.introduced": false,
+    "letter.discovered": false
+  },
+  "settlements": [
+    {
+      "id": "city.west",
+      "kind": "city",
+      "map_xy": [
+        120,
+        180
+      ],
+      "entry_place": "west.street",
+      "name_key": "name.city.west"
+    },
+    {
+      "id": "village.east",
+      "kind": "village",
+      "map_xy": [
+        300,
+        160
+      ],
+      "entry_place": "east.entrance",
+      "name_key": "name.village.east"
+    }
+  ],
+  "routes": [
+    {
+      "id": "road.west_east",
+      "origin": "city.west",
+      "destination": "village.east",
+      "duration_ticks": 2,
+      "risk_bp": 300
+    },
+    {
+      "id": "road.east_west",
+      "origin": "village.east",
+      "destination": "city.west",
+      "duration_ticks": 2,
+      "risk_bp": 300
+    }
+  ],
+  "places": [
+    {
+      "id": "west.street",
+      "settlement_id": "city.west",
+      "parent_place": null,
+      "visual_tag": "city",
+      "passages": [
+        "west.office",
+        "west.grain",
+        "west.tavern",
+        "west.inn"
+      ],
+      "admission": [],
+      "name_key": "name.west.street"
+    },
+    {
+      "id": "west.office",
+      "settlement_id": "city.west",
+      "parent_place": "west.street",
+      "visual_tag": "hall",
+      "passages": [
+        "west.street"
+      ],
+      "admission": [],
+      "name_key": "name.west.office"
+    },
+    {
+      "id": "west.grain",
+      "settlement_id": "city.west",
+      "parent_place": "west.street",
+      "visual_tag": "shop",
+      "passages": [
+        "west.street"
+      ],
+      "admission": [],
+      "name_key": "name.west.grain"
+    },
+    {
+      "id": "west.tavern",
+      "settlement_id": "city.west",
+      "parent_place": "west.street",
+      "visual_tag": "tavern",
+      "passages": [
+        "west.street"
+      ],
+      "admission": [],
+      "name_key": "name.west.tavern"
+    },
+    {
+      "id": "east.entrance",
+      "settlement_id": "village.east",
+      "parent_place": null,
+      "visual_tag": "city",
+      "passages": [
+        "east.home"
+      ],
+      "admission": [],
+      "name_key": "name.east.entrance"
+    },
+    {
+      "id": "east.home",
+      "settlement_id": "village.east",
+      "parent_place": "east.entrance",
+      "visual_tag": "house",
+      "passages": [
+        "east.entrance"
+      ],
+      "admission": [],
+      "name_key": "name.east.home"
+    },
+    {
+      "id": "west.inn",
+      "name_key": "name.west.inn",
+      "settlement_id": "city.west",
+      "parent_place": "west.street",
+      "visual_tag": "inn",
+      "passages": [
+        "west.street"
+      ],
+      "admission": []
+    }
+  ],
+  "actors": [
+    {
+      "id": "actor.player",
+      "origin": "original",
+      "source_note": "原创工程验收人物，不是已考据历史人物",
+      "initial_place": "west.street",
+      "attributes": {
+        "leadership": 60,
+        "martial": 60,
+        "intellect": 60,
+        "administration": 60,
+        "charisma": 60
+      },
+      "skills": {
+        "infantry": 0,
+        "cavalry": 0,
+        "archery": 0,
+        "martial": 0,
+        "tactics": 0,
+        "debate": 0,
+        "negotiation": 0,
+        "rites": 0,
+        "commerce": 0,
+        "transport": 0
+      },
+      "dialogue_id": null,
+      "appearance_note": "本轮原创表现资源；身份、在场与岗位仍由世界状态决定。",
+      "name_key": "name.actor.player",
+      "portrait_kind": "player"
+    },
+    {
+      "id": "actor.chen",
+      "origin": "original",
+      "source_note": "原创工程验收人物，不是已考据历史人物",
+      "initial_place": "west.office",
+      "attributes": {
+        "leadership": 60,
+        "martial": 60,
+        "intellect": 60,
+        "administration": 60,
+        "charisma": 60
+      },
+      "skills": {
+        "infantry": 0,
+        "cavalry": 0,
+        "archery": 0,
+        "martial": 0,
+        "tactics": 0,
+        "debate": 0,
+        "negotiation": 0,
+        "rites": 0,
+        "commerce": 0,
+        "transport": 0
+      },
+      "dialogue_id": "dialog.office",
+      "appearance_note": "本轮原创表现资源；身份、在场与岗位仍由世界状态决定。",
+      "name_key": "name.actor.chen",
+      "portrait_kind": "official"
+    },
+    {
+      "id": "actor.zheng",
+      "origin": "original",
+      "source_note": "原创工程验收人物，不是已考据历史人物",
+      "initial_place": "west.grain",
+      "attributes": {
+        "leadership": 60,
+        "martial": 60,
+        "intellect": 60,
+        "administration": 60,
+        "charisma": 60
+      },
+      "skills": {
+        "infantry": 0,
+        "cavalry": 0,
+        "archery": 0,
+        "martial": 0,
+        "tactics": 0,
+        "debate": 0,
+        "negotiation": 0,
+        "rites": 0,
+        "commerce": 0,
+        "transport": 0
+      },
+      "dialogue_id": "dialog.shop",
+      "appearance_note": "本轮原创表现资源；身份、在场与岗位仍由世界状态决定。",
+      "name_key": "name.actor.zheng",
+      "portrait_kind": "merchant"
+    },
+    {
+      "id": "actor.apprentice",
+      "origin": "original",
+      "source_note": "原创工程验收人物，不是已考据历史人物",
+      "initial_place": "west.grain",
+      "attributes": {
+        "leadership": 60,
+        "martial": 60,
+        "intellect": 60,
+        "administration": 60,
+        "charisma": 60
+      },
+      "skills": {
+        "infantry": 0,
+        "cavalry": 0,
+        "archery": 0,
+        "martial": 0,
+        "tactics": 0,
+        "debate": 0,
+        "negotiation": 0,
+        "rites": 0,
+        "commerce": 0,
+        "transport": 0
+      },
+      "dialogue_id": "dialog.clerk",
+      "appearance_note": "本轮原创表现资源；身份、在场与岗位仍由世界状态决定。",
+      "name_key": "name.actor.apprentice",
+      "portrait_kind": "guard"
+    },
+    {
+      "id": "actor.shen",
+      "origin": "original",
+      "source_note": "原创工程验收人物，不是已考据历史人物",
+      "initial_place": "west.tavern",
+      "attributes": {
+        "leadership": 60,
+        "martial": 60,
+        "intellect": 60,
+        "administration": 60,
+        "charisma": 60
+      },
+      "skills": {
+        "infantry": 0,
+        "cavalry": 0,
+        "archery": 0,
+        "martial": 0,
+        "tactics": 0,
+        "debate": 0,
+        "negotiation": 0,
+        "rites": 0,
+        "commerce": 0,
+        "transport": 0
+      },
+      "dialogue_id": "dialog.sender",
+      "appearance_note": "本轮原创表现资源；身份、在场与岗位仍由世界状态决定。",
+      "name_key": "name.actor.shen",
+      "portrait_kind": "sender"
+    },
+    {
+      "id": "actor.he",
+      "origin": "original",
+      "source_note": "原创工程验收人物，不是已考据历史人物",
+      "initial_place": "east.home",
+      "attributes": {
+        "leadership": 60,
+        "martial": 60,
+        "intellect": 60,
+        "administration": 60,
+        "charisma": 60
+      },
+      "skills": {
+        "infantry": 0,
+        "cavalry": 0,
+        "archery": 0,
+        "martial": 0,
+        "tactics": 0,
+        "debate": 0,
+        "negotiation": 0,
+        "rites": 0,
+        "commerce": 0,
+        "transport": 0
+      },
+      "dialogue_id": "dialog.recipient",
+      "appearance_note": "本轮原创表现资源；身份、在场与岗位仍由世界状态决定。",
+      "name_key": "name.actor.he",
+      "portrait_kind": "recipient"
+    },
+    {
+      "id": "actor.gate",
+      "origin": "original",
+      "source_note": "原创工程验收人物，不是已考据历史人物",
+      "initial_place": "west.office",
+      "attributes": {
+        "leadership": 60,
+        "martial": 60,
+        "intellect": 60,
+        "administration": 60,
+        "charisma": 60
+      },
+      "skills": {
+        "infantry": 0,
+        "cavalry": 0,
+        "archery": 0,
+        "martial": 0,
+        "tactics": 0,
+        "debate": 0,
+        "negotiation": 0,
+        "rites": 0,
+        "commerce": 0,
+        "transport": 0
+      },
+      "dialogue_id": "dialog.gate",
+      "appearance_note": "本轮原创表现资源；身份、在场与岗位仍由世界状态决定。",
+      "name_key": "name.actor.gate",
+      "portrait_kind": "guard"
+    },
+    {
+      "id": "actor.host",
+      "origin": "original",
+      "source_note": "原创工程验收人物，不是已考据历史人物",
+      "initial_place": "west.tavern",
+      "attributes": {
+        "leadership": 60,
+        "martial": 60,
+        "intellect": 60,
+        "administration": 60,
+        "charisma": 60
+      },
+      "skills": {
+        "infantry": 0,
+        "cavalry": 0,
+        "archery": 0,
+        "martial": 0,
+        "tactics": 0,
+        "debate": 0,
+        "negotiation": 0,
+        "rites": 0,
+        "commerce": 0,
+        "transport": 0
+      },
+      "dialogue_id": "dialog.host",
+      "appearance_note": "本轮原创表现资源；身份、在场与岗位仍由世界状态决定。",
+      "name_key": "name.actor.host",
+      "portrait_kind": "host"
+    },
+    {
+      "id": "actor.carter",
+      "origin": "original",
+      "source_note": "原创工程验收人物，不是已考据历史人物",
+      "initial_place": "west.tavern",
+      "attributes": {
+        "leadership": 60,
+        "martial": 60,
+        "intellect": 60,
+        "administration": 60,
+        "charisma": 60
+      },
+      "skills": {
+        "infantry": 0,
+        "cavalry": 0,
+        "archery": 0,
+        "martial": 0,
+        "tactics": 0,
+        "debate": 0,
+        "negotiation": 0,
+        "rites": 0,
+        "commerce": 0,
+        "transport": 0
+      },
+      "dialogue_id": "dialog.carter",
+      "appearance_note": "本轮原创表现资源；身份、在场与岗位仍由世界状态决定。",
+      "name_key": "name.actor.carter",
+      "portrait_kind": "carter"
+    },
+    {
+      "id": "actor.innkeeper",
+      "origin": "original",
+      "source_note": "原创工程验收人物，不是已考据历史人物",
+      "initial_place": "west.inn",
+      "attributes": {
+        "leadership": 60,
+        "martial": 60,
+        "intellect": 60,
+        "administration": 60,
+        "charisma": 60
+      },
+      "skills": {
+        "infantry": 0,
+        "cavalry": 0,
+        "archery": 0,
+        "martial": 0,
+        "tactics": 0,
+        "debate": 0,
+        "negotiation": 0,
+        "rites": 0,
+        "commerce": 0,
+        "transport": 0
+      },
+      "dialogue_id": "dialog.inn",
+      "appearance_note": "本轮原创表现资源；身份、在场与岗位仍由世界状态决定。",
+      "name_key": "name.actor.innkeeper",
+      "portrait_kind": "innkeeper"
+    },
+    {
+      "id": "actor.walker",
+      "origin": "original",
+      "source_note": "原创行旅人物，用于检验同一世界的道路会面与有限行程。",
+      "initial_place": "east.entrance",
+      "attributes": {
+        "leadership": 60,
+        "martial": 60,
+        "intellect": 60,
+        "administration": 60,
+        "charisma": 60
+      },
+      "skills": {
+        "infantry": 0,
+        "cavalry": 0,
+        "archery": 0,
+        "martial": 0,
+        "tactics": 0,
+        "debate": 0,
+        "negotiation": 0,
+        "rites": 0,
+        "commerce": 0,
+        "transport": 0
+      },
+      "dialogue_id": "dialog.walker",
+      "appearance_note": "本轮原创表现资源；身份、在场与岗位仍由世界状态决定。",
+      "name_key": "name.actor.walker",
+      "portrait_kind": "sender",
+      "road_dialogue_id": "dialog.walker",
+      "travel_plan": {
+        "destinations": [
+          "city.west",
+          "village.east"
+        ],
+        "dwell_ticks": 2,
+        "start_tick": 0
+      }
+    }
+  ],
+  "organizations": [
+    {
+      "id": "org.office",
+      "kind": "political",
+      "leader_actor": "actor.chen",
+      "name_key": "name.org.office"
+    },
+    {
+      "id": "org.grain",
+      "kind": "merchant",
+      "leader_actor": "actor.zheng",
+      "name_key": "name.org.grain"
+    }
+  ],
+  "roles": [
+    {
+      "id": "role.office",
+      "organization_id": "org.office",
+      "initial_actor": "actor.chen",
+      "place_id": "west.office",
+      "services": [
+        "information",
+        "accept_offer",
+        "report_offer"
+      ],
+      "name_key": "name.role.office",
+      "scene_position": [
+        65,
+        82
+      ]
+    },
+    {
+      "id": "role.merchant",
+      "organization_id": "org.grain",
+      "initial_actor": "actor.zheng",
+      "place_id": "west.grain",
+      "services": [
+        "information",
+        "trade"
+      ],
+      "name_key": "name.role.merchant",
+      "scene_position": [
+        61,
+        83
+      ]
+    },
+    {
+      "id": "role.clerk",
+      "organization_id": "org.grain",
+      "initial_actor": "actor.apprentice",
+      "place_id": "west.grain",
+      "services": [
+        "trade"
+      ],
+      "name_key": "name.role.clerk",
+      "scene_position": [
+        25,
+        88
+      ]
+    },
+    {
+      "id": "role.sender",
+      "organization_id": null,
+      "initial_actor": "actor.shen",
+      "place_id": "west.tavern",
+      "services": [
+        "information",
+        "accept_offer",
+        "report_offer"
+      ],
+      "name_key": "name.role.sender",
+      "scene_position": [
+        60,
+        83
+      ]
+    },
+    {
+      "id": "role.recipient",
+      "organization_id": null,
+      "initial_actor": "actor.he",
+      "place_id": "east.home",
+      "services": [
+        "deliver_message"
+      ],
+      "name_key": "name.role.recipient",
+      "scene_position": [
+        57,
+        87
+      ]
+    },
+    {
+      "id": "role.gate",
+      "name_key": "name.role.gate",
+      "organization_id": null,
+      "initial_actor": "actor.gate",
+      "place_id": "west.office",
+      "services": [
+        "information"
+      ],
+      "scene_position": [
+        25,
+        88
+      ]
+    },
+    {
+      "id": "role.host",
+      "name_key": "name.role.host",
+      "organization_id": null,
+      "initial_actor": "actor.host",
+      "place_id": "west.tavern",
+      "services": [
+        "information",
+        "work"
+      ],
+      "activities": {
+        "work": {
+          "wallet_id": "wallet.host",
+          "cost": 0,
+          "wage": 80,
+          "duration": 1,
+          "hp_gain": 0,
+          "fatigue_delta": 8
+        }
+      },
+      "scene_position": [
+        25,
+        86
+      ]
+    },
+    {
+      "id": "role.carter",
+      "name_key": "name.role.carter",
+      "organization_id": null,
+      "initial_actor": "actor.carter",
+      "place_id": "west.tavern",
+      "services": [
+        "information",
+        "join_party"
+      ],
+      "scene_position": [
+        84,
+        82
+      ],
+      "companion_cost_per_tick": 6
+    },
+    {
+      "id": "role.inn",
+      "name_key": "name.role.inn",
+      "organization_id": null,
+      "initial_actor": "actor.innkeeper",
+      "place_id": "west.inn",
+      "services": [
+        "information",
+        "rest"
+      ],
+      "activities": {
+        "rest": {
+          "wallet_id": "wallet.inn",
+          "cost": 20,
+          "wage": 0,
+          "duration": 1,
+          "hp_gain": 35,
+          "fatigue_delta": -30
+        }
+      },
+      "scene_position": [
+        60,
+        86
+      ]
+    },
+    {
+      "id": "role.walker",
+      "name_key": "name.role.walker",
+      "organization_id": null,
+      "initial_actor": "actor.walker",
+      "place_id": "east.entrance",
+      "services": [
+        "information"
+      ],
+      "scene_position": [
+        38,
+        82
+      ]
+    }
+  ],
+  "wallets": [
+    {
+      "id": "wallet.player",
+      "owner": {
+        "kind": "actor",
+        "id": "actor.player"
+      },
+      "initial_balance": 800
+    },
+    {
+      "id": "wallet.office",
+      "owner": {
+        "kind": "organization",
+        "id": "org.office"
+      },
+      "initial_balance": 5000
+    },
+    {
+      "id": "wallet.shop",
+      "owner": {
+        "kind": "organization",
+        "id": "org.grain"
+      },
+      "initial_balance": 10000
+    },
+    {
+      "id": "wallet.shen",
+      "owner": {
+        "kind": "actor",
+        "id": "actor.shen"
+      },
+      "initial_balance": 600
+    },
+    {
+      "id": "wallet.host",
+      "owner": {
+        "kind": "actor",
+        "id": "actor.host"
+      },
+      "initial_balance": 1200
+    },
+    {
+      "id": "wallet.inn",
+      "owner": {
+        "kind": "actor",
+        "id": "actor.innkeeper"
+      },
+      "initial_balance": 600
+    },
+    {
+      "id": "wallet.walker",
+      "owner": {
+        "kind": "actor",
+        "id": "actor.walker"
+      },
+      "initial_balance": 800
+    }
+  ],
+  "items": [
+    {
+      "id": "item.grain",
+      "kind": "commodity",
+      "base_price": 40,
+      "weight": 1,
+      "name_key": "name.item.grain"
+    },
+    {
+      "id": "item.family_letter",
+      "kind": "message",
+      "base_price": 0,
+      "weight": 1,
+      "name_key": "name.item.family_letter"
+    }
+  ],
+  "inventories": [
+    {
+      "id": "inventory.shop",
+      "owner": {
+        "kind": "organization",
+        "id": "org.grain"
+      },
+      "capacity": 300,
+      "goods": [
+        {
+          "item_id": "item.grain",
+          "quantity": 100
+        }
+      ]
+    }
+  ],
+  "shops": [
+    {
+      "id": "shop.grain",
+      "place_id": "west.grain",
+      "representative_roles": [
+        "role.merchant",
+        "role.clerk"
+      ],
+      "wallet_id": "wallet.shop",
+      "inventory_id": "inventory.shop",
+      "name_key": "name.shop.grain"
+    }
+  ],
+  "props": [
+    {
+      "id": "notice.grain",
+      "place_id": "west.office",
+      "kind": "notice",
+      "publisher": "org.office",
+      "offer_ids": [
+        "offer.grain"
+      ],
+      "name_key": "name.notice.grain"
+    }
+  ],
+  "offers": [
+    {
+      "id": "offer.grain",
+      "template": "procurement",
+      "issuer": {
+        "kind": "organization",
+        "id": "org.office"
+      },
+      "discovery_sources": [
+        {
+          "kind": "prop",
+          "id": "notice.grain"
+        },
+        {
+          "kind": "actor",
+          "id": "actor.chen"
+        }
+      ],
+      "accept_role": "role.office",
+      "report_role": "role.office",
+      "funding_wallet": "wallet.office",
+      "budget": 650,
+      "reward": 80,
+      "deadline_ticks": 8,
+      "accept_ticks": 1,
+      "goal": {
+        "kind": "deliver_item",
+        "item_id": "item.grain",
+        "quantity": 10,
+        "receiver_role": "role.office"
+      },
+      "on_unavailable": "known_replacement",
+      "name_key": "name.offer.grain"
+    },
+    {
+      "id": "offer.letter",
+      "template": "message",
+      "issuer": {
+        "kind": "actor",
+        "id": "actor.shen"
+      },
+      "discovery_sources": [
+        {
+          "kind": "actor",
+          "id": "actor.shen"
+        }
+      ],
+      "accept_role": "role.sender",
+      "report_role": "role.sender",
+      "funding_wallet": "wallet.shen",
+      "budget": 0,
+      "reward": 120,
+      "deadline_ticks": 16,
+      "accept_ticks": 1,
+      "goal": {
+        "kind": "deliver_message",
+        "message_id": "item.family_letter",
+        "receiver_actor": "actor.he"
+      },
+      "on_unavailable": "wait_or_leave",
+      "name_key": "name.offer.letter"
+    }
+  ],
+  "dialogues": [
+    {
+      "id": "dialog.office",
+      "context_role": "role.office",
+      "entry": "entry",
+      "nodes": [
+        {
+          "id": "entry",
+          "kind": "branch",
+          "condition": {
+            "op": "task_state",
+            "offer_id": "offer.grain",
+            "state": "success"
+          },
+          "if_true": "remember",
+          "if_false": "hello"
+        },
+        {
+          "id": "remember",
+          "kind": "say",
+          "speaker": "$provider",
+          "text_key": "office.remember",
+          "next": "end"
+        },
+        {
+          "id": "hello",
+          "kind": "say",
+          "speaker": "$provider",
+          "text_key": "office.hello",
+          "next": "menu"
+        },
+        {
+          "id": "menu",
+          "kind": "choice",
+          "text_key": "office.menu",
+          "options": [
+            {
+              "id": "ask",
+              "text_key": "office.ask",
+              "conditions": [],
+              "next": "discover"
+            },
+            {
+              "id": "accept",
+              "text_key": "office.accept",
+              "conditions": [
+                {
+                  "op": "task_state",
+                  "offer_id": "offer.grain",
+                  "state": "known"
+                }
+              ],
+              "next": "accept"
+            },
+            {
+              "id": "report",
+              "text_key": "office.report",
+              "conditions": [
+                {
+                  "op": "any",
+                  "terms": [
+                    {
+                      "op": "task_state",
+                      "offer_id": "offer.grain",
+                      "state": "active"
+                    },
+                    {
+                      "op": "task_state",
+                      "offer_id": "offer.grain",
+                      "state": "ready"
+                    }
+                  ]
+                }
+              ],
+              "next": "report"
+            },
+            {
+              "id": "budget",
+              "text_key": "office.budget.ask",
+              "conditions": [],
+              "next": "budget"
+            },
+            {
+              "id": "leave",
+              "text_key": "common.leave",
+              "conditions": [],
+              "next": "end"
+            }
+          ]
+        },
+        {
+          "id": "discover",
+          "kind": "action",
+          "command": {
+            "kind": "discover_offer",
+            "offer_id": "offer.grain"
+          },
+          "on_success": "terms",
+          "on_failure": "unavailable"
+        },
+        {
+          "id": "terms",
+          "kind": "say",
+          "speaker": "$provider",
+          "text_key": "office.terms",
+          "next": "menu"
+        },
+        {
+          "id": "accept",
+          "kind": "action",
+          "command": {
+            "kind": "accept_offer",
+            "offer_id": "offer.grain"
+          },
+          "on_success": "done",
+          "on_failure": "unavailable"
+        },
+        {
+          "id": "report",
+          "kind": "action",
+          "command": {
+            "kind": "report_offer",
+            "offer_id": "offer.grain"
+          },
+          "on_success": "reported",
+          "on_failure": "unavailable"
+        },
+        {
+          "id": "done",
+          "kind": "say",
+          "speaker": "$provider",
+          "text_key": "office.done",
+          "next": "end"
+        },
+        {
+          "id": "unavailable",
+          "kind": "say",
+          "speaker": "$provider",
+          "text_key": "office.unavailable",
+          "next": "end"
+        },
+        {
+          "id": "reported",
+          "kind": "say",
+          "speaker": "$provider",
+          "text_key": "office.reported",
+          "next": "end"
+        },
+        {
+          "id": "budget",
+          "kind": "say",
+          "speaker": "$provider",
+          "text_key": "office.budget",
+          "next": "menu"
+        },
+        {
+          "id": "end",
+          "kind": "end"
+        }
+      ]
+    },
+    {
+      "id": "dialog.shop",
+      "context_role": "role.merchant",
+      "entry": "hello",
+      "nodes": [
+        {
+          "id": "hello",
+          "kind": "say",
+          "speaker": "$provider",
+          "text_key": "dialog.shop.hello",
+          "next": "menu"
+        },
+        {
+          "id": "menu",
+          "kind": "choice",
+          "text_key": "dialog.shop.menu",
+          "options": [
+            {
+              "id": "goods",
+              "text_key": "dialog.shop.goods",
+              "conditions": [],
+              "next": "trade"
+            },
+            {
+              "id": "leave",
+              "text_key": "dialog.shop.leave",
+              "conditions": [],
+              "next": "end"
+            }
+          ]
+        },
+        {
+          "id": "trade",
+          "kind": "action",
+          "command": {
+            "kind": "open_trade",
+            "shop_id": "shop.grain"
+          },
+          "on_success": "done",
+          "on_failure": "unavailable"
+        },
+        {
+          "id": "done",
+          "kind": "say",
+          "speaker": "$provider",
+          "text_key": "dialog.shop.done",
+          "next": "end"
+        },
+        {
+          "id": "unavailable",
+          "kind": "say",
+          "speaker": "$provider",
+          "text_key": "dialog.shop.error",
+          "next": "end"
+        },
+        {
+          "id": "end",
+          "kind": "end"
+        }
+      ]
+    },
+    {
+      "id": "dialog.clerk",
+      "context_role": "role.clerk",
+      "entry": "hello",
+      "nodes": [
+        {
+          "id": "hello",
+          "kind": "say",
+          "speaker": "$provider",
+          "text_key": "dialog.clerk.hello",
+          "next": "menu"
+        },
+        {
+          "id": "menu",
+          "kind": "choice",
+          "text_key": "dialog.clerk.menu",
+          "options": [
+            {
+              "id": "goods",
+              "text_key": "dialog.clerk.goods",
+              "conditions": [],
+              "next": "trade"
+            },
+            {
+              "id": "leave",
+              "text_key": "dialog.clerk.leave",
+              "conditions": [],
+              "next": "end"
+            }
+          ]
+        },
+        {
+          "id": "trade",
+          "kind": "action",
+          "command": {
+            "kind": "open_trade",
+            "shop_id": "shop.grain"
+          },
+          "on_success": "done",
+          "on_failure": "unavailable"
+        },
+        {
+          "id": "done",
+          "kind": "say",
+          "speaker": "$provider",
+          "text_key": "dialog.clerk.done",
+          "next": "end"
+        },
+        {
+          "id": "unavailable",
+          "kind": "say",
+          "speaker": "$provider",
+          "text_key": "dialog.clerk.error",
+          "next": "end"
+        },
+        {
+          "id": "end",
+          "kind": "end"
+        }
+      ]
+    },
+    {
+      "id": "dialog.sender",
+      "context_role": "role.sender",
+      "entry": "revisit",
+      "nodes": [
+        {
+          "id": "revisit",
+          "kind": "branch",
+          "condition": {
+            "op": "task_state",
+            "offer_id": "offer.letter",
+            "state": "success"
+          },
+          "if_true": "remember",
+          "if_false": "hello"
+        },
+        {
+          "id": "hello",
+          "kind": "say",
+          "speaker": "$provider",
+          "text_key": "letter.hello",
+          "next": "menu"
+        },
+        {
+          "id": "menu",
+          "kind": "choice",
+          "text_key": "letter.menu",
+          "options": [
+            {
+              "id": "details",
+              "text_key": "letter.details",
+              "conditions": [],
+              "next": "discover"
+            },
+            {
+              "id": "accept",
+              "text_key": "letter.accept",
+              "conditions": [
+                {
+                  "op": "task_state",
+                  "offer_id": "offer.letter",
+                  "state": "known"
+                }
+              ],
+              "next": "accept"
+            },
+            {
+              "id": "report",
+              "text_key": "letter.report",
+              "conditions": [
+                {
+                  "op": "task_state",
+                  "offer_id": "offer.letter",
+                  "state": "ready"
+                }
+              ],
+              "next": "report"
+            },
+            {
+              "id": "leave",
+              "text_key": "letter.leave",
+              "conditions": [],
+              "next": "end"
+            }
+          ]
+        },
+        {
+          "id": "discover",
+          "kind": "action",
+          "command": {
+            "kind": "discover_offer",
+            "offer_id": "offer.letter"
+          },
+          "on_success": "terms",
+          "on_failure": "unavailable"
+        },
+        {
+          "id": "terms",
+          "kind": "say",
+          "speaker": "$provider",
+          "text_key": "letter.terms",
+          "next": "menu"
+        },
+        {
+          "id": "accept",
+          "kind": "action",
+          "command": {
+            "kind": "accept_offer",
+            "offer_id": "offer.letter"
+          },
+          "on_success": "done",
+          "on_failure": "unavailable"
+        },
+        {
+          "id": "report",
+          "kind": "action",
+          "command": {
+            "kind": "report_offer",
+            "offer_id": "offer.letter"
+          },
+          "on_success": "reported",
+          "on_failure": "unavailable"
+        },
+        {
+          "id": "done",
+          "kind": "say",
+          "speaker": "$provider",
+          "text_key": "letter.done",
+          "next": "end"
+        },
+        {
+          "id": "unavailable",
+          "kind": "say",
+          "speaker": "$provider",
+          "text_key": "letter.unavailable",
+          "next": "end"
+        },
+        {
+          "id": "end",
+          "kind": "end"
+        },
+        {
+          "id": "remember",
+          "kind": "say",
+          "speaker": "$provider",
+          "text_key": "letter.remember",
+          "next": "end"
+        },
+        {
+          "id": "reported",
+          "kind": "say",
+          "speaker": "$provider",
+          "text_key": "letter.reported",
+          "next": "end"
+        }
+      ]
+    },
+    {
+      "id": "dialog.recipient",
+      "context_role": "role.recipient",
+      "entry": "check",
+      "nodes": [
+        {
+          "id": "check",
+          "kind": "branch",
+          "condition": {
+            "op": "task_state",
+            "offer_id": "offer.letter",
+            "state": "active"
+          },
+          "if_true": "hello",
+          "if_false": "no_letter"
+        },
+        {
+          "id": "hello",
+          "kind": "say",
+          "speaker": "$provider",
+          "text_key": "recipient.hello",
+          "next": "menu"
+        },
+        {
+          "id": "menu",
+          "kind": "choice",
+          "text_key": "recipient.menu",
+          "options": [
+            {
+              "id": "deliver",
+              "text_key": "recipient.deliver",
+              "conditions": [],
+              "next": "deliver"
+            },
+            {
+              "id": "leave",
+              "text_key": "recipient.leave",
+              "conditions": [],
+              "next": "end"
+            }
+          ]
+        },
+        {
+          "id": "deliver",
+          "kind": "action",
+          "command": {
+            "kind": "deliver_message",
+            "offer_id": "offer.letter"
+          },
+          "on_success": "done",
+          "on_failure": "unavailable"
+        },
+        {
+          "id": "done",
+          "kind": "say",
+          "speaker": "$provider",
+          "text_key": "recipient.done",
+          "next": "end"
+        },
+        {
+          "id": "unavailable",
+          "kind": "say",
+          "speaker": "$provider",
+          "text_key": "recipient.error",
+          "next": "end"
+        },
+        {
+          "id": "no_letter",
+          "kind": "say",
+          "speaker": "$provider",
+          "text_key": "recipient.none",
+          "next": "end"
+        },
+        {
+          "id": "end",
+          "kind": "end"
+        }
+      ]
+    },
+    {
+      "id": "dialog.gate",
+      "context_role": "role.gate",
+      "entry": "hello",
+      "nodes": [
+        {
+          "id": "hello",
+          "kind": "say",
+          "speaker": "$provider",
+          "text_key": "dialog.gate.hello",
+          "next": "menu"
+        },
+        {
+          "id": "directions",
+          "kind": "say",
+          "speaker": "$provider",
+          "text_key": "dialog.gate.directions.answer",
+          "next": "menu"
+        },
+        {
+          "id": "town",
+          "kind": "say",
+          "speaker": "$provider",
+          "text_key": "dialog.gate.town.answer",
+          "next": "menu"
+        },
+        {
+          "id": "menu",
+          "kind": "choice",
+          "text_key": "dialog.gate.menu",
+          "options": [
+            {
+              "id": "directions",
+              "text_key": "dialog.gate.directions.ask",
+              "conditions": [],
+              "next": "directions"
+            },
+            {
+              "id": "town",
+              "text_key": "dialog.gate.town.ask",
+              "conditions": [],
+              "next": "town"
+            },
+            {
+              "id": "leave",
+              "text_key": "common.leave",
+              "conditions": [],
+              "next": "end"
+            }
+          ]
+        },
+        {
+          "id": "end",
+          "kind": "end"
+        }
+      ]
+    },
+    {
+      "id": "dialog.host",
+      "context_role": "role.host",
+      "entry": "revisit",
+      "nodes": [
+        {
+          "id": "hello",
+          "kind": "say",
+          "speaker": "$provider",
+          "text_key": "dialog.host.hello",
+          "next": "menu"
+        },
+        {
+          "id": "people",
+          "kind": "say",
+          "speaker": "$provider",
+          "text_key": "dialog.host.people.answer",
+          "next": "menu"
+        },
+        {
+          "id": "work",
+          "kind": "action",
+          "command": {
+            "kind": "service",
+            "activity": "work"
+          },
+          "on_success": "work.done",
+          "on_failure": "denied"
+        },
+        {
+          "id": "work.done",
+          "kind": "say",
+          "speaker": "$provider",
+          "text_key": "dialog.host.work.answer",
+          "next": "end"
+        },
+        {
+          "id": "road",
+          "kind": "say",
+          "speaker": "$provider",
+          "text_key": "dialog.host.road.answer",
+          "next": "menu"
+        },
+        {
+          "id": "menu",
+          "kind": "choice",
+          "text_key": "dialog.host.menu",
+          "options": [
+            {
+              "id": "people",
+              "text_key": "dialog.host.people.ask",
+              "conditions": [],
+              "next": "people"
+            },
+            {
+              "id": "work",
+              "text_key": "dialog.host.work.ask",
+              "conditions": [],
+              "next": "work"
+            },
+            {
+              "id": "road",
+              "text_key": "dialog.host.road.ask",
+              "conditions": [],
+              "next": "road"
+            },
+            {
+              "id": "leave",
+              "text_key": "common.leave",
+              "conditions": [],
+              "next": "end"
+            }
+          ]
+        },
+        {
+          "id": "denied",
+          "kind": "say",
+          "speaker": "$provider",
+          "text_key": "dialog.host.denied",
+          "next": "end"
+        },
+        {
+          "id": "end",
+          "kind": "end"
+        },
+        {
+          "id": "revisit",
+          "kind": "branch",
+          "condition": {
+            "op": "relation_min",
+            "from_actor": "actor.host",
+            "to_actor": "actor.player",
+            "trust": 1
+          },
+          "if_true": "remember",
+          "if_false": "hello"
+        },
+        {
+          "id": "remember",
+          "kind": "say",
+          "speaker": "$provider",
+          "text_key": "dialog.host.remember",
+          "next": "menu"
+        }
+      ]
+    },
+    {
+      "id": "dialog.carter",
+      "context_role": "role.carter",
+      "entry": "greeting",
+      "nodes": [
+        {
+          "id": "hello",
+          "kind": "say",
+          "speaker": "$provider",
+          "text_key": "dialog.carter.hello",
+          "next": "menu"
+        },
+        {
+          "id": "road",
+          "kind": "say",
+          "speaker": "$provider",
+          "text_key": "dialog.carter.road.answer",
+          "next": "menu"
+        },
+        {
+          "id": "life",
+          "kind": "say",
+          "speaker": "$provider",
+          "text_key": "dialog.carter.life.answer",
+          "next": "menu"
+        },
+        {
+          "id": "menu",
+          "kind": "choice",
+          "text_key": "dialog.carter.menu",
+          "options": [
+            {
+              "id": "together",
+              "text_key": "companion.carter.ask",
+              "conditions": [
+                {
+                  "op": "party_member",
+                  "actor_id": "actor.carter",
+                  "equals": false
+                }
+              ],
+              "next": "terms"
+            },
+            {
+              "id": "road",
+              "text_key": "dialog.carter.road.ask",
+              "conditions": [],
+              "next": "road"
+            },
+            {
+              "id": "life",
+              "text_key": "dialog.carter.life.ask",
+              "conditions": [],
+              "next": "life"
+            },
+            {
+              "id": "leave",
+              "text_key": "common.leave",
+              "conditions": [],
+              "next": "end"
+            }
+          ]
+        },
+        {
+          "id": "end",
+          "kind": "end"
+        },
+        {
+          "id": "greeting",
+          "kind": "branch",
+          "condition": {
+            "op": "party_member",
+            "actor_id": "actor.carter",
+            "equals": true
+          },
+          "if_true": "familiar",
+          "if_false": "hello"
+        },
+        {
+          "id": "familiar",
+          "kind": "say",
+          "speaker": "$provider",
+          "text_key": "companion.carter.familiar",
+          "next": "menu"
+        },
+        {
+          "id": "terms",
+          "kind": "say",
+          "speaker": "$provider",
+          "text_key": "companion.carter.terms",
+          "next": "join"
+        },
+        {
+          "id": "join",
+          "kind": "action",
+          "command": {
+            "kind": "join_party"
+          },
+          "on_success": "joined",
+          "on_failure": "declined"
+        },
+        {
+          "id": "joined",
+          "kind": "say",
+          "speaker": "$provider",
+          "text_key": "companion.carter.joined",
+          "next": "end"
+        },
+        {
+          "id": "declined",
+          "kind": "say",
+          "speaker": "$provider",
+          "text_key": "companion.carter.declined",
+          "next": "end"
+        }
+      ]
+    },
+    {
+      "id": "dialog.inn",
+      "context_role": "role.inn",
+      "entry": "hello",
+      "nodes": [
+        {
+          "id": "hello",
+          "kind": "say",
+          "speaker": "$provider",
+          "text_key": "dialog.inn.hello",
+          "next": "menu"
+        },
+        {
+          "id": "rest",
+          "kind": "action",
+          "command": {
+            "kind": "service",
+            "activity": "rest"
+          },
+          "on_success": "rest.done",
+          "on_failure": "denied"
+        },
+        {
+          "id": "rest.done",
+          "kind": "say",
+          "speaker": "$provider",
+          "text_key": "dialog.inn.rest.answer",
+          "next": "end"
+        },
+        {
+          "id": "town",
+          "kind": "say",
+          "speaker": "$provider",
+          "text_key": "dialog.inn.town.answer",
+          "next": "menu"
+        },
+        {
+          "id": "menu",
+          "kind": "choice",
+          "text_key": "dialog.inn.menu",
+          "options": [
+            {
+              "id": "rest",
+              "text_key": "dialog.inn.rest.ask",
+              "conditions": [],
+              "next": "rest"
+            },
+            {
+              "id": "town",
+              "text_key": "dialog.inn.town.ask",
+              "conditions": [],
+              "next": "town"
+            },
+            {
+              "id": "leave",
+              "text_key": "common.leave",
+              "conditions": [],
+              "next": "end"
+            }
+          ]
+        },
+        {
+          "id": "denied",
+          "kind": "say",
+          "speaker": "$provider",
+          "text_key": "dialog.inn.denied",
+          "next": "end"
+        },
+        {
+          "id": "end",
+          "kind": "end"
+        }
+      ]
+    },
+    {
+      "id": "dialog.walker",
+      "context_role": "role.walker",
+      "entry": "hello",
+      "nodes": [
+        {
+          "id": "hello",
+          "kind": "say",
+          "speaker": "$provider",
+          "text_key": "walker.hello",
+          "next": "menu"
+        },
+        {
+          "id": "menu",
+          "kind": "choice",
+          "text_key": "walker.menu",
+          "options": [
+            {
+              "id": "ask",
+              "text_key": "walker.ask",
+              "conditions": [],
+              "next": "answer"
+            },
+            {
+              "id": "leave",
+              "text_key": "common.leave",
+              "conditions": [],
+              "next": "end"
+            }
+          ]
+        },
+        {
+          "id": "answer",
+          "kind": "say",
+          "speaker": "$provider",
+          "text_key": "walker.answer",
+          "next": "menu"
+        },
+        {
+          "id": "end",
+          "kind": "end"
+        }
+      ]
+    }
+  ],
+  "events": [
+    {
+      "id": "event.letter",
+      "place_id": "west.tavern",
+      "trigger": "on_enter",
+      "conditions": [
+        {
+          "op": "task_state",
+          "offer_id": "offer.letter",
+          "state": "unknown"
+        }
+      ],
+      "dialogue_id": "dialog.sender",
+      "cooldown_ticks": 2,
+      "once_per_actor": true,
+      "on_unavailable": "cancel",
+      "name_key": "name.event.letter"
+    }
+  ],
+  "relations": [
+    {
+      "id": "relation.chen_player",
+      "from_actor": "actor.chen",
+      "to_actor": "actor.player",
+      "affinity": 10,
+      "trust": 0
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "scenario.lived_city",
+      "player_actor": "actor.player",
+      "seed_text": "foundation-test-01",
+      "name_key": "name.scenario.lived_city"
+    },
+    {
+      "id": "scenario.two_stories",
+      "player_actor": "actor.player",
+      "seed_text": "foundation-test-02",
+      "name_key": "name.scenario.two_stories"
+    }
+  ]
+}

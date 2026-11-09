@@ -1,0 +1,476 @@
+[
+  {
+    "state": "resident-journey-oracle-baseline-20261004/recovery-verified-20261005/restored-repeat/state-104ee1c94101342d301492aaebe62c07d9558efcb9c1d3034f57b356a966971b.json",
+    "catalog": "hanmo-resident-lane-d/.local/resident-recovery-input/catalog.json",
+    "state_sha256": "104ee1c94101342d301492aaebe62c07d9558efcb9c1d3034f57b356a966971b",
+    "characters": {
+      "actor.player": {
+        "ok": true,
+        "actor_view": {
+          "actor_id": "actor.player",
+          "display_name": "行旅人",
+          "age_years": 42,
+          "presentation_profile_id": "",
+          "portrait_kind": "player",
+          "visibility_version": 0
+        },
+        "appearance_view": {
+          "format_version": 1,
+          "generator_version": "legacy-portrait-v1",
+          "base_features": {},
+          "attire_style": "legacy",
+          "legacy": true
+        }
+      },
+      "actor.walker": {
+        "ok": true,
+        "actor_view": {
+          "actor_id": "actor.walker",
+          "display_name": "许成",
+          "age_years": 28,
+          "presentation_profile_id": "",
+          "portrait_kind": "sender",
+          "visibility_version": 0
+        },
+        "appearance_view": {
+          "format_version": 1,
+          "generator_version": "legacy-portrait-v1",
+          "base_features": {},
+          "attire_style": "legacy",
+          "legacy": true
+        }
+      },
+      "actor.bandit": {
+        "ok": true,
+        "actor_view": {
+          "actor_id": "actor.bandit",
+          "display_name": "卢七",
+          "age_years": 28,
+          "presentation_profile_id": "",
+          "portrait_kind": "guard",
+          "visibility_version": 0
+        },
+        "appearance_view": {
+          "format_version": 1,
+          "generator_version": "legacy-portrait-v1",
+          "base_features": {},
+          "attire_style": "legacy",
+          "legacy": true
+        }
+      },
+      "actor.blackwater.commander": {
+        "ok": true,
+        "actor_view": {
+          "actor_id": "actor.blackwater.commander",
+          "display_name": "石猛",
+          "age_years": 36,
+          "presentation_profile_id": "",
+          "portrait_kind": "guard",
+          "visibility_version": 0
+        },
+        "appearance_view": {
+          "format_version": 1,
+          "generator_version": "legacy-portrait-v1",
+          "base_features": {},
+          "attire_style": "legacy",
+          "legacy": true
+        }
+      }
+    }
+  },
+  {
+    "state": "resident-journey-oracle-baseline-20261004/recovery-verified-20261005/restored-repeat/state-95dcd3f2d8a80820013aa20721b626fa4f1c56ee15e61ddb707ec4ae740f2a7c.json",
+    "catalog": "hanmo-resident-lane-d/.local/resident-recovery-input/catalog.json",
+    "state_sha256": "95dcd3f2d8a80820013aa20721b626fa4f1c56ee15e61ddb707ec4ae740f2a7c",
+    "characters": {
+      "actor.player": {
+        "ok": true,
+        "actor_view": {
+          "actor_id": "actor.player",
+          "display_name": "行旅人",
+          "age_years": 42,
+          "presentation_profile_id": "",
+          "portrait_kind": "player",
+          "visibility_version": 4
+        },
+        "appearance_view": {
+          "format_version": 1,
+          "generator_version": "legacy-portrait-v1",
+          "base_features": {},
+          "attire_style": "legacy",
+          "legacy": true
+        }
+      },
+      "actor.walker": {
+        "ok": true,
+        "actor_view": {
+          "actor_id": "actor.walker",
+          "display_name": "许成",
+          "age_years": 28,
+          "presentation_profile_id": "",
+          "portrait_kind": "sender",
+          "visibility_version": 4
+        },
+        "appearance_view": {
+          "format_version": 1,
+          "generator_version": "legacy-portrait-v1",
+          "base_features": {},
+          "attire_style": "legacy",
+          "legacy": true
+        }
+      },
+      "actor.bandit": {
+        "ok": true,
+        "actor_view": {
+          "actor_id": "actor.bandit",
+          "display_name": "卢七",
+          "age_years": 28,
+          "presentation_profile_id": "",
+          "portrait_kind": "guard",
+          "visibility_version": 4
+        },
+        "appearance_view": {
+          "format_version": 1,
+          "generator_version": "legacy-portrait-v1",
+          "base_features": {},
+          "attire_style": "legacy",
+          "legacy": true
+        }
+      },
+      "actor.blackwater.commander": {
+        "ok": true,
+        "actor_view": {
+          "actor_id": "actor.blackwater.commander",
+          "display_name": "石猛",
+          "age_years": 36,
+          "presentation_profile_id": "",
+          "portrait_kind": "guard",
+          "visibility_version": 4
+        },
+        "appearance_view": {
+          "format_version": 1,
+          "generator_version": "legacy-portrait-v1",
+          "base_features": {},
+          "attire_style": "legacy",
+          "legacy": true
+        }
+      }
+    }
+  },
+  {
+    "state": "resident-journey-oracle-baseline-20261004/recovery-verified-20261005/restored-repeat/state-81143e6a5b1d5eee00c887060fd63157ab6e3c75806102da8cee0f3e9c84fa1c.json",
+    "catalog": "hanmo-resident-lane-d/.local/resident-recovery-input/catalog.json",
+    "state_sha256": "81143e6a5b1d5eee00c887060fd63157ab6e3c75806102da8cee0f3e9c84fa1c",
+    "characters": {
+      "actor.player": {
+        "ok": true,
+        "actor_view": {
+          "actor_id": "actor.player",
+          "display_name": "行旅人",
+          "age_years": 42,
+          "presentation_profile_id": "",
+          "portrait_kind": "player",
+          "visibility_version": 5
+        },
+        "appearance_view": {
+          "format_version": 1,
+          "generator_version": "legacy-portrait-v1",
+          "base_features": {},
+          "attire_style": "legacy",
+          "legacy": true
+        }
+      },
+      "actor.walker": {
+        "ok": true,
+        "actor_view": {
+          "actor_id": "actor.walker",
+          "display_name": "许成",
+          "age_years": 28,
+          "presentation_profile_id": "",
+          "portrait_kind": "sender",
+          "visibility_version": 5
+        },
+        "appearance_view": {
+          "format_version": 1,
+          "generator_version": "legacy-portrait-v1",
+          "base_features": {},
+          "attire_style": "legacy",
+          "legacy": true
+        }
+      },
+      "actor.bandit": {
+        "ok": true,
+        "actor_view": {
+          "actor_id": "actor.bandit",
+          "display_name": "卢七",
+          "age_years": 28,
+          "presentation_profile_id": "",
+          "portrait_kind": "guard",
+          "visibility_version": 5
+        },
+        "appearance_view": {
+          "format_version": 1,
+          "generator_version": "legacy-portrait-v1",
+          "base_features": {},
+          "attire_style": "legacy",
+          "legacy": true
+        }
+      },
+      "actor.blackwater.commander": {
+        "ok": true,
+        "actor_view": {
+          "actor_id": "actor.blackwater.commander",
+          "display_name": "石猛",
+          "age_years": 36,
+          "presentation_profile_id": "",
+          "portrait_kind": "guard",
+          "visibility_version": 5
+        },
+        "appearance_view": {
+          "format_version": 1,
+          "generator_version": "legacy-portrait-v1",
+          "base_features": {},
+          "attire_style": "legacy",
+          "legacy": true
+        }
+      }
+    }
+  },
+  {
+    "state": "resident-journey-oracle-baseline-20261004/recovery-verified-20261005/restored-repeat/state-b266756815c08fe49c31315638372a494ffaa140c104a45a1c2586e4d51e3bc1.json",
+    "catalog": "hanmo-resident-lane-d/.local/resident-recovery-input/catalog.json",
+    "state_sha256": "b266756815c08fe49c31315638372a494ffaa140c104a45a1c2586e4d51e3bc1",
+    "characters": {
+      "actor.player": {
+        "ok": true,
+        "actor_view": {
+          "actor_id": "actor.player",
+          "display_name": "行旅人",
+          "age_years": 42,
+          "presentation_profile_id": "",
+          "portrait_kind": "player",
+          "visibility_version": 6
+        },
+        "appearance_view": {
+          "format_version": 1,
+          "generator_version": "legacy-portrait-v1",
+          "base_features": {},
+          "attire_style": "legacy",
+          "legacy": true
+        }
+      },
+      "actor.walker": {
+        "ok": true,
+        "actor_view": {
+          "actor_id": "actor.walker",
+          "display_name": "许成",
+          "age_years": 28,
+          "presentation_profile_id": "",
+          "portrait_kind": "sender",
+          "visibility_version": 6
+        },
+        "appearance_view": {
+          "format_version": 1,
+          "generator_version": "legacy-portrait-v1",
+          "base_features": {},
+          "attire_style": "legacy",
+          "legacy": true
+        }
+      },
+      "actor.bandit": {
+        "ok": true,
+        "actor_view": {
+          "actor_id": "actor.bandit",
+          "display_name": "卢七",
+          "age_years": 28,
+          "presentation_profile_id": "",
+          "portrait_kind": "guard",
+          "visibility_version": 6
+        },
+        "appearance_view": {
+          "format_version": 1,
+          "generator_version": "legacy-portrait-v1",
+          "base_features": {},
+          "attire_style": "legacy",
+          "legacy": true
+        }
+      },
+      "actor.blackwater.commander": {
+        "ok": true,
+        "actor_view": {
+          "actor_id": "actor.blackwater.commander",
+          "display_name": "石猛",
+          "age_years": 36,
+          "presentation_profile_id": "",
+          "portrait_kind": "guard",
+          "visibility_version": 6
+        },
+        "appearance_view": {
+          "format_version": 1,
+          "generator_version": "legacy-portrait-v1",
+          "base_features": {},
+          "attire_style": "legacy",
+          "legacy": true
+        }
+      }
+    }
+  },
+  {
+    "state": "resident-journey-oracle-baseline-20261004/journey100-20261005/state-b69672f9b656f1013b5b8468d9d42b431d1054c44b5b88d41c5d16a6fb4edb0c.json",
+    "catalog": "resident-journey-oracle-baseline-20261004/journey100-20261005/expanded-catalog.json",
+    "state_sha256": "b69672f9b656f1013b5b8468d9d42b431d1054c44b5b88d41c5d16a6fb4edb0c",
+    "characters": {
+      "actor.player": {
+        "ok": true,
+        "actor_view": {
+          "actor_id": "actor.player",
+          "display_name": "行旅人",
+          "age_years": 42,
+          "presentation_profile_id": "",
+          "portrait_kind": "player",
+          "visibility_version": 3
+        },
+        "appearance_view": {
+          "format_version": 1,
+          "generator_version": "legacy-portrait-v1",
+          "base_features": {},
+          "attire_style": "legacy",
+          "legacy": true
+        }
+      },
+      "actor.walker": {
+        "ok": true,
+        "actor_view": {
+          "actor_id": "actor.walker",
+          "display_name": "许成",
+          "age_years": 28,
+          "presentation_profile_id": "",
+          "portrait_kind": "sender",
+          "visibility_version": 3
+        },
+        "appearance_view": {
+          "format_version": 1,
+          "generator_version": "legacy-portrait-v1",
+          "base_features": {},
+          "attire_style": "legacy",
+          "legacy": true
+        }
+      },
+      "actor.bandit": {
+        "ok": true,
+        "actor_view": {
+          "actor_id": "actor.bandit",
+          "display_name": "卢七",
+          "age_years": 28,
+          "presentation_profile_id": "",
+          "portrait_kind": "guard",
+          "visibility_version": 3
+        },
+        "appearance_view": {
+          "format_version": 1,
+          "generator_version": "legacy-portrait-v1",
+          "base_features": {},
+          "attire_style": "legacy",
+          "legacy": true
+        }
+      },
+      "actor.blackwater.commander": {
+        "ok": true,
+        "actor_view": {
+          "actor_id": "actor.blackwater.commander",
+          "display_name": "石猛",
+          "age_years": 36,
+          "presentation_profile_id": "",
+          "portrait_kind": "guard",
+          "visibility_version": 3
+        },
+        "appearance_view": {
+          "format_version": 1,
+          "generator_version": "legacy-portrait-v1",
+          "base_features": {},
+          "attire_style": "legacy",
+          "legacy": true
+        }
+      }
+    }
+  },
+  {
+    "state": "resident-journey-oracle-baseline-20261004/journey100-20261005/state-a43e9378dbe30ba75087fd118b1d6825a3a2636f0a260dfe48fde77fc01681e5.json",
+    "catalog": "resident-journey-oracle-baseline-20261004/journey100-20261005/expanded-catalog.json",
+    "state_sha256": "a43e9378dbe30ba75087fd118b1d6825a3a2636f0a260dfe48fde77fc01681e5",
+    "characters": {
+      "actor.player": {
+        "ok": true,
+        "actor_view": {
+          "actor_id": "actor.player",
+          "display_name": "行旅人",
+          "age_years": 42,
+          "presentation_profile_id": "",
+          "portrait_kind": "player",
+          "visibility_version": 15
+        },
+        "appearance_view": {
+          "format_version": 1,
+          "generator_version": "legacy-portrait-v1",
+          "base_features": {},
+          "attire_style": "legacy",
+          "legacy": true
+        }
+      },
+      "actor.walker": {
+        "ok": true,
+        "actor_view": {
+          "actor_id": "actor.walker",
+          "display_name": "许成",
+          "age_years": 28,
+          "presentation_profile_id": "",
+          "portrait_kind": "sender",
+          "visibility_version": 15
+        },
+        "appearance_view": {
+          "format_version": 1,
+          "generator_version": "legacy-portrait-v1",
+          "base_features": {},
+          "attire_style": "legacy",
+          "legacy": true
+        }
+      },
+      "actor.bandit": {
+        "ok": true,
+        "actor_view": {
+          "actor_id": "actor.bandit",
+          "display_name": "卢七",
+          "age_years": 28,
+          "presentation_profile_id": "",
+          "portrait_kind": "guard",
+          "visibility_version": 15
+        },
+        "appearance_view": {
+          "format_version": 1,
+          "generator_version": "legacy-portrait-v1",
+          "base_features": {},
+          "attire_style": "legacy",
+          "legacy": true
+        }
+      },
+      "actor.blackwater.commander": {
+        "ok": true,
+        "actor_view": {
+          "actor_id": "actor.blackwater.commander",
+          "display_name": "石猛",
+          "age_years": 36,
+          "presentation_profile_id": "",
+          "portrait_kind": "guard",
+          "visibility_version": 15
+        },
+        "appearance_view": {
+          "format_version": 1,
+          "generator_version": "legacy-portrait-v1",
+          "base_features": {},
+          "attire_style": "legacy",
+          "legacy": true
+        }
+      }
+    }
+  }
+]

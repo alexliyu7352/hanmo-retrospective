@@ -1,0 +1,124 @@
+{
+  "source_commit": "fcfc252ca2808b1adda8a91a1fe2d9a4d741dcc5",
+  "library_sha256": "2c1eb52ebfbc0ec707849a22541433d541e54d057aa76239251d4ae2b7013e05",
+  "runs": [
+    {
+      "actors": 100,
+      "boundaries": 16,
+      "returncode": 0,
+      "output": "state_scale_boundaries: PASS actors=100 boundaries=16 cached_receipts=120 army_member_queries=50 maximum_armies=2 (A values/order/checkpoint, real C membership/assets, central receipt codec; no advance run)\n",
+      "stderr": ""
+    },
+    {
+      "actors": 500,
+      "boundaries": 4,
+      "returncode": 0,
+      "output": "state_scale_boundaries: PASS actors=500 boundaries=4 cached_receipts=6 army_member_queries=0 maximum_armies=0 (A values/order/checkpoint, real C membership/assets, central receipt codec; no advance run)\n",
+      "stderr": ""
+    }
+  ],
+  "scope": "Cold A-owned record import/export/order/checkpoint plus actual C membership/public assets and central full receipt codec. No world advance, no performance run, no admission policy changes.",
+  "test_source": "state_scale_boundaries.cpp",
+  "test_source_sha256": "2f98f34afd766f6f167f7caae390f371bf2b74619530a2f6a91e1d791da68d76",
+  "test_binary_sha256": "90c34e4f146b916433f86b6bf764a54e0391e8ed6d27df3b8c303c0cc34620f2",
+  "headers": "Extracted from exact source_commit Git objects; no working-tree headers used.",
+  "compile_notes": "One existing test-summary -Wmisleading-indentation warning; compilation and both programs exited zero. Source was not changed after the completed runs.",
+  "oracle_indexes": [
+    {
+      "actors": 100,
+      "file": "journey100-20261005/oracle-index.json",
+      "sha256": "65e5205157bec6f23b2a82cf2959df540fc9bc6aec617b4cf65f834efa95d1e9",
+      "catalog_sha256": "81529c4cfb82e0c834a85c0a8a0ab36a56c9593676883d48ca72af06511b2926",
+      "boundaries": [
+        {
+          "file": "state-12815e78fea3e7950546b270d1b6316d121435c1a21291e8043d263e528534b7.json",
+          "sha256": "12815e78fea3e7950546b270d1b6316d121435c1a21291e8043d263e528534b7"
+        },
+        {
+          "file": "state-8d63b2324f02feb09c29beae6ba53c44405f713caa3ab270e67e35abab81e200.json",
+          "sha256": "8d63b2324f02feb09c29beae6ba53c44405f713caa3ab270e67e35abab81e200"
+        },
+        {
+          "file": "state-00eefe0768247b24a48a39d088f53d61b0f808dfcdceb83a328957ac0a365411.json",
+          "sha256": "00eefe0768247b24a48a39d088f53d61b0f808dfcdceb83a328957ac0a365411"
+        },
+        {
+          "file": "state-b69672f9b656f1013b5b8468d9d42b431d1054c44b5b88d41c5d16a6fb4edb0c.json",
+          "sha256": "b69672f9b656f1013b5b8468d9d42b431d1054c44b5b88d41c5d16a6fb4edb0c"
+        },
+        {
+          "file": "state-eb86ca8511853b1f44e347a385f9cfcb82396fec38dda0e2931084bc0594da88.json",
+          "sha256": "eb86ca8511853b1f44e347a385f9cfcb82396fec38dda0e2931084bc0594da88"
+        },
+        {
+          "file": "state-cadf6f9021041f15e193231628a723f9c94e522a3631eac6791c614c213fa641.json",
+          "sha256": "cadf6f9021041f15e193231628a723f9c94e522a3631eac6791c614c213fa641"
+        },
+        {
+          "file": "state-142388288eb46b7c9a17f15a16a756ac02e2b9034e2cbadaffb01e090986624b.json",
+          "sha256": "142388288eb46b7c9a17f15a16a756ac02e2b9034e2cbadaffb01e090986624b"
+        },
+        {
+          "file": "state-99a218499d283d02d540d40f189d428fc42534248c9f8702e59d93a3bef9fa0f.json",
+          "sha256": "99a218499d283d02d540d40f189d428fc42534248c9f8702e59d93a3bef9fa0f"
+        },
+        {
+          "file": "state-4c8f0ca61d78109c8cd9b2e33742bf4eab08e37d5d2f3a0f5c3db5b69e39ecdd.json",
+          "sha256": "4c8f0ca61d78109c8cd9b2e33742bf4eab08e37d5d2f3a0f5c3db5b69e39ecdd"
+        },
+        {
+          "file": "state-21b76a0986ae1b3196859d4dc040679f8ceca2ea79df63b20dafc1c0034b468e.json",
+          "sha256": "21b76a0986ae1b3196859d4dc040679f8ceca2ea79df63b20dafc1c0034b468e"
+        },
+        {
+          "file": "state-5c6b651ea65210f6d9bea71c0e91a3ba14428f998c2beace40b3473a43a5b3c2.json",
+          "sha256": "5c6b651ea65210f6d9bea71c0e91a3ba14428f998c2beace40b3473a43a5b3c2"
+        },
+        {
+          "file": "state-ade46e1bc8f34294ae470ab49a2a9d7ccf2c75f2dafbc602c59218c5cb2c1f92.json",
+          "sha256": "ade46e1bc8f34294ae470ab49a2a9d7ccf2c75f2dafbc602c59218c5cb2c1f92"
+        },
+        {
+          "file": "state-ecd5d633e9e6fa418a23541a277f94c1849d9218f536e2ebb944868b1e2f21fa.json",
+          "sha256": "ecd5d633e9e6fa418a23541a277f94c1849d9218f536e2ebb944868b1e2f21fa"
+        },
+        {
+          "file": "state-3c9d1cae17e097e3fb246f38bbce29f903337e665f165ab55948bbaf6b5d3504.json",
+          "sha256": "3c9d1cae17e097e3fb246f38bbce29f903337e665f165ab55948bbaf6b5d3504"
+        },
+        {
+          "file": "state-110bead078f46ed61f2501d7e3d7c3dbdc31c328fefa7b77a337944c7a65545a.json",
+          "sha256": "110bead078f46ed61f2501d7e3d7c3dbdc31c328fefa7b77a337944c7a65545a"
+        },
+        {
+          "file": "state-a43e9378dbe30ba75087fd118b1d6825a3a2636f0a260dfe48fde77fc01681e5.json",
+          "sha256": "a43e9378dbe30ba75087fd118b1d6825a3a2636f0a260dfe48fde77fc01681e5"
+        }
+      ]
+    },
+    {
+      "actors": 500,
+      "file": "journey500-20261005/oracle-index.json",
+      "sha256": "4c5408871b90d8708332483b8e3b9e163c1707379d07f316793fba933bd319ca",
+      "catalog_sha256": "4a4133c196b9f570a37cfe4346efb491a4c2b93da804fc92f67f5d5f5a6f2f88",
+      "boundaries": [
+        {
+          "file": "state-9b2e91c40bee6c10478d2937c59c3fc0b5904c4a1a491de9af8cd865184474a2.json",
+          "sha256": "9b2e91c40bee6c10478d2937c59c3fc0b5904c4a1a491de9af8cd865184474a2"
+        },
+        {
+          "file": "state-136686acbcbef25ada4e506430eabee80c3cf8dd65dad9f01e9b69421d50793e.json",
+          "sha256": "136686acbcbef25ada4e506430eabee80c3cf8dd65dad9f01e9b69421d50793e"
+        },
+        {
+          "file": "state-d87403071834711d945f536232b3fc400b8eac6e1fe2635920bfb3d8d16645fc.json",
+          "sha256": "d87403071834711d945f536232b3fc400b8eac6e1fe2635920bfb3d8d16645fc"
+        },
+        {
+          "file": "state-63f0d9fd6d024960dea2016f7a274e7eafaa464fae09de60d95dfca2ec9f7c9d.json",
+          "sha256": "63f0d9fd6d024960dea2016f7a274e7eafaa464fae09de60d95dfca2ec9f7c9d"
+        }
+      ]
+    }
+  ]
+}

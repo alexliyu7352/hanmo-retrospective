@@ -1,0 +1,21 @@
+{
+  "pose": "prepare-01",
+  "tool": "built-in image_gen.imagegen",
+  "original_path": "<本地路径>",
+  "source_size": [
+    1254,
+    1254
+  ],
+  "mode": "RGBA",
+  "sha256": "0cebfb1843e253d80ec31c3453fddb982648b5e0e2a2ddea3c8c2ab7d69068b7",
+  "alpha_zero": 1189811,
+  "visible_bbox": [
+    211,
+    18,
+    1097,
+    1227
+  ],
+  "status": "REJECTED_FOR_HAND_CONTINUITY",
+  "reason": "Weapon moves to the opposite visible arm relative to neutral01; cannot be accepted as same-hand sequence. Guard also exaggerates blade curvature.",
+  "pixel_mutation": false
+}

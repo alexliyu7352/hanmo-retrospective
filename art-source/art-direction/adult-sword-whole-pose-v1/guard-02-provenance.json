@@ -1,0 +1,16 @@
+{
+  "pose": "guard-02",
+  "tool": "built-in image_gen.imagegen",
+  "sha256": "b758a19c8be267ba0db8ad67804415ab17e2ddb3a4f173eb092a7551f8a16746",
+  "source_size": [
+    1254,
+    1254
+  ],
+  "status": "REJECTED_FOR_HAND_CONTINUITY",
+  "reason": "Correction still uses opposite arm. Original prompt contained anatomical right conflicting with reference left-handed actor; new prompt removes that conflict.",
+  "pixel_mutation": false,
+  "original_path": "<本地路径>",
+  "prompt": "prompt-guard-02.md",
+  "reference": "source/neutral-01.png",
+  "reference_sha256": "4ac3c15a23dbfb4b85823cb592833b4a579797f70b515eb2a282c350ee75e7a3"
+}

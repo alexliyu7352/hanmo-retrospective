@@ -1,0 +1,36 @@
+{
+  "schema": "hanmo.residence-art-candidate.v1",
+  "status": "offline-pixel-pass-pending-central-integration-review",
+  "assets": [
+    {
+      "proposed_id": "estate_overview_v1",
+      "path": "res://assets/art/residence-environments-v1/estate-overview.png",
+      "source": "art-source/art-direction/residence-environments-v1/source/estate-overview-02.png",
+      "sha256": "b69b1114fb824d1d7fd36511bb50c3ff534571bf464dd3e2a8dafd475d28c0ab",
+      "git_blob_oid": "018f902abcb67d234e30ca10011d28752e9805d3",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "mode": "RGB",
+      "purpose": "私人庄院设施总览的无人物无文字候选底景",
+      "registration": "NOT_REGISTERED",
+      "user_approval": "PENDING",
+      "engine_approval": "NOT_RUN",
+      "do_not_replace_automatically": "backgrounds.estate",
+      "world_authority": "none"
+    }
+  ],
+  "retained_assets": [
+    {
+      "id": "house",
+      "path": "res://assets/art/alpha-visual/house.png",
+      "decision": "retain_existing"
+    },
+    {
+      "id": "estate",
+      "path": "res://assets/art/alpha-estate/estate-courtyard.png",
+      "decision": "retain_existing_close_visit_background"
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "$defs": {
+    "diplomatic_response_policy_v1": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/entity_id"
+        },
+        "office_id": {
+          "$ref": "#/$defs/entity_id"
+        },
+        "directives": {
+          "type": "array",
+          "maxItems": 256,
+          "items": {
+            "type": "object",
+            "properties": {
+              "mission_policy_id": {
+                "$ref": "#/$defs/entity_id"
+              },
+              "terms_id": {
+                "$ref": "#/$defs/entity_id"
+              },
+              "choice": {
+                "enum": [
+                  "defer",
+                  "accept",
+                  "refuse"
+                ]
+              }
+            },
+            "required": [
+              "mission_policy_id",
+              "terms_id",
+              "choice"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "id",
+        "office_id",
+        "directives"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

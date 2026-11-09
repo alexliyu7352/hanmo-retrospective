@@ -1,0 +1,26 @@
+# 世界内核与共享事务消费者登记：保留本组目标、测试、条件与局部变量的原执行顺序。
+# 精确时间值叶链接同一生产核心；这项测试不代表精确时间driver已经接入。
+add_executable(test_resident_world_moment tests/resident/world_moment_test.cpp)
+target_link_libraries(test_resident_world_moment PRIVATE hanmo_resident)
+if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
+    target_compile_options(test_resident_world_moment PRIVATE -Wall -Wextra -Wpedantic -Werror -UNDEBUG -fno-fast-math -ffp-contract=off)
+endif()
+add_test(NAME resident_world_moment COMMAND test_resident_world_moment)
+
+# 真实Resident生命周期/持有快照门显式接原oracle；不以缺少输入时跳过运行冒通过。
+set(HANMO_RESIDENT_LIFECYCLE_ORACLE "" CACHE PATH "已核真实Resident oracle目录")
+foreach(name kernel_lifecycle kernel_live_session)
+    add_executable(test_resident_${name} tests/resident/${name}.cpp)
+    target_link_libraries(test_resident_${name} PRIVATE hanmo_resident)
+    if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
+        target_compile_options(test_resident_${name} PRIVATE -UNDEBUG -fno-fast-math -ffp-contract=off)
+    endif()
+    if(HANMO_RESIDENT_LIFECYCLE_ORACLE)
+        foreach(input oracle-index.json expanded-catalog.json)
+            if(NOT EXISTS "${HANMO_RESIDENT_LIFECYCLE_ORACLE}/${input}")
+                message(FATAL_ERROR "Resident oracle缺输入：${input}")
+            endif()
+        endforeach()
+        add_test(NAME resident_${name} COMMAND test_resident_${name} "${HANMO_RESIDENT_LIFECYCLE_ORACLE}")
+    endif()
+endforeach()

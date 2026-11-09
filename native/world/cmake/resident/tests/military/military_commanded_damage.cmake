@@ -1,0 +1,21 @@
+# 军旅与战斗消费者登记：保留本组目标、测试、条件与局部变量的原执行顺序。
+# 原M14必要公式/轮次/坏档有限门，不代完整World。
+add_executable(test_resident_military_commanded_damage tests/resident/military_commanded_damage_test.cpp)
+target_link_libraries(test_resident_military_commanded_damage PRIVATE hanmo_resident)
+target_include_directories(test_resident_military_commanded_damage PRIVATE src)
+target_compile_options(test_resident_military_commanded_damage PRIVATE -UNDEBUG -fno-fast-math -ffp-contract=off)
+add_test(NAME resident_military_commanded_damage COMMAND test_resident_military_commanded_damage)
+
+# 原M14必要公式/轮次/坏档有限门，不代完整World。
+add_executable(test_resident_military_commanded_damage_round tests/resident/military_commanded_damage_round_test.cpp)
+target_link_libraries(test_resident_military_commanded_damage_round PRIVATE hanmo_resident)
+target_include_directories(test_resident_military_commanded_damage_round PRIVATE src)
+target_compile_options(test_resident_military_commanded_damage_round PRIVATE -UNDEBUG -fno-fast-math -ffp-contract=off)
+add_test(NAME resident_military_commanded_damage_round COMMAND test_resident_military_commanded_damage_round)
+
+# 原M14必要公式/轮次/坏档有限门，不代完整World。
+add_executable(test_resident_military_commanded_damage_codec tests/resident/military_commanded_damage_codec_test.cpp)
+target_link_libraries(test_resident_military_commanded_damage_codec PRIVATE hanmo_resident)
+target_include_directories(test_resident_military_commanded_damage_codec PRIVATE src)
+target_compile_options(test_resident_military_commanded_damage_codec PRIVATE -UNDEBUG -fno-fast-math -ffp-contract=off)
+add_test(NAME resident_military_commanded_damage_codec COMMAND test_resident_military_commanded_damage_codec)

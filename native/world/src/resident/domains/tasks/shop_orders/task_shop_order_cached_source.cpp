@@ -1,0 +1,23 @@
+// 历史裁剪后仍用紧前全局result为下界；首保留条目另核同人同类最新来源，不增影子账。
+#include "task_shop_order_cached_source.hpp"
+#include <charconv>
+namespace hanmo::resident {namespace {
+std::optional<Integer> serial(const StableId& id,const StableId& prefix,Integer next){const auto lead=prefix+":";if(id.rfind(lead,0)!=0)return {};auto text=id.substr(lead.size());Integer n=0;auto parsed=std::from_chars(text.data(),text.data()+text.size(),n);if(parsed.ec!=std::errc{}||parsed.ptr!=text.data()+text.size()||n<=0||n>=next||std::to_string(n)!=text)return {};return n;}
+struct Source {StableId id,actor;Integer tick=0;};
+const TaskShopOrderBinding* binding(const TaskShopOrderState& state,const StableId& task){const auto at=state.by_task.find(task);return at==state.by_task.end()?nullptr:state.bindings.find(at->second);}
+std::vector<Source> sources(const TaskShopOrderState& state,const StableId& kind){std::vector<Source> out;if(kind=="task_shop_order_accept"){for(const auto& row:state.bindings.rows())out.push_back({row.first,row.second.terms.proprietor_actor_id,row.second.terms.accepted_tick});}else if(kind=="task_shop_order_cancel"){for(const auto& row:state.settlements.rows())if(row.second.outcome=="cancelled"&&row.second.termination=="cancelled_by_proprietor")if(const auto* b=binding(state,row.second.task_id))out.push_back({row.first,b->terms.proprietor_actor_id,row.second.tick});}else if(kind=="task_shop_order_deliver"){
+    for(const auto& row:state.actions.rows())if(const auto* b=binding(state,row.second.task_id))out.push_back({row.first,b->terms.proprietor_actor_id,row.second.started_tick});
+    for(const auto& row:state.interruptions.rows())if(const auto* b=binding(state,row.second.source.task_id))out.push_back({row.second.source.action_id,b->terms.proprietor_actor_id,row.second.source.started_tick});
+    for(const auto& row:state.settlements.rows())if(row.second.outcome=="delivered")if(const auto* b=binding(state,row.second.task_id))out.push_back({row.second.source_action_id,b->terms.proprietor_actor_id,row.second.action_started_tick});
+    }return out;}
+}
+bool is_task_shop_order_command_kind(const StableId& kind){return kind=="task_shop_order_accept"||kind=="task_shop_order_deliver"||kind=="task_shop_order_cancel";}
+Status validate_task_shop_order_cached_source(const CommonStore& common,const TaskState& tasks,const TaskShopOrderState& state,const StableId& key,const StableId& kind,const StableId& result_id,Integer tick,const StableId& source_id){
+    auto valid=validate_task_shop_order_ledger(common,tasks,state);if(!valid.ok)return valid;if(!is_task_shop_order_command_kind(kind))return common_failure("UnsupportedTaskShopOrderCachedCommand",kind);const auto split=key.rfind(':');if(split==StableId::npos)return common_failure("InvalidTaskShopOrderCacheKey",key);const auto actor=key.substr(0,split),digits=key.substr(split+1);Integer request=0;auto parsed=std::from_chars(digits.data(),digits.data()+digits.size(),request);const auto* seq=common.state().request_sequences.find(actor);
+    if(!common.actor(actor)||!seq||digits.empty()||parsed.ec!=std::errc{}||parsed.ptr!=digits.data()+digits.size()||request<1||request>2147483647||request>*seq||std::to_string(request)!=digits)return common_failure("InvalidTaskShopOrderCacheKey",key);
+    const HistoryRecord* previous=nullptr;const HistoryRecord* selected=nullptr;const HistoryRecord* lower_history=nullptr;for(const auto& row:common.state().history){if(row.result_id==result_id){if(selected)return common_failure("TaskShopOrderCachedHistoryMismatch",key);selected=&row;lower_history=previous;}previous=&row;}
+    if(!selected||selected->actor_id!=actor||selected->kind!=kind||selected->tick!=tick||tick<0||tick>common.tick())return common_failure("TaskShopOrderCachedHistoryMismatch",key);
+    const StableId prefix=kind=="task_shop_order_accept"?task_shop_order_acceptance_prefix:kind=="task_shop_order_cancel"?task_shop_order_settled_kind:"action";const auto next=common.state().next_instance_id;auto lower=lower_history?serial(lower_history->result_id,"result",next):std::optional<Integer>{0},upper=serial(result_id,"result",next),origin=serial(source_id,prefix,next);if(!lower||!upper||!origin||*lower>=*upper||*origin<=*lower||*origin>=*upper)return common_failure("TaskShopOrderCachedAllocationMismatch",key);
+    bool found=false;for(const auto& source:sources(state,kind)){if(source.id==source_id){if(found||source.actor!=actor||source.tick!=tick)return common_failure("TaskShopOrderCachedSourceMismatch",key);found=true;}auto n=serial(source.id,prefix,next);if(source.actor==actor&&n&&*n>*origin&&*n<*upper)return common_failure("TaskShopOrderCachedAllocationMismatch",key);}if(!found)return common_failure("TaskShopOrderCachedSourceMismatch",key);return common_success();
+}
+}

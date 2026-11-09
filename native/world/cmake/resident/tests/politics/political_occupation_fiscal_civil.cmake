@@ -1,0 +1,25 @@
+# 政治与治理消费者登记：保留本组目标、测试、条件与局部变量的原执行顺序。
+# 占领税政具名来源与坏档局部门；正式World仍使用同代生产入口。
+add_executable(test_resident_political_occupation_fiscal_civil tests/resident/political_occupation_fiscal_civil_test.cpp)
+target_link_libraries(test_resident_political_occupation_fiscal_civil PRIVATE hanmo_resident)
+target_compile_options(test_resident_political_occupation_fiscal_civil PRIVATE -UNDEBUG -fno-fast-math -ffp-contract=off)
+
+# 占领税政具名来源与坏档局部门；正式World仍使用同代生产入口。
+add_executable(test_resident_political_occupation_history tests/resident/political_occupation_history_test.cpp)
+target_link_libraries(test_resident_political_occupation_history PRIVATE hanmo_resident)
+target_compile_options(test_resident_political_occupation_history PRIVATE -UNDEBUG -fno-fast-math -ffp-contract=off)
+
+# 占领税政具名来源与坏档局部门；正式World仍使用同代生产入口。
+add_executable(test_resident_political_occupation_taxpayer tests/resident/political_occupation_taxpayer_test.cpp)
+target_link_libraries(test_resident_political_occupation_taxpayer PRIVATE hanmo_resident)
+target_compile_options(test_resident_political_occupation_taxpayer PRIVATE -UNDEBUG -fno-fast-math -ffp-contract=off)
+
+# 占领税政具名来源与坏档局部门；正式World仍使用同代生产入口。
+add_executable(test_resident_political_takeover_task2_profile tests/resident/political_takeover_task2_profile_test.cpp)
+target_link_libraries(test_resident_political_takeover_task2_profile PRIVATE hanmo_resident)
+target_compile_options(test_resident_political_takeover_task2_profile PRIVATE -UNDEBUG -fno-fast-math -ffp-contract=off)
+
+# 新税期与旧债Need精确分流，未知与伪造来源仍拒。
+add_executable(test_resident_occupation_fiscal_need_routing tests/resident/occupation_fiscal_need_routing_test.cpp)
+target_link_libraries(test_resident_occupation_fiscal_need_routing PRIVATE hanmo_resident)
+target_compile_options(test_resident_occupation_fiscal_need_routing PRIVATE -UNDEBUG -fno-fast-math -ffp-contract=off)

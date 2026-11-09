@@ -1,0 +1,18 @@
+{
+  "source_commit": "94e1477327d4d0d6ae8259369cb19a658801b035",
+  "source_path": "game/core/world_kernel.gd",
+  "sha256": "e948560aa723f652ef1f7c3ff9be673b3d06d7b1d461efc034708f008b16e405",
+  "scope": "Frozen exact pre-registration Kernel and Builtin. Original Kernel business bytes are unchanged; only its Builtin preload is redirected to the same historical composition root. Original domain rules remain shared as explicitly audited.",
+  "adaptation": "Replace exactly one res://core/runtime/builtin_modules.gd preload with res://tests/fixtures/journey_94e1477/builtin_modules.gd; no business/guard/apply rewrite",
+  "fixture_sha256": "6cf618a20ee586bb162e52c429c600b3dd8055b5cc0d14c22b0507970d8bb8d5",
+  "builtin_source_path": "game/core/runtime/builtin_modules.gd",
+  "builtin_source_sha256": "1c8755814a14465dc38a7a113c66b95902c74e77db24bb63a793cba7ca792fd8",
+  "dependency_audit": {
+    "old_transitive_core_files": 70,
+    "changes_other_than_composition_root": [
+      "game/core/travel_rules.gd: additive move_local extraction, not called by old inline move_local",
+      "game/core/runtime/module_registry.gd: compat_action branch extension only; frozen old descriptors contain no compat_action entries"
+    ],
+    "registered_domain_implementations": "Military, Task and Economy descriptors unchanged since94e1477; no new wait/advance/Dialogue commands enter the historical registry"
+  }
+}

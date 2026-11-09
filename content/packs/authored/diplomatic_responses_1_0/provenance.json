@@ -1,0 +1,9 @@
+{
+  "source_catalog_sha256": "76994c25ad964cc702e5e8f6d12f9987e25f2f0d08b164308c2e878764e986b7",
+  "source_scenario": "civicecon::scenario.qingchuan_diplomacy",
+  "status": "STRUCTURE_VALID_NOT_RUNTIME_VERIFIED",
+  "policy": "Explicit author example accepts only the named passage proposal after lawful presentation. Acceptance remains pending ratification, with no passage effect.",
+  "initial_money_and_grain_changed": false,
+  "prior_scenarios_modified": false,
+  "composed_pack_set_digest": "21a6d7ad29defdf85775fdfc92e7e267166767132a97557ccf7e04e41bc8237e"
+}

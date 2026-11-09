@@ -1,0 +1,43 @@
+{
+  "format": "HM-PACK",
+  "format_version": 1,
+  "rules_api": {
+    "id": "hanmo.rules",
+    "min_version": "1.0.0",
+    "max_version_exclusive": "2.0.0"
+  },
+  "author": "Hanmo project authors",
+  "license": "NOASSERTION",
+  "id": "hanmo.economic_takeover",
+  "version": "1.4.0",
+  "namespace": "econhandover",
+  "dependencies": [
+    {
+      "id": "qingxi.campaign",
+      "min_version": "1.2.0",
+      "max_version_exclusive": "1.3.0"
+    }
+  ],
+  "conflicts": [],
+  "required_capabilities": [
+    "multi_actor",
+    "places",
+    "dialogue",
+    "economy",
+    "military",
+    "world_terrain",
+    "native_dynamic_world",
+    "population_military_v1",
+    "siege_integration_v1",
+    "regional_life_v1",
+    "occupation_fiscal_v1",
+    "occupation_fiscal_needs_v1",
+    "fiscal_taxpayer_continuity_v1",
+    "economic_supply_policies_v1"
+  ],
+  "content_entries": [
+    "content.json"
+  ],
+  "presentation_entries": [],
+  "resources": []
+}

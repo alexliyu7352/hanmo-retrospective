@@ -1,0 +1,31 @@
+#include "study_permanent_contribution_read.hpp"
+#include "growth_internal.hpp"
+namespace hanmo::resident {
+Outcome<StudyLessonPermanentContributionView> read_study_lesson_permanent_contribution(const CharacterConditionSources& body,const GrowthState& state,const StudyLessonResultRef& ref){
+ const auto* raw=state.facts.find(ref.action_id);const auto* fact=raw?std::get_if<StudyFact>(raw):nullptr;
+ auto failure=[&](const char* code)->Outcome<StudyLessonPermanentContributionView>{return {false,{},common_failure(code,ref.action_id).error};};
+ if(!fact||!fact->study_service_binding||!growth::study_segmented(*fact)||ref.lesson_ordinal<1||ref.lesson_ordinal>static_cast<Integer>(fact->lessons.size()))return failure("StudyPermanentOriginalSegmentRequired");
+ auto verified=read_study_lesson_capability_source(body,state,ref.action_id,ref.lesson_ordinal);if(!verified.ok)return {false,{},verified.error};const auto& source=*verified.value;const auto& lesson=fact->lessons[static_cast<std::size_t>(ref.lesson_ordinal-1)];if(!lesson.segment)return failure("StudyPermanentOriginalSegmentRequired");const auto& segment=*lesson.segment;
+ if(segment.ordinal!=ref.lesson_ordinal||segment.settled_tick!=source.provided_to.half_day_tick||segment.xp_before<0||segment.xp_before>fact->terms.xp_limit||fact->terms.xp_limit<0||fact->terms.xp_limit>1200||segment.performance_bp<10000||segment.performance_bp>12000||(segment.performance_pending&&segment.performance_bp!=10000))return failure("StudyPermanentSegmentInputsInvalid");
+ if(fact->challenge){if(!body.growth_catalog)return failure("StudyPermanentChallengeCatalogRequired");auto valid=growth::challenge_validate(*body.growth_catalog,*fact->challenge);if(!valid.ok)return {false,{},valid.error};}
+ const auto expected=std::max<Integer>(0,std::min<Integer>(lesson.xp*segment.performance_bp/10000,fact->terms.xp_limit-segment.xp_before));if(segment.xp_gained!=expected)return failure("StudyPermanentOriginalNetMismatch");
+ if(segment.performance_bp!=10000&&(!fact->challenge||!fact->challenge->result||fact->challenge->result->performance_bp!=segment.performance_bp))return failure("StudyPermanentOriginalPerformanceRequired");
+ std::size_t ordinal=0;bool found=false;for(const auto& row:state.lesson_capabilities.lesson_capability_sources){if(&row==verified.value){found=true;break;}++ordinal;}if(!found)return failure("StudyPermanentOriginalOrderRequired");
+ return {true,{fact,&lesson,verified.value,segment.xp_before,segment.xp_gained,segment.xp_before+segment.xp_gained,source.provided_to,ordinal},{}};
+}
+Outcome<StudyAdjustmentPermanentContributionView> read_study_adjustment_permanent_contribution(const CommonStore& common,const GrowthState& state,const GrowthCatalog& catalog,const StudyPerformanceAdjustmentRef& ref,const WorldMoment& now){auto source=read_study_adjustment_time2_source(common,state,catalog,ref,now);if(!source.ok)return {false,{},source.error};const auto& actual=*source.value.adjustment;return {true,{source.value,actual.xp_before,actual.xp_gained,actual.xp_before+actual.xp_gained},{}};}
+}
+#include "resident/domains/actor_foundation/created_origin.hpp"
+namespace hanmo::resident {namespace {
+struct StudyNetFailure{RuleError error;};
+template<class T>T net_take(Outcome<T> value){if(!value.ok)throw StudyNetFailure{std::move(value.error)};return std::move(value.value);}
+struct NetPiece {Integer before=0,gained=0,after=0;WorldMoment at;const StudyLesson* lesson=nullptr;bool adjustment=false;};
+template<class F>void each_study_net(const CharacterConditionSources& body,const GrowthState& state,const StableId& actor,const StableId& skill,F visit){for(const auto& row:state.facts.rows()){const auto* fact=std::get_if<StudyFact>(&row.second);if(!fact||fact->terms.student_id!=actor||fact->terms.skill_id!=skill)continue;for(std::size_t n=0;n<fact->lessons.size();++n){const auto actual=net_take(read_study_lesson_permanent_contribution(body,state,{row.first,static_cast<Integer>(n+1)}));visit(NetPiece{actual.xp_before,actual.xp_gained,actual.xp_after,actual.effective_at,actual.lesson,false});if(actual.lesson->segment->adjustment){if(!body.growth_catalog)throw StudyNetFailure{common_failure("StudyNetCatalogRequired",row.first).error};const auto a=net_take(read_study_adjustment_permanent_contribution(body.common,state,*body.growth_catalog,{row.first,static_cast<Integer>(n+1)},body.actual_now));visit(NetPiece{a.xp_before,a.xp_gained,a.xp_after,a.source.exact->settled_at,actual.lesson,true});}}}}
+}
+Outcome<StudyVerifiedSkillNet> read_verified_study_skill_net(const CharacterConditionSources& body,const GrowthState& state,const StableId& actor,const StableId& skill){try{
+ if(!body.shared||!growth_skill_defined(skill,body.shared->extended_skills))return {false,{},common_failure("StudyNetSkillRequired",skill).error};
+ auto initial=net_take(read_character_initial_values_v2(body.common,body.state,body.catalog,body.family_catalog,body.shared,actor,body.actual_now,body.born_sources));const auto* current=body.common.state().actors.find(actor);if(!initial.initial_skills||!current)return {false,{},common_failure("StudyNetOriginRequired",actor).error};StudyVerifiedSkillNet out{growth_skill_xp(*initial.initial_skills,skill),0,growth_skill_xp(current->skills,skill)};if(out.initial_xp<0||out.current_xp<out.initial_xp||out.current_xp>1200)return {false,{},common_failure("StudyNetInitialRangeInvalid",actor).error};
+ each_study_net(body,state,actor,skill,[&](const NetPiece& a){if(a.before<out.initial_xp||a.after>out.current_xp||a.gained<0||out.study_net>1200-a.gained)throw StudyNetFailure{common_failure("StudyNetContributionRangeInvalid",actor).error};out.study_net+=a.gained;each_study_net(body,state,actor,skill,[&](const NetPiece& b){if(a.lesson==b.lesson&&a.adjustment==b.adjustment)return;const auto order=net_take(compare_world_moments(a.at,b.at));if((order<0&&a.after>b.before)||(a.gained>0&&b.gained>0&&a.before<b.after&&b.before<a.after))throw StudyNetFailure{common_failure("StudyNetContributionOrderInvalid",actor).error};});});
+ if(out.study_net>out.current_xp-out.initial_xp)return {false,{},common_failure("StudyNetExceedsCurrentXP",actor).error};return {true,out,{}};
+ }catch(StudyNetFailure& e){return {false,{},std::move(e.error)};}}
+}

@@ -1,0 +1,18 @@
+{
+  "format": "HM-PACK-SELECTION",
+  "format_version": 1,
+  "packs": [
+    {
+      "id": "hanmo.local_society",
+      "version": "1.11.0"
+    },
+    {
+      "id": "hanmo.political_economy",
+      "version": "1.2.0"
+    },
+    {
+      "id": "hanmo.born_personal_dialogues",
+      "version": "1.0.0"
+    }
+  ]
+}

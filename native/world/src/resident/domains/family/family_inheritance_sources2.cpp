@@ -1,0 +1,38 @@
+#include "family_inheritance_sources2.hpp"
+#include <algorithm>
+#include <limits>
+namespace hanmo::resident {
+namespace {
+bool same_moment(const WorldMoment& a,const WorldMoment& b){auto x=compare_world_moments(a,b);return x.ok&&x.value==0;}
+}
+Outcome<WorldMoment> FamilyInheritanceSources2::current_moment()const{
+ auto at=people_.read_current_moment();if(!at.ok)return at;
+ if(!bound_to(knowledge_.common,deaths_)||!same_moment(at.value,knowledge_.results.source_moment()))return {false,{},common_failure("InheritanceSourcesCandidateMismatch",{},ErrorKind::internal).error};
+ if(!knowledge_.catalog)return {false,{},common_failure("InheritanceCatalogRequired",{},ErrorKind::unsupported_capability).error};if(knowledge_.catalog->content_digest!=knowledge_.common.state().metadata.content_digest)return {false,{},common_failure("InheritanceCatalogIdentityMismatch",{},ErrorKind::internal).error};Integer selected=0;for(const auto& module:knowledge_.catalog->module_versions)if(module.first=="family_inheritance"){if(module.second!="2"||++selected!=1)return {false,{},common_failure("InheritanceCatalogVersionMismatch",{},ErrorKind::internal).error};}if(selected!=1)return {false,{},common_failure("InheritanceCompleteSelectionRequired",{},ErrorKind::unsupported_capability).error};
+ if(!policy_.enabled||policy_.selected_version!=4)return {false,{},common_failure("InheritanceLife4Required",{},ErrorKind::unsupported_capability).error};return at;
+}
+Status validate_inheritance_exact_moment(const FamilyInheritanceSources2& sources,Integer tick,const std::optional<WorldMoment>& at){
+ if(!at)return common_failure("InheritanceExactSourceRequired",{},ErrorKind::unsupported_capability);auto now=sources.current_moment();if(!now.ok)return {false,{},now.error};auto cmp=compare_world_moments(*at,now.value);if(!cmp.ok)return {false,{},cmp.error};return tick>=0&&tick==at->half_day_tick&&cmp.value<=0?common_success():common_failure("InheritanceExactTimeMismatch",{},ErrorKind::internal);
+}
+Outcome<FamilyInheritanceKnowledge2> FamilyInheritanceSources2::capture_personal_death_knowledge(const StableId& actor,const ActorKnownDeathReceiptRef& ref)const{
+ auto now=current_moment();if(!now.ok)return {false,{},now.error};auto received=read_actor_known_death_receipt(knowledge_,policy_,deaths_,causes_,actor,ref);if(!received.ok)return {false,{},received.error};if(!received.value)return {false,{},common_failure("InheritanceDeathKnowledgeRequired",ref.report_id).error};
+ auto age=people_.read_current_age(actor);if(!age.ok)return {false,{},age.error};FamilyInheritanceKnowledge2 saved{ref,received.value->acquired.knowledge.learned_at,std::move(age.value.ref)};auto valid=validate_personal_death_knowledge(actor,saved,now.value);return valid.ok?Outcome<FamilyInheritanceKnowledge2>{true,std::move(saved),{}}:Outcome<FamilyInheritanceKnowledge2>{false,{},valid.error};
+}
+Status FamilyInheritanceSources2::validate_personal_death_knowledge(const StableId& actor,const FamilyInheritanceKnowledge2& saved,const WorldMoment& at,const SourceRef* boundary)const{
+ auto now=current_moment();if(!now.ok)return {false,{},now.error};auto time=compare_world_moments(at,now.value);if(!time.ok)return {false,{},time.error};if(time.value>0||(!boundary&&time.value!=0))return common_failure("StaleInheritanceKnowledgeTime");
+ Outcome<ActorKnownDeathReceiptView> received;
+ if(boundary)received=read_actor_known_death_receipt_before_source(knowledge_,policy_,deaths_,causes_,actor,saved.receipt,*boundary,at);
+ else{auto actual=read_actor_known_death_receipt(knowledge_,policy_,deaths_,causes_,actor,saved.receipt);if(!actual.ok)return {false,{},actual.error};if(!actual.value)return common_failure("InheritanceDeathKnowledgeRequired",saved.receipt.report_id);received={true,std::move(*actual.value),{}};}
+ if(!received.ok)return {false,{},received.error};if(!same_moment(saved.learned_at,received.value.acquired.knowledge.learned_at))return common_failure("InheritanceDeathKnowledgeChanged",saved.receipt.report_id,ErrorKind::internal);auto learned=compare_world_moments(saved.learned_at,at);if(!learned.ok)return {false,{},learned.error};if(learned.value>0)return common_failure("InheritanceBeforeDeathKnowledge");
+ auto presence=boundary?people_.read_presence_before_original_fact(actor,at.half_day_tick,*boundary):people_.read_current_presence(actor);if(!presence.ok)return {false,{},presence.error};if(!presence.value.alive)return common_failure("InheritanceLivingBeneficiaryRequired",actor);
+ auto age=boundary?people_.read_age_before_original_fact(actor,at.half_day_tick,*boundary):people_.read_current_age(actor);if(!age.ok)return {false,{},age.error};if(age.value.age_years<18)return common_failure("InheritanceRequiresAdult",actor);return same_life_age_basis_ref(age.value.ref,saved.beneficiary_age)?common_success():common_failure("InheritanceAgeBasisChanged",actor,ErrorKind::internal);
+}
+bool same_inheritance_knowledge2(const FamilyInheritanceKnowledge2& a,const FamilyInheritanceKnowledge2& b){return a.receipt.report_id==b.receipt.report_id&&a.receipt.death.domain==b.receipt.death.domain&&a.receipt.death.kind==b.receipt.death.kind&&a.receipt.death.id==b.receipt.death.id&&same_moment(a.learned_at,b.learned_at)&&same_life_age_basis_ref(a.beneficiary_age,b.beneficiary_age);}
+Status FamilyInheritanceSources2::validate_original_physical_contact(const StableId& donor,const StableId& beneficiary,const StableId& place,const StableId& settlement,const WorldMoment& at,const SourceRef* boundary)const{
+ if(!spatial_)return common_failure("InheritanceOriginalSpatialSourcesRequired",{},ErrorKind::unsupported_capability);auto now=current_moment();if(!now.ok)return {false,{},now.error};auto cmp=compare_world_moments(at,now.value);if(!cmp.ok)return {false,{},cmp.error};if(cmp.value>0||(!boundary&&cmp.value!=0))return common_failure("StaleInheritancePhysicalSource");
+ const auto& c=knowledge_.common;const auto& order=c.state().facts.order();auto end=order.end();if(boundary){const auto* h=c.state().facts.find(boundary->id);if(!h||h->domain!=boundary->domain||h->kind!=boundary->kind)return common_failure("InheritanceSettlementBoundaryRequired",boundary->id,ErrorKind::internal);end=std::find(order.begin(),order.end(),boundary->id);if(end==order.end())return common_failure("InheritanceSettlementBoundaryRequired",boundary->id,ErrorKind::internal);}
+ const auto count=static_cast<std::size_t>(end-order.begin());if(count>static_cast<std::size_t>(std::numeric_limits<Integer>::max()))return common_failure("InheritanceSourcePrefixOverflow",{},ErrorKind::internal);ActorSpatialActualFactPrefix prefix;prefix.common_fact_count=static_cast<Integer>(count);if(count){const auto* h=c.state().facts.find(order[count-1]);if(!h)return common_failure("InheritanceSourcePrefixMismatch",{},ErrorKind::internal);prefix.last_common_fact=SourceRef{h->domain,h->kind,h->id};}
+ for(const auto* actor:{&donor,&beneficiary}){auto actual=read_actor_spatial_location_at_actual_fact_prefix(c,spatial_->common_catalog,spatial_->movement,spatial_->carriers,spatial_->registrations,spatial_->foundation,spatial_->foundation_catalog,spatial_->original,*actor,at,prefix,spatial_->military_handoffs,{},&spatial_->family_catalog,spatial_->births,spatial_->military_actions);if(!actual.ok)return {false,{},actual.error};const auto* ordinary=ordinary_actor_movement_anchor(actual.value);const auto* anchor=ordinary?std::get_if<OriginalMovementAnchor>(ordinary):nullptr;const auto* location=anchor?std::get_if<SettlementLocation>(&anchor->location):nullptr;if(!location||location->place_id!=place||location->settlement_id!=settlement)return common_failure("InheritancePhysicalAccessRequired",*actor);}
+ return common_success();
+}
+}

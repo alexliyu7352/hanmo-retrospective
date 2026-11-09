@@ -1,0 +1,30 @@
+{
+  "tool": "built-in image_gen.imagegen",
+  "source": "<本地路径>",
+  "source_sha256": "03bd9142de58f2ac44364b024feb4049b6349a675856f063b7147ddfc790ebd1",
+  "bytes": 3583364,
+  "source_size": [
+    1536,
+    1024
+  ],
+  "source_mode": "RGB",
+  "pixel_postprocessing": "none",
+  "world_rect_candidate": [
+    32,
+    58,
+    6,
+    4
+  ],
+  "status": "已离线审看；最终显示框[32,58,6,4]，待正式目录与原生包验证；不改变原地图坐标",
+  "calibration_history": [
+    {
+      "world_rect": [
+        32,
+        57,
+        6,
+        4
+      ],
+      "status": "初始候选；960×720时剑坪与左下视野工具相交，未用于新正式包"
+    }
+  ]
+}

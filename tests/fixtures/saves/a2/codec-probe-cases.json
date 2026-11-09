@@ -1,0 +1,91 @@
+{
+  "cases": [
+    {
+      "classification": "catalog_boundary",
+      "decode_code": "MissingContent",
+      "future_inspect_should_accept_physical_envelope": true,
+      "mutation": "none",
+      "name": "baseline"
+    },
+    {
+      "classification": "physical_corruption",
+      "decode_code": "ExpectedComma",
+      "future_inspect_should_accept_physical_envelope": false,
+      "mutation": "truncated",
+      "name": "truncated-envelope"
+    },
+    {
+      "classification": "physical_corruption",
+      "decode_code": "ChecksumMismatch",
+      "future_inspect_should_accept_physical_envelope": false,
+      "mutation": "checksum",
+      "name": "bad-payload-checksum"
+    },
+    {
+      "classification": "physical_corruption",
+      "decode_code": "ChecksumMismatch",
+      "future_inspect_should_accept_physical_envelope": false,
+      "mutation": "length",
+      "name": "bad-payload-length"
+    },
+    {
+      "classification": "physical_corruption",
+      "decode_code": "InvalidSaveHeader",
+      "future_inspect_should_accept_physical_envelope": false,
+      "mutation": "header_type",
+      "name": "bad-header-type"
+    },
+    {
+      "classification": "physical_corruption",
+      "decode_code": "InvalidSaveMetadata",
+      "future_inspect_should_accept_physical_envelope": false,
+      "mutation": "generation",
+      "name": "negative-generation"
+    },
+    {
+      "classification": "physical_corruption",
+      "decode_code": "DuplicateKey",
+      "future_inspect_should_accept_physical_envelope": false,
+      "mutation": "duplicate",
+      "name": "duplicate-envelope-key"
+    },
+    {
+      "classification": "semantic_stop",
+      "decode_code": "UnsupportedSaveVersion",
+      "future_inspect_should_accept_physical_envelope": false,
+      "mutation": "future_format",
+      "name": "future-container-format"
+    },
+    {
+      "classification": "semantic_stop",
+      "decode_code": "UnsupportedSaveVersion",
+      "future_inspect_should_accept_physical_envelope": true,
+      "mutation": "future_rules",
+      "name": "future-rule-version"
+    },
+    {
+      "classification": "semantic_stop",
+      "decode_code": "IncompatibleEngine",
+      "future_inspect_should_accept_physical_envelope": true,
+      "mutation": "engine",
+      "name": "incompatible-engine"
+    },
+    {
+      "classification": "semantic_stop",
+      "decode_code": "InvalidSavePayload",
+      "future_inspect_should_accept_physical_envelope": true,
+      "mutation": "opaque",
+      "name": "opaque-body"
+    },
+    {
+      "classification": "semantic_stop",
+      "decode_code": "HeaderPayloadMismatch",
+      "future_inspect_should_accept_physical_envelope": true,
+      "mutation": "identity",
+      "name": "body-identity-mismatch"
+    }
+  ],
+  "format": "HM-A2-CODEC-PROBE-CASES/1",
+  "scope": "Real v1 Codec boundary probes and now implemented metadata inspector; derived mutations are negative probes, not historical captures. Physical generation selection and full M3 restore remain NOT_RUN.",
+  "source_fixture": "v1-4f16935-family-after-adoption.hmsave"
+}

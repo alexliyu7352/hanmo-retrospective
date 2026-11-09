@@ -1,0 +1,799 @@
+{
+  "version": 2,
+  "rig": "adult_female_round_v1",
+  "canvas": [
+    512,
+    768
+  ],
+  "avatar_crop": [
+    107,
+    10,
+    310,
+    310
+  ],
+  "scope_label": "成年女性 · 圆短比例 · 平静交谈",
+  "defaults": {
+    "face": 0,
+    "brows": 0,
+    "eyes": 1,
+    "nose": 1,
+    "mouth": 1,
+    "hair": 0,
+    "beard": 0,
+    "skin": 0,
+    "hair_color": 0,
+    "outfit": 0,
+    "cloth_color": 0
+  },
+  "groups": [
+    {
+      "id": "face",
+      "label": "骨相与五官",
+      "fields": [
+        "face",
+        "brows",
+        "eyes",
+        "nose",
+        "mouth"
+      ]
+    },
+    {
+      "id": "hair",
+      "label": "发冠与胡须",
+      "fields": [
+        "hair",
+        "beard",
+        "hair_color"
+      ]
+    },
+    {
+      "id": "dress",
+      "label": "衣装与肤色",
+      "fields": [
+        "outfit",
+        "cloth_color",
+        "skin"
+      ]
+    }
+  ],
+  "fields": {
+    "face": {
+      "label": "脸型",
+      "options": [
+        "圆阔脸",
+        "宽直颌",
+        "丰颊短颏",
+        "高颧收颊"
+      ]
+    },
+    "brows": {
+      "label": "眉形",
+      "options": [
+        "弯眉",
+        "平眉"
+      ]
+    },
+    "eyes": {
+      "label": "眼形",
+      "options": [
+        "舒展眼",
+        "细长眼"
+      ]
+    },
+    "nose": {
+      "label": "鼻形",
+      "options": [
+        "直鼻",
+        "圆鼻"
+      ]
+    },
+    "mouth": {
+      "label": "唇形",
+      "options": [
+        "平唇",
+        "含笑唇"
+      ]
+    },
+    "hair": {
+      "label": "发冠",
+      "options": [
+        "低髻",
+        "束巾"
+      ]
+    },
+    "beard": {
+      "label": "胡须",
+      "options": [
+        "无须"
+      ]
+    },
+    "skin": {
+      "label": "肤色",
+      "options": [
+        "暖肤",
+        "日晒",
+        "浅暖"
+      ]
+    },
+    "hair_color": {
+      "label": "发须色",
+      "options": [
+        "墨黑",
+        "栗褐",
+        "霜灰"
+      ]
+    },
+    "outfit": {
+      "label": "衣身",
+      "options": [
+        "素面常服",
+        "行旅行装"
+      ]
+    },
+    "cloth_color": {
+      "label": "衣色",
+      "options": [
+        "本色",
+        "苍绿",
+        "绛红"
+      ]
+    }
+  },
+  "compatibility": [],
+  "assets": {
+    "head-0": "res://assets/runtime/female/head-0.png",
+    "head-1": "res://assets/runtime/female-v2/head-angular.png",
+    "hair-0": "res://assets/runtime/female/hair-0.png",
+    "hair-1": "res://assets/runtime/female/hair-0.png",
+    "outfit-0": "res://assets/runtime/female/outfit-0.png",
+    "outfit-1": "res://assets/runtime/female/outfit-1.png",
+    "features-soft": "res://assets/runtime/female/features-soft.png",
+    "cap": "res://assets/runtime/female/cap.png",
+    "cap-mask": "res://assets/runtime/female/cap-mask.png",
+    "features-base": "res://assets/runtime/female/features-base.png",
+    "features-angular-base": "res://assets/runtime/female-v2/features-angular-base.png",
+    "features-angular-alternate": "res://assets/runtime/female-v2/features-angular-alternate.png",
+    "head-2": "res://assets/runtime/female-v2/head-lower-cheek.png",
+    "hair-2": "res://assets/runtime/female/hair-0.png",
+    "features-lower-cheek-base": "res://assets/runtime/female-v2/features-lower-cheek-base.png",
+    "features-lower-cheek-alternate": "res://assets/runtime/female-v2/features-lower-cheek-alternate.png",
+    "head-3": "res://assets/runtime/female-v2/head-tapered.png",
+    "hair-3": "res://assets/runtime/female/hair-0.png",
+    "features-tapered-base": "res://assets/runtime/female-v2/features-tapered-base.png",
+    "features-tapered-alternate": "res://assets/runtime/female-v2/features-tapered-alternate.png"
+  },
+  "regions": {
+    "brows": [
+      [
+        283.0,
+        134.0,
+        37.5,
+        13.0
+      ],
+      [
+        340.5,
+        145.5,
+        23.5,
+        11.0
+      ]
+    ],
+    "eyes": [
+      [
+        279.0,
+        156.0,
+        29.0,
+        12.0
+      ],
+      [
+        340.0,
+        166.5,
+        23.0,
+        11.5
+      ]
+    ],
+    "nose": [
+      [
+        306.0,
+        188.5,
+        23.0,
+        26.5
+      ]
+    ],
+    "mouth": [
+      [
+        295.0,
+        224.0,
+        32.5,
+        16.0
+      ]
+    ]
+  },
+  "source_canvas": [
+    1024,
+    1536
+  ],
+  "composition_policy": "compose source-size disjoint layers first, then uniformly downsample finished portrait",
+  "skin_rect": [
+    171,
+    80,
+    203,
+    269
+  ],
+  "hair_tint_height": 263,
+  "cap_tint_policy": "cool_cloth",
+  "outfit_tint": [
+    {
+      "mode": "warm",
+      "scales": [
+        [
+          0.6,
+          1.35,
+          1.35
+        ],
+        [
+          0.9,
+          0.65,
+          0.8
+        ]
+      ],
+      "belt": [
+        [
+          158,
+          587
+        ],
+        [
+          398,
+          587
+        ],
+        [
+          413,
+          612
+        ],
+        [
+          412,
+          644
+        ],
+        [
+          395,
+          664
+        ],
+        [
+          393,
+          768
+        ],
+        [
+          351,
+          768
+        ],
+        [
+          350,
+          665
+        ],
+        [
+          160,
+          668
+        ]
+      ],
+      "collar": [
+        [
+          179,
+          250
+        ],
+        [
+          193,
+          251
+        ],
+        [
+          221,
+          292
+        ],
+        [
+          252,
+          318
+        ],
+        [
+          283,
+          344
+        ],
+        [
+          298,
+          315
+        ],
+        [
+          305,
+          266
+        ],
+        [
+          320,
+          284
+        ],
+        [
+          330,
+          358
+        ],
+        [
+          323,
+          406
+        ],
+        [
+          308,
+          435
+        ],
+        [
+          280,
+          381
+        ],
+        [
+          248,
+          344
+        ],
+        [
+          210,
+          302
+        ],
+        [
+          179,
+          266
+        ]
+      ],
+      "exclude_cool_materials": true
+    },
+    {
+      "mode": "cool",
+      "scales": [
+        [
+          0.83,
+          1.1,
+          0.84
+        ],
+        [
+          1.25,
+          0.8,
+          0.74
+        ]
+      ],
+      "belt": [
+        [
+          158,
+          587
+        ],
+        [
+          398,
+          587
+        ],
+        [
+          413,
+          612
+        ],
+        [
+          412,
+          644
+        ],
+        [
+          395,
+          664
+        ],
+        [
+          393,
+          768
+        ],
+        [
+          351,
+          768
+        ],
+        [
+          350,
+          665
+        ],
+        [
+          160,
+          668
+        ]
+      ],
+      "collar": [
+        [
+          179,
+          250
+        ],
+        [
+          193,
+          251
+        ],
+        [
+          221,
+          292
+        ],
+        [
+          252,
+          318
+        ],
+        [
+          283,
+          344
+        ],
+        [
+          298,
+          315
+        ],
+        [
+          305,
+          266
+        ],
+        [
+          320,
+          284
+        ],
+        [
+          330,
+          358
+        ],
+        [
+          323,
+          406
+        ],
+        [
+          308,
+          435
+        ],
+        [
+          280,
+          381
+        ],
+        [
+          248,
+          344
+        ],
+        [
+          210,
+          302
+        ],
+        [
+          179,
+          266
+        ]
+      ],
+      "strap": [
+        125,
+        310,
+        374,
+        615,
+        24
+      ],
+      "protect_cool": true
+    }
+  ],
+  "choice_semantics": {
+    "face": [
+      "base_contour",
+      "angular_contour",
+      "full_cheek_contour",
+      "hollow_cheek_contour"
+    ],
+    "brows": [
+      "arched",
+      "straight"
+    ],
+    "eyes": [
+      "open",
+      "narrow"
+    ],
+    "nose": [
+      "straight",
+      "round"
+    ],
+    "mouth": [
+      "neutral",
+      "smile"
+    ],
+    "hair": [
+      "bun",
+      "headwrap"
+    ],
+    "beard": [
+      "none"
+    ],
+    "skin": [
+      "warm",
+      "tanned",
+      "light_warm"
+    ],
+    "hair_color": [
+      "black",
+      "brown",
+      "gray"
+    ],
+    "outfit": [
+      "plain",
+      "traveler"
+    ],
+    "cloth_color": [
+      "original",
+      "green",
+      "red"
+    ]
+  },
+  "feature_sources": {
+    "brows": [
+      "features-base",
+      "features-soft"
+    ],
+    "eyes": [
+      "features-soft",
+      "features-base"
+    ],
+    "nose": [
+      "features-soft",
+      "features-base"
+    ],
+    "mouth": [
+      "features-soft",
+      "features-base"
+    ]
+  },
+  "face_profiles": [
+    {
+      "feature_sources": {
+        "brows": [
+          "features-base",
+          "features-soft"
+        ],
+        "eyes": [
+          "features-soft",
+          "features-base"
+        ],
+        "nose": [
+          "features-soft",
+          "features-base"
+        ],
+        "mouth": [
+          "features-soft",
+          "features-base"
+        ]
+      },
+      "regions": {
+        "brows": [
+          [
+            283.0,
+            134.0,
+            37.5,
+            13.0
+          ],
+          [
+            340.5,
+            145.5,
+            23.5,
+            11.0
+          ]
+        ],
+        "eyes": [
+          [
+            279.0,
+            156.0,
+            29.0,
+            12.0
+          ],
+          [
+            340.0,
+            166.5,
+            23.0,
+            11.5
+          ]
+        ],
+        "nose": [
+          [
+            306.0,
+            188.5,
+            23.0,
+            26.5
+          ]
+        ],
+        "mouth": [
+          [
+            295.0,
+            224.0,
+            32.5,
+            16.0
+          ]
+        ]
+      }
+    },
+    {
+      "feature_sources": {
+        "brows": [
+          "features-angular-base",
+          "features-angular-alternate"
+        ],
+        "eyes": [
+          "features-angular-alternate",
+          "features-angular-base"
+        ],
+        "nose": [
+          "features-angular-base",
+          "features-angular-alternate"
+        ],
+        "mouth": [
+          "features-angular-alternate",
+          "features-angular-base"
+        ]
+      },
+      "regions": {
+        "brows": [
+          [
+            285.5,
+            137.5,
+            47,
+            17.5
+          ],
+          [
+            338.5,
+            144,
+            37,
+            16
+          ]
+        ],
+        "eyes": [
+          [
+            278,
+            155,
+            34,
+            12.5
+          ],
+          [
+            335,
+            165,
+            28,
+            12.5
+          ]
+        ],
+        "nose": [
+          [
+            308,
+            197,
+            27.5,
+            38
+          ]
+        ],
+        "mouth": [
+          [
+            300,
+            224,
+            35,
+            16.5
+          ]
+        ]
+      }
+    },
+    {
+      "feature_sources": {
+        "brows": [
+          "features-lower-cheek-base",
+          "features-lower-cheek-alternate"
+        ],
+        "eyes": [
+          "features-lower-cheek-base",
+          "features-lower-cheek-alternate"
+        ],
+        "nose": [
+          "features-lower-cheek-alternate",
+          "features-lower-cheek-base"
+        ],
+        "mouth": [
+          "features-lower-cheek-alternate",
+          "features-lower-cheek-base"
+        ]
+      },
+      "regions": {
+        "brows": [
+          [
+            288,
+            138,
+            46,
+            17
+          ],
+          [
+            340,
+            146,
+            36,
+            16
+          ]
+        ],
+        "eyes": [
+          [
+            279,
+            157.5,
+            34,
+            12
+          ],
+          [
+            339,
+            167,
+            27,
+            12
+          ]
+        ],
+        "nose": [
+          [
+            308,
+            190,
+            29,
+            32
+          ]
+        ],
+        "mouth": [
+          [
+            302,
+            225,
+            36,
+            17
+          ]
+        ]
+      }
+    },
+    {
+      "feature_sources": {
+        "brows": [
+          "features-tapered-base",
+          "features-tapered-alternate"
+        ],
+        "eyes": [
+          "features-tapered-base",
+          "features-tapered-alternate"
+        ],
+        "nose": [
+          "features-tapered-base",
+          "features-tapered-alternate"
+        ],
+        "mouth": [
+          "features-tapered-alternate",
+          "features-tapered-base"
+        ]
+      },
+      "regions": {
+        "brows": [
+          [
+            287.5,
+            136,
+            45,
+            17
+          ],
+          [
+            341,
+            145,
+            34,
+            15
+          ]
+        ],
+        "eyes": [
+          [
+            278,
+            153,
+            33,
+            12
+          ],
+          [
+            335,
+            163,
+            27,
+            12
+          ]
+        ],
+        "nose": [
+          [
+            309.5,
+            189.5,
+            27,
+            32
+          ]
+        ],
+        "mouth": [
+          [
+            299,
+            222,
+            34,
+            17
+          ]
+        ]
+      }
+    }
+  ]
+}

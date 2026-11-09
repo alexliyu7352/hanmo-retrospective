@@ -1,0 +1,64 @@
+{
+  "schema": "adult_sword_full_arm_provenance/1",
+  "tool": "built-in image_gen.imagegen",
+  "original_path": "<本地路径>",
+  "output": "source/full-arm-atlas-01.png",
+  "prompt": "prompt-01.md",
+  "reference_role": "atlas03 material/style only; no base pixels replaced",
+  "source_sha256": "5b15b3373c7beb774ad91399ad3b9d0fe937e470d7fad4a9f33923ab2c62c3ab",
+  "actual_size": [
+    1254,
+    1254
+  ],
+  "mode": "RGBA",
+  "bytes": 971727,
+  "alpha_zero_pixels": 1151522,
+  "alpha_1_to_15_pixels": 24585,
+  "alpha_ge16_pixels": 396409,
+  "alpha_nonzero_bbox": [
+    0,
+    23,
+    1251,
+    1254
+  ],
+  "large_components": [
+    {
+      "pixels": 95200,
+      "bbox": [
+        51,
+        64,
+        450,
+        658
+      ]
+    },
+    {
+      "pixels": 103986,
+      "bbox": [
+        484,
+        172,
+        1231,
+        490
+      ]
+    },
+    {
+      "pixels": 92467,
+      "bbox": [
+        83,
+        660,
+        619,
+        1199
+      ]
+    },
+    {
+      "pixels": 104756,
+      "bbox": [
+        659,
+        740,
+        1222,
+        1091
+      ]
+    }
+  ],
+  "pixel_mutation": false,
+  "status": "WIP; actual four new source layers, pose assembly pending"
+}

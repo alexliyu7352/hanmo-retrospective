@@ -1,0 +1,161 @@
+{
+  "version": "f05-art-1",
+  "method": "Original generated concept painting details composited with authored perspective furniture, pigment, light and alpha masks. Not raw screenshots, not historical evidence. Source resolution varies; output dimensions do not imply native source resolution.",
+  "generator_script": "tools/illustrate_rooms.py; tools/refine_f05_art.py",
+  "source_directory": "art-source (retained in Git, excluded from player build)",
+  "runtime_ui_baked_into_backgrounds": false,
+  "assets": [
+    {
+      "id": "carter",
+      "path": "assets/art/f05/carter.png",
+      "size": [
+        560,
+        590
+      ],
+      "mode": "RGBA",
+      "sha256": "f1bd06f87149a72152767f3cf91574399fa5d143c8c06f1fcf1b010d2c8c5eab"
+    },
+    {
+      "id": "city",
+      "path": "assets/art/f05/city.webp",
+      "size": [
+        1600,
+        1000
+      ],
+      "mode": "RGB",
+      "sha256": "10d77560824f9b8930a470abea28611726788b008cc887596944f20a8fa1fb27"
+    },
+    {
+      "id": "guard",
+      "path": "assets/art/f05/guard.png",
+      "size": [
+        560,
+        590
+      ],
+      "mode": "RGBA",
+      "sha256": "b748d96c64441605e2791b728da691ef5e8748ccc9822e676689a9f745a9afe4"
+    },
+    {
+      "id": "hall",
+      "path": "assets/art/f05/hall.webp",
+      "size": [
+        1600,
+        1000
+      ],
+      "mode": "RGB",
+      "sha256": "2b3bfa38ab3c590023b97541b7678c07fb0b11ff330e76472a3172145fc3f027"
+    },
+    {
+      "id": "host",
+      "path": "assets/art/f05/host.png",
+      "size": [
+        560,
+        590
+      ],
+      "mode": "RGBA",
+      "sha256": "35faa9bd91c78476d5840fc1c69e70feb45023a2d443f16c5091c1d35bfaaa60"
+    },
+    {
+      "id": "house",
+      "path": "assets/art/f05/house.webp",
+      "size": [
+        1600,
+        1000
+      ],
+      "mode": "RGB",
+      "sha256": "cb8d2bc8cbfe67badb1e0b32476f5591724e23f572ebffad0b680477a1eadc37"
+    },
+    {
+      "id": "inn",
+      "path": "assets/art/f05/inn.webp",
+      "size": [
+        1600,
+        1000
+      ],
+      "mode": "RGB",
+      "sha256": "b5137818066e77989b0749e443ab8c4416685ceb3cd956c7e808e968448f441b"
+    },
+    {
+      "id": "innkeeper",
+      "path": "assets/art/f05/innkeeper.png",
+      "size": [
+        560,
+        590
+      ],
+      "mode": "RGBA",
+      "sha256": "2bd00c0a00b69355d5edb273bf7a52adf0a23b3183c40c9a79e87a014f23aee6"
+    },
+    {
+      "id": "merchant",
+      "path": "assets/art/f05/merchant.png",
+      "size": [
+        560,
+        590
+      ],
+      "mode": "RGBA",
+      "sha256": "bb6a17d6fd2f0e70ba4fa64c796d062053b35502150f83522c47394e7f361314"
+    },
+    {
+      "id": "official",
+      "path": "assets/art/f05/official.png",
+      "size": [
+        560,
+        590
+      ],
+      "mode": "RGBA",
+      "sha256": "8f662d3e083289dda665040e778977946bdf5b89124c93006579b80938454c02"
+    },
+    {
+      "id": "player",
+      "path": "assets/art/f05/player.png",
+      "size": [
+        560,
+        590
+      ],
+      "mode": "RGBA",
+      "sha256": "7d64f8dfb865d6d7583be8062ce330e0b6fb39b4e645b377b5425a81ead3bfbf"
+    },
+    {
+      "id": "recipient",
+      "path": "assets/art/f05/recipient.png",
+      "size": [
+        560,
+        590
+      ],
+      "mode": "RGBA",
+      "sha256": "e29b5571097eeca5189cab2a61aa1bae59cc9ef55fd88352de6a694af07cb898"
+    },
+    {
+      "id": "sender",
+      "path": "assets/art/f05/sender.png",
+      "size": [
+        560,
+        590
+      ],
+      "mode": "RGBA",
+      "sha256": "f782659e7dbdf284d2acd030ee684f5caee9c85dbf00d794143b5de33d43bc45"
+    },
+    {
+      "id": "shop",
+      "path": "assets/art/f05/shop.webp",
+      "size": [
+        1600,
+        1000
+      ],
+      "mode": "RGB",
+      "sha256": "2e4b081bbd5b927a0c9e7720a17374814ebc8ea96ec8a7e0670476d0ac5cea1f"
+    },
+    {
+      "id": "tavern",
+      "path": "assets/art/f05/tavern.webp",
+      "size": [
+        1600,
+        1000
+      ],
+      "mode": "RGB",
+      "sha256": "b70a781864ce86fef3a350a9a9d1f4e3681b22acde9a3d04c5ba82b0e9efadbe"
+    }
+  ],
+  "portrait_method": "U2NetP segmentation of owned original concept images, largest silhouette and filled internal holes, followed by manual exclusion of leftover UI and visual review. Earlier source resolution varies; resized placement is not native-HD detail.",
+  "room_method": "Original deterministic illustrated timber interiors, authored perspective/material/object layers; only window landscape uses a text-free crop from original generated cover art. No interface or NPC baked into rooms. These are development illustrations, not historical reconstructions or externally commissioned paintings."
+}

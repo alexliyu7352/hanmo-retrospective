@@ -1,0 +1,38 @@
+{
+  "format": "HM-RUNTIME-CAPABILITIES",
+  "content_abi": 1,
+  "runtime_verified": false,
+  "capabilities": [
+    "multi_actor",
+    "places",
+    "dialogue",
+    "tasks.procurement",
+    "tasks.message",
+    "tasks.escort",
+    "economy",
+    "events",
+    "services",
+    "companions",
+    "road_encounters",
+    "personal_combat",
+    "cultivation",
+    "npc_society",
+    "world_terrain",
+    "estates",
+    "family",
+    "military"
+  ],
+  "rule_capabilities_sha256": "1f7d6b3de75725988d50d5cef4ed66a65fe93b2d721954509c03d950649f5158",
+  "verification_scope": "Static declaration only; implemented/unverified is not platform or runtime certification.",
+  "evidence": [
+    {
+      "run_id": "20261001T212750576575Z-3485e1bb",
+      "receipt": "verification/architecture-a02/20261001T212750576575Z-3485e1bb/report.json",
+      "commit": "88fcabd347507fa7857d88a33cf46a8f952f9502",
+      "dirty_diff_sha256": "c9fcc08f0f1904c50d7a8c17a47e5bc853424a56e4dcd939738e1a456c000bc5",
+      "aggregate_status": "BLOCKED",
+      "scope": "历史Linux headless阶段证据；不代表当前源码、图形界面、Web或跨平台认证。",
+      "receipt_sha256": "e66fe3202c74e9435faedb34ccdd5ad787955bf3bc90406817781cac671e8233"
+    }
+  ]
+}

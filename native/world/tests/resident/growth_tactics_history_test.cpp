@@ -1,0 +1,23 @@
+// 兵法只读必要边界：原自动课时/零时补答、错头、缺史及原三兵种接口不放宽。
+#include "resident/domains/growth/growth_tactics_history.hpp"
+#include "resident/domains/growth/growth_military_entry_history.hpp"
+#include "resident/storage/common_codec.hpp"
+#include <iostream>
+#include <stdexcept>
+using namespace hanmo::resident;
+namespace {
+Integer checks=0;
+void check(bool value,const char* message){++checks;if(!value)throw std::runtime_error(message);}
+StudyFact lesson(Integer tick,Integer before,Integer gain){StudyFact f;f.actor_id="commander";f.start_tick=tick-1;f.phase="completed";f.completed_tick=tick;f.terms.student_id=f.actor_id;f.terms.skill_id="tactics";f.terms.xp_before=before;f.terms.xp_limit=1200;f.terms.settlement_policy="per_lesson_v1";StudyLesson l;l.xp=gain;l.segment=StudySegment{1,tick,before,10000,gain,false,{},{}};f.lessons.push_back(l);return f;}
+}
+int main(){try{
+ auto shared=std::make_shared<CommonCatalog>();shared->actor_ids={"commander"};shared->actor_initial_birth.insert("commander",-14400);FamilyCatalog catalog;IdentityPrototype original;original.skills.tactics=290;catalog.prototypes.insert("commander",original);FamilyState family;GrowthTacticsHistoryContext context{*shared,catalog,family,nullptr};
+ CommonState seed;seed.identity.tick=4;seed.next_instance_id=200;ActorRecord actor;actor.id="commander";actor.skills=original.skills;actor.skills.tactics=335;seed.actors.insert(actor.id,actor);CommonStore c(seed,shared);GrowthState growth;
+ auto first=lesson(3,290,10);first.lessons[0].segment->adjustment=StudyPerformanceAdjustment{3,300,15000,5,{}};growth.facts.insert("action:80",first);c.state().facts.insert("action:80",{"action:80","skill_study","cultivation"});c.state().facts.insert("military_rout_entry:7",{"military_rout_entry:7","military_rout_entry","military"});growth.facts.insert("action:10",lesson(4,305,30));c.state().facts.insert("action:10",{"action:10","skill_study","cultivation"});
+ const auto before=encode_common_state(c.state());auto current=read_growth_tactics_skill(c,context,growth,"commander");check(current.ok&&current.value.skill_id=="tactics"&&current.value.experience==335&&current.value.level==2,"current original full tactics chain");check(current.value.causal_fact_ids==std::vector<StableId>{"action:80","action:10"},"Common causal order");auto old=read_growth_tactics_skill_before_entry(c,context,growth,"commander",3,"military_rout_entry:7");check(old.ok&&old.value.experience==300&&old.value.causal_fact_ids==std::vector<StableId>{"action:80"},"automatic lesson before contact, late zero-time answer after");check(compare_boundary(before,encode_common_state(c.state())).exact(),"read preserves Common bytes");
+ check(!read_growth_military_entry_qualification(c,context,growth,"commander","tactics").ok,"original Land three-skill surface remains exact");check(!read_growth_tactics_skill_before_entry(c,context,growth,"commander",3,{}).ok,"no invented empty boundary");c.state().facts.find("military_rout_entry:7")->kind="naval_gunnery_preparation";check(!read_growth_tactics_skill_before_entry(c,context,growth,"commander",3,"military_rout_entry:7").ok,"wrong real head rejected");c.state().facts.find("military_rout_entry:7")->kind="military_rout_entry";
+ c.state().actors.find("commander")->skills.tactics=336;check(!read_growth_tactics_skill(c,context,growth,"commander").ok,"unexplained XP rejected");c.state().actors.find("commander")->skills.tactics=335;growth.facts.erase("action:10");check(!read_growth_tactics_skill(c,context,growth,"commander").ok,"missing permanent payload rejected");
+ CommonState hot_seed=seed;hot_seed.identity.tick=2;hot_seed.actors.find("commander")->skills.tactics=300;CommonStore hot(hot_seed,shared);GrowthState hot_growth;hot_growth.facts.insert("action:80",lesson(3,290,10));hot.state().facts.insert("action:80",{"action:80","skill_study","cultivation"});hot.state().facts.insert("military_rout_entry:7",{"military_rout_entry:7","military_rout_entry","military"});DynamicStepInput phase;phase.from_tick=2;phase.to_tick=3;
+ auto entry=read_growth_tactics_skill_before_entry(hot,context,hot_growth,"commander",3,"military_rout_entry:7",&phase);check(entry.ok&&entry.value.source_identity.tick==2&&entry.value.observed_tick==3&&entry.value.experience==300,"strict phase exact entry");check(!read_growth_tactics_skill_before_entry(hot,context,hot_growth,"commander",3,"military_rout_entry:7").ok,"stable read cannot observe future");phase.to_tick=4;check(!read_growth_tactics_skill(hot,context,hot_growth,"commander",&phase).ok,"bad phase rejected");
+ std::cout<<"GROWTH_TACTICS_HISTORY "<<checks<<" checks 0 failures\n";return 0;
+}catch(const std::exception& e){std::cerr<<e.what()<<'\n';return 1;}}

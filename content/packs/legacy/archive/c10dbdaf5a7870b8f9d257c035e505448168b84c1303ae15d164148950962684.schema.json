@@ -1,0 +1,5512 @@
+{
+  "type": "object",
+  "properties": {
+    "format": {
+      "const": "HM-CONTENT"
+    },
+    "schema_version": {
+      "const": 1
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_.-]{0,79}$"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "required_capabilities": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "multi_actor",
+          "places",
+          "dialogue",
+          "tasks.procurement",
+          "tasks.message",
+          "economy",
+          "events",
+          "services",
+          "companions",
+          "road_encounters",
+          "personal_combat",
+          "cultivation",
+          "tasks.escort",
+          "npc_society",
+          "world_terrain",
+          "estates",
+          "family",
+          "military"
+        ]
+      },
+      "minItems": 1,
+      "maxItems": 50,
+      "uniqueItems": true
+    },
+    "texts": {
+      "type": "object",
+      "propertyNames": {
+        "$ref": "#/$defs/entity_id"
+      },
+      "additionalProperties": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 4096
+      },
+      "minProperties": 1
+    },
+    "flags": {
+      "type": "object",
+      "propertyNames": {
+        "$ref": "#/$defs/entity_id"
+      },
+      "additionalProperties": {
+        "type": "boolean"
+      }
+    },
+    "settlements": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/settlement"
+      },
+      "minItems": 1,
+      "maxItems": 10000
+    },
+    "routes": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/route"
+      },
+      "minItems": 0,
+      "maxItems": 10000
+    },
+    "places": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/place"
+      },
+      "minItems": 1,
+      "maxItems": 10000
+    },
+    "actors": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/actor"
+      },
+      "minItems": 1,
+      "maxItems": 10000
+    },
+    "organizations": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/organization"
+      },
+      "minItems": 0,
+      "maxItems": 10000
+    },
+    "roles": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/role"
+      },
+      "minItems": 0,
+      "maxItems": 10000
+    },
+    "wallets": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/wallet"
+      },
+      "minItems": 0,
+      "maxItems": 10000
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/item"
+      },
+      "minItems": 0,
+      "maxItems": 10000
+    },
+    "inventories": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/inventory"
+      },
+      "minItems": 0,
+      "maxItems": 10000
+    },
+    "shops": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/shop"
+      },
+      "minItems": 0,
+      "maxItems": 10000
+    },
+    "props": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/prop"
+      },
+      "minItems": 0,
+      "maxItems": 10000
+    },
+    "offers": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/offer"
+      },
+      "minItems": 0,
+      "maxItems": 10000
+    },
+    "dialogues": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/dialogue"
+      },
+      "minItems": 0,
+      "maxItems": 10000
+    },
+    "events": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/event"
+      },
+      "minItems": 0,
+      "maxItems": 10000
+    },
+    "relations": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/relation"
+      },
+      "minItems": 0,
+      "maxItems": 10000
+    },
+    "scenarios": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/scenario"
+      },
+      "minItems": 1,
+      "maxItems": 10000
+    },
+    "personal_skills": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/personal_skill"
+      },
+      "minItems": 0,
+      "maxItems": 1000
+    },
+    "personal_battlefields": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/personal_battlefield"
+      },
+      "minItems": 0,
+      "maxItems": 1000
+    },
+    "personal_objectives": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/personal_objective"
+      },
+      "minItems": 0,
+      "maxItems": 1000
+    },
+    "world_maps": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/world_map"
+      },
+      "minItems": 0,
+      "maxItems": 1000
+    },
+    "estates": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/estate"
+      },
+      "minItems": 0,
+      "maxItems": 1000
+    },
+    "battlefields": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/military_battlefield"
+      },
+      "minItems": 0,
+      "maxItems": 500
+    },
+    "troop_types": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/troop_type"
+      },
+      "minItems": 0,
+      "maxItems": 500
+    },
+    "military_objectives": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/military_objective"
+      },
+      "minItems": 0,
+      "maxItems": 500
+    },
+    "offices": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/office"
+      },
+      "minItems": 0,
+      "maxItems": 500
+    },
+    "garrisons": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/garrison"
+      },
+      "minItems": 0,
+      "maxItems": 500
+    },
+    "military_orders": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/military_order"
+      },
+      "minItems": 0,
+      "maxItems": 500
+    },
+    "strongholds": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/stronghold"
+      },
+      "minItems": 0,
+      "maxItems": 500
+    },
+    "siege_topologies": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/siege_topology"
+      },
+      "minItems": 0,
+      "maxItems": 500
+    }
+  },
+  "required": [
+    "format",
+    "schema_version",
+    "id",
+    "version",
+    "required_capabilities",
+    "texts",
+    "flags",
+    "settlements",
+    "routes",
+    "places",
+    "actors",
+    "organizations",
+    "roles",
+    "wallets",
+    "items",
+    "inventories",
+    "shops",
+    "props",
+    "offers",
+    "dialogues",
+    "events",
+    "relations",
+    "scenarios"
+  ],
+  "additionalProperties": false,
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$defs": {
+    "condition": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "op": {
+              "const": "flag"
+            },
+            "flag": {
+              "$ref": "#/$defs/reference_flags"
+            },
+            "equals": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "op",
+            "flag",
+            "equals"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "op": {
+              "const": "actor_at"
+            },
+            "actor_id": {
+              "$ref": "#/$defs/reference_actors"
+            },
+            "place_id": {
+              "$ref": "#/$defs/reference_places"
+            }
+          },
+          "required": [
+            "op",
+            "actor_id",
+            "place_id"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "op": {
+              "const": "task_state"
+            },
+            "offer_id": {
+              "$ref": "#/$defs/reference_offers"
+            },
+            "state": {
+              "type": "string",
+              "enum": [
+                "unknown",
+                "known",
+                "active",
+                "ready",
+                "success",
+                "failed"
+              ]
+            }
+          },
+          "required": [
+            "op",
+            "offer_id",
+            "state"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "op": {
+              "const": "relation_min"
+            },
+            "from_actor": {
+              "$ref": "#/$defs/reference_actors"
+            },
+            "to_actor": {
+              "$ref": "#/$defs/reference_actors"
+            },
+            "trust": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 100
+            }
+          },
+          "required": [
+            "op",
+            "from_actor",
+            "to_actor",
+            "trust"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "op": {
+              "const": "all"
+            },
+            "terms": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/condition"
+              },
+              "minItems": 1,
+              "maxItems": 8
+            }
+          },
+          "required": [
+            "op",
+            "terms"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "op": {
+              "const": "any"
+            },
+            "terms": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/condition"
+              },
+              "minItems": 1,
+              "maxItems": 8
+            }
+          },
+          "required": [
+            "op",
+            "terms"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "op": {
+              "const": "party_member"
+            },
+            "actor_id": {
+              "$ref": "#/$defs/reference_actors"
+            },
+            "equals": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "op",
+            "actor_id",
+            "equals"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "command": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "discover_offer"
+            },
+            "offer_id": {
+              "$ref": "#/$defs/reference_offers"
+            }
+          },
+          "required": [
+            "kind",
+            "offer_id"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "accept_offer"
+            },
+            "offer_id": {
+              "$ref": "#/$defs/reference_offers"
+            }
+          },
+          "required": [
+            "kind",
+            "offer_id"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "report_offer"
+            },
+            "offer_id": {
+              "$ref": "#/$defs/reference_offers"
+            }
+          },
+          "required": [
+            "kind",
+            "offer_id"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "deliver_message"
+            },
+            "offer_id": {
+              "$ref": "#/$defs/reference_offers"
+            }
+          },
+          "required": [
+            "kind",
+            "offer_id"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "open_trade"
+            },
+            "shop_id": {
+              "$ref": "#/$defs/reference_shops"
+            }
+          },
+          "required": [
+            "kind",
+            "shop_id"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "move_local"
+            },
+            "place_id": {
+              "$ref": "#/$defs/reference_places"
+            }
+          },
+          "required": [
+            "kind",
+            "place_id"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "service"
+            },
+            "activity": {
+              "enum": [
+                "rest",
+                "work"
+              ]
+            }
+          },
+          "required": [
+            "kind",
+            "activity"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "join_party"
+            }
+          },
+          "required": [
+            "kind"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "duel_start"
+            }
+          },
+          "required": [
+            "kind"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "learn_skill"
+            },
+            "skill_id": {
+              "$ref": "#/$defs/reference_personal_skills"
+            }
+          },
+          "required": [
+            "kind",
+            "skill_id"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "node": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "pattern": "^[a-z][a-z0-9_.-]{0,79}$"
+            },
+            "kind": {
+              "const": "say"
+            },
+            "speaker": {
+              "anyOf": [
+                {
+                  "const": "$provider"
+                },
+                {
+                  "$ref": "#/$defs/reference_actors"
+                }
+              ]
+            },
+            "text_key": {
+              "$ref": "#/$defs/reference_texts"
+            },
+            "next": {
+              "type": "string",
+              "pattern": "^[a-z][a-z0-9_.-]{0,79}$"
+            }
+          },
+          "required": [
+            "id",
+            "kind",
+            "speaker",
+            "text_key",
+            "next"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "pattern": "^[a-z][a-z0-9_.-]{0,79}$"
+            },
+            "kind": {
+              "const": "choice"
+            },
+            "text_key": {
+              "$ref": "#/$defs/reference_texts"
+            },
+            "options": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "pattern": "^[a-z][a-z0-9_.-]{0,79}$"
+                  },
+                  "text_key": {
+                    "$ref": "#/$defs/reference_texts"
+                  },
+                  "conditions": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/$defs/condition"
+                    },
+                    "minItems": 0,
+                    "maxItems": 8
+                  },
+                  "next": {
+                    "type": "string",
+                    "pattern": "^[a-z][a-z0-9_.-]{0,79}$"
+                  }
+                },
+                "required": [
+                  "id",
+                  "text_key",
+                  "conditions",
+                  "next"
+                ],
+                "additionalProperties": false
+              },
+              "minItems": 1,
+              "maxItems": 8
+            }
+          },
+          "required": [
+            "id",
+            "kind",
+            "text_key",
+            "options"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "pattern": "^[a-z][a-z0-9_.-]{0,79}$"
+            },
+            "kind": {
+              "const": "branch"
+            },
+            "condition": {
+              "$ref": "#/$defs/condition"
+            },
+            "if_true": {
+              "type": "string",
+              "pattern": "^[a-z][a-z0-9_.-]{0,79}$"
+            },
+            "if_false": {
+              "type": "string",
+              "pattern": "^[a-z][a-z0-9_.-]{0,79}$"
+            }
+          },
+          "required": [
+            "id",
+            "kind",
+            "condition",
+            "if_true",
+            "if_false"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "pattern": "^[a-z][a-z0-9_.-]{0,79}$"
+            },
+            "kind": {
+              "const": "action"
+            },
+            "command": {
+              "$ref": "#/$defs/command"
+            },
+            "on_success": {
+              "type": "string",
+              "pattern": "^[a-z][a-z0-9_.-]{0,79}$"
+            },
+            "on_failure": {
+              "type": "string",
+              "pattern": "^[a-z][a-z0-9_.-]{0,79}$"
+            }
+          },
+          "required": [
+            "id",
+            "kind",
+            "command",
+            "on_success",
+            "on_failure"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "pattern": "^[a-z][a-z0-9_.-]{0,79}$"
+            },
+            "kind": {
+              "const": "end"
+            }
+          },
+          "required": [
+            "id",
+            "kind"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "owner": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "actor"
+            },
+            "id": {
+              "$ref": "#/$defs/reference_actors"
+            }
+          },
+          "required": [
+            "kind",
+            "id"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "organization"
+            },
+            "id": {
+              "$ref": "#/$defs/reference_organizations"
+            }
+          },
+          "required": [
+            "kind",
+            "id"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "settlement": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/entity_id"
+        },
+        "name_key": {
+          "$ref": "#/$defs/reference_texts"
+        },
+        "kind": {
+          "type": "string",
+          "enum": [
+            "city",
+            "village",
+            "ferry",
+            "camp"
+          ]
+        },
+        "map_xy": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": -100000,
+            "maximum": 100000
+          },
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "entry_place": {
+          "$ref": "#/$defs/reference_places"
+        }
+      },
+      "required": [
+        "id",
+        "name_key",
+        "kind",
+        "map_xy",
+        "entry_place"
+      ],
+      "additionalProperties": false
+    },
+    "route": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/entity_id"
+        },
+        "origin": {
+          "$ref": "#/$defs/reference_settlements"
+        },
+        "destination": {
+          "$ref": "#/$defs/reference_settlements"
+        },
+        "duration_ticks": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 720
+        },
+        "risk_bp": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 10000
+        },
+        "cost_per_tick": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100000,
+          "default": 8
+        },
+        "fatigue_per_tick": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100,
+          "default": 5
+        },
+        "blocked_from_tick": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647,
+          "default": 0
+        },
+        "blocked_until_tick": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647,
+          "default": 0
+        },
+        "shape": {
+          "type": "array",
+          "maxItems": 64,
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": -100000,
+              "maximum": 100000
+            },
+            "minItems": 2,
+            "maxItems": 2
+          },
+          "default": []
+        }
+      },
+      "required": [
+        "id",
+        "origin",
+        "destination",
+        "duration_ticks",
+        "risk_bp"
+      ],
+      "additionalProperties": false
+    },
+    "place": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/entity_id"
+        },
+        "name_key": {
+          "$ref": "#/$defs/reference_texts"
+        },
+        "settlement_id": {
+          "$ref": "#/$defs/reference_settlements"
+        },
+        "parent_place": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/reference_places"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "visual_tag": {
+          "$ref": "#/$defs/presentation_reference_backgrounds"
+        },
+        "passages": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/reference_places"
+          },
+          "minItems": 1,
+          "maxItems": 64
+        },
+        "admission": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/condition"
+          },
+          "minItems": 0,
+          "maxItems": 8
+        },
+        "scene_template_id": {
+          "$ref": "#/$defs/presentation_reference_scene_templates"
+        },
+        "scene_template_ids": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "world": {
+              "$ref": "#/$defs/presentation_reference_scene_templates"
+            },
+            "city": {
+              "$ref": "#/$defs/presentation_reference_scene_templates"
+            },
+            "interior": {
+              "$ref": "#/$defs/presentation_reference_scene_templates"
+            }
+          }
+        }
+      },
+      "required": [
+        "id",
+        "name_key",
+        "settlement_id",
+        "parent_place",
+        "visual_tag",
+        "passages",
+        "admission"
+      ],
+      "additionalProperties": false
+    },
+    "actor": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/entity_id"
+        },
+        "name_key": {
+          "$ref": "#/$defs/reference_texts"
+        },
+        "origin": {
+          "type": "string",
+          "enum": [
+            "original",
+            "historical"
+          ]
+        },
+        "source_note": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096
+        },
+        "initial_place": {
+          "$ref": "#/$defs/reference_places"
+        },
+        "attributes": {
+          "type": "object",
+          "properties": {
+            "leadership": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100
+            },
+            "martial": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100
+            },
+            "intellect": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100
+            },
+            "administration": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100
+            },
+            "charisma": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100
+            }
+          },
+          "required": [
+            "leadership",
+            "martial",
+            "intellect",
+            "administration",
+            "charisma"
+          ],
+          "additionalProperties": false
+        },
+        "skills": {
+          "type": "object",
+          "properties": {
+            "infantry": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1200
+            },
+            "cavalry": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1200
+            },
+            "archery": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1200
+            },
+            "martial": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1200
+            },
+            "tactics": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1200
+            },
+            "debate": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1200
+            },
+            "negotiation": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1200
+            },
+            "rites": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1200
+            },
+            "commerce": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1200
+            },
+            "transport": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1200
+            }
+          },
+          "required": [
+            "infantry",
+            "cavalry",
+            "archery",
+            "martial",
+            "tactics",
+            "debate",
+            "negotiation",
+            "rites",
+            "commerce",
+            "transport"
+          ],
+          "additionalProperties": false
+        },
+        "dialogue_id": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/reference_dialogues"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "appearance_note": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096
+        },
+        "portrait_kind": {
+          "$ref": "#/$defs/presentation_reference_portraits"
+        },
+        "road_dialogue_id": {
+          "$ref": "#/$defs/reference_dialogues"
+        },
+        "travel_plan": {
+          "type": "object",
+          "properties": {
+            "destinations": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/reference_settlements"
+              },
+              "minItems": 2,
+              "maxItems": 16,
+              "uniqueItems": true
+            },
+            "dwell_ticks": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 720
+            },
+            "start_tick": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            }
+          },
+          "required": [
+            "destinations",
+            "dwell_ticks",
+            "start_tick"
+          ],
+          "additionalProperties": false
+        },
+        "initial_goods": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "item_id": {
+                "$ref": "#/$defs/reference_items"
+              },
+              "quantity": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 100
+              }
+            },
+            "required": [
+              "item_id",
+              "quantity"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 0,
+          "maxItems": 20
+        },
+        "combat": {
+          "type": "object",
+          "properties": {
+            "weapon_id": {
+              "$ref": "#/$defs/reference_items"
+            },
+            "learned": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "skill_id": {
+                    "$ref": "#/$defs/reference_personal_skills"
+                  },
+                  "mastery": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 100
+                  }
+                },
+                "required": [
+                  "skill_id",
+                  "mastery"
+                ],
+                "additionalProperties": false
+              },
+              "minItems": 0,
+              "maxItems": 50
+            }
+          },
+          "required": [
+            "weapon_id",
+            "learned"
+          ],
+          "additionalProperties": false
+        },
+        "road_conflict": {
+          "type": "object",
+          "properties": {
+            "battlefield_id": {
+              "$ref": "#/$defs/reference_personal_battlefields"
+            },
+            "objective_id": {
+              "$ref": "#/$defs/reference_personal_objectives"
+            }
+          },
+          "required": [
+            "battlefield_id",
+            "objective_id"
+          ],
+          "additionalProperties": false
+        },
+        "social": {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "enum": [
+                "cooperative",
+                "selfish"
+              ]
+            },
+            "target_actor_id": {
+              "$ref": "#/$defs/reference_actors"
+            },
+            "interval_ticks": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 120
+            },
+            "share_news": {
+              "type": "boolean"
+            },
+            "food_item_id": {
+              "$ref": "#/$defs/reference_items"
+            }
+          },
+          "required": [
+            "kind",
+            "target_actor_id",
+            "interval_ticks",
+            "share_news",
+            "food_item_id"
+          ],
+          "additionalProperties": false
+        },
+        "initial_age_years": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 120
+        },
+        "military_plan": {
+          "type": "object",
+          "properties": {
+            "office_id": {
+              "$ref": "#/$defs/reference_offices"
+            },
+            "order_id": {
+              "$ref": "#/$defs/reference_military_orders"
+            },
+            "unit_ids": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "pattern": "^(?:[a-z][a-z0-9_-]{0,31}::)?[a-z][a-z0-9_.-]{0,79}(?![\\s\\S])",
+                "x-hanmo-local-ref": "garrisons[*].units",
+                "description": "跨所有驻军的唯一 units.id；只能选择计划公职所属驻军的真实初始部队",
+                "maxLength": 114,
+                "x-hanmo-global-ref": "garrisons[*].units"
+              },
+              "minItems": 1,
+              "maxItems": 64,
+              "uniqueItems": true
+            },
+            "food_quantity": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1000000
+            },
+            "money": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1000000
+            }
+          },
+          "required": [
+            "office_id",
+            "order_id",
+            "unit_ids",
+            "food_quantity",
+            "money"
+          ],
+          "additionalProperties": false
+        },
+        "presentation_profile_id": {
+          "$ref": "#/$defs/presentation_reference_character_profiles"
+        },
+        "appearance_definition": {
+          "$ref": "#/$defs/appearance_definition",
+          "description": "稳定人物语义，不是表现资源引用；历史人物有新定义时须使用fixed"
+        }
+      },
+      "required": [
+        "id",
+        "name_key",
+        "origin",
+        "source_note",
+        "initial_place",
+        "attributes",
+        "skills",
+        "dialogue_id",
+        "appearance_note"
+      ],
+      "additionalProperties": false
+    },
+    "organization": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/entity_id"
+        },
+        "name_key": {
+          "$ref": "#/$defs/reference_texts"
+        },
+        "kind": {
+          "type": "string",
+          "enum": [
+            "political",
+            "merchant"
+          ]
+        },
+        "leader_actor": {
+          "$ref": "#/$defs/reference_actors"
+        }
+      },
+      "required": [
+        "id",
+        "name_key",
+        "kind",
+        "leader_actor"
+      ],
+      "additionalProperties": false
+    },
+    "role": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/entity_id"
+        },
+        "name_key": {
+          "$ref": "#/$defs/reference_texts"
+        },
+        "organization_id": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/reference_organizations"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "initial_actor": {
+          "$ref": "#/$defs/reference_actors"
+        },
+        "place_id": {
+          "$ref": "#/$defs/reference_places"
+        },
+        "services": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "information",
+              "accept_offer",
+              "report_offer",
+              "deliver_message",
+              "trade",
+              "rest",
+              "work",
+              "join_party",
+              "duel_start",
+              "learn_skill",
+              "family_adopt",
+              "office_accept",
+              "office_resign",
+              "military_order",
+              "military_report"
+            ]
+          },
+          "minItems": 1,
+          "maxItems": 20
+        },
+        "activities": {
+          "type": "object",
+          "properties": {
+            "rest": {
+              "$ref": "#/$defs/activity"
+            },
+            "work": {
+              "$ref": "#/$defs/activity"
+            }
+          },
+          "additionalProperties": false
+        },
+        "scene_position": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 5,
+            "maximum": 95
+          },
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "companion_cost_per_tick": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100000,
+          "default": 6
+        },
+        "sparring": {
+          "type": "object",
+          "properties": {
+            "battlefield_id": {
+              "$ref": "#/$defs/reference_personal_battlefields"
+            },
+            "objective_id": {
+              "$ref": "#/$defs/reference_personal_objectives"
+            },
+            "fee": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 10000
+            },
+            "wallet_id": {
+              "$ref": "#/$defs/reference_wallets"
+            }
+          },
+          "required": [
+            "battlefield_id",
+            "objective_id",
+            "fee",
+            "wallet_id"
+          ],
+          "additionalProperties": false
+        },
+        "lessons": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "skill_id": {
+                "$ref": "#/$defs/reference_personal_skills"
+              },
+              "fee": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 10000
+              },
+              "wallet_id": {
+                "$ref": "#/$defs/reference_wallets"
+              },
+              "study_ticks": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 30
+              },
+              "required_trust": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 100
+              }
+            },
+            "required": [
+              "skill_id",
+              "fee",
+              "wallet_id",
+              "study_ticks",
+              "required_trust"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 0,
+          "maxItems": 50
+        },
+        "companion_required_trust": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "family": {
+          "type": "object",
+          "properties": {
+            "prototype_id": {
+              "$ref": "#/$defs/reference_actors"
+            },
+            "child_name_key": {
+              "$ref": "#/$defs/reference_texts"
+            },
+            "child_age_years": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 17
+            },
+            "fee": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1000000
+            },
+            "wallet_id": {
+              "$ref": "#/$defs/reference_wallets"
+            },
+            "adoption_ticks": {
+              "type": "integer",
+              "minimum": 2,
+              "maximum": 30
+            },
+            "guardian_min_age": {
+              "type": "integer",
+              "minimum": 18,
+              "maximum": 100
+            },
+            "heir_min_age": {
+              "type": "integer",
+              "minimum": 18,
+              "maximum": 100
+            },
+            "retirement_min_age": {
+              "type": "integer",
+              "minimum": 40,
+              "maximum": 120
+            },
+            "enable_travel_plan": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          "required": [
+            "prototype_id",
+            "child_name_key",
+            "child_age_years",
+            "fee",
+            "wallet_id",
+            "adoption_ticks",
+            "guardian_min_age",
+            "heir_min_age",
+            "retirement_min_age"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "name_key",
+        "organization_id",
+        "initial_actor",
+        "place_id",
+        "services"
+      ],
+      "additionalProperties": false
+    },
+    "wallet": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/entity_id"
+        },
+        "owner": {
+          "$ref": "#/$defs/owner"
+        },
+        "initial_balance": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        }
+      },
+      "required": [
+        "id",
+        "owner",
+        "initial_balance"
+      ],
+      "additionalProperties": false
+    },
+    "item": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/entity_id"
+        },
+        "name_key": {
+          "$ref": "#/$defs/reference_texts"
+        },
+        "kind": {
+          "type": "string",
+          "enum": [
+            "commodity",
+            "message"
+          ]
+        },
+        "base_price": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "weight": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 10000
+        },
+        "weapon": {
+          "type": "object",
+          "properties": {
+            "category": {
+              "enum": [
+                "sword",
+                "spear",
+                "bow"
+              ]
+            },
+            "minimum_range": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2000
+            },
+            "maximum_range": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 2000
+            },
+            "arc_degrees": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 360
+            },
+            "damage": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100
+            },
+            "stamina_cost": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 100
+            },
+            "recovery_rounds": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4
+            },
+            "move_distance": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 1000
+            }
+          },
+          "required": [
+            "category",
+            "minimum_range",
+            "maximum_range",
+            "arc_degrees",
+            "damage",
+            "stamina_cost",
+            "recovery_rounds",
+            "move_distance"
+          ],
+          "additionalProperties": false
+        },
+        "battle_portrait_kind": {
+          "$ref": "#/$defs/presentation_reference_portraits_20"
+        }
+      },
+      "required": [
+        "id",
+        "name_key",
+        "kind",
+        "base_price",
+        "weight"
+      ],
+      "additionalProperties": false
+    },
+    "inventory": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/entity_id"
+        },
+        "owner": {
+          "$ref": "#/$defs/owner"
+        },
+        "capacity": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100000
+        },
+        "goods": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "item_id": {
+                "$ref": "#/$defs/reference_items"
+              },
+              "quantity": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 2147483647
+              }
+            },
+            "required": [
+              "item_id",
+              "quantity"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 0,
+          "maxItems": 500
+        }
+      },
+      "required": [
+        "id",
+        "owner",
+        "capacity",
+        "goods"
+      ],
+      "additionalProperties": false
+    },
+    "shop": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/entity_id"
+        },
+        "name_key": {
+          "$ref": "#/$defs/reference_texts"
+        },
+        "place_id": {
+          "$ref": "#/$defs/reference_places"
+        },
+        "representative_roles": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/reference_roles"
+          },
+          "minItems": 1,
+          "maxItems": 10
+        },
+        "wallet_id": {
+          "$ref": "#/$defs/reference_wallets"
+        },
+        "inventory_id": {
+          "$ref": "#/$defs/reference_inventories"
+        }
+      },
+      "required": [
+        "id",
+        "name_key",
+        "place_id",
+        "representative_roles",
+        "wallet_id",
+        "inventory_id"
+      ],
+      "additionalProperties": false
+    },
+    "prop": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/entity_id"
+        },
+        "name_key": {
+          "$ref": "#/$defs/reference_texts"
+        },
+        "place_id": {
+          "$ref": "#/$defs/reference_places"
+        },
+        "kind": {
+          "type": "string",
+          "enum": [
+            "notice",
+            "counter",
+            "bed"
+          ]
+        },
+        "publisher": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/reference_organizations"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "offer_ids": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/reference_offers"
+          },
+          "minItems": 0,
+          "maxItems": 20
+        }
+      },
+      "required": [
+        "id",
+        "name_key",
+        "place_id",
+        "kind",
+        "publisher",
+        "offer_ids"
+      ],
+      "additionalProperties": false
+    },
+    "goal": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "deliver_item"
+            },
+            "item_id": {
+              "$ref": "#/$defs/reference_items"
+            },
+            "quantity": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 500
+            },
+            "receiver_role": {
+              "$ref": "#/$defs/reference_roles"
+            }
+          },
+          "required": [
+            "kind",
+            "item_id",
+            "quantity",
+            "receiver_role"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "deliver_message"
+            },
+            "message_id": {
+              "$ref": "#/$defs/reference_items"
+            },
+            "receiver_actor": {
+              "$ref": "#/$defs/reference_actors"
+            }
+          },
+          "required": [
+            "kind",
+            "message_id",
+            "receiver_actor"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "escort"
+            },
+            "actor_id": {
+              "$ref": "#/$defs/reference_actors"
+            },
+            "destination_place_id": {
+              "$ref": "#/$defs/reference_places"
+            },
+            "objective_id": {
+              "$ref": "#/$defs/reference_personal_objectives"
+            }
+          },
+          "required": [
+            "kind",
+            "actor_id",
+            "destination_place_id",
+            "objective_id"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "discovery": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "actor"
+            },
+            "id": {
+              "$ref": "#/$defs/reference_actors"
+            }
+          },
+          "required": [
+            "kind",
+            "id"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "prop"
+            },
+            "id": {
+              "$ref": "#/$defs/reference_props"
+            }
+          },
+          "required": [
+            "kind",
+            "id"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "offer": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/entity_id"
+        },
+        "name_key": {
+          "$ref": "#/$defs/reference_texts"
+        },
+        "template": {
+          "type": "string",
+          "enum": [
+            "procurement",
+            "message",
+            "escort"
+          ]
+        },
+        "issuer": {
+          "$ref": "#/$defs/owner"
+        },
+        "discovery_sources": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/discovery"
+          },
+          "minItems": 1,
+          "maxItems": 10
+        },
+        "accept_role": {
+          "$ref": "#/$defs/reference_roles"
+        },
+        "report_role": {
+          "$ref": "#/$defs/reference_roles"
+        },
+        "funding_wallet": {
+          "$ref": "#/$defs/reference_wallets"
+        },
+        "budget": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "reward": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "deadline_ticks": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 720
+        },
+        "accept_ticks": {
+          "const": 1
+        },
+        "goal": {
+          "$ref": "#/$defs/goal"
+        },
+        "on_unavailable": {
+          "type": "string",
+          "enum": [
+            "wait_or_leave",
+            "known_replacement",
+            "cancel_without_reward"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "name_key",
+        "template",
+        "issuer",
+        "discovery_sources",
+        "accept_role",
+        "report_role",
+        "funding_wallet",
+        "budget",
+        "reward",
+        "deadline_ticks",
+        "accept_ticks",
+        "goal",
+        "on_unavailable"
+      ],
+      "additionalProperties": false
+    },
+    "dialogue": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/entity_id"
+        },
+        "context_role": {
+          "$ref": "#/$defs/reference_roles"
+        },
+        "entry": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_.-]{0,79}$"
+        },
+        "nodes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/node"
+          },
+          "minItems": 1,
+          "maxItems": 1000
+        }
+      },
+      "required": [
+        "id",
+        "context_role",
+        "entry",
+        "nodes"
+      ],
+      "additionalProperties": false
+    },
+    "event": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/entity_id"
+        },
+        "name_key": {
+          "$ref": "#/$defs/reference_texts"
+        },
+        "place_id": {
+          "$ref": "#/$defs/reference_places"
+        },
+        "trigger": {
+          "type": "string",
+          "enum": [
+            "on_enter",
+            "on_tick",
+            "after_action"
+          ]
+        },
+        "conditions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/condition"
+          },
+          "minItems": 0,
+          "maxItems": 8
+        },
+        "dialogue_id": {
+          "$ref": "#/$defs/reference_dialogues"
+        },
+        "cooldown_ticks": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 7200
+        },
+        "once_per_actor": {
+          "type": "boolean"
+        },
+        "on_unavailable": {
+          "type": "string",
+          "enum": [
+            "cancel",
+            "defer"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "name_key",
+        "place_id",
+        "trigger",
+        "conditions",
+        "dialogue_id",
+        "cooldown_ticks",
+        "once_per_actor",
+        "on_unavailable"
+      ],
+      "additionalProperties": false
+    },
+    "relation": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/entity_id"
+        },
+        "from_actor": {
+          "$ref": "#/$defs/reference_actors"
+        },
+        "to_actor": {
+          "$ref": "#/$defs/reference_actors"
+        },
+        "affinity": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "trust": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100
+        }
+      },
+      "required": [
+        "id",
+        "from_actor",
+        "to_actor",
+        "affinity",
+        "trust"
+      ],
+      "additionalProperties": false
+    },
+    "scenario": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/entity_id"
+        },
+        "name_key": {
+          "$ref": "#/$defs/reference_texts"
+        },
+        "player_actor": {
+          "$ref": "#/$defs/reference_actors"
+        },
+        "seed_text": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096
+        },
+        "world_map_id": {
+          "$ref": "#/$defs/reference_world_maps"
+        },
+        "playable_actor_ids": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/reference_actors"
+          },
+          "minItems": 1,
+          "maxItems": 10000,
+          "uniqueItems": true
+        },
+        "start_date": {
+          "type": "object",
+          "properties": {
+            "year": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 2147483647
+            },
+            "day_of_year": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 360
+            },
+            "half_day": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1
+            }
+          },
+          "required": [
+            "year",
+            "day_of_year",
+            "half_day"
+          ],
+          "additionalProperties": false
+        },
+        "enabled": {
+          "$ref": "#/$defs/scenario_enabled"
+        },
+        "initial": {
+          "$ref": "#/$defs/scenario_initial"
+        }
+      },
+      "required": [
+        "id",
+        "name_key",
+        "player_actor",
+        "seed_text"
+      ],
+      "additionalProperties": false
+    },
+    "activity": {
+      "type": "object",
+      "properties": {
+        "wallet_id": {
+          "$ref": "#/$defs/reference_wallets"
+        },
+        "cost": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 10000
+        },
+        "wage": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 10000
+        },
+        "duration": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 6
+        },
+        "hp_gain": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "fatigue_delta": {
+          "type": "integer",
+          "minimum": -100,
+          "maximum": 100
+        }
+      },
+      "required": [
+        "wallet_id",
+        "cost",
+        "wage",
+        "duration",
+        "hp_gain",
+        "fatigue_delta"
+      ],
+      "additionalProperties": false
+    },
+    "personal_skill": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/entity_id"
+        },
+        "name_key": {
+          "$ref": "#/$defs/reference_texts"
+        },
+        "kind": {
+          "enum": [
+            "strike",
+            "guard",
+            "heart"
+          ]
+        },
+        "weapons": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "sword",
+              "spear",
+              "bow"
+            ]
+          },
+          "minItems": 1,
+          "maxItems": 3
+        },
+        "stamina_cost": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "power_bp": {
+          "type": "integer",
+          "minimum": 1000,
+          "maximum": 25000
+        },
+        "defense_bp": {
+          "type": "integer",
+          "minimum": 1000,
+          "maximum": 10000
+        },
+        "move_bonus": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 150
+        },
+        "status": {
+          "enum": [
+            "none",
+            "slow",
+            "exposed"
+          ]
+        },
+        "status_rounds": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4
+        },
+        "practice_ticks": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 120
+        },
+        "description_key": {
+          "$ref": "#/$defs/reference_texts"
+        }
+      },
+      "required": [
+        "id",
+        "name_key",
+        "kind",
+        "weapons",
+        "stamina_cost",
+        "power_bp",
+        "defense_bp",
+        "move_bonus",
+        "status",
+        "status_rounds",
+        "practice_ticks",
+        "description_key"
+      ],
+      "additionalProperties": false
+    },
+    "personal_battlefield": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/entity_id"
+        },
+        "name_key": {
+          "$ref": "#/$defs/reference_texts"
+        },
+        "width": {
+          "type": "integer",
+          "minimum": 400,
+          "maximum": 2000
+        },
+        "height": {
+          "type": "integer",
+          "minimum": 300,
+          "maximum": 1500
+        },
+        "obstacles": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "x": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 2000
+              },
+              "y": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 1500
+              },
+              "width": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 1000
+              },
+              "height": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 1000
+              },
+              "blocks_movement": {
+                "type": "boolean"
+              },
+              "blocks_sight": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "x",
+              "y",
+              "width",
+              "height",
+              "blocks_movement",
+              "blocks_sight"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 0,
+          "maxItems": 32
+        },
+        "spawns": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "side": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "position": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 10000
+                },
+                "minItems": 2,
+                "maxItems": 2
+              },
+              "heading": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 359
+              }
+            },
+            "required": [
+              "side",
+              "position",
+              "heading"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 2,
+          "maxItems": 16
+        },
+        "exits": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "side": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "position": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 10000
+                },
+                "minItems": 2,
+                "maxItems": 2
+              },
+              "radius": {
+                "type": "integer",
+                "minimum": 20,
+                "maximum": 200
+              }
+            },
+            "required": [
+              "side",
+              "position",
+              "radius"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 2,
+          "maxItems": 8
+        },
+        "visual_tag": {
+          "$ref": "#/$defs/presentation_reference_backgrounds_25"
+        }
+      },
+      "required": [
+        "id",
+        "name_key",
+        "width",
+        "height",
+        "obstacles",
+        "spawns",
+        "exits"
+      ],
+      "additionalProperties": false
+    },
+    "personal_objective": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/entity_id"
+        },
+        "name_key": {
+          "$ref": "#/$defs/reference_texts"
+        },
+        "kind": {
+          "enum": [
+            "sparring",
+            "skirmish",
+            "escort"
+          ]
+        },
+        "max_rounds": {
+          "type": "integer",
+          "minimum": 4,
+          "maximum": 100
+        },
+        "injury_on_defeat": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 3
+        },
+        "allow_withdrawal": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "name_key",
+        "kind",
+        "max_rounds",
+        "injury_on_defeat",
+        "allow_withdrawal"
+      ],
+      "additionalProperties": false
+    },
+    "world_map": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/entity_id"
+        },
+        "name_key": {
+          "$ref": "#/$defs/reference_texts"
+        },
+        "width": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100000
+        },
+        "height": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100000
+        },
+        "cell_size": {
+          "type": "integer",
+          "minimum": 2,
+          "maximum": 100000
+        },
+        "cells": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "terrain": {
+                "enum": [
+                  "plain",
+                  "road",
+                  "forest",
+                  "mountain",
+                  "water"
+                ]
+              },
+              "crossing": {
+                "enum": [
+                  "ford",
+                  "bridge",
+                  "pass"
+                ]
+              },
+              "blocked_flag": {
+                "$ref": "#/$defs/reference_flags"
+              }
+            },
+            "required": [
+              "terrain"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 1,
+          "maxItems": 65536
+        },
+        "costs": {
+          "type": "object",
+          "properties": {
+            "foot": {
+              "type": "object",
+              "properties": {
+                "plain": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 10000
+                },
+                "road": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 10000
+                },
+                "forest": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 10000
+                },
+                "mountain": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 10000
+                },
+                "water": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 10000
+                },
+                "ford": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 10000
+                },
+                "bridge": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 10000
+                },
+                "pass": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 10000
+                }
+              },
+              "required": [],
+              "additionalProperties": false
+            },
+            "army": {
+              "type": "object",
+              "properties": {
+                "plain": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 10000
+                },
+                "road": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 10000
+                },
+                "forest": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 10000
+                },
+                "mountain": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 10000
+                },
+                "water": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 10000
+                },
+                "ford": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 10000
+                },
+                "bridge": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 10000
+                },
+                "pass": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 10000
+                }
+              },
+              "required": [],
+              "additionalProperties": false
+            },
+            "boat": {
+              "type": "object",
+              "properties": {
+                "plain": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 10000
+                },
+                "road": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 10000
+                },
+                "forest": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 10000
+                },
+                "mountain": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 10000
+                },
+                "water": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 10000
+                },
+                "ford": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 10000
+                },
+                "bridge": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 10000
+                },
+                "pass": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 10000
+                }
+              },
+              "required": [],
+              "additionalProperties": false
+            }
+          },
+          "required": [],
+          "additionalProperties": false
+        },
+        "budgets": {
+          "type": "object",
+          "properties": {
+            "foot": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 1000000
+            },
+            "army": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 1000000
+            },
+            "boat": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 1000000
+            }
+          },
+          "required": [
+            "foot",
+            "army",
+            "boat"
+          ],
+          "additionalProperties": false
+        },
+        "money_per_tick": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100000
+        },
+        "fatigue_per_tick": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "visual_tag": {
+          "$ref": "#/$defs/presentation_reference_backgrounds_25"
+        },
+        "scene_template_id": {
+          "$ref": "#/$defs/presentation_reference_scene_templates"
+        }
+      },
+      "required": [
+        "id",
+        "name_key",
+        "width",
+        "height",
+        "cell_size",
+        "cells",
+        "budgets",
+        "money_per_tick",
+        "fatigue_per_tick"
+      ],
+      "additionalProperties": false
+    },
+    "estate": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/entity_id"
+        },
+        "name_key": {
+          "$ref": "#/$defs/reference_texts"
+        },
+        "place_id": {
+          "$ref": "#/$defs/reference_places"
+        },
+        "owner_actor_id": {
+          "$ref": "#/$defs/reference_actors"
+        },
+        "manager_actor_id": {
+          "$ref": "#/$defs/reference_actors"
+        },
+        "resident_actor_ids": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/reference_actors"
+          },
+          "minItems": 1,
+          "maxItems": 2000
+        },
+        "inventory_id": {
+          "$ref": "#/$defs/reference_inventories"
+        },
+        "wallet_id": {
+          "$ref": "#/$defs/reference_wallets"
+        },
+        "food_item_id": {
+          "$ref": "#/$defs/reference_items"
+        },
+        "ration_per_person": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100
+        },
+        "output_item_id": {
+          "$ref": "#/$defs/reference_items"
+        },
+        "output_per_worker": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1000
+        },
+        "granary_capacity_per_level": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 1000000
+        },
+        "palisade_defense_per_guard": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 10000
+        },
+        "initial_facilities": {
+          "type": "object",
+          "properties": {
+            "farm": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 100
+            },
+            "granary": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 100
+            },
+            "palisade": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 100
+            }
+          },
+          "required": [
+            "farm",
+            "granary",
+            "palisade"
+          ],
+          "additionalProperties": false
+        },
+        "initial_duties": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "actor_id": {
+                "$ref": "#/$defs/reference_actors"
+              },
+              "duty": {
+                "enum": [
+                  "idle",
+                  "labor",
+                  "guard"
+                ]
+              }
+            },
+            "required": [
+              "actor_id",
+              "duty"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 0,
+          "maxItems": 2000
+        },
+        "construction": {
+          "type": "object",
+          "properties": {
+            "max_level": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100
+            },
+            "build_ticks": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 720
+            },
+            "money_cost": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1000000
+            },
+            "material_item_id": {
+              "$ref": "#/$defs/reference_items"
+            },
+            "material_cost": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 100000
+            },
+            "payee_wallet_id": {
+              "$ref": "#/$defs/reference_wallets"
+            }
+          },
+          "required": [
+            "max_level",
+            "build_ticks",
+            "money_cost",
+            "material_item_id",
+            "material_cost",
+            "payee_wallet_id"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "name_key",
+        "place_id",
+        "owner_actor_id",
+        "manager_actor_id",
+        "resident_actor_ids",
+        "inventory_id",
+        "wallet_id",
+        "food_item_id",
+        "ration_per_person",
+        "output_item_id",
+        "output_per_worker",
+        "granary_capacity_per_level",
+        "palisade_defense_per_guard",
+        "initial_facilities",
+        "initial_duties",
+        "construction"
+      ],
+      "additionalProperties": false
+    },
+    "military_battlefield": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/entity_id"
+        },
+        "name_key": {
+          "$ref": "#/$defs/reference_texts"
+        },
+        "objective_id": {
+          "$ref": "#/$defs/reference_military_objectives"
+        },
+        "cells": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "q": {
+                "type": "integer",
+                "minimum": -1024,
+                "maximum": 1024
+              },
+              "r": {
+                "type": "integer",
+                "minimum": -1024,
+                "maximum": 1024
+              },
+              "terrain": {
+                "type": "string",
+                "enum": [
+                  "plain",
+                  "forest",
+                  "hill",
+                  "water",
+                  "wall"
+                ]
+              },
+              "blocks_movement": {
+                "type": "boolean"
+              },
+              "blocks_sight": {
+                "type": "boolean"
+              },
+              "height": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 100
+              },
+              "cover": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 100
+              }
+            },
+            "required": [
+              "q",
+              "r",
+              "terrain"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 1,
+          "maxItems": 1024
+        },
+        "spawns": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "side": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "position": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "minimum": -1024,
+                  "maximum": 1024
+                },
+                "minItems": 2,
+                "maxItems": 2
+              }
+            },
+            "required": [
+              "side",
+              "position"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 2,
+          "maxItems": 64
+        },
+        "exits": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "side": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "position": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "minimum": -1024,
+                  "maximum": 1024
+                },
+                "minItems": 2,
+                "maxItems": 2
+              }
+            },
+            "required": [
+              "side",
+              "position"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 0,
+          "maxItems": 64
+        },
+        "visual_tag": {
+          "$ref": "#/$defs/presentation_reference_backgrounds_25"
+        }
+      },
+      "required": [
+        "id",
+        "name_key",
+        "objective_id",
+        "cells",
+        "spawns",
+        "exits"
+      ],
+      "additionalProperties": false
+    },
+    "troop_type": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/entity_id"
+        },
+        "name_key": {
+          "$ref": "#/$defs/reference_texts"
+        },
+        "category": {
+          "type": "string",
+          "enum": [
+            "infantry",
+            "archer",
+            "cavalry"
+          ]
+        },
+        "movement": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 16
+        },
+        "minimum_range": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 16
+        },
+        "maximum_range": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 16
+        },
+        "attack": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100
+        },
+        "defense": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "accuracy": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "tactic_capacity": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "movement_costs": {
+          "type": "object",
+          "properties": {
+            "plain": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 24
+            },
+            "forest": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 24
+            },
+            "hill": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 24
+            },
+            "water": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 24
+            },
+            "wall": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 24
+            }
+          },
+          "required": [
+            "plain",
+            "forest",
+            "hill",
+            "water",
+            "wall"
+          ],
+          "additionalProperties": false
+        },
+        "tactics": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[a-z][a-z0-9_.-]{0,79}$"
+              },
+              "name_key": {
+                "$ref": "#/$defs/reference_texts"
+              },
+              "kind": {
+                "type": "string",
+                "enum": [
+                  "rally",
+                  "charge",
+                  "volley"
+                ]
+              },
+              "point_cost": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 100
+              },
+              "power_bp": {
+                "type": "integer",
+                "minimum": 1000,
+                "maximum": 30000
+              },
+              "accuracy_bonus": {
+                "type": "integer",
+                "minimum": -100,
+                "maximum": 100
+              },
+              "morale_effect": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 100
+              },
+              "move_bonus": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 8
+              },
+              "status_rounds": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 8
+              }
+            },
+            "required": [
+              "id",
+              "kind",
+              "point_cost",
+              "power_bp",
+              "accuracy_bonus",
+              "morale_effect",
+              "move_bonus",
+              "status_rounds"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 0,
+          "maxItems": 32
+        },
+        "battle_portrait_kind": {
+          "$ref": "#/$defs/presentation_reference_portraits_20"
+        }
+      },
+      "required": [
+        "id",
+        "name_key",
+        "category",
+        "movement",
+        "minimum_range",
+        "maximum_range",
+        "attack",
+        "defense",
+        "accuracy",
+        "tactic_capacity",
+        "movement_costs",
+        "tactics"
+      ],
+      "additionalProperties": false
+    },
+    "military_objective": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "$ref": "#/$defs/entity_id"
+            },
+            "name_key": {
+              "$ref": "#/$defs/reference_texts"
+            },
+            "kind": {
+              "const": "repel"
+            },
+            "side": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "max_rounds": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 9999
+            },
+            "allow_withdrawal": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "id",
+            "name_key",
+            "kind",
+            "side",
+            "max_rounds",
+            "allow_withdrawal"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "$ref": "#/$defs/entity_id"
+            },
+            "name_key": {
+              "$ref": "#/$defs/reference_texts"
+            },
+            "kind": {
+              "const": "hold"
+            },
+            "side": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "max_rounds": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 9999
+            },
+            "allow_withdrawal": {
+              "type": "boolean"
+            },
+            "point": {
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "minimum": -1024,
+                "maximum": 1024
+              },
+              "minItems": 2,
+              "maxItems": 2
+            },
+            "hold_rounds": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 9999
+            }
+          },
+          "required": [
+            "id",
+            "name_key",
+            "kind",
+            "side",
+            "max_rounds",
+            "allow_withdrawal",
+            "point",
+            "hold_rounds"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "$ref": "#/$defs/entity_id"
+            },
+            "name_key": {
+              "$ref": "#/$defs/reference_texts"
+            },
+            "kind": {
+              "const": "breakthrough"
+            },
+            "side": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "max_rounds": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 9999
+            },
+            "allow_withdrawal": {
+              "type": "boolean"
+            },
+            "required_units": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 64
+            }
+          },
+          "required": [
+            "id",
+            "name_key",
+            "kind",
+            "side",
+            "max_rounds",
+            "allow_withdrawal",
+            "required_units"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "$ref": "#/$defs/entity_id"
+            },
+            "name_key": {
+              "$ref": "#/$defs/reference_texts"
+            },
+            "kind": {
+              "const": "escort"
+            },
+            "side": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "max_rounds": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 9999
+            },
+            "allow_withdrawal": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "id",
+            "name_key",
+            "kind",
+            "side",
+            "max_rounds",
+            "allow_withdrawal"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "$ref": "#/$defs/entity_id"
+            },
+            "name_key": {
+              "$ref": "#/$defs/reference_texts"
+            },
+            "kind": {
+              "const": "cover_retreat"
+            },
+            "side": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "max_rounds": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 9999
+            },
+            "allow_withdrawal": {
+              "type": "boolean"
+            },
+            "required_units": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 64
+            }
+          },
+          "required": [
+            "id",
+            "name_key",
+            "kind",
+            "side",
+            "max_rounds",
+            "allow_withdrawal",
+            "required_units"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "office": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/entity_id"
+        },
+        "name_key": {
+          "$ref": "#/$defs/reference_texts"
+        },
+        "organization_id": {
+          "$ref": "#/$defs/reference_organizations"
+        },
+        "appointing_role_id": {
+          "$ref": "#/$defs/reference_roles"
+        },
+        "garrison_id": {
+          "$ref": "#/$defs/reference_garrisons"
+        },
+        "command_scope": {
+          "type": "string",
+          "enum": [
+            "unit",
+            "army"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "name_key",
+        "organization_id",
+        "appointing_role_id",
+        "garrison_id",
+        "command_scope"
+      ],
+      "additionalProperties": false
+    },
+    "garrison": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/entity_id"
+        },
+        "name_key": {
+          "$ref": "#/$defs/reference_texts"
+        },
+        "place_id": {
+          "$ref": "#/$defs/reference_places"
+        },
+        "organization_id": {
+          "$ref": "#/$defs/reference_organizations"
+        },
+        "inventory_id": {
+          "$ref": "#/$defs/reference_inventories"
+        },
+        "wallet_id": {
+          "$ref": "#/$defs/reference_wallets"
+        },
+        "food_item_id": {
+          "$ref": "#/$defs/reference_items"
+        },
+        "ration_per_person": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100
+        },
+        "army_capacity": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100000
+        },
+        "units": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^(?:[a-z][a-z0-9_-]{0,31}::)?[a-z][a-z0-9_.-]{0,79}(?![\\s\\S])",
+                "maxLength": 114,
+                "x-hanmo-global-definition": "garrisons[*].units"
+              },
+              "name_key": {
+                "$ref": "#/$defs/reference_texts"
+              },
+              "troop_type_id": {
+                "$ref": "#/$defs/reference_troop_types"
+              },
+              "commander_actor_id": {
+                "$ref": "#/$defs/reference_actors"
+              },
+              "initial_soldiers": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 4096
+              },
+              "equipment": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "item_id": {
+                      "$ref": "#/$defs/reference_items"
+                    },
+                    "quantity_per_person": {
+                      "type": "integer",
+                      "minimum": 1,
+                      "maximum": 100
+                    }
+                  },
+                  "required": [
+                    "item_id",
+                    "quantity_per_person"
+                  ],
+                  "additionalProperties": false
+                },
+                "minItems": 1,
+                "maxItems": 16
+              }
+            },
+            "required": [
+              "id",
+              "troop_type_id",
+              "commander_actor_id",
+              "initial_soldiers",
+              "equipment"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 1,
+          "maxItems": 64
+        }
+      },
+      "required": [
+        "id",
+        "name_key",
+        "place_id",
+        "organization_id",
+        "inventory_id",
+        "wallet_id",
+        "food_item_id",
+        "ration_per_person",
+        "army_capacity",
+        "units"
+      ],
+      "additionalProperties": false
+    },
+    "military_order": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/entity_id"
+        },
+        "name_key": {
+          "$ref": "#/$defs/reference_texts"
+        },
+        "office_id": {
+          "$ref": "#/$defs/reference_offices"
+        },
+        "garrison_id": {
+          "$ref": "#/$defs/reference_garrisons"
+        },
+        "issuer_role_id": {
+          "$ref": "#/$defs/reference_roles"
+        },
+        "report_role_id": {
+          "$ref": "#/$defs/reference_roles"
+        },
+        "target_stronghold_id": {
+          "$ref": "#/$defs/reference_strongholds"
+        },
+        "deadline_ticks": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 1000000
+        },
+        "objective": {
+          "oneOf": [
+            {
+              "type": "object",
+              "properties": {
+                "kind": {
+                  "const": "occupy"
+                }
+              },
+              "required": [
+                "kind"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "kind": {
+                  "const": "relieve"
+                }
+              },
+              "required": [
+                "kind"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "kind": {
+                  "const": "deliver_supply"
+                },
+                "item_id": {
+                  "$ref": "#/$defs/reference_items"
+                },
+                "quantity": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 1000000
+                },
+                "recipient": {
+                  "type": "string",
+                  "enum": [
+                    "garrison",
+                    "army"
+                  ]
+                },
+                "recipient_organization_id": {
+                  "$ref": "#/$defs/reference_organizations"
+                }
+              },
+              "required": [
+                "kind",
+                "item_id",
+                "quantity"
+              ],
+              "additionalProperties": false
+            }
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "name_key",
+        "office_id",
+        "garrison_id",
+        "issuer_role_id",
+        "report_role_id",
+        "target_stronghold_id",
+        "deadline_ticks",
+        "objective"
+      ],
+      "additionalProperties": false
+    },
+    "stronghold": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/entity_id"
+        },
+        "name_key": {
+          "$ref": "#/$defs/reference_texts"
+        },
+        "settlement_id": {
+          "$ref": "#/$defs/reference_settlements"
+        },
+        "garrison_id": {
+          "$ref": "#/$defs/reference_garrisons"
+        },
+        "topology_id": {
+          "$ref": "#/$defs/reference_siege_topologies"
+        },
+        "public_inventory_ids": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/reference_inventories"
+          },
+          "minItems": 1,
+          "maxItems": 64,
+          "uniqueItems": true
+        },
+        "public_wallet_ids": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/reference_wallets"
+          },
+          "minItems": 1,
+          "maxItems": 64,
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "id",
+        "settlement_id",
+        "garrison_id",
+        "topology_id",
+        "public_inventory_ids",
+        "public_wallet_ids"
+      ],
+      "additionalProperties": false
+    },
+    "siege_topology": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/entity_id"
+        },
+        "name_key": {
+          "$ref": "#/$defs/reference_texts"
+        },
+        "nodes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[a-z][a-z0-9_.-]{0,79}$"
+              },
+              "name_key": {
+                "$ref": "#/$defs/reference_texts"
+              },
+              "kind": {
+                "type": "string",
+                "enum": [
+                  "approach",
+                  "gate",
+                  "side",
+                  "wall",
+                  "inner",
+                  "supply"
+                ]
+              },
+              "max_hp": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 1000000
+              },
+              "battlefield_id": {
+                "$ref": "#/$defs/reference_battlefields"
+              }
+            },
+            "required": [
+              "id",
+              "kind",
+              "max_hp",
+              "battlefield_id"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 4,
+          "maxItems": 32
+        },
+        "edges": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "from": {
+                "type": "string",
+                "pattern": "^[a-z][a-z0-9_.-]{0,79}$",
+                "x-hanmo-local-ref": "nodes",
+                "description": "引用当前城防记录 nodes 中的稳定节点 ID"
+              },
+              "to": {
+                "type": "string",
+                "pattern": "^[a-z][a-z0-9_.-]{0,79}$",
+                "x-hanmo-local-ref": "nodes",
+                "description": "引用当前城防记录 nodes 中的稳定节点 ID"
+              },
+              "blocker_id": {
+                "anyOf": [
+                  {
+                    "const": ""
+                  },
+                  {
+                    "type": "string",
+                    "pattern": "^[a-z][a-z0-9_.-]{0,79}$",
+                    "x-hanmo-local-ref": "nodes",
+                    "description": "引用当前城防记录 nodes 中的稳定节点 ID"
+                  }
+                ]
+              }
+            },
+            "required": [
+              "from",
+              "to"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 3,
+          "maxItems": 496
+        },
+        "attacker_entry_id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_.-]{0,79}$",
+          "x-hanmo-local-ref": "nodes",
+          "description": "引用当前城防记录 nodes 中的稳定节点 ID"
+        },
+        "defender_entry_id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_.-]{0,79}$",
+          "x-hanmo-local-ref": "nodes",
+          "description": "引用当前城防记录 nodes 中的稳定节点 ID"
+        },
+        "inner_id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_.-]{0,79}$",
+          "x-hanmo-local-ref": "nodes",
+          "description": "引用当前城防记录 nodes 中的稳定节点 ID"
+        },
+        "supply_node_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_.-]{0,79}$",
+            "x-hanmo-local-ref": "nodes",
+            "description": "引用当前城防记录 nodes 中的稳定节点 ID"
+          },
+          "minItems": 1,
+          "maxItems": 32,
+          "uniqueItems": true
+        },
+        "rules": {
+          "type": "object",
+          "properties": {
+            "hold_ticks": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100000
+            },
+            "blockade_units": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100000
+            },
+            "starvation_ticks": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100000
+            },
+            "max_ticks": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100000
+            },
+            "gate_damage": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100000
+            },
+            "repair_amount": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100000
+            },
+            "engine_bonus": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100000
+            },
+            "engine_ticks": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100000
+            },
+            "surrender_morale": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100
+            },
+            "wall_defense_bp": {
+              "type": "integer",
+              "minimum": 10000,
+              "maximum": 30000
+            },
+            "engine_item_id": {
+              "$ref": "#/$defs/reference_items"
+            },
+            "engine_materials": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "item_id": {
+                    "$ref": "#/$defs/reference_items"
+                  },
+                  "quantity": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 100000
+                  }
+                },
+                "required": [
+                  "item_id",
+                  "quantity"
+                ],
+                "additionalProperties": false
+              },
+              "minItems": 1,
+              "maxItems": 32
+            },
+            "repair_materials": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "item_id": {
+                    "$ref": "#/$defs/reference_items"
+                  },
+                  "quantity": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 100000
+                  }
+                },
+                "required": [
+                  "item_id",
+                  "quantity"
+                ],
+                "additionalProperties": false
+              },
+              "minItems": 1,
+              "maxItems": 32
+            }
+          },
+          "required": [
+            "hold_ticks",
+            "blockade_units",
+            "starvation_ticks",
+            "max_ticks",
+            "gate_damage",
+            "repair_amount",
+            "engine_bonus",
+            "engine_ticks",
+            "surrender_morale",
+            "wall_defense_bp",
+            "engine_item_id",
+            "engine_materials",
+            "repair_materials"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "nodes",
+        "edges",
+        "attacker_entry_id",
+        "defender_entry_id",
+        "inner_id",
+        "supply_node_ids",
+        "rules"
+      ],
+      "additionalProperties": false
+    },
+    "appearance_features": {
+      "type": "object",
+      "properties": {
+        "face_shape": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_.-]{0,63}(?![\\s\\S])"
+        },
+        "eyes": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_.-]{0,63}(?![\\s\\S])"
+        },
+        "brows": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_.-]{0,63}(?![\\s\\S])"
+        },
+        "nose": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_.-]{0,63}(?![\\s\\S])"
+        },
+        "mouth": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_.-]{0,63}(?![\\s\\S])"
+        },
+        "hair": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_.-]{0,63}(?![\\s\\S])"
+        },
+        "beard": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_.-]{0,63}(?![\\s\\S])"
+        },
+        "skin_palette": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_.-]{0,63}(?![\\s\\S])"
+        },
+        "build": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_.-]{0,63}(?![\\s\\S])"
+        }
+      },
+      "required": [
+        "face_shape",
+        "eyes",
+        "brows",
+        "nose",
+        "mouth",
+        "hair",
+        "beard",
+        "skin_palette",
+        "build"
+      ],
+      "additionalProperties": false
+    },
+    "appearance_candidates": {
+      "type": "object",
+      "properties": {
+        "face_shape": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_.-]{0,63}(?![\\s\\S])"
+          },
+          "minItems": 1,
+          "maxItems": 64,
+          "uniqueItems": true
+        },
+        "eyes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_.-]{0,63}(?![\\s\\S])"
+          },
+          "minItems": 1,
+          "maxItems": 64,
+          "uniqueItems": true
+        },
+        "brows": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_.-]{0,63}(?![\\s\\S])"
+          },
+          "minItems": 1,
+          "maxItems": 64,
+          "uniqueItems": true
+        },
+        "nose": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_.-]{0,63}(?![\\s\\S])"
+          },
+          "minItems": 1,
+          "maxItems": 64,
+          "uniqueItems": true
+        },
+        "mouth": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_.-]{0,63}(?![\\s\\S])"
+          },
+          "minItems": 1,
+          "maxItems": 64,
+          "uniqueItems": true
+        },
+        "hair": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_.-]{0,63}(?![\\s\\S])"
+          },
+          "minItems": 1,
+          "maxItems": 64,
+          "uniqueItems": true
+        },
+        "beard": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_.-]{0,63}(?![\\s\\S])"
+          },
+          "minItems": 1,
+          "maxItems": 64,
+          "uniqueItems": true
+        },
+        "skin_palette": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_.-]{0,63}(?![\\s\\S])"
+          },
+          "minItems": 1,
+          "maxItems": 64,
+          "uniqueItems": true
+        },
+        "build": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_.-]{0,63}(?![\\s\\S])"
+          },
+          "minItems": 1,
+          "maxItems": 64,
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "face_shape",
+        "eyes",
+        "brows",
+        "nose",
+        "mouth",
+        "hair",
+        "beard",
+        "skin_palette",
+        "build"
+      ],
+      "additionalProperties": false
+    },
+    "appearance_definition": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "type": "string",
+              "const": "fixed"
+            },
+            "generator_version": {
+              "type": "string",
+              "const": "appearance-v1"
+            },
+            "attire_style": {
+              "type": "string",
+              "pattern": "^[a-z][a-z0-9_.-]{0,63}(?![\\s\\S])"
+            },
+            "base_features": {
+              "$ref": "#/$defs/appearance_features"
+            }
+          },
+          "required": [
+            "kind",
+            "generator_version",
+            "attire_style",
+            "base_features"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "type": "string",
+              "const": "generated"
+            },
+            "generator_version": {
+              "type": "string",
+              "const": "appearance-v1"
+            },
+            "attire_style": {
+              "type": "string",
+              "pattern": "^[a-z][a-z0-9_.-]{0,63}(?![\\s\\S])"
+            },
+            "candidates": {
+              "$ref": "#/$defs/appearance_candidates"
+            },
+            "inheritance_features": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "face_shape",
+                  "eyes",
+                  "brows",
+                  "nose",
+                  "mouth",
+                  "hair",
+                  "beard",
+                  "skin_palette",
+                  "build"
+                ]
+              },
+              "minItems": 1,
+              "maxItems": 9,
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "kind",
+            "generator_version",
+            "attire_style",
+            "candidates"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "entity_id": {
+      "type": "string",
+      "pattern": "^(?:[a-z][a-z0-9_-]{0,31}::)?[a-z][a-z0-9_.-]{0,79}(?![\\s\\S])"
+    },
+    "reference_flags": {
+      "type": "string",
+      "pattern": "^(?:[a-z][a-z0-9_-]{0,31}::)?[a-z][a-z0-9_.-]{0,79}(?![\\s\\S])",
+      "x-hanmo-ref": "flags",
+      "x-editor": "reference"
+    },
+    "reference_actors": {
+      "type": "string",
+      "pattern": "^(?:[a-z][a-z0-9_-]{0,31}::)?[a-z][a-z0-9_.-]{0,79}(?![\\s\\S])",
+      "x-hanmo-ref": "actors",
+      "x-editor": "reference"
+    },
+    "reference_places": {
+      "type": "string",
+      "pattern": "^(?:[a-z][a-z0-9_-]{0,31}::)?[a-z][a-z0-9_.-]{0,79}(?![\\s\\S])",
+      "x-hanmo-ref": "places",
+      "x-editor": "reference"
+    },
+    "reference_offers": {
+      "type": "string",
+      "pattern": "^(?:[a-z][a-z0-9_-]{0,31}::)?[a-z][a-z0-9_.-]{0,79}(?![\\s\\S])",
+      "x-hanmo-ref": "offers",
+      "x-editor": "reference"
+    },
+    "reference_shops": {
+      "type": "string",
+      "pattern": "^(?:[a-z][a-z0-9_-]{0,31}::)?[a-z][a-z0-9_.-]{0,79}(?![\\s\\S])",
+      "x-hanmo-ref": "shops",
+      "x-editor": "reference"
+    },
+    "reference_personal_skills": {
+      "type": "string",
+      "pattern": "^(?:[a-z][a-z0-9_-]{0,31}::)?[a-z][a-z0-9_.-]{0,79}(?![\\s\\S])",
+      "x-hanmo-ref": "personal_skills",
+      "x-editor": "reference"
+    },
+    "reference_texts": {
+      "type": "string",
+      "pattern": "^(?:[a-z][a-z0-9_-]{0,31}::)?[a-z][a-z0-9_.-]{0,79}(?![\\s\\S])",
+      "x-hanmo-ref": "texts",
+      "x-editor": "reference"
+    },
+    "reference_organizations": {
+      "type": "string",
+      "pattern": "^(?:[a-z][a-z0-9_-]{0,31}::)?[a-z][a-z0-9_.-]{0,79}(?![\\s\\S])",
+      "x-hanmo-ref": "organizations",
+      "x-editor": "reference"
+    },
+    "reference_settlements": {
+      "type": "string",
+      "pattern": "^(?:[a-z][a-z0-9_-]{0,31}::)?[a-z][a-z0-9_.-]{0,79}(?![\\s\\S])",
+      "x-hanmo-ref": "settlements",
+      "x-editor": "reference"
+    },
+    "presentation_reference_backgrounds": {
+      "type": "string",
+      "pattern": "^(?:[a-z][a-z0-9_-]{0,31}::)?[a-z][a-z0-9_.-]{0,79}(?![\\s\\S])",
+      "x-hanmo-presentation": "backgrounds"
+    },
+    "presentation_reference_scene_templates": {
+      "type": "string",
+      "pattern": "^(?:[a-z][a-z0-9_-]{0,31}::)?[a-z][a-z0-9_.-]{0,79}(?![\\s\\S])",
+      "x-hanmo-presentation": "scene_templates"
+    },
+    "reference_dialogues": {
+      "type": "string",
+      "pattern": "^(?:[a-z][a-z0-9_-]{0,31}::)?[a-z][a-z0-9_.-]{0,79}(?![\\s\\S])",
+      "x-hanmo-ref": "dialogues",
+      "x-editor": "reference"
+    },
+    "presentation_reference_portraits": {
+      "type": "string",
+      "pattern": "^(?:[a-z][a-z0-9_-]{0,31}::)?[a-z][a-z0-9_.-]{0,79}(?![\\s\\S])",
+      "x-hanmo-presentation": "portraits"
+    },
+    "reference_items": {
+      "type": "string",
+      "pattern": "^(?:[a-z][a-z0-9_-]{0,31}::)?[a-z][a-z0-9_.-]{0,79}(?![\\s\\S])",
+      "x-hanmo-ref": "items",
+      "x-editor": "reference"
+    },
+    "reference_personal_battlefields": {
+      "type": "string",
+      "pattern": "^(?:[a-z][a-z0-9_-]{0,31}::)?[a-z][a-z0-9_.-]{0,79}(?![\\s\\S])",
+      "x-hanmo-ref": "personal_battlefields",
+      "x-editor": "reference"
+    },
+    "reference_personal_objectives": {
+      "type": "string",
+      "pattern": "^(?:[a-z][a-z0-9_-]{0,31}::)?[a-z][a-z0-9_.-]{0,79}(?![\\s\\S])",
+      "x-hanmo-ref": "personal_objectives",
+      "x-editor": "reference"
+    },
+    "reference_offices": {
+      "type": "string",
+      "pattern": "^(?:[a-z][a-z0-9_-]{0,31}::)?[a-z][a-z0-9_.-]{0,79}(?![\\s\\S])",
+      "x-hanmo-ref": "offices",
+      "x-editor": "reference"
+    },
+    "reference_military_orders": {
+      "type": "string",
+      "pattern": "^(?:[a-z][a-z0-9_-]{0,31}::)?[a-z][a-z0-9_.-]{0,79}(?![\\s\\S])",
+      "x-hanmo-ref": "military_orders",
+      "x-editor": "reference"
+    },
+    "presentation_reference_character_profiles": {
+      "type": "string",
+      "pattern": "^(?:[a-z][a-z0-9_-]{0,31}::)?[a-z][a-z0-9_.-]{0,79}(?![\\s\\S])",
+      "x-hanmo-presentation": "character_profiles"
+    },
+    "reference_wallets": {
+      "type": "string",
+      "pattern": "^(?:[a-z][a-z0-9_-]{0,31}::)?[a-z][a-z0-9_.-]{0,79}(?![\\s\\S])",
+      "x-hanmo-ref": "wallets",
+      "x-editor": "reference"
+    },
+    "presentation_reference_portraits_20": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 114,
+      "x-hanmo-presentation": "portraits",
+      "pattern": "^(?:[a-z][a-z0-9_-]{0,31}::)?[a-z][a-z0-9_.-]{0,79}(?![\\s\\S])"
+    },
+    "reference_roles": {
+      "type": "string",
+      "pattern": "^(?:[a-z][a-z0-9_-]{0,31}::)?[a-z][a-z0-9_.-]{0,79}(?![\\s\\S])",
+      "x-hanmo-ref": "roles",
+      "x-editor": "reference"
+    },
+    "reference_inventories": {
+      "type": "string",
+      "pattern": "^(?:[a-z][a-z0-9_-]{0,31}::)?[a-z][a-z0-9_.-]{0,79}(?![\\s\\S])",
+      "x-hanmo-ref": "inventories",
+      "x-editor": "reference"
+    },
+    "reference_props": {
+      "type": "string",
+      "pattern": "^(?:[a-z][a-z0-9_-]{0,31}::)?[a-z][a-z0-9_.-]{0,79}(?![\\s\\S])",
+      "x-hanmo-ref": "props",
+      "x-editor": "reference"
+    },
+    "reference_world_maps": {
+      "type": "string",
+      "pattern": "^(?:[a-z][a-z0-9_-]{0,31}::)?[a-z][a-z0-9_.-]{0,79}(?![\\s\\S])",
+      "x-hanmo-ref": "world_maps",
+      "x-editor": "reference"
+    },
+    "presentation_reference_backgrounds_25": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 114,
+      "x-hanmo-presentation": "backgrounds",
+      "pattern": "^(?:[a-z][a-z0-9_-]{0,31}::)?[a-z][a-z0-9_.-]{0,79}(?![\\s\\S])"
+    },
+    "reference_military_objectives": {
+      "type": "string",
+      "pattern": "^(?:[a-z][a-z0-9_-]{0,31}::)?[a-z][a-z0-9_.-]{0,79}(?![\\s\\S])",
+      "x-hanmo-ref": "military_objectives",
+      "x-editor": "reference"
+    },
+    "reference_garrisons": {
+      "type": "string",
+      "pattern": "^(?:[a-z][a-z0-9_-]{0,31}::)?[a-z][a-z0-9_.-]{0,79}(?![\\s\\S])",
+      "x-hanmo-ref": "garrisons",
+      "x-editor": "reference"
+    },
+    "reference_troop_types": {
+      "type": "string",
+      "pattern": "^(?:[a-z][a-z0-9_-]{0,31}::)?[a-z][a-z0-9_.-]{0,79}(?![\\s\\S])",
+      "x-hanmo-ref": "troop_types",
+      "x-editor": "reference"
+    },
+    "reference_strongholds": {
+      "type": "string",
+      "pattern": "^(?:[a-z][a-z0-9_-]{0,31}::)?[a-z][a-z0-9_.-]{0,79}(?![\\s\\S])",
+      "x-hanmo-ref": "strongholds",
+      "x-editor": "reference"
+    },
+    "reference_siege_topologies": {
+      "type": "string",
+      "pattern": "^(?:[a-z][a-z0-9_-]{0,31}::)?[a-z][a-z0-9_.-]{0,79}(?![\\s\\S])",
+      "x-hanmo-ref": "siege_topologies",
+      "x-editor": "reference"
+    },
+    "reference_battlefields": {
+      "type": "string",
+      "pattern": "^(?:[a-z][a-z0-9_-]{0,31}::)?[a-z][a-z0-9_.-]{0,79}(?![\\s\\S])",
+      "x-hanmo-ref": "battlefields",
+      "x-editor": "reference"
+    },
+    "scenario_initial_actor": {
+      "type": "object",
+      "properties": {
+        "actor_id": {
+          "$ref": "#/$defs/reference_actors"
+        },
+        "place_id": {
+          "$ref": "#/$defs/reference_places"
+        },
+        "alive": {
+          "type": "boolean"
+        },
+        "available": {
+          "type": "boolean"
+        },
+        "age_years": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 120
+        },
+        "attributes": {
+          "type": "object",
+          "properties": {
+            "leadership": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100
+            },
+            "martial": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100
+            },
+            "intellect": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100
+            },
+            "administration": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100
+            },
+            "charisma": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100
+            }
+          },
+          "required": [
+            "leadership",
+            "martial",
+            "intellect",
+            "administration",
+            "charisma"
+          ],
+          "additionalProperties": false
+        },
+        "skills": {
+          "type": "object",
+          "properties": {
+            "infantry": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1200
+            },
+            "cavalry": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1200
+            },
+            "archery": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1200
+            },
+            "martial": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1200
+            },
+            "tactics": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1200
+            },
+            "debate": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1200
+            },
+            "negotiation": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1200
+            },
+            "rites": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1200
+            },
+            "commerce": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1200
+            },
+            "transport": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1200
+            }
+          },
+          "required": [
+            "infantry",
+            "cavalry",
+            "archery",
+            "martial",
+            "tactics",
+            "debate",
+            "negotiation",
+            "rites",
+            "commerce",
+            "transport"
+          ],
+          "additionalProperties": false
+        },
+        "appearance_definition": {
+          "$ref": "#/$defs/appearance_definition",
+          "description": "稳定人物语义，不是表现资源引用；历史人物有新定义时须使用fixed"
+        },
+        "combat": {
+          "oneOf": [
+            {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "weapon_id": {
+                  "$ref": "#/$defs/reference_items"
+                },
+                "learned": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "skill_id": {
+                        "$ref": "#/$defs/reference_personal_skills"
+                      },
+                      "mastery": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 100
+                      }
+                    },
+                    "required": [
+                      "skill_id",
+                      "mastery"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "minItems": 0,
+                  "maxItems": 50
+                }
+              },
+              "required": [
+                "weapon_id",
+                "learned"
+              ],
+              "additionalProperties": false
+            }
+          ]
+        },
+        "initial_goods": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "item_id": {
+                "$ref": "#/$defs/reference_items"
+              },
+              "quantity": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 100
+              }
+            },
+            "required": [
+              "item_id",
+              "quantity"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 0,
+          "maxItems": 20
+        }
+      },
+      "required": [
+        "actor_id",
+        "place_id",
+        "alive",
+        "available",
+        "age_years",
+        "attributes",
+        "skills",
+        "appearance_definition",
+        "combat"
+      ],
+      "additionalProperties": false
+    },
+    "scenario_initial_wallets": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/reference_wallets"
+        },
+        "owner": {
+          "$ref": "#/$defs/owner"
+        },
+        "initial_balance": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        }
+      },
+      "required": [
+        "id",
+        "owner",
+        "initial_balance"
+      ],
+      "additionalProperties": false
+    },
+    "scenario_initial_inventories": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/reference_inventories"
+        },
+        "owner": {
+          "$ref": "#/$defs/owner"
+        },
+        "capacity": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100000
+        },
+        "goods": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "item_id": {
+                "$ref": "#/$defs/reference_items"
+              },
+              "quantity": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 2147483647
+              }
+            },
+            "required": [
+              "item_id",
+              "quantity"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 0,
+          "maxItems": 500
+        }
+      },
+      "required": [
+        "id",
+        "owner",
+        "capacity",
+        "goods"
+      ],
+      "additionalProperties": false
+    },
+    "scenario_initial_relations": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/reference_relations"
+        },
+        "from_actor": {
+          "$ref": "#/$defs/reference_actors"
+        },
+        "to_actor": {
+          "$ref": "#/$defs/reference_actors"
+        },
+        "affinity": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "trust": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100
+        }
+      },
+      "required": [
+        "id",
+        "from_actor",
+        "to_actor",
+        "affinity",
+        "trust"
+      ],
+      "additionalProperties": false
+    },
+    "scenario_initial_estates": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/reference_estates"
+        },
+        "owner_actor_id": {
+          "$ref": "#/$defs/reference_actors"
+        },
+        "manager_actor_id": {
+          "$ref": "#/$defs/reference_actors"
+        },
+        "resident_actor_ids": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/reference_actors"
+          },
+          "minItems": 1,
+          "maxItems": 2000
+        },
+        "initial_facilities": {
+          "type": "object",
+          "properties": {
+            "farm": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 100
+            },
+            "granary": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 100
+            },
+            "palisade": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 100
+            }
+          },
+          "required": [
+            "farm",
+            "granary",
+            "palisade"
+          ],
+          "additionalProperties": false
+        },
+        "initial_duties": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "actor_id": {
+                "$ref": "#/$defs/reference_actors"
+              },
+              "duty": {
+                "enum": [
+                  "idle",
+                  "labor",
+                  "guard"
+                ]
+              }
+            },
+            "required": [
+              "actor_id",
+              "duty"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 0,
+          "maxItems": 2000
+        }
+      },
+      "required": [
+        "id",
+        "owner_actor_id",
+        "manager_actor_id",
+        "resident_actor_ids",
+        "initial_facilities",
+        "initial_duties"
+      ],
+      "additionalProperties": false
+    },
+    "scenario_initial_garrisons": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/reference_garrisons"
+        },
+        "organization_id": {
+          "$ref": "#/$defs/reference_organizations"
+        },
+        "units": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^(?:[a-z][a-z0-9_-]{0,31}::)?[a-z][a-z0-9_.-]{0,79}(?![\\s\\S])",
+                "maxLength": 114,
+                "x-hanmo-global-definition": "garrisons[*].units"
+              },
+              "name_key": {
+                "$ref": "#/$defs/reference_texts"
+              },
+              "troop_type_id": {
+                "$ref": "#/$defs/reference_troop_types"
+              },
+              "commander_actor_id": {
+                "$ref": "#/$defs/reference_actors"
+              },
+              "initial_soldiers": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 4096
+              },
+              "equipment": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "item_id": {
+                      "$ref": "#/$defs/reference_items"
+                    },
+                    "quantity_per_person": {
+                      "type": "integer",
+                      "minimum": 1,
+                      "maximum": 100
+                    }
+                  },
+                  "required": [
+                    "item_id",
+                    "quantity_per_person"
+                  ],
+                  "additionalProperties": false
+                },
+                "minItems": 1,
+                "maxItems": 16
+              }
+            },
+            "required": [
+              "id",
+              "troop_type_id",
+              "commander_actor_id",
+              "initial_soldiers",
+              "equipment"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 1,
+          "maxItems": 64
+        }
+      },
+      "required": [
+        "id",
+        "organization_id",
+        "units"
+      ],
+      "additionalProperties": false
+    },
+    "scenario_initial_offices": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/reference_offices"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "scenario_initial_strongholds": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/reference_strongholds"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "scenario_initial_roles": {
+      "type": "object",
+      "properties": {
+        "role_id": {
+          "$ref": "#/$defs/reference_roles"
+        },
+        "actor_id": {
+          "$ref": "#/$defs/reference_actors"
+        },
+        "enabled": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "role_id",
+        "actor_id",
+        "enabled"
+      ],
+      "additionalProperties": false
+    },
+    "scenario_initial": {
+      "type": "object",
+      "properties": {
+        "actors": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/scenario_initial_actor"
+          },
+          "minItems": 1,
+          "maxItems": 10000,
+          "uniqueItems": true
+        },
+        "offer_ids": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/reference_offers"
+          },
+          "minItems": 0,
+          "maxItems": 10000,
+          "uniqueItems": true
+        },
+        "wallets": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/scenario_initial_wallets"
+          },
+          "minItems": 0,
+          "maxItems": 10000,
+          "uniqueItems": true
+        },
+        "inventories": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/scenario_initial_inventories"
+          },
+          "minItems": 0,
+          "maxItems": 10000,
+          "uniqueItems": true
+        },
+        "relations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/scenario_initial_relations"
+          },
+          "minItems": 0,
+          "maxItems": 10000,
+          "uniqueItems": true
+        },
+        "estates": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/scenario_initial_estates"
+          },
+          "minItems": 0,
+          "maxItems": 10000,
+          "uniqueItems": true
+        },
+        "garrisons": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/scenario_initial_garrisons"
+          },
+          "minItems": 0,
+          "maxItems": 10000,
+          "uniqueItems": true
+        },
+        "offices": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/scenario_initial_offices"
+          },
+          "minItems": 0,
+          "maxItems": 10000,
+          "uniqueItems": true
+        },
+        "strongholds": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/scenario_initial_strongholds"
+          },
+          "minItems": 0,
+          "maxItems": 10000,
+          "uniqueItems": true
+        },
+        "roles": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/scenario_initial_roles"
+          },
+          "minItems": 0,
+          "maxItems": 10000,
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "actors",
+        "offer_ids"
+      ],
+      "additionalProperties": false
+    },
+    "scenario_enabled": {
+      "type": "object",
+      "properties": {
+        "settlements": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/reference_settlements"
+          },
+          "minItems": 0,
+          "maxItems": 10000,
+          "uniqueItems": true
+        },
+        "routes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/reference_routes"
+          },
+          "minItems": 0,
+          "maxItems": 10000,
+          "uniqueItems": true
+        },
+        "places": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/reference_places"
+          },
+          "minItems": 0,
+          "maxItems": 10000,
+          "uniqueItems": true
+        },
+        "actors": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/reference_actors"
+          },
+          "minItems": 0,
+          "maxItems": 10000,
+          "uniqueItems": true
+        },
+        "organizations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/reference_organizations"
+          },
+          "minItems": 0,
+          "maxItems": 10000,
+          "uniqueItems": true
+        },
+        "roles": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/reference_roles"
+          },
+          "minItems": 0,
+          "maxItems": 10000,
+          "uniqueItems": true
+        },
+        "wallets": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/reference_wallets"
+          },
+          "minItems": 0,
+          "maxItems": 10000,
+          "uniqueItems": true
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/reference_items"
+          },
+          "minItems": 0,
+          "maxItems": 10000,
+          "uniqueItems": true
+        },
+        "inventories": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/reference_inventories"
+          },
+          "minItems": 0,
+          "maxItems": 10000,
+          "uniqueItems": true
+        },
+        "shops": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/reference_shops"
+          },
+          "minItems": 0,
+          "maxItems": 10000,
+          "uniqueItems": true
+        },
+        "props": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/reference_props"
+          },
+          "minItems": 0,
+          "maxItems": 10000,
+          "uniqueItems": true
+        },
+        "offers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/reference_offers"
+          },
+          "minItems": 0,
+          "maxItems": 10000,
+          "uniqueItems": true
+        },
+        "dialogues": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/reference_dialogues"
+          },
+          "minItems": 0,
+          "maxItems": 10000,
+          "uniqueItems": true
+        },
+        "events": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/reference_events"
+          },
+          "minItems": 0,
+          "maxItems": 10000,
+          "uniqueItems": true
+        },
+        "relations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/reference_relations"
+          },
+          "minItems": 0,
+          "maxItems": 10000,
+          "uniqueItems": true
+        },
+        "scenarios": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/reference_scenarios"
+          },
+          "minItems": 0,
+          "maxItems": 10000,
+          "uniqueItems": true
+        },
+        "personal_skills": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/reference_personal_skills"
+          },
+          "minItems": 0,
+          "maxItems": 10000,
+          "uniqueItems": true
+        },
+        "personal_battlefields": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/reference_personal_battlefields"
+          },
+          "minItems": 0,
+          "maxItems": 10000,
+          "uniqueItems": true
+        },
+        "personal_objectives": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/reference_personal_objectives"
+          },
+          "minItems": 0,
+          "maxItems": 10000,
+          "uniqueItems": true
+        },
+        "world_maps": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/reference_world_maps"
+          },
+          "minItems": 0,
+          "maxItems": 10000,
+          "uniqueItems": true
+        },
+        "estates": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/reference_estates"
+          },
+          "minItems": 0,
+          "maxItems": 10000,
+          "uniqueItems": true
+        },
+        "battlefields": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/reference_battlefields"
+          },
+          "minItems": 0,
+          "maxItems": 10000,
+          "uniqueItems": true
+        },
+        "troop_types": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/reference_troop_types"
+          },
+          "minItems": 0,
+          "maxItems": 10000,
+          "uniqueItems": true
+        },
+        "military_objectives": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/reference_military_objectives"
+          },
+          "minItems": 0,
+          "maxItems": 10000,
+          "uniqueItems": true
+        },
+        "offices": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/reference_offices"
+          },
+          "minItems": 0,
+          "maxItems": 10000,
+          "uniqueItems": true
+        },
+        "garrisons": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/reference_garrisons"
+          },
+          "minItems": 0,
+          "maxItems": 10000,
+          "uniqueItems": true
+        },
+        "military_orders": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/reference_military_orders"
+          },
+          "minItems": 0,
+          "maxItems": 10000,
+          "uniqueItems": true
+        },
+        "strongholds": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/reference_strongholds"
+          },
+          "minItems": 0,
+          "maxItems": 10000,
+          "uniqueItems": true
+        },
+        "siege_topologies": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/reference_siege_topologies"
+          },
+          "minItems": 0,
+          "maxItems": 10000,
+          "uniqueItems": true
+        },
+        "texts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/reference_texts"
+          },
+          "minItems": 0,
+          "maxItems": 10000,
+          "uniqueItems": true
+        },
+        "flags": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/reference_flags"
+          },
+          "minItems": 0,
+          "maxItems": 10000,
+          "uniqueItems": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "reference_routes": {
+      "type": "string",
+      "pattern": "^(?:[a-z][a-z0-9_-]{0,31}::)?[a-z][a-z0-9_.-]{0,79}(?![\\s\\S])",
+      "x-hanmo-ref": "routes",
+      "x-editor": "reference"
+    },
+    "reference_events": {
+      "type": "string",
+      "pattern": "^(?:[a-z][a-z0-9_-]{0,31}::)?[a-z][a-z0-9_.-]{0,79}(?![\\s\\S])",
+      "x-hanmo-ref": "events",
+      "x-editor": "reference"
+    },
+    "reference_relations": {
+      "type": "string",
+      "pattern": "^(?:[a-z][a-z0-9_-]{0,31}::)?[a-z][a-z0-9_.-]{0,79}(?![\\s\\S])",
+      "x-hanmo-ref": "relations",
+      "x-editor": "reference"
+    },
+    "reference_scenarios": {
+      "type": "string",
+      "pattern": "^(?:[a-z][a-z0-9_-]{0,31}::)?[a-z][a-z0-9_.-]{0,79}(?![\\s\\S])",
+      "x-hanmo-ref": "scenarios",
+      "x-editor": "reference"
+    },
+    "reference_estates": {
+      "type": "string",
+      "pattern": "^(?:[a-z][a-z0-9_-]{0,31}::)?[a-z][a-z0-9_.-]{0,79}(?![\\s\\S])",
+      "x-hanmo-ref": "estates",
+      "x-editor": "reference"
+    }
+  },
+  "title": "Hanmo authoring content v1",
+  "x-hanmo-tables": {
+    "settlements": "settlement",
+    "routes": "route",
+    "places": "place",
+    "actors": "actor",
+    "organizations": "organization",
+    "roles": "role",
+    "wallets": "wallet",
+    "items": "item",
+    "inventories": "inventory",
+    "shops": "shop",
+    "props": "prop",
+    "offers": "offer",
+    "dialogues": "dialogue",
+    "events": "event",
+    "relations": "relation",
+    "scenarios": "scenario",
+    "personal_skills": "personal_skill",
+    "personal_battlefields": "personal_battlefield",
+    "personal_objectives": "personal_objective",
+    "world_maps": "world_map",
+    "estates": "estate",
+    "battlefields": "military_battlefield",
+    "troop_types": "troop_type",
+    "military_objectives": "military_objective",
+    "offices": "office",
+    "garrisons": "garrison",
+    "military_orders": "military_order",
+    "strongholds": "stronghold",
+    "siege_topologies": "siege_topology"
+  }
+}

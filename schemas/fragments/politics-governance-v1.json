@@ -1,0 +1,147 @@
+{
+  "format": "hanmo.schema.fragment/1",
+  "version": "politics_governance/1",
+  "status": "author source; joint runtime activation requires both domains",
+  "property_target": "/$defs/dynamic_world/properties/politics_governance",
+  "property_schema": {
+    "$ref": "#/$defs/politics_governance_catalog"
+  },
+  "$defs": {
+    "politics_appeasement_rule": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "name_key": {
+          "type": "string",
+          "minLength": 1,
+          "x-hanmo-ref": "texts"
+        },
+        "grain_item_id": {
+          "type": "string",
+          "minLength": 1,
+          "x-hanmo-ref": "items"
+        },
+        "duration_ticks": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 2147483647
+        },
+        "cash_amount": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 2147483647
+        },
+        "grain_amount": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 2147483647
+        },
+        "base_support_gain": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "support_cap": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100
+        }
+      },
+      "required": [
+        "id",
+        "version",
+        "name_key",
+        "grain_item_id",
+        "duration_ticks",
+        "cash_amount",
+        "grain_amount",
+        "base_support_gain",
+        "support_cap"
+      ],
+      "additionalProperties": false
+    },
+    "politics_governance_commission": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "rule_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "relief_policy_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "offer_valid_ticks": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 2147483647
+        },
+        "completion_deadline_ticks": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 2147483647
+        }
+      },
+      "required": [
+        "id",
+        "rule_id",
+        "relief_policy_id",
+        "offer_valid_ticks",
+        "completion_deadline_ticks"
+      ],
+      "additionalProperties": false
+    },
+    "politics_governance_catalog": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "const": true
+        },
+        "appeasement_rules": {
+          "type": "object",
+          "minProperties": 1,
+          "maxProperties": 1000,
+          "additionalProperties": {
+            "$ref": "#/$defs/politics_appeasement_rule"
+          }
+        },
+        "commission_policies": {
+          "type": "object",
+          "minProperties": 1,
+          "maxProperties": 1000,
+          "additionalProperties": {
+            "$ref": "#/$defs/politics_governance_commission"
+          }
+        },
+        "initial_support": {
+          "type": "object",
+          "minProperties": 1,
+          "maxProperties": 1000,
+          "additionalProperties": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 100
+          }
+        }
+      },
+      "required": [
+        "enabled",
+        "appeasement_rules",
+        "commission_policies",
+        "initial_support"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

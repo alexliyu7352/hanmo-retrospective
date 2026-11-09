@@ -1,0 +1,175 @@
+[
+  {
+    "name": "two_selected_masks",
+    "patches": [
+      {
+        "op": "replace",
+        "path": "/components/mask.one",
+        "value": {
+          "id": "mask.one",
+          "slot": "mask",
+          "asset_id": "portraits/fixture.child-body",
+          "body_basis": "child.front",
+          "proportion": "child",
+          "anchor": [
+            50,
+            50
+          ],
+          "z_index": 0,
+          "tags": [
+            "child"
+          ],
+          "compatible_tags": [
+            "child"
+          ],
+          "incompatible_tags": [],
+          "after": [],
+          "geometry": {
+            "source_size": [
+              8,
+              8
+            ],
+            "logical_canvas": [
+              8,
+              8
+            ],
+            "alpha_bounds": [
+              2,
+              2,
+              4,
+              6
+            ],
+            "safe_crop": [
+              0,
+              0,
+              8,
+              8
+            ],
+            "support_kind": "half_body_bottom",
+            "support_point": [
+              50,
+              100
+            ],
+            "pose": "idle",
+            "facing": "front",
+            "view": "half_body",
+            "mask_ids": [],
+            "palette_slots": []
+          }
+        }
+      },
+      {
+        "op": "replace",
+        "path": "/components/mask.two",
+        "value": {
+          "id": "mask.two",
+          "slot": "mask",
+          "asset_id": "portraits/fixture.child-body",
+          "body_basis": "child.front",
+          "proportion": "child",
+          "anchor": [
+            50,
+            50
+          ],
+          "z_index": 0,
+          "tags": [
+            "child"
+          ],
+          "compatible_tags": [
+            "child"
+          ],
+          "incompatible_tags": [],
+          "after": [],
+          "geometry": {
+            "source_size": [
+              8,
+              8
+            ],
+            "logical_canvas": [
+              8,
+              8
+            ],
+            "alpha_bounds": [
+              2,
+              2,
+              4,
+              6
+            ],
+            "safe_crop": [
+              0,
+              0,
+              8,
+              8
+            ],
+            "support_kind": "half_body_bottom",
+            "support_point": [
+              50,
+              100
+            ],
+            "pose": "idle",
+            "facing": "front",
+            "view": "half_body",
+            "mask_ids": [],
+            "palette_slots": []
+          }
+        }
+      },
+      {
+        "op": "replace",
+        "path": "/components/child.body/geometry/mask_ids",
+        "value": [
+          "mask.one",
+          "mask.two"
+        ]
+      },
+      {
+        "op": "replace",
+        "path": "/character_profiles/fixture.person/age_variants/0/components",
+        "value": [
+          "child.body",
+          "mask.one",
+          "mask.two"
+        ]
+      },
+      {
+        "op": "replace",
+        "path": "/character_profiles/fixture.second/age_variants/0/components",
+        "value": [
+          "child.body",
+          "mask.one",
+          "mask.two"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "idle_daily_to_combat_battle",
+    "patches": [
+      {
+        "op": "replace",
+        "path": "/character_profiles/fixture.battle/pose",
+        "value": "combat"
+      },
+      {
+        "op": "replace",
+        "path": "/components/child.body.battle/geometry/pose",
+        "value": "combat"
+      },
+      {
+        "op": "replace",
+        "path": "/components/child.garment.battle/geometry/pose",
+        "value": "combat"
+      },
+      {
+        "op": "replace",
+        "path": "/components/adult.body.battle/geometry/pose",
+        "value": "combat"
+      },
+      {
+        "op": "replace",
+        "path": "/components/adult.garment.battle/geometry/pose",
+        "value": "combat"
+      }
+    ]
+  }
+]

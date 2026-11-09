@@ -1,0 +1,30 @@
+// 07 P05/2 市场唯一容量源。整数席从原真实人员和资产导出，不另存capacity余额。
+#pragma once
+#include "public_market_staffing_model.hpp"
+#include "resident/facility_claims/model.hpp"
+namespace hanmo::resident {
+enum class MarketStaffingRule {one_qualified_worker_per_service_slot};
+struct MarketServiceDefinition {ActorFoundationRuleRef definition_ref;FacilitySlotRef slot_ref;StableId place_ref;SourceRef asset_source_ref;Integer physical_service_slots=0;std::vector<MomentSpan> opening_intervals;HalfDayDuration max_claim_half_days;MarketStaffingRule staffing_rule=MarketStaffingRule::one_qualified_worker_per_service_slot;ActorFoundationRuleRef usage_rule_ref;};
+struct PublicMarketAssetBasis {StableId original_asset_ref,original_organization_ref;SourceRef original_asset_right_ref;};
+struct PrivateMarketAssetBasis {StableId original_shop_ref;SourceRef original_shop_epoch_ref;StableId original_premises_ref;SourceRef original_lease_or_title_ref;};
+using MarketServiceAssetBasis=std::variant<PublicMarketAssetBasis,PrivateMarketAssetBasis>;
+struct MarketServiceOpeningBasis {ActorFoundationRuleRef original_opening_rule_ref;SourceRef accepted_opening_source_ref;std::vector<MomentSpan> committed_intervals;};
+struct PublicMarketStaffingSource {StableId staffing_binding_ref;};
+struct PrivateMarketOperationSource {StableId operation_ref;std::optional<SourceRef> original_staff_participation_ref;};
+using MarketServiceStaffingBinding=std::variant<PublicMarketStaffingSource,PrivateMarketOperationSource>;
+struct MarketNotConditioned {ActorFoundationRuleRef asset_definition_ref;};
+struct MarketOriginalCondition {StableId condition_ref;Integer condition_version=0;SourceRef original_change_source_ref;};
+using MarketServiceConditionBasis=std::variant<MarketNotConditioned,MarketOriginalCondition>;
+struct MarketServiceUsageRightBasis {ActorFoundationRuleRef usage_rule_ref;SourceRef original_right_ref,original_acceptance_or_approval_ref;std::vector<MomentSpan> valid_intervals;};
+struct MarketServiceInitialized {SourceRef original_asset_initialization_ref,original_opening_acceptance_ref;};
+struct MarketServiceOpeningChanged {SourceRef original_opening_change_ref;};
+struct MarketServiceStaffingChanged {SourceRef original_staffing_event_ref;};
+struct MarketServiceFacilityChanged {SourceRef original_condition_result_ref;};
+struct MarketServiceRightChanged {SourceRef original_right_change_ref;};
+using MarketServiceChangeCause=std::variant<MarketServiceInitialized,MarketServiceOpeningChanged,MarketServiceStaffingChanged,MarketServiceFacilityChanged,MarketServiceRightChanged>;
+struct MarketServiceCapacitySource {StableId source_id;Integer source_schema=1;FacilitySlotRef slot_ref;Integer source_revision=0;std::optional<SourceRef> previous_source_ref;WorldMoment occurred_at;ActorFoundationRuleRef definition_ref;MarketServiceAssetBasis asset_basis;MarketServiceOpeningBasis opening_basis;std::vector<MarketServiceStaffingBinding> staffing_bindings;MarketServiceConditionBasis condition_basis;MarketServiceUsageRightBasis usage_right_basis;MarketServiceChangeCause change_cause;};
+struct MarketServiceSourceTables {std::vector<MarketServiceCapacitySource> public_sources,private_sources;};
+enum class HouseholdServiceEventKind {accepted,resumed,suspended,completed,terminated};
+struct HouseholdServiceEvent2 {StableId event_id,purchase_id,original_action_ref;Integer event_ordinal=0;HouseholdServiceEventKind kind=HouseholdServiceEventKind::accepted;WorldMoment occurred_at;std::optional<SourceRef> cause_ref;Integer episode_ordinal=0;};
+struct NamedServiceClaimEpisode2 {StableId purchase_id;Integer ordinal=0;SourceRef admission_result_ref;StableId claim_id;FacilityClaimReceiptRef admission_receipt_ref;std::optional<SourceRef> close_result_ref;std::optional<FacilityClaimReceiptRef> close_receipt_ref;};
+}

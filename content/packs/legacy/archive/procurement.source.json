@@ -1,0 +1,663 @@
+{
+  "format": "HM-CONTENT",
+  "schema_version": 1,
+  "id": "foundation.procurement",
+  "version": "0.3.1",
+  "required_capabilities": [
+    "multi_actor",
+    "places",
+    "dialogue",
+    "tasks.procurement",
+    "economy"
+  ],
+  "texts": {
+    "name.city.west": "西城",
+    "name.west.street": "西城街道",
+    "name.west.office": "官署前厅",
+    "name.west.grain": "郑氏粮铺",
+    "name.actor.player": "行舟",
+    "name.actor.chen": "陈主事",
+    "name.actor.zheng": "郑掌柜",
+    "name.actor.apprentice": "粮铺伙计",
+    "name.org.office": "西城公仓",
+    "name.org.grain": "郑氏粮铺",
+    "name.role.office": "公仓经办",
+    "name.role.merchant": "掌柜",
+    "name.role.clerk": "当值伙计",
+    "name.item.grain": "粮食",
+    "name.shop.grain": "郑氏粮铺货单",
+    "name.notice.grain": "公仓采买告示",
+    "name.offer.grain": "公仓采买",
+    "office.remember": "上回那批粮已验收入仓。你做事守信。",
+    "office.hello": "来问公仓采买的差事？先把条款听清楚。",
+    "office.menu": "你准备怎样答复？",
+    "office.ask": "问清这份差事",
+    "office.accept": "按约接下",
+    "office.report": "带粮回来交付",
+    "common.leave": "告辞",
+    "office.terms": "采买十份粮，经费六百五十钱；受领办妥后八个半日内送回前厅。成功余款按约留用，另酬八十钱。",
+    "office.done": "已按刚才确认的约定办妥。账目与收讫结果请查看本次凭据。",
+    "office.unavailable": "眼下办不了。请先看明具体缘由，待条件齐备再来。",
+    "dialog.shop.hello": "来看看粮？柜台由我当值。",
+    "dialog.shop.menu": "和眼前的人商谈",
+    "dialog.shop.goods": "看看这家店的货",
+    "dialog.shop.leave": "告辞",
+    "dialog.shop.done": "这次交易的结果已经记下。",
+    "dialog.shop.error": "这笔买卖暂时办不了，先核对人、货与钱。",
+    "dialog.clerk.hello": "来看看粮？柜台由我当值。",
+    "dialog.clerk.menu": "和眼前的人商谈",
+    "dialog.clerk.goods": "看看这家店的货",
+    "dialog.clerk.leave": "告辞",
+    "dialog.clerk.done": "这次交易的结果已经记下。",
+    "dialog.clerk.error": "这笔买卖暂时办不了，先核对人、货与钱。",
+    "name.scenario.procurement": "官署采购验收"
+  },
+  "flags": {
+    "office.introduced": false
+  },
+  "settlements": [
+    {
+      "id": "city.west",
+      "kind": "city",
+      "map_xy": [
+        120,
+        180
+      ],
+      "entry_place": "west.street",
+      "name_key": "name.city.west"
+    }
+  ],
+  "routes": [],
+  "places": [
+    {
+      "id": "west.street",
+      "settlement_id": "city.west",
+      "parent_place": null,
+      "visual_tag": "city",
+      "passages": [
+        "west.office",
+        "west.grain"
+      ],
+      "admission": [],
+      "name_key": "name.west.street"
+    },
+    {
+      "id": "west.office",
+      "settlement_id": "city.west",
+      "parent_place": "west.street",
+      "visual_tag": "hall",
+      "passages": [
+        "west.street"
+      ],
+      "admission": [],
+      "name_key": "name.west.office"
+    },
+    {
+      "id": "west.grain",
+      "settlement_id": "city.west",
+      "parent_place": "west.street",
+      "visual_tag": "shop",
+      "passages": [
+        "west.street"
+      ],
+      "admission": [],
+      "name_key": "name.west.grain"
+    }
+  ],
+  "actors": [
+    {
+      "id": "actor.player",
+      "origin": "original",
+      "source_note": "原创工程验收人物，不是已考据历史人物",
+      "initial_place": "west.street",
+      "attributes": {
+        "leadership": 60,
+        "martial": 60,
+        "intellect": 60,
+        "administration": 60,
+        "charisma": 60
+      },
+      "skills": {
+        "infantry": 0,
+        "cavalry": 0,
+        "archery": 0,
+        "martial": 0,
+        "tactics": 0,
+        "debate": 0,
+        "negotiation": 0,
+        "rites": 0,
+        "commerce": 0,
+        "transport": 0
+      },
+      "dialogue_id": null,
+      "appearance_note": "形象资源尚未制作；使用编辑器字段而非冒称正式立绘",
+      "name_key": "name.actor.player"
+    },
+    {
+      "id": "actor.chen",
+      "origin": "original",
+      "source_note": "原创工程验收人物，不是已考据历史人物",
+      "initial_place": "west.office",
+      "attributes": {
+        "leadership": 60,
+        "martial": 60,
+        "intellect": 60,
+        "administration": 60,
+        "charisma": 60
+      },
+      "skills": {
+        "infantry": 0,
+        "cavalry": 0,
+        "archery": 0,
+        "martial": 0,
+        "tactics": 0,
+        "debate": 0,
+        "negotiation": 0,
+        "rites": 0,
+        "commerce": 0,
+        "transport": 0
+      },
+      "dialogue_id": "dialog.office",
+      "appearance_note": "形象资源尚未制作；使用编辑器字段而非冒称正式立绘",
+      "name_key": "name.actor.chen"
+    },
+    {
+      "id": "actor.zheng",
+      "origin": "original",
+      "source_note": "原创工程验收人物，不是已考据历史人物",
+      "initial_place": "west.grain",
+      "attributes": {
+        "leadership": 60,
+        "martial": 60,
+        "intellect": 60,
+        "administration": 60,
+        "charisma": 60
+      },
+      "skills": {
+        "infantry": 0,
+        "cavalry": 0,
+        "archery": 0,
+        "martial": 0,
+        "tactics": 0,
+        "debate": 0,
+        "negotiation": 0,
+        "rites": 0,
+        "commerce": 0,
+        "transport": 0
+      },
+      "dialogue_id": "dialog.shop",
+      "appearance_note": "形象资源尚未制作；使用编辑器字段而非冒称正式立绘",
+      "name_key": "name.actor.zheng"
+    },
+    {
+      "id": "actor.apprentice",
+      "origin": "original",
+      "source_note": "原创工程验收人物，不是已考据历史人物",
+      "initial_place": "west.grain",
+      "attributes": {
+        "leadership": 60,
+        "martial": 60,
+        "intellect": 60,
+        "administration": 60,
+        "charisma": 60
+      },
+      "skills": {
+        "infantry": 0,
+        "cavalry": 0,
+        "archery": 0,
+        "martial": 0,
+        "tactics": 0,
+        "debate": 0,
+        "negotiation": 0,
+        "rites": 0,
+        "commerce": 0,
+        "transport": 0
+      },
+      "dialogue_id": "dialog.clerk",
+      "appearance_note": "形象资源尚未制作；使用编辑器字段而非冒称正式立绘",
+      "name_key": "name.actor.apprentice"
+    }
+  ],
+  "organizations": [
+    {
+      "id": "org.office",
+      "kind": "political",
+      "leader_actor": "actor.chen",
+      "name_key": "name.org.office"
+    },
+    {
+      "id": "org.grain",
+      "kind": "merchant",
+      "leader_actor": "actor.zheng",
+      "name_key": "name.org.grain"
+    }
+  ],
+  "roles": [
+    {
+      "id": "role.office",
+      "organization_id": "org.office",
+      "initial_actor": "actor.chen",
+      "place_id": "west.office",
+      "services": [
+        "information",
+        "accept_offer",
+        "report_offer"
+      ],
+      "name_key": "name.role.office"
+    },
+    {
+      "id": "role.merchant",
+      "organization_id": "org.grain",
+      "initial_actor": "actor.zheng",
+      "place_id": "west.grain",
+      "services": [
+        "information",
+        "trade"
+      ],
+      "name_key": "name.role.merchant"
+    },
+    {
+      "id": "role.clerk",
+      "organization_id": "org.grain",
+      "initial_actor": "actor.apprentice",
+      "place_id": "west.grain",
+      "services": [
+        "trade"
+      ],
+      "name_key": "name.role.clerk"
+    }
+  ],
+  "wallets": [
+    {
+      "id": "wallet.player",
+      "owner": {
+        "kind": "actor",
+        "id": "actor.player"
+      },
+      "initial_balance": 800
+    },
+    {
+      "id": "wallet.office",
+      "owner": {
+        "kind": "organization",
+        "id": "org.office"
+      },
+      "initial_balance": 5000
+    },
+    {
+      "id": "wallet.shop",
+      "owner": {
+        "kind": "organization",
+        "id": "org.grain"
+      },
+      "initial_balance": 10000
+    }
+  ],
+  "items": [
+    {
+      "id": "item.grain",
+      "kind": "commodity",
+      "base_price": 40,
+      "weight": 1,
+      "name_key": "name.item.grain"
+    }
+  ],
+  "inventories": [
+    {
+      "id": "inventory.shop",
+      "owner": {
+        "kind": "organization",
+        "id": "org.grain"
+      },
+      "capacity": 300,
+      "goods": [
+        {
+          "item_id": "item.grain",
+          "quantity": 100
+        }
+      ]
+    }
+  ],
+  "shops": [
+    {
+      "id": "shop.grain",
+      "place_id": "west.grain",
+      "representative_roles": [
+        "role.merchant",
+        "role.clerk"
+      ],
+      "wallet_id": "wallet.shop",
+      "inventory_id": "inventory.shop",
+      "name_key": "name.shop.grain"
+    }
+  ],
+  "props": [
+    {
+      "id": "notice.grain",
+      "place_id": "west.office",
+      "kind": "notice",
+      "publisher": "org.office",
+      "offer_ids": [
+        "offer.grain"
+      ],
+      "name_key": "name.notice.grain"
+    }
+  ],
+  "offers": [
+    {
+      "id": "offer.grain",
+      "template": "procurement",
+      "issuer": {
+        "kind": "organization",
+        "id": "org.office"
+      },
+      "discovery_sources": [
+        {
+          "kind": "prop",
+          "id": "notice.grain"
+        },
+        {
+          "kind": "actor",
+          "id": "actor.chen"
+        }
+      ],
+      "accept_role": "role.office",
+      "report_role": "role.office",
+      "funding_wallet": "wallet.office",
+      "budget": 650,
+      "reward": 80,
+      "deadline_ticks": 8,
+      "accept_ticks": 1,
+      "goal": {
+        "kind": "deliver_item",
+        "item_id": "item.grain",
+        "quantity": 10,
+        "receiver_role": "role.office"
+      },
+      "on_unavailable": "known_replacement",
+      "name_key": "name.offer.grain"
+    }
+  ],
+  "dialogues": [
+    {
+      "id": "dialog.office",
+      "context_role": "role.office",
+      "entry": "entry",
+      "nodes": [
+        {
+          "id": "entry",
+          "kind": "branch",
+          "condition": {
+            "op": "task_state",
+            "offer_id": "offer.grain",
+            "state": "success"
+          },
+          "if_true": "remember",
+          "if_false": "hello"
+        },
+        {
+          "id": "remember",
+          "kind": "say",
+          "speaker": "$provider",
+          "text_key": "office.remember",
+          "next": "end"
+        },
+        {
+          "id": "hello",
+          "kind": "say",
+          "speaker": "$provider",
+          "text_key": "office.hello",
+          "next": "menu"
+        },
+        {
+          "id": "menu",
+          "kind": "choice",
+          "text_key": "office.menu",
+          "options": [
+            {
+              "id": "ask",
+              "text_key": "office.ask",
+              "conditions": [],
+              "next": "discover"
+            },
+            {
+              "id": "accept",
+              "text_key": "office.accept",
+              "conditions": [
+                {
+                  "op": "task_state",
+                  "offer_id": "offer.grain",
+                  "state": "known"
+                }
+              ],
+              "next": "accept"
+            },
+            {
+              "id": "report",
+              "text_key": "office.report",
+              "conditions": [
+                {
+                  "op": "any",
+                  "terms": [
+                    {
+                      "op": "task_state",
+                      "offer_id": "offer.grain",
+                      "state": "active"
+                    },
+                    {
+                      "op": "task_state",
+                      "offer_id": "offer.grain",
+                      "state": "ready"
+                    }
+                  ]
+                }
+              ],
+              "next": "report"
+            },
+            {
+              "id": "leave",
+              "text_key": "common.leave",
+              "conditions": [],
+              "next": "end"
+            }
+          ]
+        },
+        {
+          "id": "discover",
+          "kind": "action",
+          "command": {
+            "kind": "discover_offer",
+            "offer_id": "offer.grain"
+          },
+          "on_success": "terms",
+          "on_failure": "unavailable"
+        },
+        {
+          "id": "terms",
+          "kind": "say",
+          "speaker": "$provider",
+          "text_key": "office.terms",
+          "next": "menu"
+        },
+        {
+          "id": "accept",
+          "kind": "action",
+          "command": {
+            "kind": "accept_offer",
+            "offer_id": "offer.grain"
+          },
+          "on_success": "done",
+          "on_failure": "unavailable"
+        },
+        {
+          "id": "report",
+          "kind": "action",
+          "command": {
+            "kind": "report_offer",
+            "offer_id": "offer.grain"
+          },
+          "on_success": "done",
+          "on_failure": "unavailable"
+        },
+        {
+          "id": "done",
+          "kind": "say",
+          "speaker": "$provider",
+          "text_key": "office.done",
+          "next": "end"
+        },
+        {
+          "id": "unavailable",
+          "kind": "say",
+          "speaker": "$provider",
+          "text_key": "office.unavailable",
+          "next": "end"
+        },
+        {
+          "id": "end",
+          "kind": "end"
+        }
+      ]
+    },
+    {
+      "id": "dialog.shop",
+      "context_role": "role.merchant",
+      "entry": "hello",
+      "nodes": [
+        {
+          "id": "hello",
+          "kind": "say",
+          "speaker": "$provider",
+          "text_key": "dialog.shop.hello",
+          "next": "menu"
+        },
+        {
+          "id": "menu",
+          "kind": "choice",
+          "text_key": "dialog.shop.menu",
+          "options": [
+            {
+              "id": "goods",
+              "text_key": "dialog.shop.goods",
+              "conditions": [],
+              "next": "trade"
+            },
+            {
+              "id": "leave",
+              "text_key": "dialog.shop.leave",
+              "conditions": [],
+              "next": "end"
+            }
+          ]
+        },
+        {
+          "id": "trade",
+          "kind": "action",
+          "command": {
+            "kind": "open_trade",
+            "shop_id": "shop.grain"
+          },
+          "on_success": "done",
+          "on_failure": "unavailable"
+        },
+        {
+          "id": "done",
+          "kind": "say",
+          "speaker": "$provider",
+          "text_key": "dialog.shop.done",
+          "next": "end"
+        },
+        {
+          "id": "unavailable",
+          "kind": "say",
+          "speaker": "$provider",
+          "text_key": "dialog.shop.error",
+          "next": "end"
+        },
+        {
+          "id": "end",
+          "kind": "end"
+        }
+      ]
+    },
+    {
+      "id": "dialog.clerk",
+      "context_role": "role.clerk",
+      "entry": "hello",
+      "nodes": [
+        {
+          "id": "hello",
+          "kind": "say",
+          "speaker": "$provider",
+          "text_key": "dialog.clerk.hello",
+          "next": "menu"
+        },
+        {
+          "id": "menu",
+          "kind": "choice",
+          "text_key": "dialog.clerk.menu",
+          "options": [
+            {
+              "id": "goods",
+              "text_key": "dialog.clerk.goods",
+              "conditions": [],
+              "next": "trade"
+            },
+            {
+              "id": "leave",
+              "text_key": "dialog.clerk.leave",
+              "conditions": [],
+              "next": "end"
+            }
+          ]
+        },
+        {
+          "id": "trade",
+          "kind": "action",
+          "command": {
+            "kind": "open_trade",
+            "shop_id": "shop.grain"
+          },
+          "on_success": "done",
+          "on_failure": "unavailable"
+        },
+        {
+          "id": "done",
+          "kind": "say",
+          "speaker": "$provider",
+          "text_key": "dialog.clerk.done",
+          "next": "end"
+        },
+        {
+          "id": "unavailable",
+          "kind": "say",
+          "speaker": "$provider",
+          "text_key": "dialog.clerk.error",
+          "next": "end"
+        },
+        {
+          "id": "end",
+          "kind": "end"
+        }
+      ]
+    }
+  ],
+  "events": [],
+  "relations": [
+    {
+      "id": "relation.chen_player",
+      "from_actor": "actor.chen",
+      "to_actor": "actor.player",
+      "affinity": 10,
+      "trust": 0
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "scenario.procurement",
+      "player_actor": "actor.player",
+      "seed_text": "foundation-test-01",
+      "name_key": "name.scenario.procurement"
+    }
+  ]
+}

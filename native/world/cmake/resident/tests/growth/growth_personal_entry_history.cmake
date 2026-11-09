@@ -1,0 +1,14 @@
+# 成长与教学消费者登记：保留本组目标、测试、条件与局部变量的原执行顺序。
+# 真实个人入场前界纯读组件；不替未闭Personal2作World启用。
+add_executable(test_resident_growth_personal_entry_history tests/resident/growth_personal_entry_history_test.cpp)
+target_link_libraries(test_resident_growth_personal_entry_history PRIVATE hanmo_resident)
+target_include_directories(test_resident_growth_personal_entry_history PRIVATE src)
+target_compile_options(test_resident_growth_personal_entry_history PRIVATE -UNDEBUG -fno-fast-math -ffp-contract=off)
+add_test(NAME resident_growth_personal_entry_history COMMAND test_resident_growth_personal_entry_history)
+
+# 真实个人入场前界纯读组件；不替未闭Personal2作World启用。
+add_executable(test_resident_growth_personal_injury_history tests/resident/growth_personal_injury_history_test.cpp)
+target_link_libraries(test_resident_growth_personal_injury_history PRIVATE hanmo_resident)
+target_include_directories(test_resident_growth_personal_injury_history PRIVATE src)
+target_compile_options(test_resident_growth_personal_injury_history PRIVATE -UNDEBUG -fno-fast-math -ffp-contract=off)
+add_test(NAME resident_growth_personal_injury_history COMMAND test_resident_growth_personal_injury_history)

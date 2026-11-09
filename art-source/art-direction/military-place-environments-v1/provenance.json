@@ -1,0 +1,63 @@
+{
+  "asset_id": "military-place-environments-v1.valley-clean-ground",
+  "date_utc": "2026-10-08",
+  "tool": "built-in image_gen",
+  "intent": "precise-object-edit",
+  "generated_original": "<本地路径>",
+  "candidate_path": "art-source/art-direction/military-place-environments-v1/valley-clean-ground-candidate-01.png",
+  "runtime_export": "game/assets/art/military-place-environments-v1/valley-clean-ground.png",
+  "runtime_export_method": "byte-identical copy after offline pixel inspection; no raster editing by Python",
+  "sha256": "634f8aab5b9a8793137036c22d8f13514dbbe9f9e3c8b55fa20510e1797e13e9",
+  "git_blob": "c10aafab8138a27f9b0a24ddd62c2a5e45f48913",
+  "dimensions": [
+    1536,
+    1024
+  ],
+  "mode": "RGB",
+  "prompt_file": "prompt-01-valley-clean-ground.txt",
+  "edit_target": {
+    "repository_path": "game/assets/art/alpha-military/valley.png",
+    "read_from": "<本地路径>",
+    "git_blob": "e9cacdf387343b7ca0153550f8c7cae5b5b2f583",
+    "sha256": "119fd0b283827ac0af6ab41d5c8a084b7ea19fd77434df0e5c5133f5aa3f92b6"
+  },
+  "historical_shape_basis": "Project original visual design; no new historical artifact or rank claim.",
+  "pixel_review": {
+    "result": "pass_clean_ground_layer_only",
+    "viewed_actual_generated_pixels": true,
+    "no_baked_hex_grid": true,
+    "no_troops_people_horses": true,
+    "no_flags_ownership_or_battle_lines": true,
+    "no_text_numbers_or_ui": true,
+    "no_fixed_high_relief_obstacles": true,
+    "no_fixed_water_or_forests": true,
+    "continuous_ground_to_all_edges": true,
+    "painterly_earth_grass_style_retained": true,
+    "notes": [
+      "Fine brush marks and grass/soil variation remain visible.",
+      "Scenery identity must be supplied by existing state-driven terrain and battle naming; this image is deliberately only the ground plate.",
+      "No decorative hills or stream may be reintroduced into this rectangle without rule-coordinate clipping or state-driven placement."
+    ]
+  },
+  "verification": {
+    "png_decode": true,
+    "source_export_byte_identity": true,
+    "actual_gui": "not_run; existing GUI denial respected",
+    "engine_headless": "not_run; no code or manifest change",
+    "narrow_window": "not_run",
+    "large_font": "not_run",
+    "runtime_integration": "not_performed; central owner only",
+    "user_approval": "pending; not inferred from existing examples"
+  },
+  "camp_decision": "retain original camp-courtyard.png; no new camp raster generated",
+  "changed_rules": false,
+  "changed_runtime_references": false,
+  "followup_headless": {
+    "record": "verification/military-place-environments-20261008/headless-result.json",
+    "checks": 14098,
+    "failures": 0,
+    "cases": 36,
+    "production_canvas_changed": false,
+    "viewport_pixels_verified": false
+  }
+}

@@ -1,0 +1,6 @@
+# 成长与教学消费者登记：保留本组目标、测试、条件与局部变量的原执行顺序。
+add_executable(test_native_growth_fixed_service_state_codec tests/resident/growth_fixed_service_state_codec_test.cpp)
+target_link_libraries(test_native_growth_fixed_service_state_codec PRIVATE hanmo_resident)
+target_include_directories(test_native_growth_fixed_service_state_codec PRIVATE "${HANMO_JSON_ROOT}/single_include" "${HANMO_PICOSHA2_ROOT}")
+target_compile_options(test_native_growth_fixed_service_state_codec PRIVATE -UNDEBUG -fno-fast-math -ffp-contract=off)
+add_test(NAME native_growth_fixed_service_state_codec COMMAND test_native_growth_fixed_service_state_codec --without-allocation-failures)

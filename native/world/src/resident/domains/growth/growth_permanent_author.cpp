@@ -1,0 +1,38 @@
+#include "resident/checkpoint/checkpoint_decode_lifecycle.hpp"
+#include "resident/checkpoint/checkpoint_catalog_json_kind.hpp"
+#include "growth_permanent_contributions.hpp"
+#include "resident/checkpoint/checkpoint_catalog_rows.hpp"
+#include "resident/kernel/native_catalog_decode.hpp"
+#include "resident/domains/actor_foundation/actor_foundation_json_visitor.hpp"
+namespace hanmo::resident {namespace {
+Status criterion(ActorFoundationJsonVisitor& c,WorkPracticeCriterion& value){StableId kind;c.field("work_kind",kind);if(!c.status().ok)return c.status();if(kind=="patrol")value.work_kind=WorkKind::patrol;else if(kind=="agronomy_supervision")value.work_kind=WorkKind::agronomy_supervision;else if(kind=="industry_supervision")value.work_kind=WorkKind::industry_supervision;else if(kind=="construction_supervision")value.work_kind=WorkKind::construction_supervision;else return c.reject("PracticeWorkCriterionInvalid");c.field("minimum_credited_half_days",value.minimum_credited_half_days);return c.status().ok&&value.minimum_credited_half_days<1?c.reject("PracticeWorkCriterionInvalid"):c.status();}
+Status identity(ActorFoundationJsonVisitor& c,ActorFoundationRuleRef& value,const CatalogIdentity& catalog){c.field("id",value.id);c.field("version",value.version);if(c.status().ok&&(value.id.empty()||value.id.size()>256||value.version<1||catalog.content_digest.empty()))return c.reject("GrowthPermanentRuleIdentityInvalid");value.catalog_digest=checkpoint_decode_boundary_string(catalog.content_digest);return c.status();}
+}
+Outcome<PracticeAwardRule> decode_work_practice_definition(const BoundaryValue& input,const CatalogIdentity& catalog){std::optional<ScopedCheckpointJsonDecode> catalog_scope;if(ScopedCheckpointBoundaryDecode::current())catalog_scope.emplace(CheckpointCatalogJsonKind::growth_permanent_definitions);if(auto* budget=ScopedCheckpointJsonDecode::current())budget->default_values<PracticeAwardRule>();PracticeAwardRule value;ActorFoundationJsonVisitor c(input);identity(c,value.rule_ref,catalog);c.field("rule_family",value.rule_family);c.object("criterion",[&](auto& x){return criterion(x,value.criterion);});StableId role;c.field("contribution_role",role);if(c.status().ok&&(role!="work_leader"||value.rule_family.empty()))c.reject("PracticeContributionRoleInvalid");c.sequence("skill_awards",value.skill_awards,[](auto& x,auto& row){x.field("skill_id",row.skill_id);x.field("requested_xp",row.requested_xp);if(x.status().ok&&(row.skill_id.empty()||row.requested_xp<10||row.requested_xp>40))return x.reject("PracticeSkillAwardInvalid");return x.status();});if(c.status().ok&&(value.skill_awards.empty()||value.skill_awards.size()>2||(value.skill_awards.size()==2&&value.skill_awards[0].skill_id==value.skill_awards[1].skill_id)))c.reject("PracticeSkillAwardInvalid");auto status=c.finish();return {status.ok,std::move(value),status.error};}
+Outcome<AttributeMilestoneRule> decode_work_attribute_milestone_definition(const BoundaryValue& input,const CatalogIdentity& catalog){std::optional<ScopedCheckpointJsonDecode> catalog_scope;if(ScopedCheckpointBoundaryDecode::current())catalog_scope.emplace(CheckpointCatalogJsonKind::growth_permanent_definitions);if(auto* budget=ScopedCheckpointJsonDecode::current())budget->default_values<AttributeMilestoneRule>();AttributeMilestoneRule value;ActorFoundationJsonVisitor c(input);identity(c,value.rule_ref,catalog);c.field("unique_milestone_id",value.unique_milestone_id);c.field("attribute_id",value.attribute_id);c.object("criterion",[&](auto& x){return criterion(x,value.criterion);});if(c.status().ok&&(value.unique_milestone_id.empty()||(value.attribute_id!="administration"&&value.attribute_id!="charisma"&&value.attribute_id!="intellect"&&value.attribute_id!="leadership"&&value.attribute_id!="martial")))c.reject("AttributeMilestoneRuleInvalid");auto status=c.finish();return {status.ok,std::move(value),status.error};}
+}
+
+namespace hanmo::resident {
+Outcome<GrowthPermanentCatalog> decode_growth_permanent_catalog(const BoundaryValue& practice_definitions,const BoundaryValue& milestone_definitions,const BoundaryValue& config,const CatalogIdentity& identity,const CommonCatalog& common){try{
+ using namespace boundary;constexpr std::string_view path="growth_permanent_contributions";
+ fields(config,{"profile","practice_rule_ids","milestone_rule_ids"},{},path);
+ if(get_string(config,"profile",path)!="verified_work_growth_v1")fail("GrowthPermanentAuthorProfileUnsupported",checkpoint_decode_boundary_join({path,"/profile"}));
+ const auto& practice_ids=array(field(config,"practice_rule_ids",path),checkpoint_decode_boundary_join({path,"/practice_rule_ids"}));
+ const auto& milestone_ids=array(field(config,"milestone_rule_ids",path),checkpoint_decode_boundary_join({path,"/milestone_rule_ids"}));
+ if(practice_ids.size()>4096||milestone_ids.size()>4096)fail("GrowthPermanentCatalogTooLarge",path);
+ // The outer content dictionary is borrowed. Duplicate keys are rejected even
+ // when they would otherwise make the selected lookup order-dependent.
+ const auto definitions=[&](const BoundaryValue& input,std::string_view at){const auto& rows=object(input,at);if(rows.size()>CodecVisitor::max_items)fail("GrowthPermanentCatalogTooLarge",at);for(std::size_t i=0;i<rows.size();++i){if(rows[i].first.empty()||rows[i].first.size()>256)fail("GrowthPermanentRuleIdentityInvalid",at);for(std::size_t j=0;j<i;++j)if(rows[i].first==rows[j].first)fail("DuplicateGrowthPermanentDefinition",rows[i].first);}};
+ definitions(config,path);definitions(practice_definitions,"practice_award_rules");definitions(milestone_definitions,"attribute_milestone_rules");
+ std::optional<ScopedCheckpointJsonDecode> catalog_scope;if(ScopedCheckpointBoundaryDecode::current())catalog_scope.emplace(CheckpointCatalogJsonKind::growth_permanent_definitions);if(auto* budget=ScopedCheckpointJsonDecode::current())budget->default_values<GrowthPermanentCatalog>();
+ GrowthPermanentCatalog result;result.identity=copy_native_catalog_identity_for_decode(identity);
+ CheckpointCatalogRows<PracticeAwardRule> practice_rows(practice_ids.size(),path);
+
+ for(const auto& value:practice_ids){const auto key=string(value,checkpoint_decode_boundary_join({path,"/practice_rule_ids"}));if(key.empty()||key.size()>256||practice_rows.find(key))fail("DuplicateOrInvalidPracticeRuleSelection",key);auto rule=decode_work_practice_definition(field(practice_definitions,key,"practice_award_rules"),identity);if(!rule.ok)return {false,{},rule.error};if(rule.value.rule_ref.id!=key)fail("GrowthPermanentRuleIdentityInvalid",key);if(!practice_rows.insert(key,std::move(rule.value)))fail("DuplicatePracticeRuleSelection",key);}
+ practice_rows.publish(result.practice_rules);
+ CheckpointCatalogRows<AttributeMilestoneRule> milestone_rows(milestone_ids.size(),path);
+ for(const auto& value:milestone_ids){const auto key=string(value,checkpoint_decode_boundary_join({path,"/milestone_rule_ids"}));if(key.empty()||key.size()>256||milestone_rows.find(key))fail("DuplicateOrInvalidMilestoneRuleSelection",key);auto rule=decode_work_attribute_milestone_definition(field(milestone_definitions,key,"attribute_milestone_rules"),identity);if(!rule.ok)return {false,{},rule.error};if(rule.value.rule_ref.id!=key)fail("GrowthPermanentRuleIdentityInvalid",key);if(!milestone_rows.insert(key,std::move(rule.value)))fail("DuplicateMilestoneRuleSelection",key);}
+ milestone_rows.publish(result.milestone_rules);
+ auto valid=validate_growth_permanent_catalog(result,common);return {valid.ok,std::move(result),valid.error};
+}catch(const boundary::DecodeFailure& failure){return {false,{},failure.error};}}
+}

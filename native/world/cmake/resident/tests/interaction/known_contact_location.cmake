@@ -1,0 +1,14 @@
+# 交互与对白消费者登记：保留本组目标、测试、条件与局部变量的原执行顺序。
+# 本人原接触来源与未知去向窄门；不代整World或GUI。
+add_executable(test_resident_known_contact_location tests/resident/known_contact_location_test.cpp)
+target_link_libraries(test_resident_known_contact_location PRIVATE hanmo_resident)
+target_include_directories(test_resident_known_contact_location PRIVATE src)
+target_compile_options(test_resident_known_contact_location PRIVATE -UNDEBUG -fno-fast-math -ffp-contract=off)
+add_test(NAME resident_known_contact_location COMMAND test_resident_known_contact_location)
+
+# 本人原接触来源与未知去向窄门；不代整World或GUI。
+add_executable(test_resident_known_contact_message tests/resident/known_contact_message_test.cpp)
+target_link_libraries(test_resident_known_contact_message PRIVATE hanmo_resident)
+target_include_directories(test_resident_known_contact_message PRIVATE src)
+target_compile_options(test_resident_known_contact_message PRIVATE -UNDEBUG -fno-fast-math -ffp-contract=off)
+add_test(NAME resident_known_contact_message COMMAND test_resident_known_contact_message)

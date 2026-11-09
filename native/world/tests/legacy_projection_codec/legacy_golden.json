@@ -1,0 +1,633 @@
+{
+  "source": {
+    "ruleset_id": "legacy-test",
+    "content_id": "golden",
+    "content_version": "1",
+    "content_digest": "digest",
+    "engine_build": "test",
+    "rng_backend": "pcg",
+    "scenario_id": "test",
+    "tick": 9,
+    "revision": 12
+  },
+  "provenance": {
+    "source_commit": "1111111111111111111111111111111111111111",
+    "schema_sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+    "rule_modules": [
+      {
+        "id": "builtin",
+        "version": "1"
+      }
+    ]
+  },
+  "actors": [
+    {
+      "id": "a",
+      "alive": true,
+      "available": true,
+      "hp": 100,
+      "fatigue": 2,
+      "merit": 0,
+      "wallet_id": "wallet:a",
+      "inventory_id": "bag:a",
+      "action_id": "action:1",
+      "location": {
+        "kind": "Settlement",
+        "place_id": "place",
+        "settlement_id": "city",
+        "extra_location": [
+          null,
+          true
+        ]
+      },
+      "attributes": {
+        "wit": 50
+      },
+      "skills": {
+        "rites": 20
+      },
+      "extra": {
+        "": "keep"
+      }
+    },
+    {
+      "id": "actor:6",
+      "prototype_id": "prototype",
+      "display_name": "后来的人",
+      "birth_tick": -3,
+      "created_tick": 8,
+      "alive": true,
+      "available": false,
+      "hp": 60,
+      "fatigue": 100,
+      "merit": 0,
+      "wallet_id": "personal:actor:6",
+      "inventory_id": "bag:actor:6",
+      "action_id": "action:1",
+      "location": {
+        "kind": "Following",
+        "party_id": "party:1"
+      },
+      "appearance": {
+        "retained": [
+          "x",
+          "y"
+        ]
+      }
+    }
+  ],
+  "wallets": [
+    {
+      "id": "wallet:a",
+      "owner": {
+        "kind": "actor",
+        "id": "a"
+      },
+      "balance": 100,
+      "reserved": {
+        "action:1": 0
+      },
+      "note": null
+    },
+    {
+      "id": "personal:actor:6",
+      "owner": {
+        "kind": "actor",
+        "id": "actor:6"
+      },
+      "balance": 10,
+      "reserved": {
+        "action:1": 3
+      }
+    },
+    {
+      "id": "wallet:org",
+      "owner": {
+        "kind": "organization",
+        "id": "org"
+      },
+      "balance": 20,
+      "reserved": {
+        "action:1": 5
+      }
+    }
+  ],
+  "inventories": [
+    {
+      "id": "bag:a",
+      "owner": {
+        "kind": "actor",
+        "id": "a"
+      },
+      "capacity": 20,
+      "revision": 1,
+      "lots": [
+        {
+          "id": "lot:z",
+          "item_id": "grain",
+          "quantity": 3,
+          "owner": {
+            "kind": "task",
+            "id": "task:1",
+            "note": {
+              "b": [
+                null,
+                true,
+                -9223372036854775808,
+                9223372036854775807
+              ],
+              "a": "书"
+            }
+          },
+          "reserved_by": "",
+          "lot_extra": {
+            "ordered": [
+              "z",
+              "a"
+            ]
+          }
+        },
+        {
+          "id": "lot:a",
+          "item_id": "grain",
+          "quantity": 2,
+          "owner": {
+            "kind": "actor",
+            "id": "a"
+          },
+          "reserved_by": ""
+        },
+        {
+          "id": "lot:r",
+          "item_id": "grain",
+          "quantity": 10,
+          "owner": {
+            "kind": "task",
+            "id": "task:1"
+          },
+          "reserved_by": "action:1"
+        }
+      ],
+      "inventory_extra": [
+        "first",
+        "second"
+      ],
+      "": false
+    },
+    {
+      "id": "bag:actor:6",
+      "owner": {
+        "kind": "actor",
+        "id": "actor:6"
+      },
+      "capacity": 20,
+      "revision": 0,
+      "lots": []
+    }
+  ],
+  "activities": [
+    {
+      "id": "action:1",
+      "kind": "wait",
+      "actor_id": "a",
+      "participants": [
+        "actor:6",
+        "a"
+      ],
+      "start_tick": 2147483647,
+      "remaining_ticks": 1,
+      "params": {
+        "ordered": [
+          "second",
+          "first"
+        ],
+        "original_type": [
+          1,
+          "1",
+          true
+        ]
+      },
+      "extra_action": null
+    }
+  ],
+  "offices": [
+    {
+      "state": {
+        "id": "office:on",
+        "holder_actor_id": "a",
+        "enabled": true,
+        "appointment_id": "action:appointment",
+        "extra_office": 0
+      },
+      "definition": {
+        "id": "office:on",
+        "name_key": "on",
+        "organization_id": "org",
+        "garrison_id": "camp",
+        "appointing_role_id": "role",
+        "command_scope": "army"
+      }
+    },
+    {
+      "state": {
+        "id": "office:off",
+        "holder_actor_id": "a",
+        "enabled": false,
+        "appointment_id": "missing-historical-fact"
+      },
+      "definition": {
+        "id": "office:off",
+        "name_key": "off",
+        "organization_id": "org",
+        "garrison_id": "camp",
+        "appointing_role_id": "role",
+        "command_scope": "army"
+      }
+    }
+  ],
+  "organizations": [
+    {
+      "id": "org",
+      "name_key": "org_name",
+      "kind": "political",
+      "leader_actor": "unactivated.leader",
+      "extra_definition": {
+        "a": 1
+      }
+    }
+  ],
+  "references": {
+    "tasks": [
+      "task:1"
+    ],
+    "parties": [
+      "party:1"
+    ],
+    "armies": [
+      "army:1"
+    ],
+    "catalog_actors": [
+      "a",
+      "prototype",
+      "unactivated.leader"
+    ],
+    "places": [
+      "place"
+    ],
+    "settlements": [
+      "city"
+    ],
+    "routes": [
+      "route"
+    ],
+    "world_maps": [
+      "map"
+    ],
+    "items": [
+      "grain"
+    ],
+    "offices": [
+      "office:on",
+      "office:off"
+    ],
+    "garrisons": [
+      "camp"
+    ],
+    "roles": [
+      "role"
+    ]
+  },
+  "items": [
+    {
+      "id": "grain",
+      "weight": 1,
+      "name_key": "grain_name"
+    }
+  ],
+  "facts": [
+    {
+      "id": "actor:6",
+      "record": {
+        "kind": "actor_creation",
+        "actor_id": "actor:6",
+        "prototype_id": "prototype",
+        "display_name": "后来的人",
+        "birth_tick": -3,
+        "created_tick": 8,
+        "source": "fact:adopt"
+      }
+    },
+    {
+      "id": "fact:adopt",
+      "record": {
+        "kind": "family_adoption",
+        "original_field": {
+          "values": [
+            3,
+            2,
+            1
+          ]
+        }
+      }
+    },
+    {
+      "id": "action:appointment",
+      "record": {
+        "kind": "military_action",
+        "command": "office_accept",
+        "phase": "completed",
+        "success": true,
+        "actor_id": "a",
+        "terms": {
+          "office_id": "office:on"
+        }
+      }
+    }
+  ],
+  "coverage": {
+    "ownership": [
+      {
+        "owner": "builtin",
+        "container": "root",
+        "scope": "root",
+        "key": "uncovered_domain",
+        "status": "deferred"
+      }
+    ],
+    "records": [
+      {
+        "kind": "actor",
+        "id": "a",
+        "known": [
+          "action_id",
+          "alive",
+          "available",
+          "fatigue",
+          "hp",
+          "id",
+          "inventory_id",
+          "location",
+          "merit",
+          "wallet_id"
+        ],
+        "extras": [
+          "attributes",
+          "extra",
+          "skills"
+        ]
+      },
+      {
+        "kind": "actor",
+        "id": "actor:6",
+        "known": [
+          "action_id",
+          "alive",
+          "available",
+          "birth_tick",
+          "created_tick",
+          "display_name",
+          "fatigue",
+          "hp",
+          "id",
+          "inventory_id",
+          "location",
+          "merit",
+          "prototype_id",
+          "wallet_id"
+        ],
+        "extras": [
+          "appearance"
+        ]
+      },
+      {
+        "kind": "wallet",
+        "id": "wallet:a",
+        "known": [
+          "balance",
+          "id",
+          "owner",
+          "reserved"
+        ],
+        "extras": [
+          "note"
+        ]
+      },
+      {
+        "kind": "wallet",
+        "id": "personal:actor:6",
+        "known": [
+          "balance",
+          "id",
+          "owner",
+          "reserved"
+        ],
+        "extras": []
+      },
+      {
+        "kind": "wallet",
+        "id": "wallet:org",
+        "known": [
+          "balance",
+          "id",
+          "owner",
+          "reserved"
+        ],
+        "extras": []
+      },
+      {
+        "kind": "inventory",
+        "id": "bag:a",
+        "known": [
+          "capacity",
+          "id",
+          "lots",
+          "owner",
+          "revision"
+        ],
+        "extras": [
+          "",
+          "inventory_extra"
+        ]
+      },
+      {
+        "kind": "inventory",
+        "id": "bag:actor:6",
+        "known": [
+          "capacity",
+          "id",
+          "lots",
+          "owner",
+          "revision"
+        ],
+        "extras": []
+      },
+      {
+        "kind": "activity",
+        "id": "action:1",
+        "known": [
+          "actor_id",
+          "id",
+          "kind",
+          "params",
+          "participants",
+          "remaining_ticks",
+          "start_tick"
+        ],
+        "extras": [
+          "extra_action"
+        ]
+      },
+      {
+        "kind": "organization",
+        "id": "org",
+        "known": [
+          "id",
+          "kind",
+          "leader_actor",
+          "name_key"
+        ],
+        "extras": [
+          "extra_definition"
+        ]
+      },
+      {
+        "kind": "item",
+        "id": "grain",
+        "known": [
+          "id",
+          "weight"
+        ],
+        "extras": [
+          "name_key"
+        ]
+      },
+      {
+        "kind": "lot",
+        "id": "lot:z",
+        "known": [
+          "id",
+          "item_id",
+          "owner",
+          "quantity",
+          "reserved_by"
+        ],
+        "extras": [
+          "lot_extra"
+        ]
+      },
+      {
+        "kind": "lot",
+        "id": "lot:a",
+        "known": [
+          "id",
+          "item_id",
+          "owner",
+          "quantity",
+          "reserved_by"
+        ],
+        "extras": []
+      },
+      {
+        "kind": "lot",
+        "id": "lot:r",
+        "known": [
+          "id",
+          "item_id",
+          "owner",
+          "quantity",
+          "reserved_by"
+        ],
+        "extras": []
+      },
+      {
+        "kind": "office_state",
+        "id": "office:on",
+        "known": [
+          "appointment_id",
+          "enabled",
+          "holder_actor_id",
+          "id"
+        ],
+        "extras": [
+          "extra_office"
+        ]
+      },
+      {
+        "kind": "office_definition",
+        "id": "office:on",
+        "known": [],
+        "extras": [
+          "appointing_role_id",
+          "command_scope",
+          "garrison_id",
+          "id",
+          "name_key",
+          "organization_id"
+        ]
+      },
+      {
+        "kind": "office_state",
+        "id": "office:off",
+        "known": [
+          "appointment_id",
+          "enabled",
+          "holder_actor_id",
+          "id"
+        ],
+        "extras": []
+      },
+      {
+        "kind": "office_definition",
+        "id": "office:off",
+        "known": [],
+        "extras": [
+          "appointing_role_id",
+          "command_scope",
+          "garrison_id",
+          "id",
+          "name_key",
+          "organization_id"
+        ]
+      },
+      {
+        "kind": "fact",
+        "id": "actor:6",
+        "known": [
+          "kind"
+        ],
+        "extras": [
+          "actor_id",
+          "birth_tick",
+          "created_tick",
+          "display_name",
+          "prototype_id",
+          "source"
+        ]
+      },
+      {
+        "kind": "fact",
+        "id": "fact:adopt",
+        "known": [
+          "kind"
+        ],
+        "extras": [
+          "original_field"
+        ]
+      },
+      {
+        "kind": "fact",
+        "id": "action:appointment",
+        "known": [
+          "kind"
+        ],
+        "extras": [
+          "actor_id",
+          "command",
+          "phase",
+          "success",
+          "terms"
+        ]
+      }
+    ]
+  }
+}

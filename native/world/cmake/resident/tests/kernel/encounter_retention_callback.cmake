@@ -1,0 +1,7 @@
+# 世界内核与共享事务消费者登记：保留本组目标、测试、条件与局部变量的原执行顺序。
+# 原安装回调与现有保留列表同次绑定；不新增路遇或运输权限。
+add_executable(test_resident_encounter_retention_callback tests/resident/encounter_retention_callback_test.cpp)
+target_link_libraries(test_resident_encounter_retention_callback PRIVATE hanmo_resident)
+target_include_directories(test_resident_encounter_retention_callback PRIVATE src)
+target_compile_options(test_resident_encounter_retention_callback PRIVATE -UNDEBUG -fno-fast-math -ffp-contract=off)
+add_test(NAME resident_encounter_retention_callback COMMAND test_resident_encounter_retention_callback)

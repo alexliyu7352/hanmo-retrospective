@@ -1,0 +1,14 @@
+# 军旅与战斗消费者登记：保留本组目标、测试、条件与局部变量的原执行顺序。
+# Common冷边界只放行已登记Naval5的两个精确事实标签，后验仍由原Naval领域负责。
+add_executable(test_resident_naval_navigation_common_boundary tests/resident/naval_navigation_common_boundary_test.cpp)
+target_link_libraries(test_resident_naval_navigation_common_boundary PRIVATE hanmo_resident)
+target_include_directories(test_resident_naval_navigation_common_boundary PRIVATE src)
+target_compile_options(test_resident_naval_navigation_common_boundary PRIVATE -UNDEBUG -fno-fast-math -ffp-contract=off)
+add_test(NAME resident_naval_navigation_common_boundary COMMAND test_resident_naval_navigation_common_boundary)
+
+# 舰载普通攻击沿入战技艺原来源及原伤亡守恒的必要组件门。
+add_executable(test_resident_naval_gunnery tests/resident/naval_gunnery_test.cpp)
+target_link_libraries(test_resident_naval_gunnery PRIVATE hanmo_resident)
+target_include_directories(test_resident_naval_gunnery PRIVATE src)
+target_compile_options(test_resident_naval_gunnery PRIVATE -UNDEBUG -fno-fast-math -ffp-contract=off)
+add_test(NAME resident_naval_gunnery COMMAND test_resident_naval_gunnery)

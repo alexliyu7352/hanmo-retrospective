@@ -1,0 +1,19 @@
+#include "resident/checkpoint/checkpoint_decode_lifecycle.hpp"
+#include "resident/domains/tasks/task_dynamic_projection.hpp"
+#include "resident/domains/interaction/interaction_source_projection.hpp"
+// 只新增独立打开来源段；原Interaction会话和AuthoredNodeSource visitor字节保持原样。
+#include "known_personal_dialogue_state.hpp"
+#include "known_personal_dialogue_codec_detail.hpp"
+namespace hanmo::resident {namespace {
+template<class A>Status binding(A& a,KnownPersonalDialoguePlayerReceipt& r){a.field("result_id",r.result_id);a.field("request_actor_id",r.request_actor_id);a.field("request_sequence",r.request_sequence);return a.field("result_revision",r.result_revision);}
+template<class A>Status opening(A& a,KnownPersonalDialogueOpening& r){a.field("fact_id",r.fact_id);a.field("template_id",r.template_id);a.field("session_id",r.session_id);a.object("listener_origin",[&](auto& c){return known_personal_codec::origin(c,r.listener_origin);});a.object("provider_origin",[&](auto& c){return known_personal_codec::origin(c,r.provider_origin);});a.field("dialogue_id",r.dialogue_id);a.field("place_id",r.place_id);a.field("tick",r.tick);return a.optional("player_receipt",r.player_receipt,[](auto& c,auto& v){return binding(c,v);});}
+template<class A>Status state(A& a,KnownPersonalDialogueState& s){a.field("version",s.version);if(s.version!=1)return a.reject("UnsupportedKnownPersonalDialogueVersion");return dynamic_codec::table(a,"openings",s.openings,[](auto& c,auto& r){return opening(c,r);});}
+
+}
+Status visit_known_personal_dialogues_checkpoint(CodecVisitor& a,KnownPersonalDialogueState& s){return state(a,s);}
+Status emit_known_personal_dialogues_fields(ProjectionWriter&w,const KnownPersonalDialogueState&v){dynamic_projection::Archive a(w);return state(a,const_cast<KnownPersonalDialogueState&>(v));}
+BoundaryValue encode_known_personal_dialogues(const KnownPersonalDialogueState& s){BoundaryValue value;BoundaryProjectionWriter writer(value);auto checked=writer.object("",[&](auto& out){return emit_known_personal_dialogues_fields(out,s);});if(checked.ok)checked=writer.finish();if(!checked.ok){boundary::DecodeFailure failure(checked.error.original.code,checked.error.original.path);failure.error=checked.error;throw failure;}return value;}
+Outcome<KnownPersonalDialogueState> decode_known_personal_dialogues(const BoundaryValue& v){auto valid=known_personal_codec::unique(v);if(!valid.ok)return {false,{},valid.error};KnownPersonalDialogueState s;dynamic_codec::JsonArchive a(v);valid=state(a,s);if(valid.ok)valid=a.finish();return valid.ok?Outcome<KnownPersonalDialogueState>{true,std::move(s),{}}:Outcome<KnownPersonalDialogueState>{false,{},valid.error};}
+Status emit_known_personal_dialogue_fact_fields(ProjectionWriter&w,const KnownPersonalDialogueState&s,const StableId&id,const FactRecord*expected){dynamic_projection::Archive a(w);Status valid;StableId kind;const StableId*actual_id=nullptr;if(const auto*row=s.openings.find(id)){valid=opening(a,const_cast<KnownPersonalDialogueOpening&>(*row));kind=known_personal_dialogue_opened_kind;actual_id=&row->fact_id;}else return common_failure("UnknownKnownPersonalDialogueFact",id);if(!valid.ok)return valid;if(expected&&(!actual_id||*actual_id!=id||kind!=expected->kind))return common_failure("KnownPersonalDialogueFactMismatch",id);w.field("kind",kind);w.text("domain",std::string_view(known_personal_dialogue_module));return w.status();}
+Outcome<BoundaryValue> encode_known_personal_dialogue_fact(const KnownPersonalDialogueState& s,const StableId& id){BoundaryValue value;BoundaryProjectionWriter writer(value);auto checked=writer.object("",[&](auto& out){return emit_known_personal_dialogue_fact_fields(out,s,id);});if(checked.ok)checked=writer.finish();return checked.ok?Outcome<BoundaryValue>{true,std::move(value),{}}:Outcome<BoundaryValue>{false,{},checked.error};}
+}

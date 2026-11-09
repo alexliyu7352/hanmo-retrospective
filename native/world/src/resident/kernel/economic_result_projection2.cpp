@@ -1,0 +1,28 @@
+#include "economic_result_projection2.hpp"
+namespace hanmo::resident {namespace {
+template<class T>Outcome<T> bad(const char*c,const StableId&id){return {false,{},common_failure(c,id,ErrorKind::internal).error};}
+bool is(const StableId&v,std::initializer_list<const char*> names){for(auto*n:names)if(v==n)return true;return false;}
+Outcome<const TransportPaymentReceipt*> transport_source(const EconomicResultProjectionAccess&a,const FactRecord&h){
+ if(!a.transport){if(h.domain=="local_economy"&&h.kind=="transport_expense_paid")return bad<const TransportPaymentReceipt*>("EconomicTransportOwnerRequired",h.id);if(h.domain=="local_economy"&&is(h.kind,{"contract_payment_due","obligation_payment"})){StableId obligation;if(h.kind=="contract_payment_due"){const auto*d=a.economy.arrears.find(h.id);if(d)obligation=d->obligation_id;}else{const auto*p=a.economy.payments.find(h.id);if(p)obligation=p->obligation_id;}const auto*o=a.economy.obligations.find(obligation);const auto*origin=o?a.common.state().facts.find(o->authority_ref):nullptr;if(origin&&origin->domain=="local_economy"&&origin->kind=="transport_expense_paid")return bad<const TransportPaymentReceipt*>("EconomicTransportOwnerRequired",h.id);}return {true,nullptr,{}};}
+ auto actual=read_economic_transport_fact_moment(a.common,a.economy,*a.transport,{h.domain,h.kind,h.id});if(!actual.ok)return {false,{},actual.error};if(!actual.value)return {true,nullptr,{}};
+ // Original owner has checked the unique receipt and every money leg. Borrow its
+ // descriptive fields only; no second acceptance or economic fact is produced.
+ for(const auto&v:a.transport->payments)if((h.kind=="transport_expense_paid"&&h.id==v.id)||(h.kind=="contract_payment_due"&&h.id==v.original_arrear_id)||(h.kind=="obligation_payment"&&h.id==v.original_payment_receipt_id))return {true,&v,{}};
+ return bad<const TransportPaymentReceipt*>("EconomicTransportPayloadMissing",h.id);
+}
+}
+bool native_economic_publication_kind(const FactRecord&h){if(h.domain=="economic_supply_policies")return is(h.kind,{"economic_supply_policy_issued","economic_supply_observed"});if(h.domain!="local_economy")return false;return is(h.kind,{"local_supply_source","local_supply_observation","local_ration","local_production","wage_due","contract_payment_due","obligation_payment","fiscal_source_registered","fiscal_period_assessed","fiscal_source_assessed","fiscal_payment","occupation_fiscal_period_assessed","occupation_fiscal_source_assessed","occupation_fiscal_period_suspended","occupation_fiscal_payment","transport_expense_paid"});}
+Outcome<ExactOwnerFactRead> read_economic_publication_v2(const EconomicResultProjectionAccess&a,const FactRecord&h){
+ if(!native_economic_publication_kind(h))return {false,{},common_failure("UnsupportedEconomicPublicationKind",h.id,ErrorKind::unsupported_capability).error};const auto*header=a.common.state().facts.find(h.id);if(!header||header->domain!=h.domain||header->kind!=h.kind)return bad<ExactOwnerFactRead>("EconomicPublicationHeaderMismatch",h.id);
+ auto transport=transport_source(a,h);if(!transport.ok)return {false,{},transport.error};std::optional<DynamicFactView> old;
+ if(h.domain=="economic_supply_policies"){if(!a.supply)return bad<ExactOwnerFactRead>("EconomicSupplyResultReadRequired",h.id);auto read=economic_supply_policy_dynamic_fact(*a.supply,h.id);if(!read.ok)return {false,{},read.error};old=std::move(read.value);}
+ else if(is(h.kind,{"fiscal_source_registered","fiscal_period_assessed","fiscal_source_assessed","fiscal_payment"})){if(!a.fiscal||!a.fiscal_catalog)return bad<ExactOwnerFactRead>("FiscalResultReadRequired",h.id);old=fiscal_settlement_dynamic_fact(*a.fiscal,*a.fiscal_catalog,h.id);}
+ else if(is(h.kind,{"occupation_fiscal_period_assessed","occupation_fiscal_source_assessed","occupation_fiscal_period_suspended","occupation_fiscal_payment"})){if(!a.occupation||!a.fiscal_catalog)return bad<ExactOwnerFactRead>("OccupationFiscalResultReadRequired",h.id);old=occupation_fiscal_dynamic_fact(*a.occupation,*a.fiscal_catalog,h.id);}
+ else if(h.kind!="transport_expense_paid")old=local_economy_dynamic_fact(a.economy,h.id);
+ if(h.kind=="transport_expense_paid"){if(!transport.value)return bad<ExactOwnerFactRead>("EconomicTransportTimeSourceMissing",h.id);const auto&v=*transport.value;DynamicFactView f;f.id=h.id;f.kind=h.kind;f.rule_version=v.expense.cost_rule_id;f.tick=v.expense.occurred_at.half_day_tick;f.subject_id=v.expense.journey_id;f.outcome="paid";if(!v.original_payment_receipt_id.empty())f.cause_fact_ids={v.original_payment_receipt_id};old=std::move(f);}
+ if(!old||old->id!=h.id||old->kind!=h.kind||old->tick<0)return bad<ExactOwnerFactRead>("EconomicPublicationPayloadMissing",h.id);
+ DynamicFactViewV2 f{old->id,old->kind,old->rule_version,{old->tick,{}},LegacyFactBoundary{old->tick,1},old->cause_fact_ids,old->affair_ids,old->participants,old->supply,old->obligation,old->subject_id,old->outcome,old->publicly_visible};
+ if(transport.value){const auto&v=*transport.value;if(old->tick!=v.expense.occurred_at.half_day_tick)return bad<ExactOwnerFactRead>("EconomicTransportProjectionTickMismatch",h.id);f.occurred_at=v.expense.occurred_at;f.time_basis=OwnerFactMoment{v.expense.source_ref,v.expense.source_schema};}
+ ExactOwnerFactRead out;out.reportable=f.supply.has_value()||f.obligation.has_value();if(out.reportable)for(const auto&p:f.participants)if(std::none_of(out.direct_observers.begin(),out.direct_observers.end(),[&](const auto&s){return s.kind==p.subject.kind&&s.id==p.subject.id;}))out.direct_observers.push_back(p.subject);out.fact=std::move(f);return {true,std::move(out),{}};
+}
+}

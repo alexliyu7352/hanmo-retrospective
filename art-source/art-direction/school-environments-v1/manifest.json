@@ -1,0 +1,142 @@
+{
+  "schema_version": 1,
+  "asset_id": "qingchuan.school.clean.candidate-01",
+  "place_id": "place.school",
+  "settlement_id": "settlement.qingchuan",
+  "name_zh": "青川讲舍",
+  "status": "OFFLINE_REVIEWED_CANDIDATE_PENDING_USER_REVIEW",
+  "tool": "built-in image_gen.imagegen",
+  "generation_completed_at_utc": "2026-10-08T16:48:17Z",
+  "generation_calls": 1,
+  "retries": 0,
+  "pixel_edits_after_generation": false,
+  "original_generated_path": "<本地路径>",
+  "source": "art-source/art-direction/school-environments-v1/source/school-clean-candidate-01.png",
+  "prompt": "art-source/art-direction/school-environments-v1/prompt-01-school-clean.txt",
+  "prompt_sha256": "64fcba59483f520931153d40de78dc36a47b0e6466f13a83a67e16f3e00e2344",
+  "shared_style_sha256": "e4d3b1d37c7e4806a5f000404ef4b3e98f3e6afcb82076a563000061c89e0e36",
+  "shared_style_source": {
+    "path": "game/assets/art/alpha-visual/manifest.json",
+    "git_blob_oid": "0942666967f6b5b89fd259384149c5608cf484ca",
+    "sha256": "cf5fd10647d22ce647150c1a87ff5642e5339aadfac03300df7be283bf732438",
+    "fields": [
+      "artifacts[id=shop].generation_prompt",
+      "artifacts[id=hall].generation_prompt",
+      "artifacts[id=tavern].generation_prompt"
+    ],
+    "prefix_exactly_equal_verified": true
+  },
+  "dimensions": [
+    1536,
+    1024
+  ],
+  "mode": "RGB",
+  "format": "PNG",
+  "byte_size": 2776495,
+  "sha256": "f88f3eb2bde347fd7124b7812d431390732e3e7f22fb8b3bf6fedb85cda707e0",
+  "git_blob_oid": "60f9cfb755807a0f1e858bc1628f99045a75b429",
+  "references": [
+    {
+      "order": 1,
+      "role": "批准的画风/木土材质/自然光参考，未复制其人物、文字、UI或酒肆内容",
+      "page_id": "（私人对话链接已移除）",
+      "page_reference": "library-file:fde1_bGliZmlsZV9GeE5CeFgtWFZURUYxeG43ZlZKcE9B_FileDrive_8cdcd7634b148191bae793432241f4ab",
+      "repository_correspondence": "art-source/art-direction/scene-layout/v4/browse.png",
+      "sha256": "038399251309bb8ed84a858ec669db43689d1f81a44b21663be34c7540caf1ad",
+      "byte_size": 2310950,
+      "actual_pixels_viewed": true,
+      "access_method": "chatgpt_space.read_page_reference; image returned directly, no local path claimed"
+    },
+    {
+      "order": 2,
+      "role": "既有同组背景的构图、材质和完成度参照；不借用其场所语义",
+      "path": "game/assets/art/alpha-visual/shop.png",
+      "sha256": "3be27424e052c9f1bc6b8982f0cc55d621a49895744c94625c3f43a4d862673a",
+      "git_blob_oid": "e5e0d4da0a7115e631713f58db7c57c0c732cadd",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "actual_pixels_viewed": true
+    }
+  ],
+  "reference_input_method": "num_last_images_to_include=2; both exact reference images inspected before one generation",
+  "design_basis": {
+    "path": "docs/presentation/art-design.md",
+    "git_blob_oid": "a76198974f35e21d8b1472acfd2bfd2cb16358d4",
+    "version": "0.26",
+    "sections": [
+      "02",
+      "11",
+      "17",
+      "18"
+    ],
+    "read_copy_verified_equal_to_head_tree": true
+  },
+  "gap_basis": {
+    "path": "content/packs/authored/local_society_1_11/content.json",
+    "git_blob_oid": "e97400ed6a11352892fb3fdd2786044764f8da22",
+    "observation": "place.school visual_tag=city；现有包内只登记qingchuan.grain.city场景模板，无讲舍专属模板。这里只补待审素材，不修改绑定。"
+  },
+  "history_basis": "本作设计推定；沿已确认汉末方向的土木结构、低案席坐、竹简、陶器与自然光。未作逐件考古复原核证。",
+  "delivery_state": {
+    "approved_by_user": false,
+    "editable_layered_source": false,
+    "foreground_occlusion_layers": false,
+    "state_variants": false,
+    "runtime_export": false,
+    "runtime_registered": false,
+    "godot_import_tested": false,
+    "gui_tested": false
+  },
+  "offline_checks": {
+    "image_integrity": "Pillow verify及全像素load通过；项目PNG与原生成PNG逐字节SHA256相同。",
+    "style": "制作工位与父工位实际查看候选及参考；木土/竹席/瓦/竹简材质、暖色自然光、笔触和空间深度与同组shop一致。此结论仅为候选可保留，不是用户视觉批准。",
+    "subject": "低讲案与简册、侧列学生低案和席垫可辨为书写/授课空间；右侧门口可见返院通路。",
+    "clean_background": "未见人物、脸、剪影、可读或伪造文字、UI、数字、logo、水印或画面装饰外框。空白挂幅不是动态文字层。",
+    "materials_and_period_screen": "未见高背椅、现代课桌黑板、现代装订书、玻璃煤油灯或明显魔法构件；桌上小型器具和竹简陈列仍属设计推定。",
+    "light": "左右开口和右侧院落有可解释的自然日光，木梁与地面有方向和柔和反光；无烘焙人工状态光。",
+    "composition": "中央至右中部有连续地面；讲案与院门位于中间可读带。底边和两侧陈设自然截边，四边无白框/透明漏边。",
+    "resolution": "实际1536×1024，低于规划2560×1440且为3:2；未放大、裁切、重采样或冒充高分源。",
+    "runtime_limits": "仅静态原图审查及几何计算。当前scene_stage.gd使用等比居中cover；1280×720理论保留源图y=80..944，关键讲案/院门在内，但真实GUI覆盖、人物合成、窄窗及字号均未运行。窄至1:1会裁去院门右部，不能宣布全宽高比通过。"
+  },
+  "layout_notes": {
+    "coordinate_basis": "原图左上原点，像素1536×1024；以下为人工离线建议，不是引擎热点或已验证锚点。",
+    "primary_character_foot_suggestion_px": [
+      560,
+      590
+    ],
+    "secondary_character_feet_suggestions_px": [
+      [
+        880,
+        675
+      ],
+      [
+        1090,
+        645
+      ]
+    ],
+    "teaching_table_visual_region_xyxy_px": [
+      285,
+      365,
+      735,
+      525
+    ],
+    "return_door_visual_region_xyxy_px": [
+      1120,
+      150,
+      1400,
+      535
+    ],
+    "open_floor_visual_region_xyxy_px": [
+      480,
+      550,
+      1370,
+      860
+    ],
+    "future_occlusion_requirements": "若人物放在讲案/学生案后，须另外制作前景遮挡及补全底景；本PNG家具均已合并，不应假称可编辑分层。",
+    "future_ui_review": "按已批准底部本处/来客、右侧同行及居中对白叠真控件审核；阳光斑驳区不可直接当正文底材。"
+  },
+  "authorship_and_rights": "OpenAI内建imagegen生成的项目候选；参考来自本项目已批准设计图和既有生成素材。未引入可分发的商业游戏截图；未另行核验法律许可，不作额外许可保证。",
+  "publication": "仅交中央保全/审查；本工位没有独自推送远端。"
+}

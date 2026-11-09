@@ -1,0 +1,14 @@
+# 军旅与战斗消费者登记：保留本组目标、测试、条件与局部变量的原执行顺序。
+# 军事实际伤亡的稳定/单步来源门，拒绝没有真实半日推进的未来死因。
+add_executable(test_resident_military_actor_death tests/resident/military_actor_death_test.cpp)
+target_link_libraries(test_resident_military_actor_death PRIVATE hanmo_resident)
+target_include_directories(test_resident_military_actor_death PRIVATE src)
+target_compile_options(test_resident_military_actor_death PRIVATE -UNDEBUG -fno-fast-math -ffp-contract=off)
+add_test(NAME resident_military_actor_death COMMAND test_resident_military_actor_death)
+
+# 接管只沿实际整军接任与决定前原事实，不让后来统帅倒改旧战果。
+add_executable(test_resident_naval_capture_quote tests/resident/naval_capture_quote_test.cpp)
+target_link_libraries(test_resident_naval_capture_quote PRIVATE hanmo_resident)
+target_include_directories(test_resident_naval_capture_quote PRIVATE src)
+target_compile_options(test_resident_naval_capture_quote PRIVATE -UNDEBUG -fno-fast-math -ffp-contract=off)
+add_test(NAME resident_naval_capture_quote COMMAND test_resident_naval_capture_quote)

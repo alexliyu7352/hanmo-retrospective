@@ -1,0 +1,14 @@
+# 军旅与战斗消费者登记：保留本组目标、测试、条件与局部变量的原执行顺序。
+# 军粮永久源/匿名兵员守恒窄门；不替代完整World事务运行。
+add_executable(test_resident_military_supply_attrition tests/resident/military_supply_attrition_test.cpp)
+target_link_libraries(test_resident_military_supply_attrition PRIVATE hanmo_resident)
+target_include_directories(test_resident_military_supply_attrition PRIVATE src)
+target_compile_options(test_resident_military_supply_attrition PRIVATE -UNDEBUG -fno-fast-math -ffp-contract=off)
+add_test(NAME resident_military_supply_attrition COMMAND test_resident_military_supply_attrition)
+
+# 军粮永久源/匿名兵员守恒窄门；不替代完整World事务运行。
+add_executable(test_resident_military_supply_attrition_source tests/resident/military_supply_attrition_source_test.cpp)
+target_link_libraries(test_resident_military_supply_attrition_source PRIVATE hanmo_resident)
+target_include_directories(test_resident_military_supply_attrition_source PRIVATE src)
+target_compile_options(test_resident_military_supply_attrition_source PRIVATE -UNDEBUG -fno-fast-math -ffp-contract=off)
+add_test(NAME resident_military_supply_attrition_source COMMAND test_resident_military_supply_attrition_source)

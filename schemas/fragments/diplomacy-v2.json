@@ -1,0 +1,250 @@
+{
+  "format": "hanmo.schema.fragment/1",
+  "version": "diplomacy/2",
+  "property_schema": {
+    "$ref": "#/$defs/diplomacy_catalog"
+  },
+  "$defs": {
+    "diplomacy_catalog": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/diplomacy_catalog_v1"
+        },
+        {
+          "$ref": "#/$defs/diplomacy_catalog_v2"
+        }
+      ]
+    },
+    "diplomacy_catalog_v1": {
+      "type": "object",
+      "properties": {
+        "version": {
+          "const": 1
+        },
+        "enabled": {
+          "const": true
+        },
+        "passage_terms": {
+          "type": "object",
+          "minProperties": 1,
+          "maxProperties": 4096,
+          "additionalProperties": {
+            "$ref": "#/$defs/diplomatic_passage_terms"
+          }
+        },
+        "mission_policies": {
+          "type": "object",
+          "minProperties": 1,
+          "maxProperties": 4096,
+          "additionalProperties": {
+            "$ref": "#/$defs/diplomatic_mission_policy"
+          }
+        }
+      },
+      "required": [
+        "version",
+        "enabled",
+        "passage_terms",
+        "mission_policies"
+      ],
+      "additionalProperties": false
+    },
+    "diplomacy_catalog_v2": {
+      "type": "object",
+      "properties": {
+        "version": {
+          "const": 2
+        },
+        "enabled": {
+          "const": true
+        },
+        "passage_terms": {
+          "type": "object",
+          "minProperties": 1,
+          "maxProperties": 4096,
+          "additionalProperties": {
+            "$ref": "#/$defs/diplomatic_passage_terms"
+          }
+        },
+        "mission_policies": {
+          "type": "object",
+          "minProperties": 1,
+          "maxProperties": 4096,
+          "additionalProperties": {
+            "$ref": "#/$defs/diplomatic_mission_policy_v2"
+          }
+        },
+        "v2": {
+          "type": "object",
+          "properties": {
+            "version": {
+              "const": 2
+            },
+            "delegation_policies": {
+              "type": "object",
+              "minProperties": 1,
+              "maxProperties": 4096,
+              "additionalProperties": {
+                "$ref": "#/$defs/diplomatic_delegation_policy"
+              }
+            }
+          },
+          "required": [
+            "version",
+            "delegation_policies"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "version",
+        "enabled",
+        "passage_terms",
+        "mission_policies",
+        "v2"
+      ],
+      "additionalProperties": false
+    },
+    "diplomatic_mission_policy_v2": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/entity_id"
+        },
+        "name_key": {
+          "$ref": "#/$defs/reference_texts"
+        },
+        "issuer_organization_id": {
+          "$ref": "#/$defs/reference_organizations"
+        },
+        "target_organization_id": {
+          "$ref": "#/$defs/reference_organizations"
+        },
+        "issuer_site_id": {
+          "$ref": "#/$defs/reference_places"
+        },
+        "target_site_id": {
+          "$ref": "#/$defs/reference_places"
+        },
+        "target_office_id": {
+          "$ref": "#/$defs/entity_id"
+        },
+        "passage_terms_ids": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/entity_id"
+          },
+          "minItems": 1,
+          "maxItems": 4096,
+          "uniqueItems": true
+        },
+        "offer_valid_ticks": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 2147483647
+        },
+        "task_terms": {
+          "$ref": "#/$defs/diplomatic_task_terms_v2"
+        }
+      },
+      "required": [
+        "id",
+        "name_key",
+        "issuer_organization_id",
+        "target_organization_id",
+        "issuer_site_id",
+        "target_site_id",
+        "target_office_id",
+        "passage_terms_ids",
+        "offer_valid_ticks"
+      ],
+      "additionalProperties": false
+    },
+    "diplomatic_task_terms_v2": {
+      "type": "object",
+      "properties": {
+        "acceptance_valid_ticks": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 2147483647
+        },
+        "delivery_work_ticks": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 2147483647
+        },
+        "report_work_ticks": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "return_report_required": {
+          "type": "boolean"
+        },
+        "continuity_policy_id": {
+          "const": "continue_under_organization"
+        }
+      },
+      "required": [
+        "acceptance_valid_ticks",
+        "delivery_work_ticks",
+        "report_work_ticks",
+        "return_report_required",
+        "continuity_policy_id"
+      ],
+      "additionalProperties": false,
+      "oneOf": [
+        {
+          "properties": {
+            "return_report_required": {
+              "const": false
+            },
+            "report_work_ticks": {
+              "const": 0
+            }
+          }
+        },
+        {
+          "properties": {
+            "return_report_required": {
+              "const": true
+            },
+            "report_work_ticks": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 2147483647
+            }
+          }
+        }
+      ]
+    },
+    "diplomatic_delegation_policy": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/entity_id"
+        },
+        "mission_policy_id": {
+          "$ref": "#/$defs/entity_id"
+        },
+        "terms_id": {
+          "$ref": "#/$defs/entity_id"
+        },
+        "issuer_office_id": {
+          "$ref": "#/$defs/entity_id"
+        },
+        "envoy_actor_id": {
+          "$ref": "#/$defs/reference_actors"
+        }
+      },
+      "required": [
+        "id",
+        "mission_policy_id",
+        "terms_id",
+        "issuer_office_id",
+        "envoy_actor_id"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

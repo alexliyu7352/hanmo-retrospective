@@ -1,0 +1,5 @@
+Use case: precise-object-edit
+Asset type: separate rectangular water material layer for an existing hand-painted Han-era combat environment.
+Edit target: supplied river-ford.png, using only its river-water painting as the source style.
+Primary request: produce a wide 2.3:1 rectangular close near-overhead view of ONLY the shallow but visibly flowing river surface seen in the source. Fill every pixel to all four edges with river water: muted slate blue, gray green, subtle submerged pebbles, small restrained white ripples and softly painted current. Preserve the original fine semi-realistic painterly medium and natural daylight. No shore, banks, rocks projecting above water, land, vegetation, trees, objects or cast shadows. This tile will be clipped and stretched within the game's already-defined 380x165 movement-only obstacle; it must not add land barriers or imply blocked sightlines.
+Constraints: no horizon, no islands, no foam border, no shoreline contour, no border frame, no transparency, no characters, boats, symbols, text, numbers, grid, arrows, UI or watermark. A continuous water surface material, not a scene.

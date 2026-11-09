@@ -1,0 +1,10 @@
+# 政治与治理消费者登记：保留本组目标、测试、条件与局部变量的原执行顺序。
+add_executable(test_resident_political_shop_command_boundary tests/resident/political_shop_command_boundary_test.cpp)
+target_link_libraries(test_resident_political_shop_command_boundary PRIVATE hanmo_resident)
+target_include_directories(test_resident_political_shop_command_boundary PRIVATE src)
+target_compile_options(test_resident_political_shop_command_boundary PRIVATE -UNDEBUG -fno-fast-math -ffp-contract=off)
+
+add_executable(test_resident_political_shop_licensing tests/resident/political_shop_licensing_test.cpp)
+target_link_libraries(test_resident_political_shop_licensing PRIVATE hanmo_resident)
+target_include_directories(test_resident_political_shop_licensing PRIVATE src)
+target_compile_options(test_resident_political_shop_licensing PRIVATE -UNDEBUG -fno-fast-math -ffp-contract=off)

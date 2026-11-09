@@ -1,0 +1,100 @@
+{
+  "format": "hanmo.schema.fragment/1",
+  "version": "public_relief/1",
+  "status": "authoring-only fragment; governance activation pending",
+  "property_target": "/$defs/dynamic_world/properties/public_relief",
+  "property_schema": {
+    "$ref": "#/$defs/public_relief_catalog"
+  },
+  "$defs": {
+    "public_relief_recipient": {
+      "type": "object",
+      "properties": {
+        "household_group_id": {
+          "$ref": "#/$defs/entity_id"
+        },
+        "cohort_id": {
+          "$ref": "#/$defs/entity_id"
+        },
+        "cash": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "grain": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        }
+      },
+      "required": [
+        "household_group_id",
+        "cohort_id",
+        "cash",
+        "grain"
+      ],
+      "additionalProperties": false
+    },
+    "public_relief_policy": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/entity_id"
+        },
+        "site_id": {
+          "$ref": "#/$defs/reference_places"
+        },
+        "organization_id": {
+          "$ref": "#/$defs/reference_organizations"
+        },
+        "item_id": {
+          "$ref": "#/$defs/reference_items"
+        },
+        "recipients": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 256,
+          "items": {
+            "$ref": "#/$defs/public_relief_recipient"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "site_id",
+        "organization_id",
+        "item_id",
+        "recipients"
+      ],
+      "additionalProperties": false
+    },
+    "public_relief_catalog": {
+      "type": "object",
+      "properties": {
+        "version": {
+          "type": "integer",
+          "const": 1
+        },
+        "policies": {
+          "type": "object",
+          "minProperties": 1,
+          "maxProperties": 1000,
+          "additionalProperties": {
+            "$ref": "#/$defs/public_relief_policy"
+          }
+        }
+      },
+      "required": [
+        "version",
+        "policies"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "integration_notes": [
+    "Independent state/codec, never embed into old local_economy layouts.",
+    "Requires real politics_governance and governance task sources; no default fixed cost or beneficiary.",
+    "Each commission plan must sum exactly to its explicit appeasement rule cash/grain cost.",
+    "Author UI uses existing schema-driven fields; no alternative asset ledger."
+  ]
+}

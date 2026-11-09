@@ -1,0 +1,11 @@
+// /2是C7.6批准范围与RWM精确消费的具名后继，旧known_life_v1保持/1。
+#include "plan_profile.hpp"
+#include "resident/kernel/exact_time_profile.hpp"
+namespace hanmo::resident {
+// 目录仍要在同prepare末尾compose完整Time2所有真实provider，此处不授运行能力。
+Outcome<Integer> decode_player_plan_profile_version(const BoundaryValue& scenario){try{using namespace boundary;const auto* value=scenario.find("player_plan_profile");if(!value)return {true,0,{}};const auto profile=string(*value,"scenario/player_plan_profile");if(profile=="known_life_v1")return {true,1,{}};if(profile!="known_life_time2_v2")return {false,{},common_failure("UnsupportedPlayerPlanProfile","scenario/player_plan_profile",ErrorKind::unsupported_capability).error};auto exact=decode_exact_time_profile(scenario);if(!exact.ok)return {false,{},exact.error};if(!exact.value||!exact_complete_selected(*exact.value))return {false,{},common_failure("PlayerPlanTime2ProfileRequired","scenario/player_plan_profile").error};return {true,2,{}};}catch(const boundary::DecodeFailure& f){return {false,{},f.error};}}
+// 源锁内module选择唯一，不把state.version或任意同名字符串当准入证明。
+Outcome<Integer> read_player_plan_selected_version(const CatalogIdentity& identity){Integer version=0;for(const auto& module:identity.module_versions)if(module.first=="player_plan"){if(version)return {false,{},common_failure("DuplicatePlayerPlanModule").error};if(module.second=="1")version=1;else if(module.second=="2")version=2;else return {false,{},common_failure("UnsupportedPlayerPlanVersion").error};}return {true,version,{}};}
+// enabled是原catalog已准入投影，complete参数仅来自同catalog的实际compiled选择。
+Status validate_player_plan_selected_version(const PlayerPlanState& state,const CatalogIdentity& identity,bool enabled,bool complete_time2_selected){auto selected=read_player_plan_selected_version(identity);if(!selected.ok)return {false,{},selected.error};if(enabled!=(selected.value!=0))return common_failure("PlayerPlanModuleSelectionMismatch");if(!enabled)return state.current?common_failure("UnexpectedPlayerPlanState"):common_success();if(state.version!=selected.value)return common_failure("PlayerPlanSelectedVersionMismatch");if(state.version==2&&!complete_time2_selected)return common_failure("PlayerPlanTime2ProfileRequired");if(state.version==1&&complete_time2_selected)return common_failure("PlayerPlanTime2Required");return validate_player_plan_shape(state);}
+}

@@ -1,0 +1,22 @@
+{
+  "format": "HM-PACK",
+  "format_version": 1,
+  "id": "fixture.base",
+  "version": "1.0.0",
+  "namespace": "fixture_base",
+  "rules_api": {
+    "id": "hanmo.rules",
+    "min_version": "1.0.0",
+    "max_version_exclusive": "2.0.0"
+  },
+  "dependencies": [],
+  "conflicts": [],
+  "required_capabilities": [],
+  "content_entries": [
+    "content.json"
+  ],
+  "presentation_entries": [],
+  "resources": [],
+  "author": "汉末包合同测试",
+  "license": "CC0-1.0"
+}

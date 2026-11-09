@@ -1,0 +1,43 @@
+{
+  "cases": [
+    {
+      "codec_after_metadata_inspector": "UnsupportedSaveVersion",
+      "current_codec_at_187e38c": "InvalidSaveHeader",
+      "id": "unknown-future-envelope-without-v1-fields",
+      "input": "synthetic-unknown-future-envelope.hmsave",
+      "input_kind": "synthetic negative probe; not a historical capture",
+      "may_fallback_to_older_generation": false,
+      "must_keep_original_slot_bytes": true,
+      "required_inspect_error": "UnsupportedSaveVersion",
+      "verification": "Codec.inspect_metadata and Codec.decode both return UnsupportedSaveVersion PASS; physical_corruption false PASS; storage selection NOT_RUN"
+    },
+    {
+      "id": "newest-valid-envelope-missing-pack",
+      "may_fallback_to_older_generation": false,
+      "must_keep_original_slot_bytes": true,
+      "physical_status": "valid",
+      "required_resolver_error": "MissingPack",
+      "verification": "Resolver error only PASS; physical generation selection NOT_RUN"
+    },
+    {
+      "id": "newest-valid-envelope-incompatible-engine",
+      "may_fallback_to_older_generation": false,
+      "must_keep_original_slot_bytes": true,
+      "physical_status": "valid",
+      "required_semantic_error": "IncompatibleEngine",
+      "verification": "Codec inspect accepts physical envelope PASS; current Codec and resolver reject incompatible engine PASS; physical generation selection NOT_RUN"
+    },
+    {
+      "id": "newest-definite-length-or-checksum-corruption",
+      "may_fallback_to_older_generation": true,
+      "must_keep_original_slot_bytes": true,
+      "physical_status": "corrupt",
+      "required_physical_error": "ChecksumMismatch",
+      "verification": "Codec inspect ChecksumMismatch with physical_corruption true PASS; storage fallback NOT_RUN"
+    }
+  ],
+  "format": "HM-A2-STORAGE-SELECTION-CONTRACT/1",
+  "metadata_inspector_implemented": true,
+  "scope": "Central M3 classification contract. The Codec metadata inspector is implemented; physical generation selection is NOT_RUN. This fixture is not an alternate Codec or selector.",
+  "storage_selector_implemented_here": false
+}

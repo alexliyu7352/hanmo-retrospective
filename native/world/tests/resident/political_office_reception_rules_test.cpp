@@ -1,0 +1,24 @@
+// 真实Office和Common Role writer同候选；辖区/本人历史用明确隔离回调，不冒World运行。
+#define POLITICAL_OFFICE_RECEPTION_FIXTURE_ONLY
+#include "political_office_reception_source_test.cpp"
+#include "resident/domains/politics/office_reception/political_office_reception_rules.hpp"
+namespace {
+struct ReceptionRulesFixture:ReceptionFixture {
+ // 原回调不重造Office或岗位，只在实际新事实生成后提供本测试的历史本人。
+ PoliticalOfficeReceptionContext context(){return {common,*cc,state,catalog,economy,activity,policies,receptions,reception_state,{},[](const PoliticalSuccessionPolicy&,Integer,const StableId&){return common_success();},[this](Integer,const StableId& fact)->Outcome<StableId>{auto i=historical_players.find(fact);return i==historical_players.end()?Outcome<StableId>{false,{},common_failure("FixturePlayerSourceMissing").error}:Outcome<StableId>{true,i->second,{}};}};}
+ PoliticalAssumeOfficeReception request(){return {{"city","chief",1,"candidate"},"counter","leader",{}};}
+ // 热门与原角色实际写入走产品函数，独立历史读在事实已写出后才登记本次本人。
+ StableId assign(){auto x=context();auto q=take(preview_political_office_reception(x,"candidate",request()));auto id=take(apply_political_office_reception_in_candidate(common,reception_state,x,"candidate",request(),q));historical_players[id]="candidate";check(validate_political_office_reception_sources(context()).ok,"actual public counter transfer validates");return id;}
+};
+}
+#ifndef POLITICAL_OFFICE_RECEPTION_RULES_FIXTURE_ONLY
+int main(){try{
+ ReceptionRulesFixture f;f.install();f.common.state().metadata.player_actor_id="candidate";auto previous_epoch=f.state.offices.find("chief")->epoch;auto id=f.assign();check(f.common.state().roles.find("public.counter")->actor_id=="candidate"&&f.common.state().roles.find("public.counter")->enabled,"real Common Role actor and enabled updated");check(f.state.offices.find("chief")->epoch==previous_epoch&&f.reception_state.assignments.find(id)->office_change_fact_id==f.handovers.answers.find(f.installed)->office_change_fact_id,"reception cites original appointment without changing Office");auto duplicate=f.request();duplicate.expected_role_actor_id="candidate";duplicate.expected_assignment_fact_id=id;check(!preview_political_office_reception(f.context(),"candidate",duplicate).ok,"same current holder cannot manufacture another reception event");
+ auto bad=f.reception_state.assignments.find(id)->office_epoch;f.reception_state.assignments.find(id)->office_epoch=0;check(!validate_political_office_reception_sources(f.context()).ok,"old Office epoch cannot authorize current role transfer");f.reception_state.assignments.find(id)->office_epoch=bad;f.historical_players[id]="leader";check(!validate_political_office_reception_sources(f.context()).ok,"later player metadata cannot replace original signer");f.historical_players[id]="candidate";
+ ReceptionRulesFixture stale;stale.install();stale.common.state().metadata.player_actor_id="candidate";auto c=stale.context();auto q=take(preview_political_office_reception(c,"candidate",stale.request()));auto wrong=stale.request();wrong.expected_role_actor_id="deputy";check(!apply_political_office_reception_in_candidate(stale.common,stale.reception_state,c,"candidate",wrong,q).ok,"stale Role identity cannot reuse quote");stale.common.state().actors.find("candidate")->location=SettlementLocation{"town","elsewhere"};check(!preview_political_office_reception(stale.context(),"candidate",stale.request()).ok,"remote incumbent cannot change reception provider");
+ ReceptionRulesFixture inactive;inactive.install();inactive.common.state().metadata.player_actor_id="candidate";inactive.state.members.find("candidate")->response=MemberResponse::refusing_new_duties;check(!preview_political_office_reception(inactive.context(),"candidate",inactive.request()).ok,"member refusing new duties cannot assume public reception");
+ ReceptionRulesFixture grant;grant.install();grant.common.state().metadata.player_actor_id="candidate";grant.catalog.grants.find("reception.grant")->valid_until=0;grant.common.state().identity.tick=1;check(!preview_political_office_reception(grant.context(),"candidate",grant.request()).ok,"expired special Grant does not revive by holding Office");
+ ReceptionRulesFixture rollback;rollback.install();rollback.common.state().metadata.player_actor_id="candidate";auto before=rollback.common.state();auto saved=rollback.reception_state;auto token=take(rollback.common.begin_savepoint());rollback.assign();take(rollback.common.rollback_savepoint(token));rollback.reception_state=saved;check(rollback.common.state().roles.find("public.counter")->actor_id=="leader"&&rollback.common.state().next_instance_id==before.next_instance_id&&rollback.common.state().facts.size()==before.facts.size(),"outer original Common savepoint restores Role and allocated fact");
+ std::cout<<checks<<" reception rule assertions; not run as World\n";return 0;
+ }catch(const std::exception& e){std::cerr<<e.what()<<'\n';return 1;}}
+#endif

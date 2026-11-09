@@ -1,0 +1,165 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hanmo.local/schemas/pack-set.schema.json",
+  "description": "Selection chooses exact versions. The lock has no self digest; digest is SHA256 of io.canonical(lock).",
+  "oneOf": [
+    {
+      "$ref": "#/$defs/selection"
+    },
+    {
+      "$ref": "#/$defs/lock"
+    }
+  ],
+  "$defs": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_.-]{0,79}(?![\\s\\S])"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?![\\s\\S])",
+      "maxLength": 96
+    },
+    "namespace": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_-]{0,31}(?![\\s\\S])"
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}(?![\\s\\S])"
+    },
+    "selection": {
+      "type": "object",
+      "properties": {
+        "format": {
+          "const": "HM-PACK-SELECTION"
+        },
+        "format_version": {
+          "type": "integer",
+          "const": 1
+        },
+        "packs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "$ref": "#/$defs/id"
+              },
+              "version": {
+                "$ref": "#/$defs/version"
+              }
+            },
+            "required": [
+              "id",
+              "version"
+            ],
+            "additionalProperties": false
+          },
+          "uniqueItems": true,
+          "maxItems": 4096,
+          "minItems": 1
+        }
+      },
+      "required": [
+        "format",
+        "format_version",
+        "packs"
+      ],
+      "additionalProperties": false
+    },
+    "lock": {
+      "type": "object",
+      "properties": {
+        "format": {
+          "const": "HM-PACK-SET"
+        },
+        "format_version": {
+          "type": "integer",
+          "const": 1
+        },
+        "packs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/locked_pack"
+          },
+          "uniqueItems": true,
+          "maxItems": 4096,
+          "minItems": 1
+        },
+        "rules_api": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "$ref": "#/$defs/id"
+            },
+            "version": {
+              "$ref": "#/$defs/version"
+            }
+          },
+          "required": [
+            "id",
+            "version"
+          ],
+          "additionalProperties": false
+        },
+        "rule_capabilities_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "schema_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "catalog_sha256": {
+          "$ref": "#/$defs/sha256",
+          "description": "SHA256 of io.canonical(catalog data), excluding catalog header and lock."
+        },
+        "presentation_sha256": {
+          "$ref": "#/$defs/sha256"
+        }
+      },
+      "required": [
+        "format",
+        "format_version",
+        "packs",
+        "rules_api",
+        "rule_capabilities_sha256",
+        "schema_sha256",
+        "catalog_sha256",
+        "presentation_sha256"
+      ],
+      "additionalProperties": false
+    },
+    "locked_pack": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/id"
+        },
+        "namespace": {
+          "$ref": "#/$defs/namespace"
+        },
+        "version": {
+          "$ref": "#/$defs/version"
+        },
+        "manifest_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "content_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "resources_sha256": {
+          "$ref": "#/$defs/sha256"
+        }
+      },
+      "required": [
+        "id",
+        "namespace",
+        "version",
+        "manifest_sha256",
+        "content_sha256",
+        "resources_sha256"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

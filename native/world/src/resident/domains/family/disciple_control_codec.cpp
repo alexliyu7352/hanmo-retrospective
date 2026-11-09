@@ -1,0 +1,19 @@
+// 独立结果尾严格保存每一实际请求；未知/重复字段与缺段拒绝，旧 legacy 字节不增存在位。
+#include "resident/checkpoint/checkpoint_decode_lifecycle.hpp"
+#include "disciple_control_receipts.hpp"
+#include "succession_personal_assets.hpp"
+#include "resident/storage/common_checkpoint.hpp"
+#include <set>
+#include "family_extension_projection.hpp"
+namespace hanmo::resident {namespace {
+using V=BoundaryValue;
+bool order(const FieldOrder& fields,const std::set<StableId>& wanted){return fields.empty()||(fields.size()==wanted.size()&&std::set<StableId>(fields.begin(),fields.end())==wanted);}
+Status shape(const DiscipleControlCommitBinding& b){for(const auto* id:{&b.result_id,&b.actor_id,&b.kind})if(id->empty()||id->size()>256)return common_failure("InvalidDiscipleControlCommit");if((b.kind!="family_legacy_accept"&&b.kind!="family_legacy_revoke"&&b.kind!="family_legacy_activate")||b.request_seq<1||b.request_seq>2147483647||b.revision<1||!order(b.field_order,{"result_id","actor_id","kind","request_seq","revision"}))return common_failure("InvalidDiscipleControlCommit");return common_success();}
+Status visit(CodecVisitor& c,DiscipleControlCommitBinding& b){c.field("result_id",b.result_id);c.field("actor_id",b.actor_id);c.field("kind",b.kind);c.field("request_seq",b.request_seq);c.field("revision",b.revision);common_checkpoint::strings(c,"field_order",b.field_order);if(!c.status().ok)return c.status();auto valid=shape(b);return valid.ok?c.status():c.reject(valid.error.original.code);}
+}
+Status validate_disciple_control_shape(const DiscipleControlState& state){if(!order(state.field_order,{"commits"}))return common_failure("BoundaryFieldOrderMismatch");for(const auto& row:state.commits.rows()){if(row.first.empty()||row.first.size()>256)return common_failure("InvalidDiscipleControlCommit");auto valid=shape(row.second);if(!valid.ok)return valid;}return common_success();}
+Outcome<DiscipleControlState> decode_disciple_control_state(const BoundaryValue& value){try{auto unique=validate_succession_json_unique(value);if(!unique.ok)return {false,{},unique.error};using namespace boundary;fields(value,{"commits"},{},"family_disciple_legacy");DiscipleControlState out;for(const auto& row:object(field(value,"commits",""),"commits")){const auto& v=row.second;fields(v,{"result_id","actor_id","kind","request_seq","revision"},{},row.first);DiscipleControlCommitBinding b{get_string(v,"result_id",""),get_string(v,"actor_id",""),get_string(v,"kind",""),get_int(v,"request_seq",""),get_int(v,"revision",""),boundary::order(v)};if(!out.commits.insert(row.first,std::move(b)))fail("DuplicateDiscipleControlCommit",row.first);}out.field_order=boundary::order(value);auto valid=validate_disciple_control_shape(out);if(!valid.ok)return {false,{},valid.error};return {true,std::move(out),{}};}catch(const boundary::DecodeFailure& e){return {false,{},e.error};}}
+Status emit_disciple_control_state_fields(ProjectionWriter& w,const DiscipleControlState& state){auto valid=validate_disciple_control_shape(state);if(!valid.ok)return w.reject(valid.error.original.code,valid.error.original.path);w.object("commits",[&](auto& rows){for(const auto& row:state.commits.rows()){rows.object(row.first,[&](auto& out){return family_projection::control_commit_fields(out,row.second);});if(!rows.status().ok)return rows.status();}return rows.status();});return w.order_fields(state.field_order);}
+BoundaryValue encode_disciple_control_state(const DiscipleControlState& state){return family_projection::encode([&](auto& w){return emit_disciple_control_state_fields(w,state);});}
+Status visit_disciple_control_checkpoint(CodecVisitor& c,DiscipleControlState& state){common_checkpoint::table(c,"commits",state.commits,[](CodecVisitor& v,DiscipleControlCommitBinding& b){return visit(v,b);});common_checkpoint::strings(c,"field_order",state.field_order);if(!c.status().ok)return c.status();auto valid=validate_disciple_control_shape(state);return valid.ok?c.status():c.reject(valid.error.original.code);}
+}

@@ -1,0 +1,15 @@
+// 同一CMake产生精确只读桥身份，不接受运行时输入自报替代。
+#pragma once
+namespace hanmo::bridge_build {
+inline constexpr const char* source_commit="@HANMO_SOURCE_COMMIT@";
+inline constexpr const char* source_sha256="@HANMO_BRIDGE_SOURCE_SHA256@";
+inline constexpr const char* core_source_sha256="@HANMO_SOURCE_SHA256@";
+inline constexpr const char* lock_sha256="@HANMO_LOCK_SHA256@";
+inline constexpr const char* godot_cpp_commit="@HANMO_GODOT_CPP_COMMIT@";
+inline constexpr const char* api_sha256="@HANMO_API_SHA256@";
+inline constexpr const char* trimmed_api_sha256="@HANMO_TRIMMED_API_SHA256@";
+inline constexpr const char* interface_sha256="@HANMO_INTERFACE_SHA256@";
+inline constexpr const char* profile_sha256="@HANMO_PROFILE_SHA256@";
+inline constexpr const char* compiler="@CMAKE_CXX_COMPILER_ID@ @CMAKE_CXX_COMPILER_VERSION@";
+inline constexpr const char* configuration="@CMAKE_BUILD_TYPE@";
+}

@@ -1,0 +1,221 @@
+{
+  "version": 1,
+  "samples": [
+    {
+      "id": "medium_clear_long",
+      "label": "清朗长脸",
+      "fitting_id": "adult_male_medium_v2",
+      "selection": {
+        "beard": 0,
+        "brows": 0,
+        "cloth_color": 0,
+        "eyes": 0,
+        "face": 0,
+        "hair": 0,
+        "hair_color": 0,
+        "mouth": 0,
+        "nose": 0,
+        "outfit": 0,
+        "skin": 0
+      }
+    },
+    {
+      "id": "medium_square_jaw",
+      "label": "宽颌方脸",
+      "fitting_id": "adult_male_medium_v2",
+      "selection": {
+        "beard": 0,
+        "brows": 1,
+        "cloth_color": 0,
+        "eyes": 0,
+        "face": 1,
+        "hair": 0,
+        "hair_color": 0,
+        "mouth": 0,
+        "nose": 0,
+        "outfit": 0,
+        "skin": 0
+      }
+    },
+    {
+      "id": "medium_round_chin",
+      "label": "丰颊圆颏",
+      "fitting_id": "adult_male_medium_v2",
+      "selection": {
+        "beard": 0,
+        "brows": 0,
+        "cloth_color": 0,
+        "eyes": 0,
+        "face": 2,
+        "hair": 0,
+        "hair_color": 0,
+        "mouth": 0,
+        "nose": 1,
+        "outfit": 0,
+        "skin": 0
+      }
+    },
+    {
+      "id": "medium_high_cheek",
+      "label": "高颧收颌",
+      "fitting_id": "adult_male_medium_v2",
+      "selection": {
+        "beard": 0,
+        "brows": 0,
+        "cloth_color": 0,
+        "eyes": 1,
+        "face": 3,
+        "hair": 0,
+        "hair_color": 0,
+        "mouth": 0,
+        "nose": 0,
+        "outfit": 0,
+        "skin": 0
+      }
+    },
+    {
+      "id": "female_round_broad",
+      "label": "圆阔脸",
+      "fitting_id": "adult_female_round_v1",
+      "selection": {
+        "beard": 0,
+        "brows": 0,
+        "cloth_color": 0,
+        "eyes": 1,
+        "face": 0,
+        "hair": 0,
+        "hair_color": 0,
+        "mouth": 1,
+        "nose": 1,
+        "outfit": 0,
+        "skin": 0
+      }
+    },
+    {
+      "id": "female_straight_jaw",
+      "label": "宽直颌",
+      "fitting_id": "adult_female_round_v1",
+      "selection": {
+        "beard": 0,
+        "brows": 0,
+        "cloth_color": 0,
+        "eyes": 1,
+        "face": 1,
+        "hair": 0,
+        "hair_color": 0,
+        "mouth": 1,
+        "nose": 0,
+        "outfit": 0,
+        "skin": 0
+      }
+    },
+    {
+      "id": "female_short_chin",
+      "label": "丰颊短颏",
+      "fitting_id": "adult_female_round_v1",
+      "selection": {
+        "beard": 0,
+        "brows": 0,
+        "cloth_color": 0,
+        "eyes": 0,
+        "face": 2,
+        "hair": 0,
+        "hair_color": 0,
+        "mouth": 1,
+        "nose": 1,
+        "outfit": 0,
+        "skin": 0
+      }
+    },
+    {
+      "id": "female_high_cheek",
+      "label": "高颧收颊",
+      "fitting_id": "adult_female_round_v1",
+      "selection": {
+        "beard": 0,
+        "brows": 0,
+        "cloth_color": 0,
+        "eyes": 0,
+        "face": 3,
+        "hair": 0,
+        "hair_color": 0,
+        "mouth": 1,
+        "nose": 0,
+        "outfit": 0,
+        "skin": 0
+      }
+    },
+    {
+      "id": "long_narrow",
+      "label": "长窄脸",
+      "fitting_id": "adult_male_long_v1",
+      "selection": {
+        "beard": 0,
+        "brows": 0,
+        "cloth_color": 0,
+        "eyes": 1,
+        "face": 0,
+        "hair": 0,
+        "hair_color": 0,
+        "mouth": 0,
+        "nose": 0,
+        "outfit": 0,
+        "skin": 0
+      }
+    },
+    {
+      "id": "long_straight_jaw",
+      "label": "长直颌",
+      "fitting_id": "adult_male_long_v1",
+      "selection": {
+        "beard": 0,
+        "brows": 0,
+        "cloth_color": 0,
+        "eyes": 0,
+        "face": 1,
+        "hair": 0,
+        "hair_color": 0,
+        "mouth": 0,
+        "nose": 0,
+        "outfit": 0,
+        "skin": 0
+      }
+    },
+    {
+      "id": "long_full_oval",
+      "label": "丰颊长卵脸",
+      "fitting_id": "adult_male_long_v1",
+      "selection": {
+        "beard": 0,
+        "brows": 0,
+        "cloth_color": 0,
+        "eyes": 0,
+        "face": 2,
+        "hair": 0,
+        "hair_color": 0,
+        "mouth": 0,
+        "nose": 1,
+        "outfit": 0,
+        "skin": 0
+      }
+    },
+    {
+      "id": "long_high_cheek",
+      "label": "高颧收颊",
+      "fitting_id": "adult_male_long_v1",
+      "selection": {
+        "beard": 0,
+        "brows": 0,
+        "cloth_color": 0,
+        "eyes": 1,
+        "face": 3,
+        "hair": 0,
+        "hair_color": 0,
+        "mouth": 0,
+        "nose": 0,
+        "outfit": 0,
+        "skin": 0
+      }
+    }
+  ]
+}

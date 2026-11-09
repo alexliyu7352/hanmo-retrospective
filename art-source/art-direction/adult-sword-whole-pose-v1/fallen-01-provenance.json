@@ -1,0 +1,20 @@
+{
+  "pose": "fallen-01",
+  "tool": "built-in image_gen.imagegen",
+  "original_path": "<本地路径>",
+  "source_size": [
+    1254,
+    1254
+  ],
+  "mode": "RGBA",
+  "sha256": "fd37cfcbf3647f72cb126c6a32851b6a614cf56364e15224ba284bd3a740f5fd",
+  "visible_bbox": [
+    27,
+    282,
+    1239,
+    965
+  ],
+  "status": "CANDIDATE_WHOLE_POSE_REVIEWED",
+  "notes": "Whole-body source with same visible weapon hand. Fallen is down/defeated, not a claim of death. Final sequence remains WIP.",
+  "pixel_mutation": false
+}

@@ -1,0 +1,42 @@
+#include "resident/domains/military/military_model.hpp"
+// 页面只消费真实责任与原决定报价；展示选项不会写入承担事实。
+#include "politics_takeover_views.hpp"
+#include "politics_takeover_command.hpp"
+#include "politics_takeover_detail.hpp"
+#include "resident/domains/politics/supply/politics_supply_adoptions.hpp"
+#include "resident/domains/local_economy/supply/supply_policy_contract.hpp"
+namespace hanmo::resident {
+namespace {
+const char* disposition_name(PoliticalResponsibilityDisposition disposition){switch(disposition){case PoliticalResponsibilityDisposition::continue_under_original:return "continue_under_original";case PoliticalResponsibilityDisposition::suspend:return "suspend";case PoliticalResponsibilityDisposition::assume_by_successor:return "assume_by_successor";case PoliticalResponsibilityDisposition::settlement_required:return "settlement_required";}return "";}
+BoundaryValue request_value(const PoliticalResponsibilityRequest& request){PoliticalTakeoverDecisionCommand command;command.decisions.push_back(request);auto encoded=encode_political_takeover_command_params(command);return encoded.find("decisions")->as<BoundaryValue::Array>()->front();}
+const char* responsibility_name(PoliticalResponsibilityKind kind){switch(kind){case PoliticalResponsibilityKind::production_unit:return "生产经营";case PoliticalResponsibilityKind::production_asset_use:return "土地与设施使用";case PoliticalResponsibilityKind::pending_configuration:return "待生效生产调配";case PoliticalResponsibilityKind::obligation:return "持续工资或供养";case PoliticalResponsibilityKind::arrear:return "原有欠期";case PoliticalResponsibilityKind::fiscal_assessment:return "原有税款应收";case PoliticalResponsibilityKind::relief_contract:return "已受领安民责任";case PoliticalResponsibilityKind::supply_source:return "既有供给来源";case PoliticalResponsibilityKind::task_contract:return "原任务与受托财物";}return "责任";}
+PoliticalResponsibilityRequest request_for(const PoliticalOriginalResponsibility& source,PoliticalResponsibilityDisposition disposition){PoliticalResponsibilityRequest request;request.responsibility=source.responsibility;request.disposition=disposition;if(disposition==PoliticalResponsibilityDisposition::assume_by_successor)for(const auto& asset:source.assets)if(asset.kind==PoliticalResponsibilityAssetSource::Kind::production_asset)request.production_asset_ids.push_back(asset.id);return request;}
+}
+Outcome<BoundaryValue> query_political_takeover_responsibilities(const PoliticalTakeoverContext& context,const StableId& actor,const StableId& place_id){
+    using V=BoundaryValue;using namespace takeover_detail;
+    if(actor!=context.common.state().metadata.player_actor_id)return {false,{},common_failure("PoliticalTakeoverObserverMismatch").error};
+    auto location=context.common.resolved_location(actor);const auto* current=location.ok?std::get_if<SettlementLocation>(&location.value):nullptr;if(!current||current->place_id!=place_id)return {false,{},common_failure("PoliticalTakeoverPlaceNotKnown").error};
+    const auto valid=validate_political_takeover_state(context);if(!valid.ok)return {false,{},valid.error};
+    V::Array registrations;bool truncated=false;
+    if(context.catalog.enabled)for(const auto& row:context.state.registrations.rows()){
+        const auto& registration=row.second;if(!known_to_actor(context,actor,registration))continue;if(registrations.size()==256){truncated=true;continue;}
+        const auto& rule=*context.catalog.rules.find(registration.rule_id);const auto& office=*context.organizations.offices.find(rule.successor_office_id);const auto* previous=latest(context.state,registration.id);
+        PoliticalTakeoverDecisionCommand command;command.authority={office.organization_id,office.id,office.epoch,actor};command.registration_fact_id=registration.id;command.expected_identity=context.common.state().identity;if(previous)command.expected_previous_approval_fact_id=previous->id;
+        for(const auto& original:registration.responsibilities)command.decisions.push_back(request_for(original,PoliticalResponsibilityDisposition::suspend));
+        const auto authorized=preview_political_responsibility_decisions(context,actor,command);V::Array responsibilities;const bool responsibility_truncated=registration.responsibilities.size()>256;
+        for(const auto& original:registration.responsibilities){
+            if(responsibilities.size()==256)break;
+            std::optional<EconomicSupplyPolicyTermsSource> supply;
+            if(original.responsibility.kind==PoliticalResponsibilityKind::supply_source&&context.supply_policies){auto pending=context.supply_policies->economic_supply_pending_policy(registration.id,original.responsibility.responsibility_id);if(!pending.ok)return {false,{},pending.error};supply=std::move(pending.value);}
+            V::Array choices;for(auto disposition:{PoliticalResponsibilityDisposition::continue_under_original,PoliticalResponsibilityDisposition::assume_by_successor,PoliticalResponsibilityDisposition::suspend,PoliticalResponsibilityDisposition::settlement_required}){auto request=request_for(original,disposition);if(supply&&disposition==PoliticalResponsibilityDisposition::assume_by_successor)request.supply_policy_fact_id=supply->policy_fact_id;const auto derived=derive_political_supply_decision(context,registration,original,request);const bool available=authorized.ok&&derived.ok;auto choice=boundary::obj({{"disposition",V{disposition_name(disposition)}},{"request",request_value(request)},{"available",V{available}},{"code",V{authorized.ok?(derived.ok?StableId{}:derived.error.original.code):authorized.error.original.code}}});if(request.supply_policy_fact_id)choice.as<V::Dict>()->emplace_back("label",V{"采用已签的新供给政策（单约最多"+std::to_string(supply->maximum_contract_commitment)+"钱）"});choices.push_back(std::move(choice));}
+            const PoliticalResponsibilityDecision* decision=nullptr;if(previous)for(const auto& id:previous->decision_fact_ids){const auto& item=context.state.decisions.find(id)->decision;if(key(item.responsibility)==key(original.responsibility)){decision=&item;break;}}
+            auto item=boundary::obj({{"display_name",V{responsibility_name(original.responsibility.kind)}},{"original",encode_political_original_responsibility(original)},{"decision",decision?encode_political_responsibility_decision(*decision):V{}},{"choices",V{std::move(choices)}}});
+            if(supply)item.as<V::Dict>()->emplace_back("supply_policy",boundary::obj({{"policy_fact_id",V{supply->policy_fact_id}},{"organization_id",V{supply->policy.organization_id}},{"site_id",V{supply->policy.site_id}},{"inventory_id",V{supply->policy.inventory_id}},{"funding_wallet_id",V{supply->policy.funding_wallet_id}},{"reward_wallet_id",V{supply->policy.reward_wallet_id}},{"maximum_contract_commitment",V{supply->maximum_contract_commitment}},{"through_tick",V{supply->through_tick}}}));
+            if(decision&&context.supply_adoptions)if(const auto* binding=context.supply_adoptions->bindings.find(decision->decision_fact_id))item.as<V::Dict>()->emplace_back("selected_supply_policy_fact_id",V{binding->policy_issue_fact_id});responsibilities.push_back(std::move(item));
+        }
+        const auto* district=context.politics_catalog.jurisdictions.find(rule.jurisdiction_id);const auto* label=district?context.common_catalog.texts.find(district->name_key):nullptr;
+        registrations.push_back(boundary::obj({{"display_name",V{label?*label:StableId{"本辖区"}}},{"command_params",encode_political_takeover_command_params(command)},{"registration_fact_id",V{registration.id}},{"occupation_fact_id",V{registration.occupation_fact_id}},{"jurisdiction_id",V{rule.jurisdiction_id}},{"office_id",V{office.id}},{"office_epoch",V{office.epoch}},{"former_organization_id",V{registration.former_organization_id}},{"successor_organization_id",V{registration.successor_organization_id}},{"previous_approval_fact_id",previous?V{previous->id}:V{}},{"available",V{authorized.ok&&!responsibility_truncated}},{"code",V{responsibility_truncated?StableId{"PoliticalResponsibilityPageLimit"}:(authorized.ok?StableId{}:authorized.error.original.code)}},{"truncated",V{responsibility_truncated}},{"responsibilities",V{std::move(responsibilities)}}}));
+    }
+    return {true,boundary::obj({{"enabled",V{context.catalog.enabled}},{"place_id",V{place_id}},{"tick",V{context.common.tick()}},{"world_revision",V{context.common.revision()}},{"truncated",V{truncated}},{"registrations",V{std::move(registrations)}}}),{}};
+}
+}

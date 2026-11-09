@@ -1,0 +1,216 @@
+{
+  "format": "hanmo.schema.fragment/1",
+  "version": "production_management/1",
+  "status": "central registration pending; authoring-only fragment",
+  "$defs": {
+    "dynamic_production_asset": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/entity_id"
+        },
+        "site_id": {
+          "$ref": "#/$defs/reference_places"
+        },
+        "source_key": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 160,
+          "description": "唯一生产来源；旧estate作用域不得重复登记。"
+        },
+        "owner": {
+          "oneOf": [
+            {
+              "type": "object",
+              "properties": {
+                "kind": {
+                  "const": "actor"
+                },
+                "id": {
+                  "$ref": "#/$defs/reference_actors"
+                }
+              },
+              "required": [
+                "kind",
+                "id"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "kind": {
+                  "const": "organization"
+                },
+                "id": {
+                  "$ref": "#/$defs/reference_organizations"
+                }
+              },
+              "required": [
+                "kind",
+                "id"
+              ],
+              "additionalProperties": false
+            }
+          ]
+        },
+        "kind": {
+          "enum": [
+            "land",
+            "facility"
+          ]
+        },
+        "capacity_units": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647,
+          "description": "土地份额或设施工位的唯一总数；不是钱货余额。"
+        }
+      },
+      "required": [
+        "id",
+        "site_id",
+        "source_key",
+        "owner",
+        "kind",
+        "capacity_units"
+      ],
+      "additionalProperties": false
+    },
+    "dynamic_production_asset_use": {
+      "type": "object",
+      "properties": {
+        "asset_id": {
+          "$ref": "#/$defs/entity_id"
+        },
+        "units": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 2147483647
+        },
+        "batches_per_unit": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 2147483647,
+          "description": "每个占用份额允许的整数批次上限，开发参数须随内容版本固定。"
+        }
+      },
+      "required": [
+        "asset_id",
+        "units",
+        "batches_per_unit"
+      ],
+      "additionalProperties": false
+    },
+    "dynamic_production_season_profile": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/entity_id"
+        },
+        "origin_tick": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "phase_ticks": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 2147483647
+        },
+        "factors_bp": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 20000
+          },
+          "minItems": 1,
+          "maxItems": 12,
+          "description": "依次循环的有限季节系数，10000表示1倍；不模拟天气。"
+        }
+      },
+      "required": [
+        "id",
+        "origin_tick",
+        "phase_ticks",
+        "factors_bp"
+      ],
+      "additionalProperties": false
+    },
+    "dynamic_production_capacity_plan": {
+      "type": "object",
+      "properties": {
+        "unit_id": {
+          "$ref": "#/$defs/entity_id"
+        },
+        "season_profile_id": {
+          "type": "string",
+          "maxLength": 114,
+          "description": "留空沿原配方季节系数，否则引用本块季节表。"
+        },
+        "asset_uses": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/dynamic_production_asset_use"
+          },
+          "minItems": 1,
+          "maxItems": 32
+        }
+      },
+      "required": [
+        "unit_id",
+        "season_profile_id",
+        "asset_uses"
+      ],
+      "additionalProperties": false
+    },
+    "dynamic_production_management": {
+      "type": "object",
+      "properties": {
+        "version": {
+          "type": "integer",
+          "const": 1
+        },
+        "assets": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/dynamic_production_asset"
+          },
+          "maxProperties": 10000
+        },
+        "seasons": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/dynamic_production_season_profile"
+          },
+          "maxProperties": 10000
+        },
+        "plans": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/dynamic_production_capacity_plan"
+          },
+          "maxProperties": 10000
+        }
+      },
+      "required": [
+        "version",
+        "assets",
+        "seasons",
+        "plans"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "property_target": "/$defs/dynamic_local_economy/properties/production_management",
+  "property_schema": {
+    "$ref": "#/$defs/dynamic_production_management"
+  },
+  "integration_notes": [
+    "仅新production_management/1能力解码该字段；旧经济1/2/3布局不变。",
+    "动态作者记录ID通用循环须跳过production_management嵌套对象，另调用check_production_management(pack,index)。",
+    "原作者panel使用受信schema生成基本对象/字段控件，不另建内容世界。",
+    "pack.required_capabilities继续沿native_dynamic_world；不修改全局能力摘要。"
+  ]
+}

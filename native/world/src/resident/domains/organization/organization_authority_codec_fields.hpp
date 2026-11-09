@@ -1,0 +1,54 @@
+// Unique organization authority field callbacks; binary/JSON/projection share these definitions.
+#pragma once
+#include "organization_model.hpp"
+#include <type_traits>
+#include <string_view>
+#include "resident/checkpoint/checkpoint_decode_lifecycle.hpp"
+#include "resident/checkpoint/codec_visitor.hpp"
+#include "organization_codec_detail.hpp"
+namespace hanmo::resident {class ActorFoundationJsonVisitor;}
+namespace hanmo::resident::organization_authority_codec_fields {
+using namespace dynamic_economy_codec;
+template<class C,class T> Status value(C&,std::string_view,T&,bool,bool=true,bool=false,Integer=0);
+template<class C> struct Archive {C& codec;bool named_membership=false;bool embedded_grants=true;bool exact_fact_clock=false;Integer service_effects_schema=0;bool military_adapter=false,production_management=false,household_provisioning=false;template<class T>void operator()(const char* key,T& row){value(codec,key,row,named_membership,embedded_grants,exact_fact_clock,service_effects_schema);}};
+// Only the original fact row owns fallible exact moments in this body.
+// Canonical staging/adoption retains both shells; a failed move discards the
+// unpublished decode candidate. No generic copy or noexcept claim is used.
+struct OrganizationFactDecodedRowTransfer {
+ template<class Destination>Status operator()(Destination& destination,std::pair<StableId,OrganizationFact>& row)const{
+  destination.emplace_back(std::move(row));return common_success();
+ }
+};
+template<class C,class T,class F>Status owner_table(C& c,std::string_view name,OrderedTable<T>& rows,F visit){
+ if constexpr(std::is_same_v<C,CodecVisitor>){
+  if constexpr(std::is_same_v<T,OrganizationFact>)return common_checkpoint::table(c,name,rows,visit,OrganizationFactDecodedRowTransfer{});
+  else return common_checkpoint::table(c,name,rows,visit);
+ }else if constexpr(std::is_same_v<C,ActorFoundationJsonVisitor>&&std::is_same_v<T,OrganizationFact>)return c.table(name,rows,visit,OrganizationFactDecodedRowTransfer{});
+ else return c.table(name,rows,visit);
+}
+template<class C,class T> Status table(C& c,std::string_view name,T& rows,bool named,bool embedded_grants=true,bool exact_fact_clock=false,Integer service_effects_schema=0){return owner_table(c,name,rows,[&](auto& v,auto& row){return value(v,"record",row,named,embedded_grants,exact_fact_clock,service_effects_schema);});}
+// binary原record包装不变；JSON的record对象直接落原字段，不添record同义层。
+template<class C,class T> Status record_value(C& c,T& row,bool named,bool embedded_grants=true,bool exact_fact_clock=false,Integer service_effects_schema=0){Archive<C> a{c,named,embedded_grants,exact_fact_clock,service_effects_schema};
+    if(service_effects_schema!=0&&(service_effects_schema!=1||!exact_fact_clock))return c.reject("UnsupportedOrganizationServiceEffectsSchema");
+    if constexpr(std::is_same_v<T,OrganizationRecord>){a("id",row.id);a("kind",row.kind);StableId status;if(!c.reading()){const auto* tag=organization_lifecycle_tag(row.status);if(!tag)return c.reject("InvalidOrganizationLifecycle",row.id);status=tag;}a("status",status);auto parsed=organization_lifecycle_from_tag(status);if(!parsed)return c.reject("InvalidOrganizationLifecycle",row.id);if(c.reading())row.status=*parsed;a("administrative_parent",row.administrative_parent);a("branch_parent",row.branch_parent);a("headquarters_site",row.headquarters_site);if(row.headquarters_site&&row.headquarters_site->empty())return c.reject("InvalidOrganizationHeadquarters",row.id);a("policy_profile_id",row.policy_profile_id);a("office_ids",row.office_ids);a("succession_policy_id",row.succession_policy_id);}
+    else if constexpr(std::is_same_v<T,GrantRuntimeRecord>){a("terms",row.terms);a("revision",row.revision);a("revoked",row.revoked);a("parent_grant_id",row.parent_grant_id);a("parent_revision",row.parent_revision);a("policy_id",row.policy_id);a("last_change_fact_id",row.last_change_fact_id);a("issuer_office_id",row.issuer_office_id);a("issuer_office_epoch",row.issuer_office_epoch);}
+    else if constexpr(std::is_same_v<T,GrantPolicy>){a("id",row.id);a("issuing_office_id",row.issuing_office_id);a("target_office_ids",row.target_office_ids);a("maximum",row.maximum);a("maximum_window_ticks",row.maximum_window_ticks);}
+    else if constexpr(std::is_same_v<T,SourceRef>||std::is_same_v<T,DeathRef>){a("domain",row.domain);a("kind",row.kind);a("id",row.id);if constexpr(std::is_same_v<T,DeathRef>)if(row.domain!="family_life"||row.kind!="family_death"||row.id.empty())return c.reject("InvalidOfficeDeathRef");}
+    else if constexpr(std::is_same_v<T,WorldMoment>){if constexpr(std::is_same_v<std::decay_t<C>,CodecVisitor>)(void)0;EncodedWorldMoment encoded;if(!c.reading()){auto result=encode_world_moment(row);if(!result.ok)return {false,{},result.error};encoded=std::move(result.value);}a("half_day_tick",encoded.half_day_tick);a("numerator",encoded.sub_half_day.numerator);a("denominator",encoded.sub_half_day.denominator);if(c.reading()&&c.status().ok){auto decoded=decode_world_moment(encoded);if(!decoded.ok)return {false,{},decoded.error};row=std::move(decoded.value);}}
+    else if constexpr(std::is_same_v<T,GrantChangePayload>){Integer kind=static_cast<Integer>(row.kind);a("kind",kind);if(kind<0||kind>2)return c.reject("InvalidGrantChangeKind");if(c.reading())row.kind=static_cast<GrantChangeKind>(kind);a("grant_id",row.grant_id);a("policy_id",row.policy_id);a("authority_grant_id",row.authority_grant_id);a("authority_grant_revision",row.authority_grant_revision);a("before_revision",row.before_revision);a("after_revision",row.after_revision);a("issuer",row.issuer);a("authority_scope",row.authority_scope);a("target_office_epoch",row.target_office_epoch);a("before",row.before);a("after",row.after);a("effective_moment",row.effective_moment);}
+    else if constexpr(std::is_same_v<T,OrganizationOfficeChangedPayload>){a("schema_version",row.schema_version);if(row.schema_version!=2)return c.reject("UnsupportedOfficeChangeSchema");a("before_epoch",row.before_epoch);a("after_epoch",row.after_epoch);a("old_holder",row.old_holder);a("new_holder",row.new_holder);a("effective_moment",row.effective_moment);c.object("cause",[&](C& v){// Direct retention follows the actual active source, never a temporary tag.
+ if constexpr(std::is_same_v<std::decay_t<C>,CodecVisitor>)(void)0;
+ StableId kind;if(!v.reading())kind=std::holds_alternative<ByOfficeTransition>(row.cause)?"by_office_transition":"verified_holder_death";v.field("kind",kind);if(kind!="by_office_transition"&&kind!="verified_holder_death")return v.reject("InvalidOfficeChangeCause");if(!v.status().ok)return v.status();if(v.reading()){if(kind=="by_office_transition"){if(!prepare_checkpoint_default_values<ByOfficeTransition>(v).ok)return v.status();row.cause=ByOfficeTransition{};}else{if(!prepare_checkpoint_default_values<VerifiedHolderDeath>(v).ok)return v.status();row.cause=VerifiedHolderDeath{};}}return kind=="by_office_transition"?value(v,"transition_source_ref",std::get<ByOfficeTransition>(row.cause).transition_source_ref,named,embedded_grants,exact_fact_clock,service_effects_schema):value(v,"death_ref",std::get<VerifiedHolderDeath>(row.cause).death_ref,named,embedded_grants,exact_fact_clock,service_effects_schema);});}
+    else {dynamic_economy_codec::record(a,row);if constexpr(std::is_same_v<T,OrganizationFact>){a("office_change_payload",row.office_change_payload);a("grant_change_payload",row.grant_change_payload);if(exact_fact_clock){if(c.reading()){if(!prepare_checkpoint_default_values<WorldMoment>(c).ok)return c.status();row.occurred_at.emplace();}else if(!row.occurred_at)return c.reject("OrganizationExactFactMomentRequired",row.id);a("occurred_at",*row.occurred_at);if(c.status().ok){if(row.occurred_at->half_day_tick!=row.tick)return c.reject("OrganizationFactTickProjectionMismatch",row.id);const WorldMoment* original=row.office_change_payload?&row.office_change_payload->effective_moment:row.grant_change_payload?&row.grant_change_payload->effective_moment:nullptr;if(original){auto equal=compare_world_moments(*original,*row.occurred_at);if(!equal.ok)return {false,{},equal.error};if(equal.value)return c.reject("OrganizationFactOriginalMomentMismatch",row.id);}}}else if(row.occurred_at)return c.reject("OrganizationExactFactCodecRequired",row.id);if(!service_effects_schema&&(row.service_effects||row.kind=="organization_member_services_synchronized"))return c.reject("OrganizationServiceEffectsCodecRequired",row.id);}else if constexpr(std::is_same_v<T,OrganizationState>){if(embedded_grants)a("current_grants",row.current_grants);}else if constexpr(std::is_same_v<T,OrganizationCatalog>)a("grant_policies",row.grant_policies);}
+    return c.status();
+}
+template<class C,class T> Status value(C& c,std::string_view name,T& row,bool named,bool embedded_grants,bool exact_fact_clock,Integer service_effects_schema){
+    if constexpr(std::is_same_v<T,StableId>||std::is_same_v<T,Integer>||std::is_same_v<T,bool>)return c.field(name,row);
+    else if constexpr(std::is_enum_v<T>){StableId text;if(!c.reading())for(const auto& item:EnumNames<T>::rows())if(item.first==row)text=item.second;c.field(name,text);for(const auto& item:EnumNames<T>::rows())if(item.second==text){if(c.reading())row=item.first;return c.status();}return c.reject("InvalidOrganizationAuthorityEnum",name);}
+    else if constexpr(IsVector<T>::value)return c.sequence(name,row,[&](C& v,auto& element){if constexpr(std::is_same_v<C,CodecVisitor>)return value(v,"item",element,named,embedded_grants,exact_fact_clock,service_effects_schema);else if constexpr(std::is_same_v<typename IsVector<T>::Value,StableId>||std::is_same_v<typename IsVector<T>::Value,Integer>||std::is_same_v<typename IsVector<T>::Value,bool>)return v.field("item",element);else return record_value(v,element,named,embedded_grants,exact_fact_clock,service_effects_schema);});
+    else if constexpr(IsOptional<T>::value)return c.optional(name,row,[&](C& v,auto& element){if constexpr(std::is_same_v<C,CodecVisitor>)return value(v,"value",element,named,embedded_grants,exact_fact_clock,service_effects_schema);else if constexpr(std::is_same_v<typename IsOptional<T>::Value,StableId>||std::is_same_v<typename IsOptional<T>::Value,Integer>||std::is_same_v<typename IsOptional<T>::Value,bool>)return v.field("value",element);else return record_value(v,element,named,embedded_grants,exact_fact_clock,service_effects_schema);});
+    else if constexpr(IsTable<T>::value)return owner_table(c,name,row,[&](C& v,auto& element){if constexpr(std::is_same_v<C,CodecVisitor>)return value(v,"record",element,named,embedded_grants,exact_fact_clock,service_effects_schema);else return record_value(v,element,named,embedded_grants,exact_fact_clock,service_effects_schema);});
+    else return c.object(name,[&](C& v){return record_value(v,row,named,embedded_grants,exact_fact_clock,service_effects_schema);});
+}
+
+}

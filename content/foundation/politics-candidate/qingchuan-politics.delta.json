@@ -1,0 +1,400 @@
+{
+  "format": "hanmo.political_author_delta/1",
+  "status": "AUTHORING_ONLY",
+  "runtime_verified": false,
+  "base_blob_oid": "11d59ec0ce5198f50571ee173e8afd8cc08d95ea",
+  "base_path": "docs/native/shared-world-foundation-20261008/author-qualified/foundation-author-qualified.hmcatalog.json",
+  "scenario_id": "society::scenario.qingchuan_political_career",
+  "target": "catalog",
+  "operations": [
+    {
+      "op": "copy",
+      "from": "/scenarios/society::scenario.qingchuan_spring_reserve",
+      "path": "/scenarios/society::scenario.qingchuan_political_career"
+    },
+    {
+      "op": "replace",
+      "path": "/scenarios/society::scenario.qingchuan_political_career/id",
+      "value": "society::scenario.qingchuan_political_career"
+    },
+    {
+      "op": "replace",
+      "path": "/scenarios/society::scenario.qingchuan_political_career/name_key",
+      "value": "society::politics.scenario.name"
+    },
+    {
+      "op": "replace",
+      "path": "/scenarios/society::scenario.qingchuan_political_career/enabled/scenarios",
+      "value": [
+        "society::scenario.qingchuan_political_career"
+      ]
+    },
+    {
+      "op": "replace",
+      "path": "/scenarios/society::scenario.qingchuan_political_career/dynamic_world/founder_policy",
+      "value": "selected_existing_actor_roster_v1"
+    },
+    {
+      "op": "add",
+      "path": "/texts/society::politics.scenario.name",
+      "value": "青川署务"
+    },
+    {
+      "op": "add",
+      "path": "/scenarios/society::scenario.qingchuan_political_career/dynamic_world/organization/grants/grant.qingchuan_appointment",
+      "value": {
+        "id": "grant.qingchuan_appointment",
+        "office_id": "office.city_steward",
+        "allowed_command_kinds": [
+          "political_appoint",
+          "political_dismiss",
+          "inspect_local_economy",
+          "political_set_tax"
+        ],
+        "scopes": [
+          {
+            "kind": "site",
+            "id": "society::place.courtyard"
+          }
+        ],
+        "wallet_ids": [
+          "society::wallet.city"
+        ],
+        "inventory_ids": [
+          "society::inventory.city"
+        ],
+        "amount_limit": 1000,
+        "valid_from": 0,
+        "valid_until": null,
+        "may_delegate": true,
+        "continuity_policy_id": "continue_under_organization"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/scenarios/society::scenario.qingchuan_political_career/dynamic_world/organization/grants/grant.qingchuan_governance",
+      "value": {
+        "id": "grant.qingchuan_governance",
+        "office_id": "office.qingchuan_governance",
+        "allowed_command_kinds": [
+          "inspect_local_economy",
+          "political_set_tax"
+        ],
+        "scopes": [
+          {
+            "kind": "site",
+            "id": "society::place.courtyard"
+          }
+        ],
+        "wallet_ids": [
+          "society::wallet.city"
+        ],
+        "inventory_ids": [
+          "society::inventory.city"
+        ],
+        "amount_limit": 1000,
+        "valid_from": 0,
+        "valid_until": null,
+        "may_delegate": false,
+        "continuity_policy_id": "continue_under_organization"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/scenarios/society::scenario.qingchuan_political_career/dynamic_world/organization/offices/office.qingchuan_governance",
+      "value": {
+        "id": "office.qingchuan_governance",
+        "organization_id": "society::org.city",
+        "holder_actor_id": null,
+        "deputy_actor_id": null,
+        "epoch": 0,
+        "status": "vacant",
+        "grant_ids": [
+          "grant.qingchuan_governance"
+        ]
+      }
+    },
+    {
+      "op": "add",
+      "path": "/scenarios/society::scenario.qingchuan_political_career/dynamic_world/organization/offices/office.city_steward/grant_ids/-",
+      "value": "grant.qingchuan_appointment"
+    },
+    {
+      "op": "add",
+      "path": "/scenarios/society::scenario.qingchuan_political_career/dynamic_world/organization/organizations/society::org.city/office_ids/-",
+      "value": "office.qingchuan_governance"
+    },
+    {
+      "op": "add",
+      "path": "/scenarios/society::scenario.qingchuan_political_career/dynamic_world/politics",
+      "value": {
+        "enabled": true,
+        "jurisdictions": {
+          "jurisdiction.qingchuan": {
+            "id": "jurisdiction.qingchuan",
+            "name_key": "society::politics.qingchuan.name",
+            "office_name_key": "society::politics.qingchuan.office",
+            "seat_place_id": "society::place.courtyard",
+            "political_organization_id": "society::org.city",
+            "controlling_organization_id": "society::org.city",
+            "office_id": "office.qingchuan_governance",
+            "public_wallet_id": "society::wallet.city",
+            "public_inventory_ids": [
+              "society::inventory.city"
+            ],
+            "revision": 0
+          }
+        },
+        "appointment_policies": {
+          "appointment.qingchuan_local": {
+            "id": "appointment.qingchuan_local",
+            "name_key": "society::politics.qingchuan.appointment",
+            "response_ticks": 24,
+            "arrival_ticks": 24,
+            "minimum_administration": 1,
+            "minimum_merit": 0
+          }
+        },
+        "command_name_keys": {
+          "inspect_local_economy": "society::politics.command.inspect",
+          "political_set_tax": "society::politics.command.tax"
+        }
+      }
+    },
+    {
+      "op": "add",
+      "path": "/scenarios/society::scenario.qingchuan_political_career/dynamic_world/political_fiscal",
+      "value": {
+        "enabled": true
+      }
+    },
+    {
+      "op": "add",
+      "path": "/texts/society::politics.qingchuan.name",
+      "value": "青川辖区"
+    },
+    {
+      "op": "add",
+      "path": "/texts/society::politics.qingchuan.office",
+      "value": "青川县署辖务负责人"
+    },
+    {
+      "op": "add",
+      "path": "/texts/society::politics.qingchuan.appointment",
+      "value": "青川辖务任用"
+    },
+    {
+      "op": "add",
+      "path": "/texts/society::politics.command.inspect",
+      "value": "查阅本地生产与公共收支"
+    },
+    {
+      "op": "add",
+      "path": "/texts/society::politics.command.tax",
+      "value": "登记后续税政"
+    },
+    {
+      "op": "add",
+      "path": "/scenarios/society::scenario.qingchuan_political_career/playable_actor_ids/-",
+      "value": "society::actor.city_steward"
+    },
+    {
+      "op": "add",
+      "path": "/scenarios/society::scenario.qingchuan_political_career/playable_actor_appearance_policies/-",
+      "value": {
+        "actor_id": "society::actor.city_steward",
+        "policy": "preserve_existing_v1"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/scenarios/society::scenario.qingchuan_political_career/player_start_descriptions/-",
+      "value": {
+        "actor_id": "society::actor.city_steward",
+        "text_key": "society::politics.start.city_steward"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/texts/society::politics.start.city_steward",
+      "value": "以现任县仓书佐身份继续。原有公职、账目与承诺都在，公库仍属县署；只能在列明授权内办理公务。"
+    },
+    {
+      "op": "add",
+      "path": "/scenarios/society::scenario.qingchuan_political_career/dynamic_world/director/policies/qingchuan_steward",
+      "value": {
+        "decline_work_after_ticks": 2,
+        "leave_after_ticks": 4,
+        "organization_id": "society::org.city",
+        "report_source_keys": [
+          "supply.city"
+        ],
+        "request_arrear_after_ticks": 1,
+        "templates": [
+          "maintain_commitment",
+          "await_adjustment",
+          "political_career"
+        ],
+        "political_career": {
+          "id": "political_career.qingchuan_steward",
+          "response": "defer",
+          "acceptable_organization_ids": [],
+          "acceptable_jurisdiction_ids": [],
+          "staffing_posts": [
+            {
+              "issuing_office_id": "office.city_steward",
+              "jurisdiction_id": "jurisdiction.qingchuan",
+              "appointment_policy_id": "appointment.qingchuan_local",
+              "candidate_actor_ids": [
+                "society::actor.apprentice",
+                "society::actor.study_swordswoman"
+              ]
+            }
+          ],
+          "maximum_travel_quote_cost": 0
+        }
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/scenarios/society::scenario.qingchuan_political_career/dynamic_world/director/admissions",
+      "value": {
+        "a.qingchuan_steward": {
+          "kind": "all_actors",
+          "policy_id": "qingchuan_steward",
+          "minimum_age_years": 18,
+          "excluded_actor_ids": [
+            "society::actor.apprentice",
+            "society::actor.tutor",
+            "society::actor.merchant",
+            "society::actor.sword_master",
+            "society::actor.sect_steward",
+            "society::actor.study_caravanner",
+            "society::actor.study_swordswoman",
+            "society::actor.home_keeper"
+          ]
+        },
+        "adult_life": {
+          "excluded_actor_ids": [
+            "society::actor.tutor",
+            "society::actor.merchant",
+            "society::actor.sect_steward"
+          ],
+          "kind": "all_actors",
+          "minimum_age_years": 18,
+          "policy_id": "private_adult_life"
+        },
+        "city_members": {
+          "kind": "organization_members",
+          "minimum_age_years": 18,
+          "organization_id": "society::org.city",
+          "policy_id": "city_member"
+        },
+        "remaining_observers": {
+          "kind": "all_actors",
+          "policy_id": "observation_only"
+        },
+        "sect_members": {
+          "kind": "organization_members",
+          "minimum_age_years": 18,
+          "organization_id": "society::org.sect",
+          "policy_id": "sect_member"
+        }
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/scenarios/society::scenario.qingchuan_political_career/dynamic_world/director/policies/private_adult_life/templates",
+      "value": [
+        "private_livelihood",
+        "political_career"
+      ]
+    },
+    {
+      "op": "add",
+      "path": "/scenarios/society::scenario.qingchuan_political_career/dynamic_world/director/policies/private_adult_life/political_career",
+      "value": {
+        "id": "political_career.qingchuan_adult",
+        "response": "accept_qualified",
+        "acceptable_organization_ids": [
+          "society::org.city"
+        ],
+        "acceptable_jurisdiction_ids": [
+          "jurisdiction.qingchuan"
+        ],
+        "staffing_posts": [],
+        "maximum_travel_quote_cost": 0
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/scenarios/society::scenario.qingchuan_political_career/dynamic_world/director/admissions/adult_life/excluded_actor_ids",
+      "value": [
+        "society::actor.tutor",
+        "society::actor.merchant",
+        "society::actor.sect_steward",
+        "society::actor.sword_master"
+      ]
+    }
+  ],
+  "political_career_profiles": [
+    {
+      "id": "political_career.qingchuan_steward",
+      "response": "defer",
+      "acceptable_organization_ids": [],
+      "acceptable_jurisdiction_ids": [],
+      "staffing_posts": [
+        {
+          "issuing_office_id": "office.city_steward",
+          "jurisdiction_id": "jurisdiction.qingchuan",
+          "appointment_policy_id": "appointment.qingchuan_local",
+          "candidate_actor_ids": [
+            "society::actor.apprentice",
+            "society::actor.study_swordswoman"
+          ]
+        }
+      ],
+      "maximum_travel_quote_cost": 0
+    }
+  ],
+  "central_bindings_required": [],
+  "development_parameters": {
+    "response_ticks": {
+      "value": 24,
+      "source": "Matches existing terms.city_contract.offer_duration_ticks for this local author candidate; not final political balance."
+    },
+    "arrival_ticks": {
+      "value": 24,
+      "source": "Local author candidate response window reused; no remote deadline claim."
+    },
+    "minimum_administration": {
+      "value": 1,
+      "source": "Native positive qualification floor for candidate only; no new final skill threshold claimed."
+    },
+    "minimum_merit": {
+      "value": 0,
+      "source": "No additional merit gate for this author candidate."
+    },
+    "grant_amount_limit": {
+      "value": 1000,
+      "source": "Exact original grant.city.amount_limit; target grant is a subset."
+    }
+  },
+  "scope_notes": [
+    "Existing procurement grant is unchanged; political delegation is newly authored and explicit.",
+    "No actor, household, wallet, inventory, goods or initial funds added.",
+    "Vacant office grants no initial power; existing actors must accept real named membership then political appointment and actual arrival.",
+    "No initial fiscal policy fact or default tax; only a real authorized command creates one.",
+    "Source is an author-qualified index, not a new published prepared package; old1.11 and existing banks are untouched.",
+    "Optional existing city_steward playable identity keeps his real office and appearance; default player remains apprentice, no new actor or starting funds.",
+    "Create a new derived scenario; original two-person v1 scenario remains unchanged. New roster policy uses selected_existing_actor/2, no new actor-selection capability.",
+    "Political features use the existing native_dynamic_world trust contract; only the new scenario registers political_career Director policies and explicit module markers.",
+    "The original sword-master service provider is excluded from the new scenario private-adult policy to avoid paying himself through his own service role; he retains the existing observation policy and actual teaching role."
+  ],
+  "base_scenario_id": "society::scenario.qingchuan_spring_reserve",
+  "required_native_modules": {
+    "selected_existing_actor": "2",
+    "politics": "1",
+    "political_fiscal": "1"
+  }
+}

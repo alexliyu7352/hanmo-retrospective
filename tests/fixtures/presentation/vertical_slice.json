@@ -1,0 +1,242 @@
+{
+  "format": "HM-PRESENTATION-SLICE-FIXTURE/1",
+  "source": "content/foundation/alpha_life.json",
+  "scenario_id": "scenario.alpha_life",
+  "asset_scope": "existing_registered_representative_art_with_structural_granary",
+  "visual_blocker": "真实专绘、成人静态战斗身体与城镇/内景背景只接隔离样板；儿童战斗与仓廪两等级仍是结构夹具，正常年龄跨界和新增原生窗口/输入未验收",
+  "actors": {
+    "actor.player": {
+      "profile": "fixture.person",
+      "age": 25,
+      "generated_candidates": {
+        "face_shape": [
+          "round",
+          "angular"
+        ],
+        "hair": [
+          "short",
+          "bun"
+        ],
+        "build": [
+          "slender",
+          "broad"
+        ]
+      }
+    },
+    "actor.carter": {
+      "profile": "fixture.person",
+      "age": 32
+    },
+    "actor.apprentice": {
+      "profile": "fixture.person",
+      "age": 8
+    },
+    "actor.shen": {
+      "profile": "slice.dedicated.shen",
+      "age": 40
+    }
+  },
+  "base_features": {
+    "face_shape": "round",
+    "eyes": "calm",
+    "brows": "straight",
+    "nose": "plain",
+    "mouth": "plain",
+    "hair": "short",
+    "beard": "none",
+    "skin_palette": "warm",
+    "build": "slender"
+  },
+  "places": [
+    "west.street",
+    "west.tavern",
+    "west.estate"
+  ],
+  "variants": [
+    {
+      "id": "a",
+      "actor_id": "actor.carter",
+      "face_shape": "round",
+      "attire_style": "plain",
+      "actor_positions": {
+        "actor.player": [
+          42,
+          57
+        ],
+        "actor.carter": [
+          65,
+          57
+        ],
+        "actor.shen": [
+          87,
+          57
+        ]
+      }
+    },
+    {
+      "id": "b",
+      "actor_id": "actor.carter",
+      "face_shape": "angular",
+      "attire_style": "formal",
+      "actor_positions": {
+        "actor.player": [
+          87,
+          57
+        ],
+        "actor.carter": [
+          64,
+          57
+        ],
+        "actor.shen": [
+          42,
+          57
+        ]
+      }
+    }
+  ],
+  "required_input_steps": [
+    "map",
+    "city",
+    "tavern",
+    "meeting",
+    "escort_battle",
+    "return_report",
+    "estate_build",
+    "cancel_reenter",
+    "author_save_reopen"
+  ],
+  "required_visual_cases": [
+    "adult_composites",
+    "independent_child_body",
+    "age_transition",
+    "two_attires",
+    "handcrafted_actor",
+    "simplified_battle",
+    "same_place_scenes"
+  ],
+  "window_matrix": [
+    [
+      1280,
+      720,
+      100
+    ],
+    [
+      1920,
+      1080,
+      125
+    ],
+    [
+      960,
+      720,
+      150
+    ]
+  ],
+  "world_map_id": "map.qingchuan",
+  "character_art": {
+    "manifest": "game/assets/art/v05-modular-sample-20261003/candidate-manifest.json",
+    "source_profile": "v05.sample.person",
+    "target_profile": "fixture.person",
+    "attire_aliases": {
+      "formal": "travel"
+    },
+    "scope": "8–40岁候选；每年龄两张互斥整头身体加两张独立衣服；formal沿用作者语义，仅借olive表现第二套日常衣服，不宣称历史礼服还原；五官、头发、体型没有独立视觉控制，未实现老年素材"
+  },
+  "actor_extent": [
+    20,
+    24
+  ],
+  "representative_art": {
+    "dedicated": {
+      "profile": "slice.dedicated.shen",
+      "asset_id": "portraits/sender",
+      "age_domain": [
+        16,
+        40
+      ],
+      "safe_crop": [
+        265,
+        20,
+        495,
+        535
+      ]
+    },
+    "adult_battle": {
+      "asset_id": "portraits/battle_sword",
+      "ages": [
+        16,
+        100
+      ]
+    },
+    "backgrounds": {
+      "world": "backgrounds/region_qingchuan",
+      "city": "backgrounds/city",
+      "interior": "backgrounds/tavern"
+    },
+    "limits": {
+      "structural_granary": "仓廪等级切换仍用原10×10几何夹具，仅证明既有建设投影，不冒充真实建筑分层美术",
+      "child_battle_art": "仅复用成人单朝向静态战斗身体，儿童仍为独立结构夹具，不将成人缩小冒充儿童",
+      "battle_animation": "不新增动作帧，不宣称每件武器衣物外观随规则装备变化",
+      "city_extras": "街景中的原有绘制路人为无交互背景，不是具名世界人物"
+    }
+  },
+  "clothing_pair": [
+    "cloth_plain",
+    "cloth_formal"
+  ],
+  "representative_variants": [
+    {
+      "id": "cloth_plain",
+      "actor_id": "actor.carter",
+      "face_shape": "round",
+      "attire_style": "plain",
+      "actor_positions": {
+        "actor.player": [
+          42,
+          57
+        ],
+        "actor.carter": [
+          65,
+          57
+        ],
+        "actor.shen": [
+          87,
+          57
+        ]
+      }
+    },
+    {
+      "id": "cloth_formal",
+      "actor_id": "actor.carter",
+      "face_shape": "round",
+      "attire_style": "formal",
+      "actor_positions": {
+        "actor.player": [
+          42,
+          57
+        ],
+        "actor.carter": [
+          65,
+          57
+        ],
+        "actor.shen": [
+          87,
+          57
+        ]
+      }
+    }
+  ],
+  "age_transition": {
+    "status": "NOT_RUN",
+    "reason": "显式--representatives额外作者准备最小procurement样板，主角合法15岁整岁初态；仅允许一次正常wait推进720半日且硬限240秒，运行回执另记，不以准备成功冒充跨界",
+    "scope": "不改Schema、世界初态或时钟；默认a/b不启动年龄推进"
+  },
+  "age_boundary": {
+    "id": "age_boundary",
+    "source": "content/foundation/procurement.json",
+    "scenario_id": "scenario.procurement",
+    "actor_id": "actor.player",
+    "initial_age_years": 15,
+    "wait_ticks": 720,
+    "timeout_seconds": 240
+  }
+}

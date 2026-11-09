@@ -1,0 +1,21 @@
+{
+  "pose": "move-b-01",
+  "tool": "built-in image_gen.imagegen",
+  "original_path": "<本地路径>",
+  "source_size": [
+    1254,
+    1254
+  ],
+  "mode": "RGBA",
+  "sha256": "344f49e40b4089d0b0a19e15ad4c07babdaa7aee5cfd8195a3570239e6bbe2ff",
+  "alpha_zero": 1214797,
+  "visible_bbox": [
+    318,
+    18,
+    1200,
+    1224
+  ],
+  "status": "CANDIDATE_WHOLE_POSE_REVIEWED",
+  "notes": "Same visible weapon hand retained. Source remains WIP, no final production approval. Movement pair reads as lead-foot advance/gather, not alternate-leg walking.",
+  "pixel_mutation": false
+}

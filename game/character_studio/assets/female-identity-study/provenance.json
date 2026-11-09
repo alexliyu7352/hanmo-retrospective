@@ -1,0 +1,68 @@
+{
+  "date": "2026-10-06",
+  "generator": "built-in image_gen",
+  "reference": "Original accepted female source only: assets/female-study/master-v2.png and evidence/female-face-reference.png",
+  "scope": "Female four structural profiles with independently selectable parts, mixed-component and native96px review, actual X11 workbench verified",
+  "source_crop": [
+    300,
+    120,
+    512,
+    512
+  ],
+  "current_order": [
+    "original master-v2",
+    "angular-v4",
+    "lower-cheek-v1",
+    "tapered-v1"
+  ],
+  "sources": [
+    {
+      "file": "angular-v1.png",
+      "prompt": "angular-prompt.txt",
+      "status": "Too close to original at96px; retained research, not current candidate."
+    },
+    {
+      "file": "angular-v2.png",
+      "prompt": "angular-v2-prompt.txt",
+      "status": "Jaw distinction visible but first/second overall identity too close at96px; parent requested targeted eye-socket/midface refinement."
+    },
+    {
+      "file": "angular-v3-framing-rejected.png",
+      "prompt": "angular-v3-framing-rejected-prompt.txt",
+      "status": "Rejected because generator zoomed out and shifted head; never normalized by distorting individual features or used in composite."
+    },
+    {
+      "file": "angular-v4.png",
+      "prompt": "angular-v4-prompt.txt",
+      "status": "Parent viewed actual96px/detail/half-body source, accepted stronger eye-socket/midface identity for independent-part adaptation."
+    },
+    {
+      "file": "lower-cheek-v1.png",
+      "prompt": "lower-cheek-prompt.txt",
+      "status": "Full lower cheeks and short round chin, same quiet slight smile; parent actual-source review found distinction clear."
+    },
+    {
+      "file": "tapered-v1.png",
+      "prompt": "tapered-prompt.txt",
+      "status": "High broad cheeks with contracting lower face and short small chin, same quiet slight smile; parent actual-source review found distinction clear."
+    },
+    {
+      "file": "angular-features-v1.png",
+      "prompt": "angular-features-prompt.txt",
+      "status": "Open eye and round nose-tip alternatives retain deeper sockets, bridge length and middle-face; neutral mouth and straight brows independently selectable."
+    },
+    {
+      "file": "lower-cheek-features-v1.png",
+      "prompt": "other-features-prompts.json",
+      "status": "Narrow-eye/straight-nose/flat-mouth/straight-brow alternatives preserve fuller lower cheeks and compact midface."
+    },
+    {
+      "file": "tapered-features-v1.png",
+      "prompt": "other-features-prompts.json",
+      "status": "Independent alternate parts preserve high cheeks and contracting lower-face structure."
+    }
+  ],
+  "authoring": "Each complete square source is uniformly normalized to its own original female crop and recomposed with original female hair/neck-collar fitting and clothing. No male source pixels or male geometry borrowed. All existing default catalogs unchanged.",
+  "limits": "Four female representatives plus previously accepted medium four representatives. Elongated-family four identities remain pending; no overall12completion, age/body or Main/save claim.",
+  "gui_receipt": "evidence/female-four-gui-verification.json"
+}

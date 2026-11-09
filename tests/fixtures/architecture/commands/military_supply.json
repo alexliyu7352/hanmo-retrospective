@@ -1,0 +1,140 @@
+{
+  "case_id": "military_supply",
+  "scenario_id": "scenario.alpha_life",
+  "content": "@military",
+  "description": "固定作者seed，输入经实际Kernel展开；稳定节点包含完整字节存档",
+  "commands": [
+    {
+      "op": "checkpoint",
+      "label": "01-before-start"
+    },
+    {
+      "op": "submit",
+      "kind": "office_accept",
+      "params": {
+        "office_id": "office.military.a"
+      },
+      "context_role": "role.military.a"
+    },
+    {
+      "op": "checkpoint",
+      "label": "02-after-appointment-start"
+    },
+    {
+      "op": "advance",
+      "ticks": 1
+    },
+    {
+      "op": "submit",
+      "kind": "campaign_accept",
+      "params": {
+        "template_id": "order.military.a"
+      },
+      "context_role": "role.military.a"
+    },
+    {
+      "op": "submit",
+      "kind": "army_form",
+      "params": {
+        "order_id": "@campaign",
+        "unit_ids": [
+          "unit.military.a"
+        ],
+        "food_quantity": 160,
+        "money": 100
+      }
+    },
+    {
+      "op": "checkpoint",
+      "label": "03-before-formation-completion"
+    },
+    {
+      "op": "advance",
+      "ticks": 1
+    },
+    {
+      "op": "checkpoint",
+      "label": "04-after-formation"
+    },
+    {
+      "op": "submit",
+      "kind": "campaign_depart",
+      "params": {
+        "campaign_id": "@campaign"
+      }
+    },
+    {
+      "op": "checkpoint",
+      "label": "05-after-departure"
+    },
+    {
+      "op": "travel_until",
+      "city": "village.east"
+    },
+    {
+      "op": "checkpoint",
+      "label": "06-before-delivery"
+    },
+    {
+      "op": "submit",
+      "kind": "campaign_deliver",
+      "params": {
+        "campaign_id": "@campaign"
+      }
+    },
+    {
+      "op": "checkpoint",
+      "label": "07-after-delivery"
+    },
+    {
+      "op": "submit",
+      "kind": "campaign_return",
+      "params": {
+        "campaign_id": "@campaign"
+      }
+    },
+    {
+      "op": "travel_until",
+      "city": "city.west"
+    },
+    {
+      "op": "submit",
+      "kind": "army_return",
+      "params": {
+        "army_id": "@army"
+      }
+    },
+    {
+      "op": "checkpoint",
+      "label": "08-before-return-completion"
+    },
+    {
+      "op": "advance",
+      "ticks": 1
+    },
+    {
+      "op": "checkpoint",
+      "label": "09-after-return"
+    },
+    {
+      "op": "submit",
+      "kind": "campaign_report",
+      "params": {
+        "campaign_id": "@campaign"
+      },
+      "context_role": "role.military.a"
+    },
+    {
+      "op": "submit",
+      "kind": "office_resign",
+      "params": {
+        "office_id": "office.military.a"
+      },
+      "context_role": "role.military.a"
+    },
+    {
+      "op": "checkpoint",
+      "label": "10-after-completion"
+    }
+  ]
+}

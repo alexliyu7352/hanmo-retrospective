@@ -1,0 +1,8 @@
+// 仅实际Director内部包装能请求NPC答复，外部decode始终只有原玩家三命令。
+#pragma once
+#include "political_office_resignation_responses.hpp"
+namespace hanmo::resident {
+struct AuthoredOfficeResignationCommand {PoliticalOfficeResignationAuthoredOrigin origin;PoliticalAnswerOfficeResignation command;};
+Status validate_political_office_resignation_authored_command(const CommonStore&,const OrganizationState&,const OrganizationCatalog&,const PoliticalOfficeResignationState&,const PoliticalOfficeResignationResponseCatalog&,const PoliticalOfficeResignationAuthoredOrigin&,const StableId& actor,const PoliticalOfficeResignationCommand&);
+Status validate_political_office_resignation_authored_source(const CommonStore&,const OrganizationState&,const OrganizationCatalog&,const PoliticalOfficeResignationState&,const PoliticalOfficeResignationResponseCatalog&,const StableId& actual_answer,const PoliticalSuccessionPlayerRead&);
+}

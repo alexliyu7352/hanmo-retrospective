@@ -1,0 +1,14 @@
+// 证面只证明本人曾接受的原委托；远方撤约/死亡不得改变其为今日现况播报。
+#define PRIVATE_SHOP_LIQUIDATION_FIXTURE_ONLY
+#include "private_shop_liquidation_test.cpp"
+#undef PRIVATE_SHOP_LIQUIDATION_FIXTURE_ONLY
+#include "../../../src/resident/domains/commerce/liquidation/private_shop_liquidation_view.hpp"
+namespace {
+void original_documents_remain_finite(){
+    EstateFixture f;auto q=f.appoint();check(q.ok,"original executor quote");auto mandate=f.apply(q.value);check(mandate.ok,"actual accepted original mandate");f.common.state().metadata.player_actor_id="lessor";Integer previews=0;auto unavailable=[&](const StableId&,const PrivateShopLiquidationCommand&)->Outcome<PrivateShopLiquidationQuote>{++previews;return {false,{},common_failure("MustNotReadCurrentPermissionForDocument").error};};auto context=f.authorization();auto first=query_private_shop_liquidations(context,f.meeting(),unavailable,{});check(first.ok&&previews==0,"document view never asks current permissions");check(first.value.find("rows")&&first.value.find("rows")->as<BoundaryValue::Array>()->size()==1,"executor sees own original contract");const auto original=*first.value.find("rows");
+    auto revoke=preview_private_shop_executor(f.authorization(),f.meeting(),f.activities,"owner",PrivateShopRevokeExecutor{mandate.value.mandate_fact_id,"revoke"});check(revoke.ok&&f.apply(revoke.value).ok,"other party actually revokes");auto after=query_private_shop_liquidations(context,f.meeting(),unavailable,{});check(after.ok&&compare_boundary(original,*after.value.find("rows")).exact()&&previews==0,"remote original proprietor revocation does not change executor certificate face");f.death();after=query_private_shop_liquidations(context,f.meeting(),unavailable,{});check(after.ok&&compare_boundary(original,*after.value.find("rows")).exact()&&previews==0,"actual remote death without received letter does not leak through document rows");
+    check(!query_private_shop_liquidations(context,f.meeting(),unavailable,{"estate","unknown.notice",0}).ok,"missing actual received notice cannot open estate details");ActorRecord outsider;outsider.id="outsider";f.common.state().actors.insert(outsider.id,outsider);f.common.state().metadata.player_actor_id=outsider.id;auto hidden=query_private_shop_liquidations(context,f.meeting(),unavailable,{});check(hidden.ok&&hidden.value.find("rows")->as<BoundaryValue::Array>()->empty(),"unrelated person cannot enumerate estate contracts");
+    check(!decode_private_shop_liquidation_query(boundary::obj({{"actor_id",BoundaryValue{StableId{"owner"}}}})).ok,"query never accepts an arbitrary observer parameter");check(!decode_private_shop_liquidation_query(boundary::obj({{"tab",BoundaryValue{StableId{"estate"}}}})).ok,"estate tab requires a selected real notice");
+}
+}
+int main(){try{original_documents_remain_finite();std::cout<<checks<<"/0 estate document source checks\n";return 0;}catch(const std::exception& e){std::cerr<<e.what()<<'\n';return 1;}}

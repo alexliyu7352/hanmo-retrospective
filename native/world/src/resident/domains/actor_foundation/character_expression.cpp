@@ -1,0 +1,11 @@
+#include "character_expression.hpp"
+namespace hanmo::resident {namespace {
+Outcome<const ActorFoundationRuleRef*> purpose(const CharacterConditionSources& sources){auto valid=validate_character_capability_catalog(sources.catalog);if(!valid.ok)return {false,{},valid.error};const auto* row=sources.catalog.capability_purpose_bindings.find("character_expression");if(!row||row->reducer!=CharacterPurposeBinding::Reducer::expression||row->purpose_ref.version!=1)return {false,{},common_failure("CharacterExpressionBindingRequired",{},ErrorKind::unsupported_capability).error};return {true,&row->purpose_ref,{}};}
+Outcome<CharacterExpressionView> project(Outcome<CharacterCapabilityView> result){if(!result.ok)return {false,{},result.error};auto& v=result.value;return {true,{std::move(v.actor_id),std::move(v.condition_head),v.allowed,std::move(v.limiting_condition_refs),std::move(v.rule_ref),std::move(v.observed_at)},{}};}
+}
+Outcome<CharacterExpressionView> read_character_expression(const CharacterConditionSources& sources,const StableId& actor,const ReadStamp& stamp,const ReadStampAuthority& authority,const DomainReadVersionSource& versions){auto selected=purpose(sources);if(!selected.ok)return {false,{},selected.error};return project(read_character_capability(sources,actor,*selected.value,std::nullopt,stamp,authority,versions));}
+Outcome<CharacterExpressionView> read_character_expression_at_head(const CharacterConditionSources& sources,const ActorConditionHead& head,const WorldMoment& at){auto selected=purpose(sources);if(!selected.ok)return {false,{},selected.error};return project(read_character_capability_at_head(sources,head,*selected.value,std::nullopt,at));}
+Outcome<CharacterExpressionView> read_character_expression_for_span(const CharacterConditionSources& sources,const ActorConditionHead& head,const MomentSpan& span){auto selected=purpose(sources);if(!selected.ok)return {false,{},selected.error};return project(read_character_capability_for_span(sources,head,*selected.value,std::nullopt,span));}
+Outcome<CharacterExpressionView> read_character_expression_for_span(const CharacterConditionSources& sources,const StableId& actor,const MomentSpan& span){auto body=read_character_condition_at_moment(sources,actor,span.from);if(!body.ok)return {false,{},body.error};return read_character_expression_for_span(sources,body.value.head,span);}
+
+}

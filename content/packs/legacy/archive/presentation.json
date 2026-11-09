@@ -1,0 +1,133 @@
+{
+  "version": 2,
+  "default_background": "city",
+  "default_portrait": "merchant",
+  "backgrounds": {
+    "city": {
+      "path": "res://assets/art/alpha-visual/city.png"
+    },
+    "hall": {
+      "path": "res://assets/art/alpha-visual/hall.png",
+      "entrance": [
+        51,
+        39
+      ]
+    },
+    "shop": {
+      "path": "res://assets/art/alpha-visual/shop.png",
+      "entrance": [
+        78,
+        60
+      ]
+    },
+    "tavern": {
+      "path": "res://assets/art/alpha-visual/tavern.png",
+      "entrance": [
+        16,
+        50
+      ]
+    },
+    "inn": {
+      "path": "res://assets/art/alpha-visual/inn.png",
+      "entrance": [
+        87,
+        37
+      ]
+    },
+    "house": {
+      "path": "res://assets/art/alpha-visual/house.png",
+      "entrance": [
+        61,
+        53
+      ]
+    },
+    "battlefield_practice": {
+      "path": "res://assets/art/alpha-personal/practice-clearing.png"
+    },
+    "battlefield_ford": {
+      "path": "res://assets/art/alpha-personal/river-ford.png"
+    },
+    "region_qingchuan": {
+      "path": "res://assets/art/alpha-world-terrain/regional-terrain.png"
+    },
+    "estate": {
+      "path": "res://assets/art/alpha-estate/estate-courtyard.png",
+      "entrance": [
+        39,
+        65
+      ]
+    },
+    "battlefield_valley": {
+      "path": "res://assets/art/alpha-military/valley.png"
+    },
+    "camp": {
+      "path": "res://assets/art/alpha-camp/camp-courtyard.png",
+      "entrance": [
+        27,
+        58
+      ]
+    },
+    "title_landscape": {
+      "path": "res://assets/art/alpha-visual/title_landscape.png"
+    },
+    "ui_paper": {
+      "path": "res://assets/art/alpha-visual/paper.png"
+    },
+    "ui_title": {
+      "path": "res://assets/art/alpha-visual/title_mark.png"
+    }
+  },
+  "portraits": {
+    "official": {
+      "path": "res://assets/art/alpha-visual/official.png"
+    },
+    "merchant": {
+      "path": "res://assets/art/alpha-visual/merchant.png"
+    },
+    "host": {
+      "path": "res://assets/art/alpha-visual/host.png"
+    },
+    "innkeeper": {
+      "path": "res://assets/art/alpha-visual/innkeeper.png"
+    },
+    "carter": {
+      "path": "res://assets/art/alpha-visual/carter.png"
+    },
+    "guard": {
+      "path": "res://assets/art/alpha-visual/guard.png"
+    },
+    "sender": {
+      "path": "res://assets/art/alpha-visual/sender.png"
+    },
+    "recipient": {
+      "path": "res://assets/art/alpha-visual/recipient.png"
+    },
+    "player": {
+      "path": "res://assets/art/alpha-visual/traveller.png"
+    },
+    "battle_sword": {
+      "path": "res://assets/art/alpha-personal/swordsman.png"
+    },
+    "battle_spear": {
+      "path": "res://assets/art/alpha-personal/spearman.png"
+    },
+    "battle_bow": {
+      "path": "res://assets/art/alpha-personal/archer.png"
+    },
+    "traveller_alpha": {
+      "path": "res://assets/art/alpha-visual/apprentice.png"
+    },
+    "troop_infantry": {
+      "path": "res://assets/art/alpha-military/infantry.png"
+    },
+    "troop_archers": {
+      "path": "res://assets/art/alpha-military/archers.png"
+    },
+    "troop_cavalry": {
+      "path": "res://assets/art/alpha-military/cavalry.png"
+    }
+  },
+  "components": {},
+  "character_profiles": {},
+  "scene_templates": {}
+}

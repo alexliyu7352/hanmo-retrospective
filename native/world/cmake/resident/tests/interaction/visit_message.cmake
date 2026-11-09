@@ -1,0 +1,12 @@
+# 交互与对白消费者登记：保留本组目标、测试、条件与局部变量的原执行顺序。
+# 拜帖只绑定真实接待对白与具名原事实，猜ID和后来角色变化不能倒造知情。
+add_executable(test_resident_visit_message tests/resident/visit_message_test.cpp)
+target_link_libraries(test_resident_visit_message PRIVATE hanmo_resident)
+target_include_directories(test_resident_visit_message PRIVATE src)
+target_compile_options(test_resident_visit_message PRIVATE -UNDEBUG -fno-fast-math -ffp-contract=off)
+add_test(NAME resident_visit_message COMMAND test_resident_visit_message)
+add_executable(test_resident_visit_message_receipts tests/resident/visit_message_receipts_test.cpp)
+target_link_libraries(test_resident_visit_message_receipts PRIVATE hanmo_resident)
+target_include_directories(test_resident_visit_message_receipts PRIVATE src)
+target_compile_options(test_resident_visit_message_receipts PRIVATE -UNDEBUG -fno-fast-math -ffp-contract=off)
+add_test(NAME resident_visit_message_receipts COMMAND test_resident_visit_message_receipts)

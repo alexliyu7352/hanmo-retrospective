@@ -1,0 +1,14 @@
+{
+  "format": "HM-PACK-SELECTION",
+  "format_version": 1,
+  "packs": [
+    {
+      "id": "hanmo.local_society",
+      "version": "1.11.0"
+    },
+    {
+      "id": "hanmo.task_contacts",
+      "version": "1.10.0"
+    }
+  ]
+}

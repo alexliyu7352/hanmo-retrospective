@@ -1,0 +1,27 @@
+{
+  "schema": "hanmo.public-place-candidate.v1",
+  "status": "OFFLINE_PIXEL_PASS_PENDING_CENTRAL_INTEGRATION",
+  "assets": [
+    {
+      "proposed_id": "city_clean_public_v1",
+      "path": "res://assets/art/public-places-audit/city-clean.png",
+      "candidate_for_existing_id": "city",
+      "old_blob_oid": "68b0e41f60979016bf5c2db0690aec0986e7b760",
+      "sha256": "56f1e8583f786bc405c3ecbe0717e906ef6a152620a17e61a228b4019e473dca",
+      "git_blob_oid": "6c97578c10e97fc530fd40631de23fe5b66802ce",
+      "dimensions": [
+        1586,
+        992
+      ],
+      "mode": "RGB",
+      "user_final_approval": "PENDING",
+      "runtime_registered": false,
+      "source": "art-source/art-direction/public-places-audit/source/city-clean-01.png"
+    }
+  ],
+  "retained": [
+    "hall",
+    "tavern"
+  ],
+  "reason": "移除与真实人物来源无关的烘焙人物，旧图保留；不制作额外场所或规则。"
+}

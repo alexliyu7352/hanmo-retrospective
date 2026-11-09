@@ -1,0 +1,9 @@
+// 下一办理不得消费尚未绑定实际提交结果的临时接待记录。
+#pragma once
+#include "political_office_reception_receipts.hpp"
+namespace hanmo::resident {
+struct PoliticalOfficeReceptionBusinessContext {const PoliticalOfficeReceptionContext& rules;PoliticalOfficeReceptionResultMatch result_match;};
+Status validate_political_office_receptions(const PoliticalOfficeReceptionBusinessContext&);
+Outcome<PoliticalOfficeReceptionQuote> preview_political_office_reception_business(const PoliticalOfficeReceptionBusinessContext&,const StableId&,const PoliticalAssumeOfficeReception&);
+Outcome<StableId> apply_political_office_reception_business_in_candidate(CommonStore&,PoliticalOfficeReceptionState&,const PoliticalOfficeReceptionBusinessContext&,const StableId&,const PoliticalAssumeOfficeReception&,const PoliticalOfficeReceptionQuote&);
+}

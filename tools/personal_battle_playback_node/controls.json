@@ -1,0 +1,7 @@
+{
+  "pause": ["battle_playback_pause", ""],
+  "play": ["battle_playback_pause", ""],
+  "speed_1": ["battle_playback_speed", ""],
+  "speed_2": ["battle_playback_speed", ""],
+  "skip": ["battle_playback_skip", ""]
+}

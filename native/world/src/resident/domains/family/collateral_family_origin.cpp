@@ -1,0 +1,11 @@
+// 持久字段只来自原只读证明；不保存可漂移当前身份，也不写第二份谱系。
+#include "collateral_family_origin.hpp"
+namespace hanmo::resident { namespace {
+BiologicalControlOrigin freeze(const BiologicalChildOrigin& a){BiologicalControlOrigin b;b.kind=a.kind;b.parent_actor_id=a.parent_actor_id;b.child_actor_id=a.child_actor_id;b.original_catalog_actor_id=a.original_catalog_actor_id;b.birth_fact_id=a.birth_fact_id;b.creation_fact_id=a.creation_fact_id;b.source_available_tick=a.source_available_tick;return b;}
+CollateralFamilyOrigin freeze(const CollateralFamilySource& a){CollateralFamilyOrigin b;b.first_actor_id=a.first_actor_id;b.second_actor_id=a.second_actor_id;b.common_ancestor_actor_id=a.common_ancestor_actor_id;for(const auto& edge:a.first_descent)b.first_descent.push_back(freeze(edge));for(const auto& edge:a.second_descent)b.second_descent.push_back(freeze(edge));return b;}
+bool same(const std::vector<BiologicalControlOrigin>& a,const std::vector<BiologicalControlOrigin>& b){if(a.size()!=b.size())return false;for(std::size_t i=0;i<a.size();++i)if(!biological_control_origin_equal(a[i],b[i]))return false;return true;}
+}
+Outcome<CollateralFamilyOrigin> make_collateral_family_origin(const BiologicalLegacyBasisContext& x,const StableId& first,const StableId& second){auto read=read_collateral_family_source(x,first,second);if(!read.ok)return {false,{},read.error};if(!read.value)return {false,{},common_failure("CollateralOriginalAncestryRequired").error};return {true,freeze(*read.value),{}};}
+Status validate_collateral_family_origin_before_fact(const BiologicalLegacyBasisContext& x,const CollateralFamilyOrigin& saved,Integer tick,const StableId& fact){auto read=read_collateral_family_source_before_fact(x,saved.first_actor_id,saved.second_actor_id,tick,fact);if(!read.ok)return {false,{},read.error};if(!read.value)return common_failure("CollateralOriginalAncestryRequired",fact);return collateral_family_origin_equal(saved,freeze(*read.value))?common_success():common_failure("CollateralOriginalAncestryMismatch",fact);}
+bool collateral_family_origin_equal(const CollateralFamilyOrigin& a,const CollateralFamilyOrigin& b){return a.first_actor_id==b.first_actor_id&&a.second_actor_id==b.second_actor_id&&a.common_ancestor_actor_id==b.common_ancestor_actor_id&&same(a.first_descent,b.first_descent)&&same(a.second_descent,b.second_descent);}
+}

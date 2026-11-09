@@ -1,0 +1,638 @@
+{
+  "schema": "adult_sword_joint_surface_inspection/1",
+  "source": "source/atlas-03-joint-surfaces.png",
+  "source_size": [
+    1254,
+    1254
+  ],
+  "source_sha256": "f4a95c5465c7503ad8f8121e69794c2c391dceb67ac577fbe624ad0b4eeb5618",
+  "old_source_sha256": "9b1707f882dbee1ff6f8242da238c34ada9b9ac282d357f88ea6a34a1036f23c",
+  "mode": "RGBA",
+  "alpha_zero_pixels": 1045606,
+  "alpha_1_to_15_pixels": 51283,
+  "alpha_ge16_pixels": 475627,
+  "whole_image_changed_pixels": 528965,
+  "parts": {
+    "torso": {
+      "major_source_bbox": [
+        362,
+        15,
+        675,
+        442
+      ],
+      "visible_bbox_local": [
+        7,
+        7,
+        320,
+        434
+      ],
+      "major_component_total": 83765,
+      "captured_major_pixels": 83763,
+      "missing_major_pixels": 2,
+      "foreign_alpha_ge16": 0,
+      "changed_pixels_within_old_region": 89766,
+      "old_region": [
+        355,
+        8,
+        325,
+        436
+      ],
+      "source_patches": [
+        [
+          0,
+          0,
+          325,
+          419
+        ],
+        [
+          179,
+          419,
+          64,
+          17
+        ]
+      ]
+    },
+    "head": {
+      "major_source_bbox": [
+        63,
+        46,
+        323,
+        371
+      ],
+      "visible_bbox_local": [
+        5,
+        6,
+        265,
+        331
+      ],
+      "major_component_total": 50551,
+      "captured_major_pixels": 50551,
+      "missing_major_pixels": 0,
+      "foreign_alpha_ge16": 2,
+      "changed_pixels_within_old_region": 55279,
+      "old_region": [
+        58,
+        40,
+        271,
+        336
+      ],
+      "source_patches": null
+    },
+    "right_upper_arm": {
+      "major_source_bbox": [
+        710,
+        70,
+        891,
+        353
+      ],
+      "visible_bbox_local": [
+        6,
+        6,
+        187,
+        289
+      ],
+      "major_component_total": 32151,
+      "captured_major_pixels": 32151,
+      "missing_major_pixels": 0,
+      "foreign_alpha_ge16": 0,
+      "changed_pixels_within_old_region": 35189,
+      "old_region": [
+        704,
+        64,
+        192,
+        298
+      ],
+      "source_patches": null
+    },
+    "left_upper_arm": {
+      "major_source_bbox": [
+        1014,
+        70,
+        1201,
+        358
+      ],
+      "visible_bbox_local": [
+        5,
+        5,
+        192,
+        293
+      ],
+      "major_component_total": 32490,
+      "captured_major_pixels": 32490,
+      "missing_major_pixels": 0,
+      "foreign_alpha_ge16": 0,
+      "changed_pixels_within_old_region": 34980,
+      "old_region": [
+        1009,
+        65,
+        195,
+        297
+      ],
+      "source_patches": null
+    },
+    "right_forearm": {
+      "major_source_bbox": [
+        105,
+        386,
+        305,
+        640
+      ],
+      "visible_bbox_local": [
+        5,
+        6,
+        205,
+        260
+      ],
+      "major_component_total": 28205,
+      "captured_major_pixels": 28205,
+      "missing_major_pixels": 0,
+      "foreign_alpha_ge16": 0,
+      "changed_pixels_within_old_region": 31349,
+      "old_region": [
+        100,
+        380,
+        212,
+        271
+      ],
+      "source_patches": null
+    },
+    "left_forearm": {
+      "major_source_bbox": [
+        407,
+        427,
+        563,
+        641
+      ],
+      "visible_bbox_local": [
+        7,
+        4,
+        163,
+        218
+      ],
+      "major_component_total": 21866,
+      "captured_major_pixels": 21866,
+      "missing_major_pixels": 0,
+      "foreign_alpha_ge16": 2,
+      "changed_pixels_within_old_region": 24964,
+      "old_region": [
+        400,
+        423,
+        170,
+        226
+      ],
+      "source_patches": [
+        [
+          0,
+          4,
+          134,
+          14
+        ],
+        [
+          0,
+          18,
+          170,
+          208
+        ]
+      ]
+    },
+    "right_hand": {
+      "major_source_bbox": [
+        719,
+        454,
+        858,
+        618
+      ],
+      "visible_bbox_local": [
+        5,
+        6,
+        144,
+        170
+      ],
+      "major_component_total": 13099,
+      "captured_major_pixels": 13099,
+      "missing_major_pixels": 0,
+      "foreign_alpha_ge16": 0,
+      "changed_pixels_within_old_region": 14924,
+      "old_region": [
+        714,
+        448,
+        148,
+        174
+      ],
+      "source_patches": null
+    },
+    "left_hand": {
+      "major_source_bbox": [
+        1030,
+        475,
+        1193,
+        639
+      ],
+      "visible_bbox_local": [
+        6,
+        5,
+        169,
+        169
+      ],
+      "major_component_total": 13299,
+      "captured_major_pixels": 13299,
+      "missing_major_pixels": 0,
+      "foreign_alpha_ge16": 0,
+      "changed_pixels_within_old_region": 15989,
+      "old_region": [
+        1024,
+        470,
+        174,
+        174
+      ],
+      "source_patches": null
+    },
+    "right_thigh": {
+      "major_source_bbox": [
+        69,
+        656,
+        272,
+        940
+      ],
+      "visible_bbox_local": [
+        6,
+        6,
+        209,
+        290
+      ],
+      "major_component_total": 41985,
+      "captured_major_pixels": 41985,
+      "missing_major_pixels": 0,
+      "foreign_alpha_ge16": 0,
+      "changed_pixels_within_old_region": 45035,
+      "old_region": [
+        63,
+        650,
+        214,
+        296
+      ],
+      "source_patches": null
+    },
+    "left_thigh": {
+      "major_source_bbox": [
+        402,
+        653,
+        642,
+        944
+      ],
+      "visible_bbox_local": [
+        6,
+        6,
+        246,
+        297
+      ],
+      "major_component_total": 44112,
+      "captured_major_pixels": 44112,
+      "missing_major_pixels": 0,
+      "foreign_alpha_ge16": 0,
+      "changed_pixels_within_old_region": 48032,
+      "old_region": [
+        396,
+        647,
+        251,
+        302
+      ],
+      "source_patches": null
+    },
+    "right_shin": {
+      "major_source_bbox": [
+        713,
+        656,
+        872,
+        929
+      ],
+      "visible_bbox_local": [
+        6,
+        6,
+        165,
+        279
+      ],
+      "major_component_total": 26834,
+      "captured_major_pixels": 26834,
+      "missing_major_pixels": 0,
+      "foreign_alpha_ge16": 0,
+      "changed_pixels_within_old_region": 29446,
+      "old_region": [
+        707,
+        650,
+        170,
+        284
+      ],
+      "source_patches": null
+    },
+    "left_shin": {
+      "major_source_bbox": [
+        1022,
+        657,
+        1183,
+        933
+      ],
+      "visible_bbox_local": [
+        4,
+        6,
+        165,
+        282
+      ],
+      "major_component_total": 27712,
+      "captured_major_pixels": 27712,
+      "missing_major_pixels": 0,
+      "foreign_alpha_ge16": 0,
+      "changed_pixels_within_old_region": 29961,
+      "old_region": [
+        1018,
+        651,
+        171,
+        287
+      ],
+      "source_patches": null
+    },
+    "right_foot": {
+      "major_source_bbox": [
+        114,
+        972,
+        329,
+        1172
+      ],
+      "visible_bbox_local": [
+        6,
+        5,
+        221,
+        205
+      ],
+      "major_component_total": 23558,
+      "captured_major_pixels": 23558,
+      "missing_major_pixels": 0,
+      "foreign_alpha_ge16": 0,
+      "changed_pixels_within_old_region": 25798,
+      "old_region": [
+        108,
+        967,
+        225,
+        210
+      ],
+      "source_patches": null
+    },
+    "left_foot": {
+      "major_source_bbox": [
+        466,
+        982,
+        684,
+        1166
+      ],
+      "visible_bbox_local": [
+        6,
+        6,
+        224,
+        190
+      ],
+      "major_component_total": 22716,
+      "captured_major_pixels": 22716,
+      "missing_major_pixels": 0,
+      "foreign_alpha_ge16": 0,
+      "changed_pixels_within_old_region": 25188,
+      "old_region": [
+        460,
+        976,
+        228,
+        195
+      ],
+      "source_patches": null
+    },
+    "sword": {
+      "major_source_bbox": [
+        867,
+        846,
+        933,
+        1229
+      ],
+      "visible_bbox_local": [
+        7,
+        6,
+        73,
+        389
+      ],
+      "major_component_total": 13282,
+      "captured_major_pixels": 13282,
+      "missing_major_pixels": 0,
+      "foreign_alpha_ge16": 0,
+      "changed_pixels_within_old_region": 15549,
+      "old_region": [
+        860,
+        840,
+        79,
+        394
+      ],
+      "source_patches": null
+    }
+  },
+  "note": "Read-only measurement; no raster edits. Generation did not preserve untouched pixels exactly. Evaluate shape extents before reusing old source rectangles.",
+  "calibrated_candidate_sha256": "65ffc7546f3ebe110ad9e7cf8e424e94c4908a1ea66f320bcec67b771f3a6a24",
+  "calibrated_fit": {
+    "torso": {
+      "missing_major_pixels": 0,
+      "foreign_alpha_ge16": 0,
+      "alpha_bbox_ge16": [
+        7,
+        7,
+        320,
+        434
+      ]
+    },
+    "head": {
+      "missing_major_pixels": 0,
+      "foreign_alpha_ge16": 2,
+      "alpha_bbox_ge16": [
+        5,
+        6,
+        265,
+        331
+      ]
+    },
+    "right_upper_arm": {
+      "missing_major_pixels": 0,
+      "foreign_alpha_ge16": 0,
+      "alpha_bbox_ge16": [
+        6,
+        6,
+        187,
+        289
+      ]
+    },
+    "left_upper_arm": {
+      "missing_major_pixels": 0,
+      "foreign_alpha_ge16": 0,
+      "alpha_bbox_ge16": [
+        5,
+        5,
+        192,
+        293
+      ]
+    },
+    "right_forearm": {
+      "missing_major_pixels": 0,
+      "foreign_alpha_ge16": 0,
+      "alpha_bbox_ge16": [
+        5,
+        6,
+        205,
+        260
+      ]
+    },
+    "left_forearm": {
+      "missing_major_pixels": 0,
+      "foreign_alpha_ge16": 0,
+      "alpha_bbox_ge16": [
+        7,
+        4,
+        163,
+        218
+      ]
+    },
+    "right_hand": {
+      "missing_major_pixels": 0,
+      "foreign_alpha_ge16": 0,
+      "alpha_bbox_ge16": [
+        5,
+        6,
+        144,
+        170
+      ]
+    },
+    "left_hand": {
+      "missing_major_pixels": 0,
+      "foreign_alpha_ge16": 0,
+      "alpha_bbox_ge16": [
+        6,
+        5,
+        169,
+        169
+      ]
+    },
+    "right_thigh": {
+      "missing_major_pixels": 0,
+      "foreign_alpha_ge16": 0,
+      "alpha_bbox_ge16": [
+        6,
+        6,
+        209,
+        290
+      ]
+    },
+    "left_thigh": {
+      "missing_major_pixels": 0,
+      "foreign_alpha_ge16": 0,
+      "alpha_bbox_ge16": [
+        6,
+        6,
+        246,
+        297
+      ]
+    },
+    "right_shin": {
+      "missing_major_pixels": 0,
+      "foreign_alpha_ge16": 0,
+      "alpha_bbox_ge16": [
+        6,
+        6,
+        165,
+        279
+      ]
+    },
+    "left_shin": {
+      "missing_major_pixels": 0,
+      "foreign_alpha_ge16": 0,
+      "alpha_bbox_ge16": [
+        4,
+        6,
+        165,
+        282
+      ]
+    },
+    "right_foot": {
+      "missing_major_pixels": 0,
+      "foreign_alpha_ge16": 0,
+      "alpha_bbox_ge16": [
+        6,
+        5,
+        221,
+        205
+      ]
+    },
+    "left_foot": {
+      "missing_major_pixels": 0,
+      "foreign_alpha_ge16": 0,
+      "alpha_bbox_ge16": [
+        6,
+        6,
+        224,
+        190
+      ]
+    },
+    "sword": {
+      "missing_major_pixels": 0,
+      "foreign_alpha_ge16": 0,
+      "alpha_bbox_ge16": [
+        7,
+        6,
+        73,
+        389
+      ]
+    }
+  },
+  "calibration_changes": {
+    "torso_source_patches": [
+      [
+        0,
+        0,
+        325,
+        419
+      ],
+      [
+        179,
+        419,
+        64,
+        17
+      ],
+      [
+        177,
+        419,
+        2,
+        1
+      ]
+    ],
+    "left_forearm_source_patches": [
+      [
+        0,
+        4,
+        132,
+        1
+      ],
+      [
+        0,
+        5,
+        134,
+        13
+      ],
+      [
+        0,
+        18,
+        170,
+        208
+      ]
+    ],
+    "right_foot_contact": [
+      145,
+      203
+    ],
+    "left_foot_contact": [
+      156,
+      188
+    ],
+    "pivots_bone_endpoints_scales_z_regions_unchanged": true
+  }
+}

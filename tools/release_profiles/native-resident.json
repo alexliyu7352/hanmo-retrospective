@@ -1,0 +1,20 @@
+{
+  "format": "HM-NATIVE-RESIDENT-RELEASE/1",
+  "export_mode": "debug",
+  "engine": {
+    "version": "4.7.2.stable.official.ed1daf0bf",
+    "sha256": "8d106cbe6144c2dc7e881d61d2429c1a8a76e6b22ef48bd5e48dcf934953f71e"
+  },
+  "native": {
+    "source_commit": "97324d77f89fbf2f443ff16a0d9615d6ea147ccb",
+    "library_sha256": "927a3c0c10b025a7c375acd9e69c80eb3e90811bdf20e286a1c5b4b55d6603be"
+  },
+  "content": {
+    "pack_set_digest": "f500c69e4f58cc815898aff83f8127ac02008c3dbef4b83ede290150cb9615c9",
+    "scenario_id": "society::scenario.qingchuan_spring_reserve"
+  },
+  "storage": {
+    "profile": "player-qingchuan-resident",
+    "custom_user_dir_name": "hanmo-qingchuan-resident"
+  }
+}

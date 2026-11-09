@@ -1,0 +1,58 @@
+{
+  "date": "2026-10-06",
+  "generator": "built-in image_gen",
+  "status": "medium four structural profiles integrated in standalone workbench; actual X11 eight frames and24 mouse actions verified; other two families not expanded",
+  "sources": [
+    {
+      "file": "medium-jaw-v1.png",
+      "reference": "assets/master.png",
+      "prompt_summary": "Keep original full portrait pose, body, hair, eyes/nose/mouth; paint a substantially broader blocky jaw and blunt chin, lean angular cheeks, identical light, real transparency.",
+      "result": "96px difference remained too weak; not adopted."
+    },
+    {
+      "file": "medium-sturdy-crop-v2.png",
+      "reference": "evidence/medium-identity-edit-reference.png, source crop [300,235,512,512]",
+      "prompt_summary": "Replace delicate oval face with different sturdy rectangular adult anatomy, wide blunt chin, prominent cheekbones, heavy orbital bone, wider straight nasal bridge; preserve hair, neck, collar, pose, painterly light and crop.",
+      "result": "Second clear structural appearance. Original brow and neutral mouth re-applied in controlled quartet to remove reliance on frown. No final four-identity acceptance."
+    },
+    {
+      "file": "medium-features-round-v1.png",
+      "reference": "evidence/medium-identity-edit-reference.png",
+      "prompt_summary": "Keep silhouette, cheekbones/chin, hair, neck, camera and calm lips. Edit permanent hooded narrow eyes and broad low bridge, wide rounded nose tip/alar wings; preserve painterly light and skin.",
+      "result": "Stable local features visibly changed, but each structural pair still read as one person's variations at96px."
+    },
+    {
+      "file": "medium-compact-crop-v1.png",
+      "reference": "evidence/medium-identity-edit-reference.png",
+      "prompt_file": "medium-compact-prompt.txt",
+      "result": "Parent viewed actual96px/complete-body composite and accepted fuller compact face structure for local feature adaptation."
+    },
+    {
+      "file": "medium-diamond-crop-v1.png",
+      "reference": "evidence/medium-identity-edit-reference.png",
+      "prompt_file": "medium-diamond-prompt.txt",
+      "result": "Parent viewed actual96px/complete-body composite and accepted high-cheekbone narrow-chin structure for local feature adaptation."
+    },
+    {
+      "file": "medium-sturdy-features-v1.png",
+      "reference": "medium-sturdy-crop-v2.png",
+      "prompt_file": "feature-prompts.json",
+      "result": "Independent straight brow, narrow eye, round nose and mild smile source at own fixed profile anchors."
+    },
+    {
+      "file": "medium-compact-features-v1.png",
+      "reference": "medium-compact-crop-v1.png",
+      "prompt_file": "feature-prompts.json",
+      "result": "Independent straight brow, narrow eye, straight nose and mild smile. Initial brow-mask overlap caused visible residual; enlarged complete brow coverage and lowered eye-mask upper edge, then actual four cross-states reviewed clean."
+    },
+    {
+      "file": "medium-diamond-features-v1.png",
+      "reference": "medium-diamond-crop-v1.png",
+      "prompt_file": "medium-diamond-feature-prompt.txt",
+      "result": "Independent straight brow, open eye, round nose and mild smile; eye source order explicitly mapped to semantic IDs."
+    }
+  ],
+  "authoring": "Source crops normalized isotropically to512x512 and placed at original source-space crop. Research renderer definitions only; no default catalog edits. No freeform feature transforms.",
+  "review": "Original two-contour quartet failed identity clarity. New four structural representatives visibly distinguishable at96px to independent reviewer, maintaining identity under mixed nose/eyes/clothes/headwear. Compact eyebrow residue was found by actual pixel review despite initial numeric passes, fixed and all four brow-eye crossing states reviewed again. Workbench still pending.",
+  "workbench_evidence": "evidence/medium-gui-verification.json"
+}

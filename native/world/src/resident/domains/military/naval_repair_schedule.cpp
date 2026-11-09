@@ -1,0 +1,11 @@
+#include "resident/domains/military/military_model.hpp"
+// 原NPC命令通道的有限修缮意图；没有作者计划、材料或真人船员时不造替代投入。
+#include "naval_repair.hpp"
+#include <algorithm>
+namespace hanmo::resident {
+namespace {
+template<class T>const T* find(const std::vector<T>& rows,const StableId& id){for(const auto& row:rows)if(row.id==id)return &row;return nullptr;}
+}
+Outcome<std::optional<NavalRepairStart>> next_naval_repair_proposal(const CommonRead& c,const MilitaryState& m,const MilitaryCatalog& mc,const MilitaryAccess& access,const NavalState& n,const NavalCatalog& d,const StableId& actor){if(!d.repair_policy||actor==access.player_actor_id)return {true,std::nullopt,{}};const auto* person=c.actor(actor);if(!person||!person->alive||!person->available||!person->action_id.empty())return {true,std::nullopt,{}};const NavalFleetRecord* fleet=nullptr;for(const auto& f:n.fleets)if(f.status=="active"&&f.commander_actor_id==actor){if(fleet)return {false,{},common_failure("NavalCommanderAssignedTwice",actor).error};fleet=&f;}if(!fleet)return {true,std::nullopt,{}};std::vector<StableId> inventories;for(const auto& b:fleet->assignments){const auto* v=find(n.vessels,b.vessel_id);if(v)inventories.push_back(v->cargo_inventory_id);inventories.insert(inventories.end(),b.extra_inventory_ids.begin(),b.extra_inventory_ids.end());}std::sort(inventories.begin(),inventories.end());inventories.erase(std::unique(inventories.begin(),inventories.end()),inventories.end());Integer index=0;
+ for(const auto& plan:d.repair_policy->npc_plans){if(plan.actor_id!=actor)continue;const auto* rule=find(d.repair_policy->rules,plan.rule_id);if(!rule)return {false,{},common_failure("InvalidNavalRepairNpcPlan",actor).error};for(const auto& b:fleet->assignments){const auto* v=find(n.vessels,b.vessel_id);if(!v||v->hull_id!=rule->hull_id||v->integrity>=plan.repair_below)continue;for(const auto& inventory:inventories){if(++index>4096)return {false,{},common_failure("NavalRepairProposalLimit",actor).error};NavalRepairStart request{"repair-npc:"+std::to_string(c.revision())+":"+std::to_string(index),fleet->id,v->id,rule->id,inventory};auto quote=preview_naval_repair(c,m,mc,access,n,d,actor,request);if(quote.ok&&!quote.value.replayed)return {true,std::move(request),{}};if(!quote.ok&&quote.error.kind!=ErrorKind::rule)return {false,{},quote.error};}}}return {true,std::nullopt,{}};}
+}

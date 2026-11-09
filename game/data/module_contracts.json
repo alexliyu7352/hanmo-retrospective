@@ -1,0 +1,5336 @@
+{
+  "format": "HM-MODULE-CONTRACTS/1",
+  "version_rule": "exact",
+  "scope": "完整世界由受信状态计划验证；每个模块及其依赖使用下列精确版本，v2保存独立模块身份。新增装备、真实报价和供给训练不沿旧行为版本写档；A4显式迁移未完成。",
+  "modules": [
+    {
+      "id": "base",
+      "version": "f10-architecture-1",
+      "requires": {},
+      "optional_requires": {},
+      "capabilities": [],
+      "owns": [],
+      "validators": [],
+      "legacy_action_validators": []
+    },
+    {
+      "id": "location",
+      "version": "f10-architecture-1",
+      "requires": {},
+      "optional_requires": {},
+      "capabilities": [
+        "places"
+      ],
+      "owns": [],
+      "validators": [],
+      "legacy_action_validators": []
+    },
+    {
+      "id": "occupation",
+      "version": "f10-architecture-1",
+      "requires": {
+        "location": "f10-architecture-1"
+      },
+      "optional_requires": {},
+      "capabilities": [],
+      "owns": [],
+      "validators": [],
+      "legacy_action_validators": []
+    },
+    {
+      "id": "runtime",
+      "version": "f10-architecture-1",
+      "requires": {
+        "base": "f10-architecture-1",
+        "identity": "f10-appearance-1",
+        "interaction": "f10-architecture-1"
+      },
+      "optional_requires": {},
+      "capabilities": [],
+      "owns": [
+        {
+          "container": "ruleset_id",
+          "scope": "root",
+          "key": "",
+          "owner": "runtime",
+          "schema_refs": [
+            {
+              "path": "game/core/base/world_shape.gd",
+              "method": "validate"
+            }
+          ],
+          "note": "现有权威状态完整保存；声明用于写权限审查，不提供任意GDScript写屏障。"
+        },
+        {
+          "container": "content_id",
+          "scope": "root",
+          "key": "",
+          "owner": "runtime",
+          "schema_refs": [
+            {
+              "path": "game/core/base/world_shape.gd",
+              "method": "validate"
+            }
+          ],
+          "note": "现有权威状态完整保存；声明用于写权限审查，不提供任意GDScript写屏障。"
+        },
+        {
+          "container": "content_version",
+          "scope": "root",
+          "key": "",
+          "owner": "runtime",
+          "schema_refs": [
+            {
+              "path": "game/core/base/world_shape.gd",
+              "method": "validate"
+            }
+          ],
+          "note": "现有权威状态完整保存；声明用于写权限审查，不提供任意GDScript写屏障。"
+        },
+        {
+          "container": "content_digest",
+          "scope": "root",
+          "key": "",
+          "owner": "runtime",
+          "schema_refs": [
+            {
+              "path": "game/core/base/world_shape.gd",
+              "method": "validate"
+            }
+          ],
+          "note": "现有权威状态完整保存；声明用于写权限审查，不提供任意GDScript写屏障。"
+        },
+        {
+          "container": "engine_build",
+          "scope": "root",
+          "key": "",
+          "owner": "runtime",
+          "schema_refs": [
+            {
+              "path": "game/core/base/world_shape.gd",
+              "method": "validate"
+            }
+          ],
+          "note": "现有权威状态完整保存；声明用于写权限审查，不提供任意GDScript写屏障。"
+        },
+        {
+          "container": "rng_backend",
+          "scope": "root",
+          "key": "",
+          "owner": "runtime",
+          "schema_refs": [
+            {
+              "path": "game/core/base/world_shape.gd",
+              "method": "validate"
+            }
+          ],
+          "note": "现有权威状态完整保存；声明用于写权限审查，不提供任意GDScript写屏障。"
+        },
+        {
+          "container": "scenario_id",
+          "scope": "root",
+          "key": "",
+          "owner": "runtime",
+          "schema_refs": [
+            {
+              "path": "game/core/base/world_shape.gd",
+              "method": "validate"
+            }
+          ],
+          "note": "现有权威状态完整保存；声明用于写权限审查，不提供任意GDScript写屏障。"
+        },
+        {
+          "container": "tick",
+          "scope": "root",
+          "key": "",
+          "owner": "runtime",
+          "schema_refs": [
+            {
+              "path": "game/core/base/world_shape.gd",
+              "method": "validate"
+            }
+          ],
+          "note": "现有权威状态完整保存；声明用于写权限审查，不提供任意GDScript写屏障。"
+        },
+        {
+          "container": "revision",
+          "scope": "root",
+          "key": "",
+          "owner": "runtime",
+          "schema_refs": [
+            {
+              "path": "game/core/base/world_shape.gd",
+              "method": "validate"
+            }
+          ],
+          "note": "现有权威状态完整保存；声明用于写权限审查，不提供任意GDScript写屏障。"
+        },
+        {
+          "container": "next_instance_id",
+          "scope": "root",
+          "key": "",
+          "owner": "runtime",
+          "schema_refs": [
+            {
+              "path": "game/core/base/world_shape.gd",
+              "method": "validate"
+            }
+          ],
+          "note": "现有权威状态完整保存；声明用于写权限审查，不提供任意GDScript写屏障。"
+        },
+        {
+          "container": "rng",
+          "scope": "root",
+          "key": "",
+          "owner": "runtime",
+          "schema_refs": [
+            {
+              "path": "game/core/base/world_shape.gd",
+              "method": "validate_runtime"
+            }
+          ],
+          "note": "现有权威状态完整保存；声明用于写权限审查，不提供任意GDScript写屏障。"
+        },
+        {
+          "container": "request_sequences",
+          "scope": "root",
+          "key": "",
+          "owner": "runtime",
+          "schema_refs": [
+            {
+              "path": "game/core/base/world_shape.gd",
+              "method": "validate"
+            }
+          ],
+          "note": "现有权威状态完整保存；声明用于写权限审查，不提供任意GDScript写屏障。"
+        },
+        {
+          "container": "results",
+          "scope": "root",
+          "key": "",
+          "owner": "runtime",
+          "schema_refs": [
+            {
+              "path": "game/core/base/world_shape.gd",
+              "method": "validate_runtime"
+            }
+          ],
+          "note": "现有权威状态完整保存；声明用于写权限审查，不提供任意GDScript写屏障。"
+        },
+        {
+          "container": "history",
+          "scope": "root",
+          "key": "",
+          "owner": "runtime",
+          "schema_refs": [
+            {
+              "path": "game/core/base/world_shape.gd",
+              "method": "validate_runtime"
+            }
+          ],
+          "note": "现有权威状态完整保存；声明用于写权限审查，不提供任意GDScript写屏障。"
+        },
+        {
+          "container": "actions",
+          "scope": "envelope",
+          "key": "",
+          "owner": "runtime",
+          "schema_refs": [
+            {
+              "path": "game/core/runtime/world_validation.gd",
+              "method": "validate_actions"
+            }
+          ],
+          "note": "现有权威状态完整保存；声明用于写权限审查，不提供任意GDScript写屏障。"
+        },
+        {
+          "container": "battles",
+          "scope": "envelope",
+          "key": "",
+          "owner": "runtime",
+          "schema_refs": [
+            {
+              "path": "game/core/personal_combat.gd",
+              "method": "validate_state"
+            }
+          ],
+          "note": "现有权威状态完整保存；声明用于写权限审查，不提供任意GDScript写屏障。"
+        },
+        {
+          "container": "facts",
+          "scope": "envelope",
+          "key": "",
+          "owner": "runtime",
+          "schema_refs": [
+            {
+              "path": "game/core/personal_combat.gd",
+              "method": "validate_state"
+            }
+          ],
+          "note": "现有权威状态完整保存；声明用于写权限审查，不提供任意GDScript写屏障。"
+        },
+        {
+          "container": "actors",
+          "scope": "actor_field",
+          "key": "alive",
+          "owner": "runtime",
+          "schema_refs": [
+            {
+              "path": "game/core/base/world_shape.gd",
+              "method": "validate"
+            }
+          ],
+          "note": "现有权威状态完整保存；声明用于写权限审查，不提供任意GDScript写屏障。"
+        },
+        {
+          "container": "actors",
+          "scope": "actor_field",
+          "key": "available",
+          "owner": "runtime",
+          "schema_refs": [
+            {
+              "path": "game/core/base/world_shape.gd",
+              "method": "validate"
+            }
+          ],
+          "note": "现有权威状态完整保存；声明用于写权限审查，不提供任意GDScript写屏障。"
+        },
+        {
+          "container": "actors",
+          "scope": "actor_field",
+          "key": "hp",
+          "owner": "runtime",
+          "schema_refs": [
+            {
+              "path": "game/core/base/world_shape.gd",
+              "method": "validate"
+            }
+          ],
+          "note": "现有权威状态完整保存；声明用于写权限审查，不提供任意GDScript写屏障。"
+        },
+        {
+          "container": "actors",
+          "scope": "actor_field",
+          "key": "fatigue",
+          "owner": "runtime",
+          "schema_refs": [
+            {
+              "path": "game/core/base/world_shape.gd",
+              "method": "validate"
+            }
+          ],
+          "note": "现有权威状态完整保存；声明用于写权限审查，不提供任意GDScript写屏障。"
+        },
+        {
+          "container": "actors",
+          "scope": "actor_field",
+          "key": "merit",
+          "owner": "runtime",
+          "schema_refs": [
+            {
+              "path": "game/core/base/world_shape.gd",
+              "method": "validate"
+            }
+          ],
+          "note": "现有权威状态完整保存；声明用于写权限审查，不提供任意GDScript写屏障。"
+        },
+        {
+          "container": "actors",
+          "scope": "actor_field",
+          "key": "action_id",
+          "owner": "runtime",
+          "schema_refs": [
+            {
+              "path": "game/core/base/world_shape.gd",
+              "method": "validate"
+            },
+            {
+              "path": "game/core/runtime/world_validation.gd",
+              "method": "validate_actions"
+            }
+          ],
+          "note": "现有权威状态完整保存；声明用于写权限审查，不提供任意GDScript写屏障。"
+        },
+        {
+          "container": "actions",
+          "scope": "kind",
+          "key": "wait",
+          "owner": "runtime",
+          "schema_refs": [
+            {
+              "path": "game/core/base/world_shape.gd",
+              "method": "validate_wait"
+            }
+          ],
+          "note": "现有权威状态完整保存；声明用于写权限审查，不提供任意GDScript写屏障。"
+        }
+      ],
+      "validators": [
+        {
+          "id": "runtime.state",
+          "path": "game/core/base/world_shape.gd",
+          "method": "validate_runtime",
+          "stage": "before_actions",
+          "order": 50,
+          "signature": "state,data"
+        }
+      ],
+      "legacy_action_validators": [
+        {
+          "kind": "wait",
+          "path": "game/core/base/world_shape.gd",
+          "method": "validate_wait",
+          "signature": "state,data,action"
+        }
+      ]
+    },
+    {
+      "id": "catalog",
+      "version": "f10-architecture-1",
+      "requires": {
+        "base": "f10-architecture-1",
+        "personal": "f10-combat-7",
+        "military": "f10-combat-8",
+        "travel": "f10-architecture-1",
+        "identity": "f10-appearance-1",
+        "cultivation": "f10-cultivation-3",
+        "economy": "f10-bargain-1"
+      },
+      "optional_requires": {},
+      "capabilities": [],
+      "owns": [],
+      "validators": [],
+      "legacy_action_validators": []
+    },
+    {
+      "id": "identity",
+      "version": "f10-appearance-1",
+      "requires": {
+        "base": "f10-architecture-1"
+      },
+      "optional_requires": {},
+      "capabilities": [
+        "multi_actor"
+      ],
+      "owns": [
+        {
+          "container": "player_actor_id",
+          "scope": "root",
+          "key": "",
+          "owner": "identity",
+          "schema_refs": [
+            {
+              "path": "game/core/actor_identity.gd",
+              "method": "validate"
+            }
+          ],
+          "note": "唯一控制身份；仅现有Family继任链可协调变更，不授予第二个不受限owner。"
+        },
+        {
+          "container": "actors",
+          "scope": "envelope",
+          "key": "",
+          "owner": "identity",
+          "schema_refs": [
+            {
+              "path": "game/core/base/world_shape.gd",
+              "method": "validate"
+            },
+            {
+              "path": "game/core/actor_identity.gd",
+              "method": "validate"
+            }
+          ],
+          "note": "现有权威状态完整保存；声明用于写权限审查，不提供任意GDScript写屏障。"
+        },
+        {
+          "container": "actors",
+          "scope": "actor_field",
+          "key": "id",
+          "owner": "identity",
+          "schema_refs": [
+            {
+              "path": "game/core/actor_identity.gd",
+              "method": "validate"
+            }
+          ],
+          "note": "现有权威状态完整保存；声明用于写权限审查，不提供任意GDScript写屏障。"
+        },
+        {
+          "container": "actors",
+          "scope": "actor_field",
+          "key": "prototype_id",
+          "owner": "identity",
+          "schema_refs": [
+            {
+              "path": "game/core/actor_identity.gd",
+              "method": "validate"
+            }
+          ],
+          "note": "现有权威状态完整保存；声明用于写权限审查，不提供任意GDScript写屏障。"
+        },
+        {
+          "container": "actors",
+          "scope": "actor_field",
+          "key": "display_name",
+          "owner": "identity",
+          "schema_refs": [
+            {
+              "path": "game/core/actor_identity.gd",
+              "method": "validate"
+            }
+          ],
+          "note": "现有权威状态完整保存；声明用于写权限审查，不提供任意GDScript写屏障。"
+        },
+        {
+          "container": "actors",
+          "scope": "actor_field",
+          "key": "birth_tick",
+          "owner": "identity",
+          "schema_refs": [
+            {
+              "path": "game/core/actor_identity.gd",
+              "method": "validate"
+            }
+          ],
+          "note": "现有权威状态完整保存；声明用于写权限审查，不提供任意GDScript写屏障。"
+        },
+        {
+          "container": "actors",
+          "scope": "actor_field",
+          "key": "created_tick",
+          "owner": "identity",
+          "schema_refs": [
+            {
+              "path": "game/core/actor_identity.gd",
+              "method": "validate"
+            }
+          ],
+          "note": "现有权威状态完整保存；声明用于写权限审查，不提供任意GDScript写屏障。"
+        },
+        {
+          "container": "actors",
+          "scope": "actor_field",
+          "key": "wallet_id",
+          "owner": "identity",
+          "schema_refs": [
+            {
+              "path": "game/core/actor_identity.gd",
+              "method": "validate"
+            }
+          ],
+          "note": "现有权威状态完整保存；声明用于写权限审查，不提供任意GDScript写屏障。"
+        },
+        {
+          "container": "actors",
+          "scope": "actor_field",
+          "key": "inventory_id",
+          "owner": "identity",
+          "schema_refs": [
+            {
+              "path": "game/core/actor_identity.gd",
+              "method": "validate"
+            }
+          ],
+          "note": "现有权威状态完整保存；声明用于写权限审查，不提供任意GDScript写屏障。"
+        },
+        {
+          "container": "facts",
+          "scope": "kind",
+          "key": "actor_creation",
+          "owner": "identity",
+          "schema_refs": [
+            {
+              "path": "game/core/actor_identity.gd",
+              "method": "validate"
+            }
+          ],
+          "note": "现有权威状态完整保存；声明用于写权限审查，不提供任意GDScript写屏障。"
+        },
+        {
+          "container": "actors",
+          "scope": "actor_field",
+          "key": "appearance",
+          "owner": "identity",
+          "schema_refs": [
+            {
+              "path": "game/core/actor_identity.gd",
+              "method": "validate"
+            },
+            {
+              "path": "game/core/domains/identity/actor_appearance.gd",
+              "method": "validate"
+            }
+          ],
+          "note": "保存实际语义特征/版本/seed/来源；创建一次，读档与表现资源升级不能重抽。"
+        }
+      ],
+      "validators": [
+        {
+          "id": "identity.state",
+          "path": "game/core/actor_identity.gd",
+          "method": "validate",
+          "stage": "before_actions",
+          "order": 90,
+          "signature": "state,data"
+        }
+      ],
+      "legacy_action_validators": []
+    },
+    {
+      "id": "economy",
+      "version": "f10-bargain-1",
+      "requires": {
+        "interaction": "f10-architecture-1",
+        "base": "f10-architecture-1",
+        "runtime": "f10-architecture-1"
+      },
+      "optional_requires": {},
+      "capabilities": [
+        "economy"
+      ],
+      "owns": [
+        {
+          "container": "wallets",
+          "scope": "root",
+          "key": "",
+          "owner": "economy",
+          "schema_refs": [
+            {
+              "path": "game/core/domains/economy/economy_module.gd",
+              "method": "validate_state"
+            }
+          ],
+          "note": "共享资产权威包括钱包reserved、inventory lots及reserved_by；任务/庄园/军队仅引用真实owner，不建立平行存储。"
+        },
+        {
+          "container": "inventories",
+          "scope": "root",
+          "key": "",
+          "owner": "economy",
+          "schema_refs": [
+            {
+              "path": "game/core/domains/economy/economy_module.gd",
+              "method": "validate_state"
+            }
+          ],
+          "note": "共享资产权威包括钱包reserved、inventory lots及reserved_by；任务/庄园/军队仅引用真实owner，不建立平行存储。"
+        },
+        {
+          "container": "actions",
+          "scope": "kind",
+          "key": "trade",
+          "owner": "economy",
+          "schema_refs": [
+            {
+              "path": "game/core/domains/economy/trade_action.gd",
+              "method": "validate"
+            }
+          ],
+          "note": "交易载荷由唯一TradeAction.validate校验；finish保留commerce与trade_completed旧协同写入，skills仍属cultivation、interactions仍属interaction。Kernel/Step旧成功编排已删除，唯一registry驱动生命周期。"
+        },
+        {
+          "container": "facts",
+          "scope": "kind",
+          "key": "trade_bargain",
+          "owner": "economy",
+          "schema_refs": [
+            {
+              "path": "game/core/domains/economy/bargain_quote.gd",
+              "method": "validate_state"
+            }
+          ],
+          "note": "真实报价实例及一次成交消费属于economy；课程实例不取得交易权限，原资产转移仍唯一。"
+        }
+      ],
+      "validators": [
+        {
+          "id": "economy.state",
+          "path": "game/core/domains/economy/economy_module.gd",
+          "method": "validate_state",
+          "stage": "before_actions",
+          "order": 20,
+          "signature": "state,data"
+        }
+      ],
+      "legacy_action_validators": []
+    },
+    {
+      "id": "interaction",
+      "version": "f10-architecture-1",
+      "requires": {
+        "location": "f10-architecture-1",
+        "occupation": "f10-architecture-1",
+        "identity": "f10-appearance-1",
+        "base": "f10-architecture-1"
+      },
+      "optional_requires": {},
+      "capabilities": [
+        "dialogue",
+        "events",
+        "road_encounters"
+      ],
+      "owns": [
+        {
+          "container": "roles",
+          "scope": "root",
+          "key": "",
+          "owner": "interaction",
+          "schema_refs": [
+            {
+              "path": "game/core/interaction_rules.gd",
+              "method": "validate_roles"
+            }
+          ],
+          "note": "现有权威状态完整保存；声明用于写权限审查，不提供任意GDScript写屏障。"
+        },
+        {
+          "container": "interactions",
+          "scope": "root",
+          "key": "",
+          "owner": "interaction",
+          "schema_refs": [
+            {
+              "path": "game/core/interaction_rules.gd",
+              "method": "validate_sessions"
+            }
+          ],
+          "note": "现有权威状态完整保存；声明用于写权限审查，不提供任意GDScript写屏障。"
+        },
+        {
+          "container": "events",
+          "scope": "root",
+          "key": "",
+          "owner": "interaction",
+          "schema_refs": [
+            {
+              "path": "game/core/interaction_rules.gd",
+              "method": "validate_sessions"
+            }
+          ],
+          "note": "现有权威状态完整保存；声明用于写权限审查，不提供任意GDScript写屏障。"
+        },
+        {
+          "container": "flags",
+          "scope": "root",
+          "key": "",
+          "owner": "interaction",
+          "schema_refs": [
+            {
+              "path": "game/core/interaction_rules.gd",
+              "method": "validate_flags"
+            }
+          ],
+          "note": "现有权威状态完整保存；声明用于写权限审查，不提供任意GDScript写屏障。"
+        },
+        {
+          "container": "encounters",
+          "scope": "root",
+          "key": "",
+          "owner": "interaction",
+          "schema_refs": [
+            {
+              "path": "game/core/encounter_state.gd",
+              "method": "validate_encounters"
+            }
+          ],
+          "note": "现有权威状态完整保存；声明用于写权限审查，不提供任意GDScript写屏障。"
+        }
+      ],
+      "validators": [
+        {
+          "id": "interaction.roles",
+          "path": "game/core/interaction_rules.gd",
+          "method": "validate_roles",
+          "stage": "before_actions",
+          "order": 10,
+          "signature": "state,data"
+        },
+        {
+          "id": "interaction.flags",
+          "path": "game/core/interaction_rules.gd",
+          "method": "validate_flags",
+          "stage": "before_actions",
+          "order": 30,
+          "signature": "state,data"
+        },
+        {
+          "id": "encounters.state",
+          "path": "game/core/encounter_state.gd",
+          "method": "validate_encounters",
+          "stage": "after_actions",
+          "order": 20,
+          "signature": "state,data"
+        },
+        {
+          "id": "interaction.sessions",
+          "path": "game/core/interaction_rules.gd",
+          "method": "validate_sessions",
+          "stage": "after_actions",
+          "order": 40,
+          "signature": "state,data"
+        }
+      ],
+      "legacy_action_validators": []
+    },
+    {
+      "id": "services",
+      "version": "f10-architecture-1",
+      "requires": {
+        "interaction": "f10-architecture-1",
+        "economy": "f10-bargain-1",
+        "location": "f10-architecture-1",
+        "base": "f10-architecture-1"
+      },
+      "optional_requires": {},
+      "capabilities": [
+        "services"
+      ],
+      "owns": [
+        {
+          "container": "actions",
+          "scope": "kind",
+          "key": "service",
+          "owner": "services",
+          "schema_refs": [
+            {
+              "path": "game/core/service_rules.gd",
+              "method": "validate_action"
+            }
+          ],
+          "note": "现有权威状态完整保存；声明用于写权限审查，不提供任意GDScript写屏障。"
+        },
+        {
+          "container": "actions",
+          "scope": "kind",
+          "key": "long_rest",
+          "owner": "services",
+          "schema_refs": [
+            {
+              "path": "game/core/long_rest.gd",
+              "method": "validate_action"
+            }
+          ],
+          "note": "现有权威状态完整保存；声明用于写权限审查，不提供任意GDScript写屏障。"
+        },
+        {
+          "container": "facts",
+          "scope": "kind",
+          "key": "long_rest",
+          "owner": "services",
+          "schema_refs": [
+            {
+              "path": "game/core/long_rest.gd",
+              "method": "validate_state"
+            }
+          ],
+          "note": "现有权威状态完整保存；声明用于写权限审查，不提供任意GDScript写屏障。"
+        }
+      ],
+      "validators": [
+        {
+          "id": "long_rest.state",
+          "path": "game/core/long_rest.gd",
+          "method": "validate_state",
+          "stage": "before_actions",
+          "order": 130,
+          "signature": "state,data"
+        }
+      ],
+      "legacy_action_validators": [
+        {
+          "kind": "service",
+          "path": "game/core/service_rules.gd",
+          "method": "validate_action",
+          "signature": "state,data,action"
+        },
+        {
+          "kind": "long_rest",
+          "path": "game/core/long_rest.gd",
+          "method": "validate_action",
+          "signature": "state,data,action"
+        }
+      ]
+    },
+    {
+      "id": "tasks",
+      "version": "f10-architecture-1",
+      "requires": {
+        "economy": "f10-bargain-1",
+        "interaction": "f10-architecture-1",
+        "location": "f10-architecture-1",
+        "base": "f10-architecture-1",
+        "runtime": "f10-architecture-1"
+      },
+      "optional_requires": {},
+      "capabilities": [
+        "tasks.procurement",
+        "tasks.message",
+        "tasks.escort"
+      ],
+      "owns": [
+        {
+          "container": "tasks",
+          "scope": "root",
+          "key": "",
+          "owner": "tasks",
+          "schema_refs": [
+            {
+              "path": "game/core/domains/tasks/task_state.gd",
+              "method": "validate"
+            }
+          ],
+          "note": "现有权威状态完整保存；声明用于写权限审查，不提供任意GDScript写屏障。"
+        },
+        {
+          "container": "knowledge",
+          "scope": "root",
+          "key": "",
+          "owner": "tasks",
+          "schema_refs": [
+            {
+              "path": "game/core/base/world_shape.gd",
+              "method": "validate"
+            }
+          ],
+          "note": "现有权威状态完整保存；声明用于写权限审查，不提供任意GDScript写屏障。"
+        },
+        {
+          "container": "actions",
+          "scope": "kind",
+          "key": "accept_offer",
+          "owner": "tasks",
+          "schema_refs": [
+            {
+              "path": "game/core/domains/tasks/task_action.gd",
+              "method": "validate"
+            }
+          ],
+          "note": "现有权威状态完整保存；声明用于写权限审查，不提供任意GDScript写屏障。"
+        },
+        {
+          "container": "actions",
+          "scope": "kind",
+          "key": "report_offer",
+          "owner": "tasks",
+          "schema_refs": [
+            {
+              "path": "game/core/domains/tasks/task_action.gd",
+              "method": "validate"
+            }
+          ],
+          "note": "现有权威状态完整保存；声明用于写权限审查，不提供任意GDScript写屏障。"
+        },
+        {
+          "container": "actions",
+          "scope": "kind",
+          "key": "deliver_message",
+          "owner": "tasks",
+          "schema_refs": [
+            {
+              "path": "game/core/domains/tasks/task_action.gd",
+              "method": "validate"
+            }
+          ],
+          "note": "现有权威状态完整保存；声明用于写权限审查，不提供任意GDScript写屏障。"
+        },
+        {
+          "container": "facts",
+          "scope": "kind",
+          "key": "escort_arrival",
+          "owner": "tasks",
+          "schema_refs": [
+            {
+              "path": "game/core/escort_rules.gd",
+              "method": "validate_task"
+            }
+          ],
+          "note": "当前kind的唯一载荷维护权；容器/envelope由runtime维护，实际校验仍走现有聚合入口。"
+        }
+      ],
+      "validators": [
+        {
+          "id": "tasks.state",
+          "path": "game/core/domains/tasks/task_state.gd",
+          "method": "validate",
+          "stage": "before_actions",
+          "order": 140,
+          "signature": "state,data"
+        }
+      ],
+      "legacy_action_validators": []
+    },
+    {
+      "id": "social",
+      "version": "f10-architecture-1",
+      "requires": {
+        "economy": "f10-bargain-1",
+        "location": "f10-architecture-1",
+        "identity": "f10-appearance-1",
+        "base": "f10-architecture-1",
+        "interaction": "f10-architecture-1"
+      },
+      "optional_requires": {},
+      "capabilities": [
+        "npc_society"
+      ],
+      "owns": [
+        {
+          "container": "relations",
+          "scope": "root",
+          "key": "",
+          "owner": "social",
+          "schema_refs": [
+            {
+              "path": "game/core/social_rules.gd",
+              "method": "validate_relations"
+            }
+          ],
+          "note": "现有权威状态完整保存；声明用于写权限审查，不提供任意GDScript写屏障。"
+        },
+        {
+          "container": "social",
+          "scope": "root",
+          "key": "",
+          "owner": "social",
+          "schema_refs": [
+            {
+              "path": "game/core/social_rules.gd",
+              "method": "validate_state"
+            }
+          ],
+          "note": "现有权威状态完整保存；声明用于写权限审查，不提供任意GDScript写屏障。"
+        }
+      ],
+      "validators": [
+        {
+          "id": "social.relations",
+          "path": "game/core/social_rules.gd",
+          "method": "validate_relations",
+          "stage": "before_actions",
+          "order": 40,
+          "signature": "state,data"
+        },
+        {
+          "id": "social.state",
+          "path": "game/core/social_rules.gd",
+          "method": "validate_state",
+          "stage": "before_actions",
+          "order": 80,
+          "signature": "state,data"
+        }
+      ],
+      "legacy_action_validators": []
+    },
+    {
+      "id": "travel",
+      "version": "f10-architecture-1",
+      "requires": {
+        "location": "f10-architecture-1",
+        "interaction": "f10-architecture-1",
+        "social": "f10-architecture-1",
+        "economy": "f10-bargain-1",
+        "base": "f10-architecture-1",
+        "identity": "f10-appearance-1"
+      },
+      "optional_requires": {},
+      "capabilities": [
+        "companions",
+        "world_terrain"
+      ],
+      "owns": [
+        {
+          "container": "actors",
+          "scope": "actor_field",
+          "key": "location",
+          "owner": "travel",
+          "schema_refs": [
+            {
+              "path": "game/core/base/world_shape.gd",
+              "method": "validate"
+            }
+          ],
+          "note": "现有权威状态完整保存；声明用于写权限审查，不提供任意GDScript写屏障。"
+        },
+        {
+          "container": "parties",
+          "scope": "root",
+          "key": "",
+          "owner": "travel",
+          "schema_refs": [
+            {
+              "path": "game/core/party_state.gd",
+              "method": "validate"
+            }
+          ],
+          "note": "现有权威状态完整保存；声明用于写权限审查，不提供任意GDScript写屏障。"
+        },
+        {
+          "container": "itineraries",
+          "scope": "root",
+          "key": "",
+          "owner": "travel",
+          "schema_refs": [
+            {
+              "path": "game/core/encounter_state.gd",
+              "method": "validate_itineraries"
+            }
+          ],
+          "note": "现有权威状态完整保存；声明用于写权限审查，不提供任意GDScript写屏障。"
+        },
+        {
+          "container": "actions",
+          "scope": "kind",
+          "key": "travel",
+          "owner": "travel",
+          "schema_refs": [
+            {
+              "path": "game/core/travel_rules.gd",
+              "method": "validate_action"
+            }
+          ],
+          "note": "现有权威状态完整保存；声明用于写权限审查，不提供任意GDScript写屏障。"
+        },
+        {
+          "container": "actions",
+          "scope": "kind",
+          "key": "rescue",
+          "owner": "travel",
+          "schema_refs": [
+            {
+              "path": "game/core/travel_rules.gd",
+              "method": "validate_rescue"
+            }
+          ],
+          "note": "现有权威状态完整保存；声明用于写权限审查，不提供任意GDScript写屏障。"
+        },
+        {
+          "container": "facts",
+          "scope": "kind",
+          "key": "terrain_journey",
+          "owner": "travel",
+          "schema_refs": [
+            {
+              "path": "game/core/terrain_journey.gd",
+              "method": "validate_action"
+            }
+          ],
+          "note": "现有事实的唯一领域维护权；引用现有聚合/活跃action校验，不宣称历史事实已具有新增完整逐kind校验。A1.5负责完整恢复检查，A1.8负责因果扩展。"
+        }
+      ],
+      "validators": [
+        {
+          "id": "parties.state",
+          "path": "game/core/party_state.gd",
+          "method": "validate",
+          "stage": "after_actions",
+          "order": 10,
+          "signature": "state,data"
+        },
+        {
+          "id": "itineraries.state",
+          "path": "game/core/encounter_state.gd",
+          "method": "validate_itineraries",
+          "stage": "after_actions",
+          "order": 30,
+          "signature": "state,data"
+        }
+      ],
+      "legacy_action_validators": [
+        {
+          "kind": "travel",
+          "path": "game/core/travel_rules.gd",
+          "method": "validate_action",
+          "signature": "state,data,action"
+        },
+        {
+          "kind": "rescue",
+          "path": "game/core/travel_rules.gd",
+          "method": "validate_rescue",
+          "signature": "state,data,action"
+        }
+      ]
+    },
+    {
+      "id": "personal",
+      "version": "f10-combat-7",
+      "requires": {
+        "occupation": "f10-architecture-1",
+        "interaction": "f10-architecture-1",
+        "location": "f10-architecture-1",
+        "economy": "f10-bargain-1",
+        "tasks": "f10-architecture-1",
+        "identity": "f10-appearance-1",
+        "base": "f10-architecture-1",
+        "cultivation": "f10-cultivation-3"
+      },
+      "optional_requires": {},
+      "capabilities": [
+        "personal_combat"
+      ],
+      "owns": [
+        {
+          "container": "actors",
+          "scope": "actor_field",
+          "key": "injury",
+          "owner": "personal",
+          "schema_refs": [
+            {
+              "path": "game/core/personal_combat.gd",
+              "method": "validate_state"
+            }
+          ],
+          "note": "现有权威状态完整保存；声明用于写权限审查，不提供任意GDScript写屏障。"
+        },
+        {
+          "container": "battles",
+          "scope": "kind",
+          "key": "personal",
+          "owner": "personal",
+          "schema_refs": [
+            {
+              "path": "game/core/personal_combat.gd",
+              "method": "validate_state"
+            }
+          ],
+          "note": "现有权威状态完整保存；声明用于写权限审查，不提供任意GDScript写屏障。"
+        },
+        {
+          "container": "facts",
+          "scope": "kind",
+          "key": "personal_battle",
+          "owner": "personal",
+          "schema_refs": [
+            {
+              "path": "game/core/personal_combat.gd",
+              "method": "validate_state"
+            }
+          ],
+          "note": "现有权威状态完整保存；声明用于写权限审查，不提供任意GDScript写屏障。"
+        }
+      ],
+      "validators": [
+        {
+          "id": "personal.state",
+          "path": "game/core/personal_combat.gd",
+          "method": "validate_state",
+          "stage": "before_actions",
+          "order": 60,
+          "signature": "state,data"
+        }
+      ],
+      "legacy_action_validators": []
+    },
+    {
+      "id": "cultivation",
+      "version": "f10-cultivation-3",
+      "requires": {
+        "interaction": "f10-architecture-1",
+        "economy": "f10-bargain-1",
+        "location": "f10-architecture-1",
+        "occupation": "f10-architecture-1",
+        "runtime": "f10-architecture-1",
+        "base": "f10-architecture-1"
+      },
+      "optional_requires": {},
+      "capabilities": [
+        "cultivation"
+      ],
+      "owns": [
+        {
+          "container": "actors",
+          "scope": "actor_field",
+          "key": "attributes",
+          "owner": "cultivation",
+          "schema_refs": [
+            {
+              "path": "game/core/base/world_shape.gd",
+              "method": "validate"
+            }
+          ],
+          "note": "现有权威状态完整保存；声明用于写权限审查，不提供任意GDScript写屏障。"
+        },
+        {
+          "container": "actors",
+          "scope": "actor_field",
+          "key": "skills",
+          "owner": "cultivation",
+          "schema_refs": [
+            {
+              "path": "game/core/base/world_shape.gd",
+              "method": "validate"
+            }
+          ],
+          "note": "现有权威状态完整保存；声明用于写权限审查，不提供任意GDScript写屏障。"
+        },
+        {
+          "container": "actors",
+          "scope": "actor_field",
+          "key": "combat",
+          "owner": "cultivation",
+          "schema_refs": [
+            {
+              "path": "game/core/personal_combat.gd",
+              "method": "validate_state"
+            }
+          ],
+          "note": "现有权威状态完整保存；声明用于写权限审查，不提供任意GDScript写屏障。"
+        },
+        {
+          "container": "actions",
+          "scope": "kind",
+          "key": "learn_skill",
+          "owner": "cultivation",
+          "schema_refs": [
+            {
+              "path": "game/core/cultivation_rules.gd",
+              "method": "validate_action"
+            }
+          ],
+          "note": "现有权威状态完整保存；声明用于写权限审查，不提供任意GDScript写屏障。"
+        },
+        {
+          "container": "actions",
+          "scope": "kind",
+          "key": "practice_skill",
+          "owner": "cultivation",
+          "schema_refs": [
+            {
+              "path": "game/core/cultivation_rules.gd",
+              "method": "validate_action"
+            }
+          ],
+          "note": "现有权威状态完整保存；声明用于写权限审查，不提供任意GDScript写屏障。"
+        },
+        {
+          "container": "actions",
+          "scope": "kind",
+          "key": "teach_skill",
+          "owner": "cultivation",
+          "schema_refs": [
+            {
+              "path": "game/core/cultivation_rules.gd",
+              "method": "validate_action"
+            }
+          ],
+          "note": "现有权威状态完整保存；声明用于写权限审查，不提供任意GDScript写屏障。"
+        },
+        {
+          "container": "facts",
+          "scope": "kind",
+          "key": "training",
+          "owner": "cultivation",
+          "schema_refs": [
+            {
+              "path": "game/core/cultivation_rules.gd",
+              "method": "validate_action"
+            }
+          ],
+          "note": "现有事实的唯一领域维护权；引用现有聚合/活跃action校验，不宣称历史事实已具有新增完整逐kind校验。A1.5负责完整恢复检查，A1.8负责因果扩展。"
+        },
+        {
+          "container": "actions",
+          "scope": "kind",
+          "key": "study_skill",
+          "owner": "cultivation",
+          "schema_refs": [
+            {
+              "path": "game/core/domains/cultivation/skill_study_rules.gd",
+              "method": "validate_action"
+            }
+          ],
+          "note": "普通技艺课程使用原人物XP、钱包预留和行动；同一持有者负责事实与课时校验。"
+        },
+        {
+          "container": "facts",
+          "scope": "kind",
+          "key": "skill_study",
+          "owner": "cultivation",
+          "schema_refs": [
+            {
+              "path": "game/core/domains/cultivation/skill_study_rules.gd",
+              "method": "validate_state"
+            }
+          ],
+          "note": "普通技艺课程使用原人物XP、钱包预留和行动；同一持有者负责事实与课时校验。"
+        }
+      ],
+      "validators": [
+        {
+          "id": "skill_study.state",
+          "path": "game/core/domains/cultivation/skill_study_rules.gd",
+          "method": "validate_state",
+          "stage": "before_actions",
+          "order": 150,
+          "signature": "state,data"
+        }
+      ],
+      "legacy_action_validators": [
+        {
+          "kind": "learn_skill",
+          "path": "game/core/cultivation_rules.gd",
+          "method": "validate_action",
+          "signature": "state,data,action"
+        },
+        {
+          "kind": "practice_skill",
+          "path": "game/core/cultivation_rules.gd",
+          "method": "validate_action",
+          "signature": "state,data,action"
+        },
+        {
+          "kind": "teach_skill",
+          "path": "game/core/cultivation_rules.gd",
+          "method": "validate_action",
+          "signature": "state,data,action"
+        }
+      ]
+    },
+    {
+      "id": "estates",
+      "version": "f10-architecture-1",
+      "requires": {
+        "economy": "f10-bargain-1",
+        "location": "f10-architecture-1"
+      },
+      "optional_requires": {},
+      "capabilities": [
+        "estates"
+      ],
+      "owns": [
+        {
+          "container": "estates",
+          "scope": "root",
+          "key": "",
+          "owner": "estates",
+          "schema_refs": [
+            {
+              "path": "game/core/estate_rules.gd",
+              "method": "validate_state"
+            }
+          ],
+          "note": "现有权威状态完整保存；声明用于写权限审查，不提供任意GDScript写屏障。"
+        },
+        {
+          "container": "actions",
+          "scope": "kind",
+          "key": "estate_build",
+          "owner": "estates",
+          "schema_refs": [
+            {
+              "path": "game/core/estate_rules.gd",
+              "method": "validate_action"
+            }
+          ],
+          "note": "现有权威状态完整保存；声明用于写权限审查，不提供任意GDScript写屏障。"
+        },
+        {
+          "container": "facts",
+          "scope": "kind",
+          "key": "estate_production",
+          "owner": "estates",
+          "schema_refs": [
+            {
+              "path": "game/core/estate_rules.gd",
+              "method": "validate_state"
+            }
+          ],
+          "note": "现有权威状态完整保存；声明用于写权限审查，不提供任意GDScript写屏障。"
+        },
+        {
+          "container": "facts",
+          "scope": "kind",
+          "key": "estate_management",
+          "owner": "estates",
+          "schema_refs": [
+            {
+              "path": "game/core/estate_rules.gd",
+              "method": "validate_state"
+            }
+          ],
+          "note": "现有权威状态完整保存；声明用于写权限审查，不提供任意GDScript写屏障。"
+        },
+        {
+          "container": "facts",
+          "scope": "kind",
+          "key": "estate_transfer",
+          "owner": "estates",
+          "schema_refs": [
+            {
+              "path": "game/core/estate_rules.gd",
+              "method": "validate_state"
+            }
+          ],
+          "note": "现有权威状态完整保存；声明用于写权限审查，不提供任意GDScript写屏障。"
+        },
+        {
+          "container": "facts",
+          "scope": "kind",
+          "key": "estate_construction",
+          "owner": "estates",
+          "schema_refs": [
+            {
+              "path": "game/core/estate_rules.gd",
+              "method": "validate_state"
+            }
+          ],
+          "note": "现有权威状态完整保存；声明用于写权限审查，不提供任意GDScript写屏障。"
+        },
+        {
+          "container": "facts",
+          "scope": "kind",
+          "key": "estate_funding",
+          "owner": "estates",
+          "schema_refs": [
+            {
+              "path": "game/core/estate_rules.gd",
+              "method": "validate_state"
+            }
+          ],
+          "note": "当前kind的唯一载荷维护权；容器/envelope由runtime维护，实际校验仍走现有聚合入口。"
+        },
+        {
+          "container": "facts",
+          "scope": "kind",
+          "key": "estate_detachment",
+          "owner": "estates",
+          "schema_refs": [
+            {
+              "path": "game/core/estate_rules.gd",
+              "method": "validate_state"
+            }
+          ],
+          "note": "当前kind的唯一载荷维护权；容器/envelope由runtime维护，实际校验仍走现有聚合入口。"
+        },
+        {
+          "container": "facts",
+          "scope": "kind",
+          "key": "estate_muster",
+          "owner": "estates",
+          "schema_refs": [
+            {
+              "path": "game/core/estate_rules.gd",
+              "method": "validate_state"
+            }
+          ],
+          "note": "现有Estate validator明确兼容的历史kind，非新生产事件；A1.5评审兼容终点。"
+        }
+      ],
+      "validators": [
+        {
+          "id": "estates.state",
+          "path": "game/core/estate_rules.gd",
+          "method": "validate_state",
+          "stage": "before_actions",
+          "order": 110,
+          "signature": "state,data"
+        }
+      ],
+      "legacy_action_validators": [
+        {
+          "kind": "estate_build",
+          "path": "game/core/estate_rules.gd",
+          "method": "validate_action",
+          "signature": "state,data,action"
+        }
+      ]
+    },
+    {
+      "id": "family",
+      "version": "f10-architecture-1",
+      "requires": {
+        "identity": "f10-appearance-1",
+        "estates": "f10-architecture-1",
+        "economy": "f10-bargain-1",
+        "interaction": "f10-architecture-1",
+        "location": "f10-architecture-1",
+        "base": "f10-architecture-1"
+      },
+      "optional_requires": {},
+      "capabilities": [
+        "family"
+      ],
+      "owns": [
+        {
+          "container": "family",
+          "scope": "root",
+          "key": "",
+          "owner": "family",
+          "schema_refs": [
+            {
+              "path": "game/core/family_rules.gd",
+              "method": "validate_header"
+            },
+            {
+              "path": "game/core/family_rules.gd",
+              "method": "validate_tail"
+            }
+          ],
+          "note": "现有权威状态完整保存；声明用于写权限审查，不提供任意GDScript写屏障。"
+        },
+        {
+          "container": "actions",
+          "scope": "kind",
+          "key": "family_adopt",
+          "owner": "family",
+          "schema_refs": [
+            {
+              "path": "game/core/family_rules.gd",
+              "method": "validate_action"
+            }
+          ],
+          "note": "现有权威状态完整保存；声明用于写权限审查，不提供任意GDScript写屏障。"
+        },
+        {
+          "container": "facts",
+          "scope": "kind",
+          "key": "family_adoption_pending",
+          "owner": "family",
+          "schema_refs": [
+            {
+              "path": "game/core/family_rules.gd",
+              "method": "validate_tail"
+            }
+          ],
+          "note": "现有权威状态完整保存；声明用于写权限审查，不提供任意GDScript写屏障。"
+        },
+        {
+          "container": "facts",
+          "scope": "kind",
+          "key": "family_adoption",
+          "owner": "family",
+          "schema_refs": [
+            {
+              "path": "game/core/family_rules.gd",
+              "method": "validate_tail"
+            }
+          ],
+          "note": "现有权威状态完整保存；声明用于写权限审查，不提供任意GDScript写屏障。"
+        },
+        {
+          "container": "facts",
+          "scope": "kind",
+          "key": "family_designation",
+          "owner": "family",
+          "schema_refs": [
+            {
+              "path": "game/core/family_rules.gd",
+              "method": "validate_tail"
+            }
+          ],
+          "note": "现有权威状态完整保存；声明用于写权限审查，不提供任意GDScript写屏障。"
+        },
+        {
+          "container": "facts",
+          "scope": "kind",
+          "key": "family_succession",
+          "owner": "family",
+          "schema_refs": [
+            {
+              "path": "game/core/family_rules.gd",
+              "method": "validate_tail"
+            }
+          ],
+          "note": "现有权威状态完整保存；声明用于写权限审查，不提供任意GDScript写屏障。"
+        },
+        {
+          "container": "facts",
+          "scope": "kind",
+          "key": "family_adoption_failed",
+          "owner": "family",
+          "schema_refs": [
+            {
+              "path": "game/core/family_rules.gd",
+              "method": "validate_tail"
+            }
+          ],
+          "note": "当前kind的唯一载荷维护权；容器/envelope由runtime维护，实际校验仍走现有聚合入口。"
+        }
+      ],
+      "validators": [
+        {
+          "id": "family.state",
+          "path": "game/core/family_rules.gd",
+          "method": "validate_header",
+          "stage": "before_actions",
+          "order": 100,
+          "signature": "state,data"
+        },
+        {
+          "id": "family.tail",
+          "path": "game/core/family_rules.gd",
+          "method": "validate_tail",
+          "stage": "before_actions",
+          "order": 120,
+          "signature": "state,data"
+        }
+      ],
+      "legacy_action_validators": [
+        {
+          "kind": "family_adopt",
+          "path": "game/core/family_rules.gd",
+          "method": "validate_action",
+          "signature": "state,data,action"
+        }
+      ]
+    },
+    {
+      "id": "military",
+      "version": "f10-combat-8",
+      "requires": {
+        "interaction": "f10-architecture-1",
+        "economy": "f10-bargain-1",
+        "travel": "f10-architecture-1",
+        "location": "f10-architecture-1",
+        "estates": "f10-architecture-1",
+        "occupation": "f10-architecture-1",
+        "identity": "f10-appearance-1",
+        "runtime": "f10-architecture-1",
+        "base": "f10-architecture-1"
+      },
+      "optional_requires": {},
+      "capabilities": [
+        "military"
+      ],
+      "owns": [
+        {
+          "container": "offices",
+          "scope": "root",
+          "key": "",
+          "owner": "military",
+          "schema_refs": [
+            {
+              "path": "game/core/military_world.gd",
+              "method": "validate_state"
+            }
+          ],
+          "note": "现有权威状态完整保存；声明用于写权限审查，不提供任意GDScript写屏障。"
+        },
+        {
+          "container": "garrisons",
+          "scope": "root",
+          "key": "",
+          "owner": "military",
+          "schema_refs": [
+            {
+              "path": "game/core/military_world.gd",
+              "method": "validate_state"
+            }
+          ],
+          "note": "现有权威状态完整保存；声明用于写权限审查，不提供任意GDScript写屏障。"
+        },
+        {
+          "container": "military_units",
+          "scope": "root",
+          "key": "",
+          "owner": "military",
+          "schema_refs": [
+            {
+              "path": "game/core/military_world.gd",
+              "method": "validate_state"
+            }
+          ],
+          "note": "现有权威状态完整保存；声明用于写权限审查，不提供任意GDScript写屏障。"
+        },
+        {
+          "container": "armies",
+          "scope": "root",
+          "key": "",
+          "owner": "military",
+          "schema_refs": [
+            {
+              "path": "game/core/military_world.gd",
+              "method": "validate_state"
+            }
+          ],
+          "note": "现有权威状态完整保存；声明用于写权限审查，不提供任意GDScript写屏障。"
+        },
+        {
+          "container": "campaigns",
+          "scope": "root",
+          "key": "",
+          "owner": "military",
+          "schema_refs": [
+            {
+              "path": "game/core/military_world.gd",
+              "method": "validate_state"
+            }
+          ],
+          "note": "现有权威状态完整保存；声明用于写权限审查，不提供任意GDScript写屏障。"
+        },
+        {
+          "container": "strongholds",
+          "scope": "root",
+          "key": "",
+          "owner": "military",
+          "schema_refs": [
+            {
+              "path": "game/core/military_world.gd",
+              "method": "validate_state"
+            }
+          ],
+          "note": "现有权威状态完整保存；声明用于写权限审查，不提供任意GDScript写屏障。"
+        },
+        {
+          "container": "sieges",
+          "scope": "root",
+          "key": "",
+          "owner": "military",
+          "schema_refs": [
+            {
+              "path": "game/core/military_world.gd",
+              "method": "validate_state"
+            }
+          ],
+          "note": "现有权威状态完整保存；声明用于写权限审查，不提供任意GDScript写屏障。"
+        },
+        {
+          "container": "battles",
+          "scope": "kind",
+          "key": "military",
+          "owner": "military",
+          "schema_refs": [
+            {
+              "path": "game/core/military_world.gd",
+              "method": "validate_state"
+            }
+          ],
+          "note": "现有权威状态完整保存；声明用于写权限审查，不提供任意GDScript写屏障。"
+        },
+        {
+          "container": "actions",
+          "scope": "kind",
+          "key": "office_accept",
+          "owner": "military",
+          "schema_refs": [
+            {
+              "path": "game/core/military_assets.gd",
+              "method": "validate_action"
+            }
+          ],
+          "note": "当前kind的唯一载荷维护权；容器/envelope由runtime维护，实际校验仍走现有聚合入口。"
+        },
+        {
+          "container": "actions",
+          "scope": "kind",
+          "key": "army_form",
+          "owner": "military",
+          "schema_refs": [
+            {
+              "path": "game/core/military_assets.gd",
+              "method": "validate_action"
+            }
+          ],
+          "note": "当前kind的唯一载荷维护权；容器/envelope由runtime维护，实际校验仍走现有聚合入口。"
+        },
+        {
+          "container": "actions",
+          "scope": "kind",
+          "key": "army_resupply",
+          "owner": "military",
+          "schema_refs": [
+            {
+              "path": "game/core/military_assets.gd",
+              "method": "validate_action"
+            }
+          ],
+          "note": "当前kind的唯一载荷维护权；容器/envelope由runtime维护，实际校验仍走现有聚合入口。"
+        },
+        {
+          "container": "actions",
+          "scope": "kind",
+          "key": "army_return",
+          "owner": "military",
+          "schema_refs": [
+            {
+              "path": "game/core/military_assets.gd",
+              "method": "validate_action"
+            }
+          ],
+          "note": "当前kind的唯一载荷维护权；容器/envelope由runtime维护，实际校验仍走现有聚合入口。"
+        },
+        {
+          "container": "facts",
+          "scope": "kind",
+          "key": "office_resignation",
+          "owner": "military",
+          "schema_refs": [
+            {
+              "path": "game/core/military_assets.gd",
+              "method": "validate_state"
+            }
+          ],
+          "note": "当前kind的唯一载荷维护权；容器/envelope由runtime维护，实际校验仍走现有聚合入口。"
+        },
+        {
+          "container": "facts",
+          "scope": "kind",
+          "key": "military_action",
+          "owner": "military",
+          "schema_refs": [
+            {
+              "path": "game/core/military_assets.gd",
+              "method": "validate_state"
+            }
+          ],
+          "note": "当前kind的唯一载荷维护权；容器/envelope由runtime维护，实际校验仍走现有聚合入口。"
+        },
+        {
+          "container": "facts",
+          "scope": "kind",
+          "key": "military_muster",
+          "owner": "military",
+          "schema_refs": [
+            {
+              "path": "game/core/military_assets.gd",
+              "method": "validate_state"
+            }
+          ],
+          "note": "当前kind的唯一载荷维护权；容器/envelope由runtime维护，实际校验仍走现有聚合入口。"
+        },
+        {
+          "container": "facts",
+          "scope": "kind",
+          "key": "military_supply",
+          "owner": "military",
+          "schema_refs": [
+            {
+              "path": "game/core/military_assets.gd",
+              "method": "validate_state"
+            }
+          ],
+          "note": "当前kind的唯一载荷维护权；容器/envelope由runtime维护，实际校验仍走现有聚合入口。"
+        },
+        {
+          "container": "facts",
+          "scope": "kind",
+          "key": "military_casualties",
+          "owner": "military",
+          "schema_refs": [
+            {
+              "path": "game/core/military_assets.gd",
+              "method": "validate_state"
+            }
+          ],
+          "note": "当前kind的唯一载荷维护权；容器/envelope由runtime维护，实际校验仍走现有聚合入口。"
+        },
+        {
+          "container": "facts",
+          "scope": "kind",
+          "key": "military_return",
+          "owner": "military",
+          "schema_refs": [
+            {
+              "path": "game/core/military_assets.gd",
+              "method": "validate_state"
+            }
+          ],
+          "note": "当前kind的唯一载荷维护权；容器/envelope由runtime维护，实际校验仍走现有聚合入口。"
+        },
+        {
+          "container": "facts",
+          "scope": "kind",
+          "key": "military_battle",
+          "owner": "military",
+          "schema_refs": [
+            {
+              "path": "game/core/military_combat.gd",
+              "method": "validate_state"
+            }
+          ],
+          "note": "当前kind的唯一载荷维护权；容器/envelope由runtime维护，实际校验仍走现有聚合入口。"
+        },
+        {
+          "container": "facts",
+          "scope": "kind",
+          "key": "military_contact",
+          "owner": "military",
+          "schema_refs": [
+            {
+              "path": "game/core/siege_world.gd",
+              "method": "validate_state"
+            }
+          ],
+          "note": "当前kind的唯一载荷维护权；容器/envelope由runtime维护，实际校验仍走现有聚合入口。"
+        },
+        {
+          "container": "facts",
+          "scope": "kind",
+          "key": "military_occupation",
+          "owner": "military",
+          "schema_refs": [
+            {
+              "path": "game/core/siege_world.gd",
+              "method": "validate_state"
+            }
+          ],
+          "note": "当前kind的唯一载荷维护权；容器/envelope由runtime维护，实际校验仍走现有聚合入口。"
+        },
+        {
+          "container": "facts",
+          "scope": "kind",
+          "key": "military_relief",
+          "owner": "military",
+          "schema_refs": [
+            {
+              "path": "game/core/siege_world.gd",
+              "method": "validate_state"
+            }
+          ],
+          "note": "当前kind的唯一载荷维护权；容器/envelope由runtime维护，实际校验仍走现有聚合入口。"
+        },
+        {
+          "container": "facts",
+          "scope": "kind",
+          "key": "siege_material",
+          "owner": "military",
+          "schema_refs": [
+            {
+              "path": "game/core/siege_world.gd",
+              "method": "validate_state"
+            }
+          ],
+          "note": "当前kind的唯一载荷维护权；容器/envelope由runtime维护，实际校验仍走现有聚合入口。"
+        },
+        {
+          "container": "facts",
+          "scope": "kind",
+          "key": "military_delivery",
+          "owner": "military",
+          "schema_refs": [
+            {
+              "path": "game/core/campaign_rules.gd",
+              "method": "validate_state"
+            }
+          ],
+          "note": "当前kind的唯一载荷维护权；容器/envelope由runtime维护，实际校验仍走现有聚合入口。"
+        },
+        {
+          "container": "facts",
+          "scope": "kind",
+          "key": "campaign_arrival",
+          "owner": "military",
+          "schema_refs": [
+            {
+              "path": "game/core/campaign_rules.gd",
+              "method": "validate_state"
+            }
+          ],
+          "note": "当前kind的唯一载荷维护权；容器/envelope由runtime维护，实际校验仍走现有聚合入口。"
+        },
+        {
+          "container": "facts",
+          "scope": "kind",
+          "key": "campaign_settlement",
+          "owner": "military",
+          "schema_refs": [
+            {
+              "path": "game/core/campaign_rules.gd",
+              "method": "validate_state"
+            }
+          ],
+          "note": "当前kind的唯一载荷维护权；容器/envelope由runtime维护，实际校验仍走现有聚合入口。"
+        },
+        {
+          "container": "actions",
+          "scope": "kind",
+          "key": "military_train",
+          "owner": "military",
+          "schema_refs": [
+            {
+              "path": "game/core/domains/military/training_rules.gd",
+              "method": "validate_action"
+            }
+          ],
+          "note": "真实训练沿原供给和action时钟，单位训练/疲劳/占用及逐课公款由本military叶唯一校验。"
+        },
+        {
+          "container": "facts",
+          "scope": "kind",
+          "key": "military_training",
+          "owner": "military",
+          "schema_refs": [
+            {
+              "path": "game/core/domains/military/training_rules.gd",
+              "method": "validate_state"
+            }
+          ],
+          "note": "真实训练沿原供给和action时钟，单位训练/疲劳/占用及逐课公款由本military叶唯一校验。"
+        },
+        {
+          "container": "facts",
+          "scope": "kind",
+          "key": "military_march",
+          "owner": "military",
+          "schema_refs": [
+            {
+              "path": "game/core/domains/military/march_conditions.gd",
+              "method": "validated_projections"
+            }
+          ],
+          "note": "显式地形行军的真实执行与部队条件同一永久凭据；不重演历史路线或代替原训练课时。"
+        }
+      ],
+      "validators": [
+        {
+          "id": "military.state",
+          "path": "game/core/military_world.gd",
+          "method": "validate_state",
+          "stage": "before_actions",
+          "order": 70,
+          "signature": "state,data"
+        }
+      ],
+      "legacy_action_validators": []
+    },
+    {
+      "id": "builtin",
+      "version": "f10-architecture-1",
+      "requires": {
+        "base": "f10-architecture-1",
+        "runtime": "f10-architecture-1",
+        "identity": "f10-appearance-1",
+        "personal": "f10-combat-7",
+        "social": "f10-architecture-1",
+        "estates": "f10-architecture-1",
+        "family": "f10-architecture-1",
+        "military": "f10-combat-8",
+        "travel": "f10-architecture-1",
+        "cultivation": "f10-cultivation-3",
+        "services": "f10-architecture-1",
+        "economy": "f10-bargain-1",
+        "tasks": "f10-architecture-1",
+        "occupation": "f10-architecture-1",
+        "interaction": "f10-architecture-1",
+        "location": "f10-architecture-1",
+        "catalog": "f10-architecture-1"
+      },
+      "optional_requires": {},
+      "capabilities": [],
+      "owns": [],
+      "validators": [],
+      "legacy_action_validators": []
+    },
+    {
+      "id": "dynamic_world",
+      "version": "local_society_v1",
+      "requires": {},
+      "optional_requires": {},
+      "capabilities": [
+        "native_dynamic_world",
+        "named_membership_v1",
+        "population_military_v1",
+        "regional_life_v1",
+        "siege_integration_v1"
+      ],
+      "owns": [],
+      "validators": [],
+      "legacy_action_validators": []
+    }
+  ],
+  "files": {
+    "game/core/actor_identity.gd": "identity",
+    "game/core/backends/legacy_activity_projection.gd": "builtin",
+    "game/core/backends/legacy_asset_projection.gd": "builtin",
+    "game/core/backends/legacy_command_context.gd": "builtin",
+    "game/core/backends/legacy_projection_codec.gd": "builtin",
+    "game/core/backends/legacy_world_backend.gd": "builtin",
+    "game/core/backends/native_growth_read_cache.gd": "builtin",
+    "game/core/base/time_rules.gd": "base",
+    "game/core/base/value_checks.gd": "base",
+    "game/core/base/world_shape.gd": "base",
+    "game/core/campaign_rules.gd": "military",
+    "game/core/combat_session.gd": "occupation",
+    "game/core/condition_rules.gd": "interaction",
+    "game/core/content_catalog.gd": "catalog",
+    "game/core/content_set_resolver.gd": "runtime",
+    "game/core/content_shape.gd": "catalog",
+    "game/core/cultivation_rules.gd": "cultivation",
+    "game/core/dialogue_runner.gd": "interaction",
+    "game/core/domains/cultivation/bargain_challenge.gd": "base",
+    "game/core/domains/cultivation/challenge_basis.gd": "base",
+    "game/core/domains/cultivation/cultivation_module.gd": "cultivation",
+    "game/core/domains/cultivation/drill_challenge.gd": "base",
+    "game/core/domains/cultivation/etiquette_challenge.gd": "cultivation",
+    "game/core/domains/cultivation/skill_eligibility.gd": "cultivation",
+    "game/core/domains/cultivation/skill_levels.gd": "base",
+    "game/core/domains/cultivation/skill_study_action.gd": "cultivation",
+    "game/core/domains/cultivation/skill_study_rules.gd": "cultivation",
+    "game/core/domains/cultivation/study_content.gd": "cultivation",
+    "game/core/domains/cultivation/study_etiquette.gd": "cultivation",
+    "game/core/domains/economy/bargain_content.gd": "economy",
+    "game/core/domains/economy/bargain_quote.gd": "economy",
+    "game/core/domains/economy/economy_module.gd": "economy",
+    "game/core/domains/economy/trade_action.gd": "economy",
+    "game/core/domains/estates/estate_commands.gd": "estates",
+    "game/core/domains/family/family_commands.gd": "family",
+    "game/core/domains/identity/actor_appearance.gd": "identity",
+    "game/core/domains/identity/actor_behavior.gd": "identity",
+    "game/core/domains/interaction/dialogue_commands.gd": "interaction",
+    "game/core/domains/interaction/discovery_commands.gd": "interaction",
+    "game/core/domains/interaction/encounter_module.gd": "interaction",
+    "game/core/domains/interaction/interaction_observers.gd": "interaction",
+    "game/core/domains/military/campaign_module.gd": "military",
+    "game/core/domains/military/condition_history.gd": "military",
+    "game/core/domains/military/march_conditions.gd": "military",
+    "game/core/domains/military/military_action.gd": "military",
+    "game/core/domains/military/military_combat_commands.gd": "military",
+    "game/core/domains/military/military_coordination.gd": "military",
+    "game/core/domains/military/military_damage.gd": "military",
+    "game/core/domains/military/military_module.gd": "military",
+    "game/core/domains/military/military_support.gd": "military",
+    "game/core/domains/military/siege_commands.gd": "military",
+    "game/core/domains/military/training_action.gd": "military",
+    "game/core/domains/military/training_drill.gd": "military",
+    "game/core/domains/military/training_rules.gd": "military",
+    "game/core/domains/personal/personal_ai_score.gd": "personal",
+    "game/core/domains/personal/personal_area.gd": "personal",
+    "game/core/domains/personal/personal_armor.gd": "cultivation",
+    "game/core/domains/personal/personal_armor_content.gd": "base",
+    "game/core/domains/personal/personal_commands.gd": "personal",
+    "game/core/domains/personal/personal_condition.gd": "personal",
+    "game/core/domains/personal/personal_coordination.gd": "personal",
+    "game/core/domains/personal/personal_counter.gd": "personal",
+    "game/core/domains/personal/personal_defeat_delay.gd": "personal",
+    "game/core/domains/personal/personal_escort_ai.gd": "personal",
+    "game/core/domains/personal/personal_facing_damage.gd": "personal",
+    "game/core/domains/personal/personal_guard.gd": "personal",
+    "game/core/domains/personal/personal_hit.gd": "personal",
+    "game/core/domains/personal/personal_navigation.gd": "personal",
+    "game/core/domains/personal/personal_objectives.gd": "personal",
+    "game/core/domains/personal/personal_projection.gd": "personal",
+    "game/core/domains/personal/personal_stamina.gd": "personal",
+    "game/core/domains/personal/personal_strike.gd": "personal",
+    "game/core/domains/personal/personal_withdrawal.gd": "personal",
+    "game/core/domains/services/rest_commands.gd": "services",
+    "game/core/domains/services/service_commands.gd": "services",
+    "game/core/domains/siege/departure_allocation.gd": "military",
+    "game/core/domains/siege/engine_use.gd": "military",
+    "game/core/domains/siege/fortification_context.gd": "military",
+    "game/core/domains/siege/integration_contract.gd": "military",
+    "game/core/domains/siege/safe_departure.gd": "military",
+    "game/core/domains/siege/supply_receipts.gd": "military",
+    "game/core/domains/social/news_commands.gd": "social",
+    "game/core/domains/tasks/task_action.gd": "tasks",
+    "game/core/domains/tasks/task_knowledge.gd": "tasks",
+    "game/core/domains/tasks/task_module.gd": "tasks",
+    "game/core/domains/tasks/task_state.gd": "tasks",
+    "game/core/domains/travel/journey_module.gd": "travel",
+    "game/core/domains/travel/movement_commands.gd": "travel",
+    "game/core/domains/travel/party_module.gd": "travel",
+    "game/core/economy_rules.gd": "economy",
+    "game/core/encounter_rules.gd": "interaction",
+    "game/core/encounter_state.gd": "travel",
+    "game/core/escort_rules.gd": "tasks",
+    "game/core/estate_rules.gd": "estates",
+    "game/core/event_rules.gd": "interaction",
+    "game/core/family_rules.gd": "family",
+    "game/core/installed_content.gd": "catalog",
+    "game/core/interaction_rules.gd": "interaction",
+    "game/core/interaction_topics.gd": "interaction",
+    "game/core/inventory_rules.gd": "economy",
+    "game/core/journey_commands.gd": "travel",
+    "game/core/long_rest.gd": "services",
+    "game/core/military_assets.gd": "military",
+    "game/core/military_combat.gd": "military",
+    "game/core/military_contact.gd": "military",
+    "game/core/military_content.gd": "military",
+    "game/core/military_hex.gd": "military",
+    "game/core/military_ownership.gd": "military",
+    "game/core/military_round.gd": "military",
+    "game/core/military_schedule.gd": "military",
+    "game/core/military_world.gd": "military",
+    "game/core/party_rules.gd": "travel",
+    "game/core/party_state.gd": "travel",
+    "game/core/personal_combat.gd": "personal",
+    "game/core/personal_content.gd": "personal",
+    "game/core/personal_geometry.gd": "personal",
+    "game/core/personal_round.gd": "personal",
+    "game/core/road_contact.gd": "travel",
+    "game/core/route_graph.gd": "travel",
+    "game/core/rules_migration.gd": "runtime",
+    "game/core/runtime/action_runtime.gd": "runtime",
+    "game/core/runtime/builtin_modules.gd": "builtin",
+    "game/core/runtime/capability_contract.gd": "catalog",
+    "game/core/runtime/domain_observers.gd": "runtime",
+    "game/core/runtime/explanation_query.gd": "runtime",
+    "game/core/runtime/knowledge_commands.gd": "builtin",
+    "game/core/runtime/legacy_commands.gd": "builtin",
+    "game/core/runtime/legacy_phases.gd": "builtin",
+    "game/core/runtime/module_registry.gd": "runtime",
+    "game/core/runtime/runtime_commands.gd": "runtime",
+    "game/core/runtime/transaction_context.gd": "runtime",
+    "game/core/runtime/world_phases.gd": "runtime",
+    "game/core/runtime/world_validation.gd": "runtime",
+    "game/core/save_codec.gd": "runtime",
+    "game/core/scenario_query.gd": "runtime",
+    "game/core/scenario_snapshot.gd": "base",
+    "game/core/service_rules.gd": "services",
+    "game/core/siege_rules.gd": "military",
+    "game/core/siege_world.gd": "military",
+    "game/core/social_rules.gd": "social",
+    "game/core/state_schema.gd": "runtime",
+    "game/core/strict_json.gd": "base",
+    "game/core/task_rules.gd": "tasks",
+    "game/core/terrain_contact.gd": "travel",
+    "game/core/terrain_journey.gd": "travel",
+    "game/core/terrain_query.gd": "travel",
+    "game/core/travel_rules.gd": "travel",
+    "game/core/travel_schedule.gd": "travel",
+    "game/core/views/action_context.gd": "builtin",
+    "game/core/views/character_input.gd": "identity",
+    "game/core/views/character_summary.gd": "builtin",
+    "game/core/views/estate_page.gd": "builtin",
+    "game/core/views/family_page.gd": "builtin",
+    "game/core/views/hud_view.gd": "builtin",
+    "game/core/views/journey_notes.gd": "builtin",
+    "game/core/views/map_projection.gd": "location",
+    "game/core/views/map_view.gd": "builtin",
+    "game/core/views/military_battle_page.gd": "builtin",
+    "game/core/views/military_camp_page.gd": "builtin",
+    "game/core/views/personal_battle_view.gd": "builtin",
+    "game/core/views/scene_journey_sidebar.gd": "builtin",
+    "game/core/views/scene_projection.gd": "builtin",
+    "game/core/views/siege_page.gd": "builtin",
+    "game/core/views/study_activity_input.gd": "builtin",
+    "game/core/views/trade_sheet.gd": "builtin",
+    "game/core/world_content.gd": "catalog",
+    "game/core/world_factory.gd": "runtime",
+    "game/core/world_kernel.gd": "builtin",
+    "game/core/world_location.gd": "location",
+    "game/core/world_step.gd": "runtime",
+    "game/core/world_terrain.gd": "travel",
+    "game/core/backends/native_travel_schedule_provider.gd": "builtin",
+    "game/core/backends/native_military_schedule_provider.gd": "builtin",
+    "game/core/views/ordinary_skills_view.gd": "builtin",
+    "game/core/domains/cultivation/skill_study_pause.gd": "cultivation",
+    "game/core/backends/native_dynamic_profile.gd": "dynamic_world",
+    "game/core/domains/cultivation/skill_study_segments.gd": "cultivation"
+  },
+  "source_edges": [
+    {
+      "source": "game/core/actor_identity.gd",
+      "target": "game/core/base/time_rules.gd"
+    },
+    {
+      "source": "game/core/actor_identity.gd",
+      "target": "game/core/domains/identity/actor_appearance.gd"
+    },
+    {
+      "source": "game/core/actor_identity.gd",
+      "target": "game/core/world_factory.gd"
+    },
+    {
+      "source": "game/core/backends/legacy_activity_projection.gd",
+      "target": "game/core/state_schema.gd"
+    },
+    {
+      "source": "game/core/backends/legacy_asset_projection.gd",
+      "target": "game/core/state_schema.gd"
+    },
+    {
+      "source": "game/core/backends/legacy_command_context.gd",
+      "target": "game/core/base/value_checks.gd"
+    },
+    {
+      "source": "game/core/backends/legacy_projection_codec.gd",
+      "target": "game/core/runtime/world_validation.gd"
+    },
+    {
+      "source": "game/core/backends/legacy_projection_codec.gd",
+      "target": "game/core/state_schema.gd"
+    },
+    {
+      "source": "game/core/backends/legacy_world_backend.gd",
+      "target": "game/core/backends/legacy_command_context.gd"
+    },
+    {
+      "source": "game/core/backends/legacy_world_backend.gd",
+      "target": "game/core/backends/native_growth_read_cache.gd"
+    },
+    {
+      "source": "game/core/backends/legacy_world_backend.gd",
+      "target": "game/core/combat_session.gd"
+    },
+    {
+      "source": "game/core/backends/legacy_world_backend.gd",
+      "target": "game/core/content_catalog.gd"
+    },
+    {
+      "source": "game/core/backends/legacy_world_backend.gd",
+      "target": "game/core/cultivation_rules.gd"
+    },
+    {
+      "source": "game/core/backends/legacy_world_backend.gd",
+      "target": "game/core/dialogue_runner.gd"
+    },
+    {
+      "source": "game/core/backends/legacy_world_backend.gd",
+      "target": "game/core/domains/cultivation/skill_study_rules.gd"
+    },
+    {
+      "source": "game/core/backends/legacy_world_backend.gd",
+      "target": "game/core/domains/economy/bargain_quote.gd"
+    },
+    {
+      "source": "game/core/backends/legacy_world_backend.gd",
+      "target": "game/core/domains/interaction/dialogue_commands.gd"
+    },
+    {
+      "source": "game/core/backends/legacy_world_backend.gd",
+      "target": "game/core/domains/interaction/encounter_module.gd"
+    },
+    {
+      "source": "game/core/backends/legacy_world_backend.gd",
+      "target": "game/core/domains/military/military_coordination.gd"
+    },
+    {
+      "source": "game/core/backends/legacy_world_backend.gd",
+      "target": "game/core/domains/military/military_module.gd"
+    },
+    {
+      "source": "game/core/backends/legacy_world_backend.gd",
+      "target": "game/core/domains/military/training_rules.gd"
+    },
+    {
+      "source": "game/core/backends/legacy_world_backend.gd",
+      "target": "game/core/domains/personal/personal_coordination.gd"
+    },
+    {
+      "source": "game/core/backends/legacy_world_backend.gd",
+      "target": "game/core/domains/travel/journey_module.gd"
+    },
+    {
+      "source": "game/core/backends/legacy_world_backend.gd",
+      "target": "game/core/encounter_rules.gd"
+    },
+    {
+      "source": "game/core/backends/legacy_world_backend.gd",
+      "target": "game/core/escort_rules.gd"
+    },
+    {
+      "source": "game/core/backends/legacy_world_backend.gd",
+      "target": "game/core/estate_rules.gd"
+    },
+    {
+      "source": "game/core/backends/legacy_world_backend.gd",
+      "target": "game/core/event_rules.gd"
+    },
+    {
+      "source": "game/core/backends/legacy_world_backend.gd",
+      "target": "game/core/family_rules.gd"
+    },
+    {
+      "source": "game/core/backends/legacy_world_backend.gd",
+      "target": "game/core/journey_commands.gd"
+    },
+    {
+      "source": "game/core/backends/legacy_world_backend.gd",
+      "target": "game/core/long_rest.gd"
+    },
+    {
+      "source": "game/core/backends/legacy_world_backend.gd",
+      "target": "game/core/military_schedule.gd"
+    },
+    {
+      "source": "game/core/backends/legacy_world_backend.gd",
+      "target": "game/core/military_world.gd"
+    },
+    {
+      "source": "game/core/backends/legacy_world_backend.gd",
+      "target": "game/core/party_rules.gd"
+    },
+    {
+      "source": "game/core/backends/legacy_world_backend.gd",
+      "target": "game/core/personal_combat.gd"
+    },
+    {
+      "source": "game/core/backends/legacy_world_backend.gd",
+      "target": "game/core/rules_migration.gd"
+    },
+    {
+      "source": "game/core/backends/legacy_world_backend.gd",
+      "target": "game/core/runtime/action_runtime.gd"
+    },
+    {
+      "source": "game/core/backends/legacy_world_backend.gd",
+      "target": "game/core/runtime/builtin_modules.gd"
+    },
+    {
+      "source": "game/core/backends/legacy_world_backend.gd",
+      "target": "game/core/runtime/domain_observers.gd"
+    },
+    {
+      "source": "game/core/backends/legacy_world_backend.gd",
+      "target": "game/core/runtime/explanation_query.gd"
+    },
+    {
+      "source": "game/core/backends/legacy_world_backend.gd",
+      "target": "game/core/runtime/module_registry.gd"
+    },
+    {
+      "source": "game/core/backends/legacy_world_backend.gd",
+      "target": "game/core/runtime/transaction_context.gd"
+    },
+    {
+      "source": "game/core/backends/legacy_world_backend.gd",
+      "target": "game/core/runtime/world_validation.gd"
+    },
+    {
+      "source": "game/core/backends/legacy_world_backend.gd",
+      "target": "game/core/service_rules.gd"
+    },
+    {
+      "source": "game/core/backends/legacy_world_backend.gd",
+      "target": "game/core/siege_world.gd"
+    },
+    {
+      "source": "game/core/backends/legacy_world_backend.gd",
+      "target": "game/core/state_schema.gd"
+    },
+    {
+      "source": "game/core/backends/legacy_world_backend.gd",
+      "target": "game/core/travel_rules.gd"
+    },
+    {
+      "source": "game/core/backends/legacy_world_backend.gd",
+      "target": "game/core/travel_schedule.gd"
+    },
+    {
+      "source": "game/core/backends/legacy_world_backend.gd",
+      "target": "game/core/views/action_context.gd"
+    },
+    {
+      "source": "game/core/backends/legacy_world_backend.gd",
+      "target": "game/core/views/character_input.gd"
+    },
+    {
+      "source": "game/core/backends/legacy_world_backend.gd",
+      "target": "game/core/views/character_summary.gd"
+    },
+    {
+      "source": "game/core/backends/legacy_world_backend.gd",
+      "target": "game/core/views/estate_page.gd"
+    },
+    {
+      "source": "game/core/backends/legacy_world_backend.gd",
+      "target": "game/core/views/family_page.gd"
+    },
+    {
+      "source": "game/core/backends/legacy_world_backend.gd",
+      "target": "game/core/views/hud_view.gd"
+    },
+    {
+      "source": "game/core/backends/legacy_world_backend.gd",
+      "target": "game/core/views/journey_notes.gd"
+    },
+    {
+      "source": "game/core/backends/legacy_world_backend.gd",
+      "target": "game/core/views/map_view.gd"
+    },
+    {
+      "source": "game/core/backends/legacy_world_backend.gd",
+      "target": "game/core/views/military_battle_page.gd"
+    },
+    {
+      "source": "game/core/backends/legacy_world_backend.gd",
+      "target": "game/core/views/military_camp_page.gd"
+    },
+    {
+      "source": "game/core/backends/legacy_world_backend.gd",
+      "target": "game/core/views/personal_battle_view.gd"
+    },
+    {
+      "source": "game/core/backends/legacy_world_backend.gd",
+      "target": "game/core/views/scene_journey_sidebar.gd"
+    },
+    {
+      "source": "game/core/backends/legacy_world_backend.gd",
+      "target": "game/core/views/scene_projection.gd"
+    },
+    {
+      "source": "game/core/backends/legacy_world_backend.gd",
+      "target": "game/core/views/siege_page.gd"
+    },
+    {
+      "source": "game/core/backends/legacy_world_backend.gd",
+      "target": "game/core/views/study_activity_input.gd"
+    },
+    {
+      "source": "game/core/backends/legacy_world_backend.gd",
+      "target": "game/core/views/trade_sheet.gd"
+    },
+    {
+      "source": "game/core/backends/legacy_world_backend.gd",
+      "target": "game/core/world_factory.gd"
+    },
+    {
+      "source": "game/core/backends/legacy_world_backend.gd",
+      "target": "game/core/world_location.gd"
+    },
+    {
+      "source": "game/core/backends/legacy_world_backend.gd",
+      "target": "game/core/world_step.gd"
+    },
+    {
+      "source": "game/core/backends/native_growth_read_cache.gd",
+      "target": "game/core/backends/legacy_projection_codec.gd"
+    },
+    {
+      "source": "game/core/base/world_shape.gd",
+      "target": "game/core/actor_identity.gd"
+    },
+    {
+      "source": "game/core/base/world_shape.gd",
+      "target": "game/core/base/value_checks.gd"
+    },
+    {
+      "source": "game/core/base/world_shape.gd",
+      "target": "game/core/rules_migration.gd"
+    },
+    {
+      "source": "game/core/base/world_shape.gd",
+      "target": "game/core/terrain_journey.gd"
+    },
+    {
+      "source": "game/core/base/world_shape.gd",
+      "target": "game/core/world_terrain.gd"
+    },
+    {
+      "source": "game/core/campaign_rules.gd",
+      "target": "game/core/interaction_rules.gd"
+    },
+    {
+      "source": "game/core/campaign_rules.gd",
+      "target": "game/core/inventory_rules.gd"
+    },
+    {
+      "source": "game/core/campaign_rules.gd",
+      "target": "game/core/military_ownership.gd"
+    },
+    {
+      "source": "game/core/campaign_rules.gd",
+      "target": "game/core/route_graph.gd"
+    },
+    {
+      "source": "game/core/campaign_rules.gd",
+      "target": "game/core/world_factory.gd"
+    },
+    {
+      "source": "game/core/campaign_rules.gd",
+      "target": "game/core/world_terrain.gd"
+    },
+    {
+      "source": "game/core/combat_session.gd",
+      "target": "game/core/world_location.gd"
+    },
+    {
+      "source": "game/core/condition_rules.gd",
+      "target": "game/core/world_location.gd"
+    },
+    {
+      "source": "game/core/content_catalog.gd",
+      "target": "game/core/content_shape.gd"
+    },
+    {
+      "source": "game/core/content_catalog.gd",
+      "target": "game/core/domains/cultivation/study_content.gd"
+    },
+    {
+      "source": "game/core/content_catalog.gd",
+      "target": "game/core/domains/economy/bargain_content.gd"
+    },
+    {
+      "source": "game/core/content_catalog.gd",
+      "target": "game/core/domains/identity/actor_appearance.gd"
+    },
+    {
+      "source": "game/core/content_catalog.gd",
+      "target": "game/core/installed_content.gd"
+    },
+    {
+      "source": "game/core/content_catalog.gd",
+      "target": "game/core/military_content.gd"
+    },
+    {
+      "source": "game/core/content_catalog.gd",
+      "target": "game/core/personal_content.gd"
+    },
+    {
+      "source": "game/core/content_catalog.gd",
+      "target": "game/core/runtime/capability_contract.gd"
+    },
+    {
+      "source": "game/core/content_catalog.gd",
+      "target": "game/core/scenario_snapshot.gd"
+    },
+    {
+      "source": "game/core/content_catalog.gd",
+      "target": "game/core/strict_json.gd"
+    },
+    {
+      "source": "game/core/content_catalog.gd",
+      "target": "game/core/world_content.gd"
+    },
+    {
+      "source": "game/core/content_set_resolver.gd",
+      "target": "game/core/runtime/world_validation.gd"
+    },
+    {
+      "source": "game/core/cultivation_rules.gd",
+      "target": "game/core/domains/cultivation/skill_eligibility.gd"
+    },
+    {
+      "source": "game/core/cultivation_rules.gd",
+      "target": "game/core/domains/personal/personal_armor.gd"
+    },
+    {
+      "source": "game/core/cultivation_rules.gd",
+      "target": "game/core/interaction_rules.gd"
+    },
+    {
+      "source": "game/core/cultivation_rules.gd",
+      "target": "game/core/inventory_rules.gd"
+    },
+    {
+      "source": "game/core/cultivation_rules.gd",
+      "target": "game/core/world_location.gd"
+    },
+    {
+      "source": "game/core/dialogue_runner.gd",
+      "target": "game/core/actor_identity.gd"
+    },
+    {
+      "source": "game/core/dialogue_runner.gd",
+      "target": "game/core/condition_rules.gd"
+    },
+    {
+      "source": "game/core/dialogue_runner.gd",
+      "target": "game/core/interaction_rules.gd"
+    },
+    {
+      "source": "game/core/dialogue_runner.gd",
+      "target": "game/core/world_factory.gd"
+    },
+    {
+      "source": "game/core/dialogue_runner.gd",
+      "target": "game/core/world_location.gd"
+    },
+    {
+      "source": "game/core/domains/cultivation/bargain_challenge.gd",
+      "target": "game/core/domains/cultivation/challenge_basis.gd"
+    },
+    {
+      "source": "game/core/domains/cultivation/cultivation_module.gd",
+      "target": "game/core/cultivation_rules.gd"
+    },
+    {
+      "source": "game/core/domains/cultivation/cultivation_module.gd",
+      "target": "game/core/domains/cultivation/skill_study_action.gd"
+    },
+    {
+      "source": "game/core/domains/cultivation/cultivation_module.gd",
+      "target": "game/core/domains/cultivation/skill_study_rules.gd"
+    },
+    {
+      "source": "game/core/domains/cultivation/cultivation_module.gd",
+      "target": "game/core/runtime/module_registry.gd"
+    },
+    {
+      "source": "game/core/domains/cultivation/drill_challenge.gd",
+      "target": "game/core/domains/cultivation/challenge_basis.gd"
+    },
+    {
+      "source": "game/core/domains/cultivation/etiquette_challenge.gd",
+      "target": "game/core/domains/cultivation/challenge_basis.gd"
+    },
+    {
+      "source": "game/core/domains/cultivation/skill_eligibility.gd",
+      "target": "game/core/domains/cultivation/skill_levels.gd"
+    },
+    {
+      "source": "game/core/domains/cultivation/skill_study_action.gd",
+      "target": "game/core/domains/cultivation/skill_study_rules.gd"
+    },
+    {
+      "source": "game/core/domains/cultivation/skill_study_rules.gd",
+      "target": "game/core/base/value_checks.gd"
+    },
+    {
+      "source": "game/core/domains/cultivation/skill_study_rules.gd",
+      "target": "game/core/combat_session.gd"
+    },
+    {
+      "source": "game/core/domains/cultivation/skill_study_rules.gd",
+      "target": "game/core/domains/cultivation/skill_levels.gd"
+    },
+    {
+      "source": "game/core/domains/cultivation/skill_study_rules.gd",
+      "target": "game/core/domains/cultivation/study_etiquette.gd"
+    },
+    {
+      "source": "game/core/domains/cultivation/skill_study_rules.gd",
+      "target": "game/core/interaction_rules.gd"
+    },
+    {
+      "source": "game/core/domains/cultivation/skill_study_rules.gd",
+      "target": "game/core/inventory_rules.gd"
+    },
+    {
+      "source": "game/core/domains/cultivation/study_content.gd",
+      "target": "game/core/domains/cultivation/bargain_challenge.gd"
+    },
+    {
+      "source": "game/core/domains/cultivation/study_content.gd",
+      "target": "game/core/domains/cultivation/etiquette_challenge.gd"
+    },
+    {
+      "source": "game/core/domains/cultivation/study_content.gd",
+      "target": "game/core/domains/cultivation/study_etiquette.gd"
+    },
+    {
+      "source": "game/core/domains/cultivation/study_etiquette.gd",
+      "target": "game/core/domains/cultivation/bargain_challenge.gd"
+    },
+    {
+      "source": "game/core/domains/cultivation/study_etiquette.gd",
+      "target": "game/core/domains/cultivation/etiquette_challenge.gd"
+    },
+    {
+      "source": "game/core/domains/cultivation/study_etiquette.gd",
+      "target": "game/core/domains/cultivation/skill_levels.gd"
+    },
+    {
+      "source": "game/core/domains/economy/bargain_quote.gd",
+      "target": "game/core/domains/cultivation/bargain_challenge.gd"
+    },
+    {
+      "source": "game/core/domains/economy/bargain_quote.gd",
+      "target": "game/core/domains/cultivation/challenge_basis.gd"
+    },
+    {
+      "source": "game/core/domains/economy/bargain_quote.gd",
+      "target": "game/core/domains/cultivation/skill_levels.gd"
+    },
+    {
+      "source": "game/core/domains/economy/bargain_quote.gd",
+      "target": "game/core/economy_rules.gd"
+    },
+    {
+      "source": "game/core/domains/economy/bargain_quote.gd",
+      "target": "game/core/inventory_rules.gd"
+    },
+    {
+      "source": "game/core/domains/economy/bargain_quote.gd",
+      "target": "game/core/world_factory.gd"
+    },
+    {
+      "source": "game/core/domains/economy/economy_module.gd",
+      "target": "game/core/base/value_checks.gd"
+    },
+    {
+      "source": "game/core/domains/economy/economy_module.gd",
+      "target": "game/core/domains/economy/bargain_quote.gd"
+    },
+    {
+      "source": "game/core/domains/economy/economy_module.gd",
+      "target": "game/core/domains/economy/trade_action.gd"
+    },
+    {
+      "source": "game/core/domains/economy/economy_module.gd",
+      "target": "game/core/economy_rules.gd"
+    },
+    {
+      "source": "game/core/domains/economy/economy_module.gd",
+      "target": "game/core/military_ownership.gd"
+    },
+    {
+      "source": "game/core/domains/economy/economy_module.gd",
+      "target": "game/core/runtime/module_registry.gd"
+    },
+    {
+      "source": "game/core/domains/economy/trade_action.gd",
+      "target": "game/core/base/value_checks.gd"
+    },
+    {
+      "source": "game/core/domains/economy/trade_action.gd",
+      "target": "game/core/domains/economy/bargain_quote.gd"
+    },
+    {
+      "source": "game/core/domains/economy/trade_action.gd",
+      "target": "game/core/economy_rules.gd"
+    },
+    {
+      "source": "game/core/domains/estates/estate_commands.gd",
+      "target": "game/core/estate_rules.gd"
+    },
+    {
+      "source": "game/core/domains/family/family_commands.gd",
+      "target": "game/core/family_rules.gd"
+    },
+    {
+      "source": "game/core/domains/identity/actor_behavior.gd",
+      "target": "game/core/actor_identity.gd"
+    },
+    {
+      "source": "game/core/domains/interaction/dialogue_commands.gd",
+      "target": "game/core/dialogue_runner.gd"
+    },
+    {
+      "source": "game/core/domains/interaction/dialogue_commands.gd",
+      "target": "game/core/event_rules.gd"
+    },
+    {
+      "source": "game/core/domains/interaction/dialogue_commands.gd",
+      "target": "game/core/interaction_rules.gd"
+    },
+    {
+      "source": "game/core/domains/interaction/discovery_commands.gd",
+      "target": "game/core/interaction_rules.gd"
+    },
+    {
+      "source": "game/core/domains/interaction/encounter_module.gd",
+      "target": "game/core/encounter_rules.gd"
+    },
+    {
+      "source": "game/core/domains/interaction/interaction_observers.gd",
+      "target": "game/core/event_rules.gd"
+    },
+    {
+      "source": "game/core/domains/military/campaign_module.gd",
+      "target": "game/core/campaign_rules.gd"
+    },
+    {
+      "source": "game/core/domains/military/condition_history.gd",
+      "target": "game/core/base/value_checks.gd"
+    },
+    {
+      "source": "game/core/domains/military/march_conditions.gd",
+      "target": "game/core/base/value_checks.gd"
+    },
+    {
+      "source": "game/core/domains/military/march_conditions.gd",
+      "target": "game/core/domains/military/condition_history.gd"
+    },
+    {
+      "source": "game/core/domains/military/march_conditions.gd",
+      "target": "game/core/world_factory.gd"
+    },
+    {
+      "source": "game/core/domains/military/march_conditions.gd",
+      "target": "game/core/world_terrain.gd"
+    },
+    {
+      "source": "game/core/domains/military/military_action.gd",
+      "target": "game/core/military_assets.gd"
+    },
+    {
+      "source": "game/core/domains/military/military_combat_commands.gd",
+      "target": "game/core/military_combat.gd"
+    },
+    {
+      "source": "game/core/domains/military/military_coordination.gd",
+      "target": "game/core/campaign_rules.gd"
+    },
+    {
+      "source": "game/core/domains/military/military_coordination.gd",
+      "target": "game/core/military_assets.gd"
+    },
+    {
+      "source": "game/core/domains/military/military_coordination.gd",
+      "target": "game/core/military_world.gd"
+    },
+    {
+      "source": "game/core/domains/military/military_coordination.gd",
+      "target": "game/core/siege_world.gd"
+    },
+    {
+      "source": "game/core/domains/military/military_coordination.gd",
+      "target": "game/core/travel_rules.gd"
+    },
+    {
+      "source": "game/core/domains/military/military_module.gd",
+      "target": "game/core/domains/military/campaign_module.gd"
+    },
+    {
+      "source": "game/core/domains/military/military_module.gd",
+      "target": "game/core/domains/military/military_action.gd"
+    },
+    {
+      "source": "game/core/domains/military/military_module.gd",
+      "target": "game/core/domains/military/military_combat_commands.gd"
+    },
+    {
+      "source": "game/core/domains/military/military_module.gd",
+      "target": "game/core/domains/military/siege_commands.gd"
+    },
+    {
+      "source": "game/core/domains/military/military_module.gd",
+      "target": "game/core/domains/military/training_action.gd"
+    },
+    {
+      "source": "game/core/domains/military/military_module.gd",
+      "target": "game/core/domains/military/training_rules.gd"
+    },
+    {
+      "source": "game/core/domains/military/military_module.gd",
+      "target": "game/core/military_assets.gd"
+    },
+    {
+      "source": "game/core/domains/military/military_module.gd",
+      "target": "game/core/runtime/module_registry.gd"
+    },
+    {
+      "source": "game/core/domains/military/military_support.gd",
+      "target": "game/core/military_hex.gd"
+    },
+    {
+      "source": "game/core/domains/military/siege_commands.gd",
+      "target": "game/core/siege_world.gd"
+    },
+    {
+      "source": "game/core/domains/military/training_action.gd",
+      "target": "game/core/domains/military/training_rules.gd"
+    },
+    {
+      "source": "game/core/domains/military/training_drill.gd",
+      "target": "game/core/domains/cultivation/challenge_basis.gd"
+    },
+    {
+      "source": "game/core/domains/military/training_drill.gd",
+      "target": "game/core/domains/cultivation/drill_challenge.gd"
+    },
+    {
+      "source": "game/core/domains/military/training_drill.gd",
+      "target": "game/core/domains/cultivation/skill_levels.gd"
+    },
+    {
+      "source": "game/core/domains/military/training_rules.gd",
+      "target": "game/core/base/value_checks.gd"
+    },
+    {
+      "source": "game/core/domains/military/training_rules.gd",
+      "target": "game/core/combat_session.gd"
+    },
+    {
+      "source": "game/core/domains/military/training_rules.gd",
+      "target": "game/core/domains/cultivation/skill_levels.gd"
+    },
+    {
+      "source": "game/core/domains/military/training_rules.gd",
+      "target": "game/core/domains/military/condition_history.gd"
+    },
+    {
+      "source": "game/core/domains/military/training_rules.gd",
+      "target": "game/core/domains/military/march_conditions.gd"
+    },
+    {
+      "source": "game/core/domains/military/training_rules.gd",
+      "target": "game/core/domains/military/training_drill.gd"
+    },
+    {
+      "source": "game/core/domains/military/training_rules.gd",
+      "target": "game/core/inventory_rules.gd"
+    },
+    {
+      "source": "game/core/domains/military/training_rules.gd",
+      "target": "game/core/military_assets.gd"
+    },
+    {
+      "source": "game/core/domains/military/training_rules.gd",
+      "target": "game/core/world_location.gd"
+    },
+    {
+      "source": "game/core/domains/personal/personal_area.gd",
+      "target": "game/core/base/value_checks.gd"
+    },
+    {
+      "source": "game/core/domains/personal/personal_area.gd",
+      "target": "game/core/personal_geometry.gd"
+    },
+    {
+      "source": "game/core/domains/personal/personal_armor.gd",
+      "target": "game/core/domains/personal/personal_armor_content.gd"
+    },
+    {
+      "source": "game/core/domains/personal/personal_armor.gd",
+      "target": "game/core/inventory_rules.gd"
+    },
+    {
+      "source": "game/core/domains/personal/personal_armor_content.gd",
+      "target": "game/core/base/value_checks.gd"
+    },
+    {
+      "source": "game/core/domains/personal/personal_commands.gd",
+      "target": "game/core/personal_combat.gd"
+    },
+    {
+      "source": "game/core/domains/personal/personal_coordination.gd",
+      "target": "game/core/personal_combat.gd"
+    },
+    {
+      "source": "game/core/domains/personal/personal_counter.gd",
+      "target": "game/core/base/value_checks.gd"
+    },
+    {
+      "source": "game/core/domains/personal/personal_counter.gd",
+      "target": "game/core/personal_geometry.gd"
+    },
+    {
+      "source": "game/core/domains/personal/personal_defeat_delay.gd",
+      "target": "game/core/base/value_checks.gd"
+    },
+    {
+      "source": "game/core/domains/personal/personal_escort_ai.gd",
+      "target": "game/core/domains/personal/personal_navigation.gd"
+    },
+    {
+      "source": "game/core/domains/personal/personal_escort_ai.gd",
+      "target": "game/core/domains/personal/personal_objectives.gd"
+    },
+    {
+      "source": "game/core/domains/personal/personal_escort_ai.gd",
+      "target": "game/core/domains/personal/personal_withdrawal.gd"
+    },
+    {
+      "source": "game/core/domains/personal/personal_facing_damage.gd",
+      "target": "game/core/base/value_checks.gd"
+    },
+    {
+      "source": "game/core/domains/personal/personal_facing_damage.gd",
+      "target": "game/core/domains/personal/personal_guard.gd"
+    },
+    {
+      "source": "game/core/domains/personal/personal_hit.gd",
+      "target": "game/core/base/value_checks.gd"
+    },
+    {
+      "source": "game/core/domains/personal/personal_hit.gd",
+      "target": "game/core/domains/cultivation/skill_levels.gd"
+    },
+    {
+      "source": "game/core/domains/personal/personal_navigation.gd",
+      "target": "game/core/personal_geometry.gd"
+    },
+    {
+      "source": "game/core/domains/personal/personal_objectives.gd",
+      "target": "game/core/domains/personal/personal_withdrawal.gd"
+    },
+    {
+      "source": "game/core/domains/personal/personal_projection.gd",
+      "target": "game/core/domains/personal/personal_objectives.gd"
+    },
+    {
+      "source": "game/core/domains/personal/personal_projection.gd",
+      "target": "game/core/domains/personal/personal_strike.gd"
+    },
+    {
+      "source": "game/core/domains/personal/personal_projection.gd",
+      "target": "game/core/domains/personal/personal_withdrawal.gd"
+    },
+    {
+      "source": "game/core/domains/personal/personal_projection.gd",
+      "target": "game/core/personal_round.gd"
+    },
+    {
+      "source": "game/core/domains/personal/personal_strike.gd",
+      "target": "game/core/base/value_checks.gd"
+    },
+    {
+      "source": "game/core/domains/personal/personal_withdrawal.gd",
+      "target": "game/core/domains/personal/personal_navigation.gd"
+    },
+    {
+      "source": "game/core/domains/services/rest_commands.gd",
+      "target": "game/core/long_rest.gd"
+    },
+    {
+      "source": "game/core/domains/services/service_commands.gd",
+      "target": "game/core/service_rules.gd"
+    },
+    {
+      "source": "game/core/domains/siege/fortification_context.gd",
+      "target": "game/core/siege_rules.gd"
+    },
+    {
+      "source": "game/core/domains/siege/integration_contract.gd",
+      "target": "game/core/campaign_rules.gd"
+    },
+    {
+      "source": "game/core/domains/siege/integration_contract.gd",
+      "target": "game/core/military_assets.gd"
+    },
+    {
+      "source": "game/core/domains/siege/integration_contract.gd",
+      "target": "game/core/world_location.gd"
+    },
+    {
+      "source": "game/core/domains/siege/safe_departure.gd",
+      "target": "game/core/campaign_rules.gd"
+    },
+    {
+      "source": "game/core/domains/siege/safe_departure.gd",
+      "target": "game/core/domains/siege/departure_allocation.gd"
+    },
+    {
+      "source": "game/core/domains/siege/safe_departure.gd",
+      "target": "game/core/inventory_rules.gd"
+    },
+    {
+      "source": "game/core/domains/siege/safe_departure.gd",
+      "target": "game/core/military_assets.gd"
+    },
+    {
+      "source": "game/core/domains/siege/safe_departure.gd",
+      "target": "game/core/travel_rules.gd"
+    },
+    {
+      "source": "game/core/domains/social/news_commands.gd",
+      "target": "game/core/interaction_rules.gd"
+    },
+    {
+      "source": "game/core/domains/social/news_commands.gd",
+      "target": "game/core/social_rules.gd"
+    },
+    {
+      "source": "game/core/domains/tasks/task_action.gd",
+      "target": "game/core/base/value_checks.gd"
+    },
+    {
+      "source": "game/core/domains/tasks/task_action.gd",
+      "target": "game/core/task_rules.gd"
+    },
+    {
+      "source": "game/core/domains/tasks/task_module.gd",
+      "target": "game/core/domains/tasks/task_action.gd"
+    },
+    {
+      "source": "game/core/domains/tasks/task_module.gd",
+      "target": "game/core/runtime/module_registry.gd"
+    },
+    {
+      "source": "game/core/domains/tasks/task_module.gd",
+      "target": "game/core/task_rules.gd"
+    },
+    {
+      "source": "game/core/domains/tasks/task_state.gd",
+      "target": "game/core/base/value_checks.gd"
+    },
+    {
+      "source": "game/core/domains/tasks/task_state.gd",
+      "target": "game/core/escort_rules.gd"
+    },
+    {
+      "source": "game/core/domains/travel/journey_module.gd",
+      "target": "game/core/journey_commands.gd"
+    },
+    {
+      "source": "game/core/domains/travel/movement_commands.gd",
+      "target": "game/core/condition_rules.gd"
+    },
+    {
+      "source": "game/core/domains/travel/movement_commands.gd",
+      "target": "game/core/inventory_rules.gd"
+    },
+    {
+      "source": "game/core/domains/travel/movement_commands.gd",
+      "target": "game/core/party_rules.gd"
+    },
+    {
+      "source": "game/core/domains/travel/movement_commands.gd",
+      "target": "game/core/travel_rules.gd"
+    },
+    {
+      "source": "game/core/domains/travel/movement_commands.gd",
+      "target": "game/core/world_location.gd"
+    },
+    {
+      "source": "game/core/domains/travel/party_module.gd",
+      "target": "game/core/party_rules.gd"
+    },
+    {
+      "source": "game/core/economy_rules.gd",
+      "target": "game/core/base/value_checks.gd"
+    },
+    {
+      "source": "game/core/economy_rules.gd",
+      "target": "game/core/interaction_rules.gd"
+    },
+    {
+      "source": "game/core/economy_rules.gd",
+      "target": "game/core/inventory_rules.gd"
+    },
+    {
+      "source": "game/core/encounter_rules.gd",
+      "target": "game/core/actor_identity.gd"
+    },
+    {
+      "source": "game/core/encounter_rules.gd",
+      "target": "game/core/dialogue_runner.gd"
+    },
+    {
+      "source": "game/core/encounter_rules.gd",
+      "target": "game/core/world_factory.gd"
+    },
+    {
+      "source": "game/core/encounter_rules.gd",
+      "target": "game/core/world_location.gd"
+    },
+    {
+      "source": "game/core/encounter_state.gd",
+      "target": "game/core/domains/identity/actor_behavior.gd"
+    },
+    {
+      "source": "game/core/encounter_state.gd",
+      "target": "game/core/road_contact.gd"
+    },
+    {
+      "source": "game/core/encounter_state.gd",
+      "target": "game/core/terrain_query.gd"
+    },
+    {
+      "source": "game/core/encounter_state.gd",
+      "target": "game/core/world_location.gd"
+    },
+    {
+      "source": "game/core/escort_rules.gd",
+      "target": "game/core/world_location.gd"
+    },
+    {
+      "source": "game/core/estate_rules.gd",
+      "target": "game/core/inventory_rules.gd"
+    },
+    {
+      "source": "game/core/estate_rules.gd",
+      "target": "game/core/world_factory.gd"
+    },
+    {
+      "source": "game/core/estate_rules.gd",
+      "target": "game/core/world_location.gd"
+    },
+    {
+      "source": "game/core/event_rules.gd",
+      "target": "game/core/actor_identity.gd"
+    },
+    {
+      "source": "game/core/event_rules.gd",
+      "target": "game/core/condition_rules.gd"
+    },
+    {
+      "source": "game/core/event_rules.gd",
+      "target": "game/core/dialogue_runner.gd"
+    },
+    {
+      "source": "game/core/event_rules.gd",
+      "target": "game/core/world_location.gd"
+    },
+    {
+      "source": "game/core/family_rules.gd",
+      "target": "game/core/actor_identity.gd"
+    },
+    {
+      "source": "game/core/family_rules.gd",
+      "target": "game/core/base/time_rules.gd"
+    },
+    {
+      "source": "game/core/family_rules.gd",
+      "target": "game/core/domains/identity/actor_behavior.gd"
+    },
+    {
+      "source": "game/core/family_rules.gd",
+      "target": "game/core/estate_rules.gd"
+    },
+    {
+      "source": "game/core/family_rules.gd",
+      "target": "game/core/interaction_rules.gd"
+    },
+    {
+      "source": "game/core/family_rules.gd",
+      "target": "game/core/inventory_rules.gd"
+    },
+    {
+      "source": "game/core/family_rules.gd",
+      "target": "game/core/world_factory.gd"
+    },
+    {
+      "source": "game/core/family_rules.gd",
+      "target": "game/core/world_location.gd"
+    },
+    {
+      "source": "game/core/installed_content.gd",
+      "target": "game/core/content_shape.gd"
+    },
+    {
+      "source": "game/core/installed_content.gd",
+      "target": "game/core/strict_json.gd"
+    },
+    {
+      "source": "game/core/interaction_rules.gd",
+      "target": "game/core/actor_identity.gd"
+    },
+    {
+      "source": "game/core/interaction_rules.gd",
+      "target": "game/core/base/value_checks.gd"
+    },
+    {
+      "source": "game/core/interaction_rules.gd",
+      "target": "game/core/combat_session.gd"
+    },
+    {
+      "source": "game/core/interaction_rules.gd",
+      "target": "game/core/world_location.gd"
+    },
+    {
+      "source": "game/core/interaction_topics.gd",
+      "target": "game/core/dialogue_runner.gd"
+    },
+    {
+      "source": "game/core/interaction_topics.gd",
+      "target": "game/core/interaction_rules.gd"
+    },
+    {
+      "source": "game/core/inventory_rules.gd",
+      "target": "game/core/world_factory.gd"
+    },
+    {
+      "source": "game/core/journey_commands.gd",
+      "target": "game/core/travel_rules.gd"
+    },
+    {
+      "source": "game/core/journey_commands.gd",
+      "target": "game/core/world_step.gd"
+    },
+    {
+      "source": "game/core/long_rest.gd",
+      "target": "game/core/inventory_rules.gd"
+    },
+    {
+      "source": "game/core/long_rest.gd",
+      "target": "game/core/world_location.gd"
+    },
+    {
+      "source": "game/core/military_assets.gd",
+      "target": "game/core/estate_rules.gd"
+    },
+    {
+      "source": "game/core/military_assets.gd",
+      "target": "game/core/interaction_rules.gd"
+    },
+    {
+      "source": "game/core/military_assets.gd",
+      "target": "game/core/inventory_rules.gd"
+    },
+    {
+      "source": "game/core/military_assets.gd",
+      "target": "game/core/military_ownership.gd"
+    },
+    {
+      "source": "game/core/military_assets.gd",
+      "target": "game/core/world_factory.gd"
+    },
+    {
+      "source": "game/core/military_assets.gd",
+      "target": "game/core/world_location.gd"
+    },
+    {
+      "source": "game/core/military_combat.gd",
+      "target": "game/core/domains/siege/fortification_context.gd"
+    },
+    {
+      "source": "game/core/military_combat.gd",
+      "target": "game/core/military_assets.gd"
+    },
+    {
+      "source": "game/core/military_combat.gd",
+      "target": "game/core/military_hex.gd"
+    },
+    {
+      "source": "game/core/military_combat.gd",
+      "target": "game/core/military_round.gd"
+    },
+    {
+      "source": "game/core/military_combat.gd",
+      "target": "game/core/world_factory.gd"
+    },
+    {
+      "source": "game/core/military_contact.gd",
+      "target": "game/core/domains/military/march_conditions.gd"
+    },
+    {
+      "source": "game/core/military_contact.gd",
+      "target": "game/core/military_combat.gd"
+    },
+    {
+      "source": "game/core/military_contact.gd",
+      "target": "game/core/terrain_contact.gd"
+    },
+    {
+      "source": "game/core/military_contact.gd",
+      "target": "game/core/terrain_journey.gd"
+    },
+    {
+      "source": "game/core/military_contact.gd",
+      "target": "game/core/world_factory.gd"
+    },
+    {
+      "source": "game/core/military_contact.gd",
+      "target": "game/core/world_terrain.gd"
+    },
+    {
+      "source": "game/core/military_content.gd",
+      "target": "game/core/campaign_rules.gd"
+    },
+    {
+      "source": "game/core/military_content.gd",
+      "target": "game/core/domains/cultivation/drill_challenge.gd"
+    },
+    {
+      "source": "game/core/military_content.gd",
+      "target": "game/core/domains/military/military_damage.gd"
+    },
+    {
+      "source": "game/core/military_content.gd",
+      "target": "game/core/military_hex.gd"
+    },
+    {
+      "source": "game/core/military_content.gd",
+      "target": "game/core/military_round.gd"
+    },
+    {
+      "source": "game/core/military_content.gd",
+      "target": "game/core/siege_rules.gd"
+    },
+    {
+      "source": "game/core/military_round.gd",
+      "target": "game/core/domains/military/military_damage.gd"
+    },
+    {
+      "source": "game/core/military_round.gd",
+      "target": "game/core/domains/military/military_support.gd"
+    },
+    {
+      "source": "game/core/military_round.gd",
+      "target": "game/core/military_hex.gd"
+    },
+    {
+      "source": "game/core/military_schedule.gd",
+      "target": "game/core/campaign_rules.gd"
+    },
+    {
+      "source": "game/core/military_schedule.gd",
+      "target": "game/core/combat_session.gd"
+    },
+    {
+      "source": "game/core/military_schedule.gd",
+      "target": "game/core/domains/identity/actor_behavior.gd"
+    },
+    {
+      "source": "game/core/military_schedule.gd",
+      "target": "game/core/interaction_rules.gd"
+    },
+    {
+      "source": "game/core/military_schedule.gd",
+      "target": "game/core/siege_world.gd"
+    },
+    {
+      "source": "game/core/military_schedule.gd",
+      "target": "game/core/world_location.gd"
+    },
+    {
+      "source": "game/core/military_world.gd",
+      "target": "game/core/campaign_rules.gd"
+    },
+    {
+      "source": "game/core/military_world.gd",
+      "target": "game/core/domains/military/training_rules.gd"
+    },
+    {
+      "source": "game/core/military_world.gd",
+      "target": "game/core/military_assets.gd"
+    },
+    {
+      "source": "game/core/military_world.gd",
+      "target": "game/core/military_combat.gd"
+    },
+    {
+      "source": "game/core/military_world.gd",
+      "target": "game/core/siege_world.gd"
+    },
+    {
+      "source": "game/core/military_world.gd",
+      "target": "game/core/world_location.gd"
+    },
+    {
+      "source": "game/core/party_rules.gd",
+      "target": "game/core/interaction_rules.gd"
+    },
+    {
+      "source": "game/core/party_rules.gd",
+      "target": "game/core/social_rules.gd"
+    },
+    {
+      "source": "game/core/party_rules.gd",
+      "target": "game/core/world_factory.gd"
+    },
+    {
+      "source": "game/core/party_rules.gd",
+      "target": "game/core/world_location.gd"
+    },
+    {
+      "source": "game/core/party_state.gd",
+      "target": "game/core/world_location.gd"
+    },
+    {
+      "source": "game/core/personal_combat.gd",
+      "target": "game/core/actor_identity.gd"
+    },
+    {
+      "source": "game/core/personal_combat.gd",
+      "target": "game/core/combat_session.gd"
+    },
+    {
+      "source": "game/core/personal_combat.gd",
+      "target": "game/core/domains/cultivation/skill_eligibility.gd"
+    },
+    {
+      "source": "game/core/personal_combat.gd",
+      "target": "game/core/domains/personal/personal_armor.gd"
+    },
+    {
+      "source": "game/core/personal_combat.gd",
+      "target": "game/core/domains/personal/personal_armor_content.gd"
+    },
+    {
+      "source": "game/core/personal_combat.gd",
+      "target": "game/core/domains/personal/personal_condition.gd"
+    },
+    {
+      "source": "game/core/personal_combat.gd",
+      "target": "game/core/domains/personal/personal_hit.gd"
+    },
+    {
+      "source": "game/core/personal_combat.gd",
+      "target": "game/core/domains/personal/personal_objectives.gd"
+    },
+    {
+      "source": "game/core/personal_combat.gd",
+      "target": "game/core/domains/personal/personal_projection.gd"
+    },
+    {
+      "source": "game/core/personal_combat.gd",
+      "target": "game/core/domains/personal/personal_stamina.gd"
+    },
+    {
+      "source": "game/core/personal_combat.gd",
+      "target": "game/core/domains/personal/personal_withdrawal.gd"
+    },
+    {
+      "source": "game/core/personal_combat.gd",
+      "target": "game/core/encounter_rules.gd"
+    },
+    {
+      "source": "game/core/personal_combat.gd",
+      "target": "game/core/escort_rules.gd"
+    },
+    {
+      "source": "game/core/personal_combat.gd",
+      "target": "game/core/interaction_rules.gd"
+    },
+    {
+      "source": "game/core/personal_combat.gd",
+      "target": "game/core/inventory_rules.gd"
+    },
+    {
+      "source": "game/core/personal_combat.gd",
+      "target": "game/core/personal_geometry.gd"
+    },
+    {
+      "source": "game/core/personal_combat.gd",
+      "target": "game/core/personal_round.gd"
+    },
+    {
+      "source": "game/core/personal_combat.gd",
+      "target": "game/core/world_factory.gd"
+    },
+    {
+      "source": "game/core/personal_combat.gd",
+      "target": "game/core/world_location.gd"
+    },
+    {
+      "source": "game/core/personal_content.gd",
+      "target": "game/core/domains/personal/personal_ai_score.gd"
+    },
+    {
+      "source": "game/core/personal_content.gd",
+      "target": "game/core/domains/personal/personal_area.gd"
+    },
+    {
+      "source": "game/core/personal_content.gd",
+      "target": "game/core/domains/personal/personal_armor_content.gd"
+    },
+    {
+      "source": "game/core/personal_content.gd",
+      "target": "game/core/domains/personal/personal_counter.gd"
+    },
+    {
+      "source": "game/core/personal_content.gd",
+      "target": "game/core/domains/personal/personal_facing_damage.gd"
+    },
+    {
+      "source": "game/core/personal_content.gd",
+      "target": "game/core/domains/personal/personal_guard.gd"
+    },
+    {
+      "source": "game/core/personal_content.gd",
+      "target": "game/core/domains/personal/personal_hit.gd"
+    },
+    {
+      "source": "game/core/personal_content.gd",
+      "target": "game/core/domains/personal/personal_objectives.gd"
+    },
+    {
+      "source": "game/core/personal_content.gd",
+      "target": "game/core/domains/personal/personal_stamina.gd"
+    },
+    {
+      "source": "game/core/personal_content.gd",
+      "target": "game/core/domains/personal/personal_strike.gd"
+    },
+    {
+      "source": "game/core/personal_content.gd",
+      "target": "game/core/personal_geometry.gd"
+    },
+    {
+      "source": "game/core/personal_round.gd",
+      "target": "game/core/domains/personal/personal_ai_score.gd"
+    },
+    {
+      "source": "game/core/personal_round.gd",
+      "target": "game/core/domains/personal/personal_area.gd"
+    },
+    {
+      "source": "game/core/personal_round.gd",
+      "target": "game/core/domains/personal/personal_armor_content.gd"
+    },
+    {
+      "source": "game/core/personal_round.gd",
+      "target": "game/core/domains/personal/personal_counter.gd"
+    },
+    {
+      "source": "game/core/personal_round.gd",
+      "target": "game/core/domains/personal/personal_escort_ai.gd"
+    },
+    {
+      "source": "game/core/personal_round.gd",
+      "target": "game/core/domains/personal/personal_facing_damage.gd"
+    },
+    {
+      "source": "game/core/personal_round.gd",
+      "target": "game/core/domains/personal/personal_guard.gd"
+    },
+    {
+      "source": "game/core/personal_round.gd",
+      "target": "game/core/domains/personal/personal_hit.gd"
+    },
+    {
+      "source": "game/core/personal_round.gd",
+      "target": "game/core/domains/personal/personal_objectives.gd"
+    },
+    {
+      "source": "game/core/personal_round.gd",
+      "target": "game/core/domains/personal/personal_stamina.gd"
+    },
+    {
+      "source": "game/core/personal_round.gd",
+      "target": "game/core/domains/personal/personal_strike.gd"
+    },
+    {
+      "source": "game/core/personal_round.gd",
+      "target": "game/core/domains/personal/personal_withdrawal.gd"
+    },
+    {
+      "source": "game/core/personal_round.gd",
+      "target": "game/core/personal_geometry.gd"
+    },
+    {
+      "source": "game/core/road_contact.gd",
+      "target": "game/core/terrain_contact.gd"
+    },
+    {
+      "source": "game/core/road_contact.gd",
+      "target": "game/core/terrain_journey.gd"
+    },
+    {
+      "source": "game/core/road_contact.gd",
+      "target": "game/core/travel_rules.gd"
+    },
+    {
+      "source": "game/core/road_contact.gd",
+      "target": "game/core/world_location.gd"
+    },
+    {
+      "source": "game/core/road_contact.gd",
+      "target": "game/core/world_terrain.gd"
+    },
+    {
+      "source": "game/core/rules_migration.gd",
+      "target": "game/core/domains/identity/actor_appearance.gd"
+    },
+    {
+      "source": "game/core/runtime/action_runtime.gd",
+      "target": "game/core/base/value_checks.gd"
+    },
+    {
+      "source": "game/core/runtime/action_runtime.gd",
+      "target": "game/core/world_factory.gd"
+    },
+    {
+      "source": "game/core/runtime/builtin_modules.gd",
+      "target": "game/core/actor_identity.gd"
+    },
+    {
+      "source": "game/core/runtime/builtin_modules.gd",
+      "target": "game/core/base/value_checks.gd"
+    },
+    {
+      "source": "game/core/runtime/builtin_modules.gd",
+      "target": "game/core/base/world_shape.gd"
+    },
+    {
+      "source": "game/core/runtime/builtin_modules.gd",
+      "target": "game/core/combat_session.gd"
+    },
+    {
+      "source": "game/core/runtime/builtin_modules.gd",
+      "target": "game/core/cultivation_rules.gd"
+    },
+    {
+      "source": "game/core/runtime/builtin_modules.gd",
+      "target": "game/core/domains/cultivation/cultivation_module.gd"
+    },
+    {
+      "source": "game/core/runtime/builtin_modules.gd",
+      "target": "game/core/domains/cultivation/skill_study_rules.gd"
+    },
+    {
+      "source": "game/core/runtime/builtin_modules.gd",
+      "target": "game/core/domains/economy/economy_module.gd"
+    },
+    {
+      "source": "game/core/runtime/builtin_modules.gd",
+      "target": "game/core/domains/estates/estate_commands.gd"
+    },
+    {
+      "source": "game/core/runtime/builtin_modules.gd",
+      "target": "game/core/domains/family/family_commands.gd"
+    },
+    {
+      "source": "game/core/runtime/builtin_modules.gd",
+      "target": "game/core/domains/interaction/dialogue_commands.gd"
+    },
+    {
+      "source": "game/core/runtime/builtin_modules.gd",
+      "target": "game/core/domains/interaction/encounter_module.gd"
+    },
+    {
+      "source": "game/core/runtime/builtin_modules.gd",
+      "target": "game/core/domains/interaction/interaction_observers.gd"
+    },
+    {
+      "source": "game/core/runtime/builtin_modules.gd",
+      "target": "game/core/domains/military/military_module.gd"
+    },
+    {
+      "source": "game/core/runtime/builtin_modules.gd",
+      "target": "game/core/domains/personal/personal_commands.gd"
+    },
+    {
+      "source": "game/core/runtime/builtin_modules.gd",
+      "target": "game/core/domains/services/rest_commands.gd"
+    },
+    {
+      "source": "game/core/runtime/builtin_modules.gd",
+      "target": "game/core/domains/services/service_commands.gd"
+    },
+    {
+      "source": "game/core/runtime/builtin_modules.gd",
+      "target": "game/core/domains/tasks/task_module.gd"
+    },
+    {
+      "source": "game/core/runtime/builtin_modules.gd",
+      "target": "game/core/domains/tasks/task_state.gd"
+    },
+    {
+      "source": "game/core/runtime/builtin_modules.gd",
+      "target": "game/core/domains/travel/journey_module.gd"
+    },
+    {
+      "source": "game/core/runtime/builtin_modules.gd",
+      "target": "game/core/domains/travel/movement_commands.gd"
+    },
+    {
+      "source": "game/core/runtime/builtin_modules.gd",
+      "target": "game/core/domains/travel/party_module.gd"
+    },
+    {
+      "source": "game/core/runtime/builtin_modules.gd",
+      "target": "game/core/encounter_state.gd"
+    },
+    {
+      "source": "game/core/runtime/builtin_modules.gd",
+      "target": "game/core/estate_rules.gd"
+    },
+    {
+      "source": "game/core/runtime/builtin_modules.gd",
+      "target": "game/core/family_rules.gd"
+    },
+    {
+      "source": "game/core/runtime/builtin_modules.gd",
+      "target": "game/core/interaction_rules.gd"
+    },
+    {
+      "source": "game/core/runtime/builtin_modules.gd",
+      "target": "game/core/long_rest.gd"
+    },
+    {
+      "source": "game/core/runtime/builtin_modules.gd",
+      "target": "game/core/military_combat.gd"
+    },
+    {
+      "source": "game/core/runtime/builtin_modules.gd",
+      "target": "game/core/military_world.gd"
+    },
+    {
+      "source": "game/core/runtime/builtin_modules.gd",
+      "target": "game/core/party_state.gd"
+    },
+    {
+      "source": "game/core/runtime/builtin_modules.gd",
+      "target": "game/core/personal_combat.gd"
+    },
+    {
+      "source": "game/core/runtime/builtin_modules.gd",
+      "target": "game/core/runtime/knowledge_commands.gd"
+    },
+    {
+      "source": "game/core/runtime/builtin_modules.gd",
+      "target": "game/core/runtime/legacy_phases.gd"
+    },
+    {
+      "source": "game/core/runtime/builtin_modules.gd",
+      "target": "game/core/runtime/runtime_commands.gd"
+    },
+    {
+      "source": "game/core/runtime/builtin_modules.gd",
+      "target": "game/core/runtime/world_validation.gd"
+    },
+    {
+      "source": "game/core/runtime/builtin_modules.gd",
+      "target": "game/core/service_rules.gd"
+    },
+    {
+      "source": "game/core/runtime/builtin_modules.gd",
+      "target": "game/core/siege_world.gd"
+    },
+    {
+      "source": "game/core/runtime/builtin_modules.gd",
+      "target": "game/core/social_rules.gd"
+    },
+    {
+      "source": "game/core/runtime/builtin_modules.gd",
+      "target": "game/core/strict_json.gd"
+    },
+    {
+      "source": "game/core/runtime/builtin_modules.gd",
+      "target": "game/core/travel_rules.gd"
+    },
+    {
+      "source": "game/core/runtime/capability_contract.gd",
+      "target": "game/core/strict_json.gd"
+    },
+    {
+      "source": "game/core/runtime/domain_observers.gd",
+      "target": "game/core/base/value_checks.gd"
+    },
+    {
+      "source": "game/core/runtime/domain_observers.gd",
+      "target": "game/core/runtime/transaction_context.gd"
+    },
+    {
+      "source": "game/core/runtime/explanation_query.gd",
+      "target": "game/core/condition_rules.gd"
+    },
+    {
+      "source": "game/core/runtime/knowledge_commands.gd",
+      "target": "game/core/domains/interaction/discovery_commands.gd"
+    },
+    {
+      "source": "game/core/runtime/knowledge_commands.gd",
+      "target": "game/core/domains/social/news_commands.gd"
+    },
+    {
+      "source": "game/core/runtime/knowledge_commands.gd",
+      "target": "game/core/domains/tasks/task_knowledge.gd"
+    },
+    {
+      "source": "game/core/runtime/legacy_commands.gd",
+      "target": "game/core/cultivation_rules.gd"
+    },
+    {
+      "source": "game/core/runtime/legacy_commands.gd",
+      "target": "game/core/domains/interaction/dialogue_commands.gd"
+    },
+    {
+      "source": "game/core/runtime/legacy_commands.gd",
+      "target": "game/core/domains/interaction/discovery_commands.gd"
+    },
+    {
+      "source": "game/core/runtime/legacy_commands.gd",
+      "target": "game/core/domains/services/service_commands.gd"
+    },
+    {
+      "source": "game/core/runtime/legacy_commands.gd",
+      "target": "game/core/domains/social/news_commands.gd"
+    },
+    {
+      "source": "game/core/runtime/legacy_commands.gd",
+      "target": "game/core/domains/travel/movement_commands.gd"
+    },
+    {
+      "source": "game/core/runtime/legacy_commands.gd",
+      "target": "game/core/encounter_rules.gd"
+    },
+    {
+      "source": "game/core/runtime/legacy_commands.gd",
+      "target": "game/core/estate_rules.gd"
+    },
+    {
+      "source": "game/core/runtime/legacy_commands.gd",
+      "target": "game/core/family_rules.gd"
+    },
+    {
+      "source": "game/core/runtime/legacy_commands.gd",
+      "target": "game/core/journey_commands.gd"
+    },
+    {
+      "source": "game/core/runtime/legacy_commands.gd",
+      "target": "game/core/long_rest.gd"
+    },
+    {
+      "source": "game/core/runtime/legacy_commands.gd",
+      "target": "game/core/party_rules.gd"
+    },
+    {
+      "source": "game/core/runtime/legacy_commands.gd",
+      "target": "game/core/personal_combat.gd"
+    },
+    {
+      "source": "game/core/runtime/legacy_commands.gd",
+      "target": "game/core/runtime/runtime_commands.gd"
+    },
+    {
+      "source": "game/core/runtime/legacy_phases.gd",
+      "target": "game/core/campaign_rules.gd"
+    },
+    {
+      "source": "game/core/runtime/legacy_phases.gd",
+      "target": "game/core/combat_session.gd"
+    },
+    {
+      "source": "game/core/runtime/legacy_phases.gd",
+      "target": "game/core/cultivation_rules.gd"
+    },
+    {
+      "source": "game/core/runtime/legacy_phases.gd",
+      "target": "game/core/domains/military/march_conditions.gd"
+    },
+    {
+      "source": "game/core/runtime/legacy_phases.gd",
+      "target": "game/core/domains/military/military_coordination.gd"
+    },
+    {
+      "source": "game/core/runtime/legacy_phases.gd",
+      "target": "game/core/domains/personal/personal_defeat_delay.gd"
+    },
+    {
+      "source": "game/core/runtime/legacy_phases.gd",
+      "target": "game/core/encounter_rules.gd"
+    },
+    {
+      "source": "game/core/runtime/legacy_phases.gd",
+      "target": "game/core/estate_rules.gd"
+    },
+    {
+      "source": "game/core/runtime/legacy_phases.gd",
+      "target": "game/core/family_rules.gd"
+    },
+    {
+      "source": "game/core/runtime/legacy_phases.gd",
+      "target": "game/core/long_rest.gd"
+    },
+    {
+      "source": "game/core/runtime/legacy_phases.gd",
+      "target": "game/core/military_assets.gd"
+    },
+    {
+      "source": "game/core/runtime/legacy_phases.gd",
+      "target": "game/core/military_combat.gd"
+    },
+    {
+      "source": "game/core/runtime/legacy_phases.gd",
+      "target": "game/core/military_contact.gd"
+    },
+    {
+      "source": "game/core/runtime/legacy_phases.gd",
+      "target": "game/core/military_world.gd"
+    },
+    {
+      "source": "game/core/runtime/legacy_phases.gd",
+      "target": "game/core/road_contact.gd"
+    },
+    {
+      "source": "game/core/runtime/legacy_phases.gd",
+      "target": "game/core/runtime/action_runtime.gd"
+    },
+    {
+      "source": "game/core/runtime/legacy_phases.gd",
+      "target": "game/core/service_rules.gd"
+    },
+    {
+      "source": "game/core/runtime/legacy_phases.gd",
+      "target": "game/core/siege_world.gd"
+    },
+    {
+      "source": "game/core/runtime/legacy_phases.gd",
+      "target": "game/core/social_rules.gd"
+    },
+    {
+      "source": "game/core/runtime/legacy_phases.gd",
+      "target": "game/core/travel_rules.gd"
+    },
+    {
+      "source": "game/core/runtime/legacy_phases.gd",
+      "target": "game/core/world_location.gd"
+    },
+    {
+      "source": "game/core/runtime/legacy_phases.gd",
+      "target": "game/core/world_step.gd"
+    },
+    {
+      "source": "game/core/runtime/module_registry.gd",
+      "target": "game/core/base/value_checks.gd"
+    },
+    {
+      "source": "game/core/runtime/module_registry.gd",
+      "target": "game/core/runtime/domain_observers.gd"
+    },
+    {
+      "source": "game/core/runtime/module_registry.gd",
+      "target": "game/core/runtime/world_phases.gd"
+    },
+    {
+      "source": "game/core/runtime/module_registry.gd",
+      "target": "game/core/runtime/world_validation.gd"
+    },
+    {
+      "source": "game/core/runtime/transaction_context.gd",
+      "target": "game/core/base/value_checks.gd"
+    },
+    {
+      "source": "game/core/runtime/world_phases.gd",
+      "target": "game/core/base/value_checks.gd"
+    },
+    {
+      "source": "game/core/runtime/world_validation.gd",
+      "target": "game/core/base/value_checks.gd"
+    },
+    {
+      "source": "game/core/runtime/world_validation.gd",
+      "target": "game/core/base/world_shape.gd"
+    },
+    {
+      "source": "game/core/save_codec.gd",
+      "target": "game/core/content_catalog.gd"
+    },
+    {
+      "source": "game/core/save_codec.gd",
+      "target": "game/core/content_set_resolver.gd"
+    },
+    {
+      "source": "game/core/save_codec.gd",
+      "target": "game/core/rules_migration.gd"
+    },
+    {
+      "source": "game/core/save_codec.gd",
+      "target": "game/core/state_schema.gd"
+    },
+    {
+      "source": "game/core/save_codec.gd",
+      "target": "game/core/strict_json.gd"
+    },
+    {
+      "source": "game/core/scenario_query.gd",
+      "target": "game/core/content_set_resolver.gd"
+    },
+    {
+      "source": "game/core/scenario_query.gd",
+      "target": "game/core/scenario_snapshot.gd"
+    },
+    {
+      "source": "game/core/scenario_snapshot.gd",
+      "target": "game/core/strict_json.gd"
+    },
+    {
+      "source": "game/core/service_rules.gd",
+      "target": "game/core/base/value_checks.gd"
+    },
+    {
+      "source": "game/core/service_rules.gd",
+      "target": "game/core/interaction_rules.gd"
+    },
+    {
+      "source": "game/core/service_rules.gd",
+      "target": "game/core/inventory_rules.gd"
+    },
+    {
+      "source": "game/core/service_rules.gd",
+      "target": "game/core/world_factory.gd"
+    },
+    {
+      "source": "game/core/service_rules.gd",
+      "target": "game/core/world_location.gd"
+    },
+    {
+      "source": "game/core/siege_rules.gd",
+      "target": "game/core/domains/siege/engine_use.gd"
+    },
+    {
+      "source": "game/core/siege_rules.gd",
+      "target": "game/core/domains/siege/supply_receipts.gd"
+    },
+    {
+      "source": "game/core/siege_world.gd",
+      "target": "game/core/campaign_rules.gd"
+    },
+    {
+      "source": "game/core/siege_world.gd",
+      "target": "game/core/domains/siege/safe_departure.gd"
+    },
+    {
+      "source": "game/core/siege_world.gd",
+      "target": "game/core/inventory_rules.gd"
+    },
+    {
+      "source": "game/core/siege_world.gd",
+      "target": "game/core/military_assets.gd"
+    },
+    {
+      "source": "game/core/siege_world.gd",
+      "target": "game/core/military_combat.gd"
+    },
+    {
+      "source": "game/core/siege_world.gd",
+      "target": "game/core/siege_rules.gd"
+    },
+    {
+      "source": "game/core/siege_world.gd",
+      "target": "game/core/terrain_journey.gd"
+    },
+    {
+      "source": "game/core/siege_world.gd",
+      "target": "game/core/world_factory.gd"
+    },
+    {
+      "source": "game/core/siege_world.gd",
+      "target": "game/core/world_location.gd"
+    },
+    {
+      "source": "game/core/social_rules.gd",
+      "target": "game/core/base/value_checks.gd"
+    },
+    {
+      "source": "game/core/social_rules.gd",
+      "target": "game/core/domains/identity/actor_behavior.gd"
+    },
+    {
+      "source": "game/core/social_rules.gd",
+      "target": "game/core/inventory_rules.gd"
+    },
+    {
+      "source": "game/core/social_rules.gd",
+      "target": "game/core/world_factory.gd"
+    },
+    {
+      "source": "game/core/social_rules.gd",
+      "target": "game/core/world_location.gd"
+    },
+    {
+      "source": "game/core/state_schema.gd",
+      "target": "game/core/base/value_checks.gd"
+    },
+    {
+      "source": "game/core/state_schema.gd",
+      "target": "game/core/runtime/builtin_modules.gd"
+    },
+    {
+      "source": "game/core/state_schema.gd",
+      "target": "game/core/runtime/module_registry.gd"
+    },
+    {
+      "source": "game/core/state_schema.gd",
+      "target": "game/core/runtime/world_validation.gd"
+    },
+    {
+      "source": "game/core/task_rules.gd",
+      "target": "game/core/condition_rules.gd"
+    },
+    {
+      "source": "game/core/task_rules.gd",
+      "target": "game/core/escort_rules.gd"
+    },
+    {
+      "source": "game/core/task_rules.gd",
+      "target": "game/core/interaction_rules.gd"
+    },
+    {
+      "source": "game/core/task_rules.gd",
+      "target": "game/core/inventory_rules.gd"
+    },
+    {
+      "source": "game/core/task_rules.gd",
+      "target": "game/core/world_factory.gd"
+    },
+    {
+      "source": "game/core/terrain_journey.gd",
+      "target": "game/core/inventory_rules.gd"
+    },
+    {
+      "source": "game/core/terrain_journey.gd",
+      "target": "game/core/party_rules.gd"
+    },
+    {
+      "source": "game/core/terrain_journey.gd",
+      "target": "game/core/terrain_query.gd"
+    },
+    {
+      "source": "game/core/terrain_journey.gd",
+      "target": "game/core/world_factory.gd"
+    },
+    {
+      "source": "game/core/terrain_journey.gd",
+      "target": "game/core/world_location.gd"
+    },
+    {
+      "source": "game/core/terrain_journey.gd",
+      "target": "game/core/world_terrain.gd"
+    },
+    {
+      "source": "game/core/terrain_query.gd",
+      "target": "game/core/world_terrain.gd"
+    },
+    {
+      "source": "game/core/travel_rules.gd",
+      "target": "game/core/base/value_checks.gd"
+    },
+    {
+      "source": "game/core/travel_rules.gd",
+      "target": "game/core/event_rules.gd"
+    },
+    {
+      "source": "game/core/travel_rules.gd",
+      "target": "game/core/inventory_rules.gd"
+    },
+    {
+      "source": "game/core/travel_rules.gd",
+      "target": "game/core/party_rules.gd"
+    },
+    {
+      "source": "game/core/travel_rules.gd",
+      "target": "game/core/route_graph.gd"
+    },
+    {
+      "source": "game/core/travel_rules.gd",
+      "target": "game/core/terrain_journey.gd"
+    },
+    {
+      "source": "game/core/travel_rules.gd",
+      "target": "game/core/world_factory.gd"
+    },
+    {
+      "source": "game/core/travel_rules.gd",
+      "target": "game/core/world_location.gd"
+    },
+    {
+      "source": "game/core/travel_schedule.gd",
+      "target": "game/core/domains/identity/actor_behavior.gd"
+    },
+    {
+      "source": "game/core/travel_schedule.gd",
+      "target": "game/core/world_location.gd"
+    },
+    {
+      "source": "game/core/views/action_context.gd",
+      "target": "game/core/base/value_checks.gd"
+    },
+    {
+      "source": "game/core/views/action_context.gd",
+      "target": "game/core/combat_session.gd"
+    },
+    {
+      "source": "game/core/views/action_context.gd",
+      "target": "game/core/encounter_rules.gd"
+    },
+    {
+      "source": "game/core/views/action_context.gd",
+      "target": "game/core/siege_world.gd"
+    },
+    {
+      "source": "game/core/views/character_input.gd",
+      "target": "game/core/actor_identity.gd"
+    },
+    {
+      "source": "game/core/views/character_input.gd",
+      "target": "game/core/domains/identity/actor_appearance.gd"
+    },
+    {
+      "source": "game/core/views/character_summary.gd",
+      "target": "game/core/actor_identity.gd"
+    },
+    {
+      "source": "game/core/views/character_summary.gd",
+      "target": "game/core/interaction_rules.gd"
+    },
+    {
+      "source": "game/core/views/character_summary.gd",
+      "target": "game/core/inventory_rules.gd"
+    },
+    {
+      "source": "game/core/views/character_summary.gd",
+      "target": "game/core/views/character_input.gd"
+    },
+    {
+      "source": "game/core/views/character_summary.gd",
+      "target": "game/core/world_location.gd"
+    },
+    {
+      "source": "game/core/views/estate_page.gd",
+      "target": "game/core/actor_identity.gd"
+    },
+    {
+      "source": "game/core/views/estate_page.gd",
+      "target": "game/core/estate_rules.gd"
+    },
+    {
+      "source": "game/core/views/estate_page.gd",
+      "target": "game/core/inventory_rules.gd"
+    },
+    {
+      "source": "game/core/views/estate_page.gd",
+      "target": "game/core/views/character_input.gd"
+    },
+    {
+      "source": "game/core/views/estate_page.gd",
+      "target": "game/core/world_location.gd"
+    },
+    {
+      "source": "game/core/views/family_page.gd",
+      "target": "game/core/actor_identity.gd"
+    },
+    {
+      "source": "game/core/views/family_page.gd",
+      "target": "game/core/interaction_rules.gd"
+    },
+    {
+      "source": "game/core/views/family_page.gd",
+      "target": "game/core/views/character_input.gd"
+    },
+    {
+      "source": "game/core/views/family_page.gd",
+      "target": "game/core/world_location.gd"
+    },
+    {
+      "source": "game/core/views/hud_view.gd",
+      "target": "game/core/actor_identity.gd"
+    },
+    {
+      "source": "game/core/views/hud_view.gd",
+      "target": "game/core/base/time_rules.gd"
+    },
+    {
+      "source": "game/core/views/hud_view.gd",
+      "target": "game/core/base/value_checks.gd"
+    },
+    {
+      "source": "game/core/views/journey_notes.gd",
+      "target": "game/core/actor_identity.gd"
+    },
+    {
+      "source": "game/core/views/journey_notes.gd",
+      "target": "game/core/base/time_rules.gd"
+    },
+    {
+      "source": "game/core/views/journey_notes.gd",
+      "target": "game/core/condition_rules.gd"
+    },
+    {
+      "source": "game/core/views/map_projection.gd",
+      "target": "game/core/world_location.gd"
+    },
+    {
+      "source": "game/core/views/map_view.gd",
+      "target": "game/core/base/value_checks.gd"
+    },
+    {
+      "source": "game/core/views/map_view.gd",
+      "target": "game/core/route_graph.gd"
+    },
+    {
+      "source": "game/core/views/map_view.gd",
+      "target": "game/core/views/map_projection.gd"
+    },
+    {
+      "source": "game/core/views/map_view.gd",
+      "target": "game/core/world_location.gd"
+    },
+    {
+      "source": "game/core/views/military_battle_page.gd",
+      "target": "game/core/actor_identity.gd"
+    },
+    {
+      "source": "game/core/views/military_battle_page.gd",
+      "target": "game/core/military_assets.gd"
+    },
+    {
+      "source": "game/core/views/military_battle_page.gd",
+      "target": "game/core/military_round.gd"
+    },
+    {
+      "source": "game/core/views/military_battle_page.gd",
+      "target": "game/core/world_location.gd"
+    },
+    {
+      "source": "game/core/views/military_camp_page.gd",
+      "target": "game/core/actor_identity.gd"
+    },
+    {
+      "source": "game/core/views/military_camp_page.gd",
+      "target": "game/core/campaign_rules.gd"
+    },
+    {
+      "source": "game/core/views/military_camp_page.gd",
+      "target": "game/core/interaction_rules.gd"
+    },
+    {
+      "source": "game/core/views/military_camp_page.gd",
+      "target": "game/core/inventory_rules.gd"
+    },
+    {
+      "source": "game/core/views/military_camp_page.gd",
+      "target": "game/core/military_assets.gd"
+    },
+    {
+      "source": "game/core/views/military_camp_page.gd",
+      "target": "game/core/views/character_input.gd"
+    },
+    {
+      "source": "game/core/views/military_camp_page.gd",
+      "target": "game/core/world_location.gd"
+    },
+    {
+      "source": "game/core/views/personal_battle_view.gd",
+      "target": "game/core/actor_identity.gd"
+    },
+    {
+      "source": "game/core/views/personal_battle_view.gd",
+      "target": "game/core/base/value_checks.gd"
+    },
+    {
+      "source": "game/core/views/personal_battle_view.gd",
+      "target": "game/core/domains/personal/personal_projection.gd"
+    },
+    {
+      "source": "game/core/views/personal_battle_view.gd",
+      "target": "game/core/personal_round.gd"
+    },
+    {
+      "source": "game/core/views/personal_battle_view.gd",
+      "target": "game/core/views/character_input.gd"
+    },
+    {
+      "source": "game/core/views/scene_journey_sidebar.gd",
+      "target": "game/core/actor_identity.gd"
+    },
+    {
+      "source": "game/core/views/scene_journey_sidebar.gd",
+      "target": "game/core/dialogue_runner.gd"
+    },
+    {
+      "source": "game/core/views/scene_journey_sidebar.gd",
+      "target": "game/core/encounter_rules.gd"
+    },
+    {
+      "source": "game/core/views/scene_journey_sidebar.gd",
+      "target": "game/core/interaction_topics.gd"
+    },
+    {
+      "source": "game/core/views/scene_journey_sidebar.gd",
+      "target": "game/core/military_assets.gd"
+    },
+    {
+      "source": "game/core/views/scene_journey_sidebar.gd",
+      "target": "game/core/views/estate_page.gd"
+    },
+    {
+      "source": "game/core/views/scene_journey_sidebar.gd",
+      "target": "game/core/world_location.gd"
+    },
+    {
+      "source": "game/core/views/scene_projection.gd",
+      "target": "game/core/actor_identity.gd"
+    },
+    {
+      "source": "game/core/views/scene_projection.gd",
+      "target": "game/core/views/map_projection.gd"
+    },
+    {
+      "source": "game/core/views/scene_projection.gd",
+      "target": "game/core/world_location.gd"
+    },
+    {
+      "source": "game/core/views/siege_page.gd",
+      "target": "game/core/actor_identity.gd"
+    },
+    {
+      "source": "game/core/views/siege_page.gd",
+      "target": "game/core/base/value_checks.gd"
+    },
+    {
+      "source": "game/core/views/siege_page.gd",
+      "target": "game/core/domains/siege/engine_use.gd"
+    },
+    {
+      "source": "game/core/views/siege_page.gd",
+      "target": "game/core/military_assets.gd"
+    },
+    {
+      "source": "game/core/views/siege_page.gd",
+      "target": "game/core/siege_rules.gd"
+    },
+    {
+      "source": "game/core/views/siege_page.gd",
+      "target": "game/core/siege_world.gd"
+    },
+    {
+      "source": "game/core/views/siege_page.gd",
+      "target": "game/core/world_location.gd"
+    },
+    {
+      "source": "game/core/views/study_activity_input.gd",
+      "target": "game/core/interaction_rules.gd"
+    },
+    {
+      "source": "game/core/views/trade_sheet.gd",
+      "target": "game/core/actor_identity.gd"
+    },
+    {
+      "source": "game/core/views/trade_sheet.gd",
+      "target": "game/core/inventory_rules.gd"
+    },
+    {
+      "source": "game/core/world_content.gd",
+      "target": "game/core/world_terrain.gd"
+    },
+    {
+      "source": "game/core/world_factory.gd",
+      "target": "game/core/base/time_rules.gd"
+    },
+    {
+      "source": "game/core/world_factory.gd",
+      "target": "game/core/domains/identity/actor_appearance.gd"
+    },
+    {
+      "source": "game/core/world_factory.gd",
+      "target": "game/core/rules_migration.gd"
+    },
+    {
+      "source": "game/core/world_factory.gd",
+      "target": "game/core/scenario_snapshot.gd"
+    },
+    {
+      "source": "game/core/world_kernel.gd",
+      "target": "game/core/backends/legacy_command_context.gd"
+    },
+    {
+      "source": "game/core/world_kernel.gd",
+      "target": "game/core/backends/legacy_world_backend.gd"
+    },
+    {
+      "source": "game/core/world_kernel.gd",
+      "target": "game/core/combat_session.gd"
+    },
+    {
+      "source": "game/core/world_kernel.gd",
+      "target": "game/core/condition_rules.gd"
+    },
+    {
+      "source": "game/core/world_kernel.gd",
+      "target": "game/core/content_catalog.gd"
+    },
+    {
+      "source": "game/core/world_kernel.gd",
+      "target": "game/core/cultivation_rules.gd"
+    },
+    {
+      "source": "game/core/world_kernel.gd",
+      "target": "game/core/dialogue_runner.gd"
+    },
+    {
+      "source": "game/core/world_kernel.gd",
+      "target": "game/core/domains/cultivation/skill_study_rules.gd"
+    },
+    {
+      "source": "game/core/world_kernel.gd",
+      "target": "game/core/domains/economy/bargain_quote.gd"
+    },
+    {
+      "source": "game/core/world_kernel.gd",
+      "target": "game/core/domains/interaction/dialogue_commands.gd"
+    },
+    {
+      "source": "game/core/world_kernel.gd",
+      "target": "game/core/domains/interaction/encounter_module.gd"
+    },
+    {
+      "source": "game/core/world_kernel.gd",
+      "target": "game/core/domains/military/military_coordination.gd"
+    },
+    {
+      "source": "game/core/world_kernel.gd",
+      "target": "game/core/domains/military/military_module.gd"
+    },
+    {
+      "source": "game/core/world_kernel.gd",
+      "target": "game/core/domains/military/training_rules.gd"
+    },
+    {
+      "source": "game/core/world_kernel.gd",
+      "target": "game/core/domains/personal/personal_coordination.gd"
+    },
+    {
+      "source": "game/core/world_kernel.gd",
+      "target": "game/core/domains/travel/journey_module.gd"
+    },
+    {
+      "source": "game/core/world_kernel.gd",
+      "target": "game/core/encounter_rules.gd"
+    },
+    {
+      "source": "game/core/world_kernel.gd",
+      "target": "game/core/escort_rules.gd"
+    },
+    {
+      "source": "game/core/world_kernel.gd",
+      "target": "game/core/estate_rules.gd"
+    },
+    {
+      "source": "game/core/world_kernel.gd",
+      "target": "game/core/event_rules.gd"
+    },
+    {
+      "source": "game/core/world_kernel.gd",
+      "target": "game/core/family_rules.gd"
+    },
+    {
+      "source": "game/core/world_kernel.gd",
+      "target": "game/core/interaction_rules.gd"
+    },
+    {
+      "source": "game/core/world_kernel.gd",
+      "target": "game/core/inventory_rules.gd"
+    },
+    {
+      "source": "game/core/world_kernel.gd",
+      "target": "game/core/journey_commands.gd"
+    },
+    {
+      "source": "game/core/world_kernel.gd",
+      "target": "game/core/long_rest.gd"
+    },
+    {
+      "source": "game/core/world_kernel.gd",
+      "target": "game/core/military_combat.gd"
+    },
+    {
+      "source": "game/core/world_kernel.gd",
+      "target": "game/core/military_schedule.gd"
+    },
+    {
+      "source": "game/core/world_kernel.gd",
+      "target": "game/core/military_world.gd"
+    },
+    {
+      "source": "game/core/world_kernel.gd",
+      "target": "game/core/party_rules.gd"
+    },
+    {
+      "source": "game/core/world_kernel.gd",
+      "target": "game/core/personal_combat.gd"
+    },
+    {
+      "source": "game/core/world_kernel.gd",
+      "target": "game/core/rules_migration.gd"
+    },
+    {
+      "source": "game/core/world_kernel.gd",
+      "target": "game/core/runtime/action_runtime.gd"
+    },
+    {
+      "source": "game/core/world_kernel.gd",
+      "target": "game/core/runtime/builtin_modules.gd"
+    },
+    {
+      "source": "game/core/world_kernel.gd",
+      "target": "game/core/runtime/domain_observers.gd"
+    },
+    {
+      "source": "game/core/world_kernel.gd",
+      "target": "game/core/runtime/explanation_query.gd"
+    },
+    {
+      "source": "game/core/world_kernel.gd",
+      "target": "game/core/runtime/module_registry.gd"
+    },
+    {
+      "source": "game/core/world_kernel.gd",
+      "target": "game/core/runtime/transaction_context.gd"
+    },
+    {
+      "source": "game/core/world_kernel.gd",
+      "target": "game/core/runtime/world_validation.gd"
+    },
+    {
+      "source": "game/core/world_kernel.gd",
+      "target": "game/core/service_rules.gd"
+    },
+    {
+      "source": "game/core/world_kernel.gd",
+      "target": "game/core/siege_world.gd"
+    },
+    {
+      "source": "game/core/world_kernel.gd",
+      "target": "game/core/state_schema.gd"
+    },
+    {
+      "source": "game/core/world_kernel.gd",
+      "target": "game/core/travel_rules.gd"
+    },
+    {
+      "source": "game/core/world_kernel.gd",
+      "target": "game/core/travel_schedule.gd"
+    },
+    {
+      "source": "game/core/world_kernel.gd",
+      "target": "game/core/views/action_context.gd"
+    },
+    {
+      "source": "game/core/world_kernel.gd",
+      "target": "game/core/views/character_input.gd"
+    },
+    {
+      "source": "game/core/world_kernel.gd",
+      "target": "game/core/views/character_summary.gd"
+    },
+    {
+      "source": "game/core/world_kernel.gd",
+      "target": "game/core/views/hud_view.gd"
+    },
+    {
+      "source": "game/core/world_kernel.gd",
+      "target": "game/core/views/journey_notes.gd"
+    },
+    {
+      "source": "game/core/world_kernel.gd",
+      "target": "game/core/views/map_view.gd"
+    },
+    {
+      "source": "game/core/world_kernel.gd",
+      "target": "game/core/views/scene_projection.gd"
+    },
+    {
+      "source": "game/core/world_kernel.gd",
+      "target": "game/core/views/trade_sheet.gd"
+    },
+    {
+      "source": "game/core/world_kernel.gd",
+      "target": "game/core/world_factory.gd"
+    },
+    {
+      "source": "game/core/world_kernel.gd",
+      "target": "game/core/world_location.gd"
+    },
+    {
+      "source": "game/core/world_kernel.gd",
+      "target": "game/core/world_step.gd"
+    },
+    {
+      "source": "game/core/world_step.gd",
+      "target": "game/core/inventory_rules.gd"
+    },
+    {
+      "source": "game/core/world_step.gd",
+      "target": "game/core/runtime/world_phases.gd"
+    },
+    {
+      "source": "game/core/backends/legacy_world_backend.gd",
+      "target": "game/core/backends/native_travel_schedule_provider.gd"
+    },
+    {
+      "source": "game/core/backends/native_travel_schedule_provider.gd",
+      "target": "game/core/domains/identity/actor_behavior.gd"
+    },
+    {
+      "source": "game/core/backends/legacy_world_backend.gd",
+      "target": "game/core/backends/native_military_schedule_provider.gd"
+    },
+    {
+      "source": "game/core/backends/native_military_schedule_provider.gd",
+      "target": "game/core/domains/identity/actor_behavior.gd"
+    },
+    {
+      "source": "game/core/backends/native_military_schedule_provider.gd",
+      "target": "game/core/world_location.gd"
+    },
+    {
+      "source": "game/core/backends/native_military_schedule_provider.gd",
+      "target": "game/core/combat_session.gd"
+    },
+    {
+      "source": "game/core/backends/native_military_schedule_provider.gd",
+      "target": "game/core/campaign_rules.gd"
+    },
+    {
+      "source": "game/core/backends/native_military_schedule_provider.gd",
+      "target": "game/core/interaction_rules.gd"
+    },
+    {
+      "source": "game/core/backends/native_military_schedule_provider.gd",
+      "target": "game/core/siege_world.gd"
+    },
+    {
+      "source": "game/core/views/character_summary.gd",
+      "target": "game/core/domains/personal/personal_armor.gd"
+    },
+    {
+      "source": "game/core/views/personal_battle_view.gd",
+      "target": "game/core/domains/personal/personal_armor_content.gd"
+    },
+    {
+      "source": "game/core/backends/legacy_world_backend.gd",
+      "target": "game/core/views/ordinary_skills_view.gd"
+    },
+    {
+      "source": "game/core/views/ordinary_skills_view.gd",
+      "target": "game/core/actor_identity.gd"
+    },
+    {
+      "source": "game/core/views/ordinary_skills_view.gd",
+      "target": "game/core/domains/cultivation/skill_levels.gd"
+    },
+    {
+      "source": "game/core/views/ordinary_skills_view.gd",
+      "target": "game/core/domains/cultivation/skill_study_rules.gd"
+    },
+    {
+      "source": "game/core/domains/cultivation/skill_study_pause.gd",
+      "target": "game/core/base/value_checks.gd"
+    },
+    {
+      "source": "game/core/domains/cultivation/skill_study_rules.gd",
+      "target": "game/core/domains/cultivation/skill_study_pause.gd"
+    },
+    {
+      "source": "game/core/views/study_activity_input.gd",
+      "target": "game/core/domains/cultivation/skill_study_pause.gd"
+    },
+    {
+      "source": "game/core/domains/cultivation/skill_study_rules.gd",
+      "target": "game/core/domains/cultivation/skill_study_segments.gd"
+    },
+    {
+      "source": "game/core/domains/cultivation/skill_study_pause.gd",
+      "target": "game/core/domains/cultivation/skill_study_segments.gd"
+    },
+    {
+      "source": "game/core/domains/cultivation/skill_study_segments.gd",
+      "target": "game/core/domains/cultivation/study_etiquette.gd"
+    },
+    {
+      "source": "game/core/domains/cultivation/skill_study_segments.gd",
+      "target": "game/core/base/value_checks.gd"
+    },
+    {
+      "source": "game/core/views/ordinary_skills_view.gd",
+      "target": "game/core/domains/cultivation/skill_study_pause.gd"
+    },
+    {
+      "source": "game/core/views/study_activity_input.gd",
+      "target": "game/core/domains/cultivation/skill_study_rules.gd"
+    },
+    {
+      "source": "game/core/views/study_activity_input.gd",
+      "target": "game/core/domains/cultivation/study_etiquette.gd"
+    }
+  ],
+  "legacy_edges": [
+    {
+      "source": "game/core/actor_identity.gd",
+      "target": "game/core/world_factory.gd",
+      "reason": "保留共用实例ID/地点构造服务 Factory.next_id/settlement_location；由生命周期边界任务评审抽出服务，不调用Factory.create。",
+      "task": "A1.3"
+    },
+    {
+      "source": "game/core/campaign_rules.gd",
+      "target": "game/core/world_factory.gd",
+      "reason": "保留共用实例ID/地点构造服务 Factory.next_id；由生命周期边界任务评审抽出服务，不调用Factory.create。",
+      "task": "A1.3"
+    },
+    {
+      "source": "game/core/dialogue_runner.gd",
+      "target": "game/core/world_factory.gd",
+      "reason": "保留共用实例ID/地点构造服务 Factory.next_id；由生命周期边界任务评审抽出服务，不调用Factory.create。",
+      "task": "A1.3"
+    },
+    {
+      "source": "game/core/encounter_rules.gd",
+      "target": "game/core/world_factory.gd",
+      "reason": "保留共用实例ID/地点构造服务 Factory.next_id；由生命周期边界任务评审抽出服务，不调用Factory.create。",
+      "task": "A1.3"
+    },
+    {
+      "source": "game/core/estate_rules.gd",
+      "target": "game/core/world_factory.gd",
+      "reason": "保留共用实例ID/地点构造服务 Factory.next_id；由生命周期边界任务评审抽出服务，不调用Factory.create。",
+      "task": "A1.3"
+    },
+    {
+      "source": "game/core/family_rules.gd",
+      "target": "game/core/world_factory.gd",
+      "reason": "保留共用实例ID/地点构造服务 Factory.next_id；由生命周期边界任务评审抽出服务，不调用Factory.create。",
+      "task": "A1.3"
+    },
+    {
+      "source": "game/core/inventory_rules.gd",
+      "target": "game/core/world_factory.gd",
+      "reason": "保留共用实例ID/地点构造服务 Factory.next_id；由生命周期边界任务评审抽出服务，不调用Factory.create。",
+      "task": "A1.3"
+    },
+    {
+      "source": "game/core/journey_commands.gd",
+      "target": "game/core/world_step.gd",
+      "reason": "旧行旅命令共用Step.release清理已授权行动占用；advance已转发显式阶段图，此处仅使用release。",
+      "task": "A1.3"
+    },
+    {
+      "source": "game/core/military_assets.gd",
+      "target": "game/core/world_factory.gd",
+      "reason": "保留共用实例ID/地点构造服务 Factory.next_id/settlement_location；由生命周期边界任务评审抽出服务，不调用Factory.create。",
+      "task": "A1.3"
+    },
+    {
+      "source": "game/core/military_combat.gd",
+      "target": "game/core/world_factory.gd",
+      "reason": "保留共用实例ID/地点构造服务 Factory.next_id；由生命周期边界任务评审抽出服务，不调用Factory.create。",
+      "task": "A1.3"
+    },
+    {
+      "source": "game/core/military_contact.gd",
+      "target": "game/core/world_factory.gd",
+      "reason": "保留共用实例ID/地点构造服务 Factory.next_id；由生命周期边界任务评审抽出服务，不调用Factory.create。",
+      "task": "A1.3"
+    },
+    {
+      "source": "game/core/party_rules.gd",
+      "target": "game/core/world_factory.gd",
+      "reason": "保留共用实例ID/地点构造服务 Factory.next_id；由生命周期边界任务评审抽出服务，不调用Factory.create。",
+      "task": "A1.3"
+    },
+    {
+      "source": "game/core/personal_combat.gd",
+      "target": "game/core/world_factory.gd",
+      "reason": "保留共用实例ID/地点构造服务 Factory.next_id；由生命周期边界任务评审抽出服务，不调用Factory.create。",
+      "task": "A1.3"
+    },
+    {
+      "source": "game/core/save_codec.gd",
+      "target": "game/core/content_catalog.gd",
+      "reason": "现有存档封装直接组合 Catalog.read_prepared；恢复边界任务评审该引用。",
+      "task": "A1.5"
+    },
+    {
+      "source": "game/core/service_rules.gd",
+      "target": "game/core/world_factory.gd",
+      "reason": "保留共用实例ID/地点构造服务 Factory.next_id；由生命周期边界任务评审抽出服务，不调用Factory.create。",
+      "task": "A1.3"
+    },
+    {
+      "source": "game/core/siege_world.gd",
+      "target": "game/core/world_factory.gd",
+      "reason": "保留共用实例ID/地点构造服务 Factory.next_id；由生命周期边界任务评审抽出服务，不调用Factory.create。",
+      "task": "A1.3"
+    },
+    {
+      "source": "game/core/social_rules.gd",
+      "target": "game/core/world_factory.gd",
+      "reason": "保留共用实例ID/地点构造服务 Factory.next_id；由生命周期边界任务评审抽出服务，不调用Factory.create。",
+      "task": "A1.3"
+    },
+    {
+      "source": "game/core/task_rules.gd",
+      "target": "game/core/world_factory.gd",
+      "reason": "保留共用实例ID/地点构造服务 Factory.next_id；由生命周期边界任务评审抽出服务，不调用Factory.create。",
+      "task": "A1.3"
+    },
+    {
+      "source": "game/core/terrain_journey.gd",
+      "target": "game/core/world_factory.gd",
+      "reason": "保留共用实例ID/地点构造服务 Factory.next_id/settlement_location；由生命周期边界任务评审抽出服务，不调用Factory.create。",
+      "task": "A1.3"
+    },
+    {
+      "source": "game/core/travel_rules.gd",
+      "target": "game/core/world_factory.gd",
+      "reason": "保留共用实例ID/地点构造服务 Factory.settlement_location；由生命周期边界任务评审抽出服务，不调用Factory.create。",
+      "task": "A1.3"
+    },
+    {
+      "source": "game/core/world_kernel.gd",
+      "target": "game/core/combat_session.gd",
+      "reason": "现有Kernel启动/命令组合引用 Combat.for_actor/occupied/pauses_world；命令/调度迁移时评审保留或收窄，不调整当前守卫顺序。",
+      "task": "A1.2"
+    },
+    {
+      "source": "game/core/world_kernel.gd",
+      "target": "game/core/condition_rules.gd",
+      "reason": "现有Kernel启动/命令组合引用 Conditions.all_true；命令/调度迁移时评审保留或收窄，不调整当前守卫顺序。",
+      "task": "A1.2"
+    },
+    {
+      "source": "game/core/world_kernel.gd",
+      "target": "game/core/content_catalog.gd",
+      "reason": "现有Kernel启动/命令组合引用 Catalog.read_prepared；命令/调度迁移时评审保留或收窄，不调整当前守卫顺序。",
+      "task": "A1.2"
+    },
+    {
+      "source": "game/core/world_kernel.gd",
+      "target": "game/core/cultivation_rules.gd",
+      "reason": "现有Kernel启动/命令组合引用 Cultivation.KINDS/TRAINING_KINDS/apply_instant/begin/preview；命令/调度迁移时评审保留或收窄，不调整当前守卫顺序。",
+      "task": "A1.2"
+    },
+    {
+      "source": "game/core/world_kernel.gd",
+      "target": "game/core/dialogue_runner.gd",
+      "reason": "现有Kernel启动/命令组合引用 Dialogue.advance/begin/can_begin/pump/resolve/validate_input/view；命令/调度迁移时评审保留或收窄，不调整当前守卫顺序。",
+      "task": "A1.2"
+    },
+    {
+      "source": "game/core/world_kernel.gd",
+      "target": "game/core/encounter_rules.gd",
+      "reason": "现有Kernel启动/命令组合引用 Encounters.KINDS/apply/pending_for/preview；命令/调度迁移时评审保留或收窄，不调整当前守卫顺序。",
+      "task": "A1.2"
+    },
+    {
+      "source": "game/core/world_kernel.gd",
+      "target": "game/core/escort_rules.gd",
+      "reason": "现有Kernel启动/命令组合引用 Escort.observe；命令/调度迁移时评审保留或收窄，不调整当前守卫顺序。",
+      "task": "A1.2"
+    },
+    {
+      "source": "game/core/world_kernel.gd",
+      "target": "game/core/estate_rules.gd",
+      "reason": "现有Kernel启动/命令组合引用 Estate.KINDS/apply/begin/initialize/preview；命令/调度迁移时评审保留或收窄，不调整当前守卫顺序。",
+      "task": "A1.2"
+    },
+    {
+      "source": "game/core/world_kernel.gd",
+      "target": "game/core/event_rules.gd",
+      "reason": "现有Kernel启动/命令组合引用 Events.on_enter/presented/preview/reconcile；命令/调度迁移时评审保留或收窄，不调整当前守卫顺序。",
+      "task": "A1.2"
+    },
+    {
+      "source": "game/core/world_kernel.gd",
+      "target": "game/core/family_rules.gd",
+      "reason": "现有Kernel启动/命令组合引用 Family.KINDS/apply/begin/preview；命令/调度迁移时评审保留或收窄，不调整当前守卫顺序。",
+      "task": "A1.2"
+    },
+    {
+      "source": "game/core/world_kernel.gd",
+      "target": "game/core/interaction_rules.gd",
+      "reason": "现有Kernel启动/命令组合引用 Interaction.discovery/validate；命令/调度迁移时评审保留或收窄，不调整当前守卫顺序。",
+      "task": "A1.2"
+    },
+    {
+      "source": "game/core/world_kernel.gd",
+      "target": "game/core/inventory_rules.gd",
+      "reason": "现有Kernel启动/命令组合引用 Inventory.spendable；命令/调度迁移时评审保留或收窄，不调整当前守卫顺序。",
+      "task": "A1.2"
+    },
+    {
+      "source": "game/core/world_kernel.gd",
+      "target": "game/core/journey_commands.gd",
+      "reason": "现有Kernel启动/命令组合引用 Journey.KINDS/apply/preview；命令/调度迁移时评审保留或收窄，不调整当前守卫顺序。",
+      "task": "A1.2"
+    },
+    {
+      "source": "game/core/world_kernel.gd",
+      "target": "game/core/long_rest.gd",
+      "reason": "现有Kernel启动/命令组合引用 Rest.KINDS/begin/cancel/preview；命令/调度迁移时评审保留或收窄，不调整当前守卫顺序。",
+      "task": "A1.2"
+    },
+    {
+      "source": "game/core/world_kernel.gd",
+      "target": "game/core/military_combat.gd",
+      "reason": "Kernel世界推进预检仍调用MilitaryCombat.preview_step；会战命令preview/apply已走受信注册绑定，保留原早门位置。",
+      "task": "A1.2"
+    },
+    {
+      "source": "game/core/world_kernel.gd",
+      "target": "game/core/military_schedule.gd",
+      "reason": "现有Kernel启动/命令组合引用 MilitarySchedule.proposals；命令/调度迁移时评审保留或收窄，不调整当前守卫顺序。",
+      "task": "A1.2"
+    },
+    {
+      "source": "game/core/world_kernel.gd",
+      "target": "game/core/military_world.gd",
+      "reason": "现有Kernel启动/命令组合引用 Military.apply_actor_changes/initialize/release_invalid_commands；命令/调度迁移时评审保留或收窄，不调整当前守卫顺序。",
+      "task": "A1.2"
+    },
+    {
+      "source": "game/core/world_kernel.gd",
+      "target": "game/core/party_rules.gd",
+      "reason": "现有Kernel启动/命令组合引用 Parties.KINDS/apply/available/preview；命令/调度迁移时评审保留或收窄，不调整当前守卫顺序。",
+      "task": "A1.2"
+    },
+    {
+      "source": "game/core/world_kernel.gd",
+      "target": "game/core/personal_combat.gd",
+      "reason": "现有Kernel启动/命令组合引用 Personal.KINDS/apply/begin/preview；命令/调度迁移时评审保留或收窄，不调整当前守卫顺序。",
+      "task": "A1.2"
+    },
+    {
+      "source": "game/core/world_kernel.gd",
+      "target": "game/core/rules_migration.gd",
+      "reason": "现有Kernel启动/命令组合引用 Rules.upgrade；命令/调度迁移时评审保留或收窄，不调整当前守卫顺序。",
+      "task": "A1.2"
+    },
+    {
+      "source": "game/core/world_kernel.gd",
+      "target": "game/core/service_rules.gd",
+      "reason": "现有Kernel启动/命令组合引用 Services.begin/preview；命令/调度迁移时评审保留或收窄，不调整当前守卫顺序。",
+      "task": "A1.2"
+    },
+    {
+      "source": "game/core/world_kernel.gd",
+      "target": "game/core/siege_world.gd",
+      "reason": "Kernel仅保留SiegeWorld.for_actor/preview_step公共占用与世界推进预检；围城命令preview/apply已交受信登记，结果协作归MilitaryCoordination。",
+      "task": "A1.7"
+    },
+    {
+      "source": "game/core/world_kernel.gd",
+      "target": "game/core/state_schema.gd",
+      "reason": "现有Kernel启动/命令组合引用 Schema.fields/validate/whole；命令/调度迁移时评审保留或收窄，不调整当前守卫顺序。",
+      "task": "A1.2"
+    },
+    {
+      "source": "game/core/world_kernel.gd",
+      "target": "game/core/travel_rules.gd",
+      "reason": "现有Kernel启动/命令组合引用 Travel.begin/can_step/next_cost/plan/replace_plan；命令/调度迁移时评审保留或收窄，不调整当前守卫顺序。",
+      "task": "A1.2"
+    },
+    {
+      "source": "game/core/world_kernel.gd",
+      "target": "game/core/travel_schedule.gd",
+      "reason": "现有Kernel启动/命令组合引用 Schedule.finish_arrivals/proposals；命令/调度迁移时评审保留或收窄，不调整当前守卫顺序。",
+      "task": "A1.2"
+    },
+    {
+      "source": "game/core/world_kernel.gd",
+      "target": "game/core/world_factory.gd",
+      "reason": "现有Kernel启动/命令组合引用 Factory.create/next_id/settlement_location；命令/调度迁移时评审保留或收窄，不调整当前守卫顺序。",
+      "task": "A1.2"
+    },
+    {
+      "source": "game/core/world_kernel.gd",
+      "target": "game/core/world_location.gd",
+      "reason": "现有Kernel启动/命令组合引用 Location.army_id/members；命令/调度迁移时评审保留或收窄，不调整当前守卫顺序。",
+      "task": "A1.2"
+    },
+    {
+      "source": "game/core/world_kernel.gd",
+      "target": "game/core/world_step.gd",
+      "reason": "现有Kernel启动/命令组合引用 Step.advance/release；命令/调度迁移时评审保留或收窄，不调整当前守卫顺序。",
+      "task": "A1.4"
+    },
+    {
+      "source": "game/core/world_step.gd",
+      "target": "game/core/inventory_rules.gd",
+      "reason": "保留旧公共release的Inventory.release调用，按原序释放钱包/批次预留、参与者和行动；仅此兼容边未迁移。",
+      "task": "A1.4"
+    },
+    {
+      "source": "game/core/base/world_shape.gd",
+      "target": "game/core/actor_identity.gd",
+      "reason": "逐人物公共检查仍读取Identity.definition，保持人物A知识先于人物B形状的旧首错；不转移身份owner。",
+      "task": "A1.5"
+    },
+    {
+      "source": "game/core/base/world_shape.gd",
+      "target": "game/core/terrain_journey.gd",
+      "reason": "逐人物公共位置检查仅读取TerrainJourney.map_id；不迁移旅行拥有权或新增存档拒绝。",
+      "task": "A1.5"
+    },
+    {
+      "source": "game/core/base/world_shape.gd",
+      "target": "game/core/world_terrain.gd",
+      "reason": "逐人物Wilderness位置仅调用Terrain.point_valid；保留原位置检查顺序。",
+      "task": "A1.5"
+    },
+    {
+      "source": "game/core/base/world_shape.gd",
+      "target": "game/core/rules_migration.gd",
+      "reason": "公共版本形状仅读取Rules.CURRENT，校验不执行迁移或初始化。",
+      "task": "A1.5"
+    },
+    {
+      "source": "game/core/domains/economy/economy_module.gd",
+      "target": "game/core/military_ownership.gd",
+      "reason": "仅以纯MilitaryOwnership.public_owner保留庄园后公共资产归属解析；经济不取得军事状态owner，避免循环模块requires。",
+      "task": "A1.5"
+    },
+    {
+      "source": "game/core/state_schema.gd",
+      "target": "game/core/runtime/builtin_modules.gd",
+      "reason": "兼容Schema二参入口每次构造固定Builtin注册；Builtin不再反向依赖Schema，所有入口共用完整校验。",
+      "task": "A1.5"
+    }
+  ],
+  "capability_modules": {
+    "world_factory": "identity",
+    "world_location": "location",
+    "dialogue_runner": "interaction",
+    "task_rules": "tasks",
+    "escort_rules": "tasks",
+    "economy_rules": "economy",
+    "event_rules": "interaction",
+    "service_rules": "services",
+    "party_rules": "travel",
+    "encounter_rules": "interaction",
+    "personal_combat": "personal",
+    "cultivation_rules": "cultivation",
+    "social_rules": "social",
+    "world_terrain": "travel",
+    "estate_rules": "estates",
+    "family_rules": "family",
+    "military_world": "military",
+    "native_dynamic_profile": "dynamic_world"
+  }
+}

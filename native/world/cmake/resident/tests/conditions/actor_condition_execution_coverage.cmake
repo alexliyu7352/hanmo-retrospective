@@ -1,0 +1,7 @@
+# 人物条件消费者登记：保留本组目标、测试、条件与局部变量的原执行顺序。
+# 同人物捕获的结束覆盖，不代表业务许可或永久身体历史。
+add_executable(test_resident_actor_condition_execution_coverage tests/resident/actor_condition_execution_coverage_test.cpp)
+target_link_libraries(test_resident_actor_condition_execution_coverage PRIVATE hanmo_resident)
+target_include_directories(test_resident_actor_condition_execution_coverage PRIVATE src)
+target_compile_options(test_resident_actor_condition_execution_coverage PRIVATE -UNDEBUG -fno-fast-math -ffp-contract=off)
+add_test(NAME resident_actor_condition_execution_coverage COMMAND test_resident_actor_condition_execution_coverage)

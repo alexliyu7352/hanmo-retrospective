@@ -1,0 +1,44 @@
+#include "resident/domains/military/military_model.hpp"
+// 显式公营船坞收费沿原军团钱袋与Common预约；不创建工资、税收或平行预算账。
+#include "resident/storage/money_transfer_recipe.hpp"
+#include "naval_repair_charges.hpp"
+#include "occupation_rules.hpp"
+#include <algorithm>
+#include <set>
+namespace hanmo::resident {
+namespace {
+// 只查本次具名目录，不扫描附近营地推定服务。
+template<class T>const T* find(const std::vector<T>& rows,const StableId& id){for(const auto& r:rows)if(r.id==id)return &r;return nullptr;}
+template<class T>Outcome<T> fail(const StableId& code,const StableId& path={}){return {false,{},common_failure(code,path).error};}
+Owner organization(const StableId& id){return {Owner::Kind::organization,id,{}};}
+bool organization_owner(const Owner& owner){return owner.kind==Owner::Kind::organization&&!owner.id.empty()&&!owner.extra;}
+// 单个Action只许原金额一次预约；不把同名合同或其它Action锁作为本工单本金。
+Status exact_reservation(const WalletView& wallet,const StableId& action,Integer amount){Integer count=0;for(const auto& r:wallet.reserved)if(r.action_id==ReservationRef{action}){++count;if(r.amount!=amount)return common_failure("NavalRepairChargeReservationMismatch",action);}return count==1?common_success():common_failure("NavalRepairChargeReservationMismatch",action);}
+Status shape(const NavalRepairChargeTerms& t){if(t.service_id.empty()||t.service_version.empty()||t.rule_id.empty()||t.berth_place_id.empty()||t.garrison_id.empty()||t.army_id.empty()||t.payer_wallet_id.empty()||t.payee_wallet_id.empty()||t.payer_wallet_id==t.payee_wallet_id||!organization_owner(t.payer_owner)||!organization_owner(t.payee_owner)||t.amount<1||t.amount>1000000)return common_failure("InvalidNavalRepairChargeTerms");return common_success();}
+}
+// 服务受益者必须就是作者原营组织；公共库换主不是服务经营许可的自动继承。
+Status validate_naval_repair_charge_policy(const NavalRepairChargePolicy& policy,const NavalCatalog& naval,const MilitaryCatalog& military,const CommonCatalog* common){
+ if(policy.profile!="public_dock_fees_v1"||!naval.repair_policy||policy.services.empty()||policy.services.size()>256||!common)return common_failure("InvalidNavalRepairChargePolicy");
+ std::set<StableId> ids;std::set<std::pair<StableId,StableId>> choices;
+ for(const auto& service:policy.services){const auto* rule=find(naval.repair_policy->rules,service.rule_id);const auto* camp=find(military.garrisons,service.garrison_id);const auto* wallet=common->required_wallets.find(service.wallet_id);bool berth=false;for(const auto& b:naval.berths)if(b.place_id==service.berth_place_id)berth=true;
+  if(service.id.empty()||!ids.insert(service.id).second||service.version.empty()||service.version.size()>64||!choices.emplace(service.berth_place_id,service.rule_id).second||!rule||!camp||!berth||camp->place_id!=service.berth_place_id||camp->organization_id!=service.organization_id||camp->wallet_id!=service.wallet_id||!wallet||!owner_equal(wallet->owner,organization(service.organization_id))||service.fee<1||service.fee>1000000)return common_failure("InvalidNavalRepairService",service.id);
+ }
+ return common_success();
+}
+// 已知真实泊地和原工单报价才可取费；浮泊自修保原实物工法，不凭坐标借公营服务。
+Outcome<std::optional<NavalRepairChargeTerms>> preview_naval_repair_charge(const CommonRead& c,const MilitaryState& m,const MilitaryCatalog& mc,const MilitaryAccess& access,const NavalCatalog& n,const NavalRepairChargePolicy& policy,const NavalRepairTerms& repair){
+ auto checked=validate_naval_repair_charge_policy(policy,n,mc,access.common_catalog);if(!checked.ok)return {false,{},checked.error};
+ if(std::holds_alternative<WildernessLocation>(repair.anchor))return {true,std::nullopt,{}};
+ const auto* anchor=std::get_if<SettlementLocation>(&repair.anchor);if(!anchor)return fail<std::optional<NavalRepairChargeTerms>>("NavalRepairBerthRequired");const NavalRepairService* service=nullptr;for(const auto& s:policy.services)if(s.berth_place_id==anchor->place_id&&s.rule_id==repair.rule_id)service=&s;if(!service)return fail<std::optional<NavalRepairChargeTerms>>("NavalRepairServiceRequired",anchor->place_id);
+ const auto* army=find(m.armies,repair.army_id);const auto* actor=c.actor(repair.actor_id);if(!army||army->status!="active"||army->commander_actor_id!=repair.actor_id||!actor||!actor->alive||!actor->available||!owner_equal(repair.owner,organization(army->organization_id)))return fail<std::optional<NavalRepairChargeTerms>>("NavalRepairAuthorityRequired",repair.actor_id);
+ auto camp=military_garrison_owner(c,m,mc,access,service->garrison_id,c.tick());if(!camp.ok)return {false,{},camp.error};if(camp.value.organization_id!=service->organization_id)return fail<std::optional<NavalRepairChargeTerms>>("NavalRepairServiceSuspended",service->id);
+ NavalRepairChargeTerms terms;terms.service_id=service->id;terms.service_version=service->version;terms.rule_id=service->rule_id;terms.berth_place_id=service->berth_place_id;terms.garrison_id=service->garrison_id;terms.occupation_source_id=camp.value.occupation_id;terms.army_id=army->id;terms.payer_wallet_id=army->wallet_id;terms.payee_wallet_id=service->wallet_id;terms.payer_owner=repair.owner;terms.payee_owner=organization(service->organization_id);terms.amount=service->fee;checked=shape(terms);if(!checked.ok)return {false,{},checked.error};
+ const auto* payer=c.wallet(terms.payer_wallet_id);const auto* payee=c.wallet(terms.payee_wallet_id);if(!payer||!payee||!owner_equal(payer->owner,terms.payer_owner)||!owner_equal(payee->owner,terms.payee_owner))return fail<std::optional<NavalRepairChargeTerms>>("NavalRepairChargeOwnerMismatch",service->id);auto available=c.spendable(terms.payer_wallet_id);if(!available.ok)return {false,{},available.error};if(available.value<terms.amount)return fail<std::optional<NavalRepairChargeTerms>>("InsufficientFunds",terms.payer_wallet_id);if(payee->balance>2147483647-terms.amount)return fail<std::optional<NavalRepairChargeTerms>>("NavalRepairPaymentCapacity",terms.payee_wallet_id);return {true,std::move(terms),{}};
+}
+// 此处只构造原recipe；调用方统一执行实物与款项预约，任何失败均由原World候选回滚。
+Status append_naval_repair_charge_reservation(const CommonRead& c,const NavalRepairChargeTerms& terms,const StableId& action,ResourceRecipe& recipe){auto checked=shape(terms);if(!checked.ok)return checked;if(action.empty())return common_failure("NavalRepairActionRequired");const auto* payer=c.wallet(terms.payer_wallet_id);const auto* payee=c.wallet(terms.payee_wallet_id);if(!payer||!payee||!owner_equal(payer->owner,terms.payer_owner)||!owner_equal(payee->owner,terms.payee_owner))return common_failure("NavalRepairChargeOwnerMismatch",action);for(const auto& r:payer->reserved)if(r.action_id==ReservationRef{action})return common_failure("NavalRepairChargeAlreadyReserved",action);auto available=c.spendable(payer->id);if(!available.ok)return {false,{},available.error};if(available.value<terms.amount)return common_failure("InsufficientFunds",payer->id);if(payee->balance>2147483647-terms.amount)return common_failure("NavalRepairPaymentCapacity",payee->id);recipe.operations.push_back(SetReservation{payer->id,action,terms.amount,false});return common_success();}
+// 合法换主返回false供具名失败/退款出口；坏产权链仍返回错误，不能被当普通停业吞掉。
+Outcome<bool> naval_repair_charge_service_current(const CommonRead& c,const MilitaryState& m,const MilitaryCatalog& mc,const MilitaryAccess& access,const NavalRepairChargeTerms& terms){auto checked=shape(terms);if(!checked.ok)return {false,{},checked.error};auto current=military_garrison_owner(c,m,mc,access,terms.garrison_id);if(!current.ok)return {false,{},current.error};const auto* payer=c.wallet(terms.payer_wallet_id);const auto* payee=c.wallet(terms.payee_wallet_id);if(!payer||!payee)return fail<bool>("NavalRepairChargeWalletRequired");if(!owner_equal(payer->owner,terms.payer_owner))return fail<bool>("NavalRepairChargeOwnerMismatch",terms.payer_wallet_id);return {true,current.value.occupation_id==terms.occupation_source_id&&current.value.organization_id==terms.payee_owner.id&&owner_equal(payee->owner,terms.payee_owner)&&owner_equal(payer->owner,terms.payer_owner),{}};}
+// 删除本预约后同recipe扣付两腿，净额为零；任何后续失败仍必须丢弃完整World候选。
+Status append_naval_repair_charge_payment(const CommonRead& c,const NavalRepairChargeTerms& terms,const StableId& action,ResourceRecipe& recipe){auto checked=shape(terms);if(!checked.ok)return checked;const auto* payer=c.wallet(terms.payer_wallet_id);const auto* payee=c.wallet(terms.payee_wallet_id);if(action.empty()||!payer||!payee||!owner_equal(payer->owner,terms.payer_owner)||!owner_equal(payee->owner,terms.payee_owner))return common_failure("NavalRepairChargeOwnerMismatch",action);checked=exact_reservation(*payer,action,terms.amount);if(!checked.ok)return checked;if(payee->balance>2147483647-terms.amount)return common_failure("NavalRepairPaymentCapacity",payee->id);return resource_recipe::append_reserved_money_payment(recipe,SetReservation{payer->id,action,0,true},payee->id,terms.amount,resource_recipe::ReservedMoneyPaymentOrder::release_then_original_balance);}
+}

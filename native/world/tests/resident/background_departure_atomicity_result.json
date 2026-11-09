@@ -1,0 +1,21 @@
+{
+  "format": "HM-RESIDENT-CENTRAL-DEPARTURE-ATOMICITY/1",
+  "status": "PASS",
+  "source_commit": "fcfc252ca2808b1adda8a91a1fe2d9a4d741dcc5",
+  "scope": "Actual central try_npc_command on original100 command007-after. Controlled DuplicateFactId after campaign/common writes; separate test-only --wrap ordinary failure after successful real B begin_terrain_travel. These are synthetic failures, not claims of natural invalid-ID input. Full export/checkpoint/IDs/read-version equality and next valid command acceptance verified. Unwrapped successful departure validates.",
+  "artifacts": {
+    "libhanmo_resident.a": "2c1eb52ebfbc0ec707849a22541433d541e54d057aa76239251d4ae2b7013e05",
+    "libhanmo_world.a": "5288091b4e83ed52b8b4c413fefea15e85248f5000d9143c2b416bac432a83a2",
+    "libhanmo_flecs.a": "3ffd22212ca3af8eb69c890a150ce6211db4574ab9128f446b388da607e1862a",
+    "background_departure_atomicity": "977013d4e32c9e9d4738e26afe1ae4aaf6492a3c4c7693acc6abd3206f226bb2",
+    "test.o": "abfdac4d6b878ed49a7de4fd02ed6e9073a6f3e987aaeb698c583b6c8e0b4d21",
+    "test.cpp": "1c29f759e2c1cb8b1951135d48034da3faa3c5785dfa905393242fb8df610556",
+    "build_identity.hpp": "83250ef9b3423290d473f0e083674da0fbdb04a9a9bce2406c728b8610fab31b",
+    "run.log": "75b83ee93ea01b7cd7bbbd8c3a0d7e4b9983db41dca16037c4174cf237fd4c52"
+  },
+  "result": "background_departure_atomicity: PASS (actual try_npc_command; synthetic DuplicateFactId after C/common writes and wrapped ordinary failure after real B writes; full export/checkpoint/ID/read versions restored; next command adopted; unwrapped departure succeeds)",
+  "oracle": "resident-journey-oracle-baseline-20261004/journey100-20261005/oracle-index.json",
+  "production_fault_hooks": false,
+  "test_only_linker_wrap": "begin_terrain_travel",
+  "test_source": "native/world/tests/resident/background_departure_atomicity.cpp"
+}

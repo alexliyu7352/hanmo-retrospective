@@ -1,0 +1,190 @@
+{
+  "format": "HM-PACK",
+  "format_version": 1,
+  "id": "hanmo.local_society",
+  "version": "1.6.0",
+  "namespace": "society",
+  "rules_api": {
+    "id": "hanmo.rules",
+    "min_version": "1.0.0",
+    "max_version_exclusive": "2.0.0"
+  },
+  "dependencies": [],
+  "conflicts": [],
+  "required_capabilities": [
+    "multi_actor",
+    "places",
+    "services",
+    "economy",
+    "dialogue",
+    "cultivation",
+    "military",
+    "personal_combat",
+    "native_dynamic_world",
+    "tasks.procurement",
+    "npc_society",
+    "road_encounters",
+    "population_military_v1",
+    "regional_life_v1",
+    "named_membership_v1",
+    "estates",
+    "family"
+  ],
+  "content_entries": [
+    "content.json"
+  ],
+  "presentation_entries": [
+    "presentation.json"
+  ],
+  "resources": [
+    {
+      "path": "assets/art/project/alpha-visual/city.png",
+      "kind": "image",
+      "required": true,
+      "sha256": "96c0256ee3c12671c8829400f9a14b9c13274964cc54ce41e8273554bd57c4b7",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "assets/art/project/alpha-visual/merchant.png",
+      "kind": "image",
+      "required": true,
+      "sha256": "5e33b90d7fb2cc541f064612c7ad68ca23993f1d3e62d100376641b7b8729a66",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "assets/art/project/alpha-visual/shop.png",
+      "kind": "image",
+      "required": true,
+      "sha256": "3be27424e052c9f1bc6b8982f0cc55d621a49895744c94625c3f43a4d862673a",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "assets/art/project/provenance.json",
+      "kind": "data",
+      "required": true,
+      "sha256": "e8076868440ae4ff8104972f8145680bdfa843546467f1d0c031c6094cf6155c",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "assets/art/project/alpha-personal/practice-clearing.png",
+      "kind": "image",
+      "required": true,
+      "sha256": "23ece77ebfaea5ed515abaeccc2f8068a52a4db971cb6b4af6483aa682853ab0",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "assets/art/project/alpha-personal/swordsman.png",
+      "kind": "image",
+      "required": true,
+      "sha256": "20aa39ffc3e3f2da45ba311810c17c47ff319566eb7e925de266f474afd87d3e",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "assets/art/accepted_adult_appearances/v1/female_high_cheek.png",
+      "kind": "image",
+      "required": true,
+      "sha256": "c7298c27e1d644b02bd4d25beee4dfa954463b5f692e602d15da8b8c754ece5e",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "assets/art/accepted_adult_appearances/v1/female_round_broad.png",
+      "kind": "image",
+      "required": true,
+      "sha256": "e86084934c9097fb5d1f3b2eaa699c9146ece9a66e9e2a7ef668489b8d42d09d",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "assets/art/accepted_adult_appearances/v1/female_short_chin.png",
+      "kind": "image",
+      "required": true,
+      "sha256": "66edb602778787ff0b72efe2b3950f2aa2391deb6f4d44fba3303ff42a8ae614",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "assets/art/accepted_adult_appearances/v1/female_straight_jaw.png",
+      "kind": "image",
+      "required": true,
+      "sha256": "77bc9d4bbda785449208c572b761aa95c393fcee6f13863087e8b1d9fdc50a01",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "assets/art/accepted_adult_appearances/v1/long_full_oval.png",
+      "kind": "image",
+      "required": true,
+      "sha256": "5ca9905a6efc784b368aee251c30eab823ae42dac2507057c9cd338e07a1012b",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "assets/art/accepted_adult_appearances/v1/long_high_cheek.png",
+      "kind": "image",
+      "required": true,
+      "sha256": "d68f7eb6b693e780b5e3ce98d5b6eceffca30143ab375c05375220cfed462c6d",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "assets/art/accepted_adult_appearances/v1/long_narrow.png",
+      "kind": "image",
+      "required": true,
+      "sha256": "49d529aac5f4da5e325817d8c0061e5572f6d1ade42b24f758cc6fa2144d9e1b",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "assets/art/accepted_adult_appearances/v1/long_straight_jaw.png",
+      "kind": "image",
+      "required": true,
+      "sha256": "c9151908d990233e3ff3518de0694bbf1a3ff6ae9e739b8466b94295477a50c6",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "assets/art/accepted_adult_appearances/v1/medium_clear_long.png",
+      "kind": "image",
+      "required": true,
+      "sha256": "ba116183d79501c80761313706cb1fb76c3195ddb77db8c6ce865389396db176",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "assets/art/accepted_adult_appearances/v1/medium_high_cheek.png",
+      "kind": "image",
+      "required": true,
+      "sha256": "4f572ebf3da0b93bff431161daa6ecb47665380801c950c7ee13caa786599e73",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "assets/art/accepted_adult_appearances/v1/medium_round_chin.png",
+      "kind": "image",
+      "required": true,
+      "sha256": "ae5cb772fa5f01dc0dac9fb9828b94e87a912f500e1e867b97198a74b15f2f80",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "assets/art/accepted_adult_appearances/v1/medium_square_jaw.png",
+      "kind": "image",
+      "required": true,
+      "sha256": "caf9e7548945de79e24eaaa2cf3c19d05516834daafc0244368ab65f95f6b379",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "assets/art/layered-city/ground.png",
+      "kind": "image",
+      "required": true,
+      "sha256": "9dabdd5940b3ab31c57d524c1a6471a7cf8a1bdcc26d2585555470261b153628",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "assets/art/layered-city/grainshop_uncovered.png",
+      "kind": "image",
+      "required": true,
+      "sha256": "7bbfeff1e056555d8b068fe0c062259f61434e9c2a2af0286480ff01437d73b7",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "assets/art/layered-city/grainshop_awning.png",
+      "kind": "image",
+      "required": true,
+      "sha256": "7a0f330bb6531b1a89d606dbb0e5cceb09b2ef7bee3f5ed6e8c21a9be6ebbe7e",
+      "license": "project-local-authorized-use"
+    }
+  ],
+  "author": "Hanmo project authors",
+  "license": "NOASSERTION"
+}

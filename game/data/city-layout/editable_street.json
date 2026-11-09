@@ -1,0 +1,547 @@
+{
+  "format_version": 1,
+  "canvas": [
+    1672,
+    941
+  ],
+  "background_id": "city.ground",
+  "archetypes": {
+    "tavern": {
+      "asset_id": "city.tavern",
+      "support": [
+        0.51,
+        0.88
+      ],
+      "entry": [
+        0.44,
+        0.75
+      ],
+      "label": [
+        0.49,
+        0.36
+      ],
+      "width": 520,
+      "states": {},
+      "footprint": [
+        [
+          0.08,
+          0.7
+        ],
+        [
+          0.44,
+          0.48
+        ],
+        [
+          0.94,
+          0.75
+        ],
+        [
+          0.69,
+          0.94
+        ]
+      ],
+      "supports_empty": true,
+      "display_name": "酒肆形体"
+    },
+    "grainshop": {
+      "asset_id": "city.grainshop",
+      "support": [
+        0.51,
+        0.87
+      ],
+      "entry": [
+        0.4,
+        0.8
+      ],
+      "label": [
+        0.49,
+        0.34
+      ],
+      "width": 480,
+      "states": {
+        "construction": "city.grainshop_construction",
+        "foundation": "city.grainshop_foundation",
+        "damaged": "city.grainshop_damaged",
+        "repair": "city.grainshop_construction"
+      },
+      "footprint": [
+        [
+          0.08,
+          0.7
+        ],
+        [
+          0.44,
+          0.48
+        ],
+        [
+          0.94,
+          0.75
+        ],
+        [
+          0.69,
+          0.94
+        ]
+      ],
+      "supports_empty": true,
+      "state_notes": {
+        "repair": "复用施工部件"
+      },
+      "state_label_positions": {
+        "foundation": [
+          0.5,
+          0.66
+        ]
+      },
+      "display_name": "粮铺形体",
+      "display_states": {
+        "complete": {
+          "body_asset_id": "city.grainshop_uncovered",
+          "body_scale": 0.925,
+          "attachments": [
+            "awning"
+          ]
+        }
+      },
+      "attachments": {
+        "awning": {
+          "name": "门面布棚/支杆",
+          "asset_id": "city.grainshop_awning",
+          "origin": [
+            0.42,
+            0.553
+          ],
+          "width": 0.35,
+          "default_visible": true
+        }
+      }
+    },
+    "clothshop": {
+      "asset_id": "city.clothshop",
+      "support": [
+        0.5,
+        0.87
+      ],
+      "entry": [
+        0.35,
+        0.69
+      ],
+      "label": [
+        0.5,
+        0.34
+      ],
+      "width": 440,
+      "states": {},
+      "footprint": [
+        [
+          0.08,
+          0.7
+        ],
+        [
+          0.44,
+          0.48
+        ],
+        [
+          0.94,
+          0.75
+        ],
+        [
+          0.69,
+          0.94
+        ]
+      ],
+      "supports_empty": true,
+      "display_name": "布铺形体"
+    },
+    "tree": {
+      "asset_id": "city.tree",
+      "support": [
+        0.51,
+        0.94
+      ],
+      "entry": [
+        0.51,
+        0.94
+      ],
+      "label": [
+        0.5,
+        0.2
+      ],
+      "width": 350,
+      "states": {}
+    },
+    "inn": {
+      "asset_id": "city.inn",
+      "support": [
+        0.51,
+        0.9
+      ],
+      "entry": [
+        0.38,
+        0.77
+      ],
+      "label": [
+        0.51,
+        0.34
+      ],
+      "width": 580,
+      "states": {},
+      "footprint": [
+        [
+          0.05,
+          0.6
+        ],
+        [
+          0.43,
+          0.36
+        ],
+        [
+          0.96,
+          0.7
+        ],
+        [
+          0.69,
+          0.95
+        ]
+      ],
+      "supports_empty": true,
+      "display_name": "客舍院落"
+    }
+  },
+  "layouts": [
+    {
+      "id": "market.editable",
+      "name": "市井街段 · 布局编辑",
+      "description": "地块、道路与整栋建筑独立；所有编辑只存在当前草案。",
+      "instances": [
+        {
+          "id": "market.tavern",
+          "name": "酒肆",
+          "archetype": "tavern",
+          "position": [
+            620.0,
+            345.0
+          ],
+          "width": 400,
+          "state": "complete",
+          "interactive": true,
+          "plot_id": "plot.0.0"
+        },
+        {
+          "id": "market.grain",
+          "name": "粮铺",
+          "archetype": "grainshop",
+          "position": [
+            970.0,
+            450.0
+          ],
+          "width": 400,
+          "state": "complete",
+          "interactive": true,
+          "plot_id": "plot.0.1"
+        },
+        {
+          "id": "market.cloth",
+          "name": "布帛铺",
+          "archetype": "clothshop",
+          "position": [
+            1320.0,
+            555.0
+          ],
+          "width": 400,
+          "state": "complete",
+          "interactive": true,
+          "plot_id": "plot.0.2"
+        },
+        {
+          "id": "market.lodging",
+          "name": "客舍",
+          "archetype": "inn",
+          "position": [
+            290.0,
+            493.5
+          ],
+          "width": 420,
+          "state": "complete",
+          "interactive": true,
+          "plot_id": "plot.1.0"
+        },
+        {
+          "id": "market.store",
+          "name": "粮栈",
+          "archetype": "grainshop",
+          "position": [
+            990.0,
+            703.5
+          ],
+          "width": 400,
+          "state": "complete",
+          "interactive": true,
+          "plot_id": "plot.1.2"
+        }
+      ],
+      "plots": [
+        {
+          "id": "plot.0.0",
+          "name": "北1地块",
+          "polygon": [
+            [
+              580.0,
+              183.0
+            ],
+            [
+              920.0,
+              285.0
+            ],
+            [
+              690.0,
+              388.5
+            ],
+            [
+              350.0,
+              286.5
+            ]
+          ],
+          "road_id": "road.north",
+          "anchor": [
+            620.0,
+            345.0
+          ]
+        },
+        {
+          "id": "plot.0.1",
+          "name": "北2地块",
+          "polygon": [
+            [
+              930.0,
+              288.0
+            ],
+            [
+              1270.0,
+              390.0
+            ],
+            [
+              1040.0,
+              493.5
+            ],
+            [
+              700.0,
+              391.5
+            ]
+          ],
+          "road_id": "road.north",
+          "anchor": [
+            970.0,
+            450.0
+          ]
+        },
+        {
+          "id": "plot.0.2",
+          "name": "北3地块",
+          "polygon": [
+            [
+              1280.0,
+              393.0
+            ],
+            [
+              1620.0,
+              495.0
+            ],
+            [
+              1390.0,
+              598.5
+            ],
+            [
+              1050.0,
+              496.5
+            ]
+          ],
+          "road_id": "road.north",
+          "anchor": [
+            1320.0,
+            555.0
+          ]
+        },
+        {
+          "id": "plot.1.0",
+          "name": "南1地块",
+          "polygon": [
+            [
+              250.0,
+              331.5
+            ],
+            [
+              590.0,
+              433.5
+            ],
+            [
+              360.0,
+              537.0
+            ],
+            [
+              20.0,
+              435.0
+            ]
+          ],
+          "road_id": "road.south",
+          "anchor": [
+            290.0,
+            493.5
+          ]
+        },
+        {
+          "id": "plot.1.1",
+          "name": "南2地块",
+          "polygon": [
+            [
+              600.0,
+              436.5
+            ],
+            [
+              940.0,
+              538.5
+            ],
+            [
+              710.0,
+              642.0
+            ],
+            [
+              370.0,
+              540.0
+            ]
+          ],
+          "road_id": "road.south",
+          "anchor": [
+            640.0,
+            598.5
+          ]
+        },
+        {
+          "id": "plot.1.2",
+          "name": "南3地块",
+          "polygon": [
+            [
+              950.0,
+              541.5
+            ],
+            [
+              1290.0,
+              643.5
+            ],
+            [
+              1060.0,
+              747.0
+            ],
+            [
+              720.0,
+              645.0
+            ]
+          ],
+          "road_id": "road.south",
+          "anchor": [
+            990.0,
+            703.5
+          ]
+        }
+      ],
+      "roads": [
+        {
+          "id": "road.north",
+          "name": "前街",
+          "style": "earth",
+          "points": [
+            [
+              0,
+              219
+            ],
+            [
+              840,
+              471
+            ],
+            [
+              1570,
+              690
+            ],
+            [
+              1672,
+              720.6
+            ]
+          ],
+          "width": 56,
+          "node_ids": [
+            "north.west",
+            "north.middle",
+            "junction.north",
+            "north.east"
+          ]
+        },
+        {
+          "id": "road.south",
+          "name": "后街",
+          "style": "earth",
+          "points": [
+            [
+              0,
+              466.5
+            ],
+            [
+              775,
+              699
+            ],
+            [
+              1240,
+              838.5
+            ],
+            [
+              1550,
+              931.5
+            ]
+          ],
+          "width": 56,
+          "node_ids": [
+            "south.west",
+            "south.middle",
+            "junction.south",
+            "south.east"
+          ]
+        },
+        {
+          "id": "road.link",
+          "name": "东侧街口",
+          "style": "earth",
+          "points": [
+            [
+              1570,
+              690
+            ],
+            [
+              1240,
+              838.5
+            ]
+          ],
+          "width": 56,
+          "node_ids": [
+            "junction.north",
+            "junction.south"
+          ]
+        }
+      ]
+    }
+  ],
+  "road_styles": {
+    "earth": {
+      "asset_id": "city.road_earth",
+      "tile_size": 320,
+      "uv_basis": [
+        [
+          1.0,
+          0.3
+        ],
+        [
+          -1.0,
+          0.45
+        ]
+      ],
+      "opacity": 0.42
+    }
+  }
+}

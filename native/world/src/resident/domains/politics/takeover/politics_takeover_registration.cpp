@@ -1,0 +1,37 @@
+#include "resident/domains/military/military_model.hpp"
+// 登记只接受同候选真实军事apply产物，先保持pending，随后才能凭Office作责任裁定。
+#include "politics_takeover_capture.hpp"
+#include "politics_takeover_detail.hpp"
+#include "resident/domains/military/occupation_applied_source.hpp"
+#include "resident/domains/military/occupation_codec.hpp"
+namespace hanmo::resident {
+namespace {
+// 当场复核钱粮和保护货批未被中间代码更动，不以一个可构造的DTO自行证明应用。
+bool actual_assets(const CommonStore& common,const OccupationAppliedSource& source,const PoliticalTakeoverCapture& capture){
+    for(const auto& row:source.assets.wallets){const auto* w=common.wallet(row.first);if(!w||!owner_equal(w->owner,row.second.to_owner)||w->balance!=row.second.balance )return false;const auto saved=std::find_if(capture.wallet_reservations().begin(),capture.wallet_reservations().end(),[&](const auto& p){return p.first==row.first;});if(saved==capture.wallet_reservations().end()||saved->second.size()!=w->reserved.size())return false;for(std::size_t i=0;i<w->reserved.size();++i)if(saved->second[i].action_id!=w->reserved[i].action_id||saved->second[i].amount!=w->reserved[i].amount)return false;}
+    for(const auto& row:source.assets.inventories){const auto* inventory=common.inventory(row.first);if(!inventory||!owner_equal(inventory->owner,row.second.to_owner)||inventory->lots.size()!=row.second.public_lots.size()+row.second.protected_lots.size())return false;
+        for(const auto& before:row.second.public_lots){const auto it=std::find_if(inventory->lots.begin(),inventory->lots.end(),[&](const auto& lot){return lot.id==before.id;});if(it==inventory->lots.end()||it->item_id!=before.item_id||it->quantity!=before.quantity||!owner_equal(it->owner,row.second.to_owner) )return false;const auto saved=std::find_if(capture.public_lot_reservations().begin(),capture.public_lot_reservations().end(),[&](const auto& p){return p.inventory_id==row.first&&p.lot_id==before.id;});if(saved==capture.public_lot_reservations().end()||saved->reservation!=it->reserved_by)return false;}
+        for(const auto& before:row.second.protected_lots){const auto it=std::find_if(inventory->lots.begin(),inventory->lots.end(),[&](const auto& lot){return lot.id==before.id;});if(it==inventory->lots.end()||!compare_boundary(occupation_codec::encode(*it),occupation_codec::encode(before)).exact())return false;}
+    }return true;
+}
+}
+Outcome<StableId> register_political_takeover_in_transaction(CommonStore& common,PoliticalTakeoverState& state,const PoliticalTakeoverCatalog& catalog,const MilitaryState& military,const PoliticalTakeoverCapture& capture,const OccupationAppliedSource& applied,const StableId& rule_id,const OrganizationAuthorityClock* actual_clock){
+    using namespace takeover_detail;const auto fail=[](const StableId& code){return Outcome<StableId>{false,{},common_failure(code).error};};const auto& original=capture.original();const auto* rule=catalog.rules.find(rule_id);const auto* f=occupation(military,applied.occupation_id);const auto* h=common.state().facts.find(applied.occupation_id);
+    if(!catalog.enabled||(catalog.version!=1&&catalog.version!=2)||state.version!=catalog.version||!rule)return fail("PoliticalTakeoverNotEnabled");
+    if(!f||!h||h->kind!="military_occupation"||h->domain!="military"||!f->assets_applied.value_or(false)||!f->asset_manifest||original.occupation_fact_id!=applied.occupation_id||original.tick!=applied.effective_tick||f->tick!=applied.effective_tick||applied.source_tick!=common.tick()||!same_identity(common.state().identity,applied.world)||!same_identity(original.source_identity,applied.world)||common.state().next_instance_id!=original.captured_next_instance_id)return fail("PoliticalTakeoverApplicationMismatch");
+    if(rule->stronghold_id!=applied.stronghold_id||rule->garrison_id!=applied.garrison_id||f->stronghold_id!=applied.stronghold_id||f->garrison_id!=applied.garrison_id||f->siege_id!=applied.siege_id||f->campaign_id!=applied.campaign_id||f->army_id!=applied.army_id||f->previous_occupation_id!=applied.previous_occupation_id||f->from_organization_id!=applied.from_organization_id||f->to_organization_id!=applied.to_organization_id||original.former_organization_id!=applied.from_organization_id||original.successor_organization_id!=applied.to_organization_id||original.public_wallet_ids!=f->public_wallet_ids||original.public_inventory_ids!=f->public_inventory_ids)return fail("PoliticalTakeoverScopeMismatch");
+    if(!compare_boundary(occupation_codec::encode(capture.assets()),occupation_codec::encode(applied.assets)).exact()||!compare_boundary(occupation_codec::encode(*f->asset_manifest),occupation_codec::encode(applied.assets)).exact()||!actual_assets(common,applied,capture))return fail("PoliticalTakeoverAssetBoundaryChanged");
+    for(const auto& row:state.registrations.rows())if(row.second.occupation_fact_id==applied.occupation_id)return fail("PoliticalTakeoverAlreadyRegistered");
+    std::optional<WorldMoment> registered_at;
+    if(state.version==2){if(!actual_clock)return fail("PoliticalTakeoverActualClockRequired");auto now=read_organization_authority_now(common,actual_clock);if(!now.ok)return {false,{},now.error};if(now.value.half_day_tick!=original.tick)return fail("PoliticalTakeoverRegistrationTickMismatch");registered_at=std::move(now.value);}
+    auto id=common.next_id("political_takeover_pending");if(!id.ok)return id;auto fact=common.append_fact({id.value,political_takeover_pending_fact_kind,"politics"});if(!fact.ok)return {false,{},fact.error};
+    auto row=original;row.id=id.value;row.rule_id=rule_id;row.registered_at=std::move(registered_at);if(!state.registrations.insert(id.value,std::move(row)))return fail("DuplicatePoliticalTakeoverRegistration");return id;
+}
+Outcome<std::vector<PoliticalResponsibilityExecution>> read_political_pending_responsibilities_in_candidate(const CommonStore& common,const PoliticalTakeoverState& state,const PoliticalTakeoverCatalog& catalog,const OccupationAppliedSource& applied,const StableId& registration){
+    const auto* r=state.registrations.find(registration);if(!r||(state.version!=1&&state.version!=2)||state.version!=catalog.version||!takeover_detail::same_identity(common.state().identity,applied.world)||r->occupation_fact_id!=applied.occupation_id||r->tick!=applied.effective_tick||!takeover_detail::header(common,registration,political_takeover_pending_fact_kind))return {false,{},common_failure("InvalidPoliticalPendingSource",registration).error};
+    if(state.version==2&&(!r->registered_at||r->registered_at->half_day_tick!=r->tick))return {false,{},common_failure("PoliticalTakeoverRegistrationMomentRequired",registration).error};
+    if(takeover_detail::latest(state,registration))return {false,{},common_failure("PoliticalResponsibilityAlreadyDecided",registration).error};
+    const auto* rule=catalog.rules.find(r->rule_id);if(!catalog.enabled||(catalog.version!=1&&catalog.version!=2)||!rule)return {false,{},common_failure("InvalidPoliticalPendingCatalog",registration).error};
+    std::vector<PoliticalResponsibilityExecution> out;for(const auto& original:r->responsibilities){PoliticalResponsibilityExecution e;e.registration_fact_id=registration;e.responsibility=original.responsibility;e.registration=takeover_detail::registration_source(common,*r,*rule);e.code="PoliticalResponsibilityPending";e.original_source_fact_ids=original.source_fact_ids;out.push_back(std::move(e));}return {true,std::move(out),{}};
+}
+}

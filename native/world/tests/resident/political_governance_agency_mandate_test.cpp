@@ -1,0 +1,26 @@
+// 委任/本人答复/撤回用实际本域writer，生命与控制历史回调为具名夹具；不冒World运行。
+#define POLITICAL_GOVERNANCE_AGENCY_CATALOG_FIXTURE_ONLY
+#include "political_governance_agency_catalog_test.cpp"
+#include "resident/domains/politics/governance_agencies/political_governance_agency_rules.hpp"
+namespace {
+struct AgencyMandateFixture:AgencyCatalogFixture {
+ PoliticalGovernanceAgencyState agencies_state;PoliticsState political_state;PoliticsGovernanceState governance_state;
+ AgencyMandateFixture(){political_state.jurisdictions=political.jurisdictions;}
+ // 所有借口都在本夹具活期，原历史player只认本次真实writer分配的具名来源。
+ PoliticalGovernanceAgencyContext context(){return {common,*cc,political_state,political,governance_state,governance,state,catalog,economy,activity,agencies,agencies_state,{},[](const PoliticalGovernanceAgencyPolicy&,Integer,const StableId&){return common_success();},[this](Integer,const StableId& id)->Outcome<StableId>{auto p=historical_players.find(id);return p==historical_players.end()?Outcome<StableId>{false,{},common_failure("FixturePlayerSourceMissing").error}:Outcome<StableId>{true,p->second,{}};}};}
+ PoliticalOfferGovernanceAgency proposal(){return {{"city","chief",0,"leader"},"agency.policy","candidate",0};}
+ StableId apply(const StableId& actor,const PoliticalGovernanceAgencyCommand& c){common.state().metadata.player_actor_id=actor;auto x=context();auto q=take(preview_political_governance_agency(x,actor,c));auto id=take(apply_political_governance_agency_mandate_in_candidate(common,agencies_state,x,actor,c,q));historical_players[id]=actor;check(validate_political_governance_agency_sources(context()).ok,"new actual mandate event validates");return id;}
+};
+}
+#ifndef POLITICAL_GOVERNANCE_AGENCY_MANDATE_FIXTURE_ONLY
+int main(){try{
+ AgencyMandateFixture f;auto old_office=*f.state.offices.find("chief");auto offer=f.apply("leader",f.proposal());check(f.agencies_state.offers.find(offer)->response_before_tick==4&&f.agencies_state.offers.find(offer)->valid_through_tick==12,"author finite windows frozen");check(f.governance_state.authorities.empty()&&f.state.offices.find("chief")->epoch==old_office.epoch&&f.state.offices.find("chief")->holder_actor_id==old_office.holder_actor_id,"nomination creates neither public office nor Task approval");auto accepted=f.apply("candidate",PoliticalAnswerGovernanceAgency{offer,true});check(f.agencies_state.answers.find(accepted)->actor_id=="candidate","delegate personally accepts");f.common.state().metadata.player_actor_id="leader";check(!preview_political_governance_agency(f.context(),"leader",f.proposal()).ok,"one live mandate blocks silent replacement");auto revoke=f.apply("leader",PoliticalRevokeGovernanceAgency{{"city","chief",0,"leader"},offer});check(f.agencies_state.revocations.find(revoke)->offer_fact_id==offer&&f.agencies_state.answers.find(accepted)->accept,"withdrawal preserves prior personal acceptance");auto next=f.apply("leader",f.proposal());f.apply("candidate",PoliticalAnswerGovernanceAgency{next,false});check(f.governance_state.authorities.empty(),"decline has no Task or money effect");
+ AgencyMandateFixture expired;auto late=expired.apply("leader",expired.proposal());expired.common.state().identity.tick=4;expired.common.state().metadata.player_actor_id="candidate";check(!preview_political_governance_agency(expired.context(),"candidate",PoliticalAnswerGovernanceAgency{late,true}).ok,"exclusive response boundary rejects later acceptance");
+ AgencyMandateFixture changed;auto original=changed.apply("leader",changed.proposal());changed.change("candidate");changed.common.state().metadata.player_actor_id="candidate";check(!preview_political_governance_agency(changed.context(),"candidate",PoliticalAnswerGovernanceAgency{original,true}).ok,"new Office holder cannot inherit original mandate by same actor ID");check(validate_political_governance_agency_sources(changed.context()).ok,"later appointment preserves original valid offer history");
+ AgencyMandateFixture remote;remote.common.state().actors.find("candidate")->location=SettlementLocation{"town","elsewhere"};remote.common.state().metadata.player_actor_id="leader";check(!preview_political_governance_agency(remote.context(),"leader",remote.proposal()).ok,"absent candidate cannot be treated as face-to-face consent");
+ AgencyMandateFixture jurisdiction; jurisdiction.political_state.jurisdictions.find("district")->revision=1;auto revised=jurisdiction.proposal();revised.expected_jurisdiction_revision=1;check(!preview_political_governance_agency(jurisdiction.context(),"leader",revised).ok,"changed jurisdiction needs distinct history-backed delegation rather than hot-only approval");
+ AgencyMandateFixture rollback;auto before=rollback.common.state();auto token=take(rollback.common.begin_savepoint());auto saved=rollback.agencies_state;rollback.apply("leader",rollback.proposal());take(rollback.common.rollback_savepoint(token));rollback.agencies_state=saved;check(rollback.common.state().next_instance_id==before.next_instance_id&&rollback.agencies_state.offers.empty(),"outer candidate rollback restores exact permanent source and counter");
+ std::cout<<checks<<" agency mandate assertions; not run\n";return 0;
+}catch(const std::exception& e){std::cerr<<e.what()<<'\n';return 1;}}
+
+#endif

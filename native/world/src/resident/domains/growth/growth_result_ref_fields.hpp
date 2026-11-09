@@ -1,0 +1,11 @@
+#pragma once
+#include "growth_result_refs.hpp"
+namespace hanmo::resident {
+enum class GrowthContributionWireVersion { original=1, trade_grants=2 };
+}
+namespace hanmo::resident::growth_result_ref_codec {
+template<class C>Status finite(C& c,const char* name,Integer& v,Integer maximum){c.field(name,v);if(c.status().ok&&(v<0||v>maximum))return c.reject("InvalidGrowthFixedTag",name);return c.status();}
+template<class C>Status ref(C& c,const char* name,StableId& v){c.field(name,v);if(c.status().ok&&v.empty())return c.reject("MissingGrowthFixedReference",name);return c.status();}
+template<class C>Status positive(C& c,const char* name,Integer& v){c.field(name,v);if(c.status().ok&&v<=0)return c.reject("InvalidGrowthFixedPositive",name);return c.status();}
+template<class C>Status fields(C& c,LifeGrowthContributionRef& v,GrowthContributionWireVersion version=GrowthContributionWireVersion::original){if(version!=GrowthContributionWireVersion::original&&version!=GrowthContributionWireVersion::trade_grants)return c.reject("GrowthContributionWireVersionUnsupported");Integer tag=static_cast<Integer>(v.index());finite(c,"tag",tag,version==GrowthContributionWireVersion::trade_grants?6:5);if(!c.status().ok)return c.status();if(c.reading()){switch(tag){case 0:v=TrainingResultRef{};break;case 1:v=StudyLessonResultRef{};break;case 2:v=StudyPerformanceAdjustmentRef{};break;case 3:v=GroupLessonResultRef{};break;case 4:v=PracticeAwardRef{};break;case 5:v=AttributeMilestoneRef{};break;case 6:v=GrowthTradeGrantRef{};break;}}return std::visit([&](auto& r)->Status{using T=std::decay_t<decltype(r)>;if constexpr(std::is_same_v<T,TrainingResultRef>||std::is_same_v<T,GrowthTradeGrantRef>)return ref(c,"action_id",r.action_id);else if constexpr(std::is_same_v<T,StudyLessonResultRef>||std::is_same_v<T,StudyPerformanceAdjustmentRef>){ref(c,"action_id",r.action_id);return positive(c,"lesson_ordinal",r.lesson_ordinal);}else if constexpr(std::is_same_v<T,GroupLessonResultRef>){ref(c,"course_id",r.course_id);return positive(c,"period_ordinal",r.period_ordinal);}else if constexpr(std::is_same_v<T,PracticeAwardRef>)return ref(c,"award_id",r.award_id);else return ref(c,"milestone_result_id",r.milestone_result_id);},v);}
+}

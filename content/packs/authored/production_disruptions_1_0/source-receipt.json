@@ -1,0 +1,19 @@
+{
+  "recovery": "reimplemented_from_approved_contract_not_original_lost_json",
+  "source_content_git_oid": "9f82428a0a98904b30aad6690d4b9a4d0dba0930",
+  "market_content_git_oid": "8036a78ebb51c92c7bcdd5008cb3ac3feeefd2b0",
+  "market_generator_git_oid": "965a774bbc2c64a04d2aa480066034d5ab051037",
+  "source_scenario": "marketsupply::scenario.qingchuan_market_supply",
+  "target_scenario": "disruption::scenario.qingchuan_production_disruption",
+  "initial_people_assets_and_economy_unchanged": true,
+  "module": "production_disruptions/1",
+  "required_capability": "production_disruptions_v1",
+  "combination_policy": "minimum_remaining_yield_v1",
+  "provisional_author_parameters": {
+    "from_tick": 4,
+    "through_tick": 8,
+    "remaining_yield_bp": 5000
+  },
+  "runtime_registered": false,
+  "compose_verified": false
+}

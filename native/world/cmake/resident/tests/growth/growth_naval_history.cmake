@@ -1,0 +1,14 @@
+# 成长与教学消费者登记：保留本组目标、测试、条件与局部变量的原执行顺序。
+# Naval入战技艺只从永久Study来源截取，完整World历史次序另由集成门保持。
+add_executable(test_resident_growth_naval_history tests/resident/growth_naval_history_test.cpp)
+target_link_libraries(test_resident_growth_naval_history PRIVATE hanmo_resident)
+target_include_directories(test_resident_growth_naval_history PRIVATE src)
+target_compile_options(test_resident_growth_naval_history PRIVATE -UNDEBUG -fno-fast-math -ffp-contract=off)
+add_test(NAME resident_growth_naval_history COMMAND test_resident_growth_naval_history)
+
+# 陆战入场资格读取原人物创建、真实课程与不可变统率，拒绝用今日属性倒填军史。
+add_executable(test_resident_growth_military_entry_history tests/resident/growth_military_entry_history_test.cpp)
+target_link_libraries(test_resident_growth_military_entry_history PRIVATE hanmo_resident)
+target_include_directories(test_resident_growth_military_entry_history PRIVATE src)
+target_compile_options(test_resident_growth_military_entry_history PRIVATE -UNDEBUG -fno-fast-math -ffp-contract=off)
+add_test(NAME resident_growth_military_entry_history COMMAND test_resident_growth_military_entry_history)

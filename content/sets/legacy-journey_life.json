@@ -1,0 +1,10 @@
+{
+  "format": "HM-PACK-SELECTION",
+  "format_version": 1,
+  "packs": [
+    {
+      "id": "foundation.journey_life",
+      "version": "0.6.1"
+    }
+  ]
+}

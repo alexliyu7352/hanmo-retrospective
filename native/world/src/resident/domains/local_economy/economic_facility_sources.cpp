@@ -1,0 +1,7 @@
+// 不可变原provider条目查找；不存在与重复均报原源错误，不从今日状态补历史。
+#include "economic_facility_sources.hpp"
+#include "resident/model/common_model.hpp"
+namespace hanmo::resident {
+Outcome<const FacilityPhysicalClaimBinding*> read_physical_claim_binding(const EconomicFacilitySourcesState& state,const StableId& claim){const FacilityPhysicalClaimBinding* result=nullptr;for(const auto& row:state.physical_bindings)if(row.claim_id==claim){if(result)return {false,nullptr,common_failure("DuplicatePhysicalClaimBinding",claim).error};result=&row;}if(!result)return {false,nullptr,common_failure("PhysicalClaimBindingMissing",claim).error};return {true,result,{}};}
+Outcome<const FacilityRetentionTransition*> read_facility_retention_transition(const EconomicFacilitySourcesState& state,const FacilitySourceRef& source,const FacilitySlotRef& slot){if(source.source_schema!=1||source.source_ref.kind!="facility_retention"||source.source_ref.domain!=slot.provider_domain)return {false,nullptr,common_failure("FacilityRetentionSourceMismatch",source.source_ref.id).error};const FacilityRetentionTransition* result=nullptr;for(const auto& row:state.retention_transitions)if(row.transition_id==source.source_ref.id){if(result||row.source_schema!=1||row.slot_ref!=slot||row.entries.empty())return {false,nullptr,common_failure("FacilityRetentionSourceMismatch",source.source_ref.id).error};result=&row;}if(!result)return {false,nullptr,common_failure("FacilityRetentionSourceMissing",source.source_ref.id).error};return {true,result,{}};}
+}

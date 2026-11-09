@@ -1,0 +1,7 @@
+# 成长与教学消费者登记：保留本组目标、测试、条件与局部变量的原执行顺序。
+# 独立兵法资格不扩大原陆战三技能读口。
+add_executable(test_resident_growth_tactics_history tests/resident/growth_tactics_history_test.cpp)
+target_link_libraries(test_resident_growth_tactics_history PRIVATE hanmo_resident)
+target_include_directories(test_resident_growth_tactics_history PRIVATE src)
+target_compile_options(test_resident_growth_tactics_history PRIVATE -UNDEBUG -fno-fast-math -ffp-contract=off)
+add_test(NAME resident_growth_tactics_history COMMAND test_resident_growth_tactics_history)

@@ -1,0 +1,82 @@
+## 偏长族四结构工作台真实鼠标与viewport证据，复用既有有界截图助手。
+extends "res://tests/capture_medium_workbench.gd"
+
+## 看四结构及第3同时换眼鼻后真实头像，三族保持语意和缺件拒绝另留帧。
+func _run() -> void:
+	if DisplayServer.get_name() == "headless":
+		push_error("偏长四结构图形验收需要真实显示。")
+		quit(2)
+		return
+	create_timer(110.0).timeout.connect(_timeout)
+	root.size = Vector2i(1440, 940)
+	root.content_scale_size = Vector2i(1440, 940)
+	view = load("res://studio.tscn").instantiate()
+	root.add_child(view)
+	for frame in 6:
+		await process_frame
+	var entry: Dictionary = view.session.state()
+	var pixels: PackedByteArray = view.portrait.get_data()
+	await _click("Choice_rig_2")
+	await _click("Choice_eyes_1")
+	await _capture("gui-long-four-base")
+	await _click("Choice_face_1")
+	await _click("Choice_eyes_0")
+	await _capture("gui-long-four-rectangular")
+	await _click("Choice_face_2")
+	await _click("Choice_nose_1")
+	await _capture("gui-long-four-full-oval")
+	await _click("Choice_face_3")
+	await _click("Choice_eyes_1")
+	await _click("Choice_nose_0")
+	await _capture("gui-long-four-high-cheek")
+	await _click("Choice_face_2")
+	assert(view.session.state().eyes == 1 and view.session.state().nose == 0 and view.session.state().mouth == 0)
+	await _capture("gui-long-four-full-oval-narrow-straight")
+	for id in ["Choice_brows_1", "Choice_mouth_1", "Choice_hair_1", "Choice_outfit_1", "Choice_cloth_color_1"]:
+		await _click(id)
+	await _capture("gui-long-four-full-oval-dressed")
+	await _click("ViewAvatar")
+	await _click("BackdropGrid")
+	await _capture("gui-long-four-full-oval-avatar")
+	await _click("Choice_face_3")
+	var long_state: Dictionary = view.session.state()
+	var long_pixels: PackedByteArray = view.portrait.get_data()
+	var semantics: Dictionary = view.session.semantic_state()
+	for rig in [0, 1]:
+		await _click("Choice_rig_" + str(rig))
+		assert(view.session.state().face == 3 and view.session.semantic_state() == semantics)
+		await _click("Undo")
+		assert(view.session.state() == long_state and view.portrait.get_data() == long_pixels)
+	await _click("Choice_face_0")
+	await _click("Choice_mouth_0")
+	await _click("Choice_beard_1")
+	var bearded: Dictionary = view.session.state()
+	var bearded_pixels: PackedByteArray = view.portrait.get_data()
+	var history: Dictionary = view.session.history()
+	var missing: Button = view.find_child("Choice_rig_1", true, false)
+	assert(missing.disabled and missing.tooltip_text.contains("胡须"))
+	await _click("Choice_rig_1", true)
+	assert(view.session.state() == bearded and view.portrait.get_data() == bearded_pixels and view.session.history() == history)
+	root.size = Vector2i(1280, 900)
+	root.content_scale_size = Vector2i(1280, 900)
+	await _click("ViewHalf")
+	await _click("BackdropLight")
+	await _capture("gui-long-four-missing-beard-narrow")
+	await _click("Choice_beard_0")
+	await _click("Choice_face_3")
+	semantics = view.session.semantic_state()
+	await _click("Choice_rig_1")
+	assert(view.session.semantic_state() == semantics)
+	for frame in 6:
+		await process_frame
+	var scroll: ScrollContainer = view.find_child("ChoiceScroll", true, false)
+	for face in 4:
+		var button: Button = view.find_child("Choice_face_" + str(face), true, false)
+		assert(not button.disabled and button.get_global_rect().end.x <= scroll.get_global_rect().end.x)
+	await _capture("gui-long-four-cross-family-narrow")
+	await _click("RestoreEntry")
+	assert(view.session.state() == entry and view.portrait.get_data() == pixels)
+	var report := {"ok": true, "engine": Engine.get_version_info().string, "display": DisplayServer.get_name(), "events": events, "input_method": "InputEventMouseButton through actual X11 SceneTree viewport", "full_viewport": [1440, 940], "narrow_viewport": [1280, 900], "full_oval_eye_nose_simultaneous": true, "three_family_shapes_kept_semantics": true, "missing_beard_kept_state_pixels_history": true, "undo_restored_long_pixels": true, "entry_pixels_restored": true, "scope": "four elongated structural options with independent features; identity distinctness is a separate actual96px review"}
+	FileAccess.open("res://evidence/long-four-gui-verification.json", FileAccess.WRITE).store_string(JSON.stringify(report, "\t") + "\n")
+	print("LONG_FOUR_GUI_VERIFIED " + JSON.stringify(report))
+	quit()

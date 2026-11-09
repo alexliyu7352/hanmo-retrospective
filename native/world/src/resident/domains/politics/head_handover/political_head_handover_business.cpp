@@ -1,0 +1,7 @@
+// 公共签受入口先核永久实际结果，再回原唯一生前交接writer，同候选不提升任何异域授权。
+#include "political_head_handover_business.hpp"
+namespace hanmo::resident {
+Status validate_political_head_handovers(const PoliticalHeadHandoverBusinessContext& x){if(!x.result_match)return common_failure("PoliticalHeadHandoverResultReadRequired");auto v=validate_political_head_handover_sources(x.rules);return v.ok?validate_political_head_handover_player_results(x.rules.common,x.rules.state,x.result_match):v;}
+Outcome<PoliticalHeadHandoverQuote> preview_political_head_handover_business(const PoliticalHeadHandoverBusinessContext& x,const StableId& actor,const PoliticalHeadHandoverCommand& c){auto v=validate_political_head_handovers(x);return v.ok?preview_political_head_handover(x.rules,actor,c):Outcome<PoliticalHeadHandoverQuote>{false,{},v.error};}
+Outcome<PoliticalHeadHandoverEffects> apply_political_head_handover_business_in_candidate(CommonStore& common,OrganizationState& organizations,PoliticalHeadHandoverState& state,const PoliticalHeadHandoverBusinessContext& x,const StableId& actor,const PoliticalHeadHandoverCommand& c,const PoliticalHeadHandoverQuote& q,OrganizationRuntime* exact_runtime){auto v=validate_political_head_handovers(x);if(!v.ok)return {false,{},v.error};auto source=apply_political_head_handover_in_candidate(common,organizations,state,x.rules,actor,c,q,exact_runtime);if(!source.ok)return {false,{},source.error};const auto* answer=state.answers.find(source.value);return {true,{source.value,answer?answer->office_change_fact_id:StableId{}},{}};}
+}

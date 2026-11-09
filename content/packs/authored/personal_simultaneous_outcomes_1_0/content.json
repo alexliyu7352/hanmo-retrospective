@@ -1,0 +1,1617 @@
+{
+  "settlements": [],
+  "routes": [],
+  "places": [],
+  "actors": [],
+  "organizations": [],
+  "roles": [],
+  "wallets": [],
+  "items": [],
+  "inventories": [],
+  "shops": [],
+  "props": [],
+  "offers": [],
+  "dialogues": [],
+  "events": [],
+  "relations": [],
+  "scenarios": [
+    {
+      "id": "scenario.mutual_spar",
+      "name_key": "name.scenario.mutual_spar",
+      "player_actor": "society::actor.apprentice",
+      "seed_text": "local-society-river-1",
+      "playable_actor_ids": [
+        "society::actor.apprentice"
+      ],
+      "start_date": {
+        "year": 207,
+        "day_of_year": 61,
+        "half_day": 0
+      },
+      "enabled": {
+        "settlements": [
+          "society::settlement.qingchuan",
+          "society::settlement.sword_yard"
+        ],
+        "places": [
+          "society::place.courtyard",
+          "society::place.school",
+          "society::place.grain",
+          "society::place.sword_gate",
+          "society::place.sword_court"
+        ],
+        "actors": [
+          "society::actor.apprentice",
+          "society::actor.tutor",
+          "society::actor.merchant",
+          "society::actor.sword_master",
+          "society::actor.city_steward",
+          "society::actor.sect_steward",
+          "society::actor.study_caravanner",
+          "society::actor.study_swordswoman"
+        ],
+        "organizations": [
+          "society::org.grain",
+          "society::org.city",
+          "society::org.sect"
+        ],
+        "roles": [
+          "society::role.tutor",
+          "society::role.merchant",
+          "society::role.sword_master",
+          "society::role.city_supply",
+          "society::role.sect_supply"
+        ],
+        "wallets": [
+          "society::wallet.apprentice",
+          "society::wallet.tutor",
+          "society::wallet.merchant",
+          "society::wallet.grain",
+          "society::wallet.sword_master",
+          "society::wallet.city_steward",
+          "society::wallet.sect_steward",
+          "society::wallet.city",
+          "society::wallet.sect",
+          "society::wallet.city_wages",
+          "society::wallet.sect_wages",
+          "society::wallet.sect_trade",
+          "society::wallet.city_households",
+          "society::wallet.sect_households",
+          "society::wallet.study_caravanner",
+          "society::wallet.study_swordswoman"
+        ],
+        "items": [
+          "society::item.millet",
+          "society::item.practice_sword",
+          "society::item.padded_body"
+        ],
+        "inventories": [
+          "society::inventory.grain",
+          "society::inventory.sword_counter",
+          "society::inventory.city",
+          "society::inventory.sect",
+          "society::inventory.city_households",
+          "society::inventory.sect_households"
+        ],
+        "shops": [
+          "society::shop.grain",
+          "society::shop.sword_counter"
+        ],
+        "dialogues": [
+          "society::dialog.tutor",
+          "society::dialog.merchant",
+          "society::dialog.sword_master"
+        ],
+        "scenarios": [
+          "scenario.mutual_spar"
+        ],
+        "routes": [
+          "society::route.to_sword_yard",
+          "society::route.from_sword_yard"
+        ],
+        "personal_skills": [
+          "society::skill.measure_cut",
+          "society::skill.settle_breath",
+          "society::skill.answer_guard"
+        ],
+        "personal_battlefields": [
+          "society::field.sword_court"
+        ],
+        "personal_objectives": [
+          "society::objective.sword_spar"
+        ],
+        "task_templates": [
+          "society::template.city_grain",
+          "society::template.sect_grain"
+        ]
+      },
+      "initial": {
+        "actors": [
+          {
+            "actor_id": "society::actor.apprentice",
+            "place_id": "society::place.courtyard",
+            "alive": true,
+            "available": true,
+            "age_years": 22,
+            "attributes": {
+              "leadership": 42,
+              "martial": 38,
+              "intellect": 70,
+              "administration": 78,
+              "charisma": 72
+            },
+            "skills": {
+              "infantry": 0,
+              "cavalry": 0,
+              "archery": 0,
+              "martial": 0,
+              "tactics": 0,
+              "debate": 0,
+              "negotiation": 0,
+              "rites": 0,
+              "commerce": 0,
+              "transport": 0
+            },
+            "combat": {},
+            "appearance_definition": {
+              "kind": "fixed",
+              "generator_version": "appearance-v1",
+              "attire_style": "plain",
+              "base_features": {
+                "face_shape": "plain",
+                "eyes": "plain",
+                "brows": "plain",
+                "nose": "plain",
+                "mouth": "plain",
+                "hair": "plain",
+                "beard": "plain",
+                "skin_palette": "plain",
+                "build": "plain"
+              }
+            },
+            "initial_goods": [
+              {
+                "item_id": "society::item.millet",
+                "quantity": 2
+              }
+            ]
+          },
+          {
+            "actor_id": "society::actor.tutor",
+            "place_id": "society::place.school",
+            "alive": true,
+            "available": true,
+            "age_years": 47,
+            "attributes": {
+              "leadership": 40,
+              "martial": 32,
+              "intellect": 78,
+              "administration": 75,
+              "charisma": 60
+            },
+            "skills": {
+              "infantry": 0,
+              "cavalry": 0,
+              "archery": 0,
+              "martial": 0,
+              "tactics": 0,
+              "debate": 300,
+              "negotiation": 0,
+              "rites": 650,
+              "commerce": 0,
+              "transport": 0
+            },
+            "combat": {},
+            "appearance_definition": {
+              "kind": "fixed",
+              "generator_version": "appearance-v1",
+              "attire_style": "plain",
+              "base_features": {
+                "face_shape": "plain",
+                "eyes": "plain",
+                "brows": "plain",
+                "nose": "plain",
+                "mouth": "plain",
+                "hair": "plain",
+                "beard": "plain",
+                "skin_palette": "plain",
+                "build": "plain"
+              }
+            },
+            "initial_goods": []
+          },
+          {
+            "actor_id": "society::actor.merchant",
+            "place_id": "society::place.grain",
+            "alive": true,
+            "available": true,
+            "age_years": 38,
+            "attributes": {
+              "leadership": 42,
+              "martial": 35,
+              "intellect": 64,
+              "administration": 75,
+              "charisma": 68
+            },
+            "skills": {
+              "infantry": 0,
+              "cavalry": 0,
+              "archery": 0,
+              "martial": 0,
+              "tactics": 0,
+              "debate": 0,
+              "negotiation": 300,
+              "rites": 0,
+              "commerce": 650,
+              "transport": 0
+            },
+            "combat": {},
+            "appearance_definition": {
+              "kind": "fixed",
+              "generator_version": "appearance-v1",
+              "attire_style": "plain",
+              "base_features": {
+                "face_shape": "plain",
+                "eyes": "plain",
+                "brows": "plain",
+                "nose": "plain",
+                "mouth": "plain",
+                "hair": "plain",
+                "beard": "plain",
+                "skin_palette": "plain",
+                "build": "plain"
+              }
+            },
+            "initial_goods": []
+          },
+          {
+            "actor_id": "society::actor.sword_master",
+            "place_id": "society::place.sword_court",
+            "alive": true,
+            "available": true,
+            "age_years": 44,
+            "attributes": {
+              "leadership": 50,
+              "martial": 55,
+              "intellect": 58,
+              "administration": 52,
+              "charisma": 50
+            },
+            "skills": {
+              "infantry": 0,
+              "cavalry": 0,
+              "archery": 0,
+              "martial": 1200,
+              "tactics": 0,
+              "debate": 0,
+              "negotiation": 0,
+              "rites": 0,
+              "commerce": 0,
+              "transport": 0
+            },
+            "combat": {
+              "weapon_id": "society::item.practice_sword",
+              "armor_id": "society::item.padded_body",
+              "learned": [
+                {
+                  "skill_id": "society::skill.measure_cut",
+                  "mastery": 100
+                },
+                {
+                  "skill_id": "society::skill.settle_breath",
+                  "mastery": 100
+                },
+                {
+                  "skill_id": "society::skill.answer_guard",
+                  "mastery": 100
+                }
+              ]
+            },
+            "appearance_definition": {
+              "kind": "fixed",
+              "generator_version": "appearance-v1",
+              "attire_style": "plain",
+              "base_features": {
+                "face_shape": "plain",
+                "eyes": "plain",
+                "brows": "plain",
+                "nose": "plain",
+                "mouth": "plain",
+                "hair": "plain",
+                "beard": "plain",
+                "skin_palette": "plain",
+                "build": "plain"
+              }
+            },
+            "initial_goods": [
+              {
+                "item_id": "society::item.practice_sword",
+                "quantity": 1
+              },
+              {
+                "item_id": "society::item.padded_body",
+                "quantity": 1
+              }
+            ]
+          },
+          {
+            "actor_id": "society::actor.city_steward",
+            "place_id": "society::place.courtyard",
+            "alive": true,
+            "available": true,
+            "age_years": 47,
+            "attributes": {
+              "leadership": 40,
+              "martial": 32,
+              "intellect": 78,
+              "administration": 75,
+              "charisma": 60
+            },
+            "skills": {
+              "infantry": 0,
+              "cavalry": 0,
+              "archery": 0,
+              "martial": 0,
+              "tactics": 0,
+              "debate": 300,
+              "negotiation": 0,
+              "rites": 650,
+              "commerce": 0,
+              "transport": 0
+            },
+            "combat": {},
+            "appearance_definition": {
+              "kind": "fixed",
+              "generator_version": "appearance-v1",
+              "attire_style": "plain",
+              "base_features": {
+                "face_shape": "plain",
+                "eyes": "plain",
+                "brows": "plain",
+                "nose": "plain",
+                "mouth": "plain",
+                "hair": "plain",
+                "beard": "plain",
+                "skin_palette": "plain",
+                "build": "plain"
+              }
+            },
+            "initial_goods": []
+          },
+          {
+            "actor_id": "society::actor.sect_steward",
+            "place_id": "society::place.sword_gate",
+            "alive": true,
+            "available": true,
+            "age_years": 38,
+            "attributes": {
+              "leadership": 42,
+              "martial": 35,
+              "intellect": 64,
+              "administration": 75,
+              "charisma": 68
+            },
+            "skills": {
+              "infantry": 0,
+              "cavalry": 0,
+              "archery": 0,
+              "martial": 0,
+              "tactics": 0,
+              "debate": 0,
+              "negotiation": 300,
+              "rites": 0,
+              "commerce": 650,
+              "transport": 0
+            },
+            "combat": {},
+            "appearance_definition": {
+              "kind": "fixed",
+              "generator_version": "appearance-v1",
+              "attire_style": "plain",
+              "base_features": {
+                "face_shape": "plain",
+                "eyes": "plain",
+                "brows": "plain",
+                "nose": "plain",
+                "mouth": "plain",
+                "hair": "plain",
+                "beard": "plain",
+                "skin_palette": "plain",
+                "build": "plain"
+              }
+            },
+            "initial_goods": []
+          },
+          {
+            "actor_id": "society::actor.study_caravanner",
+            "place_id": "society::place.courtyard",
+            "alive": true,
+            "available": true,
+            "age_years": 49,
+            "attributes": {
+              "leadership": 42,
+              "martial": 35,
+              "intellect": 64,
+              "administration": 75,
+              "charisma": 68
+            },
+            "skills": {
+              "infantry": 0,
+              "cavalry": 0,
+              "archery": 0,
+              "martial": 0,
+              "tactics": 0,
+              "debate": 0,
+              "negotiation": 1200,
+              "rites": 0,
+              "commerce": 1200,
+              "transport": 1200
+            },
+            "combat": {},
+            "appearance_definition": {
+              "kind": "fixed",
+              "generator_version": "appearance-v1",
+              "attire_style": "plain",
+              "base_features": {
+                "face_shape": "plain",
+                "eyes": "plain",
+                "brows": "plain",
+                "nose": "plain",
+                "mouth": "plain",
+                "hair": "plain",
+                "beard": "plain",
+                "skin_palette": "plain",
+                "build": "plain"
+              }
+            },
+            "initial_goods": []
+          },
+          {
+            "actor_id": "society::actor.study_swordswoman",
+            "place_id": "society::place.sword_gate",
+            "alive": true,
+            "available": true,
+            "age_years": 43,
+            "attributes": {
+              "leadership": 50,
+              "martial": 55,
+              "intellect": 58,
+              "administration": 52,
+              "charisma": 50
+            },
+            "skills": {
+              "infantry": 0,
+              "cavalry": 0,
+              "archery": 0,
+              "martial": 1200,
+              "tactics": 0,
+              "debate": 0,
+              "negotiation": 0,
+              "rites": 0,
+              "commerce": 0,
+              "transport": 0
+            },
+            "combat": {},
+            "appearance_definition": {
+              "kind": "fixed",
+              "generator_version": "appearance-v1",
+              "attire_style": "plain",
+              "base_features": {
+                "face_shape": "plain",
+                "eyes": "plain",
+                "brows": "plain",
+                "nose": "plain",
+                "mouth": "plain",
+                "hair": "plain",
+                "beard": "plain",
+                "skin_palette": "plain",
+                "build": "plain"
+              }
+            },
+            "initial_goods": []
+          }
+        ],
+        "offer_ids": [],
+        "wallets": [
+          {
+            "id": "society::wallet.apprentice",
+            "owner": {
+              "kind": "actor",
+              "id": "society::actor.apprentice"
+            },
+            "initial_balance": 120
+          },
+          {
+            "id": "society::wallet.tutor",
+            "owner": {
+              "kind": "actor",
+              "id": "society::actor.tutor"
+            },
+            "initial_balance": 300
+          },
+          {
+            "id": "society::wallet.merchant",
+            "owner": {
+              "kind": "actor",
+              "id": "society::actor.merchant"
+            },
+            "initial_balance": 0
+          },
+          {
+            "id": "society::wallet.grain",
+            "owner": {
+              "kind": "organization",
+              "id": "society::org.grain"
+            },
+            "initial_balance": 900
+          },
+          {
+            "id": "society::wallet.sword_master",
+            "owner": {
+              "kind": "actor",
+              "id": "society::actor.sword_master"
+            },
+            "initial_balance": 500
+          },
+          {
+            "id": "society::wallet.study_caravanner",
+            "owner": {
+              "kind": "actor",
+              "id": "society::actor.study_caravanner"
+            },
+            "initial_balance": 0
+          },
+          {
+            "id": "society::wallet.study_swordswoman",
+            "owner": {
+              "kind": "actor",
+              "id": "society::actor.study_swordswoman"
+            },
+            "initial_balance": 0
+          },
+          {
+            "id": "society::wallet.city_steward",
+            "owner": {
+              "kind": "actor",
+              "id": "society::actor.city_steward"
+            },
+            "initial_balance": 0
+          },
+          {
+            "id": "society::wallet.sect_steward",
+            "owner": {
+              "kind": "actor",
+              "id": "society::actor.sect_steward"
+            },
+            "initial_balance": 0
+          },
+          {
+            "id": "society::wallet.city",
+            "owner": {
+              "kind": "organization",
+              "id": "society::org.city"
+            },
+            "initial_balance": 200
+          },
+          {
+            "id": "society::wallet.sect",
+            "owner": {
+              "kind": "organization",
+              "id": "society::org.sect"
+            },
+            "initial_balance": 200
+          },
+          {
+            "id": "society::wallet.city_wages",
+            "owner": {
+              "kind": "organization",
+              "id": "society::org.city"
+            },
+            "initial_balance": 8
+          },
+          {
+            "id": "society::wallet.sect_wages",
+            "owner": {
+              "kind": "organization",
+              "id": "society::org.sect"
+            },
+            "initial_balance": 7
+          },
+          {
+            "id": "society::wallet.sect_trade",
+            "owner": {
+              "kind": "organization",
+              "id": "society::org.sect"
+            },
+            "initial_balance": 100
+          },
+          {
+            "id": "society::wallet.city_households",
+            "owner": {
+              "kind": "household",
+              "id": "household.city"
+            },
+            "initial_balance": 0
+          },
+          {
+            "id": "society::wallet.sect_households",
+            "owner": {
+              "kind": "household",
+              "id": "household.sect"
+            },
+            "initial_balance": 0
+          }
+        ],
+        "inventories": [
+          {
+            "id": "society::inventory.grain",
+            "owner": {
+              "kind": "organization",
+              "id": "society::org.grain"
+            },
+            "capacity": 100,
+            "goods": [
+              {
+                "item_id": "society::item.millet",
+                "quantity": 40
+              }
+            ]
+          },
+          {
+            "id": "society::inventory.sword_counter",
+            "owner": {
+              "kind": "organization",
+              "id": "society::org.sect"
+            },
+            "capacity": 40,
+            "goods": [
+              {
+                "item_id": "society::item.practice_sword",
+                "quantity": 2
+              },
+              {
+                "item_id": "society::item.padded_body",
+                "quantity": 2
+              }
+            ]
+          },
+          {
+            "id": "society::inventory.city",
+            "owner": {
+              "kind": "organization",
+              "id": "society::org.city"
+            },
+            "capacity": 200,
+            "goods": [
+              {
+                "item_id": "society::item.millet",
+                "quantity": 12
+              }
+            ]
+          },
+          {
+            "id": "society::inventory.sect",
+            "owner": {
+              "kind": "organization",
+              "id": "society::org.sect"
+            },
+            "capacity": 200,
+            "goods": [
+              {
+                "item_id": "society::item.millet",
+                "quantity": 2
+              }
+            ]
+          },
+          {
+            "id": "society::inventory.city_households",
+            "owner": {
+              "kind": "household",
+              "id": "household.city"
+            },
+            "capacity": 200,
+            "goods": []
+          },
+          {
+            "id": "society::inventory.sect_households",
+            "owner": {
+              "kind": "household",
+              "id": "household.sect"
+            },
+            "capacity": 200,
+            "goods": []
+          }
+        ],
+        "roles": [
+          {
+            "role_id": "society::role.tutor",
+            "actor_id": "society::actor.tutor",
+            "enabled": true
+          },
+          {
+            "role_id": "society::role.merchant",
+            "actor_id": "society::actor.merchant",
+            "enabled": true
+          },
+          {
+            "role_id": "society::role.sword_master",
+            "actor_id": "society::actor.sword_master",
+            "enabled": true
+          },
+          {
+            "role_id": "society::role.city_supply",
+            "actor_id": "society::actor.city_steward",
+            "enabled": true
+          },
+          {
+            "role_id": "society::role.sect_supply",
+            "actor_id": "society::actor.sect_steward",
+            "enabled": true
+          }
+        ]
+      },
+      "dynamic_world": {
+        "profile": "local_society_v1",
+        "founder_policy": "fixed_actor",
+        "local_economy": {
+          "households": {
+            "household.city": {
+              "id": "household.city",
+              "wallet_id": "society::wallet.city_households",
+              "inventory_id": "society::inventory.city_households"
+            },
+            "household.sect": {
+              "id": "household.sect",
+              "wallet_id": "society::wallet.sect_households",
+              "inventory_id": "society::inventory.sect_households"
+            }
+          },
+          "cohorts": {
+            "cohort.city": {
+              "id": "cohort.city",
+              "site_id": "society::place.courtyard",
+              "household_group_id": "household.city",
+              "status": "civilian",
+              "headcount": 8,
+              "labor_capacity": 6,
+              "private_wallet_id": "society::wallet.city_households",
+              "private_inventory_id": "society::inventory.city_households",
+              "affiliation_id": "society::org.city",
+              "assignment_id": null
+            },
+            "cohort.city.training": {
+              "id": "cohort.city.training",
+              "site_id": "society::place.courtyard",
+              "household_group_id": "household.city",
+              "status": "training",
+              "headcount": 0,
+              "labor_capacity": 0,
+              "private_wallet_id": "society::wallet.city_households",
+              "private_inventory_id": "society::inventory.city_households",
+              "affiliation_id": "society::org.city",
+              "assignment_id": null
+            },
+            "cohort.sect": {
+              "id": "cohort.sect",
+              "site_id": "society::place.sword_gate",
+              "household_group_id": "household.sect",
+              "status": "civilian",
+              "headcount": 3,
+              "labor_capacity": 2,
+              "private_wallet_id": "society::wallet.sect_households",
+              "private_inventory_id": "society::inventory.sect_households",
+              "affiliation_id": "society::org.sect",
+              "assignment_id": null
+            },
+            "cohort.sect.training": {
+              "id": "cohort.sect.training",
+              "site_id": "society::place.sword_gate",
+              "household_group_id": "household.sect",
+              "status": "training",
+              "headcount": 0,
+              "labor_capacity": 0,
+              "private_wallet_id": "society::wallet.sect_households",
+              "private_inventory_id": "society::inventory.sect_households",
+              "affiliation_id": "society::org.sect",
+              "assignment_id": null
+            }
+          },
+          "labor_allocations": {
+            "allocation.city": {
+              "id": "allocation.city",
+              "cohort_id": "cohort.city",
+              "activity_or_production_id": "production.city",
+              "workers": 6,
+              "from_tick": 0,
+              "through_tick": 2147483647,
+              "commitment_id": "commitment.allocation.city"
+            },
+            "allocation.sect": {
+              "id": "allocation.sect",
+              "cohort_id": "cohort.sect",
+              "activity_or_production_id": "production.sect",
+              "workers": 2,
+              "from_tick": 0,
+              "through_tick": 2147483647,
+              "commitment_id": "commitment.allocation.sect"
+            }
+          },
+          "recipes": {
+            "recipe.city": {
+              "id": "recipe.city",
+              "period_ticks": 4,
+              "labor_per_batch": 1,
+              "region_factor_bp": 10000,
+              "season_factor_bp": 10000,
+              "inputs": [],
+              "outputs": [
+                {
+                  "item_id": "society::item.millet",
+                  "numerator": 1,
+                  "denominator": 1
+                }
+              ]
+            },
+            "recipe.sect": {
+              "id": "recipe.sect",
+              "period_ticks": 4,
+              "labor_per_batch": 1,
+              "region_factor_bp": 10000,
+              "season_factor_bp": 10000,
+              "inputs": [],
+              "outputs": [
+                {
+                  "item_id": "society::item.millet",
+                  "numerator": 1,
+                  "denominator": 1
+                }
+              ]
+            }
+          },
+          "production_units": {
+            "production.city": {
+              "id": "production.city",
+              "site_id": "society::place.courtyard",
+              "owner": {
+                "kind": "organization",
+                "id": "society::org.city"
+              },
+              "input_inventory_ids": [],
+              "output_inventory_id": "society::inventory.city",
+              "labor_allocation_ids": [
+                "allocation.city"
+              ],
+              "capacity": 6,
+              "recipe_id": "recipe.city",
+              "next_due_tick": 4,
+              "last_settlement_id": "",
+              "labor_remainder": 0,
+              "factor_remainder": 0,
+              "input_remainders": [],
+              "output_remainders": [
+                0
+              ]
+            },
+            "production.sect": {
+              "id": "production.sect",
+              "site_id": "society::place.sword_gate",
+              "owner": {
+                "kind": "organization",
+                "id": "society::org.sect"
+              },
+              "input_inventory_ids": [],
+              "output_inventory_id": "society::inventory.sect",
+              "labor_allocation_ids": [
+                "allocation.sect"
+              ],
+              "capacity": 2,
+              "recipe_id": "recipe.sect",
+              "next_due_tick": 4,
+              "last_settlement_id": "",
+              "labor_remainder": 0,
+              "factor_remainder": 0,
+              "input_remainders": [],
+              "output_remainders": [
+                0
+              ]
+            }
+          },
+          "rates": {
+            "rate.city_ration": {
+              "id": "rate.city_ration",
+              "numerator": 1,
+              "denominator": 1,
+              "per_capita": true
+            },
+            "rate.city_salary": {
+              "id": "rate.city_salary",
+              "numerator": 12,
+              "denominator": 1,
+              "per_capita": false
+            },
+            "rate.city_household_wage": {
+              "id": "rate.city_household_wage",
+              "numerator": 1,
+              "denominator": 1,
+              "per_capita": true
+            },
+            "rate.sect_ration": {
+              "id": "rate.sect_ration",
+              "numerator": 1,
+              "denominator": 1,
+              "per_capita": true
+            },
+            "rate.sect_salary": {
+              "id": "rate.sect_salary",
+              "numerator": 20,
+              "denominator": 1,
+              "per_capita": false
+            },
+            "rate.sect_household_wage": {
+              "id": "rate.sect_household_wage",
+              "numerator": 1,
+              "denominator": 1,
+              "per_capita": true
+            }
+          },
+          "obligations": {
+            "obligation.city_ration": {
+              "id": "obligation.city_ration",
+              "principal": {
+                "kind": "organization",
+                "id": "society::org.city"
+              },
+              "beneficiary": {
+                "kind": "cohort",
+                "id": "cohort.city"
+              },
+              "kind": "ration",
+              "source_wallet_or_inventory": "society::inventory.city",
+              "destination": "",
+              "rate_profile": "rate.city_ration",
+              "authority_ref": "issuer.city",
+              "item_id": "society::item.millet",
+              "period_ticks": 4,
+              "next_due_tick": 4,
+              "last_receipt_id": "",
+              "active": true
+            },
+            "obligation.city_ration.training": {
+              "id": "obligation.city_ration.training",
+              "principal": {
+                "kind": "organization",
+                "id": "society::org.city"
+              },
+              "beneficiary": {
+                "kind": "cohort",
+                "id": "cohort.city.training"
+              },
+              "kind": "ration",
+              "source_wallet_or_inventory": "society::inventory.city",
+              "destination": "",
+              "rate_profile": "rate.city_ration",
+              "authority_ref": "issuer.city",
+              "item_id": "society::item.millet",
+              "period_ticks": 4,
+              "next_due_tick": 4,
+              "last_receipt_id": "",
+              "active": true
+            },
+            "obligation.city_salary": {
+              "id": "obligation.city_salary",
+              "principal": {
+                "kind": "organization",
+                "id": "society::org.city"
+              },
+              "beneficiary": {
+                "kind": "actor",
+                "id": "society::actor.city_steward"
+              },
+              "kind": "wage",
+              "source_wallet_or_inventory": "society::wallet.city_wages",
+              "destination": "society::wallet.city_steward",
+              "rate_profile": "rate.city_salary",
+              "authority_ref": "issuer.city",
+              "item_id": "",
+              "period_ticks": 4,
+              "next_due_tick": 4,
+              "last_receipt_id": "",
+              "active": true
+            },
+            "obligation.city_household_wage": {
+              "id": "obligation.city_household_wage",
+              "principal": {
+                "kind": "organization",
+                "id": "society::org.city"
+              },
+              "beneficiary": {
+                "kind": "cohort",
+                "id": "cohort.city"
+              },
+              "kind": "wage",
+              "source_wallet_or_inventory": "society::wallet.city",
+              "destination": "society::wallet.city_households",
+              "rate_profile": "rate.city_household_wage",
+              "authority_ref": "issuer.city",
+              "item_id": "",
+              "period_ticks": 4,
+              "next_due_tick": 4,
+              "last_receipt_id": "",
+              "active": true
+            },
+            "obligation.sect_ration": {
+              "id": "obligation.sect_ration",
+              "principal": {
+                "kind": "organization",
+                "id": "society::org.sect"
+              },
+              "beneficiary": {
+                "kind": "cohort",
+                "id": "cohort.sect"
+              },
+              "kind": "ration",
+              "source_wallet_or_inventory": "society::inventory.sect",
+              "destination": "",
+              "rate_profile": "rate.sect_ration",
+              "authority_ref": "issuer.sect",
+              "item_id": "society::item.millet",
+              "period_ticks": 4,
+              "next_due_tick": 4,
+              "last_receipt_id": "",
+              "active": true
+            },
+            "obligation.sect_ration.training": {
+              "id": "obligation.sect_ration.training",
+              "principal": {
+                "kind": "organization",
+                "id": "society::org.sect"
+              },
+              "beneficiary": {
+                "kind": "cohort",
+                "id": "cohort.sect.training"
+              },
+              "kind": "ration",
+              "source_wallet_or_inventory": "society::inventory.sect",
+              "destination": "",
+              "rate_profile": "rate.sect_ration",
+              "authority_ref": "issuer.sect",
+              "item_id": "society::item.millet",
+              "period_ticks": 4,
+              "next_due_tick": 4,
+              "last_receipt_id": "",
+              "active": true
+            },
+            "obligation.sect_salary": {
+              "id": "obligation.sect_salary",
+              "principal": {
+                "kind": "organization",
+                "id": "society::org.sect"
+              },
+              "beneficiary": {
+                "kind": "actor",
+                "id": "society::actor.sword_master"
+              },
+              "kind": "wage",
+              "source_wallet_or_inventory": "society::wallet.sect_wages",
+              "destination": "society::wallet.sword_master",
+              "rate_profile": "rate.sect_salary",
+              "authority_ref": "issuer.sect",
+              "item_id": "",
+              "period_ticks": 4,
+              "next_due_tick": 4,
+              "last_receipt_id": "",
+              "active": true
+            },
+            "obligation.sect_household_wage": {
+              "id": "obligation.sect_household_wage",
+              "principal": {
+                "kind": "organization",
+                "id": "society::org.sect"
+              },
+              "beneficiary": {
+                "kind": "cohort",
+                "id": "cohort.sect"
+              },
+              "kind": "wage",
+              "source_wallet_or_inventory": "society::wallet.sect",
+              "destination": "society::wallet.sect_households",
+              "rate_profile": "rate.sect_household_wage",
+              "authority_ref": "issuer.sect",
+              "item_id": "",
+              "period_ticks": 4,
+              "next_due_tick": 4,
+              "last_receipt_id": "",
+              "active": true
+            }
+          },
+          "provision_bindings": {
+            "provision.city": {
+              "id": "provision.city",
+              "subject": {
+                "kind": "cohort",
+                "id": "cohort.city"
+              },
+              "from_tick": 0,
+              "through_tick": 2147483647,
+              "payer_inventory": "society::inventory.city",
+              "obligation_id": "obligation.city_ration",
+              "policy_owner": "macro"
+            },
+            "provision.city.training": {
+              "id": "provision.city.training",
+              "subject": {
+                "kind": "cohort",
+                "id": "cohort.city.training"
+              },
+              "from_tick": 0,
+              "through_tick": 2147483647,
+              "payer_inventory": "society::inventory.city",
+              "obligation_id": "obligation.city_ration.training",
+              "policy_owner": "macro"
+            },
+            "provision.sect": {
+              "id": "provision.sect",
+              "subject": {
+                "kind": "cohort",
+                "id": "cohort.sect"
+              },
+              "from_tick": 0,
+              "through_tick": 2147483647,
+              "payer_inventory": "society::inventory.sect",
+              "obligation_id": "obligation.sect_ration",
+              "policy_owner": "macro"
+            },
+            "provision.sect.training": {
+              "id": "provision.sect.training",
+              "subject": {
+                "kind": "cohort",
+                "id": "cohort.sect.training"
+              },
+              "from_tick": 0,
+              "through_tick": 2147483647,
+              "payer_inventory": "society::inventory.sect",
+              "obligation_id": "obligation.sect_ration.training",
+              "policy_owner": "macro"
+            }
+          },
+          "production_bindings": {
+            "production.city": {
+              "unit_id": "production.city",
+              "policy_owner": "macro"
+            },
+            "production.sect": {
+              "unit_id": "production.sect",
+              "policy_owner": "macro"
+            }
+          },
+          "supply_sources": {
+            "supply.city": {
+              "source_key": "supply.city",
+              "organization_id": "society::org.city",
+              "site_id": "society::place.courtyard",
+              "inventory_id": "society::inventory.city",
+              "item_id": "society::item.millet",
+              "target_amount": 20,
+              "public_report": true
+            },
+            "supply.sect": {
+              "source_key": "supply.sect",
+              "organization_id": "society::org.sect",
+              "site_id": "society::place.sword_gate",
+              "inventory_id": "society::inventory.sect",
+              "item_id": "society::item.millet",
+              "target_amount": 10,
+              "public_report": true
+            },
+            "source.market": {
+              "source_key": "source.market",
+              "organization_id": "society::org.grain",
+              "site_id": "society::place.grain",
+              "inventory_id": "society::inventory.grain",
+              "item_id": "society::item.millet",
+              "target_amount": 0,
+              "public_report": true
+            }
+          },
+          "enabled": true,
+          "named_actors_excluded": [
+            "society::actor.apprentice",
+            "society::actor.tutor",
+            "society::actor.merchant",
+            "society::actor.sword_master",
+            "society::actor.city_steward",
+            "society::actor.sect_steward",
+            "society::actor.study_caravanner",
+            "society::actor.study_swordswoman"
+          ]
+        },
+        "organization": {
+          "organizations": {
+            "society::org.city": {
+              "id": "society::org.city",
+              "kind": "city",
+              "status": "active",
+              "administrative_parent": null,
+              "branch_parent": null,
+              "headquarters_site": "society::place.courtyard",
+              "policy_profile_id": "policy.city",
+              "office_ids": [
+                "office.city_steward"
+              ],
+              "succession_policy_id": "declared_deputy_only"
+            },
+            "society::org.sect": {
+              "id": "society::org.sect",
+              "kind": "sect",
+              "status": "active",
+              "administrative_parent": null,
+              "branch_parent": null,
+              "headquarters_site": "society::place.sword_gate",
+              "policy_profile_id": "policy.sect",
+              "office_ids": [
+                "office.sect_steward"
+              ],
+              "succession_policy_id": "declared_deputy_only"
+            },
+            "society::org.grain": {
+              "id": "society::org.grain",
+              "kind": "merchant",
+              "status": "active",
+              "administrative_parent": null,
+              "branch_parent": null,
+              "headquarters_site": "society::place.grain",
+              "policy_profile_id": "policy.city",
+              "office_ids": [],
+              "succession_policy_id": "declared_deputy_only"
+            }
+          },
+          "offices": {
+            "office.city_steward": {
+              "id": "office.city_steward",
+              "organization_id": "society::org.city",
+              "holder_actor_id": "society::actor.apprentice",
+              "deputy_actor_id": null,
+              "epoch": 1,
+              "status": "active",
+              "grant_ids": [
+                "grant.city"
+              ]
+            },
+            "office.sect_steward": {
+              "id": "office.sect_steward",
+              "organization_id": "society::org.sect",
+              "holder_actor_id": "society::actor.sect_steward",
+              "deputy_actor_id": null,
+              "epoch": 1,
+              "status": "active",
+              "grant_ids": [
+                "grant.sect"
+              ]
+            }
+          },
+          "grants": {
+            "grant.city": {
+              "id": "grant.city",
+              "office_id": "office.city_steward",
+              "allowed_command_kinds": [
+                "recruit_population"
+              ],
+              "scopes": [
+                {
+                  "kind": "site",
+                  "id": "society::place.courtyard"
+                }
+              ],
+              "wallet_ids": [
+                "society::wallet.city"
+              ],
+              "inventory_ids": [
+                "society::inventory.city"
+              ],
+              "amount_limit": 4,
+              "valid_from": 0,
+              "valid_until": null,
+              "may_delegate": false,
+              "continuity_policy_id": "continue_under_organization"
+            },
+            "grant.sect": {
+              "id": "grant.sect",
+              "office_id": "office.sect_steward",
+              "allowed_command_kinds": [
+                "recruit_population"
+              ],
+              "scopes": [
+                {
+                  "kind": "site",
+                  "id": "society::place.sword_gate"
+                }
+              ],
+              "wallet_ids": [
+                "society::wallet.sect"
+              ],
+              "inventory_ids": [
+                "society::inventory.sect"
+              ],
+              "amount_limit": 4,
+              "valid_from": 0,
+              "valid_until": null,
+              "may_delegate": false,
+              "continuity_policy_id": "continue_under_organization"
+            }
+          },
+          "institutional_issuers": {
+            "issuer.city": {
+              "id": "issuer.city",
+              "organization_id": "society::org.city",
+              "continuity_policy_id": "continue_under_organization",
+              "obligation_ids": [
+                "obligation.city_ration",
+                "obligation.city_ration.training",
+                "obligation.city_salary",
+                "obligation.city_household_wage"
+              ],
+              "source_container_ids": [
+                "society::inventory.city",
+                "society::wallet.city",
+                "society::wallet.city_wages"
+              ],
+              "amount_limit": 1000
+            },
+            "issuer.sect": {
+              "id": "issuer.sect",
+              "organization_id": "society::org.sect",
+              "continuity_policy_id": "continue_under_organization",
+              "obligation_ids": [
+                "obligation.sect_ration",
+                "obligation.sect_ration.training",
+                "obligation.sect_salary",
+                "obligation.sect_household_wage"
+              ],
+              "source_container_ids": [
+                "society::inventory.sect",
+                "society::wallet.sect",
+                "society::wallet.sect_wages"
+              ],
+              "amount_limit": 1000
+            }
+          },
+          "member_policies": {
+            "policy.city": {
+              "id": "policy.city",
+              "request_after_ticks": 1,
+              "refuse_after_ticks": 4,
+              "leave_after_ticks": 12,
+              "minimum_arrears": 1,
+              "may_leave": true
+            },
+            "policy.sect": {
+              "id": "policy.sect",
+              "request_after_ticks": 1,
+              "refuse_after_ticks": 4,
+              "leave_after_ticks": 12,
+              "minimum_arrears": 1,
+              "may_leave": true
+            }
+          },
+          "duties": {
+            "duty.city": {
+              "id": "duty.city",
+              "organization_id": "society::org.city",
+              "actor_id": "society::actor.city_steward",
+              "role_id": "society::role.city_supply",
+              "office_id": "",
+              "policy_id": "policy.city",
+              "obligation_ids": [
+                "obligation.city_salary"
+              ],
+              "commitment_ids": [],
+              "active": true,
+              "activity_terms_id": null
+            },
+            "duty.sect": {
+              "id": "duty.sect",
+              "organization_id": "society::org.sect",
+              "actor_id": "society::actor.sword_master",
+              "role_id": "society::role.sword_master",
+              "office_id": "",
+              "policy_id": "policy.sect",
+              "obligation_ids": [
+                "obligation.sect_salary"
+              ],
+              "commitment_ids": [],
+              "active": true,
+              "activity_terms_id": null
+            }
+          },
+          "members": {
+            "member.city": {
+              "id": "member.city",
+              "organization_id": "society::org.city",
+              "actor_id": "society::actor.city_steward",
+              "policy_id": "policy.city",
+              "response": "serving",
+              "response_since_tick": 0,
+              "next_review_tick": 1,
+              "last_fact_id": "",
+              "duty_ids": [
+                "duty.city"
+              ]
+            },
+            "member.sect": {
+              "id": "member.sect",
+              "organization_id": "society::org.sect",
+              "actor_id": "society::actor.sword_master",
+              "policy_id": "policy.sect",
+              "response": "serving",
+              "response_since_tick": 0,
+              "next_review_tick": 1,
+              "last_fact_id": "",
+              "duty_ids": [
+                "duty.sect"
+              ]
+            }
+          },
+          "activity_terms": {
+            "terms.city_training": {
+              "id": "terms.city_training",
+              "kind": "population_training",
+              "duration_ticks": 4,
+              "training_capacity": 4,
+              "training_site_id": "society::place.courtyard",
+              "continuity_policy_id": "continue_under_organization",
+              "consenting_cohort_ids": [
+                "cohort.city"
+              ]
+            },
+            "terms.sect_training": {
+              "id": "terms.sect_training",
+              "kind": "population_training",
+              "duration_ticks": 4,
+              "training_capacity": 4,
+              "training_site_id": "society::place.sword_gate",
+              "continuity_policy_id": "continue_under_organization",
+              "consenting_cohort_ids": [
+                "cohort.sect"
+              ]
+            }
+          },
+          "initial_activities": {},
+          "enabled": true
+        },
+        "affairs": {
+          "need_policies": {
+            "policy.city_need": {
+              "id": "policy.city_need",
+              "source_domain": "local_economy",
+              "source_key": "supply.city",
+              "semantic_key": "grain.city",
+              "organization_id": "society::org.city",
+              "site_id": "society::place.courtyard",
+              "inventory_id": "society::inventory.city",
+              "item_id": "society::item.millet",
+              "unit": "unit",
+              "template_id": "society::template.city_grain",
+              "terms_version": "1",
+              "funding_wallet_id": "society::wallet.city",
+              "reward_wallet_id": "society::wallet.city",
+              "measure": "stock_gap",
+              "max_claim_quantity": 4,
+              "purchase_budget_per_unit": 20,
+              "reward_per_unit": 2,
+              "deadline_ticks": 24,
+              "accept_role": "society::role.city_supply",
+              "report_role": "society::role.city_supply",
+              "cancellation_policy_id": "return_actual_cargo_v1"
+            },
+            "policy.sect_need": {
+              "id": "policy.sect_need",
+              "source_domain": "local_economy",
+              "source_key": "supply.sect",
+              "semantic_key": "grain.sect",
+              "organization_id": "society::org.sect",
+              "site_id": "society::place.sword_gate",
+              "inventory_id": "society::inventory.sect",
+              "item_id": "society::item.millet",
+              "unit": "unit",
+              "template_id": "society::template.sect_grain",
+              "terms_version": "1",
+              "funding_wallet_id": "society::wallet.sect",
+              "reward_wallet_id": "society::wallet.sect",
+              "measure": "stock_gap",
+              "max_claim_quantity": 4,
+              "purchase_budget_per_unit": 20,
+              "reward_per_unit": 2,
+              "deadline_ticks": 24,
+              "accept_role": "society::role.sect_supply",
+              "report_role": "society::role.sect_supply",
+              "cancellation_policy_id": "return_actual_cargo_v1"
+            }
+          }
+        },
+        "director": {
+          "review_interval_ticks": 2,
+          "retry_delay_ticks": 2,
+          "decision_budget": 4,
+          "candidates_per_subject": 4,
+          "subjects": {
+            "society::actor.study_caravanner": {
+              "organization_id": "society::org.city",
+              "templates": [
+                "maintain_commitment",
+                "replenish_supply",
+                "fulfill_contract",
+                "await_adjustment"
+              ],
+              "request_arrear_after_ticks": 1,
+              "decline_work_after_ticks": 4,
+              "leave_after_ticks": 12,
+              "report_source_keys": [
+                "source.market"
+              ]
+            },
+            "society::actor.study_swordswoman": {
+              "organization_id": "society::org.sect",
+              "templates": [
+                "maintain_commitment",
+                "replenish_supply",
+                "fulfill_contract",
+                "await_adjustment"
+              ],
+              "request_arrear_after_ticks": 1,
+              "decline_work_after_ticks": 4,
+              "leave_after_ticks": 12,
+              "report_source_keys": [
+                "source.market"
+              ]
+            }
+          }
+        }
+      },
+      "personal_simultaneous_outcomes": {
+        "version": 1,
+        "objective_ids": [
+          "society::objective.sword_spar"
+        ]
+      }
+    }
+  ],
+  "personal_skills": [],
+  "personal_battlefields": [],
+  "personal_objectives": [],
+  "world_maps": [],
+  "estates": [],
+  "battlefields": [],
+  "troop_types": [],
+  "military_objectives": [],
+  "offices": [],
+  "garrisons": [],
+  "military_orders": [],
+  "strongholds": [],
+  "siege_topologies": [],
+  "etiquette_challenges": [],
+  "bargain_challenges": [],
+  "required_capabilities": [
+    "multi_actor",
+    "places",
+    "services",
+    "economy",
+    "dialogue",
+    "cultivation",
+    "military",
+    "personal_combat",
+    "native_dynamic_world",
+    "tasks.procurement",
+    "npc_society",
+    "personal_simultaneous_outcomes_v1"
+  ],
+  "drill_challenges": [],
+  "task_templates": [],
+  "format": "HM-CONTENT",
+  "schema_version": 1,
+  "id": "hanmo.personal_simultaneous_outcomes",
+  "version": "1.0.0",
+  "texts": {
+    "name.scenario.mutual_spar": "青川切磋·同轮倒地平局"
+  },
+  "flags": {}
+}

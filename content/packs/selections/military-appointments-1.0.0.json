@@ -1,0 +1,14 @@
+{
+  "format": "HM-PACK-SELECTION",
+  "format_version": 1,
+  "packs": [
+    {
+      "id": "qingxi.campaign",
+      "version": "1.2.0"
+    },
+    {
+      "id": "hanmo.military_appointments",
+      "version": "1.0.0"
+    }
+  ]
+}

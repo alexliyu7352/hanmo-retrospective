@@ -1,0 +1,7 @@
+# 军旅与战斗消费者登记：保留本组目标、测试、条件与局部变量的原执行顺序。
+# 原轮次、真实已学模板与16隔离字节的有限纯域门。
+add_executable(test_resident_military_tactic_learning tests/resident/military_tactic_learning_test.cpp)
+target_link_libraries(test_resident_military_tactic_learning PRIVATE hanmo_resident)
+target_include_directories(test_resident_military_tactic_learning PRIVATE src)
+target_compile_options(test_resident_military_tactic_learning PRIVATE -UNDEBUG -fno-fast-math -ffp-contract=off)
+add_test(NAME resident_military_tactic_learning COMMAND test_resident_military_tactic_learning)

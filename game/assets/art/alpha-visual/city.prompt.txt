@@ -1,0 +1,4 @@
+Initial generation:
+
+
+Use case: precise-object-edit. Edit this existing historical game street background. Keep the same street composition, camera perspective, architecture, sunlight, colors, trees, and painted background people unchanged. Remove ALL readable words, Chinese characters, writing, and emblems from every hanging banner, shop sign, gate plaque and flag. Replace each marked area with a naturally blank aged cloth or plain wood matching that sign's original material, light, shadow, seams and folds. The gate plaque must be blank, not display any place name. This asset is reused by different actual cities, whose names the game draws separately. Do not introduce new signs, people, furniture, UI or border. Preserve the original historical hand-painted finish and wide landscape aspect.

@@ -1,0 +1,248 @@
+[
+  {
+    "state": "resident-journey-oracle-baseline-20261004/recovery-verified-20261005/restored-repeat/state-104ee1c94101342d301492aaebe62c07d9558efcb9c1d3034f57b356a966971b.json",
+    "catalog": "hanmo-resident-lane-d/.local/resident-recovery-input/catalog.json",
+    "state_sha256": "104ee1c94101342d301492aaebe62c07d9558efcb9c1d3034f57b356a966971b",
+    "sidebar": {
+      "ok": true,
+      "actor_id": "actor.player",
+      "revision": 0,
+      "location": {
+        "kind": "Settlement",
+        "place_id": "west.street",
+        "settlement_id": "city.west"
+      },
+      "dialogue_speaker": {},
+      "travel": {
+        "active": false
+      },
+      "encounter": {},
+      "party_present": false,
+      "companions": [],
+      "logistics_quote": {}
+    },
+    "dialogue": {
+      "phase": "scene"
+    },
+    "needs_input": false,
+    "supplies": {}
+  },
+  {
+    "state": "resident-journey-oracle-baseline-20261004/recovery-verified-20261005/restored-repeat/state-95dcd3f2d8a80820013aa20721b626fa4f1c56ee15e61ddb707ec4ae740f2a7c.json",
+    "catalog": "hanmo-resident-lane-d/.local/resident-recovery-input/catalog.json",
+    "state_sha256": "95dcd3f2d8a80820013aa20721b626fa4f1c56ee15e61ddb707ec4ae740f2a7c",
+    "sidebar": {
+      "ok": true,
+      "actor_id": "actor.player",
+      "revision": 4,
+      "location": {
+        "kind": "Wilderness"
+      },
+      "dialogue_speaker": {
+        "actor_id": "actor.walker",
+        "display_name": "许成"
+      },
+      "travel": {
+        "active": true
+      },
+      "encounter": {
+        "encounter_id": "encounter:34",
+        "provider_actor_id": "actor.walker",
+        "display_name": "许成"
+      },
+      "party_present": false,
+      "companions": [],
+      "logistics_quote": {}
+    },
+    "dialogue": {
+      "phase": "say",
+      "context": {
+        "kind": "encounter",
+        "encounter_id": "encounter:34",
+        "place_id": "",
+        "provider_actor_id": "actor.walker",
+        "role_id": "role.walker"
+      },
+      "node_id": "hello",
+      "last_outcome": {},
+      "speaker": "actor.walker",
+      "text": "对面的旅人收住脚步，扶了扶肩上的包袱。「在下许成，常在青川和东里之间走动。借个道，别碰着你的行李。」"
+    },
+    "needs_input": true,
+    "supplies": {}
+  },
+  {
+    "state": "resident-journey-oracle-baseline-20261004/recovery-verified-20261005/restored-repeat/state-81143e6a5b1d5eee00c887060fd63157ab6e3c75806102da8cee0f3e9c84fa1c.json",
+    "catalog": "hanmo-resident-lane-d/.local/resident-recovery-input/catalog.json",
+    "state_sha256": "81143e6a5b1d5eee00c887060fd63157ab6e3c75806102da8cee0f3e9c84fa1c",
+    "sidebar": {
+      "ok": true,
+      "actor_id": "actor.player",
+      "revision": 5,
+      "location": {
+        "kind": "Wilderness"
+      },
+      "dialogue_speaker": {
+        "actor_id": "actor.walker",
+        "display_name": "许成"
+      },
+      "travel": {
+        "active": true
+      },
+      "encounter": {
+        "encounter_id": "encounter:34",
+        "provider_actor_id": "actor.walker",
+        "display_name": "许成"
+      },
+      "party_present": false,
+      "companions": [],
+      "logistics_quote": {}
+    },
+    "dialogue": {
+      "phase": "choice",
+      "context": {
+        "kind": "encounter",
+        "encounter_id": "encounter:34",
+        "place_id": "",
+        "provider_actor_id": "actor.walker",
+        "role_id": "role.walker"
+      },
+      "node_id": "menu",
+      "last_outcome": {},
+      "text": "许成看看前路，等你开口。",
+      "options": [
+        {
+          "id": "ask",
+          "text": "常走这条路吗？"
+        },
+        {
+          "id": "leave",
+          "text": "先不打扰，告辞。"
+        }
+      ]
+    },
+    "needs_input": true,
+    "supplies": {}
+  },
+  {
+    "state": "resident-journey-oracle-baseline-20261004/recovery-verified-20261005/restored-repeat/state-b266756815c08fe49c31315638372a494ffaa140c104a45a1c2586e4d51e3bc1.json",
+    "catalog": "hanmo-resident-lane-d/.local/resident-recovery-input/catalog.json",
+    "state_sha256": "b266756815c08fe49c31315638372a494ffaa140c104a45a1c2586e4d51e3bc1",
+    "sidebar": {
+      "ok": true,
+      "actor_id": "actor.player",
+      "revision": 6,
+      "location": {
+        "kind": "Wilderness"
+      },
+      "dialogue_speaker": {
+        "actor_id": "actor.walker",
+        "display_name": "许成"
+      },
+      "travel": {
+        "active": true
+      },
+      "encounter": {
+        "encounter_id": "encounter:34",
+        "provider_actor_id": "actor.walker",
+        "display_name": "许成"
+      },
+      "party_present": false,
+      "companions": [],
+      "logistics_quote": {}
+    },
+    "dialogue": {
+      "phase": "say",
+      "context": {
+        "encounter_id": "encounter:34",
+        "kind": "encounter",
+        "place_id": "",
+        "provider_actor_id": "actor.walker",
+        "role_id": "role.walker"
+      },
+      "node_id": "answer",
+      "last_outcome": {},
+      "speaker": "actor.walker",
+      "text": "「往返有些年头了。走得快不如走得稳，遇见同行人，问一句总比闷头赶路强。」"
+    },
+    "needs_input": true,
+    "supplies": {}
+  },
+  {
+    "state": "resident-journey-oracle-baseline-20261004/journey100-20261005/state-b69672f9b656f1013b5b8468d9d42b431d1054c44b5b88d41c5d16a6fb4edb0c.json",
+    "catalog": "resident-journey-oracle-baseline-20261004/journey100-20261005/expanded-catalog.json",
+    "state_sha256": "b69672f9b656f1013b5b8468d9d42b431d1054c44b5b88d41c5d16a6fb4edb0c",
+    "sidebar": {
+      "ok": true,
+      "actor_id": "actor.player",
+      "revision": 3,
+      "location": {
+        "kind": "Wilderness"
+      },
+      "dialogue_speaker": {},
+      "travel": {
+        "active": true
+      },
+      "encounter": {
+        "encounter_id": "encounter:158",
+        "provider_actor_id": "actor.walker",
+        "display_name": "许成"
+      },
+      "party_present": false,
+      "companions": [],
+      "logistics_quote": {}
+    },
+    "dialogue": {
+      "phase": "scene"
+    },
+    "needs_input": true,
+    "supplies": {}
+  },
+  {
+    "state": "resident-journey-oracle-baseline-20261004/journey100-20261005/state-a43e9378dbe30ba75087fd118b1d6825a3a2636f0a260dfe48fde77fc01681e5.json",
+    "catalog": "resident-journey-oracle-baseline-20261004/journey100-20261005/expanded-catalog.json",
+    "state_sha256": "a43e9378dbe30ba75087fd118b1d6825a3a2636f0a260dfe48fde77fc01681e5",
+    "sidebar": {
+      "ok": true,
+      "actor_id": "actor.player",
+      "revision": 15,
+      "location": {
+        "kind": "Settlement",
+        "place_id": "east.entrance",
+        "settlement_id": "village.east"
+      },
+      "dialogue_speaker": {},
+      "travel": {
+        "active": false
+      },
+      "encounter": {},
+      "party_present": false,
+      "companions": [],
+      "logistics_quote": {}
+    },
+    "dialogue": {
+      "phase": "scene"
+    },
+    "needs_input": false,
+    "supplies": {
+      "army:262": {
+        "ok": true,
+        "food_item_id": "item.grain",
+        "mouth_count": 14,
+        "required": 14,
+        "available": 744,
+        "full_ticks": 53,
+        "shortage": 0
+      },
+      "army:303": {
+        "ok": true,
+        "food_item_id": "item.grain",
+        "mouth_count": 7,
+        "required": 7,
+        "available": 279,
+        "full_ticks": 39,
+        "shortage": 0
+      }
+    }
+  }
+]

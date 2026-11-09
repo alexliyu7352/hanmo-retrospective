@@ -1,0 +1,41 @@
+{
+  "origin": "OpenAI built-in imagegen, original generated artwork, 2026-09-12",
+  "assets": [
+    {
+      "id": "battlefield_valley",
+      "group": "backgrounds",
+      "file": "valley.png",
+      "width": 1536,
+      "height": 1024,
+      "sha256": "119fd0b283827ac0af6ab41d5c8a084b7ea19fd77434df0e5c5133f5aa3f92b6",
+      "mode": "RGB"
+    },
+    {
+      "id": "troop_infantry",
+      "group": "portraits",
+      "file": "infantry.png",
+      "width": 1374,
+      "height": 1145,
+      "sha256": "c970dfe82d03651e85f77b2fee76944086432cda02cb94f219278c51fd373db5",
+      "mode": "RGBA"
+    },
+    {
+      "id": "troop_archers",
+      "group": "portraits",
+      "file": "archers.png",
+      "width": 1374,
+      "height": 1145,
+      "sha256": "126577f8ea32db37254dc70f658f8e32b05915e2d57f8d6a01f43409f0b229a8",
+      "mode": "RGBA"
+    },
+    {
+      "id": "troop_cavalry",
+      "group": "portraits",
+      "file": "cavalry.png",
+      "width": 1312,
+      "height": 1199,
+      "sha256": "bd2727d298e6e57178a9c236c43b0d0fa4a677f3be7bca7ee18d76c9fee00df3",
+      "mode": "RGBA"
+    }
+  ]
+}

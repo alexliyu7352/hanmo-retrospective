@@ -1,0 +1,71 @@
+{
+  "format": "HM-SELF-PROFILE-ROUTE-CHECK/1",
+  "status": "PASS",
+  "checks": 36,
+  "date_utc": "2026-10-07",
+  "central_head_at_compile": "b7f9df16ff17909d4a166a735c48a2c65ac4091a",
+  "central_route_source": "Working-tree source with SHA256 recorded below; compiled explicitly, not archive route",
+  "leaf_head_at_compile": "4c93e9910d7a7581175c574c6dde789008afa820",
+  "support_build_source_commit": "bc9ad32f92583eb19f3986931a650a80e57fe5a1",
+  "support_resident_base_equivalence": "git diff bc9ad32f92583eb19f3986931a650a80e57fe5a1 e56ca05fd54fa46d076eb36f81812c28bdbb41fc -- native/world/src/resident native/world/include produced no differences",
+  "compiler_flags": "-std=c++17 -O1 -Wall -Wextra -Wpedantic",
+  "compiled_translation_units": [
+    "central_query_route",
+    "leaf_projection",
+    "route_test"
+  ],
+  "linked_read_only_archives": [
+    "support_resident_archive",
+    "support_world_archive",
+    "support_flecs_archive"
+  ],
+  "compile_result": "PASS; existing -Wmisleading-indentation warning in unrelated dynamic_place branch of central route line67",
+  "run_output": "self_profile_route: PASS checks=36 (strict empty args, no foreign observer, current player/heir/source/shared action, no mutation)\n",
+  "covered": [
+    "Strict empty args deny any actor_id including current actor, foreign observer, source, world_id or revision",
+    "Nonobject arguments fail without partial DTO",
+    "Current player selection, second original actor, inherited actor and replaced world source remain bound to current candidate",
+    "Shared-action participant status remains valid",
+    "Success and rejection leave complete CommonState unchanged including tick, identity, next_instance_id, request sequences, RNG and action records"
+  ],
+  "not_claimed": [
+    "Full native-core rebuild",
+    "Original-bank playable acceptance",
+    "GUI validation",
+    "Unchanged151-check leaf or39-case presentation suite rerun"
+  ],
+  "files": {
+    "central_query_route": {
+      "path": "<本地路径>",
+      "sha256": "b54fff0c5b69bdbbfd4db60587282392f72ef0212432b6f6c5a7cbca8de17080"
+    },
+    "leaf_projection": {
+      "path": "<本地路径>",
+      "sha256": "e3fee001222d80b426f41170a1c1f0856413757ce3255e74ce70d92d76ad7dcb"
+    },
+    "leaf_header": {
+      "path": "<本地路径>",
+      "sha256": "c4311187150e0399ea0cc6fdc8c69dce0f48a18af8244c2814b2b5a0207986f6"
+    },
+    "route_test": {
+      "path": "<本地路径>",
+      "sha256": "d3718f04f3d9f445a753b2ce0bc36330f29f17da729358f8cd66b792b2987bc1"
+    },
+    "support_resident_archive": {
+      "path": "<本地路径>",
+      "sha256": "039a49b12f2a8529c96e603af40d9064605c335099d80c23bf2d21203b53f5a4"
+    },
+    "support_world_archive": {
+      "path": "<本地路径>",
+      "sha256": "5288091b4e83ed52b8b4c413fefea15e85248f5000d9143c2b416bac432a83a2"
+    },
+    "support_flecs_archive": {
+      "path": "<本地路径>",
+      "sha256": "26ab130ae8a76e58d95f75831fbd50cea113a9097791857e55516682e46951ba"
+    },
+    "test_executable": {
+      "path": "<本地路径>",
+      "sha256": "a5b8fc15b0991a1058596490197dcbdf36c32ae5679c7edeb0ca57c227518453"
+    }
+  }
+}

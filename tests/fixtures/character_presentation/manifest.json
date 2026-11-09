@@ -1,0 +1,2356 @@
+{
+  "version": 2,
+  "default_background": "fixture.scene",
+  "default_portrait": "adult.dedicated.a",
+  "backgrounds": {
+    "fixture.scene": {
+      "path": "res://assets/art/presentation-fixtures/scene.png"
+    }
+  },
+  "portraits": {
+    "child.body.slender": {
+      "path": "res://assets/art/character-fixtures/child.body.slender.png"
+    },
+    "child.body.broad": {
+      "path": "res://assets/art/character-fixtures/child.body.broad.png"
+    },
+    "child.face.round": {
+      "path": "res://assets/art/character-fixtures/child.face.round.png"
+    },
+    "child.face.angular": {
+      "path": "res://assets/art/character-fixtures/child.face.angular.png"
+    },
+    "child.hair.short": {
+      "path": "res://assets/art/character-fixtures/child.hair.short.png"
+    },
+    "child.hair.bun": {
+      "path": "res://assets/art/character-fixtures/child.hair.bun.png"
+    },
+    "child.garment.plain": {
+      "path": "res://assets/art/character-fixtures/child.garment.plain.png"
+    },
+    "child.garment.formal": {
+      "path": "res://assets/art/character-fixtures/child.garment.formal.png"
+    },
+    "child.dedicated.a": {
+      "path": "res://assets/art/character-fixtures/child.dedicated.a.png"
+    },
+    "child.dedicated.b": {
+      "path": "res://assets/art/character-fixtures/child.dedicated.b.png"
+    },
+    "adult.body.slender": {
+      "path": "res://assets/art/character-fixtures/adult.body.slender.png"
+    },
+    "adult.body.broad": {
+      "path": "res://assets/art/character-fixtures/adult.body.broad.png"
+    },
+    "adult.face.round": {
+      "path": "res://assets/art/character-fixtures/adult.face.round.png"
+    },
+    "adult.face.angular": {
+      "path": "res://assets/art/character-fixtures/adult.face.angular.png"
+    },
+    "adult.hair.short": {
+      "path": "res://assets/art/character-fixtures/adult.hair.short.png"
+    },
+    "adult.hair.bun": {
+      "path": "res://assets/art/character-fixtures/adult.hair.bun.png"
+    },
+    "adult.garment.plain": {
+      "path": "res://assets/art/character-fixtures/adult.garment.plain.png"
+    },
+    "adult.garment.formal": {
+      "path": "res://assets/art/character-fixtures/adult.garment.formal.png"
+    },
+    "adult.dedicated.a": {
+      "path": "res://assets/art/character-fixtures/adult.dedicated.a.png"
+    },
+    "adult.dedicated.b": {
+      "path": "res://assets/art/character-fixtures/adult.dedicated.b.png"
+    }
+  },
+  "components": {
+    "child.body.slender": {
+      "id": "child.body.slender",
+      "slot": "body",
+      "asset_id": "portraits/child.body.slender",
+      "body_basis": "child.front",
+      "proportion": "child",
+      "anchor": [
+        50,
+        100
+      ],
+      "z_index": 0,
+      "tags": [
+        "child"
+      ],
+      "compatible_tags": [
+        "child"
+      ],
+      "incompatible_tags": [],
+      "after": [],
+      "geometry": {
+        "source_size": [
+          96,
+          128
+        ],
+        "logical_canvas": [
+          96,
+          128
+        ],
+        "alpha_bounds": [
+          25,
+          63,
+          47,
+          64
+        ],
+        "safe_crop": [
+          20,
+          20,
+          56,
+          57
+        ],
+        "support_kind": "half_body_bottom",
+        "support_point": [
+          50,
+          100
+        ],
+        "pose": "idle",
+        "facing": "front",
+        "view": "half_body",
+        "mask_ids": [],
+        "palette_slots": []
+      }
+    },
+    "child.body.broad": {
+      "id": "child.body.broad",
+      "slot": "body",
+      "asset_id": "portraits/child.body.broad",
+      "body_basis": "child.front",
+      "proportion": "child",
+      "anchor": [
+        50,
+        100
+      ],
+      "z_index": 0,
+      "tags": [
+        "child"
+      ],
+      "compatible_tags": [
+        "child"
+      ],
+      "incompatible_tags": [],
+      "after": [],
+      "geometry": {
+        "source_size": [
+          96,
+          128
+        ],
+        "logical_canvas": [
+          96,
+          128
+        ],
+        "alpha_bounds": [
+          19,
+          63,
+          59,
+          64
+        ],
+        "safe_crop": [
+          20,
+          20,
+          56,
+          57
+        ],
+        "support_kind": "half_body_bottom",
+        "support_point": [
+          50,
+          100
+        ],
+        "pose": "idle",
+        "facing": "front",
+        "view": "half_body",
+        "mask_ids": [],
+        "palette_slots": []
+      }
+    },
+    "child.face.round": {
+      "id": "child.face.round",
+      "slot": "face",
+      "asset_id": "portraits/child.face.round",
+      "body_basis": "child.front",
+      "proportion": "child",
+      "anchor": [
+        50,
+        100
+      ],
+      "z_index": 2,
+      "tags": [
+        "child"
+      ],
+      "compatible_tags": [
+        "child"
+      ],
+      "incompatible_tags": [],
+      "after": [],
+      "geometry": {
+        "source_size": [
+          96,
+          128
+        ],
+        "logical_canvas": [
+          96,
+          128
+        ],
+        "alpha_bounds": [
+          29,
+          32,
+          39,
+          38
+        ],
+        "safe_crop": [
+          20,
+          20,
+          56,
+          57
+        ],
+        "support_kind": "half_body_bottom",
+        "support_point": [
+          50,
+          100
+        ],
+        "pose": "idle",
+        "facing": "front",
+        "view": "half_body",
+        "mask_ids": [],
+        "palette_slots": []
+      }
+    },
+    "child.face.angular": {
+      "id": "child.face.angular",
+      "slot": "face",
+      "asset_id": "portraits/child.face.angular",
+      "body_basis": "child.front",
+      "proportion": "child",
+      "anchor": [
+        50,
+        100
+      ],
+      "z_index": 2,
+      "tags": [
+        "child"
+      ],
+      "compatible_tags": [
+        "child"
+      ],
+      "incompatible_tags": [],
+      "after": [],
+      "geometry": {
+        "source_size": [
+          96,
+          128
+        ],
+        "logical_canvas": [
+          96,
+          128
+        ],
+        "alpha_bounds": [
+          29,
+          32,
+          39,
+          38
+        ],
+        "safe_crop": [
+          20,
+          20,
+          56,
+          57
+        ],
+        "support_kind": "half_body_bottom",
+        "support_point": [
+          50,
+          100
+        ],
+        "pose": "idle",
+        "facing": "front",
+        "view": "half_body",
+        "mask_ids": [],
+        "palette_slots": []
+      }
+    },
+    "child.hair.short": {
+      "id": "child.hair.short",
+      "slot": "hair",
+      "asset_id": "portraits/child.hair.short",
+      "body_basis": "child.front",
+      "proportion": "child",
+      "anchor": [
+        50,
+        100
+      ],
+      "z_index": 3,
+      "tags": [
+        "child"
+      ],
+      "compatible_tags": [
+        "child"
+      ],
+      "incompatible_tags": [],
+      "after": [],
+      "geometry": {
+        "source_size": [
+          96,
+          128
+        ],
+        "logical_canvas": [
+          96,
+          128
+        ],
+        "alpha_bounds": [
+          27,
+          27,
+          43,
+          16
+        ],
+        "safe_crop": [
+          20,
+          20,
+          56,
+          57
+        ],
+        "support_kind": "half_body_bottom",
+        "support_point": [
+          50,
+          100
+        ],
+        "pose": "idle",
+        "facing": "front",
+        "view": "half_body",
+        "mask_ids": [],
+        "palette_slots": []
+      }
+    },
+    "child.hair.bun": {
+      "id": "child.hair.bun",
+      "slot": "hair",
+      "asset_id": "portraits/child.hair.bun",
+      "body_basis": "child.front",
+      "proportion": "child",
+      "anchor": [
+        50,
+        100
+      ],
+      "z_index": 3,
+      "tags": [
+        "child"
+      ],
+      "compatible_tags": [
+        "child"
+      ],
+      "incompatible_tags": [],
+      "after": [],
+      "geometry": {
+        "source_size": [
+          96,
+          128
+        ],
+        "logical_canvas": [
+          96,
+          128
+        ],
+        "alpha_bounds": [
+          27,
+          24,
+          43,
+          19
+        ],
+        "safe_crop": [
+          20,
+          20,
+          56,
+          57
+        ],
+        "support_kind": "half_body_bottom",
+        "support_point": [
+          50,
+          100
+        ],
+        "pose": "idle",
+        "facing": "front",
+        "view": "half_body",
+        "mask_ids": [],
+        "palette_slots": []
+      }
+    },
+    "child.garment.plain": {
+      "id": "child.garment.plain",
+      "slot": "garment",
+      "asset_id": "portraits/child.garment.plain",
+      "body_basis": "child.front",
+      "proportion": "child",
+      "anchor": [
+        50,
+        100
+      ],
+      "z_index": 1,
+      "tags": [
+        "child"
+      ],
+      "compatible_tags": [
+        "child"
+      ],
+      "incompatible_tags": [],
+      "after": [],
+      "geometry": {
+        "source_size": [
+          96,
+          128
+        ],
+        "logical_canvas": [
+          96,
+          128
+        ],
+        "alpha_bounds": [
+          16,
+          74,
+          65,
+          52
+        ],
+        "safe_crop": [
+          20,
+          20,
+          56,
+          57
+        ],
+        "support_kind": "half_body_bottom",
+        "support_point": [
+          50,
+          100
+        ],
+        "pose": "idle",
+        "facing": "front",
+        "view": "half_body",
+        "mask_ids": [],
+        "palette_slots": []
+      }
+    },
+    "child.garment.formal": {
+      "id": "child.garment.formal",
+      "slot": "garment",
+      "asset_id": "portraits/child.garment.formal",
+      "body_basis": "child.front",
+      "proportion": "child",
+      "anchor": [
+        50,
+        100
+      ],
+      "z_index": 1,
+      "tags": [
+        "child"
+      ],
+      "compatible_tags": [
+        "child"
+      ],
+      "incompatible_tags": [],
+      "after": [],
+      "geometry": {
+        "source_size": [
+          96,
+          128
+        ],
+        "logical_canvas": [
+          96,
+          128
+        ],
+        "alpha_bounds": [
+          16,
+          74,
+          65,
+          52
+        ],
+        "safe_crop": [
+          20,
+          20,
+          56,
+          57
+        ],
+        "support_kind": "half_body_bottom",
+        "support_point": [
+          50,
+          100
+        ],
+        "pose": "idle",
+        "facing": "front",
+        "view": "half_body",
+        "mask_ids": [],
+        "palette_slots": []
+      }
+    },
+    "adult.body.slender": {
+      "id": "adult.body.slender",
+      "slot": "body",
+      "asset_id": "portraits/adult.body.slender",
+      "body_basis": "adult.front",
+      "proportion": "adult",
+      "anchor": [
+        50,
+        100
+      ],
+      "z_index": 0,
+      "tags": [
+        "adult"
+      ],
+      "compatible_tags": [
+        "adult"
+      ],
+      "incompatible_tags": [],
+      "after": [],
+      "geometry": {
+        "source_size": [
+          96,
+          128
+        ],
+        "logical_canvas": [
+          96,
+          128
+        ],
+        "alpha_bounds": [
+          20,
+          45,
+          57,
+          83
+        ],
+        "safe_crop": [
+          20,
+          0,
+          56,
+          57
+        ],
+        "support_kind": "half_body_bottom",
+        "support_point": [
+          50,
+          100
+        ],
+        "pose": "idle",
+        "facing": "front",
+        "view": "half_body",
+        "mask_ids": [],
+        "palette_slots": []
+      }
+    },
+    "adult.body.broad": {
+      "id": "adult.body.broad",
+      "slot": "body",
+      "asset_id": "portraits/adult.body.broad",
+      "body_basis": "adult.front",
+      "proportion": "adult",
+      "anchor": [
+        50,
+        100
+      ],
+      "z_index": 0,
+      "tags": [
+        "adult"
+      ],
+      "compatible_tags": [
+        "adult"
+      ],
+      "incompatible_tags": [],
+      "after": [],
+      "geometry": {
+        "source_size": [
+          96,
+          128
+        ],
+        "logical_canvas": [
+          96,
+          128
+        ],
+        "alpha_bounds": [
+          14,
+          45,
+          69,
+          83
+        ],
+        "safe_crop": [
+          20,
+          0,
+          56,
+          57
+        ],
+        "support_kind": "half_body_bottom",
+        "support_point": [
+          50,
+          100
+        ],
+        "pose": "idle",
+        "facing": "front",
+        "view": "half_body",
+        "mask_ids": [],
+        "palette_slots": []
+      }
+    },
+    "adult.face.round": {
+      "id": "adult.face.round",
+      "slot": "face",
+      "asset_id": "portraits/adult.face.round",
+      "body_basis": "adult.front",
+      "proportion": "adult",
+      "anchor": [
+        50,
+        100
+      ],
+      "z_index": 2,
+      "tags": [
+        "adult"
+      ],
+      "compatible_tags": [
+        "adult"
+      ],
+      "incompatible_tags": [],
+      "after": [],
+      "geometry": {
+        "source_size": [
+          96,
+          128
+        ],
+        "logical_canvas": [
+          96,
+          128
+        ],
+        "alpha_bounds": [
+          32,
+          10,
+          33,
+          40
+        ],
+        "safe_crop": [
+          20,
+          0,
+          56,
+          57
+        ],
+        "support_kind": "half_body_bottom",
+        "support_point": [
+          50,
+          100
+        ],
+        "pose": "idle",
+        "facing": "front",
+        "view": "half_body",
+        "mask_ids": [],
+        "palette_slots": []
+      }
+    },
+    "adult.face.angular": {
+      "id": "adult.face.angular",
+      "slot": "face",
+      "asset_id": "portraits/adult.face.angular",
+      "body_basis": "adult.front",
+      "proportion": "adult",
+      "anchor": [
+        50,
+        100
+      ],
+      "z_index": 2,
+      "tags": [
+        "adult"
+      ],
+      "compatible_tags": [
+        "adult"
+      ],
+      "incompatible_tags": [],
+      "after": [],
+      "geometry": {
+        "source_size": [
+          96,
+          128
+        ],
+        "logical_canvas": [
+          96,
+          128
+        ],
+        "alpha_bounds": [
+          32,
+          10,
+          33,
+          40
+        ],
+        "safe_crop": [
+          20,
+          0,
+          56,
+          57
+        ],
+        "support_kind": "half_body_bottom",
+        "support_point": [
+          50,
+          100
+        ],
+        "pose": "idle",
+        "facing": "front",
+        "view": "half_body",
+        "mask_ids": [],
+        "palette_slots": []
+      }
+    },
+    "adult.hair.short": {
+      "id": "adult.hair.short",
+      "slot": "hair",
+      "asset_id": "portraits/adult.hair.short",
+      "body_basis": "adult.front",
+      "proportion": "adult",
+      "anchor": [
+        50,
+        100
+      ],
+      "z_index": 3,
+      "tags": [
+        "adult"
+      ],
+      "compatible_tags": [
+        "adult"
+      ],
+      "incompatible_tags": [],
+      "after": [],
+      "geometry": {
+        "source_size": [
+          96,
+          128
+        ],
+        "logical_canvas": [
+          96,
+          128
+        ],
+        "alpha_bounds": [
+          30,
+          4,
+          37,
+          16
+        ],
+        "safe_crop": [
+          20,
+          0,
+          56,
+          57
+        ],
+        "support_kind": "half_body_bottom",
+        "support_point": [
+          50,
+          100
+        ],
+        "pose": "idle",
+        "facing": "front",
+        "view": "half_body",
+        "mask_ids": [],
+        "palette_slots": []
+      }
+    },
+    "adult.hair.bun": {
+      "id": "adult.hair.bun",
+      "slot": "hair",
+      "asset_id": "portraits/adult.hair.bun",
+      "body_basis": "adult.front",
+      "proportion": "adult",
+      "anchor": [
+        50,
+        100
+      ],
+      "z_index": 3,
+      "tags": [
+        "adult"
+      ],
+      "compatible_tags": [
+        "adult"
+      ],
+      "incompatible_tags": [],
+      "after": [],
+      "geometry": {
+        "source_size": [
+          96,
+          128
+        ],
+        "logical_canvas": [
+          96,
+          128
+        ],
+        "alpha_bounds": [
+          30,
+          1,
+          37,
+          19
+        ],
+        "safe_crop": [
+          20,
+          0,
+          56,
+          57
+        ],
+        "support_kind": "half_body_bottom",
+        "support_point": [
+          50,
+          100
+        ],
+        "pose": "idle",
+        "facing": "front",
+        "view": "half_body",
+        "mask_ids": [],
+        "palette_slots": []
+      }
+    },
+    "adult.garment.plain": {
+      "id": "adult.garment.plain",
+      "slot": "garment",
+      "asset_id": "portraits/adult.garment.plain",
+      "body_basis": "adult.front",
+      "proportion": "adult",
+      "anchor": [
+        50,
+        100
+      ],
+      "z_index": 1,
+      "tags": [
+        "adult"
+      ],
+      "compatible_tags": [
+        "adult"
+      ],
+      "incompatible_tags": [],
+      "after": [],
+      "geometry": {
+        "source_size": [
+          96,
+          128
+        ],
+        "logical_canvas": [
+          96,
+          128
+        ],
+        "alpha_bounds": [
+          16,
+          55,
+          65,
+          71
+        ],
+        "safe_crop": [
+          20,
+          0,
+          56,
+          57
+        ],
+        "support_kind": "half_body_bottom",
+        "support_point": [
+          50,
+          100
+        ],
+        "pose": "idle",
+        "facing": "front",
+        "view": "half_body",
+        "mask_ids": [],
+        "palette_slots": []
+      }
+    },
+    "adult.garment.formal": {
+      "id": "adult.garment.formal",
+      "slot": "garment",
+      "asset_id": "portraits/adult.garment.formal",
+      "body_basis": "adult.front",
+      "proportion": "adult",
+      "anchor": [
+        50,
+        100
+      ],
+      "z_index": 1,
+      "tags": [
+        "adult"
+      ],
+      "compatible_tags": [
+        "adult"
+      ],
+      "incompatible_tags": [],
+      "after": [],
+      "geometry": {
+        "source_size": [
+          96,
+          128
+        ],
+        "logical_canvas": [
+          96,
+          128
+        ],
+        "alpha_bounds": [
+          16,
+          55,
+          65,
+          71
+        ],
+        "safe_crop": [
+          20,
+          0,
+          56,
+          57
+        ],
+        "support_kind": "half_body_bottom",
+        "support_point": [
+          50,
+          100
+        ],
+        "pose": "idle",
+        "facing": "front",
+        "view": "half_body",
+        "mask_ids": [],
+        "palette_slots": []
+      }
+    },
+    "child.body.slender.battle": {
+      "id": "child.body.slender.battle",
+      "slot": "body",
+      "asset_id": "portraits/child.body.slender",
+      "body_basis": "child.front",
+      "proportion": "child",
+      "anchor": [
+        50,
+        100
+      ],
+      "z_index": 0,
+      "tags": [
+        "child"
+      ],
+      "compatible_tags": [
+        "child"
+      ],
+      "incompatible_tags": [],
+      "after": [],
+      "geometry": {
+        "source_size": [
+          96,
+          128
+        ],
+        "logical_canvas": [
+          96,
+          128
+        ],
+        "alpha_bounds": [
+          25,
+          63,
+          47,
+          64
+        ],
+        "safe_crop": [
+          20,
+          20,
+          56,
+          57
+        ],
+        "support_kind": "foot",
+        "support_point": [
+          50,
+          100
+        ],
+        "pose": "combat",
+        "facing": "front",
+        "view": "battle",
+        "mask_ids": [],
+        "palette_slots": []
+      }
+    },
+    "child.body.broad.battle": {
+      "id": "child.body.broad.battle",
+      "slot": "body",
+      "asset_id": "portraits/child.body.broad",
+      "body_basis": "child.front",
+      "proportion": "child",
+      "anchor": [
+        50,
+        100
+      ],
+      "z_index": 0,
+      "tags": [
+        "child"
+      ],
+      "compatible_tags": [
+        "child"
+      ],
+      "incompatible_tags": [],
+      "after": [],
+      "geometry": {
+        "source_size": [
+          96,
+          128
+        ],
+        "logical_canvas": [
+          96,
+          128
+        ],
+        "alpha_bounds": [
+          19,
+          63,
+          59,
+          64
+        ],
+        "safe_crop": [
+          20,
+          20,
+          56,
+          57
+        ],
+        "support_kind": "foot",
+        "support_point": [
+          50,
+          100
+        ],
+        "pose": "combat",
+        "facing": "front",
+        "view": "battle",
+        "mask_ids": [],
+        "palette_slots": []
+      }
+    },
+    "child.face.round.battle": {
+      "id": "child.face.round.battle",
+      "slot": "face",
+      "asset_id": "portraits/child.face.round",
+      "body_basis": "child.front",
+      "proportion": "child",
+      "anchor": [
+        50,
+        100
+      ],
+      "z_index": 2,
+      "tags": [
+        "child"
+      ],
+      "compatible_tags": [
+        "child"
+      ],
+      "incompatible_tags": [],
+      "after": [],
+      "geometry": {
+        "source_size": [
+          96,
+          128
+        ],
+        "logical_canvas": [
+          96,
+          128
+        ],
+        "alpha_bounds": [
+          29,
+          32,
+          39,
+          38
+        ],
+        "safe_crop": [
+          20,
+          20,
+          56,
+          57
+        ],
+        "support_kind": "foot",
+        "support_point": [
+          50,
+          100
+        ],
+        "pose": "combat",
+        "facing": "front",
+        "view": "battle",
+        "mask_ids": [],
+        "palette_slots": []
+      }
+    },
+    "child.face.angular.battle": {
+      "id": "child.face.angular.battle",
+      "slot": "face",
+      "asset_id": "portraits/child.face.angular",
+      "body_basis": "child.front",
+      "proportion": "child",
+      "anchor": [
+        50,
+        100
+      ],
+      "z_index": 2,
+      "tags": [
+        "child"
+      ],
+      "compatible_tags": [
+        "child"
+      ],
+      "incompatible_tags": [],
+      "after": [],
+      "geometry": {
+        "source_size": [
+          96,
+          128
+        ],
+        "logical_canvas": [
+          96,
+          128
+        ],
+        "alpha_bounds": [
+          29,
+          32,
+          39,
+          38
+        ],
+        "safe_crop": [
+          20,
+          20,
+          56,
+          57
+        ],
+        "support_kind": "foot",
+        "support_point": [
+          50,
+          100
+        ],
+        "pose": "combat",
+        "facing": "front",
+        "view": "battle",
+        "mask_ids": [],
+        "palette_slots": []
+      }
+    },
+    "child.hair.short.battle": {
+      "id": "child.hair.short.battle",
+      "slot": "hair",
+      "asset_id": "portraits/child.hair.short",
+      "body_basis": "child.front",
+      "proportion": "child",
+      "anchor": [
+        50,
+        100
+      ],
+      "z_index": 3,
+      "tags": [
+        "child"
+      ],
+      "compatible_tags": [
+        "child"
+      ],
+      "incompatible_tags": [],
+      "after": [],
+      "geometry": {
+        "source_size": [
+          96,
+          128
+        ],
+        "logical_canvas": [
+          96,
+          128
+        ],
+        "alpha_bounds": [
+          27,
+          27,
+          43,
+          16
+        ],
+        "safe_crop": [
+          20,
+          20,
+          56,
+          57
+        ],
+        "support_kind": "foot",
+        "support_point": [
+          50,
+          100
+        ],
+        "pose": "combat",
+        "facing": "front",
+        "view": "battle",
+        "mask_ids": [],
+        "palette_slots": []
+      }
+    },
+    "child.hair.bun.battle": {
+      "id": "child.hair.bun.battle",
+      "slot": "hair",
+      "asset_id": "portraits/child.hair.bun",
+      "body_basis": "child.front",
+      "proportion": "child",
+      "anchor": [
+        50,
+        100
+      ],
+      "z_index": 3,
+      "tags": [
+        "child"
+      ],
+      "compatible_tags": [
+        "child"
+      ],
+      "incompatible_tags": [],
+      "after": [],
+      "geometry": {
+        "source_size": [
+          96,
+          128
+        ],
+        "logical_canvas": [
+          96,
+          128
+        ],
+        "alpha_bounds": [
+          27,
+          24,
+          43,
+          19
+        ],
+        "safe_crop": [
+          20,
+          20,
+          56,
+          57
+        ],
+        "support_kind": "foot",
+        "support_point": [
+          50,
+          100
+        ],
+        "pose": "combat",
+        "facing": "front",
+        "view": "battle",
+        "mask_ids": [],
+        "palette_slots": []
+      }
+    },
+    "child.garment.plain.battle": {
+      "id": "child.garment.plain.battle",
+      "slot": "garment",
+      "asset_id": "portraits/child.garment.plain",
+      "body_basis": "child.front",
+      "proportion": "child",
+      "anchor": [
+        50,
+        100
+      ],
+      "z_index": 1,
+      "tags": [
+        "child"
+      ],
+      "compatible_tags": [
+        "child"
+      ],
+      "incompatible_tags": [],
+      "after": [],
+      "geometry": {
+        "source_size": [
+          96,
+          128
+        ],
+        "logical_canvas": [
+          96,
+          128
+        ],
+        "alpha_bounds": [
+          16,
+          74,
+          65,
+          52
+        ],
+        "safe_crop": [
+          20,
+          20,
+          56,
+          57
+        ],
+        "support_kind": "foot",
+        "support_point": [
+          50,
+          100
+        ],
+        "pose": "combat",
+        "facing": "front",
+        "view": "battle",
+        "mask_ids": [],
+        "palette_slots": []
+      }
+    },
+    "child.garment.formal.battle": {
+      "id": "child.garment.formal.battle",
+      "slot": "garment",
+      "asset_id": "portraits/child.garment.formal",
+      "body_basis": "child.front",
+      "proportion": "child",
+      "anchor": [
+        50,
+        100
+      ],
+      "z_index": 1,
+      "tags": [
+        "child"
+      ],
+      "compatible_tags": [
+        "child"
+      ],
+      "incompatible_tags": [],
+      "after": [],
+      "geometry": {
+        "source_size": [
+          96,
+          128
+        ],
+        "logical_canvas": [
+          96,
+          128
+        ],
+        "alpha_bounds": [
+          16,
+          74,
+          65,
+          52
+        ],
+        "safe_crop": [
+          20,
+          20,
+          56,
+          57
+        ],
+        "support_kind": "foot",
+        "support_point": [
+          50,
+          100
+        ],
+        "pose": "combat",
+        "facing": "front",
+        "view": "battle",
+        "mask_ids": [],
+        "palette_slots": []
+      }
+    },
+    "adult.body.slender.battle": {
+      "id": "adult.body.slender.battle",
+      "slot": "body",
+      "asset_id": "portraits/adult.body.slender",
+      "body_basis": "adult.front",
+      "proportion": "adult",
+      "anchor": [
+        50,
+        100
+      ],
+      "z_index": 0,
+      "tags": [
+        "adult"
+      ],
+      "compatible_tags": [
+        "adult"
+      ],
+      "incompatible_tags": [],
+      "after": [],
+      "geometry": {
+        "source_size": [
+          96,
+          128
+        ],
+        "logical_canvas": [
+          96,
+          128
+        ],
+        "alpha_bounds": [
+          20,
+          45,
+          57,
+          83
+        ],
+        "safe_crop": [
+          20,
+          0,
+          56,
+          57
+        ],
+        "support_kind": "foot",
+        "support_point": [
+          50,
+          100
+        ],
+        "pose": "combat",
+        "facing": "front",
+        "view": "battle",
+        "mask_ids": [],
+        "palette_slots": []
+      }
+    },
+    "adult.body.broad.battle": {
+      "id": "adult.body.broad.battle",
+      "slot": "body",
+      "asset_id": "portraits/adult.body.broad",
+      "body_basis": "adult.front",
+      "proportion": "adult",
+      "anchor": [
+        50,
+        100
+      ],
+      "z_index": 0,
+      "tags": [
+        "adult"
+      ],
+      "compatible_tags": [
+        "adult"
+      ],
+      "incompatible_tags": [],
+      "after": [],
+      "geometry": {
+        "source_size": [
+          96,
+          128
+        ],
+        "logical_canvas": [
+          96,
+          128
+        ],
+        "alpha_bounds": [
+          14,
+          45,
+          69,
+          83
+        ],
+        "safe_crop": [
+          20,
+          0,
+          56,
+          57
+        ],
+        "support_kind": "foot",
+        "support_point": [
+          50,
+          100
+        ],
+        "pose": "combat",
+        "facing": "front",
+        "view": "battle",
+        "mask_ids": [],
+        "palette_slots": []
+      }
+    },
+    "adult.face.round.battle": {
+      "id": "adult.face.round.battle",
+      "slot": "face",
+      "asset_id": "portraits/adult.face.round",
+      "body_basis": "adult.front",
+      "proportion": "adult",
+      "anchor": [
+        50,
+        100
+      ],
+      "z_index": 2,
+      "tags": [
+        "adult"
+      ],
+      "compatible_tags": [
+        "adult"
+      ],
+      "incompatible_tags": [],
+      "after": [],
+      "geometry": {
+        "source_size": [
+          96,
+          128
+        ],
+        "logical_canvas": [
+          96,
+          128
+        ],
+        "alpha_bounds": [
+          32,
+          10,
+          33,
+          40
+        ],
+        "safe_crop": [
+          20,
+          0,
+          56,
+          57
+        ],
+        "support_kind": "foot",
+        "support_point": [
+          50,
+          100
+        ],
+        "pose": "combat",
+        "facing": "front",
+        "view": "battle",
+        "mask_ids": [],
+        "palette_slots": []
+      }
+    },
+    "adult.face.angular.battle": {
+      "id": "adult.face.angular.battle",
+      "slot": "face",
+      "asset_id": "portraits/adult.face.angular",
+      "body_basis": "adult.front",
+      "proportion": "adult",
+      "anchor": [
+        50,
+        100
+      ],
+      "z_index": 2,
+      "tags": [
+        "adult"
+      ],
+      "compatible_tags": [
+        "adult"
+      ],
+      "incompatible_tags": [],
+      "after": [],
+      "geometry": {
+        "source_size": [
+          96,
+          128
+        ],
+        "logical_canvas": [
+          96,
+          128
+        ],
+        "alpha_bounds": [
+          32,
+          10,
+          33,
+          40
+        ],
+        "safe_crop": [
+          20,
+          0,
+          56,
+          57
+        ],
+        "support_kind": "foot",
+        "support_point": [
+          50,
+          100
+        ],
+        "pose": "combat",
+        "facing": "front",
+        "view": "battle",
+        "mask_ids": [],
+        "palette_slots": []
+      }
+    },
+    "adult.hair.short.battle": {
+      "id": "adult.hair.short.battle",
+      "slot": "hair",
+      "asset_id": "portraits/adult.hair.short",
+      "body_basis": "adult.front",
+      "proportion": "adult",
+      "anchor": [
+        50,
+        100
+      ],
+      "z_index": 3,
+      "tags": [
+        "adult"
+      ],
+      "compatible_tags": [
+        "adult"
+      ],
+      "incompatible_tags": [],
+      "after": [],
+      "geometry": {
+        "source_size": [
+          96,
+          128
+        ],
+        "logical_canvas": [
+          96,
+          128
+        ],
+        "alpha_bounds": [
+          30,
+          4,
+          37,
+          16
+        ],
+        "safe_crop": [
+          20,
+          0,
+          56,
+          57
+        ],
+        "support_kind": "foot",
+        "support_point": [
+          50,
+          100
+        ],
+        "pose": "combat",
+        "facing": "front",
+        "view": "battle",
+        "mask_ids": [],
+        "palette_slots": []
+      }
+    },
+    "adult.hair.bun.battle": {
+      "id": "adult.hair.bun.battle",
+      "slot": "hair",
+      "asset_id": "portraits/adult.hair.bun",
+      "body_basis": "adult.front",
+      "proportion": "adult",
+      "anchor": [
+        50,
+        100
+      ],
+      "z_index": 3,
+      "tags": [
+        "adult"
+      ],
+      "compatible_tags": [
+        "adult"
+      ],
+      "incompatible_tags": [],
+      "after": [],
+      "geometry": {
+        "source_size": [
+          96,
+          128
+        ],
+        "logical_canvas": [
+          96,
+          128
+        ],
+        "alpha_bounds": [
+          30,
+          1,
+          37,
+          19
+        ],
+        "safe_crop": [
+          20,
+          0,
+          56,
+          57
+        ],
+        "support_kind": "foot",
+        "support_point": [
+          50,
+          100
+        ],
+        "pose": "combat",
+        "facing": "front",
+        "view": "battle",
+        "mask_ids": [],
+        "palette_slots": []
+      }
+    },
+    "adult.garment.plain.battle": {
+      "id": "adult.garment.plain.battle",
+      "slot": "garment",
+      "asset_id": "portraits/adult.garment.plain",
+      "body_basis": "adult.front",
+      "proportion": "adult",
+      "anchor": [
+        50,
+        100
+      ],
+      "z_index": 1,
+      "tags": [
+        "adult"
+      ],
+      "compatible_tags": [
+        "adult"
+      ],
+      "incompatible_tags": [],
+      "after": [],
+      "geometry": {
+        "source_size": [
+          96,
+          128
+        ],
+        "logical_canvas": [
+          96,
+          128
+        ],
+        "alpha_bounds": [
+          16,
+          55,
+          65,
+          71
+        ],
+        "safe_crop": [
+          20,
+          0,
+          56,
+          57
+        ],
+        "support_kind": "foot",
+        "support_point": [
+          50,
+          100
+        ],
+        "pose": "combat",
+        "facing": "front",
+        "view": "battle",
+        "mask_ids": [],
+        "palette_slots": []
+      }
+    },
+    "adult.garment.formal.battle": {
+      "id": "adult.garment.formal.battle",
+      "slot": "garment",
+      "asset_id": "portraits/adult.garment.formal",
+      "body_basis": "adult.front",
+      "proportion": "adult",
+      "anchor": [
+        50,
+        100
+      ],
+      "z_index": 1,
+      "tags": [
+        "adult"
+      ],
+      "compatible_tags": [
+        "adult"
+      ],
+      "incompatible_tags": [],
+      "after": [],
+      "geometry": {
+        "source_size": [
+          96,
+          128
+        ],
+        "logical_canvas": [
+          96,
+          128
+        ],
+        "alpha_bounds": [
+          16,
+          55,
+          65,
+          71
+        ],
+        "safe_crop": [
+          20,
+          0,
+          56,
+          57
+        ],
+        "support_kind": "foot",
+        "support_point": [
+          50,
+          100
+        ],
+        "pose": "combat",
+        "facing": "front",
+        "view": "battle",
+        "mask_ids": [],
+        "palette_slots": []
+      }
+    }
+  },
+  "character_profiles": {
+    "fixture.person": {
+      "id": "fixture.person",
+      "identity_group": "fixture.identity",
+      "mode": "composite",
+      "view": "half_body",
+      "pose": "idle",
+      "context": "daily",
+      "age_domain": [
+        0,
+        100
+      ],
+      "child_max_age": 15,
+      "age_variants": [
+        {
+          "id": "child",
+          "ages": [
+            0,
+            15
+          ],
+          "body_basis": "child.front",
+          "proportion": "child",
+          "components": [
+            "child.body.slender",
+            "child.face.round",
+            "child.hair.short"
+          ],
+          "feature_bindings": [
+            {
+              "id": "body.slender",
+              "features": {
+                "build": "slender"
+              },
+              "component_id": "child.body.slender"
+            },
+            {
+              "id": "body.broad",
+              "features": {
+                "build": "broad"
+              },
+              "component_id": "child.body.broad"
+            },
+            {
+              "id": "face.round",
+              "features": {
+                "face_shape": "round"
+              },
+              "component_id": "child.face.round"
+            },
+            {
+              "id": "face.angular",
+              "features": {
+                "face_shape": "angular"
+              },
+              "component_id": "child.face.angular"
+            },
+            {
+              "id": "hair.short",
+              "features": {
+                "hair": "short"
+              },
+              "component_id": "child.hair.short"
+            },
+            {
+              "id": "hair.bun",
+              "features": {
+                "hair": "bun"
+              },
+              "component_id": "child.hair.bun"
+            }
+          ]
+        },
+        {
+          "id": "adult",
+          "ages": [
+            16,
+            100
+          ],
+          "body_basis": "adult.front",
+          "proportion": "adult",
+          "components": [
+            "adult.body.slender",
+            "adult.face.round",
+            "adult.hair.short"
+          ],
+          "feature_bindings": [
+            {
+              "id": "body.slender",
+              "features": {
+                "build": "slender"
+              },
+              "component_id": "adult.body.slender"
+            },
+            {
+              "id": "body.broad",
+              "features": {
+                "build": "broad"
+              },
+              "component_id": "adult.body.broad"
+            },
+            {
+              "id": "face.round",
+              "features": {
+                "face_shape": "round"
+              },
+              "component_id": "adult.face.round"
+            },
+            {
+              "id": "face.angular",
+              "features": {
+                "face_shape": "angular"
+              },
+              "component_id": "adult.face.angular"
+            },
+            {
+              "id": "hair.short",
+              "features": {
+                "hair": "short"
+              },
+              "component_id": "adult.hair.short"
+            },
+            {
+              "id": "hair.bun",
+              "features": {
+                "hair": "bun"
+              },
+              "component_id": "adult.hair.bun"
+            }
+          ]
+        }
+      ],
+      "attire_sets": [
+        {
+          "id": "plain",
+          "bindings": [
+            {
+              "body_basis": "child.front",
+              "components": [
+                "child.garment.plain"
+              ]
+            },
+            {
+              "body_basis": "adult.front",
+              "components": [
+                "adult.garment.plain"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "formal",
+          "bindings": [
+            {
+              "body_basis": "child.front",
+              "components": [
+                "child.garment.formal"
+              ]
+            },
+            {
+              "body_basis": "adult.front",
+              "components": [
+                "adult.garment.formal"
+              ]
+            }
+          ]
+        }
+      ],
+      "overrides": [],
+      "fallbacks": [],
+      "battle_profile": {
+        "style": "simple",
+        "profile_id": "fixture.battle"
+      }
+    },
+    "fixture.battle": {
+      "id": "fixture.battle",
+      "identity_group": "fixture.identity",
+      "mode": "composite",
+      "view": "battle",
+      "pose": "combat",
+      "context": "battle",
+      "age_domain": [
+        0,
+        100
+      ],
+      "child_max_age": 15,
+      "age_variants": [
+        {
+          "id": "child",
+          "ages": [
+            0,
+            15
+          ],
+          "body_basis": "child.front",
+          "proportion": "child",
+          "components": [
+            "child.body.slender.battle",
+            "child.face.round.battle",
+            "child.hair.short.battle"
+          ],
+          "feature_bindings": [
+            {
+              "id": "body.slender",
+              "features": {
+                "build": "slender"
+              },
+              "component_id": "child.body.slender.battle"
+            },
+            {
+              "id": "body.broad",
+              "features": {
+                "build": "broad"
+              },
+              "component_id": "child.body.broad.battle"
+            },
+            {
+              "id": "face.round",
+              "features": {
+                "face_shape": "round"
+              },
+              "component_id": "child.face.round.battle"
+            },
+            {
+              "id": "face.angular",
+              "features": {
+                "face_shape": "angular"
+              },
+              "component_id": "child.face.angular.battle"
+            },
+            {
+              "id": "hair.short",
+              "features": {
+                "hair": "short"
+              },
+              "component_id": "child.hair.short.battle"
+            },
+            {
+              "id": "hair.bun",
+              "features": {
+                "hair": "bun"
+              },
+              "component_id": "child.hair.bun.battle"
+            }
+          ]
+        },
+        {
+          "id": "adult",
+          "ages": [
+            16,
+            100
+          ],
+          "body_basis": "adult.front",
+          "proportion": "adult",
+          "components": [
+            "adult.body.slender.battle",
+            "adult.face.round.battle",
+            "adult.hair.short.battle"
+          ],
+          "feature_bindings": [
+            {
+              "id": "body.slender",
+              "features": {
+                "build": "slender"
+              },
+              "component_id": "adult.body.slender.battle"
+            },
+            {
+              "id": "body.broad",
+              "features": {
+                "build": "broad"
+              },
+              "component_id": "adult.body.broad.battle"
+            },
+            {
+              "id": "face.round",
+              "features": {
+                "face_shape": "round"
+              },
+              "component_id": "adult.face.round.battle"
+            },
+            {
+              "id": "face.angular",
+              "features": {
+                "face_shape": "angular"
+              },
+              "component_id": "adult.face.angular.battle"
+            },
+            {
+              "id": "hair.short",
+              "features": {
+                "hair": "short"
+              },
+              "component_id": "adult.hair.short.battle"
+            },
+            {
+              "id": "hair.bun",
+              "features": {
+                "hair": "bun"
+              },
+              "component_id": "adult.hair.bun.battle"
+            }
+          ]
+        }
+      ],
+      "attire_sets": [
+        {
+          "id": "plain",
+          "bindings": [
+            {
+              "body_basis": "child.front",
+              "components": [
+                "child.garment.plain.battle"
+              ]
+            },
+            {
+              "body_basis": "adult.front",
+              "components": [
+                "adult.garment.plain.battle"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "formal",
+          "bindings": [
+            {
+              "body_basis": "child.front",
+              "components": [
+                "child.garment.formal.battle"
+              ]
+            },
+            {
+              "body_basis": "adult.front",
+              "components": [
+                "adult.garment.formal.battle"
+              ]
+            }
+          ]
+        }
+      ],
+      "overrides": [],
+      "fallbacks": [],
+      "battle_profile": {
+        "style": "none"
+      }
+    },
+    "fixture.dedicated.a": {
+      "id": "fixture.dedicated.a",
+      "identity_group": "fixture.identity",
+      "mode": "handcrafted",
+      "view": "half_body",
+      "pose": "idle",
+      "context": "daily",
+      "age_domain": [
+        0,
+        100
+      ],
+      "child_max_age": 15,
+      "age_variants": [
+        {
+          "id": "child",
+          "ages": [
+            0,
+            15
+          ],
+          "body_basis": "child.front",
+          "proportion": "child",
+          "components": []
+        },
+        {
+          "id": "adult",
+          "ages": [
+            16,
+            100
+          ],
+          "body_basis": "adult.front",
+          "proportion": "adult",
+          "components": []
+        }
+      ],
+      "attire_sets": [],
+      "overrides": [
+        {
+          "id": "child.portrait",
+          "ages": [
+            0,
+            15
+          ],
+          "view": "half_body",
+          "pose": "idle",
+          "context": "daily",
+          "priority": 1,
+          "asset_id": "portraits/child.dedicated.a",
+          "body_basis": "child.front",
+          "proportion": "child",
+          "geometry": {
+            "source_size": [
+              96,
+              128
+            ],
+            "logical_canvas": [
+              96,
+              128
+            ],
+            "alpha_bounds": [
+              16,
+              24,
+              65,
+              103
+            ],
+            "safe_crop": [
+              20,
+              20,
+              56,
+              57
+            ],
+            "support_kind": "half_body_bottom",
+            "support_point": [
+              50,
+              100
+            ],
+            "pose": "idle",
+            "facing": "front",
+            "view": "half_body",
+            "mask_ids": [],
+            "palette_slots": []
+          }
+        },
+        {
+          "id": "adult.portrait",
+          "ages": [
+            16,
+            100
+          ],
+          "view": "half_body",
+          "pose": "idle",
+          "context": "daily",
+          "priority": 1,
+          "asset_id": "portraits/adult.dedicated.a",
+          "body_basis": "adult.front",
+          "proportion": "adult",
+          "geometry": {
+            "source_size": [
+              96,
+              128
+            ],
+            "logical_canvas": [
+              96,
+              128
+            ],
+            "alpha_bounds": [
+              16,
+              1,
+              65,
+              127
+            ],
+            "safe_crop": [
+              20,
+              0,
+              56,
+              57
+            ],
+            "support_kind": "half_body_bottom",
+            "support_point": [
+              50,
+              100
+            ],
+            "pose": "idle",
+            "facing": "front",
+            "view": "half_body",
+            "mask_ids": [],
+            "palette_slots": []
+          }
+        }
+      ],
+      "fallbacks": [],
+      "battle_profile": {
+        "style": "simple",
+        "profile_id": "fixture.battle"
+      }
+    },
+    "fixture.dedicated.b": {
+      "id": "fixture.dedicated.b",
+      "identity_group": "fixture.identity",
+      "mode": "handcrafted",
+      "view": "half_body",
+      "pose": "idle",
+      "context": "daily",
+      "age_domain": [
+        0,
+        100
+      ],
+      "child_max_age": 15,
+      "age_variants": [
+        {
+          "id": "child",
+          "ages": [
+            0,
+            15
+          ],
+          "body_basis": "child.front",
+          "proportion": "child",
+          "components": []
+        },
+        {
+          "id": "adult",
+          "ages": [
+            16,
+            100
+          ],
+          "body_basis": "adult.front",
+          "proportion": "adult",
+          "components": []
+        }
+      ],
+      "attire_sets": [],
+      "overrides": [
+        {
+          "id": "child.portrait",
+          "ages": [
+            0,
+            15
+          ],
+          "view": "half_body",
+          "pose": "idle",
+          "context": "daily",
+          "priority": 1,
+          "asset_id": "portraits/child.dedicated.b",
+          "body_basis": "child.front",
+          "proportion": "child",
+          "geometry": {
+            "source_size": [
+              96,
+              128
+            ],
+            "logical_canvas": [
+              96,
+              128
+            ],
+            "alpha_bounds": [
+              16,
+              24,
+              65,
+              103
+            ],
+            "safe_crop": [
+              20,
+              20,
+              56,
+              57
+            ],
+            "support_kind": "half_body_bottom",
+            "support_point": [
+              50,
+              100
+            ],
+            "pose": "idle",
+            "facing": "front",
+            "view": "half_body",
+            "mask_ids": [],
+            "palette_slots": []
+          }
+        },
+        {
+          "id": "adult.portrait",
+          "ages": [
+            16,
+            100
+          ],
+          "view": "half_body",
+          "pose": "idle",
+          "context": "daily",
+          "priority": 1,
+          "asset_id": "portraits/adult.dedicated.b",
+          "body_basis": "adult.front",
+          "proportion": "adult",
+          "geometry": {
+            "source_size": [
+              96,
+              128
+            ],
+            "logical_canvas": [
+              96,
+              128
+            ],
+            "alpha_bounds": [
+              16,
+              1,
+              65,
+              127
+            ],
+            "safe_crop": [
+              20,
+              0,
+              56,
+              57
+            ],
+            "support_kind": "half_body_bottom",
+            "support_point": [
+              50,
+              100
+            ],
+            "pose": "idle",
+            "facing": "front",
+            "view": "half_body",
+            "mask_ids": [],
+            "palette_slots": []
+          }
+        }
+      ],
+      "fallbacks": [],
+      "battle_profile": {
+        "style": "simple",
+        "profile_id": "fixture.battle"
+      }
+    }
+  },
+  "scene_templates": {}
+}

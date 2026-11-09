@@ -1,0 +1,38 @@
+{
+  "format": "HM-PROJECT-ART-USE",
+  "format_version": 1,
+  "use": "project-local-authorized-use",
+  "external_distribution_verified": false,
+  "resources": [
+    {
+      "source": "game/assets/art/alpha-visual/city.png",
+      "sha256": "96c0256ee3c12671c8829400f9a14b9c13274964cc54ce41e8273554bd57c4b7",
+      "generation_manifest": "game/assets/art/alpha-visual/manifest.json",
+      "generation_manifest_sha256": "cf5fd10647d22ce647150c1a87ff5642e5339aadfac03300df7be283bf732438"
+    },
+    {
+      "source": "game/assets/art/alpha-visual/merchant.png",
+      "sha256": "5e33b90d7fb2cc541f064612c7ad68ca23993f1d3e62d100376641b7b8729a66",
+      "generation_manifest": "game/assets/art/alpha-visual/manifest.json",
+      "generation_manifest_sha256": "cf5fd10647d22ce647150c1a87ff5642e5339aadfac03300df7be283bf732438"
+    },
+    {
+      "source": "game/assets/art/alpha-visual/shop.png",
+      "sha256": "3be27424e052c9f1bc6b8982f0cc55d621a49895744c94625c3f43a4d862673a",
+      "generation_manifest": "game/assets/art/alpha-visual/manifest.json",
+      "generation_manifest_sha256": "cf5fd10647d22ce647150c1a87ff5642e5339aadfac03300df7be283bf732438"
+    },
+    {
+      "source": "game/assets/art/alpha-personal/practice-clearing.png",
+      "sha256": "23ece77ebfaea5ed515abaeccc2f8068a52a4db971cb6b4af6483aa682853ab0",
+      "generation_manifest": "game/assets/art/alpha-personal/manifest.json",
+      "generation_manifest_sha256": "be064496d2f27fdf9697717f71119b920edd078021ec21d95f84798327ca725f"
+    },
+    {
+      "source": "game/assets/art/alpha-personal/swordsman.png",
+      "sha256": "20aa39ffc3e3f2da45ba311810c17c47ff319566eb7e925de266f474afd87d3e",
+      "generation_manifest": "game/assets/art/alpha-personal/manifest.json",
+      "generation_manifest_sha256": "be064496d2f27fdf9697717f71119b920edd078021ec21d95f84798327ca725f"
+    }
+  ]
+}

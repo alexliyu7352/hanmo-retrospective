@@ -1,0 +1,25 @@
+#include "resident/domains/military/military_model.hpp"
+// 观察只认该真实头前的最后批准；后发草案、改判和再占领不能倒写旧观察许可。
+#include "politics_supply_adoptions_detail.hpp"
+namespace hanmo::resident {namespace {
+Outcome<std::optional<PoliticalSupplyAdoptionSource>> read(const PoliticalTakeoverContext& x,const StableId& policy,const std::optional<StableId>& boundary,Integer tick){
+ using namespace takeover_detail;using supply_authority_detail::before;const auto fail=[](const StableId& code,const StableId& id=StableId{})->Outcome<std::optional<PoliticalSupplyAdoptionSource>>{return {false,{},common_failure(code,id).error};};
+ if(!x.supply_adoptions||!x.supply_policies)return fail("PoliticalSupplyPoliciesNotEnabled");auto evaluation=political_takeover_evaluation_tick(x.common,x.phase);if(!evaluation.ok)return {false,{},evaluation.error};
+ Integer sequence=x.common.state().next_instance_id;if(boundary){const auto* fact=x.common.state().facts.find(*boundary);auto number=organization_instance_sequence(*boundary,"economic_supply_observation");if(!fact||fact->id!=*boundary||fact->kind!="economic_supply_observed"||fact->domain!="economic_supply_policies"||!number||*number>=sequence||tick<0||tick>x.common.tick())return fail("PoliticalSupplyObservationBoundaryMismatch",*boundary);sequence=*number;}else if(tick!=evaluation.value)return fail("PoliticalSupplyObservationBoundaryMismatch");
+ auto valid=validate_political_takeover_state(x);if(!valid.ok)return {false,{},valid.error};
+ const PoliticalSupplyAdoptionRecord* selected=nullptr;const PoliticalTakeoverDecisionRecord* decision=nullptr;const PoliticalTakeoverApprovalRecord* approval=nullptr;Integer latest_binding=0;
+ for(const auto& row:x.supply_adoptions->bindings.rows())if(row.second.policy_issue_fact_id==policy){auto number=organization_instance_sequence(row.first,"political_responsibility");if(!number)return fail("InvalidPoliticalSupplyAdoption",row.first);if(*number>=sequence)continue;if(boundary&&!before(x.common,row.first,*boundary))return fail("PoliticalSupplyObservationOrderMismatch",row.first);if(*number>latest_binding){latest_binding=*number;selected=&row.second;decision=x.state.decisions.find(row.first);approval=decision?x.state.approvals.find(decision->approval_fact_id):nullptr;}}
+ if(!selected)return {true,std::nullopt,{}};if(!decision||!approval||approval->tick>tick)return fail("InvalidPoliticalSupplyAdoption",selected->decision_fact_id);
+ const auto* r=x.state.registrations.find(approval->registration_fact_id);if(!r)return fail("InvalidPoliticalSupplyAdoption",selected->decision_fact_id);
+ const PoliticalOriginalResponsibility* original=nullptr;for(const auto& v:r->responsibilities)if(key(v.responsibility)==key(decision->decision.responsibility))original=&v;if(!original)return fail("InvalidPoliticalSupplyAdoption",selected->decision_fact_id);
+ auto terms=supply_adoption_detail::terms(x,*r,*original,policy,approval->id);if(!terms.ok)return {false,{},terms.error};
+ PoliticalSupplyAdoptionSource out;out.source_identity=x.common.state().identity;out.policy_fact_id=policy;out.registration_fact_id=r->id;out.original_source_key=terms.value.original_source_key;out.approval_fact_id=approval->id;out.decision_fact_id=decision->id;out.organization_id=r->successor_organization_id;out.site_id=terms.value.policy.site_id;out.effective_tick=std::max(approval->tick,terms.value.earliest_effective_tick);out.observed_tick=tick;
+ const PoliticalTakeoverApprovalRecord* last=nullptr;Integer latest=0;for(const auto& row:x.state.approvals.rows())if(row.second.registration_fact_id==r->id){auto n=organization_instance_sequence(row.first,"political_takeover");if(!n)return fail("InvalidPoliticalSupplyAdoption",row.first);if(*n>=sequence)continue;if(row.second.tick>tick||(boundary&&!before(x.common,row.first,*boundary)))return fail("PoliticalSupplyObservationOrderMismatch",row.first);if(*n>latest){latest=*n;last=&row.second;}}
+ if(last!=approval){if(boundary)return {true,std::nullopt,{}};out.unavailable_code="PoliticalSupplyApprovalChanged";return {true,std::move(out),{}};}
+ if(tick<out.effective_tick||tick>terms.value.through_tick){out.unavailable_code=tick<out.effective_tick?"PoliticalSupplyPolicyNotEffective":"PoliticalSupplyPolicyExpired";return {true,std::move(out),{}};}
+ auto active=supply_adoption_detail::active(x,*r,terms.value,tick,sequence,boundary.value_or(StableId{}));if(!active.ok)return {false,{},active.error};out.new_contracts_allowed=active.value;if(!active.value)out.unavailable_code="PoliticalSupplyPolicyAuthorityChanged";return {true,std::move(out),{}};
+}
+}
+Outcome<std::optional<PoliticalSupplyAdoptionSource>> PoliticalSupplyAdoptionAccess::political_supply_adoption(const StableId& policy)const{auto evaluation=political_takeover_evaluation_tick(context_.common,context_.phase);if(!evaluation.ok)return {false,{},evaluation.error};return read(context_,policy,{},evaluation.value);}
+Outcome<std::optional<PoliticalSupplyAdoptionSource>> PoliticalSupplyAdoptionAccess::political_supply_adoption_before_observation(const StableId& policy,const StableId& observation,Integer tick)const{return read(context_,policy,observation,tick);}
+}

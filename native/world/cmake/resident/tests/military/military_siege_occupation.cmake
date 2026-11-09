@@ -1,0 +1,7 @@
+# 军旅与战斗消费者登记：保留本组目标、测试、条件与局部变量的原执行顺序。
+# 原围城参与链与strict phase人物占用。
+add_executable(test_resident_military_siege_occupation tests/resident/military_siege_occupation_test.cpp)
+target_link_libraries(test_resident_military_siege_occupation PRIVATE hanmo_resident)
+target_include_directories(test_resident_military_siege_occupation PRIVATE src)
+target_compile_options(test_resident_military_siege_occupation PRIVATE -UNDEBUG -fno-fast-math -ffp-contract=off)
+add_test(NAME resident_military_siege_occupation COMMAND test_resident_military_siege_occupation)

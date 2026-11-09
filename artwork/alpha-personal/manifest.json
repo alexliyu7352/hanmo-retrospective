@@ -1,0 +1,140 @@
+{
+  "format": "HANMO-ISOLATED-GENERATED-ART",
+  "version": 1,
+  "created_utc": "2026-09-12T08:22:47.691906+00:00",
+  "generator": "built-in image_gen.imagegen",
+  "scope": "独立原创背景与透明人物素材；不是运行截图，不包含世界规则，不代表已接入或通过实机验收。",
+  "inputs": "未上传商业游戏图片；生成提示词以文字指定原创汉末场景。生成前只读核对本工程 city.webp、guard.png 与 f05 manifest 色感。",
+  "processing": "保持工具输出原始字节，仅复制和读像素核验，没有裁图、重绘、去背或alpha后处理。",
+  "assets": [
+    {
+      "id": "practice-clearing",
+      "file": "practice-clearing.png",
+      "source_file": "<本地路径>",
+      "prompt_file": "practice-clearing.prompt.txt",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "bytes": 3290066,
+      "sha256": "23ece77ebfaea5ed515abaeccc2f8068a52a4db971cb6b4af6483aa682853ab0",
+      "prompt_sha256": "a5638bd828cdac37dfa21394abc6225712fa65ac7a6e4901e957ba3dd9a9a657",
+      "kind": "background"
+    },
+    {
+      "id": "river-ford",
+      "file": "river-ford.png",
+      "source_file": "<本地路径>",
+      "prompt_file": "river-ford.prompt.txt",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "bytes": 3741172,
+      "sha256": "d43a81b42f47fb71f73035044d01a5389407dc9c0d1f15c095416a11b031db4d",
+      "prompt_sha256": "929657ff72ad902ccbb7afa10332b2e45c1dd6eb249c268e6eca2fe71e648a64",
+      "kind": "background"
+    },
+    {
+      "id": "swordsman",
+      "file": "swordsman.png",
+      "source_file": "<本地路径>",
+      "prompt_file": "swordsman.prompt.txt",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "bytes": 815264,
+      "sha256": "20aa39ffc3e3f2da45ba311810c17c47ff319566eb7e925de266f474afd87d3e",
+      "prompt_sha256": "d4279faba0f1e2aca675c1adab4ea338dc2157ef4787e1d4d856b9927e2cf2c6",
+      "kind": "transparent_character_sprite",
+      "alpha": {
+        "extrema": [
+          0,
+          255
+        ],
+        "transparent_pixels": 1257328,
+        "opaque_pixels": 406,
+        "partial_pixels": 314782,
+        "total_pixels": 1572516,
+        "visible_bounds": [
+          33,
+          21,
+          1218,
+          1230
+        ],
+        "all_four_corners_transparent": true
+      }
+    },
+    {
+      "id": "spearman",
+      "file": "spearman.png",
+      "source_file": "<本地路径>",
+      "prompt_file": "spearman.prompt.txt",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "bytes": 865360,
+      "sha256": "bb63401ad307f9f597b708057ab3be261f2397797a03d94b4e43a9e17f8951d9",
+      "prompt_sha256": "17fd11564ae8797c1c5f5e27b5c1053013f2f2bfd1668b4b455bed7a69116a0a",
+      "kind": "transparent_character_sprite",
+      "alpha": {
+        "extrema": [
+          0,
+          255
+        ],
+        "transparent_pixels": 1259365,
+        "opaque_pixels": 576,
+        "partial_pixels": 312575,
+        "total_pixels": 1572516,
+        "visible_bounds": [
+          29,
+          39,
+          1225,
+          1230
+        ],
+        "all_four_corners_transparent": true
+      }
+    },
+    {
+      "id": "archer",
+      "file": "archer.png",
+      "source_file": "<本地路径>",
+      "prompt_file": "archer.prompt.txt",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "bytes": 897423,
+      "sha256": "707a55441c9855fb38846e50a5fc3f9c8bcc4c6f695bbfcf3d2039bf7fa80e2d",
+      "prompt_sha256": "5e1e1c24697ddd4f35143e762d7e93b43339c7b8497defbfb77776ca64f9afc4",
+      "kind": "transparent_character_sprite",
+      "alpha": {
+        "extrema": [
+          0,
+          255
+        ],
+        "transparent_pixels": 1225673,
+        "opaque_pixels": 728,
+        "partial_pixels": 346115,
+        "total_pixels": 1572516,
+        "visible_bounds": [
+          31,
+          23,
+          1212,
+          1230
+        ],
+        "all_four_corners_transparent": true
+      }
+    }
+  ],
+  "integration_status": "NOT_INTEGRATED",
+  "runtime_validation": "NOT_RUN",
+  "visual_review": "逐张查看：两背景无UI/文字/人物，中央地面可读；三人物武器、服装色和轮廓区分，真实透明背景。最终缩小尺寸、地面锚点和场地规则由主Agent接入后实机核验。"
+}

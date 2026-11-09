@@ -1,0 +1,18 @@
+{
+  "generator": "builtin image_gen",
+  "created": "2026-09-12",
+  "purpose": "补齐原主角素材被裁掉的脸部与身体，供 Alpha 场景、武学和动态人物原型使用",
+  "reference": "../player.png",
+  "files": [
+    {
+      "path": "traveller-waistup.png",
+      "sha256": "f3a481f260b1f8522c15084e048de0c2c4b0a8c84eed9fbf32dcd86abb1445c9",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "prompt": "traveller-waistup.prompt.txt"
+    }
+  ]
+}

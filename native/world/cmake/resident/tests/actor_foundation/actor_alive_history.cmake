@@ -1,0 +1,7 @@
+# 人物与控制底座消费者登记：保留本组目标、测试、条件与局部变量的原执行顺序。
+# 精确死因与业务原事实前界核历史在世资格，不把后来死亡抹到先前签受。
+add_executable(test_resident_actor_alive_history tests/resident/actor_alive_history_test.cpp)
+target_link_libraries(test_resident_actor_alive_history PRIVATE hanmo_resident)
+target_include_directories(test_resident_actor_alive_history PRIVATE src)
+target_compile_options(test_resident_actor_alive_history PRIVATE -UNDEBUG -fno-fast-math -ffp-contract=off)
+add_test(NAME resident_actor_alive_history COMMAND test_resident_actor_alive_history)

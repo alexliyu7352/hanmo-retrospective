@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "enabled": true,
+  "passage_terms": {
+    "passage.qingchuan_sword_yard": {
+      "id": "passage.qingchuan_sword_yard",
+      "name_key": "civicecon::text.diplomacy.sword_yard_passage",
+      "grantor_organization_id": "society::org.sect",
+      "beneficiary_organization_id": "society::org.city",
+      "place_ids": [
+        "society::place.sword_gate"
+      ],
+      "duration_ticks": 12,
+      "expiry_notice_ticks": 2
+    }
+  },
+  "mission_policies": {
+    "mission.qingchuan_sword_yard": {
+      "id": "mission.qingchuan_sword_yard",
+      "name_key": "civicecon::text.diplomacy.visit_sect_steward",
+      "issuer_organization_id": "society::org.city",
+      "target_organization_id": "society::org.sect",
+      "issuer_site_id": "society::place.courtyard",
+      "target_site_id": "society::place.sword_gate",
+      "target_office_id": "office.sect_steward",
+      "passage_terms_ids": [
+        "passage.qingchuan_sword_yard"
+      ],
+      "offer_valid_ticks": 8,
+      "task_terms": {
+        "acceptance_valid_ticks": 4,
+        "delivery_work_ticks": 1,
+        "report_work_ticks": 0,
+        "return_report_required": false,
+        "continuity_policy_id": "continue_under_organization"
+      }
+    }
+  }
+}

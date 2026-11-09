@@ -1,0 +1,7 @@
+# 共同资源与执行消费者登记：保留本组目标、测试、条件与局部变量的原执行顺序。
+# 同一未发布Common候选的实际资源前后覆盖，不是永久库存历史或业务授权。
+add_executable(test_resident_resource_execution_coverage tests/resident/resource_execution_coverage_test.cpp)
+target_link_libraries(test_resident_resource_execution_coverage PRIVATE hanmo_resident)
+target_include_directories(test_resident_resource_execution_coverage PRIVATE src)
+target_compile_options(test_resident_resource_execution_coverage PRIVATE -UNDEBUG -fno-fast-math -ffp-contract=off)
+add_test(NAME resident_resource_execution_coverage COMMAND test_resident_resource_execution_coverage)

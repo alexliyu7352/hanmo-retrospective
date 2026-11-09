@@ -1,0 +1,7 @@
+// 只返本人已实领的精确一封回信；不以最新另一封替换旧来源，也不读取今日远方人物状态。
+#include "visit_reply_read.hpp"
+#include "visit_reply_detail.hpp"
+namespace hanmo::resident {
+Status validate_visit_reply_read(const VisitReplyReadContext& r){auto valid=validate_visit_replies(r.common,r.common_catalog,r.messages,r.message_catalog,r.interactions,r.catalog,r.state,r.deaths,r.authorship,r.life);return valid.ok?validate_visit_reply_cached_results(r.common,&r.state,r.actual_commands):valid;}
+Outcome<std::optional<CollectedVisitReplySource>> read_collected_visit_reply(const VisitReplyReadContext& r,const StableId& observer,const StableId& id){if(!r.common.actor(observer)||id.empty())return {false,{},common_failure("InvalidVisitReplyObserver").error};auto valid=validate_visit_reply_read(r);if(!valid.ok)return {false,{},valid.error};const auto* received=visit_reply_detail::collected(r.state,id);if(!received||received->contact.actor_id!=observer)return {true,std::nullopt,{}};const auto* reply=r.state.posted.find(id);const auto* message=reply?r.messages.posted.find(reply->message_fact_id):nullptr;if(!reply||!message||message->sender_actor_id!=observer||message->recipient_actor_id!=reply->contact.actor_id)return {false,{},common_failure("VisitReplyKnowledgeSourceMismatch",id).error};return {true,CollectedVisitReplySource{r.common.state().identity,observer,id,received->fact_id,message->fact_id,message->sender_actor_id,message->recipient_actor_id,received->contact.custodian_actor_id,received->contact.place_id,reply->response,reply->contact.tick,received->contact.tick},{}};}
+}

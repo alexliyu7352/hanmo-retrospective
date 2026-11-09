@@ -1,0 +1,10 @@
+// 冷解码从不重新征税；严格结构读取后仍须由原生world调用完整来源validator。
+#include "resident/checkpoint/checkpoint_decode_lifecycle.hpp"
+#include "fiscal_settlement_codec.hpp"
+namespace hanmo::resident {
+Outcome<FiscalSettlementCatalog> decode_fiscal_settlement_catalog(const BoundaryValue& value){try{auto out=dynamic_economy_codec::decode_root<FiscalSettlementCatalog>(value,"/fiscal_settlement");if(out.version!=1)boundary::fail("UnsupportedFiscalSettlementVersion","/fiscal_settlement/version");return {true,std::move(out),{}};}catch(const boundary::DecodeFailure& error){return {false,{},error.error};}}
+Status emit_fiscal_settlement_state_fields(ProjectionWriter& writer,const FiscalSettlementState& state){try{if(state.version!=1)boundary::fail("UnsupportedFiscalSettlementVersion","/fiscal_settlement/version");return dynamic_economy_codec::emit_fields(writer,state);}catch(const boundary::DecodeFailure&failure){return writer.reject(failure.error.original.code,failure.error.original.path);}}
+BoundaryValue encode_fiscal_settlement_state(const FiscalSettlementState& state){BoundaryValue out;BoundaryProjectionWriter writer(out);auto valid=writer.object("",[&](auto&fields){return emit_fiscal_settlement_state_fields(fields,state);});if(valid.ok)valid=writer.finish();if(!valid.ok)throw boundary::DecodeFailure{valid.error};return out;}
+Outcome<FiscalSettlementState> decode_fiscal_settlement_state(const BoundaryValue& value){try{auto out=dynamic_economy_codec::decode_root<FiscalSettlementState>(value,"/fiscal_settlement");if(out.version!=1)boundary::fail("UnsupportedFiscalSettlementVersion","/fiscal_settlement/version");return {true,std::move(out),{}};}catch(const boundary::DecodeFailure& error){return {false,{},error.error};}}
+Status visit_fiscal_settlement_checkpoint(CodecVisitor& codec,FiscalSettlementState& state){if(!codec.reading()&&state.version!=1)return codec.reject("UnsupportedFiscalSettlementVersion","fiscal_settlement");auto result=dynamic_economy_codec::checkpoint(codec,"fiscal_settlement",state);if(!result.ok)return result;return state.version==1?codec.status():codec.reject("UnsupportedFiscalSettlementVersion","fiscal_settlement");}
+}

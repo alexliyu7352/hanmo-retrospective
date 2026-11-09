@@ -1,0 +1,95 @@
+// 仅保原世界复制的 job 生命周期接头及真实 StableId 长度工具；逐型复制计划已删除。
+#pragma once
+#include "resident/checkpoint/checkpoint_copy_shape.hpp"
+namespace hanmo::resident {
+struct DynamicMilitaryActualEffectReadBuildView;
+struct BoundSpatialLocationWriteBuildView;
+struct ActualActorSpatialWriteReadBuildView;
+struct ActualActorSpatialWriteRead;
+struct ActualItemRepairCompletionBuildView;
+struct SharedWorkElapsedState;
+struct OrganizationServiceEffectsBuildView;
+struct ActualServiceIntervalViewBuildView;
+struct OriginalUniqueItemTransferEffectBuildView;struct ItemConditionHeadBuildView;struct RepairItemProposalBuildView;
+struct DynamicMilitaryLogisticsFactBuildView2;struct DynamicMilitaryReturnFactBuildView2;
+struct MilitaryFormationReservations1;struct MilitaryFormationReservationsBuildView;
+struct S3PlayerReceiptBuildView;
+struct S3EventTimeBuildView;
+struct ActionElapsedStateBuildView;struct FixedServiceAdoptionTransitionBuildView;
+struct ActionElapsedStore;struct ActionElapsedStoreBuildView;
+struct ActionElapsedTerminalBinding;struct ActionElapsedTerminalBuildView;
+struct PreparedFixedServiceChangeBuildView;
+struct MilitaryReturnResourceOpeningBuildView;
+struct FixedServiceTerminalTransitionBuildView;
+struct MilitaryActionResourceEffectBuildView;struct MilitaryActionResourceEffect1;
+struct ProducedStableIdBuildView;
+std::size_t checkpoint_produced_stable_id_size(const ProducedStableIdBuildView&);
+struct TaskExactStartBuildView;
+struct TaskExactTerminalBuildView;
+struct MilitaryCampaignAcceptanceBuildView;
+struct MilitaryOfficeResignationBuildView;
+struct DynamicMilitaryActionFactBuildView2;
+struct InteractionActionConfirmationBuildView;
+struct MilitaryActionPlacementBuildView;
+struct MilitaryFormationSourceBuildView;
+struct MilitaryCompletedReturnSourceBuildView;
+
+struct MilitaryFatalConsequenceBuildView;
+struct MilitaryCasualtySourceBuildView;
+struct DynamicMilitaryCommanderLossBuildView;
+
+struct SourceRefBuildView;struct MomentOwnerSourceBuildView;struct DynamicMilitaryLandConsequenceBuildView;
+
+struct SourcePinBuildView;
+struct MilitaryActorConsequenceBuildView;
+
+struct SelectedMilitaryInjuryResultBuildView;
+struct MilitaryTacticalFormationBuildView3;
+struct MilitaryTacticalMissionBuildView3;
+struct MilitaryAcceptedDirectIntentBuildView3;
+struct DirectForceIntentReceiptBuildView3;
+struct PendingRetirementCancelledBuildView;
+struct ContinuationBoundaryCancelledBuildView;
+struct SuccessionPlanCancellationBuildView;
+// Raw new-owner inputs before persistent copies; callers retain the lease.
+struct ControlContinuationState;
+struct ContinuationBoundaryWork;
+struct StabilizeContinuationBoundary;
+struct ContinuationBoundaryReceipt;
+struct PendingRetirementCancelled;
+struct MilitaryTacticalFormation3;
+struct MilitaryTacticalMissionRecord3;
+struct DirectForceIntent3;
+struct DirectForceIntentReceipt3;
+struct CurrentCommonFactPrefix;
+struct ReceiptDetails;struct CommitResult;
+struct CancelContinuationBoundary;
+struct ContinuationBoundaryCancelled;
+struct CatalogIdentity;struct WorldBundle;struct CommonState;struct InitialWorldSeed;struct LifeFixedServiceInputs;struct LifeFixedServiceBoundary;
+struct GrowthSkillQualificationV2;
+struct SocialPropagationAdoption;
+struct SourceRef;struct DeathRef;struct InteractionSessionLifeSource;struct InitialConditionSeed;
+// Raw fields only, used before the source owner performs its actual copy.
+struct InteractionResponseSource;struct SelectedResponseTail;struct InteractionSessionBoundary;
+struct InteractionSessionBoundaryBuildView;
+struct RepairCustodyReceivedSource;struct RepairItemReturnedSource;
+struct RepairCustodyReceivedBuildView;struct RepairItemReturnedBuildView;
+// First construction borrows the actual original producer fields; it does not
+// create a temporary owned Source before acquiring its first-member lease.
+inline CheckpointMemoryCharge reserve_world_checkpoint_copy(const WorldBundle&) { return CheckpointMemoryCharge(0); }
+// 原shared-const seed构造逐实际pointee预留；私有decoder消费路径只移动所有权。
+inline CheckpointMemoryCharge reserve_initial_world_seed_copy(const InitialWorldSeed&) { return CheckpointMemoryCharge(0); }
+// 具名FSL源复制前沿同一真实字段计划；调用者须将租约保留到目标全部字段销毁。
+}
+
+namespace hanmo::resident {
+struct MilitaryActionAcceptanceConditions1;struct MilitaryActionAcceptanceConditionsBuildView;
+}
+
+namespace hanmo::resident {
+struct ActionTimeOwnerProof;struct ActionTimeOwnerProofBuildView;
+}
+
+namespace hanmo::resident {
+struct ActualServiceRemainingBuildView;struct ActualAuthorizationRemainingBuildView;
+}

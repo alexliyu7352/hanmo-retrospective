@@ -1,0 +1,267 @@
+{
+  "schema": "adult_sword_asset_pixel_inspection/1",
+  "source": "art-source/art-direction/adult-sword-battle-v1/source/atlas-02-candidate.png",
+  "source_size": [
+    1254,
+    1254
+  ],
+  "mode": "RGBA",
+  "sha256": "9b1707f882dbee1ff6f8242da238c34ada9b9ac282d357f88ea6a34a1036f23c",
+  "alpha_zero_pixels": 1061679,
+  "alpha_1_to_15_pixels": 41824,
+  "alpha_ge16_pixels": 469013,
+  "alpha_255_pixels": 1590,
+  "whole_alpha_bbox_nonzero": [
+    0,
+    13,
+    1248,
+    1254
+  ],
+  "parts": {
+    "torso": {
+      "alpha_bbox_ge16_local": [
+        7,
+        7,
+        319,
+        432
+      ],
+      "visible_pixels_ge16": 82997,
+      "nonzero_alpha_pixels": 88338,
+      "major_component_pixels": 82997,
+      "major_component_total": 82997,
+      "foreign_component_pixels_ge16": 0,
+      "missing_major_component_pixels_ge16": 0
+    },
+    "head": {
+      "alpha_bbox_ge16_local": [
+        6,
+        6,
+        265,
+        330
+      ],
+      "visible_pixels_ge16": 49731,
+      "nonzero_alpha_pixels": 54343,
+      "major_component_pixels": 49730,
+      "major_component_total": 49730,
+      "foreign_component_pixels_ge16": 1,
+      "missing_major_component_pixels_ge16": 0
+    },
+    "right_upper_arm": {
+      "alpha_bbox_ge16_local": [
+        6,
+        6,
+        186,
+        292
+      ],
+      "visible_pixels_ge16": 32119,
+      "nonzero_alpha_pixels": 34473,
+      "major_component_pixels": 32119,
+      "major_component_total": 32119,
+      "foreign_component_pixels_ge16": 0,
+      "missing_major_component_pixels_ge16": 0,
+      "anchor_bone_length_after_uniform_scale": 161.1715
+    },
+    "left_upper_arm": {
+      "alpha_bbox_ge16_local": [
+        6,
+        6,
+        189,
+        291
+      ],
+      "visible_pixels_ge16": 31910,
+      "nonzero_alpha_pixels": 34411,
+      "major_component_pixels": 31910,
+      "major_component_total": 31910,
+      "foreign_component_pixels_ge16": 0,
+      "missing_major_component_pixels_ge16": 0,
+      "anchor_bone_length_after_uniform_scale": 166.2499
+    },
+    "right_forearm": {
+      "alpha_bbox_ge16_local": [
+        6,
+        6,
+        206,
+        265
+      ],
+      "visible_pixels_ge16": 28440,
+      "nonzero_alpha_pixels": 30570,
+      "major_component_pixels": 28440,
+      "major_component_total": 28440,
+      "foreign_component_pixels_ge16": 0,
+      "missing_major_component_pixels_ge16": 0,
+      "anchor_bone_length_after_uniform_scale": 96.4254
+    },
+    "left_forearm": {
+      "alpha_bbox_ge16_local": [
+        7,
+        4,
+        162,
+        220
+      ],
+      "visible_pixels_ge16": 21780,
+      "nonzero_alpha_pixels": 24264,
+      "major_component_pixels": 21780,
+      "major_component_total": 21780,
+      "foreign_component_pixels_ge16": 0,
+      "missing_major_component_pixels_ge16": 0,
+      "anchor_bone_length_after_uniform_scale": 95.7131
+    },
+    "right_hand": {
+      "alpha_bbox_ge16_local": [
+        6,
+        6,
+        142,
+        168
+      ],
+      "visible_pixels_ge16": 12755,
+      "nonzero_alpha_pixels": 14630,
+      "major_component_pixels": 12755,
+      "major_component_total": 12755,
+      "foreign_component_pixels_ge16": 0,
+      "missing_major_component_pixels_ge16": 0,
+      "anchor_bone_length_after_uniform_scale": 79.6939
+    },
+    "left_hand": {
+      "alpha_bbox_ge16_local": [
+        6,
+        6,
+        168,
+        168
+      ],
+      "visible_pixels_ge16": 12791,
+      "nonzero_alpha_pixels": 15485,
+      "major_component_pixels": 12791,
+      "major_component_total": 12791,
+      "foreign_component_pixels_ge16": 0,
+      "missing_major_component_pixels_ge16": 0,
+      "anchor_bone_length_after_uniform_scale": 80.4006
+    },
+    "right_thigh": {
+      "alpha_bbox_ge16_local": [
+        6,
+        6,
+        208,
+        290
+      ],
+      "visible_pixels_ge16": 41537,
+      "nonzero_alpha_pixels": 44323,
+      "major_component_pixels": 41537,
+      "major_component_total": 41537,
+      "foreign_component_pixels_ge16": 0,
+      "missing_major_component_pixels_ge16": 0,
+      "anchor_bone_length_after_uniform_scale": 202.0085
+    },
+    "left_thigh": {
+      "alpha_bbox_ge16_local": [
+        6,
+        6,
+        245,
+        296
+      ],
+      "visible_pixels_ge16": 43526,
+      "nonzero_alpha_pixels": 46537,
+      "major_component_pixels": 43526,
+      "major_component_total": 43526,
+      "foreign_component_pixels_ge16": 0,
+      "missing_major_component_pixels_ge16": 0,
+      "anchor_bone_length_after_uniform_scale": 198.2453
+    },
+    "right_shin": {
+      "alpha_bbox_ge16_local": [
+        6,
+        6,
+        164,
+        278
+      ],
+      "visible_pixels_ge16": 26405,
+      "nonzero_alpha_pixels": 28851,
+      "major_component_pixels": 26405,
+      "major_component_total": 26405,
+      "foreign_component_pixels_ge16": 0,
+      "missing_major_component_pixels_ge16": 0,
+      "anchor_bone_length_after_uniform_scale": 202.718
+    },
+    "left_shin": {
+      "alpha_bbox_ge16_local": [
+        6,
+        6,
+        165,
+        281
+      ],
+      "visible_pixels_ge16": 27201,
+      "nonzero_alpha_pixels": 29477,
+      "major_component_pixels": 27201,
+      "major_component_total": 27201,
+      "foreign_component_pixels_ge16": 0,
+      "missing_major_component_pixels_ge16": 0,
+      "anchor_bone_length_after_uniform_scale": 200.3593
+    },
+    "right_foot": {
+      "alpha_bbox_ge16_local": [
+        6,
+        6,
+        219,
+        204
+      ],
+      "visible_pixels_ge16": 23085,
+      "nonzero_alpha_pixels": 24792,
+      "major_component_pixels": 23085,
+      "major_component_total": 23085,
+      "foreign_component_pixels_ge16": 0,
+      "missing_major_component_pixels_ge16": 0,
+      "measured_contact_global": [
+        252,
+        1169
+      ],
+      "contact_threshold": 128
+    },
+    "left_foot": {
+      "alpha_bbox_ge16_local": [
+        6,
+        6,
+        222,
+        189
+      ],
+      "visible_pixels_ge16": 22215,
+      "nonzero_alpha_pixels": 24361,
+      "major_component_pixels": 22215,
+      "major_component_total": 22215,
+      "foreign_component_pixels_ge16": 0,
+      "missing_major_component_pixels_ge16": 0,
+      "measured_contact_global": [
+        618,
+        1163
+      ],
+      "contact_threshold": 128
+    },
+    "sword": {
+      "alpha_bbox_ge16_local": [
+        6,
+        6,
+        72,
+        388
+      ],
+      "visible_pixels_ge16": 12521,
+      "nonzero_alpha_pixels": 14457,
+      "major_component_pixels": 12521,
+      "major_component_total": 12521,
+      "foreign_component_pixels_ge16": 0,
+      "missing_major_component_pixels_ge16": 0,
+      "anchor_bone_length_after_uniform_scale": 380.9
+    }
+  },
+  "pixel_mutation": false,
+  "colored_edge_samples": {
+    "bright_red": {
+      "pixels": 3854,
+      "max_alpha": 4,
+      "alpha_ge16_count": 0
+    },
+    "bright_yellow": {
+      "pixels": 579,
+      "max_alpha": 5,
+      "alpha_ge16_count": 0
+    }
+  },
+  "colored_edge_note": "RGB edge colors are real but alpha is at most 5/255. Transparent-tool preview alone overstates visible saturation; judge actual compositing before assigning visual failure."
+}

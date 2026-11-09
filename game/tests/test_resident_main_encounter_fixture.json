@@ -1,0 +1,8 @@
+{
+  "state": "resident-journey-oracle-baseline-20261004/recovery-verified-20261005/restored-repeat/state-81143e6a5b1d5eee00c887060fd63157ab6e3c75806102da8cee0f3e9c84fa1c.json",
+  "catalog": "hanmo-resident-lane-d/.local/resident-recovery-input/catalog.json",
+  "state_sha256": "81143e6a5b1d5eee00c887060fd63157ab6e3c75806102da8cee0f3e9c84fa1c",
+  "catalog_sha256": "b9716a51c36ed1a11ed90cbdbbfb3521e0564ef9738bc15999f35e7f6eb0fe28",
+  "encounter_id": "encounter:34",
+  "source": "Unchanged actual26 recovery walker-choice state, selected from existing six-case GD view oracle; no new authored conditions or mechanics."
+}

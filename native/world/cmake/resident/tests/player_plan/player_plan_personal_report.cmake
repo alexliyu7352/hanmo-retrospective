@@ -1,0 +1,6 @@
+# 玩家计划消费者登记：保留本组目标、测试、条件与局部变量的原执行顺序。
+# 本人实际返报的一半日Continue，原sender SAY/真正result与原结酬仍各自核验。
+add_executable(test_resident_player_plan_personal_report tests/resident/player_plan_personal_report_test.cpp)
+target_link_libraries(test_resident_player_plan_personal_report PRIVATE hanmo_resident)
+target_include_directories(test_resident_player_plan_personal_report PRIVATE src)
+add_test(NAME resident_player_plan_personal_report COMMAND test_resident_player_plan_personal_report)

@@ -1,0 +1,42 @@
+{
+  "schema": "adult_sword_whole_pose_source/1",
+  "pose": "strike",
+  "weapon_class": "same single-edged curved dao as neutral-01; not jian",
+  "tool": "built-in image_gen.imagegen",
+  "original_output_path": "<本地路径>",
+  "output": "source/strike-01.png",
+  "prompt": "prompt-02-strike.md",
+  "reference": "source/neutral-01.png",
+  "reference_sha256": "4ac3c15a23dbfb4b85823cb592833b4a579797f70b515eb2a282c350ee75e7a3",
+  "actual_size": [
+    1254,
+    1254
+  ],
+  "mode": "RGBA",
+  "bytes": 1075313,
+  "sha256": "0101b6f8f1892ccafd087cb7412c35413fb8270b10b2714271b325288096798b",
+  "alpha_zero_pixels": 1164298,
+  "alpha_1_to_15_pixels": 28034,
+  "visible_bbox_alpha_ge16": [
+    82,
+    56,
+    1238,
+    1194
+  ],
+  "edge_chroma_sample": {
+    "red": {
+      "pixels": 1468,
+      "max_alpha": 4,
+      "alpha_ge16": 0
+    },
+    "yellow": {
+      "pixels": 339,
+      "max_alpha": 8,
+      "alpha_ge16": 0
+    }
+  },
+  "pixel_mutation": false,
+  "layered": false,
+  "registered_in_main": false,
+  "status": "WIP complete strike figure; same-person/same-dao continuity pending visual review"
+}

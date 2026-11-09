@@ -1,0 +1,13 @@
+// 正规原库存种子截面门；本夹具不冒Installed整链已运行。
+#include "resident/domains/growth/growth_market_initial.hpp"
+#include "resident/domains/growth/growth_model.hpp"
+#include "resident/storage/common_codec.hpp"
+#include <iostream>
+#include <stdexcept>
+using namespace hanmo::resident;
+namespace {int checks=0;void check(bool v,const char* s){++checks;if(!v)throw std::runtime_error(s);}}
+int main(){try{
+    Owner owner{Owner::Kind::organization,"merchant",{}, {}};CommonCatalog common;common.items.insert("millet",{"millet",1,10});common.required_inventories.insert("market",{owner,100});GrowthCatalog growth;growth.economy=true;growth.regional_life=true;growth.shops.insert("shop",{"shop","place","market","wallet",{}, {}});OrderedTable<InventoryView> assets;assets.insert("market",{"market",owner,100,0,{{"lot:1","millet",{},12,owner,{}}},{}});assets.insert("bag:buyer",{"bag:buyer",owner,20,0,{{"lot:2","millet",{},2,owner,{}}},{}});
+    auto made=make_growth_market_initial_catalog(common,growth,assets,3,{"shop"});check(made.ok&&made.value.initial_next_instance_id==3&&made.value.initial_inventories.size()==1,"copy selected original asset and global next ID");check(!make_growth_market_initial_catalog(common,growth,assets,2,{"shop"}).ok,"next ID includes other actor original goods");auto bad=assets;bad.find("market")->lots[0].id="lot:2";check(!make_growth_market_initial_catalog(common,growth,bad,3,{"shop"}).ok,"noncanonical initial lot sequence");bad=assets;bad.find("market")->revision=1;check(!make_growth_market_initial_catalog(common,growth,bad,3,{"shop"}).ok,"today revision cannot be initial source");bad=assets;bad.find("market")->lots[0].reserved_by="action:3";check(!make_growth_market_initial_catalog(common,growth,bad,3,{"shop"}).ok,"initial market reservation denied");check(!make_growth_market_initial_catalog(common,growth,assets,3,{"shop","shop"}).ok,"duplicate market selection");
+    using V=BoundaryValue;auto profile=boundary::obj({{"version",V{Integer{1}}},{"shop_ids",boundary::string_array({"shop"})}});check(decode_growth_market_history_selection(profile).ok,"explicit original market profile");profile.as<V::Dict>()->emplace_back("version",V{Integer{1}});check(!decode_growth_market_history_selection(profile).ok,"duplicate profile version denied");profile.as<V::Dict>()->pop_back();profile.as<V::Dict>()->emplace_back("initial_stock",V{Integer{12}});check(!decode_growth_market_history_selection(profile).ok,"author cannot declare second initial balance");std::cout<<"GROWTH_MARKET_INITIAL "<<checks<<" checks 0 failures\n";return 0;
+}catch(const std::exception& e){std::cerr<<"GROWTH_MARKET_INITIAL "<<checks<<" checks 1 failure: "<<e.what()<<'\n';return 1;}}

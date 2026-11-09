@@ -1,0 +1,44 @@
+{
+  "grant.diplomacy.city": {
+    "id": "grant.diplomacy.city",
+    "office_id": "office.city_steward",
+    "allowed_command_kinds": [
+      "diplomatic_propose_passage",
+      "diplomatic_commission_envoy"
+    ],
+    "scopes": [
+      {
+        "kind": "site",
+        "id": "society::place.courtyard"
+      }
+    ],
+    "wallet_ids": [],
+    "inventory_ids": [],
+    "amount_limit": 0,
+    "valid_from": 0,
+    "valid_until": null,
+    "may_delegate": false,
+    "continuity_policy_id": "continue_under_organization"
+  },
+  "grant.diplomacy.sect": {
+    "id": "grant.diplomacy.sect",
+    "office_id": "office.sect_steward",
+    "allowed_command_kinds": [
+      "diplomatic_receive_passage",
+      "diplomatic_reply_passage"
+    ],
+    "scopes": [
+      {
+        "kind": "site",
+        "id": "society::place.sword_gate"
+      }
+    ],
+    "wallet_ids": [],
+    "inventory_ids": [],
+    "amount_limit": 0,
+    "valid_from": 0,
+    "valid_until": null,
+    "may_delegate": false,
+    "continuity_policy_id": "continue_under_organization"
+  }
+}

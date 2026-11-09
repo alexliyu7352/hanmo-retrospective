@@ -1,0 +1,88 @@
+{
+  "date": "2026-10-06",
+  "generator": "built-in image_gen",
+  "reference": "assets/long-study/master-candidate.png and its own evidence/long-face-reference.png only",
+  "source_crop": [
+    280,
+    190,
+    512,
+    512
+  ],
+  "portrait_crop": [
+    54,
+    24,
+    920,
+    1380
+  ],
+  "avatar_crop": [
+    115,
+    9,
+    306,
+    306
+  ],
+  "scope": "Four sampled elongated adult identities with independent facial parts and verified standalone workbench; not arbitrary-combination identity acceptance",
+  "sources": [
+    {
+      "file": "rectangular-v1.png",
+      "prompt": "rectangular-prompt.txt",
+      "status": "Long straighter wider lower jaw visibly distinct; parent viewed source composite and retained this direction for further work."
+    },
+    {
+      "file": "full-oval-v1.png",
+      "prompt": "full-oval-prompt.txt",
+      "status": "Too close to original at96px; owner and parent require targeted high-forehead/lower-feature-position and fuller long-oval cheek refinement."
+    },
+    {
+      "file": "high-cheek-v1.png",
+      "prompt": "high-cheek-prompt.txt",
+      "status": "High cheekbones, hollow planes and contracting jaw clearly distinct in source composite; parent reviewed this direction."
+    },
+    {
+      "file": "full-oval-v2.png",
+      "prompt": "full-oval-v2-prompt.txt",
+      "status": "Rounder fuller lower cheeks and rounded chin; parent reviewed actual96/detail/half composites and approved independent-feature development, final identity judgment deferred."
+    },
+    {
+      "file": "rectangular-features-v1.png",
+      "prompt": "rectangular-features-v1-prompt.txt",
+      "status": "Retained early alternate; eye difference too small, not consumed by catalog."
+    },
+    {
+      "file": "rectangular-features-v2.png",
+      "prompt": "rectangular-features-v2-prompt.txt",
+      "status": "Independent straight brows/narrow eyes/rounder nose/slightly smiling lips for own rectangular profile."
+    },
+    {
+      "file": "full-oval-features-v1.png",
+      "prompt": "full-oval-features-prompt.txt",
+      "status": "Independent straight brows/open eyes/straighter nose/slightly smiling lips; round cheek/chin retained."
+    },
+    {
+      "file": "high-cheek-features-v1.png",
+      "prompt": "high-cheek-features-prompt.txt",
+      "status": "Independent straight brows/open eyes/rounder nose/slightly smiling lips; hollow cheek planes retained."
+    },
+    {
+      "file": "full-oval-v3.png",
+      "prompt": "full-oval-v3-prompt.txt",
+      "status": "Only profile3 refined: fuller lower cheeks and broader round chin. Intended eye-spacing increase was not visibly achieved and is not claimed. Parent accepted actual96px mother then eye/nose-switched sample comparison."
+    },
+    {
+      "file": "full-oval-features-v2.png",
+      "prompt": "full-oval-features-v2-prompt.txt",
+      "status": "Own v3 alternate straight brows/narrow eyes/straight nose/slight smile. Profile eye mapping explicitly base=open, alternate=narrow. Does not reuse old oval-v2 facial parts."
+    }
+  ],
+  "constraints": "Original elongated-family head pose, normal shoulders, complete neck/collar, own safe framing and neutral lips preserved. No medium-family facial pixels or vertical head stretching used.",
+  "limits": "Parent accepted four selected representatives plus paired same-expression eye/nose switches, and actual workbench. No claim that arbitrary combinations, all ages, body types or poses were visually accepted. Original full-oval-v1/v2 studies remain archived; v2 was insufficient for final1/3 identity distinction.",
+  "verification": {
+    "identity_checks": 128,
+    "long_workbench_checks": 50,
+    "adjacent_medium_workbench_checks": 67,
+    "adjacent_female_workbench_checks": 75,
+    "actual_graphical_events": 32,
+    "actual_viewport_frames": 9,
+    "terminal_exit": 0,
+    "graphical_report": "evidence/long-four-gui-verification.json"
+  }
+}

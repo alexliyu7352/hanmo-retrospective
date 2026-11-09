@@ -1,0 +1,119 @@
+{
+  "created_utc": "2026-09-12T09:52:17.738763+00:00",
+  "tool": "built-in image_gen.imagegen",
+  "mode": "one generation then two targeted edits",
+  "final_file": "regional-terrain.png",
+  "source_copies_preserved": true,
+  "pixel_postprocessing": "none",
+  "commercial_image_inputs": false,
+  "world_size": [
+    1000,
+    600
+  ],
+  "cell_size": 20,
+  "mapping": "x=image_x/1620*1000; y=image_y/971*600; do not crop background",
+  "entries": {
+    "qingchuan": [
+      190,
+      430
+    ],
+    "dongli": [
+      830,
+      290
+    ]
+  },
+  "crossings": {
+    "main_ford": {
+      "point": [
+        500,
+        290
+      ],
+      "blocked_flag": "crossing.main"
+    },
+    "north_bridge": {
+      "point": [
+        490,
+        50
+      ],
+      "blocked_flag": "bridge.north"
+    },
+    "north_pass": {
+      "point": [
+        190,
+        110
+      ],
+      "blocked_flag": "gate.north"
+    }
+  },
+  "limitations": [
+    "Generated artwork, not a game runtime screenshot.",
+    "World terrain is discretized at 20 units; natural edge details are approximate. Passable corridors and closures remain explicit data.",
+    "Initial prompt exact pixel placements were not achieved; fixture was calibrated against final original image.",
+    "Bridge/gate architecture is static; current open/closed state must be shown by the main game.",
+    "Travel, live input, contact, world time and presentation registration are owned by root and not validated here."
+  ],
+  "outputs": [
+    {
+      "file": "regional-terrain-v1.png",
+      "source": "<本地路径>",
+      "size": [
+        1619,
+        971
+      ],
+      "mode": "RGB",
+      "bytes": 3443656,
+      "sha256": "10118a928f9b1b1e2111cf03693cd61595fbb2f5e3d773caa7ec76c0e499226e",
+      "source_sha256": "10118a928f9b1b1e2111cf03693cd61595fbb2f5e3d773caa7ec76c0e499226e",
+      "prompt": "regional-terrain.prompt.txt",
+      "prompt_sha256": "e64eaa845f86a3f195eee9c456d12bad72a3b9e085e2b5c6ea625cfeb26e511d",
+      "status": "未采用：渡口和山道位置偏离原坐标提示。"
+    },
+    {
+      "file": "regional-terrain-v2.png",
+      "source": "<本地路径>",
+      "size": [
+        1620,
+        971
+      ],
+      "mode": "RGB",
+      "bytes": 3534209,
+      "sha256": "99419f633f264af6b6d796b2ddac69ee06187d91928e86673a6f0ab1a8315378",
+      "source_sha256": "99419f633f264af6b6d796b2ddac69ee06187d91928e86673a6f0ab1a8315378",
+      "prompt": "regional-terrain-v2.prompt.txt",
+      "prompt_sha256": "eafc9fe41caf45ba6331e7153532224bb70d2b52aa052daea21141a8b20d7f62",
+      "status": "中间版：南部林地纠正，尚无北桥。"
+    },
+    {
+      "file": "regional-terrain-v3.png",
+      "source": "<本地路径>",
+      "size": [
+        1620,
+        971
+      ],
+      "mode": "RGB",
+      "bytes": 3244435,
+      "sha256": "c34e4e9e0e33c8c0d4349a799f98d6fcfc80af4037b8339450c492cb54a71a24",
+      "source_sha256": "c34e4e9e0e33c8c0d4349a799f98d6fcfc80af4037b8339450c492cb54a71a24",
+      "prompt": "regional-terrain-v3.prompt.txt",
+      "prompt_sha256": "4e888a183f3545eaa63468f33f5447f6ec9270a4bd2243d44c24cb78e49c334c",
+      "status": "最终采用：在原有渡口外增加北桥与东北山脚道路；逻辑fixture按实际画面校准。"
+    }
+  ],
+  "supporting_files": [
+    {
+      "file": "regional-terrain.png",
+      "bytes": 3244435,
+      "sha256": "c34e4e9e0e33c8c0d4349a799f98d6fcfc80af4037b8339450c492cb54a71a24"
+    },
+    {
+      "file": "logic-map.fixture.json",
+      "bytes": 59203,
+      "sha256": "01d5301afcef18f334b34f05de81101163731c57a7163180a2f7c51c5147c637"
+    },
+    {
+      "file": "route-examples.json",
+      "bytes": 3738,
+      "sha256": "d3da37c3f1dbfcd1aec82c5a238a20deee961310dc7093a421c0894cf550e1cf"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+# 组织与成员消费者登记：保留本组目标、测试、条件与局部变量的原执行顺序。
+# 真实成员工资及终态零头只消费本次生产库，断言不能随Release关闭。
+add_executable(test_resident_named_membership_lifecycle tests/resident/named_membership_lifecycle_test.cpp)
+target_include_directories(test_resident_named_membership_lifecycle PRIVATE "${HANMO_PICOSHA2_ROOT}")
+target_link_libraries(test_resident_named_membership_lifecycle PRIVATE hanmo_resident)
+target_compile_options(test_resident_named_membership_lifecycle PRIVATE -UNDEBUG -fno-fast-math -ffp-contract=off)
+
+# 本轮本人授权和回执来源冷损坏消费者使用正式目录，默认不替Main执行。
+add_executable(test_resident_named_membership_boundary tests/resident/named_membership_boundary_test.cpp)
+target_include_directories(test_resident_named_membership_boundary PRIVATE "${HANMO_PICOSHA2_ROOT}")
+target_link_libraries(test_resident_named_membership_boundary PRIVATE hanmo_resident)
+target_compile_options(test_resident_named_membership_boundary PRIVATE -UNDEBUG -fno-fast-math -ffp-contract=off)

@@ -1,0 +1,81 @@
+{
+  "schema": "adult_sword_full_arm_pixel_inspection/1",
+  "candidate_sha256": "5a0952dba4144a853ed9fb8bb83546b79d5ba1ab2e25eee6de1ba4ae783dc5ae",
+  "source_sha256": "5b15b3373c7beb774ad91399ad3b9d0fe937e470d7fad4a9f33923ab2c62c3ab",
+  "source_size": [
+    1254,
+    1254
+  ],
+  "parts": {
+    "near_neutral": {
+      "source_bbox": [
+        51,
+        64,
+        450,
+        658
+      ],
+      "major_component_pixels": 95200,
+      "captured_major_pixels": 95200,
+      "missing_major_pixels": 0,
+      "foreign_alpha_ge16": 0,
+      "pivot_alpha": 253,
+      "anchor_alpha": {
+        "grip": 253,
+        "shoulder_cover": 253
+      }
+    },
+    "near_strike": {
+      "source_bbox": [
+        484,
+        172,
+        1231,
+        490
+      ],
+      "major_component_pixels": 103986,
+      "captured_major_pixels": 103986,
+      "missing_major_pixels": 0,
+      "foreign_alpha_ge16": 0,
+      "pivot_alpha": 253,
+      "anchor_alpha": {
+        "grip": 253,
+        "shoulder_cover": 253
+      }
+    },
+    "far_neutral": {
+      "source_bbox": [
+        83,
+        660,
+        619,
+        1199
+      ],
+      "major_component_pixels": 92467,
+      "captured_major_pixels": 92467,
+      "missing_major_pixels": 0,
+      "foreign_alpha_ge16": 0,
+      "pivot_alpha": 253,
+      "anchor_alpha": {
+        "hand_end": 245,
+        "shoulder_cover": 253
+      }
+    },
+    "shoulder_collar": {
+      "source_bbox": [
+        659,
+        740,
+        1222,
+        1091
+      ],
+      "major_component_pixels": 104756,
+      "captured_major_pixels": 104756,
+      "missing_major_pixels": 0,
+      "foreign_alpha_ge16": 0,
+      "pivot_alpha": 0,
+      "anchor_alpha": {
+        "near_shoulder_cover": 253,
+        "far_shoulder_cover": 253,
+        "neck_opening": 0
+      }
+    }
+  },
+  "pixel_mutation": false
+}

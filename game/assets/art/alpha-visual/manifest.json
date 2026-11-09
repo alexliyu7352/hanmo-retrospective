@@ -1,0 +1,452 @@
+{
+  "reference_review": "<本地路径>",
+  "artifacts": [
+    {
+      "id": "official",
+      "prompt": "Use case: historical-scene. Asset type: original transparent half-body dialogue portrait for a late Eastern Han Chinese 2D RPG. One middle-aged Chinese male local official, about 45, intelligent sober face, short neatly trimmed moustache and beard, realistic facial anatomy, dark hair in a period-appropriate small topknot cap, charcoal blue-black layered cross-collar robe with warm grey inner collar, understated cloth belt. Crop at mid-thigh; whole head, shoulders, both elbows and hands fully visible, generous margin; stand upright in a calm three-quarter pose facing slightly left, hands held together within sleeves at waist. Refined semi-realistic historical game illustration, elegant fine brush contours, natural skin, richly shaded real cloth folds, soft golden daylight from upper left, muted warm natural palette, detailed but painterly rather than photo. A believable adult, not anime, chibi, sketch, flat vector or paper cutout. Genuine transparent alpha background, no scene, no white rectangle, no frame, no UI, no words, no logo, no weapon. Entirely original person, no resemblance to a commercial game character. Portrait-oriented 1024x1536.",
+      "source": "<本地路径>",
+      "edit_sources": [],
+      "generation_prompt": "Use case: historical-scene. Asset type: original transparent half-body dialogue portrait for a late Eastern Han Chinese 2D RPG. One middle-aged Chinese male local official, about 45, intelligent sober face, short neatly trimmed moustache and beard, realistic facial anatomy, dark hair in a period-appropriate small topknot cap, charcoal blue-black layered cross-collar robe with warm grey inner collar, understated cloth belt. Crop at mid-thigh; whole head, shoulders, both elbows and hands fully visible, generous margin; stand upright in a calm three-quarter pose facing slightly left, hands held together within sleeves at waist. Refined semi-realistic historical game illustration, elegant fine brush contours, natural skin, richly shaded real cloth folds, soft golden daylight from upper left, muted warm natural palette, detailed but painterly rather than photo. A believable adult, not anime, chibi, sketch, flat vector or paper cutout. Genuine transparent alpha background, no scene, no white rectangle, no frame, no UI, no words, no logo, no weapon. Entirely original person, no resemblance to a commercial game character. Portrait-oriented 1024x1536.",
+      "original_source": "<本地路径>",
+      "path": "<本地路径>",
+      "sha256": "b56d9131133b89a9a04796c59491883d2c871fc4f5fd8a60fbba6ef0db3e4683",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "tool": "built-in imagegen",
+      "viewed_generated_output": true,
+      "alpha_zero_fraction": 0.4429442087809245,
+      "alpha_bounds": [
+        0,
+        0,
+        950,
+        1536
+      ]
+    },
+    {
+      "id": "host",
+      "prompt": "Use case: historical-scene. Asset type: original transparent half-body dialogue portrait for a late Eastern Han Chinese 2D RPG. One adult Chinese woman tavern keeper around 30, thoughtful welcoming expression, realistic face with dark eyes, black hair gathered in a simple practical updo with a plain wooden pin. Warm muted terracotta cross-collar Han robe, cream undergarment, simple dark waist sash, layered cloth with beautifully articulated natural folds, no lavish jewelry. Crop at mid-thigh; whole head, both shoulders, elbows and hands completely visible with margin. Calm upright three-quarter pose facing slightly left, one hand loosely folded over the other at waist. Refined semi-realistic historical game painting, delicate brush contours, natural skin tones and anatomy, soft warm daylight from upper left, muted earth palette, real cloth texture. Genuine transparent alpha background. Not anime, chibi, photoreal photograph, sketch or flat vector. No background, no furniture, no scene, no frame, no UI, no text, no logo, no weapon. Entirely original character. Portrait-oriented 1024x1536.",
+      "source": "<本地路径>",
+      "edit_sources": [],
+      "generation_prompt": "Use case: historical-scene. Asset type: original transparent half-body dialogue portrait for a late Eastern Han Chinese 2D RPG. One adult Chinese woman tavern keeper around 30, thoughtful welcoming expression, realistic face with dark eyes, black hair gathered in a simple practical updo with a plain wooden pin. Warm muted terracotta cross-collar Han robe, cream undergarment, simple dark waist sash, layered cloth with beautifully articulated natural folds, no lavish jewelry. Crop at mid-thigh; whole head, both shoulders, elbows and hands completely visible with margin. Calm upright three-quarter pose facing slightly left, one hand loosely folded over the other at waist. Refined semi-realistic historical game painting, delicate brush contours, natural skin tones and anatomy, soft warm daylight from upper left, muted earth palette, real cloth texture. Genuine transparent alpha background. Not anime, chibi, photoreal photograph, sketch or flat vector. No background, no furniture, no scene, no frame, no UI, no text, no logo, no weapon. Entirely original character. Portrait-oriented 1024x1536.",
+      "original_source": "<本地路径>",
+      "path": "<本地路径>",
+      "sha256": "5cc9fa78f576e2cdef802d13254c60ca7b74ea0fa8848b0ce49a2a8fe3c5d6d2",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "tool": "built-in imagegen",
+      "viewed_generated_output": true,
+      "alpha_zero_fraction": 0.4947681427001953,
+      "alpha_bounds": [
+        0,
+        13,
+        988,
+        1536
+      ]
+    },
+    {
+      "id": "paper",
+      "prompt": "Use case: stylized-concept. Asset type: reusable blank parchment paper texture for the text areas of a historical Chinese 2D RPG. A single flat rectangular sheet fills the entire wide image. Warm pale cream handmade mulberry paper with subtle fibrous texture, extremely restrained warm brown wear at outermost edges, mostly clean and uniform central 85 percent, thin faint dark umber ink border just inside the edge and tiny restrained corner ornaments. Straight-on flat texture, no perspective, no table, no shadows cast onto other surfaces, no roll, no torn pieces, no separate elements, no words, no glyphs, no writing, no logo, no UI buttons. High resolution 1536x1024. Warm sunlit historical painted material, refined and unobtrusive, natural variation only, not dirty or heavily distressed.",
+      "source": "<本地路径>",
+      "edit_sources": [],
+      "generation_prompt": "Use case: stylized-concept. Asset type: reusable blank parchment paper texture for the text areas of a historical Chinese 2D RPG. A single flat rectangular sheet fills the entire wide image. Warm pale cream handmade mulberry paper with subtle fibrous texture, extremely restrained warm brown wear at outermost edges, mostly clean and uniform central 85 percent, thin faint dark umber ink border just inside the edge and tiny restrained corner ornaments. Straight-on flat texture, no perspective, no table, no shadows cast onto other surfaces, no roll, no torn pieces, no separate elements, no words, no glyphs, no writing, no logo, no UI buttons. High resolution 1536x1024. Warm sunlit historical painted material, refined and unobtrusive, natural variation only, not dirty or heavily distressed.",
+      "original_source": "<本地路径>",
+      "path": "<本地路径>",
+      "sha256": "813e4b3389eb500f5205e4e69b0529029bda8d5991ded31ed740d536c98eef4b",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "alpha_extrema": null,
+      "tool": "built-in imagegen",
+      "viewed_generated_output": true
+    },
+    {
+      "id": "guard",
+      "prompt": "Use case: historical-scene. Original independent transparent half-body dialogue portrait for a refined hand-painted late Eastern Han Chinese RPG. One sturdy adult Chinese man about 35, alert but calm eyes, weathered face, short moustache, hair in plain tied topknot, muted russet cloth headband. Authentic simple dark iron lamellar cuirass over blue-grey cross-collar robe, brown sash, no elaborate helmet and no raised weapons. Full head shoulders arms visible, upright calm 3/4 pose toward left, arms loosely folded at waist, cropped at mid-thigh with generous margins. Natural semi-realistic anatomy, expressive carefully hand-painted face and fine brushwork, warm sunlight from upper left, muted natural tones, richly shaded cloth and armor. Clear original individual, neither anime nor chibi nor photoreal photo. Genuine transparent background with clean silhouette and NO glow, halo, smoky vignette or residual colored background; no UI, no text, no frame, no floor shadow. 1024x1536.",
+      "source": "<本地路径>",
+      "edit_sources": [],
+      "generation_prompt": "Use case: historical-scene. Original independent transparent half-body dialogue portrait for a refined hand-painted late Eastern Han Chinese RPG. One sturdy adult Chinese man about 35, alert but calm eyes, weathered face, short moustache, hair in plain tied topknot, muted russet cloth headband. Authentic simple dark iron lamellar cuirass over blue-grey cross-collar robe, brown sash, no elaborate helmet and no raised weapons. Full head shoulders arms visible, upright calm 3/4 pose toward left, arms loosely folded at waist, cropped at mid-thigh with generous margins. Natural semi-realistic anatomy, expressive carefully hand-painted face and fine brushwork, warm sunlight from upper left, muted natural tones, richly shaded cloth and armor. Clear original individual, neither anime nor chibi nor photoreal photo. Genuine transparent background with clean silhouette and NO glow, halo, smoky vignette or residual colored background; no UI, no text, no frame, no floor shadow. 1024x1536.",
+      "original_source": "<本地路径>",
+      "path": "<本地路径>",
+      "sha256": "1d15f08e75bdb5599be6449b1ef7f027ad69d4fb6282d186f6b10c46f2a95c72",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "tool": "built-in imagegen",
+      "viewed_generated_output": true,
+      "alpha_zero_fraction": 0.43660926818847656,
+      "alpha_bounds": [
+        25,
+        0,
+        1004,
+        1536
+      ]
+    },
+    {
+      "id": "traveller",
+      "prompt": "Use case: historical-scene. A single original independent transparent half-body portrait of a 42-year-old male Chinese travelling scholar in the late Eastern Han, composed mature face with subtle lines, modest short moustache, dark hair tied in simple topknot, muted blue-grey linen cross-collar robe and dark cloth sash, practical cream inner collar, one hand resting on a small tied cloth travel bundle. Entire head, shoulders, both arms and hands visible, upright three-quarter stance facing slightly left, cropped at mid-thigh with generous surrounding margin. Refined semi-realistic hand-painted historical RPG character art, fine ink brush outlines and softly blended paint, detailed expressive face and graceful believable folds, warm soft light from upper left. Not a photo, anime, chibi or sketch. Genuine transparent background, clean alpha silhouette, no ambient smoky halo, no glow, no shadows outside body, no scenery or UI, no text or symbols. 1024x1536.",
+      "source": "<本地路径>",
+      "edit_sources": [],
+      "generation_prompt": "Use case: historical-scene. A single original independent transparent half-body portrait of a 42-year-old male Chinese travelling scholar in the late Eastern Han, composed mature face with subtle lines, modest short moustache, dark hair tied in simple topknot, muted blue-grey linen cross-collar robe and dark cloth sash, practical cream inner collar, one hand resting on a small tied cloth travel bundle. Entire head, shoulders, both arms and hands visible, upright three-quarter stance facing slightly left, cropped at mid-thigh with generous surrounding margin. Refined semi-realistic hand-painted historical RPG character art, fine ink brush outlines and softly blended paint, detailed expressive face and graceful believable folds, warm soft light from upper left. Not a photo, anime, chibi or sketch. Genuine transparent background, clean alpha silhouette, no ambient smoky halo, no glow, no shadows outside body, no scenery or UI, no text or symbols. 1024x1536.",
+      "original_source": "<本地路径>",
+      "path": "<本地路径>",
+      "sha256": "dce504d00c384d92fe43ac0b28007cc241e0f5cfa2f5edeb956d2e809d858248",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "tool": "built-in imagegen",
+      "viewed_generated_output": true,
+      "alpha_zero_fraction": 0.4264965057373047,
+      "alpha_bounds": [
+        0,
+        35,
+        1008,
+        1536
+      ]
+    },
+    {
+      "id": "merchant",
+      "prompt": "Use case: historical-scene. A single original independent transparent half-body portrait of a Chinese grain merchant around 50 in the late Eastern Han. Stocky middle-aged man with round weathered face, friendly cautious eyes, neatly clipped moustache, dark hair in a cloth-bound topknot. Brown and warm grey layered cross-collar Han robe with simple cloth belt, rolled edge of a cloth account pouch tucked in sash, hands relaxed together at waist. Entire head, shoulders, elbows and hands visible with margins, crop at mid-thigh, upright three-quarter stance facing slightly left. Refined semi-realistic hand-painted historical RPG art, fine brush contours, soft carefully modelled paint, real detailed facial anatomy and rich cloth folds, golden soft sunlight upper left. Not photo, anime, chibi, sketch or flat vector. Genuine transparent alpha background with a clean silhouette, no smoky gradient halo, no glow, no scene, no UI, no text, no frame. 1024x1536.",
+      "source": "<本地路径>",
+      "edit_sources": [],
+      "generation_prompt": "Use case: historical-scene. A single original independent transparent half-body portrait of a Chinese grain merchant around 50 in the late Eastern Han. Stocky middle-aged man with round weathered face, friendly cautious eyes, neatly clipped moustache, dark hair in a cloth-bound topknot. Brown and warm grey layered cross-collar Han robe with simple cloth belt, rolled edge of a cloth account pouch tucked in sash, hands relaxed together at waist. Entire head, shoulders, elbows and hands visible with margins, crop at mid-thigh, upright three-quarter stance facing slightly left. Refined semi-realistic hand-painted historical RPG art, fine brush contours, soft carefully modelled paint, real detailed facial anatomy and rich cloth folds, golden soft sunlight upper left. Not photo, anime, chibi, sketch or flat vector. Genuine transparent alpha background with a clean silhouette, no smoky gradient halo, no glow, no scene, no UI, no text, no frame. 1024x1536.",
+      "original_source": "<本地路径>",
+      "path": "<本地路径>",
+      "sha256": "5e33b90d7fb2cc541f064612c7ad68ca23993f1d3e62d100376641b7b8729a66",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "tool": "built-in imagegen",
+      "viewed_generated_output": true,
+      "alpha_zero_fraction": 0.40578142801920575,
+      "alpha_bounds": [
+        0,
+        0,
+        970,
+        1536
+      ]
+    },
+    {
+      "id": "inn",
+      "prompt": "Use case: historical-scene. Original wide 1536x1024 standalone background painting for a late Eastern Han Chinese 2D role-playing game. A modest rural inn's warm timber reception room, eye-level three-quarter view. Sunlit lattice windows on left, woven bamboo blinds, low wooden reception counter with plain pottery cups and small ceramic oil dishes, shelves holding folded blankets, reed sleeping mats, a doorway revealing a simple side room with low sleeping platform, warm rough plaster and old wood beams, inviting afternoon light and soft natural shadows, ochre and brown palette with subdued blue-grey curtains. Open foreground and right-middle for separately rendered characters. Refined semi-realistic historical game illustration, fine hand-painted brushwork, subtly stylized but convincing architecture and rich natural materials, not a photograph or 3D model. No modern glass kerosene lamps, no glass chimneys, no electricity, no high European chairs, no modern signage. No people, no silhouettes, no words, no Chinese characters, no UI, no border or logo.",
+      "source": "<本地路径>",
+      "edit_sources": [],
+      "generation_prompt": "Use case: historical-scene. Original wide 1536x1024 standalone background painting for a late Eastern Han Chinese 2D role-playing game. A modest rural inn's warm timber reception room, eye-level three-quarter view. Sunlit lattice windows on left, woven bamboo blinds, low wooden reception counter with plain pottery cups and small ceramic oil dishes, shelves holding folded blankets, reed sleeping mats, a doorway revealing a simple side room with low sleeping platform, warm rough plaster and old wood beams, inviting afternoon light and soft natural shadows, ochre and brown palette with subdued blue-grey curtains. Open foreground and right-middle for separately rendered characters. Refined semi-realistic historical game illustration, fine hand-painted brushwork, subtly stylized but convincing architecture and rich natural materials, not a photograph or 3D model. No modern glass kerosene lamps, no glass chimneys, no electricity, no high European chairs, no modern signage. No people, no silhouettes, no words, no Chinese characters, no UI, no border or logo.",
+      "original_source": "<本地路径>",
+      "path": "<本地路径>",
+      "sha256": "3680c10fbece06ab13390eb140e9f6a3dd14ddc3ebab701455938fb765cea059",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "alpha_extrema": null,
+      "tool": "built-in imagegen",
+      "viewed_generated_output": true
+    },
+    {
+      "id": "house",
+      "prompt": "Use case: historical-scene. Original wide 1536x1024 standalone background painting for a late Eastern Han Chinese 2D role-playing game. A simple prosperous farmer household's lived-in main room: low rough wooden table and woven reed sitting mats near back-left, baskets, bundled farm tools resting by wall, small clay hearth and plain earthenware pots, bamboo storage chests, daylight through wooden lattice window left, rear door glimpse of garden foliage, warm cream plaster with timber beams, understated rural brown and moss-green palette. Eye-level three-quarter perspective. Broad readable empty foreground and middle-right for separate portrait. Fine refined semi-realistic historical game painting, natural sunlight with soft believable shadows, carefully hand-painted materials and delicate brush contour, not a photo, 3D render, flat diagram or sketch. No people, no modern furniture, no writing, no glyphs, no words, no UI, no border or logo.",
+      "source": "<本地路径>",
+      "edit_sources": [],
+      "generation_prompt": "Use case: historical-scene. Original wide 1536x1024 standalone background painting for a late Eastern Han Chinese 2D role-playing game. A simple prosperous farmer household's lived-in main room: low rough wooden table and woven reed sitting mats near back-left, baskets, bundled farm tools resting by wall, small clay hearth and plain earthenware pots, bamboo storage chests, daylight through wooden lattice window left, rear door glimpse of garden foliage, warm cream plaster with timber beams, understated rural brown and moss-green palette. Eye-level three-quarter perspective. Broad readable empty foreground and middle-right for separate portrait. Fine refined semi-realistic historical game painting, natural sunlight with soft believable shadows, carefully hand-painted materials and delicate brush contour, not a photo, 3D render, flat diagram or sketch. No people, no modern furniture, no writing, no glyphs, no words, no UI, no border or logo.",
+      "original_source": "<本地路径>",
+      "path": "<本地路径>",
+      "sha256": "e7bc6c161366300439510b60fa935ac34452fd86ec14e0577ffd002b574cc92a",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "alpha_extrema": null,
+      "tool": "built-in imagegen",
+      "viewed_generated_output": true
+    },
+    {
+      "id": "shop",
+      "prompt": "Use case: historical-scene. Asset type: original wide standalone 2D game location background, 1536x1024, no UI or people. Refined semi-realistic historical illustration of late Eastern Han China, delicate fine brush contours, rich hand-painted wood and fabric textures, warm natural sunlight and atmospheric depth, muted golden earth browns, blue-grey tiles and softly luminous shadows. Match the finish of an elegant historical painted adventure game, not a photograph, 3D render, flat vector, diagram, or sketch. No words, writing, calligraphy, glyphs, labels, logo, watermark, interface, decorative border, figures, faces or silhouettes. Leave broad foreground and middle-right space for separately rendered portraits. A modest grain merchant's shop interior: rough timber shelves and plank counters around room edges, neatly tied grain sacks, open shallow baskets of millet and wheat, an old beam balance and scoops at rear left, ceramic jars and plain fabric bundles, open lattice doorway with golden daylight and greenery visible. Calm eye-level three-quarter view, readable broad foreground and lower right for independent dialogue figure. Honest practical materials, richly painted detail in shelves, convincing natural shadows, no readable markings.",
+      "source": "<本地路径>",
+      "edit_sources": [],
+      "generation_prompt": "Use case: historical-scene. Asset type: original wide standalone 2D game location background, 1536x1024, no UI or people. Refined semi-realistic historical illustration of late Eastern Han China, delicate fine brush contours, rich hand-painted wood and fabric textures, warm natural sunlight and atmospheric depth, muted golden earth browns, blue-grey tiles and softly luminous shadows. Match the finish of an elegant historical painted adventure game, not a photograph, 3D render, flat vector, diagram, or sketch. No words, writing, calligraphy, glyphs, labels, logo, watermark, interface, decorative border, figures, faces or silhouettes. Leave broad foreground and middle-right space for separately rendered portraits. A modest grain merchant's shop interior: rough timber shelves and plank counters around room edges, neatly tied grain sacks, open shallow baskets of millet and wheat, an old beam balance and scoops at rear left, ceramic jars and plain fabric bundles, open lattice doorway with golden daylight and greenery visible. Calm eye-level three-quarter view, readable broad foreground and lower right for independent dialogue figure. Honest practical materials, richly painted detail in shelves, convincing natural shadows, no readable markings.",
+      "original_source": "<本地路径>",
+      "path": "<本地路径>",
+      "sha256": "3be27424e052c9f1bc6b8982f0cc55d621a49895744c94625c3f43a4d862673a",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "alpha_extrema": null,
+      "tool": "built-in imagegen",
+      "viewed_generated_output": true
+    },
+    {
+      "id": "apprentice",
+      "prompt": "Use case: historical-scene. Original independent transparent half-body portrait of an 18-year-old Chinese apprentice traveller in late Eastern Han China. Youthful original face, attentive calm dark eyes, no moustache or beard, simple dark hair tied in a small topknot, plain muted moss-green and warm grey linen cross-collar Han robe, practical cloth sash. Hands loosely held together at waist, calm three-quarter upright pose facing slightly left, whole head shoulders both elbows and hands visible, crop at mid-thigh with margins. Refined semi-realistic hand-painted historical RPG character illustration, softly painted detailed face and delicate brush contours, authentic natural cloth folds, warm diffuse sunlight upper left. Not photo, anime, chibi or sketch. Genuine clean transparent alpha background, no halo, smoky backdrop or glow, no UI, words, scenery, border, props or weapon. Portrait 1024x1536.",
+      "source": "<本地路径>",
+      "edit_sources": [],
+      "generation_prompt": "Use case: historical-scene. Original independent transparent half-body portrait of an 18-year-old Chinese apprentice traveller in late Eastern Han China. Youthful original face, attentive calm dark eyes, no moustache or beard, simple dark hair tied in a small topknot, plain muted moss-green and warm grey linen cross-collar Han robe, practical cloth sash. Hands loosely held together at waist, calm three-quarter upright pose facing slightly left, whole head shoulders both elbows and hands visible, crop at mid-thigh with margins. Refined semi-realistic hand-painted historical RPG character illustration, softly painted detailed face and delicate brush contours, authentic natural cloth folds, warm diffuse sunlight upper left. Not photo, anime, chibi or sketch. Genuine clean transparent alpha background, no halo, smoky backdrop or glow, no UI, words, scenery, border, props or weapon. Portrait 1024x1536.",
+      "original_source": "<本地路径>",
+      "path": "<本地路径>",
+      "sha256": "0ba6296f403b2c2b7c227b74802760098f676da7efc3e052bba010e69357fcc1",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "tool": "built-in imagegen",
+      "viewed_generated_output": true,
+      "alpha_zero_fraction": 0.45858001708984375,
+      "alpha_bounds": [
+        0,
+        0,
+        1004,
+        1536
+      ]
+    },
+    {
+      "id": "title_landscape",
+      "prompt": "Use case: historical-scene. Original wide panoramic title background for a late Eastern Han China 2D historical role-playing game. A serene river valley and a modest walled Chinese town among terraced fields, low distant blue-green mountain ranges, soft late afternoon sunlight, willow trees and small flowering branches at the far foreground edge, low tiled timber buildings and simple city gate across the river, believable early Chinese settlement. Composition is one full landscape with broad calm light sky and distant landscape in upper-left for separately rendered title and small menu; rich detailed city/river panorama in center-right. Refined semi-realistic hand-painted historical game illustration, delicate brush contours and natural light, no heavy ink wash fog obscuring terrain, no photoreal photography, no 3D render. Warm ochre, muted green and clear blue-grey palette. No close-up characters, no words, calligraphy, city names, signs, banners, UI, frames or watermark. 1536x1024.",
+      "source": "<本地路径>",
+      "edit_sources": [],
+      "generation_prompt": "Use case: historical-scene. Original wide panoramic title background for a late Eastern Han China 2D historical role-playing game. A serene river valley and a modest walled Chinese town among terraced fields, low distant blue-green mountain ranges, soft late afternoon sunlight, willow trees and small flowering branches at the far foreground edge, low tiled timber buildings and simple city gate across the river, believable early Chinese settlement. Composition is one full landscape with broad calm light sky and distant landscape in upper-left for separately rendered title and small menu; rich detailed city/river panorama in center-right. Refined semi-realistic hand-painted historical game illustration, delicate brush contours and natural light, no heavy ink wash fog obscuring terrain, no photoreal photography, no 3D render. Warm ochre, muted green and clear blue-grey palette. No close-up characters, no words, calligraphy, city names, signs, banners, UI, frames or watermark. 1536x1024.",
+      "original_source": "<本地路径>",
+      "path": "<本地路径>",
+      "sha256": "6104e611d53cdae3607aef2eeffd8df6510403d4ed55bfba25c60923edd08de5",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "alpha_extrema": null,
+      "tool": "built-in imagegen",
+      "viewed_generated_output": true
+    },
+    {
+      "id": "title_mark",
+      "prompt": "Use case: logo-brand. Create one standalone Chinese brush-calligraphy title artwork on a genuinely transparent background. Exact four characters in one horizontal line: \"汉末行记\". Bold confident dark black ink brush strokes, traditional flowing handwritten energy with beautifully balanced readable character forms, modest dry-brush edges, refined historical Chinese game title. No extra words, no English, no numerals, no red seal, no background paper, no frame, no glow, no shadow, no UI. The four characters must be accurately written and easily legible, occupy most of a wide 1536x1024 canvas with generous transparent space above/below. This is only the independent original title lettering asset.",
+      "source": "<本地路径>",
+      "edit_sources": [],
+      "generation_prompt": "Use case: logo-brand. Create one standalone Chinese brush-calligraphy title artwork on a genuinely transparent background. Exact four characters in one horizontal line: \"汉末行记\". Bold confident dark black ink brush strokes, traditional flowing handwritten energy with beautifully balanced readable character forms, modest dry-brush edges, refined historical Chinese game title. No extra words, no English, no numerals, no red seal, no background paper, no frame, no glow, no shadow, no UI. The four characters must be accurately written and easily legible, occupy most of a wide 1536x1024 canvas with generous transparent space above/below. This is only the independent original title lettering asset.",
+      "original_source": "<本地路径>",
+      "path": "<本地路径>",
+      "sha256": "3643038b65b95426877fa1212b4e561e82a555e7dca5a7d0a4d280debec08302",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "tool": "built-in imagegen",
+      "viewed_generated_output": true,
+      "alpha_zero_fraction": 0.8200257619222006,
+      "alpha_bounds": [
+        31,
+        280,
+        1507,
+        952
+      ]
+    },
+    {
+      "id": "city",
+      "prompt": "Use case: precise-object-edit. Edit this existing historical game street background. Keep the same street composition, camera perspective, architecture, sunlight, colors, trees, and painted background people unchanged. Remove ALL readable words, Chinese characters, writing, and emblems from every hanging banner, shop sign, gate plaque and flag. Replace each marked area with a naturally blank aged cloth or plain wood matching that sign's original material, light, shadow, seams and folds. The gate plaque must be blank, not display any place name. This asset is reused by different actual cities, whose names the game draws separately. Do not introduce new signs, people, furniture, UI or border. Preserve the original historical hand-painted finish and wide landscape aspect.",
+      "source": "<本地路径>",
+      "edit_sources": [
+        "<本地路径>"
+      ],
+      "generation_prompt": "",
+      "original_source": "",
+      "path": "<本地路径>",
+      "sha256": "96c0256ee3c12671c8829400f9a14b9c13274964cc54ce41e8273554bd57c4b7",
+      "size": [
+        1587,
+        991
+      ],
+      "mode": "RGB",
+      "alpha_extrema": null,
+      "tool": "built-in imagegen",
+      "viewed_generated_output": true
+    },
+    {
+      "id": "hall",
+      "prompt": "Use case: precise-object-edit. Edit this standalone late Eastern Han Chinese historical game room painting. Remove the tall chair at the back desk and replace the desk/chair arrangement with an appropriately low dark wooden writing table and a reed kneeling mat, retaining the desk's bamboo slips and writing items. Remove tall chair silhouette entirely. Keep all surrounding room architecture, beautiful warm natural sunlight from left, shelves, window, backdrop landscape painting, colors, crop and camera unchanged. No people, no text, no UI. The result is a reusable painted background, not an entire screen.",
+      "source": "<本地路径>",
+      "edit_sources": [
+        "<本地路径>"
+      ],
+      "generation_prompt": "Use case: historical-scene. Asset type: original wide standalone 2D game location background, 1536x1024, no UI or people. Refined semi-realistic historical illustration of late Eastern Han China, delicate fine brush contours, rich hand-painted wood and fabric textures, warm natural sunlight and atmospheric depth, muted golden earth browns, blue-grey tiles and softly luminous shadows. Match the finish of an elegant historical painted adventure game, not a photograph, 3D render, flat vector, diagram, or sketch. No words, writing, calligraphy, glyphs, labels, logo, watermark, interface, decorative border, figures, faces or silhouettes. Leave broad foreground and middle-right space for separately rendered portraits. A modest county official's working hall: weathered timber beams and pillars, paper lattice windows casting warm slanting daylight from left, low dark wooden writing desk in the rear center with rolled bamboo slips, brushrest and ceramic lamp, shelves with ordered bundles at back right, hanging blank silk panel with a softly handpainted ink mountain landscape on the rear wall. Calm eye-level three-quarter perspective, believable natural proportions and shadows, floor and desk material beautifully articulated, elegantly restrained clutter at edges. Full room depth visible.",
+      "original_source": "<本地路径>",
+      "path": "<本地路径>",
+      "sha256": "0eb2562294754b2e8ce12f0cacabce93d825680b857ed69e43000f220a1a817b",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "alpha_extrema": null,
+      "tool": "built-in imagegen",
+      "viewed_generated_output": true
+    },
+    {
+      "id": "tavern",
+      "prompt": "Use case: precise-object-edit. Edit this standalone late Eastern Han Chinese tavern background. Remove every modern glass chimney/kerosene lantern hanging from the beams, especially upper left and upper right. Replace those lamps with small simple unlit wooden fixtures or leave the beam area naturally empty, keeping the warm lighting supplied by existing daylight from the windows. No modern glass hurricane lamps anywhere. Keep all architecture, wooden counter, pottery jars, tables, stools, floor, composition, sunlight, camera and painted texture unchanged. Do not add people, writing, signs, UI or borders.",
+      "source": "<本地路径>",
+      "edit_sources": [
+        "<本地路径>"
+      ],
+      "generation_prompt": "Use case: historical-scene. Asset type: original wide standalone 2D game location background, 1536x1024, no UI or people. Refined semi-realistic historical illustration of late Eastern Han China, delicate fine brush contours, rich hand-painted wood and fabric textures, warm natural sunlight and atmospheric depth, muted golden earth browns, blue-grey tiles and softly luminous shadows. Match the finish of an elegant historical painted adventure game, not a photograph, 3D render, flat vector, diagram, or sketch. No words, writing, calligraphy, glyphs, labels, logo, watermark, interface, decorative border, figures, faces or silhouettes. Leave broad foreground and middle-right space for separately rendered portraits. A welcoming modest tavern interior: honey-colored worn wooden pillars, open lattice windows showing quiet green foliage and daylight, low tables and small stools set back and at left, earthen wine jars and cups on a wooden serving counter at rear right, a few small warm hanging oil lanterns, cloth window curtains. No people. Eye-level room view with coherent perspective, warm noon sunlight left, layered soft shadow in corners. Broad open central floor and uncluttered lower right, inviting lived-in atmosphere.",
+      "original_source": "<本地路径>",
+      "path": "<本地路径>",
+      "sha256": "e1343304f594c1aadc96051210981b5b4cf93a1455a58e90f63334a234fa8aad",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "alpha_extrema": null,
+      "tool": "built-in imagegen",
+      "viewed_generated_output": true
+    },
+    {
+      "id": "innkeeper",
+      "prompt": "Use case: historical-scene. Original independent transparent half-body character portrait for a refined late Eastern Han Chinese 2D RPG. Entire head, shoulders, both elbows and hands fully visible, crop at mid-thigh with generous margin; upright calm three-quarter stance facing slightly left. Refined semi-realistic hand-painted illustration with fine brush contours, expressive realistic facial anatomy, warm soft daylight upper left, rich natural cloth folds and muted historical palette. Not a photograph, anime, chibi, sketch or flat vector. Genuine transparent alpha background with clean silhouette, no smoky backdrop or glow, no frame, UI, writing, text or emblem. 1024x1536. An adult Chinese woman innkeeper around 35 with a square oval face, warm observant dark eyes, subtle smile, black hair in practical simple braided bun with a plain pin; muted pale sage-green cross-collar robe with cream inner garment and dark waist sash, no luxury jewelry. One hand gently holds the other at waist. A composed working adult with a distinctive face, not a youthful glamour model.",
+      "source": "<本地路径>",
+      "path": "<本地路径>",
+      "sha256": "2ece26534e10f28ddc1e3bf6c20b1e7091d24a5a918b88136515cfe824577023",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "alpha_zero_fraction": 0.4791889190673828,
+      "alpha_bounds": [
+        0,
+        0,
+        898,
+        1536
+      ],
+      "tool": "built-in imagegen",
+      "viewed_generated_output": true
+    },
+    {
+      "id": "carter",
+      "prompt": "Use case: historical-scene. Original independent transparent half-body character portrait for a refined late Eastern Han Chinese 2D RPG. Entire head, shoulders, both elbows and hands fully visible, crop at mid-thigh with generous margin; upright calm three-quarter stance facing slightly left. Refined semi-realistic hand-painted illustration with fine brush contours, expressive realistic facial anatomy, warm soft daylight upper left, rich natural cloth folds and muted historical palette. Not a photograph, anime, chibi, sketch or flat vector. Genuine transparent alpha background with clean silhouette, no smoky backdrop or glow, no frame, UI, writing, text or emblem. 1024x1536. A wiry weathered Chinese male cart driver about 58, angular face, sun lines, kind narrowed eyes, thin grey moustache and short grey stubble, greying hair gathered beneath a simple faded indigo cloth headwrap. Worn ochre brown cross-collar linen robe, grey cloth sash, sleeves modestly folded, one rough hand resting on a coiled hemp rope held at waist. Patient experienced working person, clear individual personality.",
+      "source": "<本地路径>",
+      "path": "<本地路径>",
+      "sha256": "06eff7b264691d8af119dd39f3d8f16aee8c9f1f8849a8c95e4a94d1307266d0",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "alpha_zero_fraction": 0.4205697377522786,
+      "alpha_bounds": [
+        0,
+        14,
+        1012,
+        1536
+      ],
+      "tool": "built-in imagegen",
+      "viewed_generated_output": true
+    },
+    {
+      "id": "sender",
+      "prompt": "Use case: historical-scene. Original independent transparent half-body character portrait for a refined late Eastern Han Chinese 2D RPG. Entire head, shoulders, both elbows and hands fully visible, crop at mid-thigh with generous margin; upright calm three-quarter stance facing slightly left. Refined semi-realistic hand-painted illustration with fine brush contours, expressive realistic facial anatomy, warm soft daylight upper left, rich natural cloth folds and muted historical palette. Not a photograph, anime, chibi, sketch or flat vector. Genuine transparent alpha background with clean silhouette, no smoky backdrop or glow, no frame, UI, writing, text or emblem. 1024x1536. A lean Chinese man around 32, thoughtful reserved expression, long narrow face, clean shaven, arched eyebrows, black hair in neat topknot with plain dark cloth crown. Muted charcoal and beige layered cross-collar scholar robe, simple dark sash, hands tucked together within broad sleeves at waist. Quiet literate traveller carrying no weapons or props; poised natural original character.",
+      "source": "<本地路径>",
+      "path": "<本地路径>",
+      "sha256": "6fc5d708ddcbd5b293ae975d2659aca840632ff52d1bc08f2805a83d5b31c513",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "alpha_zero_fraction": 0.4401925404866536,
+      "alpha_bounds": [
+        0,
+        0,
+        942,
+        1536
+      ],
+      "tool": "built-in imagegen",
+      "viewed_generated_output": true
+    },
+    {
+      "id": "recipient",
+      "prompt": "Use case: historical-scene. Original independent transparent half-body character portrait for a refined late Eastern Han Chinese 2D RPG. Entire head, shoulders, both elbows and hands fully visible, crop at mid-thigh with generous margin; upright calm three-quarter stance facing slightly left. Refined semi-realistic hand-painted illustration with fine brush contours, expressive realistic facial anatomy, warm soft daylight upper left, rich natural cloth folds and muted historical palette. Not a photograph, anime, chibi, sketch or flat vector. Genuine transparent alpha background with clean silhouette, no smoky backdrop or glow, no frame, UI, writing, text or emblem. 1024x1536. A Chinese woman around 55, lived-in kind face with natural fine lines, gentle confident eyes, greying black hair in simple low bun pinned with wood, muted dark rust-brown cross-collar robe and oatmeal inner collar, unornamented cloth belt. Hands calmly joined at waist, graceful but practical mature household steward, grounded original person rather than idealized young heroine.",
+      "source": "<本地路径>",
+      "path": "<本地路径>",
+      "sha256": "569d36f57c112b8964c92959304ec964e4434bb7fd1ba1bad50e0e6d79d0d866",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "alpha_zero_fraction": 0.4542681376139323,
+      "alpha_bounds": [
+        0,
+        15,
+        977,
+        1536
+      ],
+      "tool": "built-in imagegen",
+      "viewed_generated_output": true
+    }
+  ],
+  "limits": "独立美术资源；非运行截图。各PNG保留工具真实像素与alpha，尚需正式注册与实机叠图审查。"
+}

@@ -1,0 +1,221 @@
+{
+  "format": "HM-RESIDENT-MAIN-ENCOUNTER/1",
+  "status": "PASS",
+  "test_source_commit": "8e4a01d",
+  "source_profile": "Frozen Main cancellation989 + current approved presenter; native0236316; unchanged actual26 walker-choice fixture",
+  "native_source": "0236316aa04ac4a0deb07abacf2ea374403366d4",
+  "main_sha256": "fdcf4b9190f91a5af4cc432da2728de64a644059acde16078171b8802f17fed8",
+  "resident_archive_sha256": "308a9c1181e9a5f0c8647865fd8e2b0f299d612ed6c857c4e029bceb9d5eabde",
+  "extension_sha256": "af5405dc19c8f1ea02d71e2e320114fa90be9a8b516d8c27c1b76f16fb25595d",
+  "script_sha256": "ef6df4762229d8075b70ae1caa5b56362226ce76d2863478e87063dc5f86429e",
+  "engine_sha256": "8d106cbe6144c2dc7e881d61d2429c1a8a76e6b22ef48bd5e48dcf934953f71e",
+  "checks": 112,
+  "failures": 0,
+  "exit_code": 0,
+  "exact_full_state_boundaries": [
+    {
+      "label": "初始choice",
+      "exact_bytes": true,
+      "source": {
+        "world_id": "aa70532fc6aa048833e507d392a523a1",
+        "execution_epoch": 1,
+        "revision": 5,
+        "tick": 2
+      },
+      "expected_sha256": "81143e6a5b1d5eee00c887060fd63157ab6e3c75806102da8cee0f3e9c84fa1c",
+      "actual_sha256": "81143e6a5b1d5eee00c887060fd63157ab6e3c75806102da8cee0f3e9c84fa1c"
+    },
+    {
+      "label": "拒绝非法choice",
+      "exact_bytes": true,
+      "source": {
+        "world_id": "aa70532fc6aa048833e507d392a523a1",
+        "execution_epoch": 1,
+        "revision": 5,
+        "tick": 2
+      },
+      "expected_sha256": "81143e6a5b1d5eee00c887060fd63157ab6e3c75806102da8cee0f3e9c84fa1c",
+      "actual_sha256": "81143e6a5b1d5eee00c887060fd63157ab6e3c75806102da8cee0f3e9c84fa1c"
+    },
+    {
+      "label": "choice保存后",
+      "exact_bytes": true,
+      "source": {
+        "world_id": "aa70532fc6aa048833e507d392a523a1",
+        "execution_epoch": 1,
+        "revision": 5,
+        "tick": 2
+      },
+      "expected_sha256": "81143e6a5b1d5eee00c887060fd63157ab6e3c75806102da8cee0f3e9c84fa1c",
+      "actual_sha256": "81143e6a5b1d5eee00c887060fd63157ab6e3c75806102da8cee0f3e9c84fa1c"
+    },
+    {
+      "label": "ask进入say",
+      "exact_bytes": true,
+      "source": {
+        "world_id": "aa70532fc6aa048833e507d392a523a1",
+        "execution_epoch": 1,
+        "revision": 6,
+        "tick": 2
+      },
+      "expected_sha256": "4ac5ff13a0bd65987e70a3e94e14047c18e6a3047f29b319b29b7da45d94b069",
+      "actual_sha256": "4ac5ff13a0bd65987e70a3e94e14047c18e6a3047f29b319b29b7da45d94b069"
+    },
+    {
+      "label": "say后恢复choice",
+      "exact_bytes": true,
+      "source": {
+        "world_id": "aa70532fc6aa048833e507d392a523a1",
+        "execution_epoch": 2,
+        "revision": 5,
+        "tick": 2
+      },
+      "expected_sha256": "81143e6a5b1d5eee00c887060fd63157ab6e3c75806102da8cee0f3e9c84fa1c",
+      "actual_sha256": "81143e6a5b1d5eee00c887060fd63157ab6e3c75806102da8cee0f3e9c84fa1c"
+    },
+    {
+      "label": "restore后ask进入say",
+      "exact_bytes": true,
+      "source": {
+        "world_id": "aa70532fc6aa048833e507d392a523a1",
+        "execution_epoch": 2,
+        "revision": 6,
+        "tick": 2
+      },
+      "expected_sha256": "4ac5ff13a0bd65987e70a3e94e14047c18e6a3047f29b319b29b7da45d94b069",
+      "actual_sha256": "4ac5ff13a0bd65987e70a3e94e14047c18e6a3047f29b319b29b7da45d94b069"
+    },
+    {
+      "label": "say返回choice",
+      "exact_bytes": true,
+      "source": {
+        "world_id": "aa70532fc6aa048833e507d392a523a1",
+        "execution_epoch": 2,
+        "revision": 7,
+        "tick": 2
+      },
+      "expected_sha256": "e8dbcb62b076b29df7eb3d80cef9a5c7d9af8c7b8f52782e78df8312b08887ba",
+      "actual_sha256": "e8dbcb62b076b29df7eb3d80cef9a5c7d9af8c7b8f52782e78df8312b08887ba"
+    },
+    {
+      "label": "结束对白",
+      "exact_bytes": true,
+      "source": {
+        "world_id": "aa70532fc6aa048833e507d392a523a1",
+        "execution_epoch": 2,
+        "revision": 8,
+        "tick": 2
+      },
+      "expected_sha256": "46843fca246c58400e9718be8f5ca59152cdf3410769959b07e40a5db3658ca3",
+      "actual_sha256": "46843fca246c58400e9718be8f5ca59152cdf3410769959b07e40a5db3658ca3"
+    },
+    {
+      "label": "道别恢复原行程",
+      "exact_bytes": true,
+      "source": {
+        "world_id": "aa70532fc6aa048833e507d392a523a1",
+        "execution_epoch": 2,
+        "revision": 9,
+        "tick": 2
+      },
+      "expected_sha256": "9c3b076df650fd03772ecaa7b08aeb364f20631b54dfb54ff5b959b56bb661c0",
+      "actual_sha256": "9c3b076df650fd03772ecaa7b08aeb364f20631b54dfb54ff5b959b56bb661c0"
+    },
+    {
+      "label": "阅读取消",
+      "exact_bytes": true,
+      "source": {
+        "world_id": "aa70532fc6aa048833e507d392a523a1",
+        "execution_epoch": 2,
+        "revision": 9,
+        "tick": 2
+      },
+      "expected_sha256": "9c3b076df650fd03772ecaa7b08aeb364f20631b54dfb54ff5b959b56bb661c0",
+      "actual_sha256": "9c3b076df650fd03772ecaa7b08aeb364f20631b54dfb54ff5b959b56bb661c0"
+    },
+    {
+      "label": "阅读后停步",
+      "exact_bytes": true,
+      "source": {
+        "world_id": "aa70532fc6aa048833e507d392a523a1",
+        "execution_epoch": 2,
+        "revision": 10,
+        "tick": 2
+      },
+      "expected_sha256": "87f4e3c2d004d729d655cf5f7b4164054f512f59a75845306cb4d008e1b8d2db",
+      "actual_sha256": "87f4e3c2d004d729d655cf5f7b4164054f512f59a75845306cb4d008e1b8d2db"
+    },
+    {
+      "label": "同world继续",
+      "exact_bytes": true,
+      "source": {
+        "world_id": "aa70532fc6aa048833e507d392a523a1",
+        "execution_epoch": 2,
+        "revision": 11,
+        "tick": 2
+      },
+      "expected_sha256": "64a7faf82852851313a5eb4269bcb9db5afdd0c06aa40f0fb301695a2ed6eb7a",
+      "actual_sha256": "64a7faf82852851313a5eb4269bcb9db5afdd0c06aa40f0fb301695a2ed6eb7a"
+    },
+    {
+      "label": "会面阅读后继续一半日",
+      "exact_bytes": true,
+      "source": {
+        "world_id": "aa70532fc6aa048833e507d392a523a1",
+        "execution_epoch": 2,
+        "revision": 12,
+        "tick": 3
+      },
+      "expected_sha256": "8e50d44b6ad3406ff615a0a120b721694d0f4958b961fb838b7dac93ccb464a1",
+      "actual_sha256": "8e50d44b6ad3406ff615a0a120b721694d0f4958b961fb838b7dac93ccb464a1"
+    }
+  ],
+  "unchanged_original_core_scripts": 171,
+  "core_differences_from_original_baseline": [
+    "core/views/character_summary.gd",
+    "core/views/personal_battle_view.gd"
+  ],
+  "actual_main_scene": true,
+  "actual_native_bridge": true,
+  "gui_pixels_accepted": false,
+  "scope": [
+    "Actual visible ask/leave labels and order; invalid input preserves original error and complete world",
+    "Choice saved through actual menu, slot selector and confirmation; ask then same-slot restore changes execution epoch, restores choice/peer revision and removes stale say text",
+    "Same Bridge object/world through all actions and restore",
+    "Encounter leave restores original paused state; real begin_run then map-reading cancellation survives former 1.2-second timer deadline",
+    "Actual pause/resume/advance buttons after cancellation; one explicit half-day, original complete GD bytes match"
+  ],
+  "evidence_directory": "<本地路径>",
+  "run_command": "XDG_DATA_HOME=<isolated>/xdg/data XDG_CONFIG_HOME=<isolated>/xdg/config XDG_CACHE_HOME=<isolated>/xdg/cache TMPDIR=<isolated>/tmp <fixed Godot4.7.2> --headless --path <isolated>/game --script res://tests/test_resident_main_encounter.gd -- --fixture=<repo>/game/tests/test_resident_main_encounter_fixture.json --workspace=<本地路径> --evidence=<fresh output>",
+  "artifacts": {
+    "boundary-01-actual.json": "81143e6a5b1d5eee00c887060fd63157ab6e3c75806102da8cee0f3e9c84fa1c",
+    "boundary-01-expected.json": "81143e6a5b1d5eee00c887060fd63157ab6e3c75806102da8cee0f3e9c84fa1c",
+    "boundary-02-actual.json": "81143e6a5b1d5eee00c887060fd63157ab6e3c75806102da8cee0f3e9c84fa1c",
+    "boundary-02-expected.json": "81143e6a5b1d5eee00c887060fd63157ab6e3c75806102da8cee0f3e9c84fa1c",
+    "boundary-03-actual.json": "81143e6a5b1d5eee00c887060fd63157ab6e3c75806102da8cee0f3e9c84fa1c",
+    "boundary-03-expected.json": "81143e6a5b1d5eee00c887060fd63157ab6e3c75806102da8cee0f3e9c84fa1c",
+    "boundary-04-actual.json": "4ac5ff13a0bd65987e70a3e94e14047c18e6a3047f29b319b29b7da45d94b069",
+    "boundary-04-expected.json": "4ac5ff13a0bd65987e70a3e94e14047c18e6a3047f29b319b29b7da45d94b069",
+    "boundary-05-actual.json": "81143e6a5b1d5eee00c887060fd63157ab6e3c75806102da8cee0f3e9c84fa1c",
+    "boundary-05-expected.json": "81143e6a5b1d5eee00c887060fd63157ab6e3c75806102da8cee0f3e9c84fa1c",
+    "boundary-06-actual.json": "4ac5ff13a0bd65987e70a3e94e14047c18e6a3047f29b319b29b7da45d94b069",
+    "boundary-06-expected.json": "4ac5ff13a0bd65987e70a3e94e14047c18e6a3047f29b319b29b7da45d94b069",
+    "boundary-07-actual.json": "e8dbcb62b076b29df7eb3d80cef9a5c7d9af8c7b8f52782e78df8312b08887ba",
+    "boundary-07-expected.json": "e8dbcb62b076b29df7eb3d80cef9a5c7d9af8c7b8f52782e78df8312b08887ba",
+    "boundary-08-actual.json": "46843fca246c58400e9718be8f5ca59152cdf3410769959b07e40a5db3658ca3",
+    "boundary-08-expected.json": "46843fca246c58400e9718be8f5ca59152cdf3410769959b07e40a5db3658ca3",
+    "boundary-09-actual.json": "9c3b076df650fd03772ecaa7b08aeb364f20631b54dfb54ff5b959b56bb661c0",
+    "boundary-09-expected.json": "9c3b076df650fd03772ecaa7b08aeb364f20631b54dfb54ff5b959b56bb661c0",
+    "boundary-10-actual.json": "9c3b076df650fd03772ecaa7b08aeb364f20631b54dfb54ff5b959b56bb661c0",
+    "boundary-10-expected.json": "9c3b076df650fd03772ecaa7b08aeb364f20631b54dfb54ff5b959b56bb661c0",
+    "boundary-11-actual.json": "87f4e3c2d004d729d655cf5f7b4164054f512f59a75845306cb4d008e1b8d2db",
+    "boundary-11-expected.json": "87f4e3c2d004d729d655cf5f7b4164054f512f59a75845306cb4d008e1b8d2db",
+    "boundary-12-actual.json": "64a7faf82852851313a5eb4269bcb9db5afdd0c06aa40f0fb301695a2ed6eb7a",
+    "boundary-12-expected.json": "64a7faf82852851313a5eb4269bcb9db5afdd0c06aa40f0fb301695a2ed6eb7a",
+    "boundary-13-actual.json": "8e50d44b6ad3406ff615a0a120b721694d0f4958b961fb838b7dac93ccb464a1",
+    "boundary-13-expected.json": "8e50d44b6ad3406ff615a0a120b721694d0f4958b961fb838b7dac93ccb464a1",
+    "result.json": "d6165b04b176f4e70d548a4f8defcf75e5f1ac530df334ffe6e56257889f0967",
+    "run.log": "fccd3fdeddeb6012fbea7c6a53be9eb324d5b38e35c49b684634aea5413a99dd",
+    "runtime-hashes.txt": "6a7287b55cde7adf924988b49c853d7fdd5f4ddff4bf881a4cf6c16e8c23db33"
+  }
+}

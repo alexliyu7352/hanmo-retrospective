@@ -1,0 +1,138 @@
+{
+  "format": "hanmo.schema.fragment/1",
+  "version": "fiscal_need_policies/1",
+  "status": "candidate; central schema/module registration pending",
+  "$defs": {
+    "fiscal_need_policy": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/entity_id"
+        },
+        "district_id": {
+          "$ref": "#/$defs/entity_id"
+        },
+        "source_id": {
+          "$ref": "#/$defs/entity_id"
+        },
+        "semantic_key": {
+          "$ref": "#/$defs/entity_id"
+        },
+        "unit": {
+          "enum": [
+            "cash",
+            "grain"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "district_id",
+        "source_id",
+        "semantic_key",
+        "unit"
+      ],
+      "additionalProperties": false
+    },
+    "fiscal_need_policies": {
+      "type": "object",
+      "properties": {
+        "version": {
+          "type": "integer",
+          "const": 1
+        },
+        "policies": {
+          "type": "object",
+          "minProperties": 1,
+          "maxProperties": 20000,
+          "additionalProperties": {
+            "$ref": "#/$defs/fiscal_need_policy"
+          }
+        }
+      },
+      "required": [
+        "version",
+        "policies"
+      ],
+      "additionalProperties": false
+    },
+    "dynamic_affairs_fiscal": {
+      "type": "object",
+      "properties": {
+        "need_policies": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/dynamic_need_policy"
+          },
+          "maxProperties": 10000
+        },
+        "fiscal_need_policies": {
+          "$ref": "#/$defs/fiscal_need_policies"
+        }
+      },
+      "required": [
+        "need_policies",
+        "fiscal_need_policies"
+      ],
+      "additionalProperties": false
+    },
+    "dynamic_affairs_fiscal_obligations": {
+      "type": "object",
+      "properties": {
+        "need_policies": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/dynamic_need_policy"
+          },
+          "maxProperties": 10000
+        },
+        "obligation_needs_version": {
+          "type": "integer",
+          "const": 1
+        },
+        "obligation_policies": {
+          "type": "object",
+          "propertyNames": {
+            "$ref": "#/$defs/entity_id"
+          },
+          "additionalProperties": {
+            "$ref": "#/$defs/dynamic_obligation_need_policy"
+          },
+          "maxProperties": 10000
+        },
+        "fiscal_need_policies": {
+          "$ref": "#/$defs/fiscal_need_policies"
+        }
+      },
+      "required": [
+        "need_policies",
+        "obligation_needs_version",
+        "obligation_policies",
+        "fiscal_need_policies"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "property_target": "/$defs/dynamic_affairs_fiscal/properties/fiscal_need_policies",
+  "property_schema": {
+    "$ref": "#/$defs/fiscal_need_policies"
+  },
+  "integration_notes": [
+    "登记fiscal_need_policies/1与Affairs3；工资obligation_needs/1独立。",
+    "调用check_fiscal_need_policies(pack,index)，原税源检查仍须先通过。",
+    "不新增全局capability，不改旧作者和lock；无默认税政或自动Claim。",
+    "原dynamic_affairs_legacy/obligations两个分支逐值保持；只追加两个显式财政分支，保工资开关独立。"
+  ],
+  "additional_property_targets": [
+    "/$defs/dynamic_affairs_fiscal_obligations/properties/fiscal_need_policies"
+  ],
+  "oneof_target": "/$defs/dynamic_affairs/oneOf",
+  "oneof_append": [
+    {
+      "$ref": "#/$defs/dynamic_affairs_fiscal"
+    },
+    {
+      "$ref": "#/$defs/dynamic_affairs_fiscal_obligations"
+    }
+  ]
+}

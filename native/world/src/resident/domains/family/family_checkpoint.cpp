@@ -1,0 +1,39 @@
+// 家庭检查点完整遍历原typed条款与永久来源；不通过JSON黑箱或默认值隐藏信息。
+#include "resident/checkpoint/checkpoint_decode_lifecycle.hpp"
+#include "family_model.hpp"
+#include "family_checkpoint_versioned.hpp"
+#include "resident/storage/common_checkpoint.hpp"
+namespace hanmo::resident {
+namespace {
+using namespace common_checkpoint;
+// 顺序遍历policy全部状态，读取端保留字段存在位。
+Status policy(CodecVisitor& c,FamilyPolicy& v){c.field("child_age_years",v.child_age_years);c.field("guardian_min_age",v.guardian_min_age);c.field("heir_min_age",v.heir_min_age);c.field("retirement_min_age",v.retirement_min_age);c.optional("enable_travel_plan",v.enable_travel_plan,[](auto& p,auto& x){return p.field("value",x);});return strings(c,"field_order",v.field_order);}
+// 顺序遍历terms全部状态，读取端保留字段存在位。
+Status terms(CodecVisitor& c,AdoptionTerms& v){c.field("guardian_actor_id",v.guardian_actor_id);c.field("provider_actor_id",v.provider_actor_id);c.field("role_id",v.role_id);c.field("place_id",v.place_id);c.field("prototype_id",v.prototype_id);c.field("display_name",v.display_name);c.field("birth_tick",v.birth_tick);c.field("duration",v.duration);c.field("fee",v.fee);c.field("payer_wallet_id",v.payer_wallet_id);c.field("recipient_wallet_id",v.recipient_wallet_id);c.object("policy",[&](auto& p){return policy(p,v.policy);});return strings(c,"field_order",v.field_order);}
+// 顺序遍历wallet全部状态，读取端保留字段存在位。
+Status wallet(CodecVisitor& c,SuccessionWallet& v){c.field("source_id",v.source_id);c.field("destination_id",v.destination_id);c.field("amount",v.amount);return strings(c,"field_order",v.field_order);}
+// 顺序遍历goods全部状态，读取端保留字段存在位。
+Status goods(CodecVisitor& c,SuccessionGoods& v){c.field("source_inventory_id",v.source_inventory_id);c.field("destination_inventory_id",v.destination_inventory_id);c.field("lot_id",v.lot_id);c.field("item_id",v.item_id);c.field("quantity",v.quantity);return strings(c,"field_order",v.field_order);}
+// 顺序遍历estate全部状态，读取端保留字段存在位。
+Status estate(CodecVisitor& c,SuccessionEstate& v){c.field("estate_id",v.estate_id);c.field("inventory_id",v.inventory_id);c.field("wallet_id",v.wallet_id);return strings(c,"field_order",v.field_order);}
+// 顺序遍历assets全部状态，读取端保留字段存在位。
+Status assets(CodecVisitor& c,SuccessionAssets& v){c.sequence("wallets",v.wallets,[](auto& p,auto& x){return p.object("entry",[&](auto& z){return wallet(z,x);});});c.sequence("goods",v.goods,[](auto& p,auto& x){return p.object("entry",[&](auto& z){return goods(z,x);});});c.sequence("estates",v.estates,[](auto& p,auto& x){return p.object("entry",[&](auto& z){return estate(z,x);});});strings(c,"disabled_roles",v.disabled_roles);return strings(c,"field_order",v.field_order);}
+// 顺序遍历adoption全部状态，读取端保留字段存在位。
+Status adoption(CodecVisitor& c,AdoptionFact& v){c.field("kind",v.kind);c.field("guardian_actor_id",v.guardian_actor_id);c.field("start_tick",v.start_tick);c.object("terms",[&](auto& p){return terms(p,v.terms);});c.object("context",[&](auto& p){return interaction_codec::visit_context(p,v.context);});c.field("completed_tick",v.completed_tick);c.field("child_actor_id",v.child_actor_id);c.field("success",v.success);return strings(c,"field_order",v.field_order);}
+// 顺序遍历creation全部状态，读取端保留字段存在位。
+Status creation(CodecVisitor& c,IdentityCreationFact& v){c.field("prototype_id",v.prototype_id);c.field("actor_id",v.actor_id);c.field("created_tick",v.created_tick);c.field("birth_tick",v.birth_tick);c.field("display_name",v.display_name);c.field("source",v.source);return strings(c,"field_order",v.field_order);}
+// 顺序遍历choice全部状态，读取端保留字段存在位。
+Status choice(CodecVisitor& c,FamilyChoice& v){c.field("kind",v.kind);c.field("guardian_actor_id",v.guardian_actor_id);c.field("heir_actor_id",v.heir_actor_id);c.field("adoption_source",v.adoption_source);c.field("place_id",v.place_id);c.field("tick",v.tick);c.optional("designation_source",v.designation_source,[](auto& p,auto& x){return p.field("value",x);});c.optional("assets",v.assets,assets);return strings(c,"field_order",v.field_order);}
+// 顺序遍历action全部状态，读取端保留字段存在位。
+Status action(CodecVisitor& c,FamilyAction& v){c.object("training",[&](auto& p){return terms(p,v.training);});c.object("context",[&](auto& p){return interaction_codec::visit_context(p,v.context);});return strings(c,"field_order",v.field_order);}
+} // variant编号追加而不修改旧含义，完整兼容验收留统一节点。
+Status visit_family_effect(CodecVisitor& c,FamilyEffect& v){c.optional("success",v.success,[](auto& p,auto& x){return p.field("value",x);});c.optional("already_completed",v.already_completed,[](auto& p,auto& x){return p.field("value",x);});c.optional("code",v.code,[](auto& p,auto& x){return p.field("value",x);});c.optional("actor_id",v.actor_id,[](auto& p,auto& x){return p.field("value",x);});c.optional("fact_id",v.fact_id,[](auto& p,auto& x){return p.field("value",x);});c.optional("heir_actor_id",v.heir_actor_id,[](auto& p,auto& x){return p.field("value",x);});c.optional("player_actor_id",v.player_actor_id,[](auto& p,auto& x){return p.field("value",x);});return common_checkpoint::strings(c,"field_order",v.field_order);}
+namespace {
+Status visit_family_selected(CodecVisitor& c,FamilyState& s,bool household_control,bool character_creation,bool extended_skills,bool adult_adoption,bool voluntary_succession,bool paths){using namespace common_checkpoint;c.field("founder_actor_id",s.founder_actor_id);auto text=[](auto& v,auto& x){return v.field("value",x);};table(c,"children",s.children,text);table(c,"designations",s.designations,text);strings(c,"successions",s.successions);table(c,"actions",s.actions,action);table(c,"facts",s.facts,[household_control,character_creation,extended_skills,adult_adoption,voluntary_succession,paths](CodecVisitor& v,FamilyFact& f){Integer kind=f.index();v.field("kind",kind);if(kind<0||kind>7||(kind==3&&!household_control)||(kind==4&&!character_creation)||(kind==5&&!adult_adoption)||(kind>=6&&!voluntary_succession))return v.reject("InvalidFamilyFact");if(v.reading()){if(kind==0)f=AdoptionFact{};else if(kind==1)f=IdentityCreationFact{};else if(kind==2)f=FamilyChoice{};else if(kind==3)f=HouseholdControlFact{};else if(kind==4)f=CharacterCreationFact{};else if(kind==5)f=AdultAdoptionFact{};else if(kind==6)f=SuccessionConsentFact{};else f=VoluntarySuccessionFact{};}return std::visit([&](auto& value){using T=std::decay_t<decltype(value)>;if constexpr(std::is_same_v<T,AdoptionFact>)return adoption(v,value);else if constexpr(std::is_same_v<T,IdentityCreationFact>)return creation(v,value);else if constexpr(std::is_same_v<T,CharacterCreationFact>)return visit_character_creation_fact(v,value,extended_skills);else if constexpr(std::is_same_v<T,AdultAdoptionFact>)return visit_adult_adoption_fact(v,value);else if constexpr(std::is_same_v<T,SuccessionConsentFact>)return paths?visit_succession_consent_fact_paths(v,value):visit_succession_consent_fact(v,value);else if constexpr(std::is_same_v<T,VoluntarySuccessionFact>)return visit_voluntary_succession_fact(v,value);else if constexpr(std::is_same_v<T,HouseholdControlFact>)return visit_household_control_fact(v,value);else return choice(v,value);},f);});return strings(c,"field_order",s.field_order);}
+ }
+Status visit_family_checkpoint(CodecVisitor& c,FamilyState& s,bool household_control,bool character_creation,bool extended_skills,bool adult_adoption,bool voluntary_succession){return visit_family_selected(c,s,household_control,character_creation,extended_skills,adult_adoption,voluntary_succession,false);}
+Status visit_family_checkpoint_versioned(CodecVisitor& c,FamilyState& state,Integer version,bool extended_skills){
+    auto shape=inspect_family_codec_version(version);if(!shape.ok)return c.reject(shape.error.original.code);const auto& s=shape.value;
+    return visit_family_selected(c,state,s.household_control,s.character_creation,extended_skills,s.adult_adoption,s.voluntary_succession,s.voluntary_paths);
+}
+} // 全域安装后仍执行家庭来源、人物归属和共同资源校验。

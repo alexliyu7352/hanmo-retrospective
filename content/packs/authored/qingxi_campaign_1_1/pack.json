@@ -1,0 +1,77 @@
+{
+  "format": "HM-PACK",
+  "format_version": 1,
+  "id": "qingxi.campaign",
+  "version": "1.1.0",
+  "namespace": "qingxi",
+  "rules_api": {
+    "id": "hanmo.rules",
+    "min_version": "1.0.0",
+    "max_version_exclusive": "2.0.0"
+  },
+  "dependencies": [],
+  "conflicts": [],
+  "required_capabilities": [
+    "multi_actor",
+    "places",
+    "dialogue",
+    "economy",
+    "military",
+    "world_terrain",
+    "native_dynamic_world",
+    "population_military_v1",
+    "siege_integration_v1"
+  ],
+  "content_entries": [
+    "content.json"
+  ],
+  "presentation_entries": [
+    "presentation.json"
+  ],
+  "resources": [
+    {
+      "path": "assets/art/project/alpha-camp/camp-courtyard.png",
+      "kind": "image",
+      "required": true,
+      "sha256": "2f5649b6a342bb7cedbfa3fde882e9625ea27c98d80dfc90c109bdee519fedc9",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "assets/art/project/alpha-military/valley.png",
+      "kind": "image",
+      "required": true,
+      "sha256": "119fd0b283827ac0af6ab41d5c8a084b7ea19fd77434df0e5c5133f5aa3f92b6",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "assets/art/project/alpha-visual/official.png",
+      "kind": "image",
+      "required": true,
+      "sha256": "b56d9131133b89a9a04796c59491883d2c871fc4f5fd8a60fbba6ef0db3e4683",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "assets/art/project/alpha-military/infantry.png",
+      "kind": "image",
+      "required": true,
+      "sha256": "c970dfe82d03651e85f77b2fee76944086432cda02cb94f219278c51fd373db5",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "assets/art/project/alpha-military/archers.png",
+      "kind": "image",
+      "required": true,
+      "sha256": "126577f8ea32db37254dc70f658f8e32b05915e2d57f8d6a01f43409f0b229a8",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "assets/art/project/provenance.json",
+      "kind": "data",
+      "required": true,
+      "sha256": "6ad46bc7464d61601187c76c20cefb364fa16055a9c2fe512cd2d48188f35589",
+      "license": "project-local-authorized-use"
+    }
+  ],
+  "author": "Hanmo project authors",
+  "license": "NOASSERTION"
+}

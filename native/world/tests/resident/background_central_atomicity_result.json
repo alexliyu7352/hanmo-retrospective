@@ -1,0 +1,19 @@
+{
+  "format": "HM-RESIDENT-CENTRAL-NPC-ATOMICITY/1",
+  "status": "PASS",
+  "scope": "One synthetic post-reservation fact-ID collision through actual try_npc_command; full state/checkpoint/read-version rollback and next ordinary NPC adoption. Not a legal naturally duplicated ID or full pressure gate.",
+  "reported_library_build_commit": "1c5a6d066f48c7c02b94c2e0822ada3ee4622d22",
+  "library_snapshot": "own immutable archives relinked and rerun after snapshot",
+  "artifacts": {
+    "libhanmo_resident.a": "5e32b79dc0278bc1b91c0e82f8073569d27934ee435a60c0c3f1348c6b0c171d",
+    "libhanmo_world.a": "5288091b4e83ed52b8b4c413fefea15e85248f5000d9143c2b416bac432a83a2",
+    "libhanmo_flecs.a": "3ffd22212ca3af8eb69c890a150ce6211db4574ab9128f446b388da607e1862a",
+    "background_central_atomicity": "8cc815b299d03663e277f6f75c5f6a4c8e398b6bf19049f08c8a93f797e8b0ba",
+    "test.o": "31df9ea746bedc3e57f228ca142298a8cef8f551fb244c504cb00b8e0823301a",
+    "test.cpp": "ee1404b1d1637f3159861ccc9d96a9b79a04d49115e8b230bf21f17fdbe8a32a",
+    "build_identity.hpp": "552b03c2fa824b9f5477d4cd77121efc5dceb5382191ca22ab4ff84fb71795da",
+    "run.log": "fc04c5092bcf5221ebb2c45b72db51638486d4d4b82068571b53f72e9cc74a1a"
+  },
+  "oracle": "resident-journey-oracle-baseline-20261004/journey1000-20261005/oracle-index.json",
+  "test_source": "native/world/tests/resident/background_central_atomicity.cpp"
+}

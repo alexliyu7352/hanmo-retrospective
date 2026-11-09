@@ -1,0 +1,5 @@
+# Developer-only dependency; not shipped in the game runtime. Python >= 3.10.
+jsonschema==4.26.0
+
+# 发布前真实解码PNG/WebP/JPEG；非可选，玩家运行时不需要Python。
+Pillow==12.3.0

@@ -1,0 +1,27 @@
+// 每个后继任期仍由原Office唯一账决定；本账只承认自己已完成且与更职紧邻的真实就任。
+#include "political_successor_round_contract.hpp"
+#include "resident/domains/politics/term_handover/political_term_handover_contract.hpp"
+#include "resident/domains/organization/organization_office_history.hpp"
+namespace hanmo::resident {namespace {
+using Result=Outcome<std::optional<PoliticalHeadSource>>;
+Result fail(const StableId& code,const StableId& id){return {false,{},common_failure(code,id).error};}
+// 原两个已验制度作为根；自己的新就任来源只作有限字段/因果交叉核，不反调完整新轮全验。
+Result read(const PoliticalHeadSourceContext& x,const PoliticalSuccessorRoundCatalog& catalog,const PoliticalSuccessorRoundState& state,const StableId& policy_id,Integer tick,const StableId& boundary,bool term=false){
+ const auto* p=catalog.policies.find(policy_id);const auto* original=p?x.succession_catalog.policies.find(p->succession_policy_id):nullptr;if(catalog.version!=1||state.version!=1||!p||!original)return fail("PoliticalSuccessorRoundOriginalPolicyRequired",policy_id);
+ auto office=boundary.empty()?read_political_succession_office(x.common,x.organizations,x.organization_catalog,*original):term?read_political_term_handover_office_before(x.common,x.organizations,x.organization_catalog,*original,tick,boundary):read_political_successor_round_office_before(x,original->id,tick,boundary);if(!office.ok)return {false,{},office.error};if(tick<0||tick>x.common.tick()||(boundary.empty()&&tick!=x.common.tick()))return fail("PoliticalSuccessorRoundClockMismatch",policy_id);if(office.value.vacant)return {true,std::nullopt,{}};
+ const auto* change=x.organizations.facts.find(office.value.latest_office_fact_id);const auto* accession=change&&change->cause_fact_ids.size()==1?state.accessions.find(change->cause_fact_ids.front()):nullptr;
+ if(!accession)return boundary.empty()?read_political_head_source(x,original->id):term?read_political_head_source_before_term_handover(x,original->id,tick,boundary):read_political_head_source_before(x,original->id,tick,boundary);
+ const auto& c=x.common;const auto* accepted=state.answers.find(accession->acceptance_fact_id);const auto* nomination=accepted?state.nominations.find(accepted->nomination_fact_id):nullptr;const auto* source_policy=nomination?catalog.policies.find(nomination->policy_id):nullptr;const auto n=political_successor_round_fact_sequence(c,accession->id),changed=organization_instance_sequence(change->id,"organization");const auto& order=c.state().facts.order();const auto at=std::find(order.begin(),order.end(),accession->id);const auto* h=c.state().facts.find(accession->id);
+ if(!h||h->kind!="political_successor_round_acceded"||!n||!changed||*n==INT64_MAX||*changed!=*n+1||at==order.end()||std::next(at)==order.end()||*std::next(at)!=change->id||accession->id!=change->cause_fact_ids.front()||!accession->player_receipt||accession->office_change_fact_id!=change->id||accession->actor_id!=office.value.holder_actor_id.value_or(StableId{})||accession->installed_office_epoch!=office.value.office_epoch||change->tick!=accession->tick||accession->tick<0||accession->tick>tick||change->amount!=0||!change->activity_id.empty()||!change->code.empty()||change->response!=MemberResponse::serving||!accepted||!accepted->accepted||accepted->actor_id!=accession->actor_id||!nomination||!source_policy||source_policy->succession_policy_id!=original->id||nomination->organization_id!=original->organization_id||nomination->office_id!=original->leader_office_id||nomination->candidate_actor_id!=accession->actor_id)return fail("PoliticalSuccessorRoundAppointmentSourceMismatch",accession->id);
+ if(!boundary.empty()){const auto limit=std::find(order.begin(),order.end(),boundary);if(limit==order.end()||std::next(at)>=limit)return fail("PoliticalSuccessorRoundAppointmentAfterBoundary",accession->id);}
+ PoliticalHeadSource out;out.source_identity=c.state().identity;out.policy_id=original->id;out.organization_id=original->organization_id;out.office_id=original->leader_office_id;out.actor_id=accession->actor_id;out.predecessor_actor_id=nomination->issuer_actor_id;out.source_fact_id=accession->id;out.office_change_fact_id=change->id;out.before_fact_id=boundary;out.origin=PoliticalHeadOrigin::successor_round;out.office_epoch=office.value.office_epoch;out.installed_tick=accession->tick;out.observed_tick=tick;return {true,std::move(out),{}};
+}
+}
+// 当前任期来源只在稳定当前钟读，不把暂停或未来阶段当已生效新任。
+Outcome<std::optional<PoliticalHeadSource>> read_political_successor_round_head(const PoliticalHeadSourceContext& x,const PoliticalSuccessorRoundCatalog& catalog,const PoliticalSuccessorRoundState& state,const StableId& id){return read(x,catalog,state,id,x.common.tick(),{});}
+// 历史业务必须具名，源payload仍由完整新轮史按顺序核验。
+Outcome<std::optional<PoliticalHeadSource>> read_political_successor_round_head_before(const PoliticalHeadSourceContext& x,const PoliticalSuccessorRoundCatalog& catalog,const PoliticalSuccessorRoundState& state,const StableId& id,Integer tick,const StableId& fact){if(fact.empty())return fail("PoliticalHeadBusinessBoundaryRequired",id);return read(x,catalog,state,id,tick,fact);}
+// 该入口仅本后任交接事实；默认新轮提名仍只使用自己的原边界白名单。
+Outcome<std::optional<PoliticalHeadSource>> read_political_successor_round_head_before_term_handover(const PoliticalHeadSourceContext& x,const PoliticalSuccessorRoundCatalog& catalog,const PoliticalSuccessorRoundState& state,const StableId& id,Integer tick,const StableId& fact){if(fact.empty())return fail("PoliticalHeadBusinessBoundaryRequired",id);return read(x,catalog,state,id,tick,fact,true);}
+
+}

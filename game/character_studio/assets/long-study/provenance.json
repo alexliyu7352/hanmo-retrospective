@@ -1,0 +1,17 @@
+{
+ "date":"2026-10-06",
+ "generator":"built-in image_gen",
+ "reference":"art-source/art-direction/characters/visual-targets/adult-face-families.png; elongated adult direction with original painterly style",
+ "scope":"Independent elongated middle-aged adult male fitting template with normal medium shoulders, not a stretched prior rig or a new elderly/body-build rig",
+ "sources":[
+  {"file":"master-candidate.png","status":"parent reviewed actual three-background composition, side-by-side master and96px comparison; accepted continuing with independent safe framing"},
+  {"file":"traveler.png","status":"rejected as runtime source: actual alpha contained opaque black background islands, despite plausible RGB preview"},
+  {"file":"traveler-clean.png","status":"background-extraction correction through image_gen; actual light/dark/checker proof confirms clear exterior; original head/neck retained during composition"},
+  {"file":"hair-cap.png","status":"same-master fitted cloth cap, with its own old/new hair-region union"},
+  {"file":"features-alternate.png","status":"same-master cropped-face alternate brows/open eyes/round nose/smiling lips; mapped to stable semantic IDs rather than incidental source order"},
+  {"file":"beard.png","status":"same-master fitted short moustache/chin beard; restricted to base contour and neutral mouth"},
+  {"file":"face-square.png","status":"same elongated fitting family with squarer lower jaw; independent selected features reapplied at fixed own-family anchors"}
+ ],
+ "framing":{"source_canvas":[1024,1536],"portrait_crop":[54,24,920,1380],"output_canvas":[512,768],"avatar_crop_on_output":[115,9,306,306],"policy":"compose first, crop complete portrait at2:3, uniformly rescale; never stretch or enlarge head separately"},
+ "identity_review":"Three masters are visually distinct. Four isolated candidates within each family remain too similar to claim12accepted independent identities; pending further authored diversity."
+}

@@ -1,0 +1,14 @@
+// 四个本人办理入口共用一份完整新账；原Office仅正式就任一项可写。
+#pragma once
+#include "political_successor_round_accession.hpp"
+#include "political_successor_round_receipts.hpp"
+namespace hanmo::resident {
+struct PoliticalSuccessorRoundBusinessContext {const PoliticalSuccessorRoundAccessionSourceContext& sources;const PoliticalSuccessorRoundState& state;PoliticalSuccessorRoundResultMatch result_match;};
+struct PoliticalSuccessorRoundQuote {WorldIdentity identity;StableId actor_id;PoliticalSuccessorRoundCommand command;std::variant<PoliticalSuccessorRoundNominationQuote,PoliticalSuccessorRoundAccessionQuote> details;};
+struct PoliticalSuccessorRoundEffects {StableId source_fact_id,office_change_fact_id;};
+Status validate_political_successor_round_sources(const PoliticalSuccessorRoundBusinessContext&);
+Status validate_political_successor_rounds(const PoliticalSuccessorRoundBusinessContext&);
+Outcome<PoliticalSuccessorRoundQuote> preview_political_successor_round(const PoliticalSuccessorRoundBusinessContext&,const StableId& actor,const PoliticalSuccessorRoundCommand&);
+// 调用者保存同候选Common/Organization/本账，结果永久绑定完成后才可发布。
+Outcome<PoliticalSuccessorRoundEffects> apply_political_successor_round_in_candidate(CommonStore&,OrganizationState&,PoliticalSuccessorRoundState&,const PoliticalSuccessorRoundBusinessContext&,const StableId& actor,const PoliticalSuccessorRoundCommand&,const PoliticalSuccessorRoundQuote&);
+}

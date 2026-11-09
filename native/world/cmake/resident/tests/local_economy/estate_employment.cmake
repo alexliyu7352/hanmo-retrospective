@@ -1,0 +1,24 @@
+# 地方经济与责任账消费者登记：保留本组目标、测试、条件与局部变量的原执行顺序。
+add_executable(test_resident_estate_employment tests/resident/economic_world/estate_employment_test.cpp)
+target_link_libraries(test_resident_estate_employment PRIVATE hanmo_resident)
+target_compile_options(test_resident_estate_employment PRIVATE -UNDEBUG -fno-fast-math -ffp-contract=off)
+
+add_executable(test_resident_estate_employment_boundary tests/resident/economic_world/estate_employment_boundary_test.cpp)
+target_link_libraries(test_resident_estate_employment_boundary PRIVATE hanmo_resident)
+target_compile_options(test_resident_estate_employment_boundary PRIVATE -UNDEBUG -fno-fast-math -ffp-contract=off)
+
+add_executable(test_resident_supply_policy_codec tests/resident/economic_world/supply_policy_codec_test.cpp)
+target_link_libraries(test_resident_supply_policy_codec PRIVATE hanmo_resident)
+target_compile_options(test_resident_supply_policy_codec PRIVATE -UNDEBUG -fno-fast-math -ffp-contract=off)
+
+add_executable(test_resident_supply_policy_ledger tests/resident/economic_world/supply_policy_ledger_test.cpp)
+target_link_libraries(test_resident_supply_policy_ledger PRIVATE hanmo_resident)
+target_compile_options(test_resident_supply_policy_ledger PRIVATE -UNDEBUG -fno-fast-math -ffp-contract=off)
+
+add_executable(test_resident_supply_policy_rules tests/resident/economic_world/supply_policy_rules_test.cpp)
+target_link_libraries(test_resident_supply_policy_rules PRIVATE hanmo_resident)
+target_compile_options(test_resident_supply_policy_rules PRIVATE -UNDEBUG -fno-fast-math -ffp-contract=off)
+
+add_executable(test_resident_supply_policy_profile tests/resident/economic_world/supply_policy_profile_test.cpp)
+target_link_libraries(test_resident_supply_policy_profile PRIVATE hanmo_resident)
+target_compile_options(test_resident_supply_policy_profile PRIVATE -UNDEBUG -fno-fast-math -ffp-contract=off)

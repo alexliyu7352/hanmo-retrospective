@@ -1,0 +1,11 @@
+// CMake生成的实际编译身份，仅用于审计，不参与世界身份或规则授权。
+#pragma once
+namespace hanmo::build {
+inline constexpr char source_commit[]="@HANMO_SOURCE_COMMIT@";
+inline constexpr char source_sha256[]="@HANMO_SOURCE_SHA256@";
+inline constexpr char dependency_lock_sha256[]="@HANMO_LOCK_SHA256@";
+inline constexpr char compiler[]="@CMAKE_CXX_COMPILER_ID@";
+inline constexpr char compiler_version[]="@CMAKE_CXX_COMPILER_VERSION@";
+inline constexpr char target[]="@CMAKE_SYSTEM_NAME@-@CMAKE_SYSTEM_PROCESSOR@";
+inline constexpr char configuration[]="@CMAKE_BUILD_TYPE@";
+} // 编译身份常量不接受输入覆盖。

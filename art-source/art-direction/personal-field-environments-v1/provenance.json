@@ -1,0 +1,91 @@
+{
+  "scope": "personal battle environment only",
+  "assets": [
+    {
+      "id": "practice-ground",
+      "source": "<本地路径>",
+      "file": "practice-ground-candidate-01.png",
+      "prompt": "prompt-practice-01.txt",
+      "sha256": "f1cbbc992f106c56964ff55f9d66a2a5a393ceeac35d6a9a62f86e147f1cf2ab",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "pixel_viewed": true,
+      "status": "offline pixel review passed for assigned ground/material layer; actual viewport not reviewed",
+      "tool": "built-in image_gen",
+      "runtime_export": "game/assets/art/personal-field-environments-v1/practice-ground.png",
+      "export_method": "byte-identical copy, no raster editing"
+    },
+    {
+      "id": "ford-ground",
+      "source": "<本地路径>",
+      "file": "ford-ground-candidate-01.png",
+      "prompt": "prompt-ford_ground-01.txt",
+      "sha256": "4fff49af96d85f984d0704e8ff09ee48f4b62447b2759aedccee844a3fd373ad",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "pixel_viewed": true,
+      "status": "offline pixel review passed for assigned ground/material layer; actual viewport not reviewed",
+      "tool": "built-in image_gen",
+      "runtime_export": "game/assets/art/personal-field-environments-v1/ford-ground.png",
+      "export_method": "byte-identical copy, no raster editing"
+    },
+    {
+      "id": "ford-water",
+      "source": "<本地路径>",
+      "file": "ford-water-candidate-01.png",
+      "prompt": "prompt-water-01.txt",
+      "sha256": "ce7d59864c22b0370d59ea84dfb7c56bad92eaf9a2ff78f4e03c0f4ceda07162",
+      "size": [
+        1911,
+        823
+      ],
+      "mode": "RGB",
+      "pixel_viewed": true,
+      "status": "offline pixel review passed for assigned ground/material layer; actual viewport not reviewed",
+      "tool": "built-in image_gen",
+      "runtime_export": "game/assets/art/personal-field-environments-v1/ford-water.png",
+      "export_method": "byte-identical copy, no raster editing"
+    },
+    {
+      "id": "ford-cover",
+      "source": "<本地路径>",
+      "file": "ford-cover-candidate-01.png",
+      "prompt": "prompt-cover-01.txt",
+      "sha256": "588ce2c605f4195d4b5c02832a313b5511279ae3f9c6503f5cab2ab0528820a7",
+      "size": [
+        1690,
+        931
+      ],
+      "mode": "RGB",
+      "pixel_viewed": true,
+      "status": "offline pixel review passed for assigned ground/material layer; actual viewport not reviewed",
+      "tool": "built-in image_gen",
+      "runtime_export": "game/assets/art/personal-field-environments-v1/ford-cover.png",
+      "export_method": "byte-identical copy, no raster editing"
+    }
+  ],
+  "gui_opened": false,
+  "rules_changed": false,
+  "pixel_review": {
+    "practice_ground": "continuous level dirt practice court; no high-relief obstacles; original packed-earth brushwork retained",
+    "ford_ground": "continuous low gravelly riverbank; no visible water, trunks or large rocks in walkable ground",
+    "ford_water": "water surface and submerged stones, no banks or above-surface obstructions; only painted in actual movement-only rectangle",
+    "ford_cover": "solid roots and boulders fill footprint; only painted in actual movement-and-sight rectangle",
+    "text_people_ui": "none in all four PNGs",
+    "rule_boundaries": "defined by original obstacle rectangles; never inferred from pixels"
+  },
+  "headless": {
+    "checks": 1697,
+    "failures": 0,
+    "cases": 18,
+    "source": "verification/personal-field-environments-20261008/headless-result.json"
+  },
+  "user_approval": "pending; not inferred",
+  "runtime_entries_registered": false
+}

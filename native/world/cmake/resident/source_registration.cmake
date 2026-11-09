@@ -1,0 +1,331 @@
+# 常驻生产目标登记：各领域只声明清单，按原顺序组合后建立同一个静态库。
+# 新拆分的实现片段同时进入目标清单和生产身份，不另建翻译单元。
+set(HANMO_RESIDENT_SPLIT_IMPLEMENTATION_SOURCES)
+include("${CMAKE_CURRENT_LIST_DIR}/domains/actor_foundation.cmake")
+include("${CMAKE_CURRENT_LIST_DIR}/domains/affairs.cmake")
+include("${CMAKE_CURRENT_LIST_DIR}/domains/bridge_storage.cmake")
+include("${CMAKE_CURRENT_LIST_DIR}/domains/build_registration.cmake")
+include("${CMAKE_CURRENT_LIST_DIR}/domains/checkpoint.cmake")
+include("${CMAKE_CURRENT_LIST_DIR}/domains/commerce.cmake")
+include("${CMAKE_CURRENT_LIST_DIR}/domains/common.cmake")
+include("${CMAKE_CURRENT_LIST_DIR}/domains/conditions.cmake")
+include("${CMAKE_CURRENT_LIST_DIR}/domains/craft.cmake")
+include("${CMAKE_CURRENT_LIST_DIR}/domains/director.cmake")
+include("${CMAKE_CURRENT_LIST_DIR}/domains/estate.cmake")
+include("${CMAKE_CURRENT_LIST_DIR}/domains/facility_claims.cmake")
+include("${CMAKE_CURRENT_LIST_DIR}/domains/family.cmake")
+include("${CMAKE_CURRENT_LIST_DIR}/domains/geometry.cmake")
+include("${CMAKE_CURRENT_LIST_DIR}/domains/growth.cmake")
+include("${CMAKE_CURRENT_LIST_DIR}/domains/indexes.cmake")
+include("${CMAKE_CURRENT_LIST_DIR}/domains/interaction.cmake")
+include("${CMAKE_CURRENT_LIST_DIR}/domains/kernel.cmake")
+include("${CMAKE_CURRENT_LIST_DIR}/domains/local_economy.cmake")
+include("${CMAKE_CURRENT_LIST_DIR}/domains/military.cmake")
+include("${CMAKE_CURRENT_LIST_DIR}/domains/model.cmake")
+include("${CMAKE_CURRENT_LIST_DIR}/domains/organization.cmake")
+include("${CMAKE_CURRENT_LIST_DIR}/domains/personal.cmake")
+include("${CMAKE_CURRENT_LIST_DIR}/domains/player_plan.cmake")
+include("${CMAKE_CURRENT_LIST_DIR}/domains/politics.cmake")
+include("${CMAKE_CURRENT_LIST_DIR}/domains/public_api.cmake")
+include("${CMAKE_CURRENT_LIST_DIR}/domains/services.cmake")
+include("${CMAKE_CURRENT_LIST_DIR}/domains/social.cmake")
+include("${CMAKE_CURRENT_LIST_DIR}/domains/storage.cmake")
+include("${CMAKE_CURRENT_LIST_DIR}/domains/tasks.cmake")
+include("${CMAKE_CURRENT_LIST_DIR}/domains/travel.cmake")
+include("${CMAKE_CURRENT_LIST_DIR}/domains/views.cmake")
+
+include("${CMAKE_CURRENT_LIST_DIR}/complete_foundations.cmake")
+
+# 常驻原型单独显式构建；默认旧库/游戏不启用，primitive编译不代表完整世界链。
+add_library(hanmo_resident STATIC
+    ${HANMO_RESIDENT_SOURCES_public_api_checkpoint_set_hpp}
+    ${HANMO_RESIDENT_SOURCES_military_military_duty_source_read_cpp}
+    ${HANMO_RESIDENT_SOURCES_affairs_native_state_need_world_scope_cpp}
+    ${HANMO_RESIDENT_SOURCES_military_military_action_occupation_source_cpp}
+    ${HANMO_RESIDENT_SOURCES_social_social_original_result_projection_cpp}
+    ${HANMO_RESIDENT_SOURCES_local_economy_transport_original_obligations_cpp}
+    ${HANMO_RESIDENT_SOURCES_social_social_event_original_source_cpp}
+    ${HANMO_RESIDENT_SOURCES_kernel_native_original_social_world_cpp}
+    ${HANMO_RESIDENT_SOURCES_social_social_relation_state_codec_cpp}
+    ${HANMO_RESIDENT_SOURCES_military_naval_vessel_identity_cpp}
+    ${HANMO_RESIDENT_SOURCES_growth_growth_work_service_source_cpp}
+    ${HANMO_RESIDENT_SOURCES_kernel_interaction_source_pins_cpp}
+    ${HANMO_RESIDENT_SOURCES_interaction_interaction_study_life_cpp}
+    ${HANMO_RESIDENT_SOURCES_local_economy_service_finance_execution_cpp}
+    ${HANMO_RESIDENT_SOURCES_craft_repair_spatial_sources_cpp}
+    ${HANMO_RESIDENT_SOURCES_commerce_repair_service_settlement_cpp}
+    ${HANMO_RESIDENT_SOURCES_kernel_common_fact_prefix_cpp}
+    ${HANMO_RESIDENT_SOURCES_military_military_local_motion_prediction_cpp}
+    ${HANMO_RESIDENT_SOURCES_services_work_service_scope_read_cpp}
+    ${HANMO_RESIDENT_SOURCES_military_formation_exact_validation_cpp}
+    ${HANMO_RESIDENT_SOURCES_social_social_original_policy_cpp}
+    ${HANMO_RESIDENT_SOURCES_kernel_dynamic_result_time2_cpp}
+    ${HANMO_RESIDENT_SOURCES_social_social_time2_cpp}
+    ${HANMO_RESIDENT_SOURCES_checkpoint_checkpoint_job_budget_cpp}
+    ${HANMO_RESIDENT_SOURCES_actor_foundation_actor_foundation_codec_cpp}
+    ${HANMO_RESIDENT_SOURCES_growth_growth_fixed_service_codec_cpp}
+    ${HANMO_RESIDENT_SOURCES_kernel_exact_rest_binding_cpp}
+    ${HANMO_RESIDENT_SOURCES_storage_actor_selection_execution_cpp}
+    ${HANMO_RESIDENT_SOURCES_commerce_private_shop_travel_contact_source_cpp}
+    ${HANMO_RESIDENT_SOURCES_growth_growth_condition_binding_cpp}
+    ${HANMO_RESIDENT_SOURCES_commerce_private_shop_travel_control_source_cpp}
+    ${HANMO_RESIDENT_SOURCES_politics_political_office_resignation_authored_cpp}
+    ${HANMO_RESIDENT_SOURCES_kernel_political_office_resignation_response_world_cpp}
+    ${HANMO_RESIDENT_SOURCES_travel_travel_release_capture_cpp}
+    ${HANMO_RESIDENT_SOURCES_commerce_private_shop_travel_payment_source_cpp}
+    ${HANMO_RESIDENT_SOURCES_family_collateral_recognition_source_cpp}
+    ${HANMO_RESIDENT_SOURCES_politics_political_term_handover_business_cpp}
+    ${HANMO_RESIDENT_SOURCES_kernel_political_term_handover_world_cpp}
+    ${HANMO_RESIDENT_SOURCES_politics_political_office_reception_business_cpp}
+    ${HANMO_RESIDENT_SOURCES_kernel_political_office_reception_world_cpp}
+    ${HANMO_RESIDENT_SOURCES_politics_political_head_source_cpp}
+    ${HANMO_RESIDENT_SOURCES_kernel_political_successor_round_world_cpp}
+    ${HANMO_RESIDENT_SOURCES_politics_political_head_handover_business_cpp}
+    ${HANMO_RESIDENT_SOURCES_kernel_political_head_handover_world_cpp}
+    ${HANMO_RESIDENT_SOURCES_commerce_private_shop_command_result_sources_cpp}
+    ${HANMO_RESIDENT_SOURCES_kernel_private_shop_command_results_integration_cpp}
+    ${HANMO_RESIDENT_SOURCES_politics_political_succession_accession_rules_cpp}
+    ${HANMO_RESIDENT_SOURCES_kernel_political_succession_world_cpp}
+    ${HANMO_RESIDENT_SOURCES_growth_growth_tactic_lesson_boundary_cpp}
+    ${HANMO_RESIDENT_SOURCES_kernel_growth_tactic_lesson_integration_cpp}
+    ${HANMO_RESIDENT_SOURCES_commerce_private_shop_daily_rent_player_history_cpp}
+    ${HANMO_RESIDENT_SOURCES_kernel_private_shop_daily_rent_integration_cpp}
+    ${HANMO_RESIDENT_SOURCES_family_biological_control_catalog_cpp}
+    ${HANMO_RESIDENT_SOURCES_politics_political_governance_continuation_access_cpp}
+    ${HANMO_RESIDENT_SOURCES_kernel_political_governance_continuation_world_cpp}
+    ${HANMO_RESIDENT_SOURCES_politics_political_governance_director_cpp}
+    ${HANMO_RESIDENT_SOURCES_kernel_political_governance_director_world_cpp}
+    ${HANMO_RESIDENT_SOURCES_family_apprenticeship_source_cpp}
+    ${HANMO_RESIDENT_SOURCES_growth_growth_injury_sources_cpp}
+    ${HANMO_RESIDENT_SOURCES_kernel_growth_recovery_integration_cpp}
+    ${HANMO_RESIDENT_SOURCES_military_military_injury_source_cpp}
+    ${HANMO_RESIDENT_SOURCES_family_child_care_origin_cpp}
+    ${HANMO_RESIDENT_SOURCES_local_economy_private_account_dependencies_cpp}
+    ${HANMO_RESIDENT_SOURCES_estate_estate_private_dependencies_cpp}
+    ${HANMO_RESIDENT_SOURCES_local_economy_private_account_history_cpp}
+    ${HANMO_RESIDENT_SOURCES_tasks_task_actor_pending_responsibilities_cpp}
+    ${HANMO_RESIDENT_SOURCES_interaction_personal_appointment_catalog_cpp}
+    ${HANMO_RESIDENT_SOURCES_family_born_actor_source_cpp}
+    ${HANMO_RESIDENT_SOURCES_interaction_visit_reply_intents_cpp}
+    ${HANMO_RESIDENT_SOURCES_tasks_task_authored_continuation_cpp}
+    ${HANMO_RESIDENT_SOURCES_military_military_officer_codec_cpp}
+    ${HANMO_RESIDENT_SOURCES_kernel_military_commanded_damage_integration_cpp}
+    ${HANMO_RESIDENT_SOURCES_military_military_command_resources_cpp}
+    ${HANMO_RESIDENT_SOURCES_kernel_military_command_resources_integration_cpp}
+    ${HANMO_RESIDENT_SOURCES_military_military_tactic_learning_cpp}
+    ${HANMO_RESIDENT_SOURCES_kernel_military_tactic_learning_integration_cpp}
+    ${HANMO_RESIDENT_SOURCES_military_military_siege_engineering_cpp}
+    ${HANMO_RESIDENT_SOURCES_kernel_military_siege_engineering_integration_cpp}
+    ${HANMO_RESIDENT_SOURCES_military_military_rout_disposition_cpp}
+    ${HANMO_RESIDENT_SOURCES_politics_political_military_appointments_codec_cpp}
+    ${HANMO_RESIDENT_SOURCES_kernel_political_military_appointment_integration_cpp}
+    ${HANMO_RESIDENT_SOURCES_politics_political_field_appointments_rules_cpp}
+    ${HANMO_RESIDENT_SOURCES_kernel_political_field_appointment_integration_cpp}
+    ${HANMO_RESIDENT_SOURCES_family_family_bequest_source_cpp}
+    ${HANMO_RESIDENT_SOURCES_local_economy_execution_configurations_cpp}
+    ${HANMO_RESIDENT_SOURCES_military_occupation_applied_source_cpp}
+    ${HANMO_RESIDENT_SOURCES_organization_institutional_obligation_source_cpp}
+    ${HANMO_RESIDENT_SOURCES_politics_politics_takeover_access_cpp}
+    ${HANMO_RESIDENT_SOURCES_tasks_task_public_account_codec_cpp}
+    ${HANMO_RESIDENT_SOURCES_kernel_political_takeover_execution_world_cpp}
+    ${HANMO_RESIDENT_SOURCES_local_economy_provision_management_cpp}
+    ${HANMO_RESIDENT_SOURCES_kernel_household_provision_integration_cpp}
+    ${HANMO_RESIDENT_SOURCES_politics_diplomacy_catalog_cpp}
+    ${HANMO_RESIDENT_SOURCES_kernel_diplomacy_business_codec_cpp}
+    ${HANMO_RESIDENT_SOURCES_politics_political_governance_invitation_acceptance_cpp}
+    ${HANMO_RESIDENT_SOURCES_kernel_governance_invitation_world_cpp}
+    ${HANMO_RESIDENT_SOURCES_politics_political_governance_invitation_control_cpp}
+    ${HANMO_RESIDENT_SOURCES_kernel_governance_business_codec_cpp}
+    ${HANMO_RESIDENT_SOURCES_politics_politics_governance_authority_cpp}
+    ${HANMO_RESIDENT_SOURCES_kernel_political_governance_agency_world_cpp}
+    ${HANMO_RESIDENT_SOURCES_politics_political_governance_agency_authored_cpp}
+    ${HANMO_RESIDENT_SOURCES_kernel_political_governance_agency_intent_world_cpp}
+    ${HANMO_RESIDENT_SOURCES_politics_politics_governance_codec_cpp}
+    ${HANMO_RESIDENT_SOURCES_kernel_politics_integration_cpp}
+    ${HANMO_RESIDENT_SOURCES_politics_political_dismissal_codec_cpp}
+    ${HANMO_RESIDENT_SOURCES_kernel_political_dismissal_world_cpp}
+    ${HANMO_RESIDENT_SOURCES_politics_political_subordinate_appointment_authored_cpp}
+    ${HANMO_RESIDENT_SOURCES_kernel_political_subordinate_appointment_director_world_cpp}
+    ${HANMO_RESIDENT_SOURCES_growth_growth_attribute_origin_cpp}
+    ${HANMO_RESIDENT_SOURCES_kernel_politics_fiscal_integration_cpp}
+    ${HANMO_RESIDENT_SOURCES_player_plan_plan_checkpoint_cpp}
+    ${HANMO_RESIDENT_SOURCES_kernel_player_plan_integration_cpp}
+    ${HANMO_RESIDENT_SOURCES_affairs_affairs_checkpoint_cpp}
+    ${HANMO_RESIDENT_SOURCES_director_director_checkpoint_cpp}
+    ${HANMO_RESIDENT_SOURCES_local_economy_fiscal_settlement_cpp}
+    ${HANMO_RESIDENT_SOURCES_organization_organization_checkpoint_cpp}
+    ${HANMO_RESIDENT_SOURCES_social_social_dynamic_codec_cpp}
+    ${HANMO_RESIDENT_SOURCES_tasks_task_dynamic_codec_cpp}
+    ${HANMO_RESIDENT_SOURCES_kernel_dynamic_access_cpp}
+    ${HANMO_RESIDENT_SOURCES_military_siege_integration_decisions_cpp}
+    ${HANMO_RESIDENT_SOURCES_kernel_regional_integration_cpp}
+    ${HANMO_RESIDENT_SOURCES_views_dynamic_world_view_cpp}
+    ${HANMO_RESIDENT_SOURCES_travel_travel_navigation_cpp}
+    ${HANMO_RESIDENT_SOURCES_views_membership_view_cpp}
+    ${HANMO_RESIDENT_SOURCES_checkpoint_canonical_digest_cpp}
+    ${HANMO_RESIDENT_SOURCES_conditions_condition_rules_cpp}
+    ${HANMO_RESIDENT_SOURCES_estate_estate_checkpoint_cpp}
+    ${HANMO_RESIDENT_SOURCES_commerce_private_shop_liquidation_access_cpp}
+    ${HANMO_RESIDENT_SOURCES_tasks_task_shop_order_estate_cpp}
+    ${HANMO_RESIDENT_SOURCES_kernel_private_shop_liquidation_integration_cpp}
+    ${HANMO_RESIDENT_SOURCES_commerce_private_shop_accounting_cpp}
+    ${HANMO_RESIDENT_SOURCES_growth_growth_market_capture_cpp}
+    ${HANMO_RESIDENT_SOURCES_local_economy_economic_market_cause_cpp}
+    ${HANMO_RESIDENT_SOURCES_politics_political_shop_licensing_access_cpp}
+    ${HANMO_RESIDENT_SOURCES_kernel_political_shop_registry_integration_cpp}
+    ${HANMO_RESIDENT_SOURCES_politics_political_shop_member_history_cpp}
+    ${HANMO_RESIDENT_SOURCES_kernel_political_shop_registry_director_integration_cpp}
+    ${HANMO_RESIDENT_SOURCES_politics_political_shop_registry_intent_validation_cpp}
+    ${HANMO_RESIDENT_SOURCES_tasks_task_shop_asset_responsibilities_cpp}
+    ${HANMO_RESIDENT_SOURCES_kernel_growth_market_history_integration_cpp}
+    ${HANMO_RESIDENT_SOURCES_affairs_affairs_policy_validation_cpp}
+    ${HANMO_RESIDENT_SOURCES_local_economy_supply_policy_access_cpp}
+    ${HANMO_RESIDENT_SOURCES_politics_politics_supply_adoptions_cpp}
+    ${HANMO_RESIDENT_SOURCES_kernel_economic_supply_policy_integration_cpp}
+    ${HANMO_RESIDENT_SOURCES_politics_politics_supply_renewal_cpp}
+    ${HANMO_RESIDENT_SOURCES_kernel_political_supply_renewal_integration_cpp}
+    ${HANMO_RESIDENT_SOURCES_estate_estate_employment_boundary_cpp}
+    ${HANMO_RESIDENT_SOURCES_kernel_estate_employment_integration_cpp}
+    ${HANMO_RESIDENT_SOURCES_interaction_dialogue_provider_source_cpp}
+    ${HANMO_RESIDENT_SOURCES_tasks_task_employment_view_cpp}
+    ${HANMO_RESIDENT_SOURCES_estate_estate_views_cpp}
+    ${HANMO_RESIDENT_SOURCES_family_family_checkpoint_cpp}
+    ${HANMO_RESIDENT_SOURCES_growth_growth_bargain_cpp}
+    ${HANMO_RESIDENT_SOURCES_tasks_task_completion_evidence_cpp}
+    ${HANMO_RESIDENT_SOURCES_growth_growth_cards_cpp}
+    ${HANMO_RESIDENT_SOURCES_interaction_dialogue_node_source_cpp}
+    ${HANMO_RESIDENT_SOURCES_growth_growth_challenges_cpp}
+    ${HANMO_RESIDENT_SOURCES_interaction_interaction_actions_cpp}
+    ${HANMO_RESIDENT_SOURCES_local_economy_economic_native_lease_cpp}
+    ${HANMO_RESIDENT_SOURCES_commerce_private_shop_market_service_cpp}
+    ${HANMO_RESIDENT_SOURCES_interaction_interaction_response_codec_cpp}
+    ${HANMO_RESIDENT_SOURCES_military_battle_codec_cpp}
+    ${HANMO_RESIDENT_SOURCES_growth_growth_naval_history_cpp}
+    ${HANMO_RESIDENT_SOURCES_kernel_growth_personal_mastery_integration_cpp}
+    ${HANMO_RESIDENT_SOURCES_military_naval_tactical_navigation_authoring_cpp}
+    ${HANMO_RESIDENT_SOURCES_family_historical_player_cpp}
+    ${HANMO_RESIDENT_SOURCES_local_economy_public_account_dependencies_cpp}
+    ${HANMO_RESIDENT_SOURCES_kernel_naval_integration_cpp}
+    ${HANMO_RESIDENT_SOURCES_military_naval_validation_cpp}
+    ${HANMO_RESIDENT_SOURCES_personal_personal_ai_cpp}
+    ${HANMO_RESIDENT_SOURCES_social_social_codec_cpp}
+    ${HANMO_RESIDENT_SOURCES_tasks_task_checkpoint_cpp}
+    ${HANMO_RESIDENT_SOURCES_kernel_envoy_task_integration_cpp}
+    ${HANMO_RESIDENT_SOURCES_tasks_governance_task_rules_cpp}
+    ${HANMO_RESIDENT_SOURCES_kernel_task_advance_integration_cpp}
+    ${HANMO_RESIDENT_SOURCES_tasks_task_runtime_offer_response_cpp}
+    ${HANMO_RESIDENT_SOURCES_kernel_runtime_task_response_integration_cpp}
+    ${HANMO_RESIDENT_SOURCES_tasks_task_offer_response_codec_cpp}
+    ${HANMO_RESIDENT_SOURCES_family_death_notice_military_read_cpp}
+    ${HANMO_RESIDENT_SOURCES_tasks_task_message_notice_world_cpp}
+    ${HANMO_RESIDENT_SOURCES_travel_route_contact_cpp}
+    ${HANMO_RESIDENT_SOURCES_geometry_route_cache_cpp}
+    ${HANMO_RESIDENT_SOURCES_indexes_contact_geometry_cpp}
+    ${HANMO_RESIDENT_SOURCES_kernel_boundary_dispatch_cpp}
+    ${HANMO_RESIDENT_SOURCES_storage_common_checkpoint_cpp}
+    ${HANMO_RESIDENT_SOURCES_commerce_private_shop_freight_capture_projection_cpp}
+    ${HANMO_RESIDENT_SOURCES_growth_growth_recovery_condition_source_cpp}
+    ${HANMO_RESIDENT_SOURCES_storage_common_validation_cpp}
+    ${HANMO_RESIDENT_SOURCES_views_character_presentation_cpp}
+    ${HANMO_RESIDENT_SOURCES_local_economy_fiscal_income_arithmetic_cpp}
+    ${HANMO_RESIDENT_SOURCES_politics_politics_occupation_fiscal_cpp}
+    ${HANMO_RESIDENT_SOURCES_tasks_task_static_public_payment_cpp}
+    ${HANMO_RESIDENT_SOURCES_kernel_occupation_fiscal_integration_cpp}
+    ${HANMO_RESIDENT_SOURCES_politics_treaty_passage_views_cpp}
+    ${HANMO_RESIDENT_SOURCES_kernel_treaty_passage_integration_cpp}
+    ${HANMO_RESIDENT_SOURCES_checkpoint_checkpoint_copy_shape_cpp}
+    ${HANMO_RESIDENT_SOURCES_actor_foundation_character_capability_cpp}
+    ${HANMO_RESIDENT_SOURCES_affairs_affairs_calendar_phase_cpp}
+    ${HANMO_RESIDENT_SOURCES_commerce_household_retail_cpp}
+    ${HANMO_RESIDENT_SOURCES_craft_item_service_cpp}
+    ${HANMO_RESIDENT_SOURCES_director_director_authority_wake2_cpp}
+    ${HANMO_RESIDENT_SOURCES_estate_estate_rest_adoption_codec_cpp}
+    ${HANMO_RESIDENT_SOURCES_family_family_life_exact_cpp}
+    ${HANMO_RESIDENT_SOURCES_growth_card_acquisition_codec_cpp}
+    ${HANMO_RESIDENT_SOURCES_interaction_communication_delivery_read_cpp}
+    ${HANMO_RESIDENT_SOURCES_local_economy_cohort_household_service_cpp}
+    ${HANMO_RESIDENT_SOURCES_military_military_duty_cpp}
+    ${HANMO_RESIDENT_SOURCES_organization_authority_basis_cpp}
+    ${HANMO_RESIDENT_SOURCES_player_plan_plan_profile_cpp}
+    ${HANMO_RESIDENT_SOURCES_politics_political_budget_codec_cpp}
+    ${HANMO_RESIDENT_SOURCES_social_knowledge_read_cpp}
+    ${HANMO_RESIDENT_SOURCES_tasks_task_objective_evidence_cpp}
+    ${HANMO_RESIDENT_SOURCES_interaction_interaction_task_life_cpp}
+    ${HANMO_RESIDENT_SOURCES_tasks_task_exact_execution_codec_cpp}
+    ${HANMO_RESIDENT_SOURCES_travel_actor_spatial_history_cpp}
+    ${HANMO_RESIDENT_SOURCES_facility_claims_facility_claim_runtime_cpp}
+    ${HANMO_RESIDENT_SOURCES_kernel_action_time_validation_cpp}
+    ${HANMO_RESIDENT_SOURCES_model_commitment_read_cpp}
+    ${HANMO_RESIDENT_SOURCES_storage_common_projection_cpp}
+    ${HANMO_RESIDENT_SOURCES_commerce_service_agreement_cpp}
+    ${HANMO_RESIDENT_SOURCES_military_naval_repair_resource_recipe_cpp}
+    ${HANMO_RESIDENT_SOURCES_growth_growth_started_participation_cpp}
+    ${HANMO_RESIDENT_SOURCES_local_economy_household_mobile_custody_cpp}
+    ${HANMO_RESIDENT_SOURCES_tasks_work_patrol_sources_cpp}
+    ${HANMO_RESIDENT_SOURCES_travel_mobile_inventory_adoption_cpp}
+    ${HANMO_RESIDENT_SOURCES_kernel_command_types_cpp}
+    ${HANMO_RESIDENT_SOURCES_family_care_handover_start_cpp}
+    ${HANMO_RESIDENT_SOURCES_military_naval_repair_exact_cpp}
+    ${HANMO_RESIDENT_SOURCES_kernel_native_director_actor_commands_cpp}
+    ${HANMO_RESIDENT_SOURCES_local_economy_household_transport_registration_cpp}
+    ${HANMO_RESIDENT_SOURCES_military_dynamic_action_cpp}
+    ${HANMO_RESIDENT_SOURCES_tasks_work_original_read_cpp}
+    ${HANMO_RESIDENT_SOURCES_kernel_tactical_service_measure_cpp}
+    ${HANMO_RESIDENT_SOURCES_actor_foundation_military_availability_cpp}
+    ${HANMO_RESIDENT_SOURCES_growth_growth_exact_phase_cpp}
+    ${HANMO_RESIDENT_SOURCES_local_economy_household_transport_read_cpp}
+    ${HANMO_RESIDENT_SOURCES_military_dynamic_condition_consumer_cpp}
+    ${HANMO_RESIDENT_SOURCES_politics_governance_supervision_scope_cpp}
+    ${HANMO_RESIDENT_SOURCES_tasks_work_skill_inputs_cpp}
+    ${HANMO_RESIDENT_SOURCES_kernel_growth_source_pins_cpp}
+    ${HANMO_RESIDENT_SOURCES_growth_growth_condition_input_consumer_cpp}
+    ${HANMO_RESIDENT_SOURCES_interaction_visit_report_custody_cpp}
+    ${HANMO_RESIDENT_SOURCES_local_economy_economic_inventory_placement_cpp}
+    ${HANMO_RESIDENT_SOURCES_organization_organization_lifecycle_catalog_cpp}
+    ${HANMO_RESIDENT_SOURCES_politics_governance_executor_qualification_cpp}
+    ${HANMO_RESIDENT_SOURCES_travel_inventory_spatial_history_cpp}
+    ${HANMO_RESIDENT_SOURCES_kernel_complete_growth_command_route_cpp}
+    ${HANMO_RESIDENT_SOURCES_commerce_private_shop_exact_service_cpp}
+    ${HANMO_RESIDENT_SOURCES_actor_foundation_injury_attribute_reducer_cpp}
+    ${HANMO_RESIDENT_SOURCES_military_military_tactical_intent_codec_cpp}
+    ${HANMO_RESIDENT_SOURCES_kernel_native_control_command_route_cpp}
+    ${HANMO_RESIDENT_SOURCES_craft_craft_action_time_cpp}
+    ${HANMO_RESIDENT_SOURCES_social_social_knowledge_cut_cpp}
+    ${HANMO_RESIDENT_SOURCES_commerce_private_wallet_title_cpp}
+    ${HANMO_RESIDENT_SOURCES_travel_personal_movement_funding_cpp}
+    ${HANMO_RESIDENT_SOURCES_interaction_party_acceptance_history_cpp}
+    ${HANMO_RESIDENT_SOURCES_kernel_native_director_catalog_cpp}
+    ${HANMO_RESIDENT_SOURCES_growth_growth_capability_application_codec_cpp}
+    ${HANMO_RESIDENT_SOURCES_military_occupation_time_cpp}
+    ${HANMO_RESIDENT_SOURCES_interaction_actor_social_occupancy_cpp}
+    ${HANMO_RESIDENT_SOURCES_growth_growth_quiet_source_cpp}
+    ${HANMO_RESIDENT_SOURCES_travel_movement_command_cpp}
+    ${HANMO_RESIDENT_SOURCES_director_director_actor_proposal2_cpp}
+    ${HANMO_RESIDENT_SOURCES_interaction_local_communication_sources_cpp}
+    ${HANMO_RESIDENT_SOURCES_social_knowledge_report_category_cpp}
+    ${HANMO_RESIDENT_SOURCES_tasks_task_report_carriage_cpp}
+    ${HANMO_RESIDENT_SOURCES_kernel_military_result_projection2_cpp}
+    ${HANMO_RESIDENT_SOURCES_travel_group_boundary_completion_cpp}
+    ${HANMO_RESIDENT_SOURCES_affairs_state_need_catalog_cpp}
+    ${HANMO_RESIDENT_SOURCES_director_director_appointment_native2_cpp}
+    ${HANMO_RESIDENT_SOURCES_interaction_personal_appointment_exact_phase_cpp}
+    ${HANMO_RESIDENT_SOURCES_social_actor_report_knowledge_cpp}
+    ${HANMO_RESIDENT_SOURCES_kernel_fixed_service_work_period_cpp}
+    ${HANMO_RESIDENT_SOURCES_interaction_visit_message_receipt_native_cpp}
+    ${HANMO_RESIDENT_SOURCES_actor_foundation_born_origin_cpp}
+    ${HANMO_RESIDENT_SOURCES_commerce_repair_item_command_cpp}
+    ${HANMO_RESIDENT_SOURCES_craft_craft_cancellation_cpp}
+    ${HANMO_RESIDENT_SOURCES_director_director_native_lease_cpp}
+    ${HANMO_RESIDENT_SOURCES_family_birth_due_execution_cpp}
+    ${HANMO_RESIDENT_SOURCES_growth_growth_attribute_contributions_v2_cpp}
+    ${HANMO_RESIDENT_SOURCES_local_economy_material_aid_codec_cpp}
+    ${HANMO_RESIDENT_SOURCES_organization_organization_activity_policy_cpp}
+    ${HANMO_RESIDENT_SOURCES_politics_governance_approval_authority_cpp}
+    ${HANMO_RESIDENT_SOURCES_services_service_actual_termination_codec_cpp}
+    ${HANMO_RESIDENT_SOURCES_social_social_direct_effect_read_cpp}
+    ${HANMO_RESIDENT_SOURCES_tasks_professional_order_codec_cpp}
+    ${HANMO_RESIDENT_SOURCES_travel_actor_spatial_source_membership_cpp}
+    ${HANMO_RESIDENT_SOURCES_storage_unique_item_transfer_cpp}
+    ${HANMO_RESIDENT_SPLIT_IMPLEMENTATION_SOURCES}
+    ${HANMO_RESIDENT_COMPLETE_FOUNDATION_SOURCES}
+)

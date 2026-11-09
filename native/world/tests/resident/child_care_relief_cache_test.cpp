@@ -1,0 +1,17 @@
+// 首条保留history与多完成Advance的精确缓存门；只用typed来源夹具，不代World历史验收。
+#include "resident/domains/family/child_care_relief_cache.hpp"
+#include <iostream>
+#include <stdexcept>
+using namespace hanmo::resident;
+namespace {int count=0;void check(bool yes,const char* label){++count;if(!yes)throw std::runtime_error(label);}}
+int main(){try{
+    CommonState seed;seed.identity.tick=4;seed.next_instance_id=100;CommonStore c(seed,std::make_shared<CommonCatalog>());ChildCareReliefState s;
+    ChildCareReliefAgreement a;a.source.parent_actor_id="parent";a.source.tick=4;s.agreements.insert("family_care_relief:3",a);s.agreements.insert("family_care_relief:7",a);c.state().facts.insert("family_care_relief:3",{"family_care_relief:3","family_care_relief_accepted","family_care_relief"});c.state().facts.insert("family_care_relief:7",{"family_care_relief:7","family_care_relief_accepted","family_care_relief"});c.state().history.push_back({4,"family_care_relief_accept","parent","result:9",{}});
+    auto read=[&](const StableId& id){return care_relief_detail::validate_cached_allocation(c,s,"result:9",id).ok;};check(!read("family_care_relief:3"),"trimmed history cannot rebind old same-person source");check(read("family_care_relief:7"),"latest actual first retained source accepted");s.agreements.find("family_care_relief:7")->source.parent_actor_id="other";check(read("family_care_relief:3"),"unrelated parent source does not replace actual source");
+    c.state().history[0].kind="family_care_relief_withdraw";ChildCareReliefClosure stop;stop.actor_id="parent";stop.tick=4;stop.reason="parent_withdrew";s.closures.insert("family_care_relief:3",stop);s.closures.insert("family_care_relief:7",stop);check(!read("family_care_relief:3")&&read("family_care_relief:7"),"withdraw latest source gate");
+    c.state().history[0].kind="family_care_relief_cancel";ChildCareReliefReceipt done;done.provider_actor_id="parent";done.tick=4;done.outcome="cancelled";done.code="CareReliefProviderStopped";s.care.insert("family_care_relief:3",done);s.care.insert("family_care_relief:7",done);check(!read("family_care_relief:3")&&read("family_care_relief:7"),"cancel latest source gate");
+    c.state().history[0].kind="family_child_care_relief";ChildCareReliefStart start;start.provider_actor_id="parent";start.tick=4;s.starts.insert("action:3",start);s.starts.insert("action:7",start);c.state().facts.insert("action:3",{"action:3","family_care_relief_started","family_care_relief"});c.state().facts.insert("action:7",{"action:7","family_care_relief_started","family_care_relief"});check(!read("action:3")&&read("action:7"),"started action latest source gate");
+    c.state().history[0].kind="advance";check(!read("family_care_relief:7"),"manual cancellation cannot pose as advance completion");for(auto& row:s.care.rows()){row.second.outcome="completed";row.second.code.clear();}s.care.find("family_care_relief:3")->provider_actor_id="npc";check(read("family_care_relief:3")&&read("family_care_relief:7"),"advance supports distinct real multi-person completions");
+    c.state().history.insert(c.state().history.begin(),{3,"wait","parent","result:5",{}});check(!read("family_care_relief:3")&&read("family_care_relief:7"),"known previous result lower bound retained");
+    std::cout<<"CARE_RELIEF_CACHE "<<count<<" checks 0 failures\n";return 0;
+}catch(const std::exception& e){std::cerr<<"CARE_RELIEF_CACHE "<<count<<" checks 1 failure: "<<e.what()<<'\n';return 1;}}

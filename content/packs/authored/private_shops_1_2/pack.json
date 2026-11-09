@@ -1,0 +1,53 @@
+{
+  "format": "HM-PACK",
+  "format_version": 1,
+  "id": "hanmo.private_shops",
+  "version": "1.2.0",
+  "namespace": "private_shop",
+  "rules_api": {
+    "id": "hanmo.rules",
+    "min_version": "1.0.0",
+    "max_version_exclusive": "2.0.0"
+  },
+  "dependencies": [
+    {
+      "id": "hanmo.local_society",
+      "min_version": "1.8.0",
+      "max_version_exclusive": "1.9.0"
+    }
+  ],
+  "conflicts": [],
+  "required_capabilities": [
+    "multi_actor",
+    "places",
+    "services",
+    "economy",
+    "dialogue",
+    "cultivation",
+    "military",
+    "personal_combat",
+    "native_dynamic_world",
+    "tasks.procurement",
+    "npc_society",
+    "road_encounters",
+    "population_military_v1",
+    "regional_life_v1",
+    "named_membership_v1",
+    "estates",
+    "family",
+    "growth_market_history_v1",
+    "private_shops_v1",
+    "political_shop_licensing_v1",
+    "task_shop_orders_v1",
+    "task_static_assets_v1",
+    "private_shop_daily_rent_v1",
+    "private_shop_command_results_v1"
+  ],
+  "content_entries": [
+    "content.json"
+  ],
+  "presentation_entries": [],
+  "resources": [],
+  "author": "Hanmo project authors",
+  "license": "NOASSERTION"
+}

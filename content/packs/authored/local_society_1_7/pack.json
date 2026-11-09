@@ -1,0 +1,533 @@
+{
+  "format": "HM-PACK",
+  "format_version": 1,
+  "id": "hanmo.local_society",
+  "version": "1.7.0",
+  "namespace": "society",
+  "rules_api": {
+    "id": "hanmo.rules",
+    "min_version": "1.0.0",
+    "max_version_exclusive": "2.0.0"
+  },
+  "dependencies": [],
+  "conflicts": [],
+  "required_capabilities": [
+    "multi_actor",
+    "places",
+    "services",
+    "economy",
+    "dialogue",
+    "cultivation",
+    "military",
+    "personal_combat",
+    "native_dynamic_world",
+    "tasks.procurement",
+    "npc_society",
+    "road_encounters",
+    "population_military_v1",
+    "regional_life_v1",
+    "named_membership_v1",
+    "estates",
+    "family"
+  ],
+  "content_entries": [
+    "content.json"
+  ],
+  "presentation_entries": [
+    "presentation.json"
+  ],
+  "resources": [
+    {
+      "path": "assets/art/project/alpha-visual/city.png",
+      "kind": "image",
+      "required": true,
+      "sha256": "96c0256ee3c12671c8829400f9a14b9c13274964cc54ce41e8273554bd57c4b7",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "assets/art/project/alpha-visual/merchant.png",
+      "kind": "image",
+      "required": true,
+      "sha256": "5e33b90d7fb2cc541f064612c7ad68ca23993f1d3e62d100376641b7b8729a66",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "assets/art/project/alpha-visual/shop.png",
+      "kind": "image",
+      "required": true,
+      "sha256": "3be27424e052c9f1bc6b8982f0cc55d621a49895744c94625c3f43a4d862673a",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "assets/art/project/provenance.json",
+      "kind": "data",
+      "required": true,
+      "sha256": "e8076868440ae4ff8104972f8145680bdfa843546467f1d0c031c6094cf6155c",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "assets/art/project/alpha-personal/practice-clearing.png",
+      "kind": "image",
+      "required": true,
+      "sha256": "23ece77ebfaea5ed515abaeccc2f8068a52a4db971cb6b4af6483aa682853ab0",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "assets/art/project/alpha-personal/swordsman.png",
+      "kind": "image",
+      "required": true,
+      "sha256": "20aa39ffc3e3f2da45ba311810c17c47ff319566eb7e925de266f474afd87d3e",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "assets/art/accepted_adult_appearances/v1/female_high_cheek.png",
+      "kind": "image",
+      "required": true,
+      "sha256": "c7298c27e1d644b02bd4d25beee4dfa954463b5f692e602d15da8b8c754ece5e",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "assets/art/accepted_adult_appearances/v1/female_round_broad.png",
+      "kind": "image",
+      "required": true,
+      "sha256": "e86084934c9097fb5d1f3b2eaa699c9146ece9a66e9e2a7ef668489b8d42d09d",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "assets/art/accepted_adult_appearances/v1/female_short_chin.png",
+      "kind": "image",
+      "required": true,
+      "sha256": "66edb602778787ff0b72efe2b3950f2aa2391deb6f4d44fba3303ff42a8ae614",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "assets/art/accepted_adult_appearances/v1/female_straight_jaw.png",
+      "kind": "image",
+      "required": true,
+      "sha256": "77bc9d4bbda785449208c572b761aa95c393fcee6f13863087e8b1d9fdc50a01",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "assets/art/accepted_adult_appearances/v1/long_full_oval.png",
+      "kind": "image",
+      "required": true,
+      "sha256": "5ca9905a6efc784b368aee251c30eab823ae42dac2507057c9cd338e07a1012b",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "assets/art/accepted_adult_appearances/v1/long_high_cheek.png",
+      "kind": "image",
+      "required": true,
+      "sha256": "d68f7eb6b693e780b5e3ce98d5b6eceffca30143ab375c05375220cfed462c6d",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "assets/art/accepted_adult_appearances/v1/long_narrow.png",
+      "kind": "image",
+      "required": true,
+      "sha256": "49d529aac5f4da5e325817d8c0061e5572f6d1ade42b24f758cc6fa2144d9e1b",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "assets/art/accepted_adult_appearances/v1/long_straight_jaw.png",
+      "kind": "image",
+      "required": true,
+      "sha256": "c9151908d990233e3ff3518de0694bbf1a3ff6ae9e739b8466b94295477a50c6",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "assets/art/accepted_adult_appearances/v1/medium_clear_long.png",
+      "kind": "image",
+      "required": true,
+      "sha256": "ba116183d79501c80761313706cb1fb76c3195ddb77db8c6ce865389396db176",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "assets/art/accepted_adult_appearances/v1/medium_high_cheek.png",
+      "kind": "image",
+      "required": true,
+      "sha256": "4f572ebf3da0b93bff431161daa6ecb47665380801c950c7ee13caa786599e73",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "assets/art/accepted_adult_appearances/v1/medium_round_chin.png",
+      "kind": "image",
+      "required": true,
+      "sha256": "ae5cb772fa5f01dc0dac9fb9828b94e87a912f500e1e867b97198a74b15f2f80",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "assets/art/accepted_adult_appearances/v1/medium_square_jaw.png",
+      "kind": "image",
+      "required": true,
+      "sha256": "caf9e7548945de79e24eaaa2cf3c19d05516834daafc0244368ab65f95f6b379",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "assets/art/layered-city/ground.png",
+      "kind": "image",
+      "required": true,
+      "sha256": "9dabdd5940b3ab31c57d524c1a6471a7cf8a1bdcc26d2585555470261b153628",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "assets/art/layered-city/grainshop_uncovered.png",
+      "kind": "image",
+      "required": true,
+      "sha256": "7bbfeff1e056555d8b068fe0c062259f61434e9c2a2af0286480ff01437d73b7",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "assets/art/layered-city/grainshop_awning.png",
+      "kind": "image",
+      "required": true,
+      "sha256": "7a0f330bb6531b1a89d606dbb0e5cceb09b2ef7bee3f5ed6e8c21a9be6ebbe7e",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "character_studio/assets/runtime/features-base.png",
+      "kind": "image",
+      "required": true,
+      "sha256": "754ce1f135f7f3765f47770aa5ea8550451268f634343cf5dd9311a4f29e9d02",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "character_studio/assets/runtime/features-soft.png",
+      "kind": "image",
+      "required": true,
+      "sha256": "8dc2d56a220ba02432aa9df8f2fe280f13931b20e2730aa4c85c58869aafdfc3",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "character_studio/assets/runtime/female-v2/features-angular-alternate.png",
+      "kind": "image",
+      "required": true,
+      "sha256": "a7dc47b7a53d31b64c1335f1fa302722e0ac96a65aca38d55ead95b8ed6fe353",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "character_studio/assets/runtime/female-v2/features-angular-base.png",
+      "kind": "image",
+      "required": true,
+      "sha256": "328e4e2868fb48fb73a3d53ac9e83630c041be792fdae3d9a6fc6f57d1c4f308",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "character_studio/assets/runtime/female-v2/features-lower-cheek-alternate.png",
+      "kind": "image",
+      "required": true,
+      "sha256": "5d6cbc7eb162070cfde7b7738c280124cedd49a237178e0ee177108971481525",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "character_studio/assets/runtime/female-v2/features-lower-cheek-base.png",
+      "kind": "image",
+      "required": true,
+      "sha256": "59424950be585b0db577eea22ef4ff3bcc06c57bb0efd18310ca0a4b68558915",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "character_studio/assets/runtime/female-v2/features-tapered-alternate.png",
+      "kind": "image",
+      "required": true,
+      "sha256": "1cdacc38954dc8ecaa87819e43e0b5535b4a08d14ce94d73645b2f176eb0fb5e",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "character_studio/assets/runtime/female-v2/features-tapered-base.png",
+      "kind": "image",
+      "required": true,
+      "sha256": "b9a477fb9da370c21a9c800be9bac781eb45eec5fe23b5fb5988516358a29c3a",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "character_studio/assets/runtime/female-v2/head-angular.png",
+      "kind": "image",
+      "required": true,
+      "sha256": "09ab53b2ce2d3c113197c8815686a7b7b562ebee89d9f1fcd80ef2957c83547b",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "character_studio/assets/runtime/female-v2/head-lower-cheek.png",
+      "kind": "image",
+      "required": true,
+      "sha256": "dd6e3725772cd6e508d98fdd0361ef39c11732d47205201ebababd0dc8244314",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "character_studio/assets/runtime/female-v2/head-tapered.png",
+      "kind": "image",
+      "required": true,
+      "sha256": "b63cae06ef7bdcd435125fd8bfd03292128387253b742875a6c13fa231d4563d",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "character_studio/assets/runtime/female/features-base.png",
+      "kind": "image",
+      "required": true,
+      "sha256": "5c46efaada97cd88984933e60da2e58291d54e71e6c845d030badfea20db80f6",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "character_studio/assets/runtime/female/features-soft.png",
+      "kind": "image",
+      "required": true,
+      "sha256": "c6f3b35630457a41bb26f53d0d35fbee7d1fe16d6fd5e0b6074161a14ee6155a",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "character_studio/assets/runtime/female/hair-0.png",
+      "kind": "image",
+      "required": true,
+      "sha256": "acce91bbe777957d1852a7859a823afbde5ad6ec277d9bdbdb9c0f0f87505ee5",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "character_studio/assets/runtime/female/head-0.png",
+      "kind": "image",
+      "required": true,
+      "sha256": "21c606a70305d847ba91201be0963ef26e4aac90b7a0a3b2bc62fd7899c90494",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "character_studio/assets/runtime/female/outfit-0.png",
+      "kind": "image",
+      "required": true,
+      "sha256": "b3e7ace2187c5ef7d9681340d957d1a09e4d17b7d846bb8c94d38956a1b7c814",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "character_studio/assets/runtime/hair-0.png",
+      "kind": "image",
+      "required": true,
+      "sha256": "94bb7c868f6f961442ed2df6304f85fd24e18b9418f8790d870bf6fc07ec71b9",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "character_studio/assets/runtime/head-0.png",
+      "kind": "image",
+      "required": true,
+      "sha256": "186b06552c555f011cb3feef0e74735ef798154e86938df2732e378640883fb8",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "character_studio/assets/runtime/long-v2/features-full-oval-alternate.png",
+      "kind": "image",
+      "required": true,
+      "sha256": "14e2e17ed4152ff8e3484451e00b83e5a2032324fffb777d4616d3f4eaf55a3a",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "character_studio/assets/runtime/long-v2/features-full-oval-base.png",
+      "kind": "image",
+      "required": true,
+      "sha256": "e9e8238bfbd2db9a17fe4636ff191c5fbf8f8b47c6a9a1c6a161043318aed4f5",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "character_studio/assets/runtime/long-v2/features-high-cheek-alternate.png",
+      "kind": "image",
+      "required": true,
+      "sha256": "295020e60a5634274f41debb8b60d2aa4083ea680e6093d3021b168d47dd2b4a",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "character_studio/assets/runtime/long-v2/features-high-cheek-base.png",
+      "kind": "image",
+      "required": true,
+      "sha256": "b5a7791d9f69d3ff6e5f4b044dea8792f8874539fa1501354ce9040737f55846",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "character_studio/assets/runtime/long-v2/features-rectangular-alternate.png",
+      "kind": "image",
+      "required": true,
+      "sha256": "283e85922e37289486e02fe7d879c60f89851d8ef076888a22bbdce430840891",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "character_studio/assets/runtime/long-v2/features-rectangular-base.png",
+      "kind": "image",
+      "required": true,
+      "sha256": "b465bcaa07eac4e0fb0149863c636c8cc827e3d51a60c92bed44d639a233ffe1",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "character_studio/assets/runtime/long-v2/head-full-oval.png",
+      "kind": "image",
+      "required": true,
+      "sha256": "1d2e89964fc9f8146284c898a8442c52d5fd5c1b7f8a22a0b7b546a5422ed5ee",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "character_studio/assets/runtime/long-v2/head-high-cheek.png",
+      "kind": "image",
+      "required": true,
+      "sha256": "f67320fe4bafe63fca694242166e935e111cb74d47864046bde4510ba8608598",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "character_studio/assets/runtime/long-v2/head-rectangular.png",
+      "kind": "image",
+      "required": true,
+      "sha256": "daf90854f4742a100585a97fa26a936620367251742f4c4beee6e44f2b53f7cb",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "character_studio/assets/runtime/long/features-base.png",
+      "kind": "image",
+      "required": true,
+      "sha256": "eedf7bb06640093d27a0d65daff3b93d30726518980ebdae4e79b00b0f728f1a",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "character_studio/assets/runtime/long/features-soft.png",
+      "kind": "image",
+      "required": true,
+      "sha256": "5065240661ca3fd0d60f1c6e5c24bb80751256be2f05dd4c889714f3413bb8e7",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "character_studio/assets/runtime/long/hair-0.png",
+      "kind": "image",
+      "required": true,
+      "sha256": "b074b5a6ba63b20766f89ce13c0835d1e143b1a25a5fb4d4a5967ae2972a2d98",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "character_studio/assets/runtime/long/head-0.png",
+      "kind": "image",
+      "required": true,
+      "sha256": "dfbbb5022148ecea7fcaaa5b27b27bcb36782d695e5e47a3495bff36d025c458",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "character_studio/assets/runtime/long/outfit-0.png",
+      "kind": "image",
+      "required": true,
+      "sha256": "44f0155bc7d0308bd2f3114ed95ceadcf57ed4b5fcb4be02913899ad2ffdeada",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "character_studio/assets/runtime/medium-v3/features-compact-alternate.png",
+      "kind": "image",
+      "required": true,
+      "sha256": "8b1d38a6b1cbd68b4d693c994602fe3e85135d30addc6e94c85535c898d1a56d",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "character_studio/assets/runtime/medium-v3/features-compact-base.png",
+      "kind": "image",
+      "required": true,
+      "sha256": "d39d0dea8fe6d83c79dd187d40ec1a17e51c8604c9d9735bf76ca5fe634c1e0c",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "character_studio/assets/runtime/medium-v3/features-diamond-alternate.png",
+      "kind": "image",
+      "required": true,
+      "sha256": "e968dfbbd9de6489ec3427382c67b4311506ae62a6066e6b5369b0b3fb8b5993",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "character_studio/assets/runtime/medium-v3/features-diamond-base.png",
+      "kind": "image",
+      "required": true,
+      "sha256": "680fbc19f521fcdaf6411c48909d92513bb402713dc86b9e8a46aab021718b78",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "character_studio/assets/runtime/medium-v3/features-oval-round.png",
+      "kind": "image",
+      "required": true,
+      "sha256": "60ac71b4e06ecd5c1286a9bc3d62ca795fe39fab31253f7ae5d9bd892efa185f",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "character_studio/assets/runtime/medium-v3/features-sturdy-alternate.png",
+      "kind": "image",
+      "required": true,
+      "sha256": "fcebe10d815a5d8c3be60a167a9d194614daa6cf1e31b431f993fb7651d27879",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "character_studio/assets/runtime/medium-v3/features-sturdy-base.png",
+      "kind": "image",
+      "required": true,
+      "sha256": "8c49f012469be86d8ebc573cbdb828f88ef52047419bfddc98f42789d0388fdd",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "character_studio/assets/runtime/medium-v3/head-compact.png",
+      "kind": "image",
+      "required": true,
+      "sha256": "76c3a8fc462d58bc421d6d75bb21910283acfbc38f23d1ca37e8810cd61bbc81",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "character_studio/assets/runtime/medium-v3/head-diamond.png",
+      "kind": "image",
+      "required": true,
+      "sha256": "6fb51a2522d61c7d2333cdc18d7f7b5ca1023861088316d6bef646a5c5363969",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "character_studio/assets/runtime/medium-v3/head-sturdy.png",
+      "kind": "image",
+      "required": true,
+      "sha256": "68d4af8d6b4549496aceacecc7afd3dd76650254de2384323c8c232cdf15af7d",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "character_studio/assets/runtime/outfit-0.png",
+      "kind": "image",
+      "required": true,
+      "sha256": "717c0e3812b0d60f5252990e3cd0011322ce57aa829398e3e2eadf0efdc0fcb5",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "character_studio/catalog_female_v2.json",
+      "kind": "data",
+      "required": true,
+      "sha256": "0fa2dde10f523ba20cc60ceff4b68be3e7604913a73c457e96785dff196f7454",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "character_studio/catalog_long_v2.json",
+      "kind": "data",
+      "required": true,
+      "sha256": "7937b11b3545155531327b8203f7fd502f6d08f262d07a644899f844d5e644d5",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "character_studio/catalog_medium_v3.json",
+      "kind": "data",
+      "required": true,
+      "sha256": "b5a65de517d62471f2f7cb3c00cf3ed7cf5cc453460a59f6109c6e2d487231d8",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "character_studio/fittings.json",
+      "kind": "data",
+      "required": true,
+      "sha256": "add6e62d7fc97c4085dea828967fe711983d07013601655437b676822609a8fa",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "character_studio/representatives.json",
+      "kind": "data",
+      "required": true,
+      "sha256": "0714d58ea7e9d63934ef986cc97e40d70288873e84c45ccc9e8f8b5089433fb0",
+      "license": "project-local-authorized-use"
+    },
+    {
+      "path": "data/adult_appearance_compositions.json",
+      "kind": "data",
+      "required": true,
+      "sha256": "9e7f3280c62a544c79dd46cf3120c132ce3fbc65519f5bcd670043c382c808b8",
+      "license": "project-local-authorized-use"
+    }
+  ],
+  "author": "Hanmo project authors",
+  "license": "NOASSERTION"
+}

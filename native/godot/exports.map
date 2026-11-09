@@ -1,0 +1,5 @@
+/* Linux/ELF只保Godot的C入口；静态库和直接桥对象的C++类型信息全部留在本ELF。 */
+{
+    global: hanmo_world_library_init;
+    local: *;
+};

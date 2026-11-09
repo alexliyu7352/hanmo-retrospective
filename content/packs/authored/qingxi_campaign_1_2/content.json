@@ -1,0 +1,4756 @@
+{
+  "settlements": [
+    {
+      "id": "settlement.north",
+      "name_key": "name.settlement.north",
+      "kind": "camp",
+      "map_xy": [
+        20,
+        40
+      ],
+      "entry_place": "place.north.gate"
+    },
+    {
+      "id": "settlement.south",
+      "name_key": "name.settlement.south",
+      "kind": "city",
+      "map_xy": [
+        180,
+        40
+      ],
+      "entry_place": "place.south.gate"
+    }
+  ],
+  "routes": [
+    {
+      "id": "route.north_south",
+      "origin": "settlement.north",
+      "destination": "settlement.south",
+      "duration_ticks": 4,
+      "risk_bp": 0
+    },
+    {
+      "id": "route.south_north",
+      "origin": "settlement.south",
+      "destination": "settlement.north",
+      "duration_ticks": 4,
+      "risk_bp": 0
+    }
+  ],
+  "places": [
+    {
+      "id": "place.north.gate",
+      "name_key": "name.place.north.gate",
+      "settlement_id": "settlement.north",
+      "parent_place": null,
+      "passages": [
+        "place.north.camp"
+      ],
+      "admission": [],
+      "visual_tag": "camp"
+    },
+    {
+      "id": "place.north.camp",
+      "name_key": "name.place.north.camp",
+      "settlement_id": "settlement.north",
+      "parent_place": null,
+      "passages": [
+        "place.north.gate"
+      ],
+      "admission": [],
+      "visual_tag": "camp"
+    },
+    {
+      "id": "place.south.gate",
+      "name_key": "name.place.south.gate",
+      "settlement_id": "settlement.south",
+      "parent_place": null,
+      "passages": [
+        "place.south.camp"
+      ],
+      "admission": [],
+      "visual_tag": "camp"
+    },
+    {
+      "id": "place.south.camp",
+      "name_key": "name.place.south.camp",
+      "settlement_id": "settlement.south",
+      "parent_place": null,
+      "passages": [
+        "place.south.gate"
+      ],
+      "admission": [],
+      "visual_tag": "camp"
+    }
+  ],
+  "actors": [
+    {
+      "id": "actor.player",
+      "name_key": "name.actor.player",
+      "origin": "original",
+      "source_note": "《清溪粮道》同一战区的原创退伍戍卒。此章从空缺营将岗位开始，实际受任后方可统辖营中两部。没有预造軍团、围城、同意或整编结果。",
+      "initial_place": "place.north.gate",
+      "initial_age_years": 28,
+      "attributes": {
+        "leadership": 60,
+        "martial": 60,
+        "intellect": 60,
+        "administration": 60,
+        "charisma": 60
+      },
+      "skills": {
+        "infantry": 100,
+        "cavalry": 0,
+        "archery": 0,
+        "martial": 0,
+        "tactics": 100,
+        "debate": 0,
+        "negotiation": 0,
+        "rites": 0,
+        "commerce": 0,
+        "transport": 0
+      },
+      "appearance_definition": {
+        "kind": "fixed",
+        "generator_version": "appearance-v1",
+        "attire_style": "plain",
+        "base_features": {
+          "face_shape": "plain",
+          "eyes": "plain",
+          "brows": "plain",
+          "nose": "plain",
+          "mouth": "plain",
+          "hair": "plain",
+          "beard": "plain",
+          "skin_palette": "plain",
+          "build": "plain"
+        }
+      },
+      "appearance_note": "复用项目已有原创官吏立绘；不是历史肖像。",
+      "portrait_kind": "official",
+      "dialogue_id": null,
+      "initial_goods": []
+    },
+    {
+      "id": "actor.north_officer",
+      "name_key": "name.actor.north_officer",
+      "origin": "original",
+      "source_note": "《清溪粮道》独立汉末原创人物，无对应考据历史人物。溪口营署任命人，初始保管明确公物；不会把自己的私财当军费。",
+      "initial_place": "place.north.camp",
+      "initial_age_years": 45,
+      "attributes": {
+        "leadership": 60,
+        "martial": 55,
+        "intellect": 60,
+        "administration": 60,
+        "charisma": 60
+      },
+      "skills": {
+        "infantry": 300,
+        "cavalry": 0,
+        "archery": 0,
+        "martial": 0,
+        "tactics": 300,
+        "debate": 0,
+        "negotiation": 0,
+        "rites": 0,
+        "commerce": 0,
+        "transport": 0
+      },
+      "appearance_definition": {
+        "kind": "fixed",
+        "generator_version": "appearance-v1",
+        "attire_style": "plain",
+        "base_features": {
+          "face_shape": "plain",
+          "eyes": "plain",
+          "brows": "plain",
+          "nose": "plain",
+          "mouth": "plain",
+          "hair": "plain",
+          "beard": "plain",
+          "skin_palette": "plain",
+          "build": "plain"
+        }
+      },
+      "appearance_note": "复用项目已有原创官吏立绘；不是历史肖像。",
+      "portrait_kind": "official",
+      "dialogue_id": null,
+      "initial_goods": []
+    },
+    {
+      "id": "actor.south_officer",
+      "name_key": "name.actor.south_officer",
+      "origin": "original",
+      "source_note": "《清溪粮道》独立汉末原创人物，无对应考据历史人物。北汊营署任命人，向两位实际在场军官分别办理任职。",
+      "initial_place": "place.south.camp",
+      "initial_age_years": 46,
+      "attributes": {
+        "leadership": 60,
+        "martial": 55,
+        "intellect": 60,
+        "administration": 60,
+        "charisma": 60
+      },
+      "skills": {
+        "infantry": 300,
+        "cavalry": 0,
+        "archery": 0,
+        "martial": 0,
+        "tactics": 300,
+        "debate": 0,
+        "negotiation": 0,
+        "rites": 0,
+        "commerce": 0,
+        "transport": 0
+      },
+      "appearance_definition": {
+        "kind": "fixed",
+        "generator_version": "appearance-v1",
+        "attire_style": "plain",
+        "base_features": {
+          "face_shape": "plain",
+          "eyes": "plain",
+          "brows": "plain",
+          "nose": "plain",
+          "mouth": "plain",
+          "hair": "plain",
+          "beard": "plain",
+          "skin_palette": "plain",
+          "build": "plain"
+        }
+      },
+      "appearance_note": "复用项目已有原创官吏立绘；不是历史肖像。",
+      "portrait_kind": "official",
+      "dialogue_id": null,
+      "initial_goods": []
+    },
+    {
+      "id": "actor.south_patrol",
+      "name_key": "name.actor.south_patrol",
+      "origin": "original",
+      "source_note": "燕驰奉北汊本城守备军令，实际受任后编组巡军留守。其个人政策仅容许保留本部指挥、家戶私产和旧债的溪口整编条款。",
+      "initial_place": "place.south.camp",
+      "initial_age_years": 32,
+      "attributes": {
+        "leadership": 60,
+        "martial": 55,
+        "intellect": 60,
+        "administration": 60,
+        "charisma": 60
+      },
+      "skills": {
+        "infantry": 300,
+        "cavalry": 0,
+        "archery": 0,
+        "martial": 0,
+        "tactics": 100,
+        "debate": 0,
+        "negotiation": 0,
+        "rites": 0,
+        "commerce": 0,
+        "transport": 0
+      },
+      "appearance_definition": {
+        "kind": "fixed",
+        "generator_version": "appearance-v1",
+        "attire_style": "plain",
+        "base_features": {
+          "face_shape": "plain",
+          "eyes": "plain",
+          "brows": "plain",
+          "nose": "plain",
+          "mouth": "plain",
+          "hair": "plain",
+          "beard": "plain",
+          "skin_palette": "plain",
+          "build": "plain"
+        }
+      },
+      "appearance_note": "复用项目已有原创官吏立绘；不是历史肖像。",
+      "portrait_kind": "official",
+      "dialogue_id": null,
+      "initial_goods": [],
+      "military_plan": {
+        "office_id": "office.south_patrol",
+        "order_id": "order.south_patrol",
+        "unit_ids": [
+          "unit.south.patrol"
+        ],
+        "food_quantity": 30,
+        "money": 30
+      }
+    },
+    {
+      "id": "actor.south_guard",
+      "name_key": "name.actor.south_guard",
+      "origin": "original",
+      "source_note": "许砺办理四名本地旧戍卒的自愿重新入籍；四人开局仍是原家户预备群体，须实际登记后才能编军。其是否接受溪口整编依本章明示的个人政策决定。",
+      "initial_place": "place.south.camp",
+      "initial_age_years": 37,
+      "attributes": {
+        "leadership": 60,
+        "martial": 55,
+        "intellect": 60,
+        "administration": 60,
+        "charisma": 60
+      },
+      "skills": {
+        "infantry": 0,
+        "cavalry": 0,
+        "archery": 300,
+        "martial": 0,
+        "tactics": 100,
+        "debate": 0,
+        "negotiation": 0,
+        "rites": 0,
+        "commerce": 0,
+        "transport": 0
+      },
+      "appearance_definition": {
+        "kind": "fixed",
+        "generator_version": "appearance-v1",
+        "attire_style": "plain",
+        "base_features": {
+          "face_shape": "plain",
+          "eyes": "plain",
+          "brows": "plain",
+          "nose": "plain",
+          "mouth": "plain",
+          "hair": "plain",
+          "beard": "plain",
+          "skin_palette": "plain",
+          "build": "plain"
+        }
+      },
+      "appearance_note": "复用项目已有原创官吏立绘；不是历史肖像。",
+      "portrait_kind": "official",
+      "dialogue_id": null,
+      "initial_goods": [],
+      "military_plan": {
+        "office_id": "office.south_guard",
+        "order_id": "order.south_guard",
+        "unit_ids": [
+          "unit.south.guard"
+        ],
+        "food_quantity": 20,
+        "money": 0
+      }
+    }
+  ],
+  "organizations": [
+    {
+      "id": "org.north",
+      "name_key": "name.org.north",
+      "kind": "political",
+      "leader_actor": "actor.north_officer"
+    },
+    {
+      "id": "org.south",
+      "name_key": "name.org.south",
+      "kind": "political",
+      "leader_actor": "actor.south_officer"
+    }
+  ],
+  "roles": [
+    {
+      "id": "role.north.officer",
+      "name_key": "name.role.north.officer",
+      "organization_id": "org.north",
+      "initial_actor": "actor.north_officer",
+      "place_id": "place.north.camp",
+      "services": [
+        "information",
+        "office_accept",
+        "office_resign",
+        "military_order",
+        "military_report"
+      ],
+      "dialogue_id": "dialog.north",
+      "scene_position": [
+        60,
+        85
+      ]
+    },
+    {
+      "id": "role.south.officer",
+      "name_key": "name.role.south.officer",
+      "organization_id": "org.south",
+      "initial_actor": "actor.south_officer",
+      "place_id": "place.south.camp",
+      "services": [
+        "information",
+        "office_accept",
+        "office_resign",
+        "military_order",
+        "military_report"
+      ],
+      "dialogue_id": "dialog.south",
+      "scene_position": [
+        60,
+        85
+      ]
+    }
+  ],
+  "wallets": [
+    {
+      "id": "wallet.north.public",
+      "owner": {
+        "kind": "organization",
+        "id": "org.north"
+      },
+      "initial_balance": 500
+    },
+    {
+      "id": "wallet.south.public",
+      "owner": {
+        "kind": "organization",
+        "id": "org.south"
+      },
+      "initial_balance": 200
+    },
+    {
+      "id": "wallet.player",
+      "owner": {
+        "kind": "actor",
+        "id": "actor.player"
+      },
+      "initial_balance": 120
+    },
+    {
+      "id": "wallet.north_officer",
+      "owner": {
+        "kind": "actor",
+        "id": "actor.north_officer"
+      },
+      "initial_balance": 0
+    },
+    {
+      "id": "wallet.south_officer",
+      "owner": {
+        "kind": "actor",
+        "id": "actor.south_officer"
+      },
+      "initial_balance": 0
+    },
+    {
+      "id": "wallet.south_patrol",
+      "owner": {
+        "kind": "actor",
+        "id": "actor.south_patrol"
+      },
+      "initial_balance": 0
+    },
+    {
+      "id": "wallet.south_guard",
+      "owner": {
+        "kind": "actor",
+        "id": "actor.south_guard"
+      },
+      "initial_balance": 0
+    },
+    {
+      "id": "wallet.north.service",
+      "owner": {
+        "kind": "organization",
+        "id": "org.north"
+      },
+      "initial_balance": 100
+    },
+    {
+      "id": "wallet.south.service",
+      "owner": {
+        "kind": "organization",
+        "id": "org.south"
+      },
+      "initial_balance": 100
+    },
+    {
+      "id": "wallet.south.household",
+      "owner": {
+        "kind": "household",
+        "id": "household.south_guard"
+      },
+      "initial_balance": 0
+    }
+  ],
+  "items": [
+    {
+      "id": "item.grain",
+      "name_key": "name.item.grain",
+      "kind": "commodity",
+      "base_price": 12,
+      "weight": 1
+    },
+    {
+      "id": "item.timber",
+      "name_key": "name.item.timber",
+      "kind": "commodity",
+      "base_price": 10,
+      "weight": 1
+    },
+    {
+      "id": "item.iron",
+      "name_key": "name.item.iron",
+      "kind": "commodity",
+      "base_price": 30,
+      "weight": 2
+    },
+    {
+      "id": "item.ram",
+      "name_key": "name.item.ram",
+      "kind": "commodity",
+      "base_price": 180,
+      "weight": 12
+    },
+    {
+      "id": "item.spear",
+      "name_key": "name.item.spear",
+      "kind": "commodity",
+      "base_price": 160,
+      "weight": 3,
+      "weapon": {
+        "category": "spear",
+        "minimum_range": 48,
+        "maximum_range": 150,
+        "arc_degrees": 75,
+        "damage": 22,
+        "stamina_cost": 14,
+        "recovery_rounds": 0,
+        "move_distance": 95
+      }
+    },
+    {
+      "id": "item.bow",
+      "name_key": "name.item.bow",
+      "kind": "commodity",
+      "base_price": 200,
+      "weight": 2,
+      "weapon": {
+        "category": "bow",
+        "minimum_range": 110,
+        "maximum_range": 420,
+        "arc_degrees": 85,
+        "damage": 26,
+        "stamina_cost": 16,
+        "recovery_rounds": 1,
+        "move_distance": 80
+      }
+    }
+  ],
+  "inventories": [
+    {
+      "id": "inventory.north.public",
+      "owner": {
+        "kind": "organization",
+        "id": "org.north"
+      },
+      "capacity": 2000,
+      "goods": [
+        {
+          "item_id": "item.grain",
+          "quantity": 480
+        },
+        {
+          "item_id": "item.spear",
+          "quantity": 12
+        },
+        {
+          "item_id": "item.timber",
+          "quantity": 36
+        },
+        {
+          "item_id": "item.iron",
+          "quantity": 12
+        }
+      ]
+    },
+    {
+      "id": "inventory.south.public",
+      "owner": {
+        "kind": "organization",
+        "id": "org.south"
+      },
+      "capacity": 2000,
+      "goods": [
+        {
+          "item_id": "item.grain",
+          "quantity": 120
+        },
+        {
+          "item_id": "item.spear",
+          "quantity": 8
+        },
+        {
+          "item_id": "item.bow",
+          "quantity": 4
+        },
+        {
+          "item_id": "item.timber",
+          "quantity": 12
+        }
+      ]
+    },
+    {
+      "id": "inventory.south.household",
+      "owner": {
+        "kind": "household",
+        "id": "household.south_guard"
+      },
+      "capacity": 100,
+      "goods": []
+    }
+  ],
+  "shops": [],
+  "props": [],
+  "offers": [],
+  "dialogues": [
+    {
+      "id": "dialog.north",
+      "context_role": "role.north.officer",
+      "entry": "line.0",
+      "nodes": [
+        {
+          "id": "line.0",
+          "kind": "say",
+          "speaker": "$provider",
+          "text_key": "dialog.north.0",
+          "next": "line.1"
+        },
+        {
+          "id": "line.1",
+          "kind": "say",
+          "speaker": "$provider",
+          "text_key": "dialog.north.1",
+          "next": "line.2"
+        },
+        {
+          "id": "line.2",
+          "kind": "say",
+          "speaker": "$provider",
+          "text_key": "dialog.north.2",
+          "next": "line.3"
+        },
+        {
+          "id": "line.3",
+          "kind": "say",
+          "speaker": "$provider",
+          "text_key": "dialog.north.3",
+          "next": "end"
+        },
+        {
+          "id": "end",
+          "kind": "end"
+        }
+      ]
+    },
+    {
+      "id": "dialog.south",
+      "context_role": "role.south.officer",
+      "entry": "line.0",
+      "nodes": [
+        {
+          "id": "line.0",
+          "kind": "say",
+          "speaker": "$provider",
+          "text_key": "dialog.south.0",
+          "next": "line.1"
+        },
+        {
+          "id": "line.1",
+          "kind": "say",
+          "speaker": "$provider",
+          "text_key": "dialog.south.1",
+          "next": "line.2"
+        },
+        {
+          "id": "line.2",
+          "kind": "say",
+          "speaker": "$provider",
+          "text_key": "dialog.south.2",
+          "next": "end"
+        },
+        {
+          "id": "end",
+          "kind": "end"
+        }
+      ]
+    }
+  ],
+  "events": [],
+  "relations": [],
+  "scenarios": [
+    {
+      "id": "scenario.grain_road_integration",
+      "name_key": "name.scenario.integration",
+      "player_actor": "actor.player",
+      "playable_actor_ids": [
+        "actor.player"
+      ],
+      "seed_text": "qingxi-negotiated-integration-1.1.0",
+      "world_map_id": "map.grain_road",
+      "start_date": {
+        "year": 207,
+        "day_of_year": 151,
+        "half_day": 0
+      },
+      "enabled": {
+        "settlements": [
+          "settlement.north",
+          "settlement.south"
+        ],
+        "routes": [
+          "route.north_south",
+          "route.south_north"
+        ],
+        "places": [
+          "place.north.gate",
+          "place.north.camp",
+          "place.south.gate",
+          "place.south.camp"
+        ],
+        "actors": [
+          "actor.player",
+          "actor.north_officer",
+          "actor.south_officer",
+          "actor.south_patrol",
+          "actor.south_guard"
+        ],
+        "organizations": [
+          "org.north",
+          "org.south"
+        ],
+        "roles": [
+          "role.north.officer",
+          "role.south.officer"
+        ],
+        "wallets": [
+          "wallet.north.public",
+          "wallet.south.public",
+          "wallet.player",
+          "wallet.north_officer",
+          "wallet.south_officer",
+          "wallet.south_patrol",
+          "wallet.south_guard",
+          "wallet.north.service",
+          "wallet.south.service",
+          "wallet.south.household"
+        ],
+        "items": [
+          "item.grain",
+          "item.timber",
+          "item.iron",
+          "item.ram",
+          "item.spear",
+          "item.bow"
+        ],
+        "inventories": [
+          "inventory.north.public",
+          "inventory.south.public",
+          "inventory.south.household"
+        ],
+        "dialogues": [
+          "dialog.north",
+          "dialog.south"
+        ],
+        "world_maps": [
+          "map.grain_road"
+        ],
+        "battlefields": [
+          "field.road",
+          "field.fort"
+        ],
+        "troop_types": [
+          "troop.infantry",
+          "troop.archer"
+        ],
+        "military_objectives": [
+          "objective.road",
+          "objective.fort"
+        ],
+        "offices": [
+          "office.north_leader",
+          "office.south_patrol",
+          "office.south_guard"
+        ],
+        "garrisons": [
+          "garrison.north",
+          "garrison.south"
+        ],
+        "military_orders": [
+          "order.north_clear",
+          "order.south_patrol",
+          "order.south_guard"
+        ],
+        "strongholds": [
+          "stronghold.north",
+          "stronghold.south"
+        ],
+        "siege_topologies": [
+          "topology.north",
+          "topology.south"
+        ],
+        "scenarios": [
+          "scenario.grain_road_integration"
+        ]
+      },
+      "initial": {
+        "actors": [
+          {
+            "actor_id": "actor.player",
+            "place_id": "place.north.gate",
+            "alive": true,
+            "available": true,
+            "age_years": 28,
+            "attributes": {
+              "leadership": 60,
+              "martial": 60,
+              "intellect": 60,
+              "administration": 60,
+              "charisma": 60
+            },
+            "skills": {
+              "infantry": 100,
+              "cavalry": 0,
+              "archery": 0,
+              "martial": 0,
+              "tactics": 100,
+              "debate": 0,
+              "negotiation": 0,
+              "rites": 0,
+              "commerce": 0,
+              "transport": 0
+            },
+            "appearance_definition": {
+              "kind": "fixed",
+              "generator_version": "appearance-v1",
+              "attire_style": "plain",
+              "base_features": {
+                "face_shape": "plain",
+                "eyes": "plain",
+                "brows": "plain",
+                "nose": "plain",
+                "mouth": "plain",
+                "hair": "plain",
+                "beard": "plain",
+                "skin_palette": "plain",
+                "build": "plain"
+              }
+            },
+            "combat": {},
+            "initial_goods": []
+          },
+          {
+            "actor_id": "actor.north_officer",
+            "place_id": "place.north.camp",
+            "alive": true,
+            "available": true,
+            "age_years": 45,
+            "attributes": {
+              "leadership": 60,
+              "martial": 55,
+              "intellect": 60,
+              "administration": 60,
+              "charisma": 60
+            },
+            "skills": {
+              "infantry": 300,
+              "cavalry": 0,
+              "archery": 0,
+              "martial": 0,
+              "tactics": 300,
+              "debate": 0,
+              "negotiation": 0,
+              "rites": 0,
+              "commerce": 0,
+              "transport": 0
+            },
+            "appearance_definition": {
+              "kind": "fixed",
+              "generator_version": "appearance-v1",
+              "attire_style": "plain",
+              "base_features": {
+                "face_shape": "plain",
+                "eyes": "plain",
+                "brows": "plain",
+                "nose": "plain",
+                "mouth": "plain",
+                "hair": "plain",
+                "beard": "plain",
+                "skin_palette": "plain",
+                "build": "plain"
+              }
+            },
+            "combat": {},
+            "initial_goods": []
+          },
+          {
+            "actor_id": "actor.south_officer",
+            "place_id": "place.south.camp",
+            "alive": true,
+            "available": true,
+            "age_years": 46,
+            "attributes": {
+              "leadership": 60,
+              "martial": 55,
+              "intellect": 60,
+              "administration": 60,
+              "charisma": 60
+            },
+            "skills": {
+              "infantry": 300,
+              "cavalry": 0,
+              "archery": 0,
+              "martial": 0,
+              "tactics": 300,
+              "debate": 0,
+              "negotiation": 0,
+              "rites": 0,
+              "commerce": 0,
+              "transport": 0
+            },
+            "appearance_definition": {
+              "kind": "fixed",
+              "generator_version": "appearance-v1",
+              "attire_style": "plain",
+              "base_features": {
+                "face_shape": "plain",
+                "eyes": "plain",
+                "brows": "plain",
+                "nose": "plain",
+                "mouth": "plain",
+                "hair": "plain",
+                "beard": "plain",
+                "skin_palette": "plain",
+                "build": "plain"
+              }
+            },
+            "combat": {},
+            "initial_goods": []
+          },
+          {
+            "actor_id": "actor.south_patrol",
+            "place_id": "place.south.camp",
+            "alive": true,
+            "available": true,
+            "age_years": 32,
+            "attributes": {
+              "leadership": 60,
+              "martial": 55,
+              "intellect": 60,
+              "administration": 60,
+              "charisma": 60
+            },
+            "skills": {
+              "infantry": 300,
+              "cavalry": 0,
+              "archery": 0,
+              "martial": 0,
+              "tactics": 100,
+              "debate": 0,
+              "negotiation": 0,
+              "rites": 0,
+              "commerce": 0,
+              "transport": 0
+            },
+            "appearance_definition": {
+              "kind": "fixed",
+              "generator_version": "appearance-v1",
+              "attire_style": "plain",
+              "base_features": {
+                "face_shape": "plain",
+                "eyes": "plain",
+                "brows": "plain",
+                "nose": "plain",
+                "mouth": "plain",
+                "hair": "plain",
+                "beard": "plain",
+                "skin_palette": "plain",
+                "build": "plain"
+              }
+            },
+            "combat": {},
+            "initial_goods": []
+          },
+          {
+            "actor_id": "actor.south_guard",
+            "place_id": "place.south.camp",
+            "alive": true,
+            "available": true,
+            "age_years": 37,
+            "attributes": {
+              "leadership": 60,
+              "martial": 55,
+              "intellect": 60,
+              "administration": 60,
+              "charisma": 60
+            },
+            "skills": {
+              "infantry": 0,
+              "cavalry": 0,
+              "archery": 300,
+              "martial": 0,
+              "tactics": 100,
+              "debate": 0,
+              "negotiation": 0,
+              "rites": 0,
+              "commerce": 0,
+              "transport": 0
+            },
+            "appearance_definition": {
+              "kind": "fixed",
+              "generator_version": "appearance-v1",
+              "attire_style": "plain",
+              "base_features": {
+                "face_shape": "plain",
+                "eyes": "plain",
+                "brows": "plain",
+                "nose": "plain",
+                "mouth": "plain",
+                "hair": "plain",
+                "beard": "plain",
+                "skin_palette": "plain",
+                "build": "plain"
+              }
+            },
+            "combat": {},
+            "initial_goods": []
+          }
+        ],
+        "offer_ids": [],
+        "wallets": [
+          {
+            "id": "wallet.north.public",
+            "owner": {
+              "kind": "organization",
+              "id": "org.north"
+            },
+            "initial_balance": 500
+          },
+          {
+            "id": "wallet.south.public",
+            "owner": {
+              "kind": "organization",
+              "id": "org.south"
+            },
+            "initial_balance": 200
+          },
+          {
+            "id": "wallet.player",
+            "owner": {
+              "kind": "actor",
+              "id": "actor.player"
+            },
+            "initial_balance": 120
+          },
+          {
+            "id": "wallet.north_officer",
+            "owner": {
+              "kind": "actor",
+              "id": "actor.north_officer"
+            },
+            "initial_balance": 0
+          },
+          {
+            "id": "wallet.south_officer",
+            "owner": {
+              "kind": "actor",
+              "id": "actor.south_officer"
+            },
+            "initial_balance": 0
+          },
+          {
+            "id": "wallet.south_patrol",
+            "owner": {
+              "kind": "actor",
+              "id": "actor.south_patrol"
+            },
+            "initial_balance": 0
+          },
+          {
+            "id": "wallet.south_guard",
+            "owner": {
+              "kind": "actor",
+              "id": "actor.south_guard"
+            },
+            "initial_balance": 0
+          },
+          {
+            "id": "wallet.north.service",
+            "owner": {
+              "kind": "organization",
+              "id": "org.north"
+            },
+            "initial_balance": 100
+          },
+          {
+            "id": "wallet.south.service",
+            "owner": {
+              "kind": "organization",
+              "id": "org.south"
+            },
+            "initial_balance": 100
+          },
+          {
+            "id": "wallet.south.household",
+            "owner": {
+              "kind": "household",
+              "id": "household.south_guard"
+            },
+            "initial_balance": 0
+          }
+        ],
+        "inventories": [
+          {
+            "id": "inventory.north.public",
+            "owner": {
+              "kind": "organization",
+              "id": "org.north"
+            },
+            "capacity": 2000,
+            "goods": [
+              {
+                "item_id": "item.grain",
+                "quantity": 480
+              },
+              {
+                "item_id": "item.spear",
+                "quantity": 12
+              },
+              {
+                "item_id": "item.timber",
+                "quantity": 36
+              },
+              {
+                "item_id": "item.iron",
+                "quantity": 12
+              }
+            ]
+          },
+          {
+            "id": "inventory.south.public",
+            "owner": {
+              "kind": "organization",
+              "id": "org.south"
+            },
+            "capacity": 2000,
+            "goods": [
+              {
+                "item_id": "item.grain",
+                "quantity": 120
+              },
+              {
+                "item_id": "item.spear",
+                "quantity": 8
+              },
+              {
+                "item_id": "item.bow",
+                "quantity": 4
+              },
+              {
+                "item_id": "item.timber",
+                "quantity": 12
+              }
+            ]
+          },
+          {
+            "id": "inventory.south.household",
+            "owner": {
+              "kind": "household",
+              "id": "household.south_guard"
+            },
+            "capacity": 100,
+            "goods": []
+          }
+        ],
+        "roles": [
+          {
+            "role_id": "role.north.officer",
+            "actor_id": "actor.north_officer",
+            "enabled": true
+          },
+          {
+            "role_id": "role.south.officer",
+            "actor_id": "actor.south_officer",
+            "enabled": true
+          }
+        ],
+        "garrisons": [
+          {
+            "id": "garrison.north",
+            "organization_id": "org.north",
+            "units": [
+              {
+                "id": "unit.north.work_detail",
+                "name_key": "name.unit.north.work_detail",
+                "troop_type_id": "troop.infantry",
+                "commander_actor_id": "actor.player",
+                "initial_soldiers": 6,
+                "equipment": [
+                  {
+                    "item_id": "item.spear",
+                    "quantity_per_person": 1
+                  },
+                  {
+                    "item_id": "item.timber",
+                    "quantity_per_person": 3
+                  },
+                  {
+                    "item_id": "item.iron",
+                    "quantity_per_person": 1
+                  }
+                ],
+                "initial_training": 10,
+                "initial_fatigue": 0
+              },
+              {
+                "id": "unit.north.blockade",
+                "name_key": "name.unit.north.blockade",
+                "troop_type_id": "troop.infantry",
+                "commander_actor_id": "actor.north_officer",
+                "initial_soldiers": 6,
+                "equipment": [
+                  {
+                    "item_id": "item.spear",
+                    "quantity_per_person": 1
+                  },
+                  {
+                    "item_id": "item.timber",
+                    "quantity_per_person": 3
+                  },
+                  {
+                    "item_id": "item.iron",
+                    "quantity_per_person": 1
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "garrison.south",
+            "organization_id": "org.south",
+            "units": [
+              {
+                "id": "unit.south.patrol",
+                "name_key": "name.unit.south.patrol",
+                "troop_type_id": "troop.infantry",
+                "commander_actor_id": "actor.south_patrol",
+                "initial_soldiers": 8,
+                "equipment": [
+                  {
+                    "item_id": "item.spear",
+                    "quantity_per_person": 1
+                  }
+                ]
+              },
+              {
+                "id": "unit.south.guard",
+                "name_key": "name.unit.south.guard",
+                "troop_type_id": "troop.archer",
+                "commander_actor_id": "actor.south_guard",
+                "equipment": [
+                  {
+                    "item_id": "item.bow",
+                    "quantity_per_person": 1
+                  },
+                  {
+                    "item_id": "item.timber",
+                    "quantity_per_person": 2
+                  }
+                ],
+                "population_source_id": "source.south_guard",
+                "initial_training": 20,
+                "initial_fatigue": 0
+              }
+            ]
+          }
+        ],
+        "offices": [
+          {
+            "id": "office.north_leader"
+          },
+          {
+            "id": "office.south_patrol"
+          },
+          {
+            "id": "office.south_guard"
+          }
+        ],
+        "strongholds": [
+          {
+            "id": "stronghold.north"
+          },
+          {
+            "id": "stronghold.south"
+          }
+        ]
+      },
+      "dynamic_world": {
+        "profile": "local_society_v1",
+        "founder_policy": "fixed_actor",
+        "local_economy": {
+          "enabled": true,
+          "households": {
+            "household.south_guard": {
+              "id": "household.south_guard",
+              "wallet_id": "wallet.south.household",
+              "inventory_id": "inventory.south.household"
+            }
+          },
+          "cohorts": {
+            "cohort.south.reserve": {
+              "id": "cohort.south.reserve",
+              "site_id": "place.south.camp",
+              "household_group_id": "household.south_guard",
+              "status": "trained_reserve",
+              "headcount": 4,
+              "labor_capacity": 4,
+              "private_wallet_id": "wallet.south.household",
+              "private_inventory_id": "inventory.south.household",
+              "affiliation_id": "org.south",
+              "assignment_id": null
+            },
+            "cohort.south.serving": {
+              "id": "cohort.south.serving",
+              "site_id": "place.south.camp",
+              "household_group_id": "household.south_guard",
+              "status": "serving",
+              "headcount": 0,
+              "labor_capacity": 0,
+              "private_wallet_id": "wallet.south.household",
+              "private_inventory_id": "inventory.south.household",
+              "affiliation_id": "org.south",
+              "assignment_id": null
+            },
+            "cohort.south.wounded": {
+              "id": "cohort.south.wounded",
+              "site_id": "place.south.camp",
+              "household_group_id": "household.south_guard",
+              "status": "wounded",
+              "headcount": 0,
+              "labor_capacity": 0,
+              "private_wallet_id": "wallet.south.household",
+              "private_inventory_id": "inventory.south.household",
+              "affiliation_id": "org.south",
+              "assignment_id": null
+            },
+            "cohort.south.captive": {
+              "id": "cohort.south.captive",
+              "site_id": "place.south.camp",
+              "household_group_id": "household.south_guard",
+              "status": "captive",
+              "headcount": 0,
+              "labor_capacity": 0,
+              "private_wallet_id": "wallet.south.household",
+              "private_inventory_id": "inventory.south.household",
+              "affiliation_id": "org.south",
+              "assignment_id": null
+            },
+            "cohort.south.displaced": {
+              "id": "cohort.south.displaced",
+              "site_id": "place.south.camp",
+              "household_group_id": "household.south_guard",
+              "status": "displaced",
+              "headcount": 0,
+              "labor_capacity": 0,
+              "private_wallet_id": "wallet.south.household",
+              "private_inventory_id": "inventory.south.household",
+              "affiliation_id": "org.south",
+              "assignment_id": null
+            }
+          },
+          "labor_allocations": {},
+          "recipes": {},
+          "production_units": {},
+          "rates": {
+            "rate.service_wage": {
+              "id": "rate.service_wage",
+              "numerator": 1,
+              "denominator": 1,
+              "per_capita": true
+            },
+            "rate.daily_ration": {
+              "id": "rate.daily_ration",
+              "numerator": 1,
+              "denominator": 1,
+              "per_capita": true
+            }
+          },
+          "obligations": {
+            "obligation.north.service.reserve": {
+              "id": "obligation.north.service.reserve",
+              "principal": {
+                "kind": "organization",
+                "id": "org.north"
+              },
+              "beneficiary": {
+                "kind": "cohort",
+                "id": "cohort.south.reserve"
+              },
+              "kind": "wage",
+              "source_wallet_or_inventory": "wallet.north.service",
+              "destination": "wallet.south.household",
+              "rate_profile": "rate.service_wage",
+              "authority_ref": "issuer.north.service",
+              "item_id": "",
+              "period_ticks": 4,
+              "next_due_tick": 4,
+              "last_receipt_id": "",
+              "active": false
+            },
+            "obligation.north.service.serving": {
+              "id": "obligation.north.service.serving",
+              "principal": {
+                "kind": "organization",
+                "id": "org.north"
+              },
+              "beneficiary": {
+                "kind": "cohort",
+                "id": "cohort.south.serving"
+              },
+              "kind": "wage",
+              "source_wallet_or_inventory": "wallet.north.service",
+              "destination": "wallet.south.household",
+              "rate_profile": "rate.service_wage",
+              "authority_ref": "issuer.north.service",
+              "item_id": "",
+              "period_ticks": 4,
+              "next_due_tick": 4,
+              "last_receipt_id": "",
+              "active": false
+            },
+            "obligation.north.service.wounded": {
+              "id": "obligation.north.service.wounded",
+              "principal": {
+                "kind": "organization",
+                "id": "org.north"
+              },
+              "beneficiary": {
+                "kind": "cohort",
+                "id": "cohort.south.wounded"
+              },
+              "kind": "wage",
+              "source_wallet_or_inventory": "wallet.north.service",
+              "destination": "wallet.south.household",
+              "rate_profile": "rate.service_wage",
+              "authority_ref": "issuer.north.service",
+              "item_id": "",
+              "period_ticks": 4,
+              "next_due_tick": 4,
+              "last_receipt_id": "",
+              "active": false
+            },
+            "obligation.north.service.captive": {
+              "id": "obligation.north.service.captive",
+              "principal": {
+                "kind": "organization",
+                "id": "org.north"
+              },
+              "beneficiary": {
+                "kind": "cohort",
+                "id": "cohort.south.captive"
+              },
+              "kind": "wage",
+              "source_wallet_or_inventory": "wallet.north.service",
+              "destination": "wallet.south.household",
+              "rate_profile": "rate.service_wage",
+              "authority_ref": "issuer.north.service",
+              "item_id": "",
+              "period_ticks": 4,
+              "next_due_tick": 4,
+              "last_receipt_id": "",
+              "active": false
+            },
+            "obligation.north.service.displaced": {
+              "id": "obligation.north.service.displaced",
+              "principal": {
+                "kind": "organization",
+                "id": "org.north"
+              },
+              "beneficiary": {
+                "kind": "cohort",
+                "id": "cohort.south.displaced"
+              },
+              "kind": "wage",
+              "source_wallet_or_inventory": "wallet.north.service",
+              "destination": "wallet.south.household",
+              "rate_profile": "rate.service_wage",
+              "authority_ref": "issuer.north.service",
+              "item_id": "",
+              "period_ticks": 4,
+              "next_due_tick": 4,
+              "last_receipt_id": "",
+              "active": false
+            },
+            "obligation.south.service.reserve": {
+              "id": "obligation.south.service.reserve",
+              "principal": {
+                "kind": "organization",
+                "id": "org.south"
+              },
+              "beneficiary": {
+                "kind": "cohort",
+                "id": "cohort.south.reserve"
+              },
+              "kind": "wage",
+              "source_wallet_or_inventory": "wallet.south.service",
+              "destination": "wallet.south.household",
+              "rate_profile": "rate.service_wage",
+              "authority_ref": "issuer.south.service",
+              "item_id": "",
+              "period_ticks": 4,
+              "next_due_tick": 4,
+              "last_receipt_id": "",
+              "active": true
+            },
+            "obligation.south.service.serving": {
+              "id": "obligation.south.service.serving",
+              "principal": {
+                "kind": "organization",
+                "id": "org.south"
+              },
+              "beneficiary": {
+                "kind": "cohort",
+                "id": "cohort.south.serving"
+              },
+              "kind": "wage",
+              "source_wallet_or_inventory": "wallet.south.service",
+              "destination": "wallet.south.household",
+              "rate_profile": "rate.service_wage",
+              "authority_ref": "issuer.south.service",
+              "item_id": "",
+              "period_ticks": 4,
+              "next_due_tick": 4,
+              "last_receipt_id": "",
+              "active": true
+            },
+            "obligation.south.service.wounded": {
+              "id": "obligation.south.service.wounded",
+              "principal": {
+                "kind": "organization",
+                "id": "org.south"
+              },
+              "beneficiary": {
+                "kind": "cohort",
+                "id": "cohort.south.wounded"
+              },
+              "kind": "wage",
+              "source_wallet_or_inventory": "wallet.south.service",
+              "destination": "wallet.south.household",
+              "rate_profile": "rate.service_wage",
+              "authority_ref": "issuer.south.service",
+              "item_id": "",
+              "period_ticks": 4,
+              "next_due_tick": 4,
+              "last_receipt_id": "",
+              "active": true
+            },
+            "obligation.south.service.captive": {
+              "id": "obligation.south.service.captive",
+              "principal": {
+                "kind": "organization",
+                "id": "org.south"
+              },
+              "beneficiary": {
+                "kind": "cohort",
+                "id": "cohort.south.captive"
+              },
+              "kind": "wage",
+              "source_wallet_or_inventory": "wallet.south.service",
+              "destination": "wallet.south.household",
+              "rate_profile": "rate.service_wage",
+              "authority_ref": "issuer.south.service",
+              "item_id": "",
+              "period_ticks": 4,
+              "next_due_tick": 4,
+              "last_receipt_id": "",
+              "active": true
+            },
+            "obligation.south.service.displaced": {
+              "id": "obligation.south.service.displaced",
+              "principal": {
+                "kind": "organization",
+                "id": "org.south"
+              },
+              "beneficiary": {
+                "kind": "cohort",
+                "id": "cohort.south.displaced"
+              },
+              "kind": "wage",
+              "source_wallet_or_inventory": "wallet.south.service",
+              "destination": "wallet.south.household",
+              "rate_profile": "rate.service_wage",
+              "authority_ref": "issuer.south.service",
+              "item_id": "",
+              "period_ticks": 4,
+              "next_due_tick": 4,
+              "last_receipt_id": "",
+              "active": true
+            },
+            "obligation.south.ration.reserve": {
+              "id": "obligation.south.ration.reserve",
+              "principal": {
+                "kind": "organization",
+                "id": "org.south"
+              },
+              "beneficiary": {
+                "kind": "cohort",
+                "id": "cohort.south.reserve"
+              },
+              "kind": "ration",
+              "source_wallet_or_inventory": "inventory.south.public",
+              "destination": "",
+              "rate_profile": "rate.daily_ration",
+              "authority_ref": "issuer.south.rations",
+              "item_id": "item.grain",
+              "period_ticks": 1,
+              "next_due_tick": 1,
+              "last_receipt_id": "",
+              "active": true
+            },
+            "obligation.south.ration.displaced": {
+              "id": "obligation.south.ration.displaced",
+              "principal": {
+                "kind": "organization",
+                "id": "org.south"
+              },
+              "beneficiary": {
+                "kind": "cohort",
+                "id": "cohort.south.displaced"
+              },
+              "kind": "ration",
+              "source_wallet_or_inventory": "inventory.south.public",
+              "destination": "",
+              "rate_profile": "rate.daily_ration",
+              "authority_ref": "issuer.south.rations",
+              "item_id": "item.grain",
+              "period_ticks": 1,
+              "next_due_tick": 1,
+              "last_receipt_id": "",
+              "active": true
+            },
+            "obligation.south.ration.officer": {
+              "id": "obligation.south.ration.officer",
+              "principal": {
+                "kind": "organization",
+                "id": "org.south"
+              },
+              "beneficiary": {
+                "kind": "actor",
+                "id": "actor.south_officer"
+              },
+              "kind": "ration",
+              "source_wallet_or_inventory": "inventory.south.public",
+              "destination": "",
+              "rate_profile": "rate.daily_ration",
+              "authority_ref": "issuer.south.rations",
+              "item_id": "item.grain",
+              "period_ticks": 1,
+              "next_due_tick": 1,
+              "last_receipt_id": "",
+              "active": true
+            },
+            "obligation.north.ration.reserve": {
+              "id": "obligation.north.ration.reserve",
+              "principal": {
+                "kind": "organization",
+                "id": "org.north"
+              },
+              "beneficiary": {
+                "kind": "cohort",
+                "id": "cohort.south.reserve"
+              },
+              "kind": "ration",
+              "source_wallet_or_inventory": "inventory.south.public",
+              "destination": "",
+              "rate_profile": "rate.daily_ration",
+              "authority_ref": "issuer.north.rations",
+              "item_id": "item.grain",
+              "period_ticks": 1,
+              "next_due_tick": 1,
+              "last_receipt_id": "",
+              "active": false
+            },
+            "obligation.north.ration.displaced": {
+              "id": "obligation.north.ration.displaced",
+              "principal": {
+                "kind": "organization",
+                "id": "org.north"
+              },
+              "beneficiary": {
+                "kind": "cohort",
+                "id": "cohort.south.displaced"
+              },
+              "kind": "ration",
+              "source_wallet_or_inventory": "inventory.south.public",
+              "destination": "",
+              "rate_profile": "rate.daily_ration",
+              "authority_ref": "issuer.north.rations",
+              "item_id": "item.grain",
+              "period_ticks": 1,
+              "next_due_tick": 1,
+              "last_receipt_id": "",
+              "active": false
+            },
+            "obligation.north.ration.officer": {
+              "id": "obligation.north.ration.officer",
+              "principal": {
+                "kind": "organization",
+                "id": "org.north"
+              },
+              "beneficiary": {
+                "kind": "actor",
+                "id": "actor.south_officer"
+              },
+              "kind": "ration",
+              "source_wallet_or_inventory": "inventory.south.public",
+              "destination": "",
+              "rate_profile": "rate.daily_ration",
+              "authority_ref": "issuer.north.rations",
+              "item_id": "item.grain",
+              "period_ticks": 1,
+              "next_due_tick": 1,
+              "last_receipt_id": "",
+              "active": false
+            }
+          },
+          "provision_bindings": {
+            "provision.south.reserve": {
+              "id": "provision.south.reserve",
+              "subject": {
+                "kind": "cohort",
+                "id": "cohort.south.reserve"
+              },
+              "from_tick": 0,
+              "through_tick": 2147483647,
+              "payer_inventory": "inventory.south.public",
+              "obligation_id": "obligation.south.ration.reserve",
+              "policy_owner": "macro",
+              "military_source_id": ""
+            },
+            "provision.south.displaced": {
+              "id": "provision.south.displaced",
+              "subject": {
+                "kind": "cohort",
+                "id": "cohort.south.displaced"
+              },
+              "from_tick": 0,
+              "through_tick": 2147483647,
+              "payer_inventory": "inventory.south.public",
+              "obligation_id": "obligation.south.ration.displaced",
+              "policy_owner": "macro",
+              "military_source_id": ""
+            },
+            "provision.south.officer": {
+              "id": "provision.south.officer",
+              "subject": {
+                "kind": "actor",
+                "id": "actor.south_officer"
+              },
+              "from_tick": 0,
+              "through_tick": 2147483647,
+              "payer_inventory": "inventory.south.public",
+              "obligation_id": "obligation.south.ration.officer",
+              "policy_owner": "macro",
+              "military_source_id": ""
+            },
+            "provision.south.serving": {
+              "id": "provision.south.serving",
+              "subject": {
+                "kind": "cohort",
+                "id": "cohort.south.serving"
+              },
+              "from_tick": 0,
+              "through_tick": 2147483647,
+              "payer_inventory": "",
+              "obligation_id": "",
+              "policy_owner": "military",
+              "military_source_id": "source.south_guard"
+            },
+            "provision.south.wounded": {
+              "id": "provision.south.wounded",
+              "subject": {
+                "kind": "cohort",
+                "id": "cohort.south.wounded"
+              },
+              "from_tick": 0,
+              "through_tick": 2147483647,
+              "payer_inventory": "",
+              "obligation_id": "",
+              "policy_owner": "military",
+              "military_source_id": "source.south_guard"
+            },
+            "provision.south.captive": {
+              "id": "provision.south.captive",
+              "subject": {
+                "kind": "cohort",
+                "id": "cohort.south.captive"
+              },
+              "from_tick": 0,
+              "through_tick": 2147483647,
+              "payer_inventory": "",
+              "obligation_id": "",
+              "policy_owner": "military",
+              "military_source_id": "source.south_guard"
+            }
+          },
+          "production_bindings": {},
+          "supply_sources": {},
+          "named_actors_excluded": [
+            "actor.player",
+            "actor.north_officer",
+            "actor.south_officer",
+            "actor.south_patrol",
+            "actor.south_guard"
+          ]
+        },
+        "organization": {
+          "enabled": true,
+          "organizations": {
+            "org.north": {
+              "id": "org.north",
+              "kind": "political",
+              "status": "active",
+              "administrative_parent": null,
+              "branch_parent": null,
+              "headquarters_site": "place.north.camp",
+              "policy_profile_id": "policy.north",
+              "office_ids": [
+                "office.north_received_service"
+              ],
+              "succession_policy_id": "declared_deputy_only"
+            },
+            "org.south": {
+              "id": "org.south",
+              "kind": "political",
+              "status": "active",
+              "administrative_parent": null,
+              "branch_parent": null,
+              "headquarters_site": "place.south.camp",
+              "policy_profile_id": "policy.south",
+              "office_ids": [
+                "office.south_service"
+              ],
+              "succession_policy_id": "declared_deputy_only"
+            }
+          },
+          "offices": {
+            "office.south_service": {
+              "id": "office.south_service",
+              "organization_id": "org.south",
+              "holder_actor_id": "actor.south_guard",
+              "deputy_actor_id": null,
+              "epoch": 1,
+              "status": "active",
+              "grant_ids": [
+                "grant.south_service"
+              ]
+            },
+            "office.north_received_service": {
+              "id": "office.north_received_service",
+              "organization_id": "org.north",
+              "holder_actor_id": "actor.player",
+              "deputy_actor_id": null,
+              "epoch": 1,
+              "status": "active",
+              "grant_ids": [
+                "grant.north_received_service"
+              ]
+            }
+          },
+          "grants": {
+            "grant.south_service": {
+              "id": "grant.south_service",
+              "office_id": "office.south_service",
+              "allowed_command_kinds": [
+                "mobilize_reserve",
+                "release_reserve"
+              ],
+              "scopes": [
+                {
+                  "kind": "site",
+                  "id": "place.south.camp"
+                }
+              ],
+              "wallet_ids": [
+                "wallet.south.service"
+              ],
+              "inventory_ids": [
+                "inventory.south.public"
+              ],
+              "amount_limit": 4,
+              "valid_from": 0,
+              "valid_until": null,
+              "may_delegate": false,
+              "continuity_policy_id": "continue_under_organization"
+            },
+            "grant.north_received_service": {
+              "id": "grant.north_received_service",
+              "office_id": "office.north_received_service",
+              "allowed_command_kinds": [
+                "release_reserve"
+              ],
+              "scopes": [
+                {
+                  "kind": "site",
+                  "id": "place.south.camp"
+                }
+              ],
+              "wallet_ids": [],
+              "inventory_ids": [],
+              "amount_limit": 4,
+              "valid_from": 0,
+              "valid_until": null,
+              "may_delegate": false,
+              "continuity_policy_id": "continue_under_organization"
+            }
+          },
+          "institutional_issuers": {
+            "issuer.north.service": {
+              "id": "issuer.north.service",
+              "organization_id": "org.north",
+              "continuity_policy_id": "continue_under_organization",
+              "obligation_ids": [
+                "obligation.north.service.reserve",
+                "obligation.north.service.serving",
+                "obligation.north.service.wounded",
+                "obligation.north.service.captive",
+                "obligation.north.service.displaced"
+              ],
+              "source_container_ids": [
+                "wallet.north.service"
+              ],
+              "amount_limit": 100
+            },
+            "issuer.south.service": {
+              "id": "issuer.south.service",
+              "organization_id": "org.south",
+              "continuity_policy_id": "continue_under_organization",
+              "obligation_ids": [
+                "obligation.south.service.reserve",
+                "obligation.south.service.serving",
+                "obligation.south.service.wounded",
+                "obligation.south.service.captive",
+                "obligation.south.service.displaced"
+              ],
+              "source_container_ids": [
+                "wallet.south.service"
+              ],
+              "amount_limit": 100
+            },
+            "issuer.south.rations": {
+              "id": "issuer.south.rations",
+              "organization_id": "org.south",
+              "continuity_policy_id": "continue_under_organization",
+              "obligation_ids": [
+                "obligation.south.ration.reserve",
+                "obligation.south.ration.displaced",
+                "obligation.south.ration.officer"
+              ],
+              "source_container_ids": [
+                "inventory.south.public"
+              ],
+              "amount_limit": 120
+            },
+            "issuer.north.rations": {
+              "id": "issuer.north.rations",
+              "organization_id": "org.north",
+              "continuity_policy_id": "continue_under_organization",
+              "obligation_ids": [
+                "obligation.north.ration.reserve",
+                "obligation.north.ration.displaced",
+                "obligation.north.ration.officer"
+              ],
+              "source_container_ids": [
+                "inventory.south.public"
+              ],
+              "amount_limit": 120
+            }
+          },
+          "member_policies": {
+            "policy.north": {
+              "id": "policy.north",
+              "request_after_ticks": 1,
+              "refuse_after_ticks": 4,
+              "leave_after_ticks": 12,
+              "minimum_arrears": 1,
+              "may_leave": true
+            },
+            "policy.south": {
+              "id": "policy.south",
+              "request_after_ticks": 1,
+              "refuse_after_ticks": 4,
+              "leave_after_ticks": 12,
+              "minimum_arrears": 1,
+              "may_leave": true
+            }
+          },
+          "duties": {},
+          "members": {},
+          "activity_terms": {},
+          "initial_activities": {}
+        },
+        "affairs": {
+          "need_policies": {}
+        },
+        "director": {
+          "review_interval_ticks": 2,
+          "retry_delay_ticks": 2,
+          "decision_budget": 4,
+          "candidates_per_subject": 4,
+          "subjects": {}
+        },
+        "population_military": {
+          "enabled": true,
+          "consents": {
+            "consent.south_guard.south": {
+              "id": "consent.south_guard.south",
+              "cohort_id": "cohort.south.reserve",
+              "organization_id": "org.south",
+              "garrison_id": "garrison.south",
+              "from_tick": 0,
+              "through_tick": 2147483647,
+              "max_active_count": 4
+            },
+            "consent.south_guard.north": {
+              "id": "consent.south_guard.north",
+              "cohort_id": "cohort.south.reserve",
+              "organization_id": "org.north",
+              "garrison_id": "garrison.north",
+              "from_tick": 0,
+              "through_tick": 2147483647,
+              "max_active_count": 4
+            }
+          },
+          "sources": {
+            "source.south_guard": {
+              "id": "source.south_guard",
+              "organization_id": "org.south",
+              "organization_office_id": "office.south_service",
+              "military_office_id": "office.south_guard",
+              "garrison_id": "garrison.south",
+              "unit_id": "unit.south.guard",
+              "home_site_id": "place.south.camp",
+              "household_group_id": "household.south_guard",
+              "service_consent_source_id": "consent.south_guard.south",
+              "wage_obligation_ids": [
+                "obligation.south.service.reserve",
+                "obligation.south.service.serving",
+                "obligation.south.service.wounded",
+                "obligation.south.service.captive",
+                "obligation.south.service.displaced"
+              ],
+              "capacity": 4,
+              "initial_training": 20,
+              "initial_fatigue": 0,
+              "initial_morale": 70,
+              "reserve_cohort_id": "cohort.south.reserve",
+              "serving_cohort_id": "cohort.south.serving",
+              "wounded_cohort_id": "cohort.south.wounded",
+              "captive_cohort_id": "cohort.south.captive",
+              "displaced_cohort_id": "cohort.south.displaced"
+            }
+          },
+          "integration_policies": {
+            "integration.south_guard_to_north": {
+              "id": "integration.south_guard_to_north",
+              "source_id": "source.south_guard",
+              "receiving_organization_id": "org.north",
+              "receiving_garrison_id": "garrison.north",
+              "service_consent_source_id": "consent.south_guard.north",
+              "wage_obligation_ids": [
+                "obligation.north.service.reserve",
+                "obligation.north.service.serving",
+                "obligation.north.service.wounded",
+                "obligation.north.service.captive",
+                "obligation.north.service.displaced"
+              ],
+              "ration_obligation_ids": [
+                "obligation.north.ration.reserve",
+                "obligation.north.ration.displaced",
+                "obligation.north.ration.officer"
+              ],
+              "target_stronghold_id": "stronghold.south"
+            }
+          }
+        },
+        "siege_integration": {
+          "enabled": true,
+          "default_terms": {
+            "kind": "preserve_units_v1",
+            "preserve_unit_command": true,
+            "preserve_private_property": true,
+            "transfer_current_public_assets": true,
+            "transfer_prisoner_custody": true,
+            "recipient_future_service_responsibility": true,
+            "retain_original_arrears": true,
+            "population_policy_ids": [
+              "integration.south_guard_to_north"
+            ]
+          },
+          "officer_policies": [
+            {
+              "actor_id": "actor.south_patrol",
+              "allowed_recipient_organization_ids": [
+                "org.north"
+              ],
+              "allowed_terms": [
+                "preserve_units_v1"
+              ],
+              "minimum_willingness": 50,
+              "require_unit_command": true,
+              "require_private_property": true
+            },
+            {
+              "actor_id": "actor.south_guard",
+              "allowed_recipient_organization_ids": [
+                "org.north"
+              ],
+              "allowed_terms": [
+                "preserve_units_v1"
+              ],
+              "minimum_willingness": 50,
+              "require_unit_command": true,
+              "require_private_property": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "scenario.grain_road_standfast",
+      "name_key": "name.scenario.standfast",
+      "player_actor": "actor.player",
+      "playable_actor_ids": [
+        "actor.player"
+      ],
+      "seed_text": "qingxi-negotiated-standfast-1.1.0",
+      "world_map_id": "map.grain_road",
+      "start_date": {
+        "year": 207,
+        "day_of_year": 151,
+        "half_day": 0
+      },
+      "enabled": {
+        "settlements": [
+          "settlement.north",
+          "settlement.south"
+        ],
+        "routes": [
+          "route.north_south",
+          "route.south_north"
+        ],
+        "places": [
+          "place.north.gate",
+          "place.north.camp",
+          "place.south.gate",
+          "place.south.camp"
+        ],
+        "actors": [
+          "actor.player",
+          "actor.north_officer",
+          "actor.south_officer",
+          "actor.south_patrol",
+          "actor.south_guard"
+        ],
+        "organizations": [
+          "org.north",
+          "org.south"
+        ],
+        "roles": [
+          "role.north.officer",
+          "role.south.officer"
+        ],
+        "wallets": [
+          "wallet.north.public",
+          "wallet.south.public",
+          "wallet.player",
+          "wallet.north_officer",
+          "wallet.south_officer",
+          "wallet.south_patrol",
+          "wallet.south_guard",
+          "wallet.north.service",
+          "wallet.south.service",
+          "wallet.south.household"
+        ],
+        "items": [
+          "item.grain",
+          "item.timber",
+          "item.iron",
+          "item.ram",
+          "item.spear",
+          "item.bow"
+        ],
+        "inventories": [
+          "inventory.north.public",
+          "inventory.south.public",
+          "inventory.south.household"
+        ],
+        "dialogues": [
+          "dialog.north",
+          "dialog.south"
+        ],
+        "world_maps": [
+          "map.grain_road"
+        ],
+        "battlefields": [
+          "field.road",
+          "field.fort"
+        ],
+        "troop_types": [
+          "troop.infantry",
+          "troop.archer"
+        ],
+        "military_objectives": [
+          "objective.road",
+          "objective.fort"
+        ],
+        "offices": [
+          "office.north_leader",
+          "office.south_patrol",
+          "office.south_guard"
+        ],
+        "garrisons": [
+          "garrison.north",
+          "garrison.south"
+        ],
+        "military_orders": [
+          "order.north_clear",
+          "order.south_patrol",
+          "order.south_guard"
+        ],
+        "strongholds": [
+          "stronghold.north",
+          "stronghold.south"
+        ],
+        "siege_topologies": [
+          "topology.north",
+          "topology.south"
+        ],
+        "scenarios": [
+          "scenario.grain_road_standfast"
+        ]
+      },
+      "initial": {
+        "actors": [
+          {
+            "actor_id": "actor.player",
+            "place_id": "place.north.gate",
+            "alive": true,
+            "available": true,
+            "age_years": 28,
+            "attributes": {
+              "leadership": 60,
+              "martial": 60,
+              "intellect": 60,
+              "administration": 60,
+              "charisma": 60
+            },
+            "skills": {
+              "infantry": 100,
+              "cavalry": 0,
+              "archery": 0,
+              "martial": 0,
+              "tactics": 100,
+              "debate": 0,
+              "negotiation": 0,
+              "rites": 0,
+              "commerce": 0,
+              "transport": 0
+            },
+            "appearance_definition": {
+              "kind": "fixed",
+              "generator_version": "appearance-v1",
+              "attire_style": "plain",
+              "base_features": {
+                "face_shape": "plain",
+                "eyes": "plain",
+                "brows": "plain",
+                "nose": "plain",
+                "mouth": "plain",
+                "hair": "plain",
+                "beard": "plain",
+                "skin_palette": "plain",
+                "build": "plain"
+              }
+            },
+            "combat": {},
+            "initial_goods": []
+          },
+          {
+            "actor_id": "actor.north_officer",
+            "place_id": "place.north.camp",
+            "alive": true,
+            "available": true,
+            "age_years": 45,
+            "attributes": {
+              "leadership": 60,
+              "martial": 55,
+              "intellect": 60,
+              "administration": 60,
+              "charisma": 60
+            },
+            "skills": {
+              "infantry": 300,
+              "cavalry": 0,
+              "archery": 0,
+              "martial": 0,
+              "tactics": 300,
+              "debate": 0,
+              "negotiation": 0,
+              "rites": 0,
+              "commerce": 0,
+              "transport": 0
+            },
+            "appearance_definition": {
+              "kind": "fixed",
+              "generator_version": "appearance-v1",
+              "attire_style": "plain",
+              "base_features": {
+                "face_shape": "plain",
+                "eyes": "plain",
+                "brows": "plain",
+                "nose": "plain",
+                "mouth": "plain",
+                "hair": "plain",
+                "beard": "plain",
+                "skin_palette": "plain",
+                "build": "plain"
+              }
+            },
+            "combat": {},
+            "initial_goods": []
+          },
+          {
+            "actor_id": "actor.south_officer",
+            "place_id": "place.south.camp",
+            "alive": true,
+            "available": true,
+            "age_years": 46,
+            "attributes": {
+              "leadership": 60,
+              "martial": 55,
+              "intellect": 60,
+              "administration": 60,
+              "charisma": 60
+            },
+            "skills": {
+              "infantry": 300,
+              "cavalry": 0,
+              "archery": 0,
+              "martial": 0,
+              "tactics": 300,
+              "debate": 0,
+              "negotiation": 0,
+              "rites": 0,
+              "commerce": 0,
+              "transport": 0
+            },
+            "appearance_definition": {
+              "kind": "fixed",
+              "generator_version": "appearance-v1",
+              "attire_style": "plain",
+              "base_features": {
+                "face_shape": "plain",
+                "eyes": "plain",
+                "brows": "plain",
+                "nose": "plain",
+                "mouth": "plain",
+                "hair": "plain",
+                "beard": "plain",
+                "skin_palette": "plain",
+                "build": "plain"
+              }
+            },
+            "combat": {},
+            "initial_goods": []
+          },
+          {
+            "actor_id": "actor.south_patrol",
+            "place_id": "place.south.camp",
+            "alive": true,
+            "available": true,
+            "age_years": 32,
+            "attributes": {
+              "leadership": 60,
+              "martial": 55,
+              "intellect": 60,
+              "administration": 60,
+              "charisma": 60
+            },
+            "skills": {
+              "infantry": 300,
+              "cavalry": 0,
+              "archery": 0,
+              "martial": 0,
+              "tactics": 100,
+              "debate": 0,
+              "negotiation": 0,
+              "rites": 0,
+              "commerce": 0,
+              "transport": 0
+            },
+            "appearance_definition": {
+              "kind": "fixed",
+              "generator_version": "appearance-v1",
+              "attire_style": "plain",
+              "base_features": {
+                "face_shape": "plain",
+                "eyes": "plain",
+                "brows": "plain",
+                "nose": "plain",
+                "mouth": "plain",
+                "hair": "plain",
+                "beard": "plain",
+                "skin_palette": "plain",
+                "build": "plain"
+              }
+            },
+            "combat": {},
+            "initial_goods": []
+          },
+          {
+            "actor_id": "actor.south_guard",
+            "place_id": "place.south.camp",
+            "alive": true,
+            "available": true,
+            "age_years": 37,
+            "attributes": {
+              "leadership": 60,
+              "martial": 55,
+              "intellect": 60,
+              "administration": 60,
+              "charisma": 60
+            },
+            "skills": {
+              "infantry": 0,
+              "cavalry": 0,
+              "archery": 300,
+              "martial": 0,
+              "tactics": 100,
+              "debate": 0,
+              "negotiation": 0,
+              "rites": 0,
+              "commerce": 0,
+              "transport": 0
+            },
+            "appearance_definition": {
+              "kind": "fixed",
+              "generator_version": "appearance-v1",
+              "attire_style": "plain",
+              "base_features": {
+                "face_shape": "plain",
+                "eyes": "plain",
+                "brows": "plain",
+                "nose": "plain",
+                "mouth": "plain",
+                "hair": "plain",
+                "beard": "plain",
+                "skin_palette": "plain",
+                "build": "plain"
+              }
+            },
+            "combat": {},
+            "initial_goods": []
+          }
+        ],
+        "offer_ids": [],
+        "wallets": [
+          {
+            "id": "wallet.north.public",
+            "owner": {
+              "kind": "organization",
+              "id": "org.north"
+            },
+            "initial_balance": 500
+          },
+          {
+            "id": "wallet.south.public",
+            "owner": {
+              "kind": "organization",
+              "id": "org.south"
+            },
+            "initial_balance": 200
+          },
+          {
+            "id": "wallet.player",
+            "owner": {
+              "kind": "actor",
+              "id": "actor.player"
+            },
+            "initial_balance": 120
+          },
+          {
+            "id": "wallet.north_officer",
+            "owner": {
+              "kind": "actor",
+              "id": "actor.north_officer"
+            },
+            "initial_balance": 0
+          },
+          {
+            "id": "wallet.south_officer",
+            "owner": {
+              "kind": "actor",
+              "id": "actor.south_officer"
+            },
+            "initial_balance": 0
+          },
+          {
+            "id": "wallet.south_patrol",
+            "owner": {
+              "kind": "actor",
+              "id": "actor.south_patrol"
+            },
+            "initial_balance": 0
+          },
+          {
+            "id": "wallet.south_guard",
+            "owner": {
+              "kind": "actor",
+              "id": "actor.south_guard"
+            },
+            "initial_balance": 0
+          },
+          {
+            "id": "wallet.north.service",
+            "owner": {
+              "kind": "organization",
+              "id": "org.north"
+            },
+            "initial_balance": 100
+          },
+          {
+            "id": "wallet.south.service",
+            "owner": {
+              "kind": "organization",
+              "id": "org.south"
+            },
+            "initial_balance": 100
+          },
+          {
+            "id": "wallet.south.household",
+            "owner": {
+              "kind": "household",
+              "id": "household.south_guard"
+            },
+            "initial_balance": 0
+          }
+        ],
+        "inventories": [
+          {
+            "id": "inventory.north.public",
+            "owner": {
+              "kind": "organization",
+              "id": "org.north"
+            },
+            "capacity": 2000,
+            "goods": [
+              {
+                "item_id": "item.grain",
+                "quantity": 480
+              },
+              {
+                "item_id": "item.spear",
+                "quantity": 12
+              },
+              {
+                "item_id": "item.timber",
+                "quantity": 36
+              },
+              {
+                "item_id": "item.iron",
+                "quantity": 12
+              }
+            ]
+          },
+          {
+            "id": "inventory.south.public",
+            "owner": {
+              "kind": "organization",
+              "id": "org.south"
+            },
+            "capacity": 2000,
+            "goods": [
+              {
+                "item_id": "item.grain",
+                "quantity": 120
+              },
+              {
+                "item_id": "item.spear",
+                "quantity": 8
+              },
+              {
+                "item_id": "item.bow",
+                "quantity": 4
+              },
+              {
+                "item_id": "item.timber",
+                "quantity": 12
+              }
+            ]
+          },
+          {
+            "id": "inventory.south.household",
+            "owner": {
+              "kind": "household",
+              "id": "household.south_guard"
+            },
+            "capacity": 100,
+            "goods": []
+          }
+        ],
+        "roles": [
+          {
+            "role_id": "role.north.officer",
+            "actor_id": "actor.north_officer",
+            "enabled": true
+          },
+          {
+            "role_id": "role.south.officer",
+            "actor_id": "actor.south_officer",
+            "enabled": true
+          }
+        ],
+        "garrisons": [
+          {
+            "id": "garrison.north",
+            "organization_id": "org.north",
+            "units": [
+              {
+                "id": "unit.north.work_detail",
+                "name_key": "name.unit.north.work_detail",
+                "troop_type_id": "troop.infantry",
+                "commander_actor_id": "actor.player",
+                "initial_soldiers": 6,
+                "equipment": [
+                  {
+                    "item_id": "item.spear",
+                    "quantity_per_person": 1
+                  },
+                  {
+                    "item_id": "item.timber",
+                    "quantity_per_person": 3
+                  },
+                  {
+                    "item_id": "item.iron",
+                    "quantity_per_person": 1
+                  }
+                ],
+                "initial_training": 10,
+                "initial_fatigue": 0
+              },
+              {
+                "id": "unit.north.blockade",
+                "name_key": "name.unit.north.blockade",
+                "troop_type_id": "troop.infantry",
+                "commander_actor_id": "actor.north_officer",
+                "initial_soldiers": 6,
+                "equipment": [
+                  {
+                    "item_id": "item.spear",
+                    "quantity_per_person": 1
+                  },
+                  {
+                    "item_id": "item.timber",
+                    "quantity_per_person": 3
+                  },
+                  {
+                    "item_id": "item.iron",
+                    "quantity_per_person": 1
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "garrison.south",
+            "organization_id": "org.south",
+            "units": [
+              {
+                "id": "unit.south.patrol",
+                "name_key": "name.unit.south.patrol",
+                "troop_type_id": "troop.infantry",
+                "commander_actor_id": "actor.south_patrol",
+                "initial_soldiers": 8,
+                "equipment": [
+                  {
+                    "item_id": "item.spear",
+                    "quantity_per_person": 1
+                  }
+                ]
+              },
+              {
+                "id": "unit.south.guard",
+                "name_key": "name.unit.south.guard",
+                "troop_type_id": "troop.archer",
+                "commander_actor_id": "actor.south_guard",
+                "equipment": [
+                  {
+                    "item_id": "item.bow",
+                    "quantity_per_person": 1
+                  },
+                  {
+                    "item_id": "item.timber",
+                    "quantity_per_person": 2
+                  }
+                ],
+                "population_source_id": "source.south_guard",
+                "initial_training": 20,
+                "initial_fatigue": 0
+              }
+            ]
+          }
+        ],
+        "offices": [
+          {
+            "id": "office.north_leader"
+          },
+          {
+            "id": "office.south_patrol"
+          },
+          {
+            "id": "office.south_guard"
+          }
+        ],
+        "strongholds": [
+          {
+            "id": "stronghold.north"
+          },
+          {
+            "id": "stronghold.south"
+          }
+        ]
+      },
+      "dynamic_world": {
+        "profile": "local_society_v1",
+        "founder_policy": "fixed_actor",
+        "local_economy": {
+          "enabled": true,
+          "households": {
+            "household.south_guard": {
+              "id": "household.south_guard",
+              "wallet_id": "wallet.south.household",
+              "inventory_id": "inventory.south.household"
+            }
+          },
+          "cohorts": {
+            "cohort.south.reserve": {
+              "id": "cohort.south.reserve",
+              "site_id": "place.south.camp",
+              "household_group_id": "household.south_guard",
+              "status": "trained_reserve",
+              "headcount": 4,
+              "labor_capacity": 4,
+              "private_wallet_id": "wallet.south.household",
+              "private_inventory_id": "inventory.south.household",
+              "affiliation_id": "org.south",
+              "assignment_id": null
+            },
+            "cohort.south.serving": {
+              "id": "cohort.south.serving",
+              "site_id": "place.south.camp",
+              "household_group_id": "household.south_guard",
+              "status": "serving",
+              "headcount": 0,
+              "labor_capacity": 0,
+              "private_wallet_id": "wallet.south.household",
+              "private_inventory_id": "inventory.south.household",
+              "affiliation_id": "org.south",
+              "assignment_id": null
+            },
+            "cohort.south.wounded": {
+              "id": "cohort.south.wounded",
+              "site_id": "place.south.camp",
+              "household_group_id": "household.south_guard",
+              "status": "wounded",
+              "headcount": 0,
+              "labor_capacity": 0,
+              "private_wallet_id": "wallet.south.household",
+              "private_inventory_id": "inventory.south.household",
+              "affiliation_id": "org.south",
+              "assignment_id": null
+            },
+            "cohort.south.captive": {
+              "id": "cohort.south.captive",
+              "site_id": "place.south.camp",
+              "household_group_id": "household.south_guard",
+              "status": "captive",
+              "headcount": 0,
+              "labor_capacity": 0,
+              "private_wallet_id": "wallet.south.household",
+              "private_inventory_id": "inventory.south.household",
+              "affiliation_id": "org.south",
+              "assignment_id": null
+            },
+            "cohort.south.displaced": {
+              "id": "cohort.south.displaced",
+              "site_id": "place.south.camp",
+              "household_group_id": "household.south_guard",
+              "status": "displaced",
+              "headcount": 0,
+              "labor_capacity": 0,
+              "private_wallet_id": "wallet.south.household",
+              "private_inventory_id": "inventory.south.household",
+              "affiliation_id": "org.south",
+              "assignment_id": null
+            }
+          },
+          "labor_allocations": {},
+          "recipes": {},
+          "production_units": {},
+          "rates": {
+            "rate.service_wage": {
+              "id": "rate.service_wage",
+              "numerator": 1,
+              "denominator": 1,
+              "per_capita": true
+            },
+            "rate.daily_ration": {
+              "id": "rate.daily_ration",
+              "numerator": 1,
+              "denominator": 1,
+              "per_capita": true
+            }
+          },
+          "obligations": {
+            "obligation.north.service.reserve": {
+              "id": "obligation.north.service.reserve",
+              "principal": {
+                "kind": "organization",
+                "id": "org.north"
+              },
+              "beneficiary": {
+                "kind": "cohort",
+                "id": "cohort.south.reserve"
+              },
+              "kind": "wage",
+              "source_wallet_or_inventory": "wallet.north.service",
+              "destination": "wallet.south.household",
+              "rate_profile": "rate.service_wage",
+              "authority_ref": "issuer.north.service",
+              "item_id": "",
+              "period_ticks": 4,
+              "next_due_tick": 4,
+              "last_receipt_id": "",
+              "active": false
+            },
+            "obligation.north.service.serving": {
+              "id": "obligation.north.service.serving",
+              "principal": {
+                "kind": "organization",
+                "id": "org.north"
+              },
+              "beneficiary": {
+                "kind": "cohort",
+                "id": "cohort.south.serving"
+              },
+              "kind": "wage",
+              "source_wallet_or_inventory": "wallet.north.service",
+              "destination": "wallet.south.household",
+              "rate_profile": "rate.service_wage",
+              "authority_ref": "issuer.north.service",
+              "item_id": "",
+              "period_ticks": 4,
+              "next_due_tick": 4,
+              "last_receipt_id": "",
+              "active": false
+            },
+            "obligation.north.service.wounded": {
+              "id": "obligation.north.service.wounded",
+              "principal": {
+                "kind": "organization",
+                "id": "org.north"
+              },
+              "beneficiary": {
+                "kind": "cohort",
+                "id": "cohort.south.wounded"
+              },
+              "kind": "wage",
+              "source_wallet_or_inventory": "wallet.north.service",
+              "destination": "wallet.south.household",
+              "rate_profile": "rate.service_wage",
+              "authority_ref": "issuer.north.service",
+              "item_id": "",
+              "period_ticks": 4,
+              "next_due_tick": 4,
+              "last_receipt_id": "",
+              "active": false
+            },
+            "obligation.north.service.captive": {
+              "id": "obligation.north.service.captive",
+              "principal": {
+                "kind": "organization",
+                "id": "org.north"
+              },
+              "beneficiary": {
+                "kind": "cohort",
+                "id": "cohort.south.captive"
+              },
+              "kind": "wage",
+              "source_wallet_or_inventory": "wallet.north.service",
+              "destination": "wallet.south.household",
+              "rate_profile": "rate.service_wage",
+              "authority_ref": "issuer.north.service",
+              "item_id": "",
+              "period_ticks": 4,
+              "next_due_tick": 4,
+              "last_receipt_id": "",
+              "active": false
+            },
+            "obligation.north.service.displaced": {
+              "id": "obligation.north.service.displaced",
+              "principal": {
+                "kind": "organization",
+                "id": "org.north"
+              },
+              "beneficiary": {
+                "kind": "cohort",
+                "id": "cohort.south.displaced"
+              },
+              "kind": "wage",
+              "source_wallet_or_inventory": "wallet.north.service",
+              "destination": "wallet.south.household",
+              "rate_profile": "rate.service_wage",
+              "authority_ref": "issuer.north.service",
+              "item_id": "",
+              "period_ticks": 4,
+              "next_due_tick": 4,
+              "last_receipt_id": "",
+              "active": false
+            },
+            "obligation.south.service.reserve": {
+              "id": "obligation.south.service.reserve",
+              "principal": {
+                "kind": "organization",
+                "id": "org.south"
+              },
+              "beneficiary": {
+                "kind": "cohort",
+                "id": "cohort.south.reserve"
+              },
+              "kind": "wage",
+              "source_wallet_or_inventory": "wallet.south.service",
+              "destination": "wallet.south.household",
+              "rate_profile": "rate.service_wage",
+              "authority_ref": "issuer.south.service",
+              "item_id": "",
+              "period_ticks": 4,
+              "next_due_tick": 4,
+              "last_receipt_id": "",
+              "active": true
+            },
+            "obligation.south.service.serving": {
+              "id": "obligation.south.service.serving",
+              "principal": {
+                "kind": "organization",
+                "id": "org.south"
+              },
+              "beneficiary": {
+                "kind": "cohort",
+                "id": "cohort.south.serving"
+              },
+              "kind": "wage",
+              "source_wallet_or_inventory": "wallet.south.service",
+              "destination": "wallet.south.household",
+              "rate_profile": "rate.service_wage",
+              "authority_ref": "issuer.south.service",
+              "item_id": "",
+              "period_ticks": 4,
+              "next_due_tick": 4,
+              "last_receipt_id": "",
+              "active": true
+            },
+            "obligation.south.service.wounded": {
+              "id": "obligation.south.service.wounded",
+              "principal": {
+                "kind": "organization",
+                "id": "org.south"
+              },
+              "beneficiary": {
+                "kind": "cohort",
+                "id": "cohort.south.wounded"
+              },
+              "kind": "wage",
+              "source_wallet_or_inventory": "wallet.south.service",
+              "destination": "wallet.south.household",
+              "rate_profile": "rate.service_wage",
+              "authority_ref": "issuer.south.service",
+              "item_id": "",
+              "period_ticks": 4,
+              "next_due_tick": 4,
+              "last_receipt_id": "",
+              "active": true
+            },
+            "obligation.south.service.captive": {
+              "id": "obligation.south.service.captive",
+              "principal": {
+                "kind": "organization",
+                "id": "org.south"
+              },
+              "beneficiary": {
+                "kind": "cohort",
+                "id": "cohort.south.captive"
+              },
+              "kind": "wage",
+              "source_wallet_or_inventory": "wallet.south.service",
+              "destination": "wallet.south.household",
+              "rate_profile": "rate.service_wage",
+              "authority_ref": "issuer.south.service",
+              "item_id": "",
+              "period_ticks": 4,
+              "next_due_tick": 4,
+              "last_receipt_id": "",
+              "active": true
+            },
+            "obligation.south.service.displaced": {
+              "id": "obligation.south.service.displaced",
+              "principal": {
+                "kind": "organization",
+                "id": "org.south"
+              },
+              "beneficiary": {
+                "kind": "cohort",
+                "id": "cohort.south.displaced"
+              },
+              "kind": "wage",
+              "source_wallet_or_inventory": "wallet.south.service",
+              "destination": "wallet.south.household",
+              "rate_profile": "rate.service_wage",
+              "authority_ref": "issuer.south.service",
+              "item_id": "",
+              "period_ticks": 4,
+              "next_due_tick": 4,
+              "last_receipt_id": "",
+              "active": true
+            },
+            "obligation.south.ration.reserve": {
+              "id": "obligation.south.ration.reserve",
+              "principal": {
+                "kind": "organization",
+                "id": "org.south"
+              },
+              "beneficiary": {
+                "kind": "cohort",
+                "id": "cohort.south.reserve"
+              },
+              "kind": "ration",
+              "source_wallet_or_inventory": "inventory.south.public",
+              "destination": "",
+              "rate_profile": "rate.daily_ration",
+              "authority_ref": "issuer.south.rations",
+              "item_id": "item.grain",
+              "period_ticks": 1,
+              "next_due_tick": 1,
+              "last_receipt_id": "",
+              "active": true
+            },
+            "obligation.south.ration.displaced": {
+              "id": "obligation.south.ration.displaced",
+              "principal": {
+                "kind": "organization",
+                "id": "org.south"
+              },
+              "beneficiary": {
+                "kind": "cohort",
+                "id": "cohort.south.displaced"
+              },
+              "kind": "ration",
+              "source_wallet_or_inventory": "inventory.south.public",
+              "destination": "",
+              "rate_profile": "rate.daily_ration",
+              "authority_ref": "issuer.south.rations",
+              "item_id": "item.grain",
+              "period_ticks": 1,
+              "next_due_tick": 1,
+              "last_receipt_id": "",
+              "active": true
+            },
+            "obligation.south.ration.officer": {
+              "id": "obligation.south.ration.officer",
+              "principal": {
+                "kind": "organization",
+                "id": "org.south"
+              },
+              "beneficiary": {
+                "kind": "actor",
+                "id": "actor.south_officer"
+              },
+              "kind": "ration",
+              "source_wallet_or_inventory": "inventory.south.public",
+              "destination": "",
+              "rate_profile": "rate.daily_ration",
+              "authority_ref": "issuer.south.rations",
+              "item_id": "item.grain",
+              "period_ticks": 1,
+              "next_due_tick": 1,
+              "last_receipt_id": "",
+              "active": true
+            },
+            "obligation.north.ration.reserve": {
+              "id": "obligation.north.ration.reserve",
+              "principal": {
+                "kind": "organization",
+                "id": "org.north"
+              },
+              "beneficiary": {
+                "kind": "cohort",
+                "id": "cohort.south.reserve"
+              },
+              "kind": "ration",
+              "source_wallet_or_inventory": "inventory.south.public",
+              "destination": "",
+              "rate_profile": "rate.daily_ration",
+              "authority_ref": "issuer.north.rations",
+              "item_id": "item.grain",
+              "period_ticks": 1,
+              "next_due_tick": 1,
+              "last_receipt_id": "",
+              "active": false
+            },
+            "obligation.north.ration.displaced": {
+              "id": "obligation.north.ration.displaced",
+              "principal": {
+                "kind": "organization",
+                "id": "org.north"
+              },
+              "beneficiary": {
+                "kind": "cohort",
+                "id": "cohort.south.displaced"
+              },
+              "kind": "ration",
+              "source_wallet_or_inventory": "inventory.south.public",
+              "destination": "",
+              "rate_profile": "rate.daily_ration",
+              "authority_ref": "issuer.north.rations",
+              "item_id": "item.grain",
+              "period_ticks": 1,
+              "next_due_tick": 1,
+              "last_receipt_id": "",
+              "active": false
+            },
+            "obligation.north.ration.officer": {
+              "id": "obligation.north.ration.officer",
+              "principal": {
+                "kind": "organization",
+                "id": "org.north"
+              },
+              "beneficiary": {
+                "kind": "actor",
+                "id": "actor.south_officer"
+              },
+              "kind": "ration",
+              "source_wallet_or_inventory": "inventory.south.public",
+              "destination": "",
+              "rate_profile": "rate.daily_ration",
+              "authority_ref": "issuer.north.rations",
+              "item_id": "item.grain",
+              "period_ticks": 1,
+              "next_due_tick": 1,
+              "last_receipt_id": "",
+              "active": false
+            }
+          },
+          "provision_bindings": {
+            "provision.south.reserve": {
+              "id": "provision.south.reserve",
+              "subject": {
+                "kind": "cohort",
+                "id": "cohort.south.reserve"
+              },
+              "from_tick": 0,
+              "through_tick": 2147483647,
+              "payer_inventory": "inventory.south.public",
+              "obligation_id": "obligation.south.ration.reserve",
+              "policy_owner": "macro",
+              "military_source_id": ""
+            },
+            "provision.south.displaced": {
+              "id": "provision.south.displaced",
+              "subject": {
+                "kind": "cohort",
+                "id": "cohort.south.displaced"
+              },
+              "from_tick": 0,
+              "through_tick": 2147483647,
+              "payer_inventory": "inventory.south.public",
+              "obligation_id": "obligation.south.ration.displaced",
+              "policy_owner": "macro",
+              "military_source_id": ""
+            },
+            "provision.south.officer": {
+              "id": "provision.south.officer",
+              "subject": {
+                "kind": "actor",
+                "id": "actor.south_officer"
+              },
+              "from_tick": 0,
+              "through_tick": 2147483647,
+              "payer_inventory": "inventory.south.public",
+              "obligation_id": "obligation.south.ration.officer",
+              "policy_owner": "macro",
+              "military_source_id": ""
+            },
+            "provision.south.serving": {
+              "id": "provision.south.serving",
+              "subject": {
+                "kind": "cohort",
+                "id": "cohort.south.serving"
+              },
+              "from_tick": 0,
+              "through_tick": 2147483647,
+              "payer_inventory": "",
+              "obligation_id": "",
+              "policy_owner": "military",
+              "military_source_id": "source.south_guard"
+            },
+            "provision.south.wounded": {
+              "id": "provision.south.wounded",
+              "subject": {
+                "kind": "cohort",
+                "id": "cohort.south.wounded"
+              },
+              "from_tick": 0,
+              "through_tick": 2147483647,
+              "payer_inventory": "",
+              "obligation_id": "",
+              "policy_owner": "military",
+              "military_source_id": "source.south_guard"
+            },
+            "provision.south.captive": {
+              "id": "provision.south.captive",
+              "subject": {
+                "kind": "cohort",
+                "id": "cohort.south.captive"
+              },
+              "from_tick": 0,
+              "through_tick": 2147483647,
+              "payer_inventory": "",
+              "obligation_id": "",
+              "policy_owner": "military",
+              "military_source_id": "source.south_guard"
+            }
+          },
+          "production_bindings": {},
+          "supply_sources": {},
+          "named_actors_excluded": [
+            "actor.player",
+            "actor.north_officer",
+            "actor.south_officer",
+            "actor.south_patrol",
+            "actor.south_guard"
+          ]
+        },
+        "organization": {
+          "enabled": true,
+          "organizations": {
+            "org.north": {
+              "id": "org.north",
+              "kind": "political",
+              "status": "active",
+              "administrative_parent": null,
+              "branch_parent": null,
+              "headquarters_site": "place.north.camp",
+              "policy_profile_id": "policy.north",
+              "office_ids": [
+                "office.north_received_service"
+              ],
+              "succession_policy_id": "declared_deputy_only"
+            },
+            "org.south": {
+              "id": "org.south",
+              "kind": "political",
+              "status": "active",
+              "administrative_parent": null,
+              "branch_parent": null,
+              "headquarters_site": "place.south.camp",
+              "policy_profile_id": "policy.south",
+              "office_ids": [
+                "office.south_service"
+              ],
+              "succession_policy_id": "declared_deputy_only"
+            }
+          },
+          "offices": {
+            "office.south_service": {
+              "id": "office.south_service",
+              "organization_id": "org.south",
+              "holder_actor_id": "actor.south_guard",
+              "deputy_actor_id": null,
+              "epoch": 1,
+              "status": "active",
+              "grant_ids": [
+                "grant.south_service"
+              ]
+            },
+            "office.north_received_service": {
+              "id": "office.north_received_service",
+              "organization_id": "org.north",
+              "holder_actor_id": "actor.player",
+              "deputy_actor_id": null,
+              "epoch": 1,
+              "status": "active",
+              "grant_ids": [
+                "grant.north_received_service"
+              ]
+            }
+          },
+          "grants": {
+            "grant.south_service": {
+              "id": "grant.south_service",
+              "office_id": "office.south_service",
+              "allowed_command_kinds": [
+                "mobilize_reserve",
+                "release_reserve"
+              ],
+              "scopes": [
+                {
+                  "kind": "site",
+                  "id": "place.south.camp"
+                }
+              ],
+              "wallet_ids": [
+                "wallet.south.service"
+              ],
+              "inventory_ids": [
+                "inventory.south.public"
+              ],
+              "amount_limit": 4,
+              "valid_from": 0,
+              "valid_until": null,
+              "may_delegate": false,
+              "continuity_policy_id": "continue_under_organization"
+            },
+            "grant.north_received_service": {
+              "id": "grant.north_received_service",
+              "office_id": "office.north_received_service",
+              "allowed_command_kinds": [
+                "release_reserve"
+              ],
+              "scopes": [
+                {
+                  "kind": "site",
+                  "id": "place.south.camp"
+                }
+              ],
+              "wallet_ids": [],
+              "inventory_ids": [],
+              "amount_limit": 4,
+              "valid_from": 0,
+              "valid_until": null,
+              "may_delegate": false,
+              "continuity_policy_id": "continue_under_organization"
+            }
+          },
+          "institutional_issuers": {
+            "issuer.north.service": {
+              "id": "issuer.north.service",
+              "organization_id": "org.north",
+              "continuity_policy_id": "continue_under_organization",
+              "obligation_ids": [
+                "obligation.north.service.reserve",
+                "obligation.north.service.serving",
+                "obligation.north.service.wounded",
+                "obligation.north.service.captive",
+                "obligation.north.service.displaced"
+              ],
+              "source_container_ids": [
+                "wallet.north.service"
+              ],
+              "amount_limit": 100
+            },
+            "issuer.south.service": {
+              "id": "issuer.south.service",
+              "organization_id": "org.south",
+              "continuity_policy_id": "continue_under_organization",
+              "obligation_ids": [
+                "obligation.south.service.reserve",
+                "obligation.south.service.serving",
+                "obligation.south.service.wounded",
+                "obligation.south.service.captive",
+                "obligation.south.service.displaced"
+              ],
+              "source_container_ids": [
+                "wallet.south.service"
+              ],
+              "amount_limit": 100
+            },
+            "issuer.south.rations": {
+              "id": "issuer.south.rations",
+              "organization_id": "org.south",
+              "continuity_policy_id": "continue_under_organization",
+              "obligation_ids": [
+                "obligation.south.ration.reserve",
+                "obligation.south.ration.displaced",
+                "obligation.south.ration.officer"
+              ],
+              "source_container_ids": [
+                "inventory.south.public"
+              ],
+              "amount_limit": 120
+            },
+            "issuer.north.rations": {
+              "id": "issuer.north.rations",
+              "organization_id": "org.north",
+              "continuity_policy_id": "continue_under_organization",
+              "obligation_ids": [
+                "obligation.north.ration.reserve",
+                "obligation.north.ration.displaced",
+                "obligation.north.ration.officer"
+              ],
+              "source_container_ids": [
+                "inventory.south.public"
+              ],
+              "amount_limit": 120
+            }
+          },
+          "member_policies": {
+            "policy.north": {
+              "id": "policy.north",
+              "request_after_ticks": 1,
+              "refuse_after_ticks": 4,
+              "leave_after_ticks": 12,
+              "minimum_arrears": 1,
+              "may_leave": true
+            },
+            "policy.south": {
+              "id": "policy.south",
+              "request_after_ticks": 1,
+              "refuse_after_ticks": 4,
+              "leave_after_ticks": 12,
+              "minimum_arrears": 1,
+              "may_leave": true
+            }
+          },
+          "duties": {},
+          "members": {},
+          "activity_terms": {},
+          "initial_activities": {}
+        },
+        "affairs": {
+          "need_policies": {}
+        },
+        "director": {
+          "review_interval_ticks": 2,
+          "retry_delay_ticks": 2,
+          "decision_budget": 4,
+          "candidates_per_subject": 4,
+          "subjects": {}
+        },
+        "population_military": {
+          "enabled": true,
+          "consents": {
+            "consent.south_guard.south": {
+              "id": "consent.south_guard.south",
+              "cohort_id": "cohort.south.reserve",
+              "organization_id": "org.south",
+              "garrison_id": "garrison.south",
+              "from_tick": 0,
+              "through_tick": 2147483647,
+              "max_active_count": 4
+            },
+            "consent.south_guard.north": {
+              "id": "consent.south_guard.north",
+              "cohort_id": "cohort.south.reserve",
+              "organization_id": "org.north",
+              "garrison_id": "garrison.north",
+              "from_tick": 0,
+              "through_tick": 2147483647,
+              "max_active_count": 4
+            }
+          },
+          "sources": {
+            "source.south_guard": {
+              "id": "source.south_guard",
+              "organization_id": "org.south",
+              "organization_office_id": "office.south_service",
+              "military_office_id": "office.south_guard",
+              "garrison_id": "garrison.south",
+              "unit_id": "unit.south.guard",
+              "home_site_id": "place.south.camp",
+              "household_group_id": "household.south_guard",
+              "service_consent_source_id": "consent.south_guard.south",
+              "wage_obligation_ids": [
+                "obligation.south.service.reserve",
+                "obligation.south.service.serving",
+                "obligation.south.service.wounded",
+                "obligation.south.service.captive",
+                "obligation.south.service.displaced"
+              ],
+              "capacity": 4,
+              "initial_training": 20,
+              "initial_fatigue": 0,
+              "initial_morale": 70,
+              "reserve_cohort_id": "cohort.south.reserve",
+              "serving_cohort_id": "cohort.south.serving",
+              "wounded_cohort_id": "cohort.south.wounded",
+              "captive_cohort_id": "cohort.south.captive",
+              "displaced_cohort_id": "cohort.south.displaced"
+            }
+          },
+          "integration_policies": {
+            "integration.south_guard_to_north": {
+              "id": "integration.south_guard_to_north",
+              "source_id": "source.south_guard",
+              "receiving_organization_id": "org.north",
+              "receiving_garrison_id": "garrison.north",
+              "service_consent_source_id": "consent.south_guard.north",
+              "wage_obligation_ids": [
+                "obligation.north.service.reserve",
+                "obligation.north.service.serving",
+                "obligation.north.service.wounded",
+                "obligation.north.service.captive",
+                "obligation.north.service.displaced"
+              ],
+              "ration_obligation_ids": [
+                "obligation.north.ration.reserve",
+                "obligation.north.ration.displaced",
+                "obligation.north.ration.officer"
+              ],
+              "target_stronghold_id": "stronghold.south"
+            }
+          }
+        },
+        "siege_integration": {
+          "enabled": true,
+          "default_terms": {
+            "kind": "preserve_units_v1",
+            "preserve_unit_command": true,
+            "preserve_private_property": true,
+            "transfer_current_public_assets": true,
+            "transfer_prisoner_custody": true,
+            "recipient_future_service_responsibility": true,
+            "retain_original_arrears": true,
+            "population_policy_ids": [
+              "integration.south_guard_to_north"
+            ]
+          },
+          "officer_policies": [
+            {
+              "actor_id": "actor.south_patrol",
+              "allowed_recipient_organization_ids": [
+                "org.north"
+              ],
+              "allowed_terms": [
+                "preserve_units_v1"
+              ],
+              "minimum_willingness": 50,
+              "require_unit_command": true,
+              "require_private_property": true
+            },
+            {
+              "actor_id": "actor.south_guard",
+              "allowed_recipient_organization_ids": [],
+              "allowed_terms": [
+                "preserve_units_v1"
+              ],
+              "minimum_willingness": 50,
+              "require_unit_command": true,
+              "require_private_property": true
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "personal_skills": [],
+  "personal_battlefields": [],
+  "personal_objectives": [],
+  "world_maps": [
+    {
+      "id": "map.grain_road",
+      "name_key": "name.map.grain_road",
+      "width": 200,
+      "height": 80,
+      "cell_size": 20,
+      "cells": [
+        {
+          "terrain": "plain"
+        },
+        {
+          "terrain": "plain"
+        },
+        {
+          "terrain": "plain"
+        },
+        {
+          "terrain": "plain"
+        },
+        {
+          "terrain": "plain"
+        },
+        {
+          "terrain": "plain"
+        },
+        {
+          "terrain": "plain"
+        },
+        {
+          "terrain": "plain"
+        },
+        {
+          "terrain": "plain"
+        },
+        {
+          "terrain": "plain"
+        },
+        {
+          "terrain": "road"
+        },
+        {
+          "terrain": "road"
+        },
+        {
+          "terrain": "road"
+        },
+        {
+          "terrain": "road"
+        },
+        {
+          "terrain": "road"
+        },
+        {
+          "terrain": "road"
+        },
+        {
+          "terrain": "road"
+        },
+        {
+          "terrain": "road"
+        },
+        {
+          "terrain": "road"
+        },
+        {
+          "terrain": "road"
+        },
+        {
+          "terrain": "road"
+        },
+        {
+          "terrain": "road"
+        },
+        {
+          "terrain": "road"
+        },
+        {
+          "terrain": "road"
+        },
+        {
+          "terrain": "road"
+        },
+        {
+          "terrain": "road"
+        },
+        {
+          "terrain": "road"
+        },
+        {
+          "terrain": "road"
+        },
+        {
+          "terrain": "road"
+        },
+        {
+          "terrain": "road"
+        },
+        {
+          "terrain": "plain"
+        },
+        {
+          "terrain": "plain"
+        },
+        {
+          "terrain": "plain"
+        },
+        {
+          "terrain": "plain"
+        },
+        {
+          "terrain": "plain"
+        },
+        {
+          "terrain": "plain"
+        },
+        {
+          "terrain": "plain"
+        },
+        {
+          "terrain": "plain"
+        },
+        {
+          "terrain": "plain"
+        },
+        {
+          "terrain": "plain"
+        }
+      ],
+      "budgets": {
+        "foot": 3000,
+        "army": 1200,
+        "boat": 3000
+      },
+      "money_per_tick": 8,
+      "fatigue_per_tick": 3,
+      "visual_tag": "valley"
+    }
+  ],
+  "estates": [],
+  "battlefields": [
+    {
+      "id": "field.road",
+      "name_key": "name.field.road",
+      "objective_id": "objective.road",
+      "cells": [
+        {
+          "q": 0,
+          "r": 0,
+          "terrain": "plain"
+        },
+        {
+          "q": 0,
+          "r": 1,
+          "terrain": "plain"
+        },
+        {
+          "q": 0,
+          "r": 2,
+          "terrain": "plain"
+        },
+        {
+          "q": 0,
+          "r": 3,
+          "terrain": "plain"
+        },
+        {
+          "q": 0,
+          "r": 4,
+          "terrain": "plain"
+        },
+        {
+          "q": 1,
+          "r": 0,
+          "terrain": "plain"
+        },
+        {
+          "q": 1,
+          "r": 1,
+          "terrain": "plain"
+        },
+        {
+          "q": 1,
+          "r": 2,
+          "terrain": "plain"
+        },
+        {
+          "q": 1,
+          "r": 3,
+          "terrain": "plain"
+        },
+        {
+          "q": 1,
+          "r": 4,
+          "terrain": "plain"
+        },
+        {
+          "q": 2,
+          "r": 0,
+          "terrain": "plain"
+        },
+        {
+          "q": 2,
+          "r": 1,
+          "terrain": "forest"
+        },
+        {
+          "q": 2,
+          "r": 2,
+          "terrain": "plain"
+        },
+        {
+          "q": 2,
+          "r": 3,
+          "terrain": "plain"
+        },
+        {
+          "q": 2,
+          "r": 4,
+          "terrain": "plain"
+        },
+        {
+          "q": 3,
+          "r": 0,
+          "terrain": "plain"
+        },
+        {
+          "q": 3,
+          "r": 1,
+          "terrain": "plain"
+        },
+        {
+          "q": 3,
+          "r": 2,
+          "terrain": "plain"
+        },
+        {
+          "q": 3,
+          "r": 3,
+          "terrain": "plain"
+        },
+        {
+          "q": 3,
+          "r": 4,
+          "terrain": "forest"
+        },
+        {
+          "q": 4,
+          "r": 0,
+          "terrain": "plain"
+        },
+        {
+          "q": 4,
+          "r": 1,
+          "terrain": "plain"
+        },
+        {
+          "q": 4,
+          "r": 2,
+          "terrain": "hill"
+        },
+        {
+          "q": 4,
+          "r": 3,
+          "terrain": "plain"
+        },
+        {
+          "q": 4,
+          "r": 4,
+          "terrain": "plain"
+        },
+        {
+          "q": 5,
+          "r": 0,
+          "terrain": "plain"
+        },
+        {
+          "q": 5,
+          "r": 1,
+          "terrain": "plain"
+        },
+        {
+          "q": 5,
+          "r": 2,
+          "terrain": "plain"
+        },
+        {
+          "q": 5,
+          "r": 3,
+          "terrain": "plain"
+        },
+        {
+          "q": 5,
+          "r": 4,
+          "terrain": "plain"
+        },
+        {
+          "q": 6,
+          "r": 0,
+          "terrain": "plain"
+        },
+        {
+          "q": 6,
+          "r": 1,
+          "terrain": "plain"
+        },
+        {
+          "q": 6,
+          "r": 2,
+          "terrain": "plain"
+        },
+        {
+          "q": 6,
+          "r": 3,
+          "terrain": "plain"
+        },
+        {
+          "q": 6,
+          "r": 4,
+          "terrain": "plain"
+        }
+      ],
+      "spawns": [
+        {
+          "side": 0,
+          "position": [
+            0,
+            2
+          ]
+        },
+        {
+          "side": 1,
+          "position": [
+            6,
+            1
+          ]
+        },
+        {
+          "side": 1,
+          "position": [
+            6,
+            3
+          ]
+        }
+      ],
+      "exits": [
+        {
+          "side": 0,
+          "position": [
+            0,
+            0
+          ]
+        },
+        {
+          "side": 1,
+          "position": [
+            6,
+            4
+          ]
+        }
+      ],
+      "visual_tag": "valley",
+      "damage_model": {
+        "kind": "legacy_base_factors_v1",
+        "side_bp": 11000,
+        "rear_bp": 12000,
+        "forest_ranged_bp": 8000,
+        "hill_melee_bp": 9000,
+        "min_total_bp": 4000,
+        "max_total_bp": 18000
+      }
+    },
+    {
+      "id": "field.fort",
+      "name_key": "name.field.fort",
+      "objective_id": "objective.fort",
+      "cells": [
+        {
+          "q": 0,
+          "r": 0,
+          "terrain": "plain"
+        },
+        {
+          "q": 0,
+          "r": 1,
+          "terrain": "plain"
+        },
+        {
+          "q": 0,
+          "r": 2,
+          "terrain": "plain"
+        },
+        {
+          "q": 0,
+          "r": 3,
+          "terrain": "plain"
+        },
+        {
+          "q": 0,
+          "r": 4,
+          "terrain": "plain"
+        },
+        {
+          "q": 1,
+          "r": 0,
+          "terrain": "plain"
+        },
+        {
+          "q": 1,
+          "r": 1,
+          "terrain": "plain"
+        },
+        {
+          "q": 1,
+          "r": 2,
+          "terrain": "plain"
+        },
+        {
+          "q": 1,
+          "r": 3,
+          "terrain": "plain"
+        },
+        {
+          "q": 1,
+          "r": 4,
+          "terrain": "plain"
+        },
+        {
+          "q": 2,
+          "r": 0,
+          "terrain": "plain"
+        },
+        {
+          "q": 2,
+          "r": 1,
+          "terrain": "forest"
+        },
+        {
+          "q": 2,
+          "r": 2,
+          "terrain": "plain"
+        },
+        {
+          "q": 2,
+          "r": 3,
+          "terrain": "plain"
+        },
+        {
+          "q": 2,
+          "r": 4,
+          "terrain": "plain"
+        },
+        {
+          "q": 3,
+          "r": 0,
+          "terrain": "plain"
+        },
+        {
+          "q": 3,
+          "r": 1,
+          "terrain": "plain"
+        },
+        {
+          "q": 3,
+          "r": 2,
+          "terrain": "plain"
+        },
+        {
+          "q": 3,
+          "r": 3,
+          "terrain": "plain"
+        },
+        {
+          "q": 3,
+          "r": 4,
+          "terrain": "forest"
+        },
+        {
+          "q": 4,
+          "r": 0,
+          "terrain": "wall"
+        },
+        {
+          "q": 4,
+          "r": 1,
+          "terrain": "plain"
+        },
+        {
+          "q": 4,
+          "r": 2,
+          "terrain": "hill"
+        },
+        {
+          "q": 4,
+          "r": 3,
+          "terrain": "plain"
+        },
+        {
+          "q": 4,
+          "r": 4,
+          "terrain": "wall"
+        },
+        {
+          "q": 5,
+          "r": 0,
+          "terrain": "plain"
+        },
+        {
+          "q": 5,
+          "r": 1,
+          "terrain": "plain"
+        },
+        {
+          "q": 5,
+          "r": 2,
+          "terrain": "plain"
+        },
+        {
+          "q": 5,
+          "r": 3,
+          "terrain": "plain"
+        },
+        {
+          "q": 5,
+          "r": 4,
+          "terrain": "plain"
+        },
+        {
+          "q": 6,
+          "r": 0,
+          "terrain": "plain"
+        },
+        {
+          "q": 6,
+          "r": 1,
+          "terrain": "plain"
+        },
+        {
+          "q": 6,
+          "r": 2,
+          "terrain": "plain"
+        },
+        {
+          "q": 6,
+          "r": 3,
+          "terrain": "plain"
+        },
+        {
+          "q": 6,
+          "r": 4,
+          "terrain": "plain"
+        }
+      ],
+      "spawns": [
+        {
+          "side": 0,
+          "position": [
+            0,
+            2
+          ]
+        },
+        {
+          "side": 1,
+          "position": [
+            6,
+            1
+          ]
+        },
+        {
+          "side": 1,
+          "position": [
+            6,
+            3
+          ]
+        }
+      ],
+      "exits": [
+        {
+          "side": 0,
+          "position": [
+            0,
+            0
+          ]
+        },
+        {
+          "side": 1,
+          "position": [
+            6,
+            4
+          ]
+        }
+      ],
+      "visual_tag": "valley",
+      "damage_model": {
+        "kind": "legacy_base_factors_v1",
+        "side_bp": 11000,
+        "rear_bp": 12000,
+        "forest_ranged_bp": 8000,
+        "hill_melee_bp": 9000,
+        "min_total_bp": 4000,
+        "max_total_bp": 18000
+      }
+    }
+  ],
+  "troop_types": [
+    {
+      "id": "troop.infantry",
+      "category": "infantry",
+      "movement": 3,
+      "minimum_range": 1,
+      "maximum_range": 1,
+      "attack": 36,
+      "defense": 18,
+      "accuracy": 75,
+      "tactic_capacity": 8,
+      "movement_costs": {
+        "plain": 1,
+        "forest": 2,
+        "hill": 2,
+        "water": 0,
+        "wall": 0
+      },
+      "tactics": [
+        {
+          "id": "rally",
+          "kind": "rally",
+          "point_cost": 3,
+          "power_bp": 10000,
+          "accuracy_bonus": 0,
+          "morale_effect": 15,
+          "move_bonus": 0,
+          "status_rounds": 2
+        }
+      ],
+      "battle_portrait_kind": "infantry",
+      "name_key": "name.troop.infantry"
+    },
+    {
+      "id": "troop.archer",
+      "category": "archer",
+      "movement": 2,
+      "minimum_range": 2,
+      "maximum_range": 4,
+      "attack": 32,
+      "defense": 10,
+      "accuracy": 75,
+      "tactic_capacity": 8,
+      "movement_costs": {
+        "plain": 1,
+        "forest": 2,
+        "hill": 2,
+        "water": 0,
+        "wall": 0
+      },
+      "tactics": [
+        {
+          "id": "rally",
+          "kind": "rally",
+          "point_cost": 3,
+          "power_bp": 10000,
+          "accuracy_bonus": 0,
+          "morale_effect": 15,
+          "move_bonus": 0,
+          "status_rounds": 2
+        },
+        {
+          "id": "volley",
+          "kind": "volley",
+          "point_cost": 4,
+          "power_bp": 12000,
+          "accuracy_bonus": 10,
+          "morale_effect": 8,
+          "move_bonus": 0,
+          "status_rounds": 1
+        }
+      ],
+      "battle_portrait_kind": "archers",
+      "name_key": "name.troop.archer"
+    }
+  ],
+  "military_objectives": [
+    {
+      "id": "objective.road",
+      "name_key": "name.objective.road",
+      "kind": "repel",
+      "side": 0,
+      "max_rounds": 20,
+      "allow_withdrawal": true
+    },
+    {
+      "id": "objective.fort",
+      "name_key": "name.objective.fort",
+      "kind": "repel",
+      "side": 0,
+      "max_rounds": 20,
+      "allow_withdrawal": true
+    }
+  ],
+  "offices": [
+    {
+      "id": "office.north_leader",
+      "name_key": "name.office.north_leader",
+      "organization_id": "org.north",
+      "appointing_role_id": "role.north.officer",
+      "garrison_id": "garrison.north",
+      "command_scope": "army"
+    },
+    {
+      "id": "office.south_patrol",
+      "name_key": "name.office.south_patrol",
+      "organization_id": "org.south",
+      "appointing_role_id": "role.south.officer",
+      "garrison_id": "garrison.south",
+      "command_scope": "unit"
+    },
+    {
+      "id": "office.south_guard",
+      "name_key": "name.office.south_guard",
+      "organization_id": "org.south",
+      "appointing_role_id": "role.south.officer",
+      "garrison_id": "garrison.south",
+      "command_scope": "unit"
+    }
+  ],
+  "garrisons": [
+    {
+      "id": "garrison.north",
+      "name_key": "name.garrison.north",
+      "place_id": "place.north.camp",
+      "organization_id": "org.north",
+      "inventory_id": "inventory.north.public",
+      "wallet_id": "wallet.north.public",
+      "food_item_id": "item.grain",
+      "ration_per_person": 1,
+      "army_capacity": 1000,
+      "units": [
+        {
+          "id": "unit.north.work_detail",
+          "name_key": "name.unit.north.work_detail",
+          "troop_type_id": "troop.infantry",
+          "commander_actor_id": "actor.player",
+          "initial_soldiers": 6,
+          "equipment": [
+            {
+              "item_id": "item.spear",
+              "quantity_per_person": 1
+            },
+            {
+              "item_id": "item.timber",
+              "quantity_per_person": 3
+            },
+            {
+              "item_id": "item.iron",
+              "quantity_per_person": 1
+            }
+          ],
+          "initial_training": 10,
+          "initial_fatigue": 0
+        },
+        {
+          "id": "unit.north.blockade",
+          "name_key": "name.unit.north.blockade",
+          "troop_type_id": "troop.infantry",
+          "commander_actor_id": "actor.north_officer",
+          "initial_soldiers": 6,
+          "equipment": [
+            {
+              "item_id": "item.spear",
+              "quantity_per_person": 1
+            },
+            {
+              "item_id": "item.timber",
+              "quantity_per_person": 3
+            },
+            {
+              "item_id": "item.iron",
+              "quantity_per_person": 1
+            }
+          ]
+        }
+      ],
+      "training_wallet_id": "wallet.north.service",
+      "training_fatigue_per_tick": 4
+    },
+    {
+      "id": "garrison.south",
+      "name_key": "name.garrison.south",
+      "place_id": "place.south.camp",
+      "organization_id": "org.south",
+      "inventory_id": "inventory.south.public",
+      "wallet_id": "wallet.south.public",
+      "food_item_id": "item.grain",
+      "ration_per_person": 1,
+      "army_capacity": 1000,
+      "units": [
+        {
+          "id": "unit.south.patrol",
+          "name_key": "name.unit.south.patrol",
+          "troop_type_id": "troop.infantry",
+          "commander_actor_id": "actor.south_patrol",
+          "initial_soldiers": 8,
+          "equipment": [
+            {
+              "item_id": "item.spear",
+              "quantity_per_person": 1
+            }
+          ]
+        },
+        {
+          "id": "unit.south.guard",
+          "name_key": "name.unit.south.guard",
+          "troop_type_id": "troop.archer",
+          "commander_actor_id": "actor.south_guard",
+          "equipment": [
+            {
+              "item_id": "item.bow",
+              "quantity_per_person": 1
+            },
+            {
+              "item_id": "item.timber",
+              "quantity_per_person": 2
+            }
+          ],
+          "population_source_id": "source.south_guard",
+          "initial_training": 20,
+          "initial_fatigue": 0
+        }
+      ]
+    }
+  ],
+  "military_orders": [
+    {
+      "id": "order.north_clear",
+      "name_key": "name.order.north_clear",
+      "office_id": "office.north_leader",
+      "garrison_id": "garrison.north",
+      "issuer_role_id": "role.north.officer",
+      "report_role_id": "role.north.officer",
+      "target_stronghold_id": "stronghold.south",
+      "deadline_ticks": 120,
+      "objective": {
+        "kind": "occupy"
+      }
+    },
+    {
+      "id": "order.south_patrol",
+      "name_key": "name.order.south_patrol",
+      "office_id": "office.south_patrol",
+      "garrison_id": "garrison.south",
+      "issuer_role_id": "role.south.officer",
+      "report_role_id": "role.south.officer",
+      "target_stronghold_id": "stronghold.south",
+      "deadline_ticks": 120,
+      "objective": {
+        "kind": "relieve"
+      }
+    },
+    {
+      "id": "order.south_guard",
+      "name_key": "name.order.south_guard",
+      "office_id": "office.south_guard",
+      "garrison_id": "garrison.south",
+      "issuer_role_id": "role.south.officer",
+      "report_role_id": "role.south.officer",
+      "target_stronghold_id": "stronghold.south",
+      "deadline_ticks": 120,
+      "objective": {
+        "kind": "relieve"
+      }
+    }
+  ],
+  "strongholds": [
+    {
+      "id": "stronghold.north",
+      "settlement_id": "settlement.north",
+      "garrison_id": "garrison.north",
+      "topology_id": "topology.north",
+      "public_inventory_ids": [
+        "inventory.north.public"
+      ],
+      "public_wallet_ids": [
+        "wallet.north.public"
+      ]
+    },
+    {
+      "id": "stronghold.south",
+      "settlement_id": "settlement.south",
+      "garrison_id": "garrison.south",
+      "topology_id": "topology.south",
+      "public_inventory_ids": [
+        "inventory.south.public"
+      ],
+      "public_wallet_ids": [
+        "wallet.south.public"
+      ]
+    }
+  ],
+  "siege_topologies": [
+    {
+      "id": "topology.north",
+      "nodes": [
+        {
+          "id": "approach",
+          "kind": "approach",
+          "max_hp": 0,
+          "battlefield_id": "field.road"
+        },
+        {
+          "id": "gate",
+          "kind": "gate",
+          "max_hp": 80,
+          "battlefield_id": "field.fort"
+        },
+        {
+          "id": "side",
+          "kind": "side",
+          "max_hp": 50,
+          "battlefield_id": "field.fort"
+        },
+        {
+          "id": "wall",
+          "kind": "wall",
+          "max_hp": 60,
+          "battlefield_id": "field.fort"
+        },
+        {
+          "id": "inner",
+          "kind": "inner",
+          "max_hp": 0,
+          "battlefield_id": "field.fort"
+        },
+        {
+          "id": "supply",
+          "kind": "supply",
+          "max_hp": 0,
+          "battlefield_id": "field.road"
+        }
+      ],
+      "edges": [
+        {
+          "from": "approach",
+          "to": "gate"
+        },
+        {
+          "from": "gate",
+          "to": "inner",
+          "blocker_id": "gate"
+        },
+        {
+          "from": "approach",
+          "to": "side"
+        },
+        {
+          "from": "side",
+          "to": "inner",
+          "blocker_id": "side"
+        },
+        {
+          "from": "wall",
+          "to": "gate"
+        },
+        {
+          "from": "wall",
+          "to": "side"
+        },
+        {
+          "from": "wall",
+          "to": "inner"
+        },
+        {
+          "from": "inner",
+          "to": "supply"
+        }
+      ],
+      "attacker_entry_id": "approach",
+      "defender_entry_id": "inner",
+      "inner_id": "inner",
+      "supply_node_ids": [
+        "supply"
+      ],
+      "rules": {
+        "hold_ticks": 2,
+        "blockade_units": 2,
+        "starvation_ticks": 6,
+        "max_ticks": 60,
+        "gate_damage": 20,
+        "repair_amount": 10,
+        "engine_bonus": 20,
+        "engine_ticks": 4,
+        "surrender_morale": 25,
+        "wall_defense_bp": 12000,
+        "engine_item_id": "item.ram",
+        "engine_materials": [
+          {
+            "item_id": "item.timber",
+            "quantity": 10
+          },
+          {
+            "item_id": "item.iron",
+            "quantity": 2
+          }
+        ],
+        "repair_materials": [
+          {
+            "item_id": "item.timber",
+            "quantity": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "topology.south",
+      "nodes": [
+        {
+          "id": "approach",
+          "kind": "approach",
+          "max_hp": 0,
+          "battlefield_id": "field.road"
+        },
+        {
+          "id": "gate",
+          "kind": "gate",
+          "max_hp": 80,
+          "battlefield_id": "field.fort"
+        },
+        {
+          "id": "side",
+          "kind": "side",
+          "max_hp": 50,
+          "battlefield_id": "field.fort"
+        },
+        {
+          "id": "wall",
+          "kind": "wall",
+          "max_hp": 60,
+          "battlefield_id": "field.fort"
+        },
+        {
+          "id": "inner",
+          "kind": "inner",
+          "max_hp": 0,
+          "battlefield_id": "field.fort"
+        },
+        {
+          "id": "supply",
+          "kind": "supply",
+          "max_hp": 0,
+          "battlefield_id": "field.road"
+        }
+      ],
+      "edges": [
+        {
+          "from": "approach",
+          "to": "gate"
+        },
+        {
+          "from": "gate",
+          "to": "inner",
+          "blocker_id": "gate"
+        },
+        {
+          "from": "approach",
+          "to": "side"
+        },
+        {
+          "from": "side",
+          "to": "inner",
+          "blocker_id": "side"
+        },
+        {
+          "from": "wall",
+          "to": "gate"
+        },
+        {
+          "from": "wall",
+          "to": "side"
+        },
+        {
+          "from": "wall",
+          "to": "inner"
+        },
+        {
+          "from": "inner",
+          "to": "supply"
+        },
+        {
+          "from": "approach",
+          "to": "supply"
+        }
+      ],
+      "attacker_entry_id": "approach",
+      "defender_entry_id": "inner",
+      "inner_id": "inner",
+      "supply_node_ids": [
+        "supply"
+      ],
+      "rules": {
+        "hold_ticks": 2,
+        "blockade_units": 2,
+        "starvation_ticks": 6,
+        "max_ticks": 60,
+        "gate_damage": 20,
+        "repair_amount": 10,
+        "engine_bonus": 20,
+        "engine_ticks": 4,
+        "surrender_morale": 25,
+        "wall_defense_bp": 12000,
+        "engine_item_id": "item.ram",
+        "engine_materials": [
+          {
+            "item_id": "item.timber",
+            "quantity": 10
+          },
+          {
+            "item_id": "item.iron",
+            "quantity": 2
+          }
+        ],
+        "repair_materials": [
+          {
+            "item_id": "item.timber",
+            "quantity": 2
+          }
+        ]
+      }
+    }
+  ],
+  "etiquette_challenges": [],
+  "bargain_challenges": [],
+  "format": "HM-CONTENT",
+  "schema_version": 1,
+  "id": "qingxi_campaign_integration",
+  "version": "1.2.0",
+  "required_capabilities": [
+    "multi_actor",
+    "places",
+    "dialogue",
+    "economy",
+    "military",
+    "world_terrain",
+    "native_dynamic_world",
+    "population_military_v1",
+    "siege_integration_v1"
+  ],
+  "flags": {},
+  "texts": {
+    "name.actor.player": "陆楷",
+    "name.actor.north_officer": "邵怀",
+    "name.actor.south_officer": "彭旻",
+    "name.actor.south_patrol": "燕驰",
+    "name.actor.south_guard": "许砺",
+    "name.settlement.north": "溪口营",
+    "name.place.north.gate": "溪口营营门",
+    "name.place.north.camp": "溪口营营署",
+    "name.org.north": "溪口营署",
+    "name.settlement.south": "北汊堡",
+    "name.place.south.gate": "北汊堡堡门",
+    "name.place.south.camp": "北汊堡守备署",
+    "name.org.south": "北汊堡署",
+    "name.map.grain_road": "清溪粮道",
+    "name.item.grain": "粟米",
+    "name.item.timber": "工程木材",
+    "name.item.iron": "工程铁料",
+    "name.item.ram": "简易攻门槌",
+    "name.item.spear": "营用长矛",
+    "name.item.bow": "营用弓",
+    "name.troop.infantry": "步卒",
+    "name.troop.archer": "弓兵",
+    "name.unit.north.work_detail": "溪口工役步卒",
+    "name.unit.south.patrol": "北汊巡军步队",
+    "name.unit.south.guard": "北汊守堡弓队",
+    "name.garrison.north": "溪口驻队",
+    "name.role.north.officer": "溪口任命与军令官",
+    "name.garrison.south": "北汊驻队",
+    "name.role.south.officer": "北汊任命与军令官",
+    "name.office.north_leader": "溪口营将",
+    "name.office.south_patrol": "北汊巡军领队",
+    "name.office.south_guard": "北汊守堡领队",
+    "name.order.north_clear": "清溪粮道通行军令",
+    "name.order.south_patrol": "北汊巡军守备令",
+    "name.order.south_guard": "北汊守堡令",
+    "name.objective.road": "击退当面敌军",
+    "name.field.road": "粮道接敌场",
+    "name.objective.fort": "击退当面敌军",
+    "name.field.fort": "堡门与内院",
+    "dialog.north.0": "清溪战区的粮道仍未安定。营将空缺，你可受任，统辖两部各六人的步卒；公物须按实数领取。",
+    "dialog.north.1": "北汊营中燕驰与许砺须各自受任编军，四名旧戍卒另须依法入籍。向守军议编，须逐将作出真正决定，谁也不能替别人签允。",
+    "dialog.north.2": "先沿粮道到北汊。补给口有城外支路，两部共同封口才算全封锁；真实断粮与士气条件未到，不会开放降服条款。",
+    "dialog.north.3": "接受整编也须保留本部指挥、家户私产与旧欠账。接收后的军粮、工资、实际返营和报告仍由原规则办理。",
+    "dialog.south.0": "北汊守军只有现账一百二十粮，军需和营署供餐都从同一公库实扣。燕驰与许砺各自掌部，不以署吏一人的话代替两人的决定。",
+    "dialog.south.1": "议编须明说接收组织、本部指挥、私人财产和旧欠账。军官自己的允诺不能转走家户钱粮。",
+    "dialog.south.2": "围城议编一章，两将只考虑溪口的保全部伍条款；守将不从一章，许砺明示不改军籍。拒绝后围城和旧职责继续，不会替你安排胜局。",
+    "name.scenario": "清溪粮道",
+    "name.scenario.integration": "清溪粮道：围城议编",
+    "name.scenario.standfast": "清溪粮道：守将不从",
+    "name.unit.north.blockade": "溪口封口步卒"
+  }
+}

@@ -1,0 +1,7 @@
+# 人物与控制底座消费者登记：保留本组目标、测试、条件与局部变量的原执行顺序。
+# 出生年龄与原照护冷热回执的有限来源门，不替代整World运行。
+add_executable(test_resident_actor_age_birth_read tests/resident/actor_age_birth_read_test.cpp)
+target_link_libraries(test_resident_actor_age_birth_read PRIVATE hanmo_resident)
+target_include_directories(test_resident_actor_age_birth_read PRIVATE src)
+target_compile_options(test_resident_actor_age_birth_read PRIVATE -UNDEBUG -fno-fast-math -ffp-contract=off)
+add_test(NAME resident_actor_age_birth_read COMMAND test_resident_actor_age_birth_read)

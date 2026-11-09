@@ -1,0 +1,16 @@
+// 恢复阈值/不透支/再伤及溢出拒门；不代真实住宿、军伤与完整World验收。
+#include "resident/domains/growth/growth_injury_sources.hpp"
+#include <iostream>
+#include <limits>
+#include <stdexcept>
+using namespace hanmo::resident;
+namespace {int checks=0;void check(bool v,const char* reason){++checks;if(!v)throw std::runtime_error(reason);}}
+int main(){try{
+    for(Integer severity=1;severity<=3;++severity){GrowthRecoveryProgress p{severity,0};for(Integer tick=1;tick<=4*severity;++tick){auto next=apply_growth_recovery_points(p,1);check(next.ok&&next.value.used_points==1,"one genuine lodging half-day one point");p=next.value.after;check(p.injury==severity-tick/4&&p.points==(p.injury?tick%4:0),"four points per injury grade");}check(p.injury==0&&p.points==0,"light medium severe require four eight twelve");}
+    for(Integer severity=1;severity<=3;++severity){GrowthRecoveryProgress p{severity,0};for(Integer tick=0;tick<2*severity;++tick){auto next=apply_growth_recovery_points(p,2);check(next.ok&&next.value.used_points==2,"qualified clinic two points");p=next.value.after;}check(p.injury==0,"clinic does not alter original grade total");}
+    auto free=apply_growth_recovery_points({3,0},4);check(free.ok&&free.value.after.injury==2&&free.value.after.points==0,"two half-day village aid four points only after actual completion");auto last=apply_growth_recovery_points({1,3},4);check(last.ok&&last.value.used_points==1&&last.value.after.injury==0&&last.value.after.points==0,"excess is not banked for future injury");auto healthy=apply_growth_recovery_points({0,0},2);check(healthy.ok&&!healthy.value.used_points,"healthy does not earn recovery credit");
+    auto again=apply_growth_injury_increase({1,3},1);check(again.ok&&again.value.points==3,"without a new source an unchanged severity is not itself another injury");again=apply_growth_injury_increase({1,3},2);check(again.ok&&again.value.points==0,"new worsened grade starts clean recovery debt");check(!apply_growth_injury_increase({2,0},1).ok,"injury writer cannot masquerade as a recovery");
+    GrowthInjuryCause wound;wound.kind=GrowthInjuryCauseKind::military_wound;wound.magnitude=1;auto repeated=apply_growth_injury_cause({1,3},wound);check(repeated.ok&&repeated.value.injury==1&&repeated.value.points==0,"real repeated military wound restarts partial period");wound.kind=GrowthInjuryCauseKind::personal_defeat;auto saturated=apply_growth_injury_cause({3,3},wound);check(saturated.ok&&saturated.value.injury==3&&saturated.value.points==0,"real capped defeat still interrupts recovery");
+    for(const auto& p:{GrowthRecoveryProgress{-1,0},{4,0},{1,-1},{1,4},{0,1}})check(!apply_growth_recovery_points(p,1).ok,"invalid progress rejected");for(Integer n:{Integer{0},Integer{-1},Integer{5},std::numeric_limits<Integer>::max()})check(!apply_growth_recovery_points({3,0},n).ok,"unbounded or nonpositive credit rejected");check(growth_injury_hp_limit(0)==100&&growth_injury_hp_limit(1)==90&&growth_injury_hp_limit(2)==75&&growth_injury_hp_limit(3)==50&&growth_injury_hp_limit(4)==-1,"specified hp limits without permanent base-stat loss");
+    std::cout<<"GROWTH_RECOVERY_PROGRESS "<<checks<<" checks 0 failures\n";return 0;
+}catch(const std::exception& e){std::cerr<<"GROWTH_RECOVERY_PROGRESS "<<checks<<" checks 1 failure: "<<e.what()<<'\n';return 1;}}

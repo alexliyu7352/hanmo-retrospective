@@ -1,0 +1,11 @@
+# 青川书信与同行 1.0 作者WIP
+
+独立依赖hanmo.local_society 1.11，新增contacts::scenario.qingchuan_contacts，不修改旧包、人物身份/能力/家庭、共有资产或规则。学师现个人钱包300钱承担两份私约，书信120钱/16半日、护送180钱/40半日沿原Alpha模板。本新情景显式激活原society的成年教习卫简及原0钱包，沿其原学舍位置；不移动程家管事或改变宅地责任。本人明确同意后才走原join_party，行路费用6钱/半日。信任门槛0是本情景已愿同行的作者配置，不推算或修改关系值。
+
+两份委托必须通过同一真实学师逐项询问才获知、分别确认受领。信件须亲交实际剑院执事；护送须实际同行抵达剑院门前；均回原学师核验。通用任务办理页接续真实状态，完成一件不终止另一件的询问入口。普通退出只是暂不决定，未冒已持久婉拒。
+
+生成工具tools/task_contacts_authoring.py仅接受已核原青川索引SHA a8b9094bbeae19e638a5d305abf44132720b6f21982185b27ba33cff0cd0c4e9，生成本包作者源。当前只通过原部分包严格结构校验；完整compose/引用/原生/Main尚未验证。初次校验因本工区两份pack schema缺源中止，已从相邻只读源逐GitOID核对恢复原字节后结构通过。
+
+完整组合首红为ESTATE_RESIDENT：早期WIP试将宅地管事移到学舍，违反原居民位置约束。已改用现有卫简定义，不放宽或修改原规则。完整父包只读复用S4 card-compose-input；回收资源目录缺data文件的原首红另存。
+
+2026-10-09：已用原content_pipeline完成双包compose，STRUCTURE_VALID、零warnings/缺件。具名卫简逐项加入named_actors_excluded，不兼计匿名人口。实际运行仍待验证；源与原红见docs/native/task-contacts-author-20261009。

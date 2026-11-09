@@ -1,0 +1,298 @@
+{
+  "version": 1,
+  "rig": "adult-calm-medium-v2",
+  "canvas": [
+    512,
+    768
+  ],
+  "avatar_crop": [
+    110,
+    17,
+    310,
+    310
+  ],
+  "scope_label": "成人 · 平静交谈 · 中等身形",
+  "defaults": {
+    "face": 0,
+    "brows": 0,
+    "eyes": 0,
+    "nose": 0,
+    "mouth": 0,
+    "hair": 0,
+    "beard": 0,
+    "skin": 0,
+    "hair_color": 0,
+    "outfit": 0,
+    "cloth_color": 0
+  },
+  "groups": [
+    {
+      "id": "face",
+      "label": "骨相与五官",
+      "fields": [
+        "face",
+        "brows",
+        "eyes",
+        "nose",
+        "mouth"
+      ]
+    },
+    {
+      "id": "hair",
+      "label": "发冠与胡须",
+      "fields": [
+        "hair",
+        "beard",
+        "hair_color"
+      ]
+    },
+    {
+      "id": "dress",
+      "label": "衣装与肤色",
+      "fields": [
+        "outfit",
+        "cloth_color",
+        "skin"
+      ]
+    }
+  ],
+  "fields": {
+    "face": {
+      "label": "脸型",
+      "options": [
+        "清朗长脸",
+        "宽颌方脸"
+      ]
+    },
+    "brows": {
+      "label": "眉形",
+      "options": [
+        "锋眉",
+        "平眉"
+      ]
+    },
+    "eyes": {
+      "label": "眼形",
+      "options": [
+        "明眸",
+        "平睑"
+      ]
+    },
+    "nose": {
+      "label": "鼻形",
+      "options": [
+        "挺鼻",
+        "圆鼻"
+      ]
+    },
+    "mouth": {
+      "label": "唇形",
+      "options": [
+        "平唇",
+        "丰唇含笑"
+      ]
+    },
+    "hair": {
+      "label": "发冠",
+      "options": [
+        "束髻",
+        "巾帻"
+      ]
+    },
+    "beard": {
+      "label": "胡须",
+      "options": [
+        "无须",
+        "短髭须"
+      ]
+    },
+    "skin": {
+      "label": "肤色",
+      "options": [
+        "暖肤",
+        "日晒",
+        "浅暖"
+      ]
+    },
+    "hair_color": {
+      "label": "发须色",
+      "options": [
+        "墨黑",
+        "栗褐",
+        "霜灰"
+      ]
+    },
+    "outfit": {
+      "label": "衣身",
+      "options": [
+        "素面常服",
+        "行旅行装"
+      ]
+    },
+    "cloth_color": {
+      "label": "衣色",
+      "options": [
+        "本色",
+        "苍绿",
+        "绛红"
+      ]
+    }
+  },
+  "compatibility": [
+    {
+      "when": {
+        "beard": 1
+      },
+      "requires": {
+        "face": 0,
+        "mouth": 0
+      },
+      "reason": "这款短髭须适配清朗长脸与平唇；请先选择这两项，其他选件会保留。"
+    }
+  ],
+  "assets": {
+    "head-0": "res://assets/runtime/head-0.png",
+    "head-1": "res://assets/runtime/head-1.png",
+    "hair-0": "res://assets/runtime/hair-0.png",
+    "hair-1": "res://assets/runtime/hair-1.png",
+    "outfit-0": "res://assets/runtime/outfit-0.png",
+    "outfit-1": "res://assets/runtime/outfit-1.png",
+    "features-soft": "res://assets/runtime/features-soft.png",
+    "features-beard": "res://assets/runtime/features-beard.png",
+    "cap": "res://assets/runtime/cap.png",
+    "cap-mask": "res://assets/runtime/cap-mask.png",
+    "features-base": "res://assets/runtime/features-base.png"
+  },
+  "regions": {
+    "brows": [
+      [
+        276.5,
+        180.5,
+        39,
+        12.5
+      ],
+      [
+        335,
+        191.5,
+        26,
+        12
+      ]
+    ],
+    "eyes": [
+      [
+        275,
+        198,
+        33,
+        12
+      ],
+      [
+        333,
+        211,
+        25,
+        11.5
+      ]
+    ],
+    "nose": [
+      [
+        305.5,
+        229,
+        23.5,
+        29.5
+      ]
+    ],
+    "mouth": [
+      [
+        292,
+        263.5,
+        29,
+        15.5
+      ]
+    ],
+    "beard": [
+      [
+        292.5,
+        260.5,
+        33,
+        17.5
+      ],
+      [
+        280.5,
+        287,
+        47.5,
+        27.5
+      ]
+    ]
+  },
+  "source_canvas": [
+    1024,
+    1536
+  ],
+  "composition_policy": "compose source-size disjoint layers first, then uniformly downsample finished portrait",
+  "choice_semantics": {
+    "face": [
+      "base_contour",
+      "angular_contour"
+    ],
+    "brows": [
+      "arched",
+      "straight"
+    ],
+    "eyes": [
+      "open",
+      "narrow"
+    ],
+    "nose": [
+      "straight",
+      "round"
+    ],
+    "mouth": [
+      "neutral",
+      "smile"
+    ],
+    "hair": [
+      "bun",
+      "headwrap"
+    ],
+    "beard": [
+      "none",
+      "short"
+    ],
+    "skin": [
+      "warm",
+      "tanned",
+      "light_warm"
+    ],
+    "hair_color": [
+      "black",
+      "brown",
+      "gray"
+    ],
+    "outfit": [
+      "plain",
+      "traveler"
+    ],
+    "cloth_color": [
+      "original",
+      "green",
+      "red"
+    ]
+  },
+  "feature_sources": {
+    "brows": [
+      "features-base",
+      "features-soft"
+    ],
+    "eyes": [
+      "features-base",
+      "features-soft"
+    ],
+    "nose": [
+      "features-base",
+      "features-soft"
+    ],
+    "mouth": [
+      "features-base",
+      "features-soft"
+    ]
+  }
+}

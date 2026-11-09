@@ -1,0 +1,16 @@
+{
+  "base_commit": "2ee690019bff206d3582d24c035c9f166e691309",
+  "scope": "Independent original Kernel and Builtin source; original cultivation, action step, Schema and Codec rules remain unchanged. Only Kernel Builtin resource path points at frozen fixture.",
+  "sources": {
+    "world_kernel.gd": {
+      "source": "game/core/world_kernel.gd",
+      "original_sha256": "1e0a445fd4b64f40d5965b88fc723a6ce15b7a0acb3bdb7a0d3b057a1493b212",
+      "fixture_sha256": "e060c8690272f22c6bed5d9365abb4b96b8d1e5a58184068965fce09b2dc1bdc"
+    },
+    "builtin_modules.gd": {
+      "source": "game/core/runtime/builtin_modules.gd",
+      "original_sha256": "1c8755814a14465dc38a7a113c66b95902c74e77db24bb63a793cba7ca792fd8",
+      "fixture_sha256": "1c8755814a14465dc38a7a113c66b95902c74e77db24bb63a793cba7ca792fd8"
+    }
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "format": "HM-A2-OBSERVED-LEGACY-BASELINE/1",
+  "observed_central_commit": "0094d7b37d3a66e6648c5ad5ead4f5d347b2fef3",
+  "records": {
+    "procurement": {
+      "catalog_file_sha256": "9b21d20923e0a930d1416941633fd2cc843d15660a79970ddb21f4f9ae0cf3e0",
+      "source_sha256": "5796a028a6338a49bd1d265edbe721ac3db5424b0b89329bd7ad6dcf7ca6f088",
+      "source_commit": "0094d7b37d3a66e6648c5ad5ead4f5d347b2fef3",
+      "current_source_equal": true,
+      "schema_sha256": "493c4725183b3cfeee05a04a3cea779068fd4152a2f28058750ca8d56d4e011f",
+      "content_id": "foundation.procurement",
+      "content_version": "0.3.1",
+      "catalog_sha256": "c88c6f36ca0a6d5a2e81107bd0af0cc6365bd96500378224200746c96fa320d4",
+      "source_path": "content/foundation/procurement.json",
+      "catalog_observed_path": "<本地路径>"
+    },
+    "two_stories": {
+      "catalog_file_sha256": "8456bd6ac98a0f6375be33c41817859cd8b5ff26d587f2df582549b9177c24b5",
+      "source_sha256": "fa7cb0ce1e0a9be46b2be65fd3c654b6c5133ed7807576b60aef63555d37afee",
+      "source_commit": "0094d7b37d3a66e6648c5ad5ead4f5d347b2fef3",
+      "current_source_equal": true,
+      "schema_sha256": "493c4725183b3cfeee05a04a3cea779068fd4152a2f28058750ca8d56d4e011f",
+      "content_id": "foundation.two_stories",
+      "content_version": "0.3.1",
+      "catalog_sha256": "c5517347d367a9fff479e582011f7567d6058ff4e903c111c3eef4202cec3dd8",
+      "source_path": "content/foundation/two_stories.json",
+      "catalog_observed_path": "<本地路径>"
+    },
+    "lived_city": {
+      "catalog_file_sha256": "5d46c3f064a3fe980468c73c47c73ecc157391e47b302878c88809301cce6d13",
+      "source_sha256": "0fd9a992b967f9174c5aff9040369131fc8e31cd36bb5303383bfa8103b584ca",
+      "source_commit": "0094d7b37d3a66e6648c5ad5ead4f5d347b2fef3",
+      "current_source_equal": true,
+      "schema_sha256": "493c4725183b3cfeee05a04a3cea779068fd4152a2f28058750ca8d56d4e011f",
+      "content_id": "foundation.lived_city",
+      "content_version": "0.4.0",
+      "catalog_sha256": "d09738fefdd14c526bceaec07681e7c605e88ddab12c5016f2d1a93fbbfe7fcb",
+      "source_path": "content/foundation/lived_city.json",
+      "catalog_observed_path": "<本地路径>"
+    },
+    "alpha_life": {
+      "catalog_file_sha256": "0f448e49acbddab8f244f90ad89ecebcf16a026b246bdec76ed56a9098fb514a",
+      "source_sha256": "eb0a57e1a439b21513300b474d27519ada723b34cadd4d18cbae3bfd052a7296",
+      "source_commit": "ae523bb69d2d6cfb9bf78b5739fafcc2e1eeddd5",
+      "current_source_equal": false,
+      "schema_sha256": "493c4725183b3cfeee05a04a3cea779068fd4152a2f28058750ca8d56d4e011f",
+      "content_id": "foundation.alpha_life",
+      "content_version": "0.7.0",
+      "catalog_sha256": "f0017626a226b2c1b322b55af128d722943e3d9da086ee3cdb1e5fbe99bc4516",
+      "source_path": "content/foundation/alpha_life.json",
+      "catalog_observed_path": "<本地路径>"
+    },
+    "journey_life": {
+      "catalog_file_sha256": "a2b51cf72553a79775fd1ff3dbfcfb05f4d10440d777d70b73097d0ba6dca9e0",
+      "source_sha256": "b4e8d0e1c3abe118f482b42dd2dfe18788b1c405a2312e481a0589467db58458",
+      "source_commit": "0094d7b37d3a66e6648c5ad5ead4f5d347b2fef3",
+      "current_source_equal": true,
+      "schema_sha256": "493c4725183b3cfeee05a04a3cea779068fd4152a2f28058750ca8d56d4e011f",
+      "content_id": "foundation.journey_life",
+      "content_version": "0.6.1",
+      "catalog_sha256": "2f3bb7c42dcec0b5b84e531ad5bfd55f49e408fefd40284726a3704c153178d6",
+      "source_path": "content/foundation/journey_life.json",
+      "catalog_observed_path": "<本地路径>"
+    }
+  },
+  "scope": "Actual existing five generatedcatalog bytes plus exactGit-source bytes matching sourceSHA and trustedoriginalSchema. This is not F0.5 historicalrelease nor a newcompiledrun. Alpha is pre53eb8f1 acceptedcopy source; never bind currentAlpha source to oldcatalog identity."
+}

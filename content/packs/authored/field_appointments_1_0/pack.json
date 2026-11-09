@@ -1,0 +1,52 @@
+{
+  "format": "HM-PACK",
+  "format_version": 1,
+  "id": "hanmo.field_appointments",
+  "version": "1.0.0",
+  "namespace": "field_handover",
+  "rules_api": {
+    "id": "hanmo.rules",
+    "min_version": "1.0.0",
+    "max_version_exclusive": "2.0.0"
+  },
+  "dependencies": [
+    {
+      "id": "hanmo.inland_fleet",
+      "min_version": "1.2.0",
+      "max_version_exclusive": "1.3.0"
+    },
+    {
+      "id": "qingxi.campaign",
+      "min_version": "1.2.0",
+      "max_version_exclusive": "1.3.0"
+    }
+  ],
+  "conflicts": [],
+  "required_capabilities": [
+    "multi_actor",
+    "places",
+    "dialogue",
+    "economy",
+    "military",
+    "world_terrain",
+    "native_dynamic_world",
+    "population_military_v1",
+    "siege_integration_v1",
+    "military_naval_v1",
+    "military_naval_combat_v1",
+    "military_naval_commanders_v1",
+    "estates",
+    "military_officer_assignments_v1",
+    "political_military_appointments_v1",
+    "military_field_commands_v1",
+    "political_field_appointments_v1",
+    "regional_life_v1"
+  ],
+  "content_entries": [
+    "content.json"
+  ],
+  "presentation_entries": [],
+  "resources": [],
+  "author": "Hanmo project authors",
+  "license": "NOASSERTION"
+}

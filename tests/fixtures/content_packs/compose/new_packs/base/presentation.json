@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "default_background": "city",
+  "default_portrait": "merchant",
+  "backgrounds": {
+    "city": {
+      "path": "res://assets/art/pixel.png"
+    },
+    "hall": {
+      "path": "res://assets/art/pixel.png"
+    },
+    "shop": {
+      "path": "res://assets/art/pixel.png"
+    }
+  },
+  "portraits": {
+    "merchant": {
+      "path": "res://assets/art/portrait.png"
+    }
+  }
+}

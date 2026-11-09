@@ -1,0 +1,252 @@
+[
+  {
+    "state": "resident-journey-oracle-baseline-20261004/recovery-verified-20261005/restored-repeat/state-104ee1c94101342d301492aaebe62c07d9558efcb9c1d3034f57b356a966971b.json",
+    "catalog": "hanmo-resident-lane-d/.local/resident-recovery-input/catalog.json",
+    "state_sha256": "104ee1c94101342d301492aaebe62c07d9558efcb9c1d3034f57b356a966971b",
+    "hud": {
+      "ok": true,
+      "actor_id": "actor.player",
+      "revision": 0,
+      "day_index": 0,
+      "half_day": 0,
+      "display_name": "行旅人",
+      "balance": 800,
+      "hp": 100
+    },
+    "screen": {
+      "ok": true,
+      "personal_battle_view": {
+        "ok": true,
+        "actor_id": "actor.player",
+        "revision": 0,
+        "battle_id": ""
+      },
+      "military_battle_page": {
+        "ok": true,
+        "active": false
+      },
+      "siege_page": {
+        "ok": true,
+        "actor_id": "actor.player",
+        "revision": 0,
+        "siege_id": ""
+      },
+      "study_activity": {
+        "active": false
+      },
+      "presentation_location": {
+        "kind": "Settlement",
+        "place_id": "west.street"
+      },
+      "world_scene_legacy": true
+    },
+    "sidebar": {
+      "ok": true,
+      "actor_id": "actor.player",
+      "revision": 0,
+      "location": {
+        "kind": "Settlement",
+        "place_id": "west.street",
+        "settlement_id": "city.west"
+      },
+      "dialogue_speaker": {},
+      "travel": {
+        "active": false
+      },
+      "encounter": {},
+      "party_present": false,
+      "companions": [],
+      "logistics_quote": {}
+    },
+    "map": {
+      "ok": true,
+      "revision": 0,
+      "observer_id": "actor.player",
+      "world_map_id": "map.qingchuan",
+      "observer_position": [
+        190.0,
+        430.0
+      ],
+      "route_open": {},
+      "crossing_closed": {
+        "bridge.north": false,
+        "gate.north": false,
+        "crossing.main": false
+      },
+      "road_progress": {},
+      "travel_overlay": {}
+    }
+  },
+  {
+    "state": "resident-journey-oracle-baseline-20261004/recovery-verified-20261005/restored-repeat/state-81143e6a5b1d5eee00c887060fd63157ab6e3c75806102da8cee0f3e9c84fa1c.json",
+    "catalog": "hanmo-resident-lane-d/.local/resident-recovery-input/catalog.json",
+    "state_sha256": "81143e6a5b1d5eee00c887060fd63157ab6e3c75806102da8cee0f3e9c84fa1c",
+    "hud": {
+      "ok": true,
+      "actor_id": "actor.player",
+      "revision": 5,
+      "day_index": 1,
+      "half_day": 0,
+      "display_name": "行旅人",
+      "balance": 784,
+      "hp": 100
+    },
+    "screen": {
+      "ok": true,
+      "personal_battle_view": {
+        "ok": true,
+        "actor_id": "actor.player",
+        "revision": 5,
+        "battle_id": ""
+      },
+      "military_battle_page": {
+        "ok": true,
+        "active": false
+      },
+      "siege_page": {
+        "ok": true,
+        "actor_id": "actor.player",
+        "revision": 5,
+        "siege_id": ""
+      },
+      "study_activity": {
+        "active": false
+      },
+      "presentation_location": {
+        "kind": "Wilderness"
+      },
+      "world_scene_legacy": true
+    },
+    "sidebar": {
+      "ok": true,
+      "actor_id": "actor.player",
+      "revision": 5,
+      "location": {
+        "kind": "Wilderness"
+      },
+      "dialogue_speaker": {
+        "actor_id": "actor.walker",
+        "display_name": "许成"
+      },
+      "travel": {
+        "active": true
+      },
+      "encounter": {
+        "encounter_id": "encounter:34",
+        "provider_actor_id": "actor.walker",
+        "display_name": "许成"
+      },
+      "party_present": false,
+      "companions": [],
+      "logistics_quote": {}
+    },
+    "map": {
+      "ok": true,
+      "revision": 5,
+      "observer_id": "actor.player",
+      "world_map_id": "map.qingchuan",
+      "observer_position": [
+        573.0,
+        290.0
+      ],
+      "route_open": {},
+      "crossing_closed": {
+        "bridge.north": false,
+        "gate.north": false,
+        "crossing.main": false
+      },
+      "road_progress": {},
+      "travel_overlay": {
+        "kind": "terrain",
+        "points": [
+          [
+            573,
+            290
+          ],
+          [
+            830,
+            290
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "state": "resident-journey-oracle-baseline-20261004/journey100-20261005/state-a43e9378dbe30ba75087fd118b1d6825a3a2636f0a260dfe48fde77fc01681e5.json",
+    "catalog": "resident-journey-oracle-baseline-20261004/journey100-20261005/expanded-catalog.json",
+    "state_sha256": "a43e9378dbe30ba75087fd118b1d6825a3a2636f0a260dfe48fde77fc01681e5",
+    "hud": {
+      "ok": true,
+      "actor_id": "actor.player",
+      "revision": 15,
+      "day_index": 4,
+      "half_day": 0,
+      "display_name": "行旅人",
+      "balance": 736,
+      "hp": 100
+    },
+    "screen": {
+      "ok": true,
+      "personal_battle_view": {
+        "ok": true,
+        "actor_id": "actor.player",
+        "revision": 15,
+        "battle_id": ""
+      },
+      "military_battle_page": {
+        "ok": true,
+        "active": false
+      },
+      "siege_page": {
+        "ok": true,
+        "actor_id": "actor.player",
+        "revision": 15,
+        "siege_id": ""
+      },
+      "study_activity": {
+        "active": false
+      },
+      "presentation_location": {
+        "kind": "Settlement",
+        "place_id": "east.entrance"
+      },
+      "world_scene_legacy": true
+    },
+    "sidebar": {
+      "ok": true,
+      "actor_id": "actor.player",
+      "revision": 15,
+      "location": {
+        "kind": "Settlement",
+        "place_id": "east.entrance",
+        "settlement_id": "village.east"
+      },
+      "dialogue_speaker": {},
+      "travel": {
+        "active": false
+      },
+      "encounter": {},
+      "party_present": false,
+      "companions": [],
+      "logistics_quote": {}
+    },
+    "map": {
+      "ok": true,
+      "revision": 15,
+      "observer_id": "actor.player",
+      "world_map_id": "map.qingchuan",
+      "observer_position": [
+        830.0,
+        290.0
+      ],
+      "route_open": {},
+      "crossing_closed": {
+        "bridge.north": false,
+        "gate.north": false,
+        "crossing.main": false
+      },
+      "road_progress": {},
+      "travel_overlay": {}
+    }
+  }
+]

@@ -1,0 +1,377 @@
+{
+  "format_version": 1,
+  "canvas": [
+    1672,
+    941
+  ],
+  "background_id": "city.ground",
+  "archetypes": {
+    "tavern": {
+      "asset_id": "city.tavern",
+      "support": [
+        0.51,
+        0.88
+      ],
+      "entry": [
+        0.44,
+        0.75
+      ],
+      "label": [
+        0.49,
+        0.36
+      ],
+      "width": 520,
+      "states": {},
+      "footprint": [
+        [
+          0.08,
+          0.7
+        ],
+        [
+          0.44,
+          0.48
+        ],
+        [
+          0.94,
+          0.75
+        ],
+        [
+          0.69,
+          0.94
+        ]
+      ]
+    },
+    "grainshop": {
+      "asset_id": "city.grainshop",
+      "support": [
+        0.51,
+        0.87
+      ],
+      "entry": [
+        0.4,
+        0.8
+      ],
+      "label": [
+        0.49,
+        0.34
+      ],
+      "width": 480,
+      "states": {
+        "construction": "city.grainshop_construction"
+      },
+      "footprint": [
+        [
+          0.08,
+          0.7
+        ],
+        [
+          0.44,
+          0.48
+        ],
+        [
+          0.94,
+          0.75
+        ],
+        [
+          0.69,
+          0.94
+        ]
+      ]
+    },
+    "clothshop": {
+      "asset_id": "city.clothshop",
+      "support": [
+        0.5,
+        0.87
+      ],
+      "entry": [
+        0.35,
+        0.69
+      ],
+      "label": [
+        0.5,
+        0.34
+      ],
+      "width": 440,
+      "states": {},
+      "footprint": [
+        [
+          0.08,
+          0.7
+        ],
+        [
+          0.44,
+          0.48
+        ],
+        [
+          0.94,
+          0.75
+        ],
+        [
+          0.69,
+          0.94
+        ]
+      ]
+    },
+    "tree": {
+      "asset_id": "city.tree",
+      "support": [
+        0.51,
+        0.94
+      ],
+      "entry": [
+        0.51,
+        0.94
+      ],
+      "label": [
+        0.5,
+        0.2
+      ],
+      "width": 350,
+      "states": {}
+    },
+    "inn": {
+      "asset_id": "city.inn",
+      "support": [
+        0.51,
+        0.9
+      ],
+      "entry": [
+        0.38,
+        0.77
+      ],
+      "label": [
+        0.51,
+        0.34
+      ],
+      "width": 580,
+      "states": {},
+      "footprint": [
+        [
+          0.05,
+          0.6
+        ],
+        [
+          0.43,
+          0.36
+        ],
+        [
+          0.96,
+          0.7
+        ],
+        [
+          0.69,
+          0.95
+        ]
+      ]
+    }
+  },
+  "layouts": [
+    {
+      "id": "market.lane",
+      "name": "长街市集",
+      "description": "沿街铺面与街心留白，入口从街道一侧识别。",
+      "instances": [
+        {
+          "id": "market.tavern",
+          "name": "酒肆",
+          "archetype": "tavern",
+          "position": [
+            285,
+            400
+          ],
+          "width": 485,
+          "state": "complete",
+          "interactive": true
+        },
+        {
+          "id": "market.grain",
+          "name": "粮铺",
+          "archetype": "grainshop",
+          "position": [
+            735,
+            480
+          ],
+          "width": 485,
+          "state": "complete",
+          "interactive": true
+        },
+        {
+          "id": "market.cloth",
+          "name": "布帛铺",
+          "archetype": "clothshop",
+          "position": [
+            1265,
+            555
+          ],
+          "width": 485,
+          "state": "complete",
+          "interactive": true
+        },
+        {
+          "id": "market.store",
+          "name": "粮栈",
+          "archetype": "grainshop",
+          "position": [
+            1140,
+            790
+          ],
+          "width": 495,
+          "state": "complete",
+          "interactive": true
+        },
+        {
+          "id": "market.lodging",
+          "name": "客舍",
+          "archetype": "inn",
+          "position": [
+            500,
+            790
+          ],
+          "width": 590,
+          "state": "complete",
+          "interactive": true
+        },
+        {
+          "id": "shade.west",
+          "name": "",
+          "archetype": "tree",
+          "position": [
+            40,
+            450
+          ],
+          "width": 260,
+          "state": "complete",
+          "interactive": false
+        },
+        {
+          "id": "shade.east",
+          "name": "",
+          "archetype": "tree",
+          "position": [
+            1585,
+            755
+          ],
+          "width": 330,
+          "state": "complete",
+          "interactive": false
+        },
+        {
+          "id": "shade.center",
+          "name": "",
+          "archetype": "tree",
+          "position": [
+            947,
+            540
+          ],
+          "width": 205,
+          "state": "complete",
+          "interactive": false
+        }
+      ]
+    },
+    {
+      "id": "market.square",
+      "name": "围合市庭",
+      "description": "同一批组件换位，保留宽阔市庭与可见入口。",
+      "instances": [
+        {
+          "id": "market.tavern",
+          "name": "酒肆",
+          "archetype": "tavern",
+          "position": [
+            330,
+            420
+          ],
+          "width": 490,
+          "state": "complete",
+          "interactive": true
+        },
+        {
+          "id": "market.grain",
+          "name": "粮铺",
+          "archetype": "grainshop",
+          "position": [
+            790,
+            370
+          ],
+          "width": 455,
+          "state": "complete",
+          "interactive": true
+        },
+        {
+          "id": "market.cloth",
+          "name": "布帛铺",
+          "archetype": "clothshop",
+          "position": [
+            1280,
+            470
+          ],
+          "width": 470,
+          "state": "complete",
+          "interactive": true
+        },
+        {
+          "id": "market.store",
+          "name": "粮栈",
+          "archetype": "grainshop",
+          "position": [
+            1335,
+            790
+          ],
+          "width": 480,
+          "state": "complete",
+          "interactive": true
+        },
+        {
+          "id": "market.lodging",
+          "name": "客舍",
+          "archetype": "inn",
+          "position": [
+            365,
+            790
+          ],
+          "width": 590,
+          "state": "complete",
+          "interactive": true
+        },
+        {
+          "id": "shade.west",
+          "name": "",
+          "archetype": "tree",
+          "position": [
+            35,
+            715
+          ],
+          "width": 275,
+          "state": "complete",
+          "interactive": false
+        },
+        {
+          "id": "shade.east",
+          "name": "",
+          "archetype": "tree",
+          "position": [
+            1590,
+            620
+          ],
+          "width": 315,
+          "state": "complete",
+          "interactive": false
+        },
+        {
+          "id": "shade.center",
+          "name": "",
+          "archetype": "tree",
+          "position": [
+            1090,
+            485
+          ],
+          "width": 230,
+          "state": "complete",
+          "interactive": false
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" href="data:,">
+<title>$GODOT_PROJECT_NAME</title>
+<style>
+html,body{margin:0;height:100%;background:#102521;color:#eee5ce;font:17px system-ui,sans-serif}*{box-sizing:border-box}
+#canvas{display:block;width:100%;height:100%;outline:none}#launch{position:absolute;inset:0;display:grid;place-content:center;padding:28px;background:#102521;max-width:100%;text-align:center}h1{font-size:clamp(36px,6vw,68px);letter-spacing:.14em;font-weight:500;margin:0 0 24px}p{max-width:42em;line-height:1.8;margin:8px auto}button{min-height:48px;border:1px solid #c9b783;background:#d8c391;color:#132e26;padding:12px 32px;border-radius:6px;font:inherit;cursor:pointer;margin:24px auto 12px}#message{white-space:pre-wrap;overflow-wrap:anywhere;color:#c4ceb8}small{opacity:.8;line-height:1.7}
+</style>
+$GODOT_HEAD_INCLUDE
+</head><body>
+<canvas id="canvas" tabindex="0">此浏览器无法显示游戏画布。</canvas>
+<section id="launch"><h1>汉末行记</h1><p>一人的行旅，一世的选择。</p><button id="start" type="button">进入旅途</button><p id="message" role="status">尚未启动游戏。</p><small>旅途保存在当前浏览器。可在游戏内导出存档，留存一份文件备份。</small></section>
+<script src="storage_bridge.js"></script>
+<script src="$GODOT_URL"></script>
+<script>
+'use strict';
+const launch=document.getElementById('launch'),start=document.getElementById('start'),message=document.getElementById('message');
+/** 点击后启动原 Godot 游戏；启动失败保留可重试说明，显式测试 profile 不接触默认存档库。 */
+async function enterGame(){
+  start.disabled=true;
+  try{
+    if(typeof Engine!=='function') throw new Error('引擎脚本尚未加载。请确认整个导出目录均已部署。');
+    if(!globalThis.WebAssembly) throw new Error('此环境不支持 WebAssembly。');
+    const engine=new Engine($GODOT_CONFIG);
+    const profile=new URLSearchParams(location.search).get('profile');
+    if(profile!==null&&!/^[a-z][a-z0-9-]{0,63}$/.test(profile)) throw new Error('存档配置标识无效。');
+    const args=profile===null?{}:{args:['--','--profile='+profile]};
+    await engine.startGame({...args,canvas:document.getElementById('canvas'),canvasResizePolicy:2,
+      onProgress:(current,total)=>{message.textContent=total?`正在加载 ${Math.round(current/total*100)}%`:'正在加载游戏资源…';},
+      onPrintError:(text)=>{console.error(text);}});
+    launch.hidden=true;launch.style.display='none';document.getElementById('canvas').focus();
+  }catch(error){message.textContent='启动未完成：'+String(error.message||error)+'\n请检查 WebGL 2.0 支持、完整资源目录和服务器 MIME 类型，再刷新重试。';start.disabled=false;}
+}
+start.addEventListener('click',enterGame);
+</script>
+</body></html>

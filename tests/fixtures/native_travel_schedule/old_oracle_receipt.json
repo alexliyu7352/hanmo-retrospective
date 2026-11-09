@@ -1,0 +1,24 @@
+{
+  "game": "<本地路径>",
+  "dynamic_content": "<本地路径>",
+  "source": "<本地路径>",
+  "source_sha256": {
+    "game/core/travel_schedule.gd": "306896d60e31b21a85c7298d317c4ad45f1f3b09a83b5ff57aa5355c12073cb1",
+    "game/core/backends/legacy_world_backend.gd": "04ac1f808c29943b99615569ef7206c36ef225c1d65278700eae9287bc61ed65",
+    "game/core/world_kernel.gd": "0042fb1d39df970ed7e0d5b75b431cfda0f87bd45a5db9000a332c3d2a989c20",
+    "tests/dynamic_actor_content_fixture.py": "e339cb71c36ab4e56900e06045d2f8e7b733ccd7dca449c7b7808acaa48eab50",
+    "tests/military_content_fixture.py": "c34e1f47f63021b5dae0be4eaec6c5a9eaf575b9bcfc96de3d97e10d33c604f9",
+    "game/tests/test_dynamic_actor_schedule.gd": "0c2e6b748281fbc8fcdb210b9342b28e64f06aa663222f3414c24dbea27d042d"
+  },
+  "scope": "Original dynamic author fixture and formal adoption/work/travel; no Codec/save matrix, no GUI or full-game claim",
+  "oracle_sha256": "43c4262de91d090e1ca29782ab3b8227a5fe538b304b39fb00d6fc558917e745",
+  "checks": 77,
+  "failures": 0,
+  "rows": 35,
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "source_commit": "8f7ebc4f7af5b3e9bdfc81adde4d09d2fed00d93",
+  "max_arrival_result": {
+    "ok": false,
+    "code": "InvalidItinerary"
+  }
+}

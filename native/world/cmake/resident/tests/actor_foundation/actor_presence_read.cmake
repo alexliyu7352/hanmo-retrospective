@@ -1,0 +1,7 @@
+# 人物与控制底座消费者登记：保留本组目标、测试、条件与局部变量的原执行顺序。
+# 动态出生/死亡事实前界只读，依原完整Family军事先验。
+add_executable(test_resident_actor_presence_read tests/resident/actor_presence_read_test.cpp)
+target_link_libraries(test_resident_actor_presence_read PRIVATE hanmo_resident)
+target_include_directories(test_resident_actor_presence_read PRIVATE src)
+target_compile_options(test_resident_actor_presence_read PRIVATE -UNDEBUG -fno-fast-math -ffp-contract=off)
+add_test(NAME resident_actor_presence_read COMMAND test_resident_actor_presence_read)

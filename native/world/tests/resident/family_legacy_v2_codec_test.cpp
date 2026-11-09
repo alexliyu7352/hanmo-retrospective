@@ -1,0 +1,19 @@
+// 新Legacy版本复用唯一三表，旧版不认识亲代tag；模块选择由外层真实目录决定。
+#include "resident/domains/family/family_legacy.hpp"
+#include "resident/storage/common_checkpoint.hpp"
+#include <iostream>
+#include <stdexcept>
+using namespace hanmo::resident;
+namespace {int checks=0;void check(bool value,const char* message){++checks;if(!value)throw std::runtime_error(message);}
+LegacyControlDecisionSource source(){LegacyControlDecisionSource s;s.request_id="request";s.decision="accept";s.predecessor_actor_id="parent";s.successor_actor_id="child";s.dialogue_id="dialogue";s.node_id="accept";s.node_kind="say";s.session_id="interaction:8";s.scenario_id="scene";s.world_id[0]=1;s.context={"home","child","role"};s.tick=50;s.revision=3;s.predecessor_birth_tick=-30000;s.successor_birth_tick=-14000;s.biological_origin.emplace();s.biological_origin->parent_actor_id="parent";s.biological_origin->child_actor_id=s.biological_origin->original_catalog_actor_id="child";return s;}
+}
+int main(){try{
+ using V=BoundaryValue;FamilyLegacyState state;FamilyLegacyConsentFact accepted;accepted.source=source();state.consents.insert("family_legacy:20",accepted);FamilyLegacyRevocationFact revoked;revoked.consent_fact_id="family_legacy:20";revoked.source=source();revoked.source.decision="revoke";revoked.source.node_id="withdraw";state.revocations.insert("family_legacy:25",revoked);
+ auto encoded=encode_family_legacy_v2(state);auto restored=decode_family_legacy_v2(encoded);check(restored.ok&&restored.value.consents.size()==1&&restored.value.revocations.size()==1&&restored.value.activations.empty(),"new state changed the single original control ledger");check(compare_boundary(encoded,encode_family_legacy_v2(restored.value)).exact(),"new JSON changed source or field order");check(!decode_family_legacy(encoded).ok,"old state reader swallowed new biological source");
+ CodecVisitor::Buffer bytes;CodecVisitor writer(bytes);check(visit_family_legacy_checkpoint_v2(writer,restored.value).ok&&writer.finish().ok,"new typed state write failed");const auto& input=bytes;CodecVisitor reader(input);FamilyLegacyState cold;check(visit_family_legacy_checkpoint_v2(reader,cold).ok&&reader.finish().ok&&compare_boundary(encoded,encode_family_legacy_v2(cold)).exact(),"typed cold state changed");CodecVisitor old_reader(input);FamilyLegacyState wrong;check(!visit_family_legacy_checkpoint(old_reader,wrong).ok||!old_reader.finish().ok,"old typed state guessed new format");
+ bytes.pop_back();const auto& short_input=bytes;CodecVisitor truncated(short_input);check(!visit_family_legacy_checkpoint_v2(truncated,wrong).ok||!truncated.finish().ok,"truncated new tail accepted");
+ auto duplicate=encoded;duplicate.as<V::Dict>()->emplace_back("consents",V{V::Dict{}});check(!decode_family_legacy_v2(duplicate).ok,"duplicate root table accepted");auto extra=encoded;extra.as<V::Dict>()->emplace_back("assets",V{V::Dict{}});check(!decode_family_legacy_v2(extra).ok,"extra property authority accepted");
+ FamilyLegacyState old;accepted.source=source();accepted.source.biological_origin.reset();accepted.source.relation_fact_id="family:5";old.consents.insert("family_legacy:20",accepted);auto original=encode_family_legacy(old);check(decode_family_legacy(original).ok&&!decode_family_legacy_v2(original).ok,"version2 guessed missing source presence");auto upgraded=encode_family_legacy_v2(old);check(decode_family_legacy_v2(upgraded).ok&&!decode_family_legacy(upgraded).ok,"version1 accepted new explicit null source shape");
+ auto malformed=state;malformed.field_order={"consents","consents","activations"};CodecVisitor::Buffer bad_bytes;CodecVisitor bad(bad_bytes);check(!visit_family_legacy_checkpoint_v2(bad,malformed).ok,"corrupt table metadata normalized");
+ std::cout<<"FAMILY_LEGACY_V2_CODEC "<<checks<<" checks 0 failures\n";return 0;
+}catch(const std::exception& e){std::cerr<<e.what()<<'\n';return 1;}}

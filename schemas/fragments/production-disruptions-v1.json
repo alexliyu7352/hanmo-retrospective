@@ -1,0 +1,98 @@
+{
+  "format": "hanmo.schema.fragment/1",
+  "version": "production_disruptions/1",
+  "$defs": {
+    "production_disruption_cause": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/entity_id"
+        },
+        "source_key": {
+          "$ref": "#/$defs/entity_id"
+        },
+        "site_id": {
+          "$ref": "#/$defs/entity_id"
+        },
+        "reason_key": {
+          "$ref": "#/$defs/reference_texts"
+        },
+        "from_tick": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "through_tick": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "remaining_yield_bp": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 10000
+        },
+        "unit_ids": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 256,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/entity_id"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "source_key",
+        "site_id",
+        "reason_key",
+        "from_tick",
+        "through_tick",
+        "remaining_yield_bp",
+        "unit_ids"
+      ],
+      "additionalProperties": false
+    },
+    "dynamic_production_disruptions": {
+      "type": "object",
+      "properties": {
+        "version": {
+          "type": "integer",
+          "const": 1
+        },
+        "profile": {
+          "const": "authored_production_disruptions_v1"
+        },
+        "combination_policy": {
+          "const": "minimum_remaining_yield_v1"
+        },
+        "causes": {
+          "type": "object",
+          "minProperties": 1,
+          "maxProperties": 65536,
+          "additionalProperties": {
+            "$ref": "#/$defs/production_disruption_cause"
+          }
+        }
+      },
+      "required": [
+        "version",
+        "profile",
+        "combination_policy",
+        "causes"
+      ],
+      "additionalProperties": false,
+      "description": "明确时窗内只降低本期原潜在产量。各原因取最低剩余系数；材料、工资和口粮不返还，届满不补产。"
+    }
+  },
+  "property_target": "/$defs/dynamic_world/properties/production_disruptions",
+  "property_schema": {
+    "$ref": "#/$defs/dynamic_production_disruptions"
+  },
+  "required_capability": "production_disruptions_v1",
+  "integration_notes": [
+    "独立冷section1，原地方经济与ProductionReceipt载荷不变。",
+    "初态登记只证明有限作者计划；到期实际产出另记录损失及原收据。",
+    "完整links调用check_production_disruptions；三身份生产器登记同序module。",
+    "多个不同原因取最低系数是本显式v1合同，不能当其他profile的默认规则。"
+  ]
+}

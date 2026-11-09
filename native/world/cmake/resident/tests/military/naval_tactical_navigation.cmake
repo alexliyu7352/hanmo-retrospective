@@ -1,0 +1,7 @@
+# 军旅与战斗消费者登记：保留本组目标、测试、条件与局部变量的原执行顺序。
+# 航向累计、具名水流及合法原六角占格的有限只读报价门。
+add_executable(test_resident_naval_tactical_navigation tests/resident/naval_tactical_navigation_test.cpp)
+target_link_libraries(test_resident_naval_tactical_navigation PRIVATE hanmo_resident)
+target_include_directories(test_resident_naval_tactical_navigation PRIVATE src)
+target_compile_options(test_resident_naval_tactical_navigation PRIVATE -UNDEBUG -fno-fast-math -ffp-contract=off)
+add_test(NAME resident_naval_tactical_navigation COMMAND test_resident_naval_tactical_navigation)

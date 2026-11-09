@@ -1,0 +1,10 @@
+// 冷解码从不重新分发；严格结构读取后仍须由原生world调用完整来源validator。
+#include "resident/checkpoint/checkpoint_decode_lifecycle.hpp"
+#include "public_relief_codec.hpp"
+namespace hanmo::resident {
+Outcome<PublicReliefCatalog> decode_public_relief_catalog(const BoundaryValue& value){try{auto out=dynamic_economy_codec::decode_root<PublicReliefCatalog>(value,"/public_relief");if(out.version!=1)boundary::fail("UnsupportedPublicReliefVersion","/public_relief/version");return {true,std::move(out),{}};}catch(const boundary::DecodeFailure& error){return {false,{},error.error};}}
+Status emit_public_relief_state_fields(ProjectionWriter& writer,const PublicReliefState& state){try{if(state.version!=1)boundary::fail("UnsupportedPublicReliefVersion","/public_relief/version");return dynamic_economy_codec::emit_fields(writer,state);}catch(const boundary::DecodeFailure&failure){return writer.reject(failure.error.original.code,failure.error.original.path);}}
+BoundaryValue encode_public_relief_state(const PublicReliefState& state){BoundaryValue out;BoundaryProjectionWriter writer(out);auto valid=writer.object("",[&](auto&fields){return emit_public_relief_state_fields(fields,state);});if(valid.ok)valid=writer.finish();if(!valid.ok)throw boundary::DecodeFailure{valid.error};return out;}
+Outcome<PublicReliefState> decode_public_relief_state(const BoundaryValue& value){try{auto out=dynamic_economy_codec::decode_root<PublicReliefState>(value,"/public_relief");if(out.version!=1)boundary::fail("UnsupportedPublicReliefVersion","/public_relief/version");return {true,std::move(out),{}};}catch(const boundary::DecodeFailure& error){return {false,{},error.error};}}
+Status visit_public_relief_checkpoint(CodecVisitor& codec,PublicReliefState& state){if(!codec.reading()&&state.version!=1)return codec.reject("UnsupportedPublicReliefVersion","public_relief");auto result=dynamic_economy_codec::checkpoint(codec,"public_relief",state);if(!result.ok)return result;return state.version==1?codec.status():codec.reject("UnsupportedPublicReliefVersion","public_relief");}
+}

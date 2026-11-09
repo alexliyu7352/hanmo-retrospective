@@ -1,0 +1,56 @@
+{
+  "driver_commit": "4623a9513c0e8e7bf1c21085e03d7bd4c4f15bc3",
+  "driver_sha256": "bc423da7f16f7ac96a37cbb26c0582ecebc4e9cb83a5a821334e79763e31a6bb",
+  "core_source": "bda93f333a29baed9ae0b25e7dddedab7f5bd32b",
+  "core_archive_sha256": "9bb21dc5908ed56f6e2bafaa26b9aaf05a547f376c098ce84ddd73565e35589e",
+  "bridge_source": "eb8d5769bde66bca699cea3ede08419991eb2b16",
+  "bridge_so_sha256": "b40785bf9a8fdcd7b91b0658fe255cb0fc91473ee7086c2834c5b2ea43cb7da0",
+  "writer_source": "132e1cf",
+  "writer_sha256": "dc80eb282533379964a56f75d4bc06a7d560d8a8e23606d0ae59fd70b47309ef",
+  "slot_codec_sha256": "0881a5b19a3d5a62fe799f60775f219b071cb6630a4b067e75b1d7a3cddf0715",
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "returncode": 0,
+  "output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\nRESIDENT_SLOT_ROUNDTRIP_CHECKS=69 FAILURES=0 OK=true ROOT=<本地路径>\n",
+  "report": {
+    "banks": {
+      "manual-1.A.hmcheckpoint": "6f102d157015922f3adef4c3bdc5cad4e0e1ab18eee3c463ab3d35fd7cd7be4a",
+      "manual-1.B.hmcheckpoint": "d92042c23657b437feb760cd72fda5d4c8b5d6af5e0179ad2ce7e2e2da9f8412"
+    },
+    "checks": 69,
+    "failures": 0,
+    "identities": {
+      "after_restore": {
+        "execution_epoch": 2,
+        "revision": 2,
+        "tick": 1,
+        "world_id": "bc32a15a9e8e0fd848574669398bbabf"
+      },
+      "before_restore": {
+        "execution_epoch": 1,
+        "revision": 2,
+        "tick": 1,
+        "world_id": "bc32a15a9e8e0fd848574669398bbabf"
+      },
+      "initial": {
+        "execution_epoch": 1,
+        "revision": 0,
+        "tick": 0,
+        "world_id": "bc32a15a9e8e0fd848574669398bbabf"
+      }
+    },
+    "ok": true,
+    "scope": "Real single-session checkpoint validation and physical-slot roundtrip; one halfday only; no Main/GUI or historical-save migration acceptance"
+  },
+  "input_sha256": {
+    "<本地路径>": "f073fad93221014952b7eb80183382ce6cf2b6d1d6dde8c2c8ec80798be33f04",
+    "<本地路径>": "81529c4cfb82e0c834a85c0a8a0ab36a56c9593676883d48ca72af06511b2926",
+    "<本地路径>": "12815e78fea3e7950546b270d1b6316d121435c1a21291e8043d263e528534b7",
+    "<本地路径>": "d49f1c4b20e858454418cd2c4304a42b0a2ac59a0b996949197e41b0290beaa1"
+  },
+  "case_files_sha256": {
+    "manual-1.A.hmcheckpoint": "6f102d157015922f3adef4c3bdc5cad4e0e1ab18eee3c463ab3d35fd7cd7be4a",
+    "manual-1.B.hmcheckpoint": "d92042c23657b437feb760cd72fda5d4c8b5d6af5e0179ad2ce7e2e2da9f8412",
+    "report.json": "d533d9173058c57e822867a1c5cc287dd7ca155ab32cf25bba2abdd8009a3a24"
+  },
+  "scope": "One real 100-actor resident session, one original travel command, exactly one halfday, real validation hashes through existing physical bank writer, same-session failure preservation and successful restore/new epoch. No old85/104/18 reruns, Main/GUI or historical migration claim."
+}

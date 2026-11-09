@@ -1,0 +1,27 @@
+{
+  "version": 2,
+  "backgrounds": {
+    "camp": {
+      "path": "res://assets/art/project/alpha-camp/camp-courtyard.png"
+    },
+    "valley": {
+      "path": "res://assets/art/project/alpha-military/valley.png"
+    }
+  },
+  "portraits": {
+    "official": {
+      "path": "res://assets/art/project/alpha-visual/official.png"
+    },
+    "infantry": {
+      "path": "res://assets/art/project/alpha-military/infantry.png"
+    },
+    "archers": {
+      "path": "res://assets/art/project/alpha-military/archers.png"
+    }
+  },
+  "components": {},
+  "character_profiles": {},
+  "scene_templates": {},
+  "default_background": "camp",
+  "default_portrait": "official"
+}

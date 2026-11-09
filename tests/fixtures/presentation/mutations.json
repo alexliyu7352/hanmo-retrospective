@@ -1,0 +1,1502 @@
+[
+  {
+    "name": "missing_component",
+    "patches": [
+      {
+        "op": "replace",
+        "path": "/character_profiles/fixture.person/age_variants/0/components/0",
+        "value": "absent"
+      }
+    ],
+    "code": "MissingComponent",
+    "path": "/character_profiles/fixture.person/age_variants/0/components/0"
+  },
+  {
+    "name": "child_adult_garment",
+    "patches": [
+      {
+        "op": "replace",
+        "path": "/character_profiles/fixture.person/attire_sets/0/bindings/0/components/0",
+        "value": "adult.garment"
+      }
+    ],
+    "code": "IncompatibleBody",
+    "path": "/character_profiles/fixture.person/attire_sets/0/bindings/0"
+  },
+  {
+    "name": "missing_child_base",
+    "patches": [
+      {
+        "op": "replace",
+        "path": "/character_profiles/fixture.person/age_variants/0/components",
+        "value": []
+      }
+    ],
+    "code": "RequiredSlot",
+    "path": "/character_profiles/fixture.person/attire_sets/0/bindings/0"
+  },
+  {
+    "name": "age_overlap",
+    "patches": [
+      {
+        "op": "replace",
+        "path": "/character_profiles/fixture.person/age_variants/1/ages/0",
+        "value": 15
+      }
+    ],
+    "code": "AgeCoverage",
+    "path": "/character_profiles/fixture.person/age_variants/1/ages"
+  },
+  {
+    "name": "age_gap",
+    "patches": [
+      {
+        "op": "replace",
+        "path": "/character_profiles/fixture.person/age_variants/1/ages/0",
+        "value": 17
+      }
+    ],
+    "code": "AgeCoverage",
+    "path": "/character_profiles/fixture.person/age_variants/1/ages"
+  },
+  {
+    "name": "child_proportion",
+    "patches": [
+      {
+        "op": "replace",
+        "path": "/character_profiles/fixture.person/age_variants/0/proportion",
+        "value": "adult"
+      }
+    ],
+    "code": "ChildBasis",
+    "path": "/character_profiles/fixture.person/age_variants/0"
+  },
+  {
+    "name": "component_identity",
+    "patches": [
+      {
+        "op": "replace",
+        "path": "/components/child.body/id",
+        "value": "wrong"
+      }
+    ],
+    "code": "RecordIdentity",
+    "path": "/components/child.body/id"
+  },
+  {
+    "name": "qualified_asset",
+    "patches": [
+      {
+        "op": "replace",
+        "path": "/components/child.body/asset_id",
+        "value": "backgrounds/fixture.child"
+      }
+    ],
+    "code": "MissingAssetReference",
+    "path": "/components/child.body/asset_id"
+  },
+  {
+    "name": "missing_image",
+    "patches": [
+      {
+        "op": "replace",
+        "path": "/portraits/fixture.child-body/path",
+        "value": "res://assets/art/presentation-fixtures/absent.png"
+      }
+    ],
+    "code": "MissingAsset",
+    "path": "/portraits/fixture.child-body/path"
+  },
+  {
+    "name": "escape_path",
+    "patches": [
+      {
+        "op": "replace",
+        "path": "/portraits/fixture.child-body/path",
+        "value": "res://assets/art/../else.png"
+      }
+    ],
+    "code": "AssetPath",
+    "path": "/portraits/fixture.child-body/path"
+  },
+  {
+    "name": "unknown_pose",
+    "patches": [
+      {
+        "op": "replace",
+        "path": "/components/child.body/geometry/pose",
+        "value": "run"
+      }
+    ],
+    "code": "",
+    "path": "/components/child.body/geometry/pose"
+  },
+  {
+    "name": "unknown_slot",
+    "patches": [
+      {
+        "op": "replace",
+        "path": "/components/child.body/slot",
+        "value": "callback"
+      }
+    ],
+    "code": "",
+    "path": "/components/child.body/slot"
+  },
+  {
+    "name": "script",
+    "patches": [
+      {
+        "op": "add",
+        "path": "/components/child.body/script",
+        "value": "res://ui/main.gd"
+      }
+    ],
+    "code": "",
+    "path": "/components/child.body/script"
+  },
+  {
+    "name": "zero_dimension",
+    "patches": [
+      {
+        "op": "replace",
+        "path": "/components/child.body/geometry/source_size/0",
+        "value": 0
+      }
+    ],
+    "code": "",
+    "path": "/components/child.body/geometry/source_size/0"
+  },
+  {
+    "name": "wrong_dimension",
+    "patches": [
+      {
+        "op": "replace",
+        "path": "/components/child.body/geometry/source_size/0",
+        "value": 7
+      }
+    ],
+    "code": "SourceSize",
+    "path": "/components/child.body/geometry/source_size"
+  },
+  {
+    "name": "wrong_alpha",
+    "patches": [
+      {
+        "op": "replace",
+        "path": "/components/child.body/geometry/alpha_bounds",
+        "value": [
+          0,
+          0,
+          8,
+          8
+        ]
+      }
+    ],
+    "code": "AlphaBounds",
+    "path": "/components/child.body/geometry/alpha_bounds"
+  },
+  {
+    "name": "bad_crop",
+    "patches": [
+      {
+        "op": "replace",
+        "path": "/components/child.body/geometry/safe_crop",
+        "value": [
+          0,
+          0,
+          9,
+          8
+        ]
+      }
+    ],
+    "code": "GeometryBounds",
+    "path": "/components/child.body/geometry/safe_crop"
+  },
+  {
+    "name": "bad_anchor",
+    "patches": [
+      {
+        "op": "replace",
+        "path": "/components/child.body/anchor",
+        "value": [
+          101,
+          50
+        ]
+      }
+    ],
+    "code": "",
+    "path": "/components/child.body/anchor"
+  },
+  {
+    "name": "bad_baseline",
+    "patches": [
+      {
+        "op": "replace",
+        "path": "/components/child.body/geometry/support_point",
+        "value": [
+          50,
+          101
+        ]
+      }
+    ],
+    "code": "",
+    "path": "/components/child.body/geometry/support_point"
+  },
+  {
+    "name": "mask_reference",
+    "patches": [
+      {
+        "op": "replace",
+        "path": "/components/child.body/geometry/mask_ids",
+        "value": [
+          "absent"
+        ]
+      }
+    ],
+    "code": "MissingComponent",
+    "path": "/components/child.body/geometry/mask_ids/0"
+  },
+  {
+    "name": "palette_reference",
+    "patches": [
+      {
+        "op": "replace",
+        "path": "/components/child.body/geometry/palette_slots",
+        "value": [
+          "absent"
+        ]
+      }
+    ],
+    "code": "",
+    "path": "/components/child.body/geometry/palette_slots"
+  },
+  {
+    "name": "incompatible_tags",
+    "patches": [
+      {
+        "op": "replace",
+        "path": "/components/child.garment/incompatible_tags",
+        "value": [
+          "child"
+        ]
+      }
+    ],
+    "code": "ContradictoryTags",
+    "path": "/components/child.garment"
+  },
+  {
+    "name": "required_tags",
+    "patches": [
+      {
+        "op": "replace",
+        "path": "/components/child.garment/compatible_tags",
+        "value": [
+          "unknown"
+        ]
+      }
+    ],
+    "code": "IncompatibleTags",
+    "path": "/character_profiles/fixture.person/attire_sets/0/bindings/0"
+  },
+  {
+    "name": "duplicate_slot",
+    "patches": [
+      {
+        "op": "replace",
+        "path": "/character_profiles/fixture.person/age_variants/0/components",
+        "value": [
+          "child.body",
+          "child.body"
+        ]
+      }
+    ],
+    "code": "DuplicateSlot",
+    "path": "/character_profiles/fixture.person/attire_sets/0/bindings/0"
+  },
+  {
+    "name": "after_self",
+    "patches": [
+      {
+        "op": "replace",
+        "path": "/components/child.body/after",
+        "value": [
+          "child.body"
+        ]
+      }
+    ],
+    "code": "CompositionCycle",
+    "path": "/character_profiles/fixture.person/attire_sets/0/bindings/0"
+  },
+  {
+    "name": "fallback_self",
+    "patches": [
+      {
+        "op": "replace",
+        "path": "/character_profiles/fixture.person/fallbacks",
+        "value": [
+          "fixture.person"
+        ]
+      }
+    ],
+    "code": "FallbackCycle",
+    "path": "/character_profiles/fixture.person/fallbacks"
+  },
+  {
+    "name": "fallback_missing",
+    "patches": [
+      {
+        "op": "replace",
+        "path": "/character_profiles/fixture.person/fallbacks",
+        "value": [
+          "absent"
+        ]
+      }
+    ],
+    "code": "MissingProfile",
+    "path": "/character_profiles/fixture.person/fallbacks/0"
+  },
+  {
+    "name": "fallback_age",
+    "patches": [
+      {
+        "op": "replace",
+        "path": "/character_profiles/fixture.dedicated/age_domain",
+        "value": [
+          0,
+          81
+        ]
+      }
+    ],
+    "code": "AgeCoverage",
+    "path": "/character_profiles/fixture.dedicated/age_domain"
+  },
+  {
+    "name": "override_overlap",
+    "patches": [
+      {
+        "op": "replace",
+        "path": "/character_profiles/fixture.dedicated/overrides",
+        "value": [
+          {
+            "id": "young",
+            "ages": [
+              0,
+              15
+            ],
+            "view": "half_body",
+            "pose": "idle",
+            "context": "daily",
+            "priority": 10,
+            "asset_id": "portraits/fixture.child-body",
+            "body_basis": "child.front",
+            "proportion": "child",
+            "geometry": {
+              "source_size": [
+                8,
+                8
+              ],
+              "logical_canvas": [
+                8,
+                8
+              ],
+              "alpha_bounds": [
+                2,
+                2,
+                4,
+                6
+              ],
+              "safe_crop": [
+                0,
+                0,
+                8,
+                8
+              ],
+              "support_kind": "half_body_bottom",
+              "support_point": [
+                50,
+                100
+              ],
+              "pose": "idle",
+              "facing": "front",
+              "view": "half_body",
+              "mask_ids": [],
+              "palette_slots": []
+            }
+          },
+          {
+            "id": "grown",
+            "ages": [
+              16,
+              80
+            ],
+            "view": "half_body",
+            "pose": "idle",
+            "context": "daily",
+            "priority": 10,
+            "asset_id": "portraits/fixture.adult-body",
+            "body_basis": "adult.front",
+            "proportion": "adult",
+            "geometry": {
+              "source_size": [
+                8,
+                8
+              ],
+              "logical_canvas": [
+                8,
+                8
+              ],
+              "alpha_bounds": [
+                2,
+                0,
+                4,
+                8
+              ],
+              "safe_crop": [
+                0,
+                0,
+                8,
+                8
+              ],
+              "support_kind": "half_body_bottom",
+              "support_point": [
+                50,
+                100
+              ],
+              "pose": "idle",
+              "facing": "front",
+              "view": "half_body",
+              "mask_ids": [],
+              "palette_slots": []
+            }
+          },
+          {
+            "id": "conflict",
+            "ages": [
+              0,
+              15
+            ],
+            "view": "half_body",
+            "pose": "idle",
+            "context": "daily",
+            "priority": 10,
+            "asset_id": "portraits/fixture.child-body",
+            "body_basis": "child.front",
+            "proportion": "child",
+            "geometry": {
+              "source_size": [
+                8,
+                8
+              ],
+              "logical_canvas": [
+                8,
+                8
+              ],
+              "alpha_bounds": [
+                2,
+                2,
+                4,
+                6
+              ],
+              "safe_crop": [
+                0,
+                0,
+                8,
+                8
+              ],
+              "support_kind": "half_body_bottom",
+              "support_point": [
+                50,
+                100
+              ],
+              "pose": "idle",
+              "facing": "front",
+              "view": "half_body",
+              "mask_ids": [],
+              "palette_slots": []
+            }
+          }
+        ]
+      }
+    ],
+    "code": "OverrideOverlap",
+    "path": "/character_profiles/fixture.dedicated/overrides/2"
+  },
+  {
+    "name": "override_age",
+    "patches": [
+      {
+        "op": "replace",
+        "path": "/character_profiles/fixture.dedicated/overrides/0/ages",
+        "value": [
+          0,
+          16
+        ]
+      }
+    ],
+    "code": "OverrideAge",
+    "path": "/character_profiles/fixture.dedicated/overrides/0"
+  },
+  {
+    "name": "unknown_layer",
+    "patches": [
+      {
+        "op": "replace",
+        "path": "/scene_templates/fixture.room/layers/0/kind",
+        "value": "script"
+      }
+    ],
+    "code": "",
+    "path": "/scene_templates/fixture.room/layers/0/kind"
+  },
+  {
+    "name": "duplicate_layer",
+    "patches": [
+      {
+        "op": "replace",
+        "path": "/scene_templates/fixture.room/layers/1/id",
+        "value": "back"
+      }
+    ],
+    "code": "DuplicateLayer",
+    "path": "/scene_templates/fixture.room/layers/1/id"
+  },
+  {
+    "name": "missing_scene_profile",
+    "patches": [
+      {
+        "op": "replace",
+        "path": "/scene_templates/fixture.room/layers/1/profile_id",
+        "value": "absent"
+      }
+    ],
+    "code": "MissingProfile",
+    "path": "/scene_templates/fixture.room/layers/1/profile_id"
+  },
+  {
+    "name": "scene_cycle",
+    "patches": [
+      {
+        "op": "replace",
+        "path": "/scene_templates/fixture.room/layers/0/after",
+        "value": [
+          "inspect"
+        ]
+      }
+    ],
+    "code": "SceneCycle",
+    "path": "/scene_templates/fixture.room/layers"
+  },
+  {
+    "name": "hotspot_target",
+    "patches": [
+      {
+        "op": "replace",
+        "path": "/scene_templates/fixture.room/layers/2/target_layer_id",
+        "value": "absent"
+      }
+    ],
+    "code": "MissingLayer",
+    "path": "/scene_templates/fixture.room/layers/2/target_layer_id"
+  },
+  {
+    "name": "bad_safe_area",
+    "patches": [
+      {
+        "op": "replace",
+        "path": "/scene_templates/fixture.room/ui_safe_areas/0",
+        "value": [
+          0,
+          0,
+          9,
+          8
+        ]
+      }
+    ],
+    "code": "GeometryBounds",
+    "path": "/scene_templates/fixture.room/ui_safe_areas/0"
+  },
+  {
+    "name": "missing_background",
+    "patches": [
+      {
+        "op": "replace",
+        "path": "/scene_templates/fixture.room/layers/0/kind",
+        "value": "building"
+      }
+    ],
+    "code": "RequiredBackground",
+    "path": "/scene_templates/fixture.room/layers"
+  },
+  {
+    "name": "two_node_order_cycle",
+    "patches": [
+      {
+        "op": "replace",
+        "path": "/components/child.body/after",
+        "value": [
+          "child.garment"
+        ]
+      },
+      {
+        "op": "replace",
+        "path": "/components/child.garment/after",
+        "value": [
+          "child.body"
+        ]
+      }
+    ],
+    "code": "CompositionCycle",
+    "path": "/character_profiles/fixture.person/attire_sets/0/bindings/0"
+  },
+  {
+    "name": "two_node_fallback_cycle",
+    "patches": [
+      {
+        "op": "replace",
+        "path": "/character_profiles/fixture.person/fallbacks",
+        "value": [
+          "fixture.second"
+        ]
+      },
+      {
+        "op": "replace",
+        "path": "/character_profiles/fixture.second/fallbacks",
+        "value": [
+          "fixture.person"
+        ]
+      }
+    ],
+    "code": "FallbackCycle",
+    "path": "/character_profiles/fixture.person/fallbacks"
+  },
+  {
+    "name": "incompatible_age_fallback",
+    "patches": [
+      {
+        "op": "replace",
+        "path": "/character_profiles/fixture.person/fallbacks",
+        "value": [
+          "fixture.second"
+        ]
+      },
+      {
+        "op": "replace",
+        "path": "/character_profiles/fixture.second",
+        "value": {
+          "id": "fixture.second",
+          "identity_group": "fixture.identity",
+          "mode": "composite",
+          "view": "half_body",
+          "pose": "idle",
+          "context": "daily",
+          "age_domain": [
+            16,
+            80
+          ],
+          "child_max_age": 15,
+          "age_variants": [
+            {
+              "id": "grown",
+              "ages": [
+                16,
+                80
+              ],
+              "body_basis": "adult.front",
+              "proportion": "adult",
+              "components": [
+                "adult.body"
+              ]
+            }
+          ],
+          "attire_sets": [
+            {
+              "id": "plain",
+              "bindings": [
+                {
+                  "body_basis": "adult.front",
+                  "components": [
+                    "adult.garment"
+                  ]
+                }
+              ]
+            }
+          ],
+          "overrides": [],
+          "fallbacks": [],
+          "battle_profile": {
+            "style": "simple",
+            "profile_id": "fixture.battle"
+          }
+        }
+      }
+    ],
+    "code": "FallbackCompatibility",
+    "path": "/character_profiles/fixture.person/fallbacks/0"
+  },
+  {
+    "name": "cross_identity_fallback",
+    "patches": [
+      {
+        "op": "replace",
+        "path": "/character_profiles/fixture.dedicated/identity_group",
+        "value": "other.person"
+      }
+    ],
+    "code": "FallbackCompatibility",
+    "path": "/character_profiles/fixture.dedicated/fallbacks/0"
+  },
+  {
+    "name": "absent_attire_basis",
+    "patches": [
+      {
+        "op": "replace",
+        "path": "/character_profiles/fixture.person/attire_sets/0/bindings",
+        "value": [
+          {
+            "body_basis": "adult.front",
+            "components": [
+              "adult.garment"
+            ]
+          }
+        ]
+      }
+    ],
+    "code": "AttireCoverage",
+    "path": "/character_profiles/fixture.person/attire_sets/0/bindings"
+  },
+  {
+    "name": "mask_wrong_slot",
+    "patches": [
+      {
+        "op": "replace",
+        "path": "/components/child.body/geometry/mask_ids",
+        "value": [
+          "child.garment"
+        ]
+      }
+    ],
+    "code": "MaskSlot",
+    "path": "/components/child.body/geometry/mask_ids/0"
+  },
+  {
+    "name": "unknown_component_order",
+    "patches": [
+      {
+        "op": "replace",
+        "path": "/components/child.body/after",
+        "value": [
+          "missing"
+        ]
+      }
+    ],
+    "code": "MissingComponent",
+    "path": "/components/child.body/after/0"
+  },
+  {
+    "name": "unknown_node_class",
+    "patches": [
+      {
+        "op": "replace",
+        "path": "/scene_templates/fixture.room/layers/1/node_type",
+        "value": "Node2D"
+      }
+    ],
+    "code": "",
+    "path": ""
+  },
+  {
+    "name": "bad_actor_position",
+    "patches": [
+      {
+        "op": "replace",
+        "path": "/scene_templates/fixture.room/layers/1/position",
+        "value": [
+          -1,
+          50
+        ]
+      }
+    ],
+    "code": "",
+    "path": ""
+  },
+  {
+    "name": "bad_hotspot_rect",
+    "patches": [
+      {
+        "op": "replace",
+        "path": "/scene_templates/fixture.room/layers/2/rect",
+        "value": [
+          90,
+          90,
+          20,
+          20
+        ]
+      }
+    ],
+    "code": "GeometryBounds",
+    "path": "/scene_templates/fixture.room/layers/2/rect"
+  },
+  {
+    "name": "zero_logical_canvas",
+    "patches": [
+      {
+        "op": "replace",
+        "path": "/components/child.body/geometry/logical_canvas",
+        "value": [
+          0,
+          8
+        ]
+      }
+    ],
+    "code": "",
+    "path": ""
+  },
+  {
+    "name": "recursive_battle",
+    "patches": [
+      {
+        "op": "replace",
+        "path": "/character_profiles/fixture.battle/battle_profile",
+        "value": {
+          "style": "simple",
+          "profile_id": "fixture.battle"
+        }
+      }
+    ],
+    "code": "BattleCompatibility",
+    "path": "/character_profiles/fixture.battle/battle_profile/profile_id"
+  },
+  {
+    "name": "intrinsic_tag_conflict",
+    "patches": [
+      {
+        "op": "replace",
+        "path": "/components/unused",
+        "value": {
+          "id": "unused",
+          "slot": "body",
+          "asset_id": "portraits/fixture.child-body",
+          "body_basis": "child.front",
+          "proportion": "child",
+          "anchor": [
+            50,
+            50
+          ],
+          "z_index": 0,
+          "tags": [
+            "child"
+          ],
+          "compatible_tags": [
+            "required"
+          ],
+          "incompatible_tags": [
+            "required"
+          ],
+          "after": [],
+          "geometry": {
+            "source_size": [
+              8,
+              8
+            ],
+            "logical_canvas": [
+              8,
+              8
+            ],
+            "alpha_bounds": [
+              2,
+              2,
+              4,
+              6
+            ],
+            "safe_crop": [
+              0,
+              0,
+              8,
+              8
+            ],
+            "support_kind": "half_body_bottom",
+            "support_point": [
+              50,
+              100
+            ],
+            "pose": "idle",
+            "facing": "front",
+            "view": "half_body",
+            "mask_ids": [],
+            "palette_slots": []
+          }
+        }
+      }
+    ],
+    "code": "ContradictoryTags",
+    "path": "/components/unused"
+  },
+  {
+    "name": "late_profile_failure",
+    "patches": [
+      {
+        "op": "replace",
+        "path": "/character_profiles/fixture.second/age_variants/1/components/0",
+        "value": "missing"
+      }
+    ],
+    "code": "MissingComponent",
+    "path": "/character_profiles/fixture.second/age_variants/1/components/0"
+  },
+  {
+    "name": "late_resource_failure",
+    "patches": [
+      {
+        "op": "replace",
+        "path": "/portraits/zz.late",
+        "value": {
+          "path": "res://assets/art/presentation-fixtures/absent.png"
+        }
+      }
+    ],
+    "code": "MissingAsset",
+    "path": "/portraits/zz.late/path"
+  },
+  {
+    "name": "unused_component_cycle",
+    "patches": [
+      {
+        "op": "replace",
+        "path": "/components/unused.one",
+        "value": {
+          "id": "unused.one",
+          "slot": "body",
+          "asset_id": "portraits/fixture.child-body",
+          "body_basis": "child.front",
+          "proportion": "child",
+          "anchor": [
+            50,
+            50
+          ],
+          "z_index": 0,
+          "tags": [
+            "child"
+          ],
+          "compatible_tags": [
+            "child"
+          ],
+          "incompatible_tags": [],
+          "after": [
+            "unused.two"
+          ],
+          "geometry": {
+            "source_size": [
+              8,
+              8
+            ],
+            "logical_canvas": [
+              8,
+              8
+            ],
+            "alpha_bounds": [
+              2,
+              2,
+              4,
+              6
+            ],
+            "safe_crop": [
+              0,
+              0,
+              8,
+              8
+            ],
+            "support_kind": "half_body_bottom",
+            "support_point": [
+              50,
+              100
+            ],
+            "pose": "idle",
+            "facing": "front",
+            "view": "half_body",
+            "mask_ids": [],
+            "palette_slots": []
+          }
+        }
+      },
+      {
+        "op": "replace",
+        "path": "/components/unused.two",
+        "value": {
+          "id": "unused.two",
+          "slot": "body",
+          "asset_id": "portraits/fixture.child-body",
+          "body_basis": "child.front",
+          "proportion": "child",
+          "anchor": [
+            50,
+            50
+          ],
+          "z_index": 0,
+          "tags": [
+            "child"
+          ],
+          "compatible_tags": [
+            "child"
+          ],
+          "incompatible_tags": [],
+          "after": [
+            "unused.one"
+          ],
+          "geometry": {
+            "source_size": [
+              8,
+              8
+            ],
+            "logical_canvas": [
+              8,
+              8
+            ],
+            "alpha_bounds": [
+              2,
+              2,
+              4,
+              6
+            ],
+            "safe_crop": [
+              0,
+              0,
+              8,
+              8
+            ],
+            "support_kind": "half_body_bottom",
+            "support_point": [
+              50,
+              100
+            ],
+            "pose": "idle",
+            "facing": "front",
+            "view": "half_body",
+            "mask_ids": [],
+            "palette_slots": []
+          }
+        }
+      }
+    ],
+    "code": "CompositionCycle",
+    "path": "/components"
+  },
+  {
+    "name": "escaped_invalid_key",
+    "patches": [
+      {
+        "op": "add",
+        "path": "/components/bad~1id",
+        "value": {
+          "id": "bad/id",
+          "slot": "body",
+          "asset_id": "portraits/fixture.child-body",
+          "body_basis": "child.front",
+          "proportion": "child",
+          "anchor": [
+            50,
+            50
+          ],
+          "z_index": 0,
+          "tags": [
+            "child"
+          ],
+          "compatible_tags": [
+            "child"
+          ],
+          "incompatible_tags": [],
+          "after": [],
+          "geometry": {
+            "source_size": [
+              8,
+              8
+            ],
+            "logical_canvas": [
+              8,
+              8
+            ],
+            "alpha_bounds": [
+              2,
+              2,
+              4,
+              6
+            ],
+            "safe_crop": [
+              0,
+              0,
+              8,
+              8
+            ],
+            "support_kind": "half_body_bottom",
+            "support_point": [
+              50,
+              100
+            ],
+            "pose": "idle",
+            "facing": "front",
+            "view": "half_body",
+            "mask_ids": [],
+            "palette_slots": []
+          }
+        }
+      }
+    ],
+    "code": "InvalidKey",
+    "path": "/components/bad~1id"
+  },
+  {
+    "name": "combat_battle_wrong_identity",
+    "patches": [
+      {
+        "op": "replace",
+        "path": "/character_profiles/fixture.battle/pose",
+        "value": "combat"
+      },
+      {
+        "op": "replace",
+        "path": "/components/child.body.battle/geometry/pose",
+        "value": "combat"
+      },
+      {
+        "op": "replace",
+        "path": "/components/child.garment.battle/geometry/pose",
+        "value": "combat"
+      },
+      {
+        "op": "replace",
+        "path": "/components/adult.body.battle/geometry/pose",
+        "value": "combat"
+      },
+      {
+        "op": "replace",
+        "path": "/components/adult.garment.battle/geometry/pose",
+        "value": "combat"
+      },
+      {
+        "op": "replace",
+        "path": "/character_profiles/fixture.battle/identity_group",
+        "value": "different.person"
+      }
+    ],
+    "code": "BattleCompatibility",
+    "path": "/character_profiles/fixture.person/battle_profile/profile_id"
+  },
+  {
+    "name": "combat_battle_missing_child_age",
+    "patches": [
+      {
+        "op": "replace",
+        "path": "/character_profiles/fixture.battle/pose",
+        "value": "combat"
+      },
+      {
+        "op": "replace",
+        "path": "/components/child.body.battle/geometry/pose",
+        "value": "combat"
+      },
+      {
+        "op": "replace",
+        "path": "/components/child.garment.battle/geometry/pose",
+        "value": "combat"
+      },
+      {
+        "op": "replace",
+        "path": "/components/adult.body.battle/geometry/pose",
+        "value": "combat"
+      },
+      {
+        "op": "replace",
+        "path": "/components/adult.garment.battle/geometry/pose",
+        "value": "combat"
+      },
+      {
+        "op": "replace",
+        "path": "/character_profiles/fixture.battle",
+        "value": {
+          "id": "fixture.battle",
+          "identity_group": "fixture.identity",
+          "mode": "composite",
+          "view": "battle",
+          "pose": "combat",
+          "context": "battle",
+          "age_domain": [
+            16,
+            80
+          ],
+          "child_max_age": 15,
+          "age_variants": [
+            {
+              "id": "grown",
+              "ages": [
+                16,
+                80
+              ],
+              "body_basis": "adult.front",
+              "proportion": "adult",
+              "components": [
+                "adult.body.battle"
+              ]
+            }
+          ],
+          "attire_sets": [
+            {
+              "id": "plain",
+              "bindings": [
+                {
+                  "body_basis": "adult.front",
+                  "components": [
+                    "adult.garment.battle"
+                  ]
+                }
+              ]
+            }
+          ],
+          "overrides": [],
+          "fallbacks": [],
+          "battle_profile": {
+            "style": "none"
+          }
+        }
+      }
+    ],
+    "code": "BattleCompatibility",
+    "path": "/character_profiles/fixture.person/battle_profile/profile_id"
+  },
+  {
+    "name": "combat_battle_wrong_context",
+    "patches": [
+      {
+        "op": "replace",
+        "path": "/character_profiles/fixture.battle/pose",
+        "value": "combat"
+      },
+      {
+        "op": "replace",
+        "path": "/components/child.body.battle/geometry/pose",
+        "value": "combat"
+      },
+      {
+        "op": "replace",
+        "path": "/components/child.garment.battle/geometry/pose",
+        "value": "combat"
+      },
+      {
+        "op": "replace",
+        "path": "/components/adult.body.battle/geometry/pose",
+        "value": "combat"
+      },
+      {
+        "op": "replace",
+        "path": "/components/adult.garment.battle/geometry/pose",
+        "value": "combat"
+      },
+      {
+        "op": "replace",
+        "path": "/character_profiles/fixture.battle/context",
+        "value": "daily"
+      }
+    ],
+    "code": "BattleCompatibility",
+    "path": "/character_profiles/fixture.person/battle_profile/profile_id"
+  },
+  {
+    "name": "combat_battle_wrong_child_cutoff",
+    "patches": [
+      {
+        "op": "replace",
+        "path": "/character_profiles/fixture.battle/pose",
+        "value": "combat"
+      },
+      {
+        "op": "replace",
+        "path": "/components/child.body.battle/geometry/pose",
+        "value": "combat"
+      },
+      {
+        "op": "replace",
+        "path": "/components/child.garment.battle/geometry/pose",
+        "value": "combat"
+      },
+      {
+        "op": "replace",
+        "path": "/components/adult.body.battle/geometry/pose",
+        "value": "combat"
+      },
+      {
+        "op": "replace",
+        "path": "/components/adult.garment.battle/geometry/pose",
+        "value": "combat"
+      },
+      {
+        "op": "replace",
+        "path": "/character_profiles/fixture.battle/child_max_age",
+        "value": 14
+      },
+      {
+        "op": "replace",
+        "path": "/character_profiles/fixture.battle/age_variants/0/ages",
+        "value": [
+          0,
+          14
+        ]
+      },
+      {
+        "op": "replace",
+        "path": "/character_profiles/fixture.battle/age_variants/1/ages",
+        "value": [
+          15,
+          80
+        ]
+      }
+    ],
+    "code": "BattleCompatibility",
+    "path": "/character_profiles/fixture.person/battle_profile/profile_id"
+  },
+  {
+    "name": "combat_battle_adult_clothes_on_child",
+    "patches": [
+      {
+        "op": "replace",
+        "path": "/character_profiles/fixture.battle/pose",
+        "value": "combat"
+      },
+      {
+        "op": "replace",
+        "path": "/components/child.body.battle/geometry/pose",
+        "value": "combat"
+      },
+      {
+        "op": "replace",
+        "path": "/components/child.garment.battle/geometry/pose",
+        "value": "combat"
+      },
+      {
+        "op": "replace",
+        "path": "/components/adult.body.battle/geometry/pose",
+        "value": "combat"
+      },
+      {
+        "op": "replace",
+        "path": "/components/adult.garment.battle/geometry/pose",
+        "value": "combat"
+      },
+      {
+        "op": "replace",
+        "path": "/character_profiles/fixture.battle/attire_sets/0/bindings/0/components",
+        "value": [
+          "adult.garment.battle"
+        ]
+      }
+    ],
+    "code": "IncompatibleBody",
+    "path": "/character_profiles/fixture.battle/attire_sets/0/bindings/0"
+  },
+  {
+    "name": "combat_battle_unsatisfied_tags",
+    "patches": [
+      {
+        "op": "replace",
+        "path": "/character_profiles/fixture.battle/pose",
+        "value": "combat"
+      },
+      {
+        "op": "replace",
+        "path": "/components/child.body.battle/geometry/pose",
+        "value": "combat"
+      },
+      {
+        "op": "replace",
+        "path": "/components/child.garment.battle/geometry/pose",
+        "value": "combat"
+      },
+      {
+        "op": "replace",
+        "path": "/components/adult.body.battle/geometry/pose",
+        "value": "combat"
+      },
+      {
+        "op": "replace",
+        "path": "/components/adult.garment.battle/geometry/pose",
+        "value": "combat"
+      },
+      {
+        "op": "replace",
+        "path": "/components/child.garment.battle/compatible_tags",
+        "value": [
+          "missing"
+        ]
+      }
+    ],
+    "code": "IncompatibleTags",
+    "path": "/character_profiles/fixture.battle/attire_sets/0/bindings/0"
+  },
+  {
+    "name": "combat_battle_mismatched_component_pose",
+    "patches": [
+      {
+        "op": "replace",
+        "path": "/character_profiles/fixture.battle/pose",
+        "value": "combat"
+      },
+      {
+        "op": "replace",
+        "path": "/components/child.body.battle/geometry/pose",
+        "value": "combat"
+      },
+      {
+        "op": "replace",
+        "path": "/components/child.garment.battle/geometry/pose",
+        "value": "combat"
+      },
+      {
+        "op": "replace",
+        "path": "/components/adult.body.battle/geometry/pose",
+        "value": "combat"
+      },
+      {
+        "op": "replace",
+        "path": "/components/adult.garment.battle/geometry/pose",
+        "value": "combat"
+      },
+      {
+        "op": "replace",
+        "path": "/components/child.body.battle/geometry/pose",
+        "value": "idle"
+      }
+    ],
+    "code": "IncompatibleGeometry",
+    "path": "/character_profiles/fixture.battle/attire_sets/0/bindings/0"
+  },
+  {
+    "name": "fallback_still_requires_same_pose",
+    "patches": [
+      {
+        "op": "replace",
+        "path": "/character_profiles/fixture.dedicated/pose",
+        "value": "walk"
+      },
+      {
+        "op": "replace",
+        "path": "/character_profiles/fixture.dedicated/overrides/0/pose",
+        "value": "walk"
+      },
+      {
+        "op": "replace",
+        "path": "/character_profiles/fixture.dedicated/overrides/0/geometry/pose",
+        "value": "walk"
+      },
+      {
+        "op": "replace",
+        "path": "/character_profiles/fixture.dedicated/overrides/1/pose",
+        "value": "walk"
+      },
+      {
+        "op": "replace",
+        "path": "/character_profiles/fixture.dedicated/overrides/1/geometry/pose",
+        "value": "walk"
+      }
+    ],
+    "code": "FallbackCompatibility",
+    "path": "/character_profiles/fixture.dedicated/fallbacks/0"
+  }
+]

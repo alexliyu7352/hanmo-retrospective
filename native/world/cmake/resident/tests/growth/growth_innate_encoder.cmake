@@ -1,0 +1,7 @@
+# 成长与教学消费者登记：保留本组目标、测试、条件与局部变量的原执行顺序。
+# 原Growth编码器固定五个显式开关，旧字节与先天来源准入在同一实际链接入口核验。
+add_executable(test_resident_growth_innate_encoder tests/resident/growth_innate_encoder_test.cpp)
+target_link_libraries(test_resident_growth_innate_encoder PRIVATE hanmo_resident)
+target_include_directories(test_resident_growth_innate_encoder PRIVATE src)
+target_compile_options(test_resident_growth_innate_encoder PRIVATE -UNDEBUG -fno-fast-math -ffp-contract=off)
+add_test(NAME resident_growth_innate_encoder COMMAND test_resident_growth_innate_encoder)

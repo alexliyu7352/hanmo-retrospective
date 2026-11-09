@@ -1,0 +1,268 @@
+{
+  "data": {
+    "items": {
+      "item.sword": {
+        "id": "item.sword",
+        "kind": "commodity",
+        "weight": 4,
+        "weapon": {
+          "category": "sword",
+          "minimum_range": 0,
+          "maximum_range": 100,
+          "arc_degrees": 120,
+          "damage": 20,
+          "stamina_cost": 10,
+          "recovery_rounds": 0,
+          "move_distance": 100
+        }
+      },
+      "item.grain": {
+        "id": "item.grain",
+        "kind": "commodity",
+        "weight": 1
+      }
+    },
+    "personal_skills": {
+      "skill.slash": {
+        "id": "skill.slash",
+        "kind": "strike",
+        "weapons": [
+          "sword"
+        ],
+        "status": "none",
+        "status_rounds": 0
+      },
+      "skill.bow": {
+        "id": "skill.bow",
+        "kind": "strike",
+        "weapons": [
+          "bow"
+        ],
+        "status": "none",
+        "status_rounds": 0
+      }
+    },
+    "personal_battlefields": {
+      "field.court": {
+        "id": "field.court",
+        "width": 600,
+        "height": 400,
+        "obstacles": [
+          {
+            "x": 280,
+            "y": 160,
+            "width": 40,
+            "height": 100,
+            "blocks_movement": true,
+            "blocks_sight": true
+          }
+        ],
+        "spawns": [
+          {
+            "side": 0,
+            "position": [
+              100,
+              150
+            ],
+            "heading": 0
+          },
+          {
+            "side": 0,
+            "position": [
+              100,
+              240
+            ],
+            "heading": 0
+          },
+          {
+            "side": 1,
+            "position": [
+              500,
+              200
+            ],
+            "heading": 180
+          }
+        ],
+        "exits": [
+          {
+            "side": 0,
+            "position": [
+              40,
+              180
+            ],
+            "radius": 35
+          },
+          {
+            "side": 1,
+            "position": [
+              560,
+              180
+            ],
+            "radius": 35
+          }
+        ]
+      }
+    },
+    "personal_objectives": {
+      "goal.practice": {
+        "id": "goal.practice",
+        "kind": "sparring"
+      },
+      "goal.fight": {
+        "id": "goal.fight",
+        "kind": "skirmish"
+      },
+      "goal.guard": {
+        "id": "goal.guard",
+        "kind": "escort"
+      }
+    },
+    "actors": {
+      "actor.teacher": {
+        "id": "actor.teacher",
+        "initial_place": "place.court",
+        "initial_goods": [
+          {
+            "item_id": "item.sword",
+            "quantity": 1
+          }
+        ],
+        "combat": {
+          "weapon_id": "item.sword",
+          "learned": [
+            {
+              "skill_id": "skill.slash",
+              "mastery": 80
+            },
+            {
+              "skill_id": "skill.bow",
+              "mastery": 80
+            }
+          ]
+        }
+      },
+      "actor.bandit": {
+        "id": "actor.bandit",
+        "initial_place": "place.road",
+        "initial_goods": [
+          {
+            "item_id": "item.sword",
+            "quantity": 1
+          }
+        ],
+        "combat": {
+          "weapon_id": "item.sword",
+          "learned": []
+        },
+        "road_conflict": {
+          "battlefield_id": "field.court",
+          "objective_id": "goal.fight"
+        }
+      },
+      "actor.civilian": {
+        "id": "actor.civilian",
+        "initial_place": "place.court"
+      }
+    },
+    "roles": {
+      "role.teacher": {
+        "id": "role.teacher",
+        "initial_actor": "actor.teacher",
+        "organization_id": null,
+        "place_id": "place.court",
+        "services": [
+          "duel_start",
+          "learn_skill"
+        ],
+        "sparring": {
+          "battlefield_id": "field.court",
+          "objective_id": "goal.practice",
+          "fee": 10,
+          "wallet_id": "wallet.teacher"
+        },
+        "lessons": [
+          {
+            "skill_id": "skill.slash",
+            "fee": 10,
+            "wallet_id": "wallet.teacher",
+            "study_ticks": 2,
+            "required_trust": 20
+          }
+        ]
+      }
+    },
+    "wallets": {
+      "wallet.teacher": {
+        "id": "wallet.teacher",
+        "owner": {
+          "kind": "actor",
+          "id": "actor.teacher"
+        }
+      },
+      "wallet.other": {
+        "id": "wallet.other",
+        "owner": {
+          "kind": "actor",
+          "id": "actor.civilian"
+        }
+      },
+      "wallet.public": {
+        "id": "wallet.public",
+        "owner": {
+          "kind": "organization",
+          "id": "org.school"
+        }
+      }
+    }
+  },
+  "cases": [
+    {"name":"武器内射程倒置","changes":[{"path":["items","item.sword","weapon","minimum_range"],"value":101}],"code":"PERSONAL_WEAPON_RANGE"},
+    {"name":"书信不能充当装备","changes":[{"path":["items","item.sword","kind"],"value":"message"}],"code":"PERSONAL_WEAPON_RANGE"},
+    {"name":"无状态不能携带期限","changes":[{"path":["personal_skills","skill.slash","status_rounds"],"value":1}],"code":"PERSONAL_STATUS_DURATION"},
+    {"name":"有效状态不能零期限","changes":[{"path":["personal_skills","skill.slash","status"],"value":"slow"}],"code":"PERSONAL_STATUS_DURATION"},
+    {"name":"适用武器重复","changes":[{"path":["personal_skills","skill.slash","weapons"],"value":["sword","sword"]}],"code":"PERSONAL_DUPLICATE_WEAPON"},
+    {"name":"障碍范围出界","changes":[{"path":["personal_battlefields","field.court","obstacles",0,"width"],"value":400}],"code":"PERSONAL_OBSTACLE_BOUNDS"},
+    {"name":"出生身体重叠","changes":[{"path":["personal_battlefields","field.court","spawns",1,"position"],"value":[120,150]}],"code":"PERSONAL_POINT_OVERLAP"},
+    {"name":"出生位落在墙中","changes":[{"path":["personal_battlefields","field.court","spawns",0,"position"],"value":[300,200]}],"code":"PERSONAL_POINT_BLOCKED"},
+    {"name":"出生中心合法但身体越界","changes":[{"path":["personal_battlefields","field.court","spawns",0,"position"],"value":[17,150]}],"code":"PERSONAL_POINT_BLOCKED"},
+    {"name":"出生双方缺一","changes":[{"path":["personal_battlefields","field.court","spawns",2,"side"],"value":0}],"code":"PERSONAL_BOTH_SIDES"},
+    {"name":"退出双方缺一","changes":[{"path":["personal_battlefields","field.court","exits",1,"side"],"value":0}],"code":"PERSONAL_BOTH_SIDES"},
+    {"name":"退出中心被障碍阻挡","changes":[{"path":["personal_battlefields","field.court","exits",0,"position"],"value":[300,200]}],"code":"PERSONAL_POINT_BLOCKED"},
+    {"name":"双方可以共用撤离通道","changes":[{"path":["personal_battlefields","field.court","exits",1,"position"],"value":[40,180]}],"code":""},
+    {"name":"退出触发区可伸出场地","changes":[{"path":["personal_battlefields","field.court","exits",0,"position"],"value":[18,180]}],"code":""},
+    {"name":"出生位允许圆角余地","changes":[{"path":["personal_battlefields","field.court","spawns",0,"position"],"value":[267,147]}],"code":""},
+    {"name":"出生位拒绝圆角重叠","changes":[{"path":["personal_battlefields","field.court","spawns",0,"position"],"value":[268,148]}],"code":"PERSONAL_POINT_BLOCKED"},
+    {"name":"初始随身容量超限","changes":[{"path":["actors","actor.teacher","initial_goods",0,"quantity"],"value":6}],"code":"PERSONAL_BAG_CAPACITY"},
+    {"name":"初始随身容量闭边界","changes":[{"path":["actors","actor.teacher","initial_goods",0,"quantity"],"value":5}],"code":""},
+    {"name":"初始物品引用缺失","changes":[{"path":["actors","actor.teacher","initial_goods",0,"item_id"],"value":"item.unknown"}],"code":"PERSONAL_REFERENCE"},
+    {"name":"初始物品重复","changes":[{"path":["actors","actor.teacher","initial_goods"],"value":[{"item_id":"item.sword","quantity":1},{"item_id":"item.sword","quantity":1}]}],"code":"PERSONAL_DUPLICATE_GOODS"},
+    {"name":"装备不能凭空拥有","changes":[{"path":["actors","actor.teacher","initial_goods"],"value":[]}],"code":"PERSONAL_WEAPON_OWNERSHIP"},
+    {"name":"不存在的装备引用","changes":[{"path":["actors","actor.teacher","combat","weapon_id"],"value":"item.unknown"}],"code":"PERSONAL_REFERENCE"},
+    {"name":"拥有粮食不能当武器","changes":[{"path":["actors","actor.teacher","combat","weapon_id"],"value":"item.grain"},{"path":["actors","actor.teacher","initial_goods"],"value":[{"item_id":"item.grain","quantity":1}]}],"code":"PERSONAL_WEAPON_OWNERSHIP"},
+    {"name":"初始技能引用缺失","changes":[{"path":["actors","actor.teacher","combat","learned",0,"skill_id"],"value":"skill.unknown"}],"code":"PERSONAL_REFERENCE"},
+    {"name":"初始已学技能不能重复","changes":[{"path":["actors","actor.teacher","combat","learned"],"value":[{"skill_id":"skill.slash","mastery":80},{"skill_id":"skill.slash","mastery":90}]}],"code":"PERSONAL_DUPLICATE_SKILL"},
+    {"name":"武器未持有仍可教授已学知识","changes":[{"path":["roles","role.teacher","lessons",0,"skill_id"],"value":"skill.bow"}],"code":""},
+    {"name":"教师熟练度不足","changes":[{"path":["actors","actor.teacher","combat","learned",0,"mastery"],"value":79}],"code":"PERSONAL_TEACHER_MASTERY"},
+    {"name":"教师熟练度恰为八十","changes":[{"path":["actors","actor.teacher","combat","learned",0,"mastery"],"value":80}],"code":""},
+    {"name":"授课技能引用缺失","changes":[{"path":["roles","role.teacher","lessons",0,"skill_id"],"value":"skill.unknown"}],"code":"PERSONAL_REFERENCE"},
+    {"name":"不能重复配置同一授课","changes":[{"path":["roles","role.teacher","lessons"],"value":[{"skill_id":"skill.slash","fee":10,"wallet_id":"wallet.teacher","study_ticks":2,"required_trust":20},{"skill_id":"skill.slash","fee":10,"wallet_id":"wallet.teacher","study_ticks":2,"required_trust":20}]}],"code":"PERSONAL_DUPLICATE_LESSON"},
+    {"name":"授课不能收至外人钱包","changes":[{"path":["roles","role.teacher","lessons",0,"wallet_id"],"value":"wallet.other"}],"code":"PERSONAL_FEE_AUTHORITY"},
+    {"name":"授课钱包引用缺失","changes":[{"path":["roles","role.teacher","lessons",0,"wallet_id"],"value":"wallet.unknown"}],"code":"PERSONAL_REFERENCE"},
+    {"name":"切磋不能收至外人钱包","changes":[{"path":["roles","role.teacher","sparring","wallet_id"],"value":"wallet.other"}],"code":"PERSONAL_FEE_AUTHORITY"},
+    {"name":"切磋不能使用危险目标","changes":[{"path":["roles","role.teacher","sparring","objective_id"],"value":"goal.fight"}],"code":"PERSONAL_OBJECTIVE_KIND"},
+    {"name":"道路冲突不能借用切磋目标","changes":[{"path":["actors","actor.bandit","road_conflict","objective_id"],"value":"goal.practice"}],"code":"PERSONAL_OBJECTIVE_KIND"},
+    {"name":"道路场地引用缺失","changes":[{"path":["actors","actor.bandit","road_conflict","battlefield_id"],"value":"field.unknown"}],"code":"PERSONAL_REFERENCE"},
+    {"name":"道路目标引用缺失","changes":[{"path":["actors","actor.bandit","road_conflict","objective_id"],"value":"goal.unknown"}],"code":"PERSONAL_REFERENCE"},
+    {"name":"护卫场地预留本人和保护对象","changes":[{"path":["actors","actor.bandit","road_conflict","objective_id"],"value":"goal.guard"}],"code":""},
+    {"name":"护卫不能占同一出生位","changes":[{"path":["actors","actor.bandit","road_conflict","objective_id"],"value":"goal.guard"},{"path":["personal_battlefields","field.court","spawns"],"value":[{"side":0,"position":[100,150],"heading":0},{"side":1,"position":[500,200],"heading":180}]}],"code":"PERSONAL_ESCORT_SPAWNS"},
+    {"name":"切磋条款须有服务授权","changes":[{"path":["roles","role.teacher","services"],"value":["learn_skill"]}],"code":"PERSONAL_SERVICE_AUTHORITY"},
+    {"name":"授课条款须有服务授权","changes":[{"path":["roles","role.teacher","services"],"value":["duel_start"]}],"code":"PERSONAL_SERVICE_AUTHORITY"},
+    {"name":"只有服务不能无切磋条款","changes":[{"path":["roles","role.teacher","sparring"],"value":null,"remove":true}],"code":"PERSONAL_SERVICE_AUTHORITY"},
+    {"name":"只有服务不能无授课条款","changes":[{"path":["roles","role.teacher","lessons"],"value":[]}],"code":"PERSONAL_SERVICE_AUTHORITY"},
+    {"name":"教师须在实际岗位初始场所","changes":[{"path":["roles","role.teacher","place_id"],"value":"place.elsewhere"}],"code":"PERSONAL_PROVIDER_ABSENT"},
+    {"name":"教师引用必须存在","changes":[{"path":["roles","role.teacher","initial_actor"],"value":"actor.unknown"}],"code":"PERSONAL_REFERENCE"},
+    {"name":"道路主动对敌者须有战斗配置","changes":[{"path":["actors","actor.bandit","combat"],"value":null,"remove":true}],"code":"PERSONAL_COMBAT_REQUIRED"},
+    {"name":"可选技能表缺失但仍被引用","changes":[{"path":["personal_skills"],"value":null,"remove":true}],"code":"PERSONAL_REFERENCE"},
+    {"name":"组织教师以公家钱包收费","changes":[{"path":["roles","role.teacher","organization_id"],"value":"org.school"},{"path":["roles","role.teacher","lessons",0,"wallet_id"],"value":"wallet.public"},{"path":["roles","role.teacher","sparring","wallet_id"],"value":"wallet.public"}],"code":""}
+  ]
+}

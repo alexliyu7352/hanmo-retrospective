@@ -1,0 +1,54 @@
+// 遗赠不即期交付，故只读来源钱包/批次；原产权、预留与所有业务仍在Common。
+#include "family_bequest_source.hpp"
+#include "family_continuation_people4.hpp"
+#include "succession_consent_source.hpp"
+#include <algorithm>
+#include <charconv>
+#include <limits>
+#include <set>
+#include <tuple>
+namespace hanmo::resident {
+namespace {
+// 所有稳定引用有限且非空，阻止无来源或无限冷输入。
+bool valid_id(const StableId& id){return !id.empty()&&id.size()<=256;}
+// 批次号必须已经真实分配，历史声明也拒绝未来或非规范身份。
+bool allocated_lot(const StableId& id,Integer next){if(id.rfind("lot:",0)!=0)return false;Integer n=0;const auto* start=id.data()+4;auto parsed=std::from_chars(start,id.data()+id.size(),n);return parsed.ec==std::errc{}&&parsed.ptr==id.data()+id.size()&&n>0&&n<next&&id=="lot:"+std::to_string(n);}
+// 严格本人直接所有，公职、族产与代理权限不参与遗赠报价。
+bool own(const Owner& owner,const StableId& actor){return owner.kind==Owner::Kind::actor&&owner.id==actor&&!owner.extra;}
+// 出生日期的既有成年门槛；不以收养或后来成年回填签署时年龄。
+Status adult_at(const CommonStore& c,const StableId& id,Integer tick){const auto* person=c.state().actors.find(id);constexpr Integer limit=2147483647;if(!person||!person->birth_tick||tick<0||tick>c.tick()||tick>limit||*person->birth_tick< -limit||*person->birth_tick>tick)return common_failure("BequestActorAgeUnknown",id);return tick-*person->birth_tick>=18*720?common_success():common_failure("BequestRequiresAdult",id);}
+// 旧报价不能跨冷恢复代次、世界、版本或时钟再次成为声明。
+bool same_identity(const WorldIdentity& a,const WorldIdentity& b){return std::tie(a.world_id,a.execution_epoch,a.revision,a.tick)==std::tie(b.world_id,b.execution_epoch,b.revision,b.tick);}
+}
+Outcome<FamilyBequestPolicy> decode_family_bequest_policy(const BoundaryValue& value){try{auto unique=validate_succession_json_unique(value);if(!unique.ok)return {false,{},unique.error};using namespace boundary;fields(value,{"profile"},{},"family_bequest");if(get_string(value,"profile","")!="revocable_personal_bequest_v1")unsupported("UnsupportedFamilyBequestProfile","profile");return {true,{true},{}};}catch(const boundary::DecodeFailure& error){return {false,{},error.error};}}
+Outcome<FamilyBequestPolicy> decode_family_bequest_policy_v2(const BoundaryValue& value){try{auto unique=validate_succession_json_unique(value);if(!unique.ok)return {false,{},unique.error};using namespace boundary;fields(value,{"profile"},{},"family_bequest");if(get_string(value,"profile","")!="revocable_personal_bequest_v2")unsupported("UnsupportedFamilyBequestProfile","profile");return {true,{true,2},{}};}catch(const boundary::DecodeFailure& error){return {false,{},error.error};}}
+Status validate_family_bequest_source(const CommonStore& c,const FamilyState& family,const FamilyBequestDeclarationSource& source,Integer selected_version,const FamilyContinuationPeopleRead4* people,const StableId& before){
+    const auto& t=source.terms;if(source.scope!="named_personal_assets_after_death_v1"||source.scenario_id!=c.state().metadata.scenario_id||!valid_id(source.scenario_id)||source.world_id!=c.state().identity.world_id||std::all_of(source.world_id.begin(),source.world_id.end(),[](auto x){return x==0;})||source.revision<0||source.revision>c.revision())return common_failure("InvalidBequestDeclarationSource");
+    for(const auto* id:{&t.donor_actor_id,&t.beneficiary_actor_id,&t.relation_fact_id,&t.source_wallet_id,&t.source_inventory_id})if(!valid_id(*id))return common_failure("InvalidBequestTerms");
+    if(t.donor_actor_id==t.beneficiary_actor_id||t.money<0||t.lots.size()>4096||(t.money==0&&t.lots.empty()))return common_failure("EmptyOrInvalidBequest");
+    if(selected_version==2){if(!people||!source.age_sources||source.donor_birth_tick!=0||source.beneficiary_birth_tick!=0)return common_failure("BequestAgeSource2Required",{},ErrorKind::unsupported_capability);auto age=validate_family_decision_ages4(*people,c,*source.age_sources,t.donor_actor_id,t.beneficiary_actor_id,source.tick,before);if(!age.ok)return age;}
+    else if(selected_version==1){if(source.age_sources)return common_failure("BequestProfileMismatch",{},ErrorKind::internal);for(const auto* id:{&t.donor_actor_id,&t.beneficiary_actor_id}){auto age=adult_at(c,*id,source.tick);if(!age.ok)return age;}if(source.donor_birth_tick!=*c.state().actors.find(t.donor_actor_id)->birth_tick||source.beneficiary_birth_tick!=*c.state().actors.find(t.beneficiary_actor_id)->birth_tick)return common_failure("BequestActorIdentityChanged");}
+    else return common_failure("FamilyBequestVersionRequired",{},ErrorKind::unsupported_capability);
+    auto relationship=succession_adoption_basis(c,family,t.donor_actor_id,t.beneficiary_actor_id,source.tick);if(!relationship.ok)return {false,{},relationship.error};if(relationship.value!=t.relation_fact_id)return common_failure("BequestRelationshipMismatch");
+    const auto* donor=c.actor(t.donor_actor_id);if(donor->wallet_id!=t.source_wallet_id||donor->inventory_id!=t.source_inventory_id||!c.wallet(t.source_wallet_id)||!c.inventory(t.source_inventory_id))return common_failure("BequestContainerSourceMismatch");
+    std::set<StableId> seen;for(const auto& lot:t.lots)if(!allocated_lot(lot.lot_id,c.state().next_instance_id)||!valid_id(lot.item_id)||!c.item_definition(lot.item_id)||lot.quantity<=0||!seen.insert(lot.lot_id).second)return common_failure("InvalidBequestLot",lot.lot_id);
+    return common_success();
+}
+bool family_bequest_source_equal(const FamilyBequestDeclarationSource& a,const FamilyBequestDeclarationSource& b){
+    if(a.age_sources.has_value()!=b.age_sources.has_value()||(a.age_sources&&(!same_life_age_basis_ref(a.age_sources->predecessor,b.age_sources->predecessor)||!same_life_age_basis_ref(a.age_sources->successor,b.age_sources->successor))))return false;
+    const auto& x=a.terms;const auto& y=b.terms;if(std::tie(a.scope,a.scenario_id,a.world_id,a.tick,a.revision,a.donor_birth_tick,a.beneficiary_birth_tick,x.donor_actor_id,x.beneficiary_actor_id,x.relation_fact_id,x.source_wallet_id,x.source_inventory_id,x.money)!=std::tie(b.scope,b.scenario_id,b.world_id,b.tick,b.revision,b.donor_birth_tick,b.beneficiary_birth_tick,y.donor_actor_id,y.beneficiary_actor_id,y.relation_fact_id,y.source_wallet_id,y.source_inventory_id,y.money)||x.lots.size()!=y.lots.size())return false;
+    for(std::size_t i=0;i<x.lots.size();++i)if(std::tie(x.lots[i].lot_id,x.lots[i].item_id,x.lots[i].quantity)!=std::tie(y.lots[i].lot_id,y.lots[i].item_id,y.lots[i].quantity))return false;return true;
+}
+Outcome<FamilyBequestDeclarationQuote> preview_family_bequest_declaration(const CommonStore& c,const FamilyState& family,const FamilyBequestPolicy& policy,const StableId& donor,const StableId& beneficiary,const SuccessionPersonalSelection& selected,const FamilyContinuationPeopleRead4* people){
+    auto fail=[](const StableId& code,const StableId& id={}){return Outcome<FamilyBequestDeclarationQuote>{false,{},common_failure(code,id).error};};if(!policy.enabled)return fail("FamilyBequestProfileRequired");if(donor!=c.state().metadata.player_actor_id)return fail("BequestDonorAuthorityRequired");if(donor==beneficiary)return fail("InvalidBequestParties");
+    for(const auto* id:{&donor,&beneficiary}){const auto* person=c.actor(*id);if(!person||!person->alive||!person->available)return fail("BequestLivingPartiesRequired",*id);if(policy.selected_version==1){auto age=adult_at(c,*id,c.tick());if(!age.ok)return {false,{},age.error};}else if(policy.selected_version!=2)return fail("FamilyBequestVersionRequired");}
+    if(selected.money<0||selected.goods.size()>4096)return fail("InvalidBequestSelection");auto relationship=succession_adoption_basis(c,family,donor,beneficiary,c.tick());if(!relationship.ok)return {false,{},relationship.error};
+    const auto* person=c.actor(donor);const auto* wallet=c.wallet(person->wallet_id);const auto* bag=c.inventory(person->inventory_id);if(!wallet||!bag||!own(wallet->owner,donor)||!own(bag->owner,donor))return fail("BequestPersonalOwnershipRequired");auto available=c.spendable(wallet->id);if(!available.ok)return {false,{},available.error};if(selected.money>available.value)return fail("InsufficientFunds",wallet->id);
+    FamilyBequestDeclarationQuote quote;quote.identity=c.state().identity;quote.selected=selected;quote.source_spendable=available.value;quote.source_balance=wallet->balance;quote.source_inventory_revision=bag->revision;auto& source=quote.source;source.scenario_id=c.state().metadata.scenario_id;source.world_id=c.state().identity.world_id;source.tick=c.tick();source.revision=c.revision();if(policy.selected_version==2){if(!people||!people->bound_to(c))return {false,{},common_failure("BequestAgeSource2Required",{},ErrorKind::unsupported_capability).error};auto ages=capture_family_decision_ages4(*people,donor,beneficiary);if(!ages.ok)return {false,{},ages.error};source.age_sources=std::move(ages.value);}else{source.donor_birth_tick=*c.state().actors.find(donor)->birth_tick;source.beneficiary_birth_tick=*c.state().actors.find(beneficiary)->birth_tick;}auto& terms=source.terms;terms.donor_actor_id=donor;terms.beneficiary_actor_id=beneficiary;terms.relation_fact_id=relationship.value;terms.source_wallet_id=wallet->id;terms.source_inventory_id=bag->id;terms.money=selected.money;
+    std::set<StableId> items;for(const auto& item:selected.goods){if(!valid_id(item.item_id)||!c.item_definition(item.item_id)||item.quantity<=0||!items.insert(item.item_id).second)return fail("InvalidBequestSelection",item.item_id);Integer remaining=item.quantity;for(const auto& lot:bag->lots){if(lot.item_id!=item.item_id||!own(lot.owner,donor)||lot.reserved_by!=ReservationRef{})continue;if(lot.extra||lot.quantity<=0||!valid_id(lot.id))return fail("InvalidBequestLot",lot.id);Integer used=std::min(remaining,lot.quantity);terms.lots.push_back({lot.id,lot.item_id,used,{}});remaining-=used;if(!remaining)break;}if(remaining)return fail("InsufficientGoods",item.item_id);if(terms.lots.size()>4096)return fail("BequestLotLimit");}
+    auto valid=validate_family_bequest_source(c,family,source,policy.selected_version,people);if(!valid.ok)return {false,{},valid.error};return {true,std::move(quote),{}};
+}
+Status revalidate_family_bequest_declaration(const CommonStore& c,const FamilyState& family,const FamilyBequestPolicy& policy,const FamilyBequestDeclarationQuote& quote,const FamilyContinuationPeopleRead4* people){
+    if(!same_identity(c.state().identity,quote.identity))return common_failure("StaleBequestDeclaration");auto fresh=preview_family_bequest_declaration(c,family,policy,quote.source.terms.donor_actor_id,quote.source.terms.beneficiary_actor_id,quote.selected,people);if(!fresh.ok)return {false,{},fresh.error};const auto& next=fresh.value;return family_bequest_source_equal(quote.source,next.source)&&std::tie(quote.source_spendable,quote.source_balance,quote.source_inventory_revision)==std::tie(next.source_spendable,next.source_balance,next.source_inventory_revision)?common_success():common_failure("StaleBequestDeclaration");
+}
+}

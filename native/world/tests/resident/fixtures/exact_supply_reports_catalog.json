@@ -1,0 +1,5229 @@
+{
+  "ok": true,
+  "data": {
+    "actors": {
+      "actor.player": {
+        "appearance_note": "本轮原创表现资源；身份、在场与岗位仍由世界状态决定。",
+        "attributes": {
+          "administration": 60,
+          "charisma": 60,
+          "intellect": 60,
+          "leadership": 60,
+          "martial": 60
+        },
+        "combat": {
+          "learned": []
+        },
+        "dialogue_id": null,
+        "id": "actor.player",
+        "initial_age_years": 42,
+        "initial_goods": [],
+        "initial_place": "west.inn",
+        "name_key": "name.actor.player",
+        "origin": "original",
+        "portrait_kind": "player",
+        "skills": {
+          "archery": 0,
+          "cavalry": 0,
+          "commerce": 0,
+          "debate": 0,
+          "infantry": 0,
+          "martial": 0,
+          "negotiation": 0,
+          "rites": 0,
+          "tactics": 0,
+          "transport": 0
+        },
+        "source_note": "原创工程验收人物，不是已考据历史人物"
+      },
+      "actor.innkeeper": {
+        "appearance_note": "本轮原创表现资源；身份、在场与岗位仍由世界状态决定。",
+        "attributes": {
+          "administration": 60,
+          "charisma": 60,
+          "intellect": 60,
+          "leadership": 60,
+          "martial": 60
+        },
+        "dialogue_id": null,
+        "id": "actor.innkeeper",
+        "initial_age_years": 28,
+        "initial_place": "west.inn",
+        "name_key": "name.actor.innkeeper",
+        "origin": "original",
+        "portrait_kind": "innkeeper",
+        "skills": {
+          "archery": 0,
+          "cavalry": 0,
+          "commerce": 0,
+          "debate": 0,
+          "infantry": 0,
+          "martial": 0,
+          "negotiation": 0,
+          "rites": 0,
+          "tactics": 0,
+          "transport": 0
+        },
+        "source_note": "原创工程验收人物，不是已考据历史人物",
+        "combat": {
+          "learned": []
+        },
+        "initial_goods": []
+      }
+    },
+    "battlefields": {},
+    "dialogues": {},
+    "estates": {},
+    "events": {},
+    "flags": {},
+    "garrisons": {},
+    "inventories": {
+      "inventory.supply": {
+        "id": "inventory.supply",
+        "owner": {
+          "kind": "organization",
+          "id": "org.supply"
+        },
+        "capacity": 1000,
+        "goods": [
+          {
+            "item_id": "item.grain",
+            "quantity": 40
+          }
+        ]
+      }
+    },
+    "items": {
+      "item.grain": {
+        "id": "item.grain",
+        "name_key": "item.grain",
+        "weight": 1,
+        "base_price": 1
+      }
+    },
+    "military_objectives": {},
+    "military_orders": {},
+    "offers": {},
+    "offices": {},
+    "organizations": {
+      "org.supply": {
+        "id": "org.supply",
+        "name_key": "org.supply"
+      }
+    },
+    "personal_battlefields": {},
+    "personal_objectives": {},
+    "personal_skills": {},
+    "places": {
+      "west.inn": {
+        "admission": [],
+        "id": "west.inn",
+        "name_key": "name.west.inn",
+        "parent_place": null,
+        "passages": [],
+        "settlement_id": "city.west",
+        "visual_tag": "inn"
+      }
+    },
+    "props": {},
+    "relations": {},
+    "required_capabilities": [
+      "multi_actor",
+      "places",
+      "economy",
+      "services",
+      "world_terrain",
+      "regional_life_v1"
+    ],
+    "roles": {
+      "role.inn": {
+        "activities": {
+          "rest": {
+            "cost": 20,
+            "duration": 2,
+            "fatigue_delta": -30,
+            "hp_gain": 35,
+            "wage": 0,
+            "wallet_id": "wallet.inn"
+          }
+        },
+        "id": "role.inn",
+        "initial_actor": "actor.innkeeper",
+        "name_key": "name.role.inn",
+        "organization_id": null,
+        "place_id": "west.inn",
+        "scene_position": [
+          60,
+          86
+        ],
+        "services": [
+          "rest"
+        ]
+      }
+    },
+    "routes": {},
+    "scenarios": {
+      "engineering.exact_supply_reports": {
+        "id": "engineering.exact_supply_reports",
+        "name_key": "engineering.exact_supply_reports",
+        "player_actor": "actor.player",
+        "playable_actor_ids": [
+          "actor.player"
+        ],
+        "world_map_id": "map.qingchuan",
+        "seed_text": "exact-supply-reports",
+        "enabled": {
+          "actors": [
+            "actor.player",
+            "actor.innkeeper"
+          ],
+          "battlefields": [],
+          "dialogues": [],
+          "estates": [],
+          "events": [],
+          "flags": [],
+          "garrisons": [],
+          "inventories": [
+            "inventory.supply"
+          ],
+          "items": [
+            "item.grain"
+          ],
+          "military_objectives": [],
+          "military_orders": [],
+          "offers": [],
+          "offices": [],
+          "organizations": [
+            "org.supply"
+          ],
+          "personal_battlefields": [],
+          "personal_objectives": [],
+          "personal_skills": [],
+          "places": [
+            "west.inn"
+          ],
+          "props": [],
+          "relations": [],
+          "roles": [
+            "role.inn"
+          ],
+          "routes": [],
+          "scenarios": [],
+          "settlements": [
+            "city.west"
+          ],
+          "shops": [],
+          "siege_topologies": [],
+          "strongholds": [],
+          "texts": [
+            "name.actor.player",
+            "name.actor.innkeeper"
+          ],
+          "troop_types": [],
+          "wallets": [
+            "wallet.player",
+            "wallet.inn"
+          ],
+          "world_maps": [
+            "map.qingchuan"
+          ],
+          "etiquette_challenges": [],
+          "bargain_challenges": [],
+          "drill_challenges": []
+        },
+        "initial": {
+          "actors": [
+            {
+              "actor_id": "actor.player",
+              "place_id": "west.inn",
+              "alive": true,
+              "available": true,
+              "age_years": 42,
+              "attributes": {
+                "administration": 60,
+                "charisma": 60,
+                "intellect": 60,
+                "leadership": 60,
+                "martial": 60
+              },
+              "skills": {
+                "archery": 0,
+                "cavalry": 0,
+                "commerce": 0,
+                "debate": 0,
+                "infantry": 0,
+                "martial": 0,
+                "negotiation": 0,
+                "rites": 0,
+                "tactics": 0,
+                "transport": 0
+              },
+              "combat": {
+                "learned": []
+              },
+              "appearance_definition": {
+                "kind": "fixed",
+                "generator_version": "appearance-v1",
+                "attire_style": "plain",
+                "base_features": {
+                  "face_shape": "base",
+                  "eyes": "base",
+                  "brows": "base",
+                  "nose": "base",
+                  "mouth": "base",
+                  "hair": "base",
+                  "beard": "base",
+                  "skin_palette": "base",
+                  "build": "base"
+                }
+              },
+              "initial_goods": []
+            },
+            {
+              "actor_id": "actor.innkeeper",
+              "place_id": "west.inn",
+              "alive": true,
+              "available": true,
+              "age_years": 28,
+              "attributes": {
+                "administration": 60,
+                "charisma": 60,
+                "intellect": 60,
+                "leadership": 60,
+                "martial": 60
+              },
+              "skills": {
+                "archery": 0,
+                "cavalry": 0,
+                "commerce": 0,
+                "debate": 0,
+                "infantry": 0,
+                "martial": 0,
+                "negotiation": 0,
+                "rites": 0,
+                "tactics": 0,
+                "transport": 0
+              },
+              "combat": {
+                "learned": []
+              },
+              "appearance_definition": {
+                "kind": "fixed",
+                "generator_version": "appearance-v1",
+                "attire_style": "plain",
+                "base_features": {
+                  "face_shape": "base",
+                  "eyes": "base",
+                  "brows": "base",
+                  "nose": "base",
+                  "mouth": "base",
+                  "hair": "base",
+                  "beard": "base",
+                  "skin_palette": "base",
+                  "build": "base"
+                }
+              },
+              "initial_goods": []
+            }
+          ],
+          "offer_ids": [],
+          "roles": [
+            {
+              "role_id": "role.inn",
+              "actor_id": "actor.innkeeper",
+              "enabled": true
+            }
+          ],
+          "wallets": [
+            {
+              "id": "wallet.player",
+              "owner": {
+                "kind": "actor",
+                "id": "actor.player"
+              },
+              "initial_balance": 1000
+            },
+            {
+              "id": "wallet.inn",
+              "initial_balance": 600,
+              "owner": {
+                "id": "actor.innkeeper",
+                "kind": "actor"
+              }
+            }
+          ],
+          "inventories": [
+            {
+              "id": "inventory.supply",
+              "owner": {
+                "kind": "organization",
+                "id": "org.supply"
+              },
+              "capacity": 1000,
+              "goods": [
+                {
+                  "item_id": "item.grain",
+                  "quantity": 40
+                }
+              ]
+            }
+          ],
+          "relations": [],
+          "estates": [],
+          "garrisons": [],
+          "offices": [],
+          "strongholds": []
+        },
+        "dynamic_world": {
+          "profile": "local_society_v1",
+          "founder_policy": "fixed_actor",
+          "local_economy": {
+            "households": {},
+            "cohorts": {},
+            "labor_allocations": {},
+            "recipes": {},
+            "production_units": {},
+            "rates": {},
+            "obligations": {},
+            "provision_bindings": {},
+            "production_bindings": {},
+            "supply_sources": {
+              "supply.test": {
+                "source_key": "supply.test",
+                "organization_id": "org.supply",
+                "site_id": "west.inn",
+                "inventory_id": "inventory.supply",
+                "item_id": "item.grain",
+                "target_amount": 100,
+                "public_report": true
+              }
+            },
+            "enabled": true,
+            "named_actors_excluded": [
+              "actor.player",
+              "actor.innkeeper"
+            ]
+          },
+          "organization": {
+            "organizations": {
+              "org.supply": {
+                "id": "org.supply",
+                "kind": "public_store",
+                "status": "active",
+                "administrative_parent": null,
+                "branch_parent": null,
+                "headquarters_site": "west.inn",
+                "policy_profile_id": "",
+                "office_ids": [],
+                "succession_policy_id": ""
+              }
+            },
+            "offices": {},
+            "grants": {},
+            "institutional_issuers": {},
+            "member_policies": {},
+            "duties": {},
+            "members": {},
+            "activity_terms": {},
+            "initial_activities": {},
+            "enabled": true
+          },
+          "affairs": {
+            "need_policies": {}
+          },
+          "director": {
+            "review_interval_ticks": 1,
+            "retry_delay_ticks": 1,
+            "decision_budget": 1,
+            "candidates_per_subject": 1,
+            "subjects": {}
+          },
+          "regional_life": {
+            "actor_topics": [],
+            "need_topics": []
+          }
+        },
+        "world_time": {
+          "profile": "rational_rest_supply_reports_v1",
+          "scale_ref": {
+            "definition_id": "engineering.rest.time",
+            "version": 1,
+            "units_per_half_day": 60
+          },
+          "macro_providers": [
+            "social_due_messages_v1"
+          ],
+          "fixed_actions": [
+            {
+              "kind": "service",
+              "activity": "rest"
+            }
+          ],
+          "supply_report_subscriptions": [
+            {
+              "actor_id": "actor.player",
+              "report_source_keys": [
+                "supply.test"
+              ]
+            }
+          ]
+        },
+        "actor_foundation": {
+          "construction_profile_ref": {
+            "id": "selected_existing_actor_context_v2",
+            "version": 2,
+            "catalog_digest": "2ebd1d01243bd7ab692b665d793511286e3686119d39bb7722b5c452e43b9ffa"
+          },
+          "provenance_policy_ref": {
+            "id": "character_origin_read_v2",
+            "version": 2,
+            "catalog_digest": "2ebd1d01243bd7ab692b665d793511286e3686119d39bb7722b5c452e43b9ffa"
+          },
+          "rest_rule_ref": {
+            "id": "original_service_rest",
+            "version": 1,
+            "catalog_digest": "2ebd1d01243bd7ab692b665d793511286e3686119d39bb7722b5c452e43b9ffa"
+          },
+          "rest_purpose_ref": {
+            "id": "rest",
+            "version": 1,
+            "catalog_digest": "2ebd1d01243bd7ab692b665d793511286e3686119d39bb7722b5c452e43b9ffa"
+          },
+          "provider_purpose_ref": {
+            "id": "provide_rest",
+            "version": 1,
+            "catalog_digest": "2ebd1d01243bd7ab692b665d793511286e3686119d39bb7722b5c452e43b9ffa"
+          },
+          "initial_condition_seeds": [
+            {
+              "seed_key": "actor.player:initial-condition",
+              "actor_id": "actor.player",
+              "source": {
+                "catalog_digest": "2ebd1d01243bd7ab692b665d793511286e3686119d39bb7722b5c452e43b9ffa",
+                "scenario_id": "engineering.exact_supply_reports",
+                "row_key": "actor.player",
+                "initial_tick": 0
+              },
+              "hp": 57,
+              "fatigue": 42,
+              "injury": 1,
+              "episodes": [],
+              "activity_limit_profile": {
+                "id": "original_service_rest",
+                "version": 1,
+                "catalog_digest": "2ebd1d01243bd7ab692b665d793511286e3686119d39bb7722b5c452e43b9ffa"
+              }
+            },
+            {
+              "seed_key": "actor.innkeeper:initial-condition",
+              "actor_id": "actor.innkeeper",
+              "source": {
+                "catalog_digest": "2ebd1d01243bd7ab692b665d793511286e3686119d39bb7722b5c452e43b9ffa",
+                "scenario_id": "engineering.exact_supply_reports",
+                "row_key": "actor.innkeeper",
+                "initial_tick": 0
+              },
+              "hp": 100,
+              "fatigue": 0,
+              "injury": 0,
+              "episodes": [],
+              "activity_limit_profile": {
+                "id": "original_service_rest",
+                "version": 1,
+                "catalog_digest": "2ebd1d01243bd7ab692b665d793511286e3686119d39bb7722b5c452e43b9ffa"
+              }
+            }
+          ],
+          "actor_states": [
+            {
+              "actor_id": "actor.player",
+              "identity_definition_ref": {
+                "id": "actor.player",
+                "version": 1,
+                "catalog_digest": "2ebd1d01243bd7ab692b665d793511286e3686119d39bb7722b5c452e43b9ffa"
+              },
+              "alive": true,
+              "hp": 57,
+              "fatigue": 42,
+              "injury": 1,
+              "age_basis": {
+                "kind": "DeclaredAgeAtStart",
+                "years": 42,
+                "as_of_tick": 0,
+                "calendar_year_ordinal": 0,
+                "source": {
+                  "catalog_digest": "2ebd1d01243bd7ab692b665d793511286e3686119d39bb7722b5c452e43b9ffa",
+                  "scenario_id": "engineering.exact_supply_reports",
+                  "row_key": "actor.player",
+                  "initial_tick": 0
+                }
+              },
+              "condition_seed_refs": [
+                {
+                  "seed_key": "actor.player:initial-condition"
+                }
+              ],
+              "placement": {
+                "kind": "AtPlace",
+                "place_ref": "west.inn"
+              },
+              "service_seed_refs": [],
+              "office_seed_refs": [],
+              "property_business_seed_refs": [],
+              "initial_knowledge_refs": [],
+              "appearance_source_ref": {
+                "id": "actor.player",
+                "version": 1,
+                "catalog_digest": "2ebd1d01243bd7ab692b665d793511286e3686119d39bb7722b5c452e43b9ffa"
+              }
+            },
+            {
+              "actor_id": "actor.innkeeper",
+              "identity_definition_ref": {
+                "id": "actor.innkeeper",
+                "version": 1,
+                "catalog_digest": "2ebd1d01243bd7ab692b665d793511286e3686119d39bb7722b5c452e43b9ffa"
+              },
+              "alive": true,
+              "hp": 100,
+              "fatigue": 0,
+              "injury": 0,
+              "age_basis": {
+                "kind": "DeclaredAgeAtStart",
+                "years": 28,
+                "as_of_tick": 0,
+                "calendar_year_ordinal": 0,
+                "source": {
+                  "catalog_digest": "2ebd1d01243bd7ab692b665d793511286e3686119d39bb7722b5c452e43b9ffa",
+                  "scenario_id": "engineering.exact_supply_reports",
+                  "row_key": "actor.innkeeper",
+                  "initial_tick": 0
+                }
+              },
+              "condition_seed_refs": [
+                {
+                  "seed_key": "actor.innkeeper:initial-condition"
+                }
+              ],
+              "placement": {
+                "kind": "AtPlace",
+                "place_ref": "west.inn"
+              },
+              "service_seed_refs": [],
+              "office_seed_refs": [],
+              "property_business_seed_refs": [],
+              "initial_knowledge_refs": [],
+              "appearance_source_ref": {
+                "id": "actor.innkeeper",
+                "version": 1,
+                "catalog_digest": "2ebd1d01243bd7ab692b665d793511286e3686119d39bb7722b5c452e43b9ffa"
+              }
+            }
+          ]
+        }
+      }
+    },
+    "settlements": {
+      "city.west": {
+        "entry_place": "west.inn",
+        "id": "city.west",
+        "kind": "city",
+        "map_xy": [
+          190,
+          430
+        ],
+        "name_key": "name.city.west"
+      }
+    },
+    "shops": {},
+    "siege_topologies": {},
+    "strongholds": {},
+    "texts": {
+      "name.actor.player": "actor.player",
+      "name.actor.innkeeper": "actor.innkeeper"
+    },
+    "troop_types": {},
+    "wallets": {
+      "wallet.player": {
+        "id": "wallet.player",
+        "owner": {
+          "kind": "actor",
+          "id": "actor.player"
+        },
+        "initial_balance": 1000
+      },
+      "wallet.inn": {
+        "id": "wallet.inn",
+        "initial_balance": 600,
+        "owner": {
+          "id": "actor.innkeeper",
+          "kind": "actor"
+        }
+      }
+    },
+    "world_maps": {
+      "map.qingchuan": {
+        "budgets": {
+          "army": 5500,
+          "boat": 6000,
+          "foot": 4500
+        },
+        "cell_size": 20,
+        "cells": [
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "road"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "road"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "road"
+          },
+          {
+            "terrain": "road"
+          },
+          {
+            "terrain": "road"
+          },
+          {
+            "terrain": "road"
+          },
+          {
+            "terrain": "road"
+          },
+          {
+            "terrain": "road"
+          },
+          {
+            "terrain": "road"
+          },
+          {
+            "terrain": "road"
+          },
+          {
+            "terrain": "road"
+          },
+          {
+            "terrain": "road"
+          },
+          {
+            "terrain": "road"
+          },
+          {
+            "terrain": "road"
+          },
+          {
+            "terrain": "road"
+          },
+          {
+            "blocked_flag": "bridge.north",
+            "crossing": "bridge",
+            "terrain": "water"
+          },
+          {
+            "blocked_flag": "bridge.north",
+            "crossing": "bridge",
+            "terrain": "water"
+          },
+          {
+            "blocked_flag": "bridge.north",
+            "crossing": "bridge",
+            "terrain": "water"
+          },
+          {
+            "blocked_flag": "bridge.north",
+            "crossing": "bridge",
+            "terrain": "water"
+          },
+          {
+            "blocked_flag": "bridge.north",
+            "crossing": "bridge",
+            "terrain": "water"
+          },
+          {
+            "terrain": "road"
+          },
+          {
+            "terrain": "road"
+          },
+          {
+            "terrain": "road"
+          },
+          {
+            "terrain": "road"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "road"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "road"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "blocked_flag": "gate.north",
+            "crossing": "pass",
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "road"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "blocked_flag": "gate.north",
+            "crossing": "pass",
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "road"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "blocked_flag": "gate.north",
+            "crossing": "pass",
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "road"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "blocked_flag": "gate.north",
+            "crossing": "pass",
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "road"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "blocked_flag": "gate.north",
+            "crossing": "pass",
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "road"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "blocked_flag": "gate.north",
+            "crossing": "pass",
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "road"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "mountain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "road"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "road"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "road"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "road"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "road"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "road"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "road"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "road"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "road"
+          },
+          {
+            "terrain": "road"
+          },
+          {
+            "terrain": "road"
+          },
+          {
+            "terrain": "road"
+          },
+          {
+            "terrain": "road"
+          },
+          {
+            "terrain": "road"
+          },
+          {
+            "terrain": "road"
+          },
+          {
+            "terrain": "road"
+          },
+          {
+            "terrain": "road"
+          },
+          {
+            "terrain": "road"
+          },
+          {
+            "terrain": "road"
+          },
+          {
+            "terrain": "road"
+          },
+          {
+            "terrain": "road"
+          },
+          {
+            "terrain": "road"
+          },
+          {
+            "terrain": "road"
+          },
+          {
+            "terrain": "road"
+          },
+          {
+            "terrain": "road"
+          },
+          {
+            "terrain": "road"
+          },
+          {
+            "terrain": "road"
+          },
+          {
+            "terrain": "road"
+          },
+          {
+            "terrain": "road"
+          },
+          {
+            "terrain": "road"
+          },
+          {
+            "blocked_flag": "crossing.main",
+            "crossing": "ford",
+            "terrain": "water"
+          },
+          {
+            "blocked_flag": "crossing.main",
+            "crossing": "ford",
+            "terrain": "water"
+          },
+          {
+            "blocked_flag": "crossing.main",
+            "crossing": "ford",
+            "terrain": "water"
+          },
+          {
+            "blocked_flag": "crossing.main",
+            "crossing": "ford",
+            "terrain": "water"
+          },
+          {
+            "blocked_flag": "crossing.main",
+            "crossing": "ford",
+            "terrain": "water"
+          },
+          {
+            "blocked_flag": "crossing.main",
+            "crossing": "ford",
+            "terrain": "water"
+          },
+          {
+            "terrain": "road"
+          },
+          {
+            "terrain": "road"
+          },
+          {
+            "terrain": "road"
+          },
+          {
+            "terrain": "road"
+          },
+          {
+            "terrain": "road"
+          },
+          {
+            "terrain": "road"
+          },
+          {
+            "terrain": "road"
+          },
+          {
+            "terrain": "road"
+          },
+          {
+            "terrain": "road"
+          },
+          {
+            "terrain": "road"
+          },
+          {
+            "terrain": "road"
+          },
+          {
+            "terrain": "road"
+          },
+          {
+            "terrain": "road"
+          },
+          {
+            "terrain": "road"
+          },
+          {
+            "terrain": "road"
+          },
+          {
+            "terrain": "road"
+          },
+          {
+            "terrain": "road"
+          },
+          {
+            "terrain": "road"
+          },
+          {
+            "terrain": "road"
+          },
+          {
+            "terrain": "road"
+          },
+          {
+            "terrain": "road"
+          },
+          {
+            "terrain": "road"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "road"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "road"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "road"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "road"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "road"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "road"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "road"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "road"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "road"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "road"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "road"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "road"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "road"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "road"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "road"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "water"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "plain"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          },
+          {
+            "terrain": "forest"
+          }
+        ],
+        "fatigue_per_tick": 5,
+        "height": 600,
+        "id": "map.qingchuan",
+        "money_per_tick": 8,
+        "name_key": "name.map.qingchuan",
+        "visual_tag": "region_qingchuan",
+        "width": 1000
+      }
+    },
+    "etiquette_challenges": {},
+    "bargain_challenges": {},
+    "drill_challenges": {},
+    "active_static_actor_ids": [
+      "actor.player",
+      "actor.innkeeper"
+    ]
+  },
+  "content_id": "engineering.exact_rest_only",
+  "content_version": "1",
+  "content_digest": "2ebd1d01243bd7ab692b665d793511286e3686119d39bb7722b5c452e43b9ffa",
+  "schema_sha256": "a5a3b735952505ce9597fc3fb62187f76c0c4d19902428262c34a1cfc4bb8a59"
+}

@@ -1,0 +1,19 @@
+# 关渡行旅作者样本（AUTHORING_ONLY）
+
+单一功能代表情景，不是历史地理交付，也不接用户取消的全域地理链。地图1500格、山关/渡口/北桥逐值复用 native/world/tests/resident/travel_geometry.cpp 的 regional_fixture；旗标复用渡口关闭、北桥/北关开放的原route_checks条件。玩家保持原青川真实起点，经正常旅行进入原样本，不能把测试端点直接写成玩家位置。
+
+步行/军团/船每半日预算3000/1200/3000、费用8与疲劳3来自既有 qingxi_campaign_1_1/content.json（Git blob aa0ce585921251dec6001328c8c7e52b7f704a8a）原map.grain_road。未另造路费、军令、城址或连城道路。
+
+新包依赖原local_society1.11，不修改旧内容或锁。场景沿已限定的character_cards_1_0作者快照、去除growth_cards；保原两名可选人物、初态、原青川据点/房间/路网和已有Director政策。新增仅地形、三旗标及独立情景选择，不增加PNG，复用原包资源和通用地形绘制。
+
+首作者草稿曾增加旧fixture两端点据点，但原道路Schema要求据点通路和完整连城图；现收敛为原据点和原真实起点，没有为过校验编造连接道路或放宽规则。其余首红为缺工具物理文本、缺父包已登记资源、旗标漏列enabled与仅一人选项不合原政策，均保留日志。
+
+计划证据：原作者Schema/语义/组合；原Native通路与有界实际路径；最终同源Main关渡标记→报价→原旅行/停止/返回。当前未运行项仍未验，不能以AUTHORING_ONLY冒正式玩法通过。
+
+原content_pipeline compose已真实74823 exit0：STRUCTURE_VALID、warnings=[]、runtime_verified=false；packset bb1ddc6e7cbd20258cf0f094051cbf404c271617db8b4acda6d9678a98dc8658。原catalog文件SHA256 07d9158dec9098763b0fa931510152814d7037d0f69797ba9187f9936a4f9070。仍待原生有界路径和正式Main，不创建新stage冒充运行。
+
+本地原生几何验证已完成：不可变4ee同头/三库经原TravelCatalog解码新compose，再执行原terrain.plan/segment_cost。原fixture固定答案10716及八个点逐值保持；原青川真实起点[35,60]到原样本东侧[830,290]存在成本8130的有界路线，旗标与输入字节不变。原regional_fixture实际导出的1500格与本包逐格相等。此处0世界、0命令，runtime_verified仍false，Main待联合stage。
+
+发布状态：后继tree4860f40c首次create_commit及带用户授权证据的同调用唯一重试均被自动审核拒绝，最新确认远端仍64e10d作者首草稿。已停止该对象发布并保原件；没有换包/途径或借其他owner代传。后继源、结构通过和纯几何结果目前仅本机。
+
+2026-10-09 05:48 UTC后继：用户明确批准本关渡样本与验证记录上传；原6ec696/b7a446的19路径已在452101861cb4f024179f74f1cfb84bb3b4746391逐GitOID/ref核准。旧拒绝段为当时状态，现发布阻塞已解除；AUTHORING_ONLY和未验Main的范围不变。

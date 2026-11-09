@@ -1,0 +1,73 @@
+<div id="hanmo-city-plan-v01">
+  <div class="viz-controls">
+    <label class="form-label">访问地点
+      <select class="form-select" id="city-destination">
+        <option value="">城域总览</option>
+        <option value="office">郡府与官舍</option>
+        <option value="chen">陈宅 · 武将私宅</option>
+        <option value="doctor">医者居所</option>
+        <option value="du">杜宅 · 文士私宅</option>
+        <option value="tavern">市中酒肆</option>
+        <option value="warehouse">官仓与武库</option>
+        <option value="school">学舍与祠社</option>
+        <option value="dock">东郊码头</option>
+        <option value="camp">南郊军营</option>
+        <option value="workshop">西郊作坊</option>
+      </select>
+    </label>
+    <button class="btn" id="city-before" type="button" aria-pressed="true">现状与规划用地</button>
+    <button class="btn" id="city-after" type="button" aria-pressed="false">建设后示意</button>
+  </div>
+  <div class="city-map-area">__MAP__</div>
+  <p class="text-small" id="city-detail" aria-live="polite">示范郡城：在同一张城域图上访问官署、私宅与经营场所；朱砂虚线标出三处规划范围。</p>
+</div>
+<style>
+  #hanmo-city-plan-v01 .city-map-area{margin-top:12px}
+  #hanmo-city-plan-v01 .city-map{display:block;width:100%;height:auto;background:#f2ebdc}
+  #hanmo-city-plan-v01 .city-map .route{fill:none;stroke:#a35640;stroke-width:6;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:12 8}
+  #hanmo-city-plan-v01 .city-map-area.is-compact .minor-label{display:none}
+  #hanmo-city-plan-v01 .city-map-area.is-small .major-label,#hanmo-city-plan-v01 .city-map-area.is-small .plan-label{display:none}
+</style>
+<script>
+(() => {
+  const root=document.getElementById('hanmo-city-plan-v01');
+  const data=__DATA__;
+  const destination=root.querySelector('#city-destination');
+  const before=root.querySelector('#city-before');
+  const after=root.querySelector('#city-after');
+  const layer=root.querySelector('#route-layer');
+  const detail=root.querySelector('#city-detail');
+  const area=root.querySelector('.city-map-area');
+  let built=false;
+  function update(){
+    // 仅切换规划图的显示状态，不执行游戏建设或提交任何外部操作。
+    root.querySelectorAll('.before').forEach(el=>el.style.display=built?'none':'');
+    root.querySelectorAll('.after').forEach(el=>el.style.display=built?'':'none');
+    before.setAttribute('aria-pressed',String(!built));
+    after.setAttribute('aria-pressed',String(built));
+    const target=data.locations.find(x=>x.id===destination.value);
+    layer.replaceChildren();
+    if(target){
+      const route=document.createElementNS('http://www.w3.org/2000/svg','path');
+      route.setAttribute('d',target.route);route.setAttribute('class','route');layer.append(route);
+      const dot=document.createElementNS('http://www.w3.org/2000/svg','circle');
+      dot.setAttribute('cx',target.point[0]);dot.setAttribute('cy',target.point[1]);dot.setAttribute('r','10');dot.setAttribute('fill','#a35640');dot.setAttribute('stroke','#f2ebdc');dot.setAttribute('stroke-width','3');layer.append(dot);
+      detail.textContent=target.name+'：'+target.detail;
+    }else{
+      detail.textContent=built?'建设后示意：P1 旧仓改作商铺，P2 扩建营舍，P3 增设码头货栈与商铺；原有城门、主路和地点位置保持一致。':'示范郡城：在同一张城域图上访问官署、私宅与经营场所；朱砂虚线标出三处规划范围。';
+    }
+  }
+  function resize(){
+    // 小屏减少地图注记；地点名与操作仍由原生选择框和详情文字提供。
+    const w=area.getBoundingClientRect().width;
+    area.classList.toggle('is-compact',w<680);area.classList.toggle('is-small',w<500);
+    const factor=Math.max(1,850/Math.max(w,280));
+    root.querySelectorAll('.map-number').forEach(el=>el.setAttribute('font-size',18*factor));
+  }
+  destination.addEventListener('change',update);
+  before.addEventListener('click',()=>{built=false;update();});
+  after.addEventListener('click',()=>{built=true;update();});
+  new ResizeObserver(resize).observe(area);
+  update();resize();
+})();
+</script>

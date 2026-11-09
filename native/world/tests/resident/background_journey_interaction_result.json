@@ -1,0 +1,44 @@
+{
+  "format": "HM-C-JOURNEY-INTERACTION-READ/1",
+  "status": "PASS",
+  "baseline_library_source_commit": "8ce45d626b2a63525a5eee4929d471fd2122e2e4",
+  "build": "C journey_interaction.cpp and military_rules.cpp compiled ahead of immutable baseline archive; no whole-library rebuild or Main/Bridge claim.",
+  "flags": [
+    "-std=c++17",
+    "-O1",
+    "-ffp-contract=off"
+  ],
+  "source_sha256": {
+    "native/world/src/resident/views/journey_interaction.hpp": "726c545db172650c27f64e186b2a9f00f0757aaee89930260df105b383c16eb0",
+    "native/world/src/resident/views/journey_interaction.cpp": "df2da103f7a215841638906fcdeba9cb3ef2efc7f682da8d67e7a460d1a6c934",
+    "native/world/src/resident/domains/military/military_rules.cpp": "511490f27cf66125ecdeac6cdf7e8dbc498be9adb27cd9de3acff7e4185172f7",
+    "native/world/tests/resident/background_journey_interaction.cpp": "1cd9567f6fd237074a93419132f69b0c34829af061d73141c7e612f6b77ee5ee",
+    "native/world/tests/resident/background_journey_interaction_oracle.gd": "e64e713dde05835101919292bb192e8afd63feeb5c80011ec19e68c6cf3c0f19",
+    "native/world/tests/resident/background_journey_interaction_oracle.json": "b90572c83c69645456fe8fa5139cb45da06b21b729fef70afabf44a7d5355bea"
+  },
+  "archive_sha256": {
+    "libhanmo_flecs.a": "3ffd22212ca3af8eb69c890a150ce6211db4574ab9128f446b388da607e1862a",
+    "libhanmo_world.a": "5288091b4e83ed52b8b4c413fefea15e85248f5000d9143c2b416bac432a83a2",
+    "libhanmo_resident.a": "57d7b9cbf6c6748e04bb400949967417fc1cf30f98e0b6b861c2c34346a39259"
+  },
+  "binary_sha256": "d8663eb5a19cfca692cc05f57e6a62508959353b5f88816b0a39bb00edc9f32e",
+  "oracle_state_hashes": [
+    "104ee1c94101342d301492aaebe62c07d9558efcb9c1d3034f57b356a966971b",
+    "95dcd3f2d8a80820013aa20721b626fa4f1c56ee15e61ddb707ec4ae740f2a7c",
+    "81143e6a5b1d5eee00c887060fd63157ab6e3c75806102da8cee0f3e9c84fa1c",
+    "b266756815c08fe49c31315638372a494ffaa140c104a45a1c2586e4d51e3bc1",
+    "b69672f9b656f1013b5b8468d9d42b431d1054c44b5b88d41c5d16a6fb4edb0c",
+    "a43e9378dbe30ba75087fd118b1d6825a3a2636f0a260dfe48fde77fc01681e5"
+  ],
+  "oracle_catalogs": {
+    "hanmo-resident-lane-d/.local/resident-recovery-input/catalog.json": "b9716a51c36ed1a11ed90cbdbbfb3521e0564ef9738bc15999f35e7f6eb0fe28",
+    "resident-journey-oracle-baseline-20261004/journey100-20261005/expanded-catalog.json": "81529c4cfb82e0c834a85c0a8a0ab36a56c9593676883d48ca72af06511b2926"
+  },
+  "checks": [
+    "background_journey_interaction: PASS (6 original GD read boundaries; scene/say/choice/pending encounter; 2 own-army quotes; hidden options/64-row pages/complete errors/no private peer fields; deep copies and full checkpoint unchanged)",
+    "background_runtime: PASS (office completion, supply, reserved formation+asset receipt, leave, dialogue branch, 160 encounter trim, activity ownership)",
+    "background_departure: PASS (real departure request, B army quote, original tick7 arrival fact/checkpoint, same-faction contact emptiness, explicit March execution boundary; domain slices only)"
+  ],
+  "scope": "Six actual original GD finite read boundaries plus explicit pure-read edge fixtures. Selective production military formula extraction rechecked through original runtime/departure slices. Published three-scale performance evidence unchanged.",
+  "additional_error_case": "Malformed own army roster error is propagated, not converted to an absent logistics quote; only original UnknownArmy/ArmyNotActive are optional absence."
+}

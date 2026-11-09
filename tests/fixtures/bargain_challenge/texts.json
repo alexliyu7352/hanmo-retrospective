@@ -1,0 +1,12 @@
+{
+  "bargain.supply.small": "题面公开条件：本轮小量采购与已知可供数量相符。",
+  "bargain.supply.batch": "题面公开条件：合并购买与已知供货批次相符。",
+  "bargain.terms.cash": "对方已说明仅收现款，现款支付满足该条件。",
+  "bargain.terms.later": "对方已说明本次不接受延期条件。",
+  "bargain.quantity": "按题面的小量数量提出采购。",
+  "bargain.batch": "将同次现款采购合并办理。",
+  "bargain.payment": "按公开现款条件支付。",
+  "bargain.round.1": "第1轮：在已公开预算和数量内选择本次提议。",
+  "bargain.round.2": "第2轮：在已公开预算和数量内选择本次提议。",
+  "bargain.round.3": "第3轮：在已公开预算和数量内选择本次提议。"
+}

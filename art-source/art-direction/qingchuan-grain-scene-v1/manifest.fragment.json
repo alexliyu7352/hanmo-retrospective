@@ -1,0 +1,298 @@
+{
+  "backgrounds": {
+    "city.ground": {
+      "path": "res://assets/art/layered-city/ground.png"
+    },
+    "city.grainshop_uncovered": {
+      "path": "res://assets/art/layered-city/grainshop_uncovered.png"
+    },
+    "city.grainshop_awning": {
+      "path": "res://assets/art/layered-city/grainshop_awning.png"
+    }
+  },
+  "scene_templates": {
+    "qingchuan.grain.city": {
+      "id": "qingchuan.grain.city",
+      "view_kind": "city",
+      "logical_canvas": [
+        1672,
+        941
+      ],
+      "ui_safe_areas": [
+        [
+          0,
+          0,
+          1672,
+          174
+        ],
+        [
+          0,
+          174,
+          450,
+          550
+        ],
+        [
+          0,
+          729,
+          1672,
+          212
+        ]
+      ],
+      "layers": [
+        {
+          "id": "grain.ground",
+          "kind": "background",
+          "asset_id": "backgrounds/city.ground",
+          "anchor": [
+            0,
+            0
+          ],
+          "z_index": 0,
+          "after": [],
+          "geometry": {
+            "source_size": [
+              1672,
+              941
+            ],
+            "logical_canvas": [
+              1672,
+              941
+            ],
+            "alpha_bounds": [
+              0,
+              0,
+              1672,
+              941
+            ],
+            "safe_crop": [
+              0,
+              0,
+              1672,
+              941
+            ],
+            "support_kind": "foot",
+            "support_point": [
+              0,
+              0
+            ],
+            "pose": "idle",
+            "facing": "front",
+            "view": "scene",
+            "mask_ids": [],
+            "palette_slots": []
+          },
+          "target_ref": {
+            "kind": "place",
+            "id": "place.grain"
+          }
+        },
+        {
+          "id": "grain.courtyard_path",
+          "kind": "effect",
+          "asset_id": "backgrounds/city.ground",
+          "anchor": [
+            0,
+            0
+          ],
+          "z_index": 1,
+          "after": [
+            "grain.ground"
+          ],
+          "geometry": {
+            "source_size": [
+              1672,
+              941
+            ],
+            "logical_canvas": [
+              1672,
+              941
+            ],
+            "alpha_bounds": [
+              0,
+              0,
+              1672,
+              941
+            ],
+            "safe_crop": [
+              518,
+              621,
+              235,
+              94
+            ],
+            "support_kind": "foot",
+            "support_point": [
+              0,
+              0
+            ],
+            "pose": "idle",
+            "facing": "front",
+            "view": "scene",
+            "mask_ids": [],
+            "palette_slots": []
+          },
+          "target_ref": {
+            "kind": "place",
+            "id": "place.courtyard"
+          }
+        },
+        {
+          "id": "grain.body",
+          "kind": "building",
+          "asset_id": "backgrounds/city.grainshop_uncovered",
+          "anchor": [
+            60,
+            64
+          ],
+          "z_index": 10,
+          "after": [
+            "grain.ground"
+          ],
+          "geometry": {
+            "source_size": [
+              1536,
+              1024
+            ],
+            "logical_canvas": [
+              1672,
+              941
+            ],
+            "alpha_bounds": [
+              0,
+              15,
+              1536,
+              1009
+            ],
+            "safe_crop": [
+              0,
+              0,
+              1536,
+              1024
+            ],
+            "support_kind": "foot",
+            "support_point": [
+              51,
+              87
+            ],
+            "pose": "idle",
+            "facing": "front",
+            "view": "scene",
+            "mask_ids": [],
+            "palette_slots": []
+          },
+          "target_ref": {
+            "kind": "place",
+            "id": "place.grain"
+          },
+          "display_width": 740
+        },
+        {
+          "id": "grain.awning",
+          "kind": "furnishing",
+          "asset_id": "backgrounds/city.grainshop_awning",
+          "anchor": [
+            56,
+            46
+          ],
+          "z_index": 11,
+          "after": [
+            "grain.body"
+          ],
+          "geometry": {
+            "source_size": [
+              1536,
+              1024
+            ],
+            "logical_canvas": [
+              1672,
+              941
+            ],
+            "alpha_bounds": [
+              65,
+              25,
+              1401,
+              975
+            ],
+            "safe_crop": [
+              0,
+              0,
+              1536,
+              1024
+            ],
+            "support_kind": "foot",
+            "support_point": [
+              0,
+              0
+            ],
+            "pose": "idle",
+            "facing": "front",
+            "view": "scene",
+            "mask_ids": [],
+            "palette_slots": []
+          },
+          "target_ref": {
+            "kind": "place",
+            "id": "place.grain"
+          },
+          "display_width": 280
+        },
+        {
+          "id": "grain.merchant",
+          "kind": "actor",
+          "position": [
+            51,
+            76
+          ],
+          "extent": [
+            15,
+            34
+          ],
+          "target_ref": {
+            "kind": "actor",
+            "id": "actor.merchant"
+          },
+          "after": [
+            "grain.awning"
+          ]
+        },
+        {
+          "id": "grain.return",
+          "kind": "hotspot",
+          "rect": [
+            32,
+            67,
+            12,
+            7
+          ],
+          "target_layer_id": "grain.courtyard_path",
+          "after": [
+            "grain.courtyard_path"
+          ],
+          "candidate_selector": {
+            "command_kind": "move_local",
+            "params": {}
+          }
+        },
+        {
+          "id": "grain.talk",
+          "kind": "hotspot",
+          "rect": [
+            45,
+            43,
+            12,
+            32
+          ],
+          "target_layer_id": "grain.merchant",
+          "after": [
+            "grain.merchant"
+          ],
+          "candidate_selector": {
+            "command_kind": "talk",
+            "params": {
+              "role_id": "role.merchant"
+            }
+          }
+        }
+      ]
+    }
+  }
+}

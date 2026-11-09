@@ -1,0 +1,7 @@
+# 政治与治理消费者登记：保留本组目标、测试、条件与局部变量的原执行顺序。
+# 原司法四命令实际result永久来源门，不以裁剪首history倒认旧事实。
+add_executable(test_resident_political_shop_licensing_result tests/resident/political_shop_licensing_result_test.cpp)
+target_link_libraries(test_resident_political_shop_licensing_result PRIVATE hanmo_resident)
+target_include_directories(test_resident_political_shop_licensing_result PRIVATE src)
+target_compile_options(test_resident_political_shop_licensing_result PRIVATE -UNDEBUG -fno-fast-math -ffp-contract=off)
+add_test(NAME resident_political_shop_licensing_result COMMAND test_resident_political_shop_licensing_result)

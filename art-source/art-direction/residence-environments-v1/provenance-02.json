@@ -1,0 +1,40 @@
+{
+  "status": "OFFLINE_PIXEL_PASS_CANDIDATE",
+  "tool": "built-in image_gen.imagegen",
+  "original_generated_path": "<本地路径>",
+  "edit_source": "art-source/art-direction/residence-environments-v1/source/estate-overview-01.png",
+  "prompt": "art-source/art-direction/residence-environments-v1/prompt-02-safe-area.txt",
+  "source": "art-source/art-direction/residence-environments-v1/source/estate-overview-02.png",
+  "runtime_candidate": "game/assets/art/residence-environments-v1/estate-overview.png",
+  "dimensions": [
+    1672,
+    941
+  ],
+  "mode": "RGB",
+  "byte_size": 3496314,
+  "sha256": "b69b1114fb824d1d7fd36511bb50c3ff534571bf464dd3e2a8dafd475d28c0ab",
+  "git_blob_oid": "018f902abcb67d234e30ca10011d28752e9805d3",
+  "modified_pixels_after_generation": false,
+  "actual_pixels_viewed": true,
+  "approved_by_user": false,
+  "runtime_registered": false,
+  "layered_source_complete": false,
+  "history_basis": "本作设计推定；沿旧庄院的住宅、仓廪、田亩、木栅与土木陶草材质，没有声称逐件汉末考古复原。",
+  "pixel_review": {
+    "pass": [
+      "离线实际查看1672×941原图，俯视屋面、院地、仓廪、田亩及内外通路关系清楚。",
+      "住宅和仓廪主体收在左侧约65%—66%，相较首稿已消除右侧35%大幅遮挡仓廪的问题。",
+      "无可见人物、文字、数值、图标、热点或界面；没有附加工坊、堡楼或新设施类型。",
+      "材质保持木、土墙、瓦、草、陶区分，绿叶与冷瓦避免全幅褐色，笔触和边缘有概括。",
+      "两个门口与院中地面保持连通，普通住宅没有豪族宫殿化。"
+    ],
+    "limitations": [
+      "右侧田亩仍有细节，事务面板须使用稳定不透明/半不透明底材，不可把正文直接压在田穗上。",
+      "比例按约65%／35%目标，不能把这张生成图当成像素精确UI规范。",
+      "原生输出1672×941，未达到规划源图2560×1440；没有放大伪称高分辨率源。",
+      "这是单张无字无人的候选底景，没有可编辑建筑分层、施工/受损状态、真实热点或人物锚点验收。",
+      "不同田亩、仓廪或木栅阶段不能只靠这张固定背景表达。",
+      "GUI/CUA及引擎窄窗、字号、动态人员合成均未运行。"
+    ]
+  }
+}

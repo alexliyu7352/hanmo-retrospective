@@ -1,0 +1,1406 @@
+{
+  "version": 2,
+  "backgrounds": {
+    "city": {
+      "path": "res://assets/art/project/alpha-visual/city.png"
+    },
+    "shop": {
+      "path": "res://assets/art/project/alpha-visual/shop.png",
+      "entrance": [
+        78,
+        60
+      ]
+    },
+    "practice": {
+      "path": "res://assets/art/personal-field-environments-v1/practice-ground.png"
+    },
+    "city.ground": {
+      "path": "res://assets/art/layered-city/ground.png"
+    },
+    "city.grainshop_uncovered": {
+      "path": "res://assets/art/layered-city/grainshop_uncovered.png"
+    },
+    "city.grainshop_awning": {
+      "path": "res://assets/art/layered-city/grainshop_awning.png"
+    },
+    "world_map_city": {
+      "path": "res://assets/art/world-map/v0.1/city.png",
+      "entrance": [
+        50,
+        80
+      ]
+    },
+    "world_map_village": {
+      "path": "res://assets/art/world-map/v0.1/village.png",
+      "entrance": [
+        52,
+        80
+      ]
+    },
+    "world_map_region": {
+      "path": "res://assets/art/world-map/v0.2/qingchuan-region.png",
+      "map_world_rect": [
+        32,
+        58,
+        6,
+        4
+      ]
+    }
+  },
+  "portraits": {
+    "merchant": {
+      "path": "res://assets/art/project/alpha-visual/merchant.png"
+    },
+    "swordsman": {
+      "path": "res://assets/art/project/alpha-personal/swordsman.png"
+    },
+    "accepted_adult_female_high_cheek": {
+      "path": "res://assets/art/accepted_adult_appearances/v1/female_high_cheek.png"
+    },
+    "accepted_adult_female_round_broad": {
+      "path": "res://assets/art/accepted_adult_appearances/v1/female_round_broad.png"
+    },
+    "accepted_adult_female_short_chin": {
+      "path": "res://assets/art/accepted_adult_appearances/v1/female_short_chin.png"
+    },
+    "accepted_adult_female_straight_jaw": {
+      "path": "res://assets/art/accepted_adult_appearances/v1/female_straight_jaw.png"
+    },
+    "accepted_adult_long_full_oval": {
+      "path": "res://assets/art/accepted_adult_appearances/v1/long_full_oval.png"
+    },
+    "accepted_adult_long_high_cheek": {
+      "path": "res://assets/art/accepted_adult_appearances/v1/long_high_cheek.png"
+    },
+    "accepted_adult_long_narrow": {
+      "path": "res://assets/art/accepted_adult_appearances/v1/long_narrow.png"
+    },
+    "accepted_adult_long_straight_jaw": {
+      "path": "res://assets/art/accepted_adult_appearances/v1/long_straight_jaw.png"
+    },
+    "accepted_adult_medium_clear_long": {
+      "path": "res://assets/art/accepted_adult_appearances/v1/medium_clear_long.png"
+    },
+    "accepted_adult_medium_high_cheek": {
+      "path": "res://assets/art/accepted_adult_appearances/v1/medium_high_cheek.png"
+    },
+    "accepted_adult_medium_round_chin": {
+      "path": "res://assets/art/accepted_adult_appearances/v1/medium_round_chin.png"
+    },
+    "accepted_adult_medium_square_jaw": {
+      "path": "res://assets/art/accepted_adult_appearances/v1/medium_square_jaw.png"
+    }
+  },
+  "components": {},
+  "character_profiles": {
+    "accepted_adult.female_high_cheek": {
+      "age_domain": [
+        18,
+        59
+      ],
+      "age_variants": [
+        {
+          "ages": [
+            18,
+            59
+          ],
+          "body_basis": "adult_female_round_v1",
+          "components": [],
+          "id": "accepted_adult.female_high_cheek.adult",
+          "proportion": "adult"
+        }
+      ],
+      "attire_sets": [],
+      "battle_profile": {
+        "style": "none"
+      },
+      "child_max_age": 17,
+      "context": "daily",
+      "fallbacks": [],
+      "id": "accepted_adult.female_high_cheek",
+      "identity_group": "accepted_adult.female_high_cheek",
+      "mode": "handcrafted",
+      "overrides": [
+        {
+          "ages": [
+            18,
+            59
+          ],
+          "asset_id": "portraits/accepted_adult_female_high_cheek",
+          "body_basis": "adult_female_round_v1",
+          "context": "daily",
+          "geometry": {
+            "alpha_bounds": [
+              0,
+              18,
+              512,
+              750
+            ],
+            "facing": "right",
+            "logical_canvas": [
+              512,
+              768
+            ],
+            "mask_ids": [],
+            "palette_slots": [],
+            "pose": "idle",
+            "safe_crop": [
+              107,
+              10,
+              310,
+              310
+            ],
+            "source_size": [
+              512,
+              768
+            ],
+            "support_kind": "half_body_bottom",
+            "support_point": [
+              50,
+              100
+            ],
+            "view": "half_body"
+          },
+          "id": "accepted_adult.female_high_cheek.full",
+          "pose": "idle",
+          "priority": 0,
+          "proportion": "adult",
+          "view": "half_body"
+        }
+      ],
+      "pose": "idle",
+      "view": "half_body"
+    },
+    "accepted_adult.female_round_broad": {
+      "age_domain": [
+        18,
+        59
+      ],
+      "age_variants": [
+        {
+          "ages": [
+            18,
+            59
+          ],
+          "body_basis": "adult_female_round_v1",
+          "components": [],
+          "id": "accepted_adult.female_round_broad.adult",
+          "proportion": "adult"
+        }
+      ],
+      "attire_sets": [],
+      "battle_profile": {
+        "style": "none"
+      },
+      "child_max_age": 17,
+      "context": "daily",
+      "fallbacks": [],
+      "id": "accepted_adult.female_round_broad",
+      "identity_group": "accepted_adult.female_round_broad",
+      "mode": "handcrafted",
+      "overrides": [
+        {
+          "ages": [
+            18,
+            59
+          ],
+          "asset_id": "portraits/accepted_adult_female_round_broad",
+          "body_basis": "adult_female_round_v1",
+          "context": "daily",
+          "geometry": {
+            "alpha_bounds": [
+              0,
+              18,
+              512,
+              750
+            ],
+            "facing": "right",
+            "logical_canvas": [
+              512,
+              768
+            ],
+            "mask_ids": [],
+            "palette_slots": [],
+            "pose": "idle",
+            "safe_crop": [
+              107,
+              10,
+              310,
+              310
+            ],
+            "source_size": [
+              512,
+              768
+            ],
+            "support_kind": "half_body_bottom",
+            "support_point": [
+              50,
+              100
+            ],
+            "view": "half_body"
+          },
+          "id": "accepted_adult.female_round_broad.full",
+          "pose": "idle",
+          "priority": 0,
+          "proportion": "adult",
+          "view": "half_body"
+        }
+      ],
+      "pose": "idle",
+      "view": "half_body"
+    },
+    "accepted_adult.female_short_chin": {
+      "age_domain": [
+        18,
+        59
+      ],
+      "age_variants": [
+        {
+          "ages": [
+            18,
+            59
+          ],
+          "body_basis": "adult_female_round_v1",
+          "components": [],
+          "id": "accepted_adult.female_short_chin.adult",
+          "proportion": "adult"
+        }
+      ],
+      "attire_sets": [],
+      "battle_profile": {
+        "style": "none"
+      },
+      "child_max_age": 17,
+      "context": "daily",
+      "fallbacks": [],
+      "id": "accepted_adult.female_short_chin",
+      "identity_group": "accepted_adult.female_short_chin",
+      "mode": "handcrafted",
+      "overrides": [
+        {
+          "ages": [
+            18,
+            59
+          ],
+          "asset_id": "portraits/accepted_adult_female_short_chin",
+          "body_basis": "adult_female_round_v1",
+          "context": "daily",
+          "geometry": {
+            "alpha_bounds": [
+              0,
+              18,
+              512,
+              750
+            ],
+            "facing": "right",
+            "logical_canvas": [
+              512,
+              768
+            ],
+            "mask_ids": [],
+            "palette_slots": [],
+            "pose": "idle",
+            "safe_crop": [
+              107,
+              10,
+              310,
+              310
+            ],
+            "source_size": [
+              512,
+              768
+            ],
+            "support_kind": "half_body_bottom",
+            "support_point": [
+              50,
+              100
+            ],
+            "view": "half_body"
+          },
+          "id": "accepted_adult.female_short_chin.full",
+          "pose": "idle",
+          "priority": 0,
+          "proportion": "adult",
+          "view": "half_body"
+        }
+      ],
+      "pose": "idle",
+      "view": "half_body"
+    },
+    "accepted_adult.female_straight_jaw": {
+      "age_domain": [
+        18,
+        59
+      ],
+      "age_variants": [
+        {
+          "ages": [
+            18,
+            59
+          ],
+          "body_basis": "adult_female_round_v1",
+          "components": [],
+          "id": "accepted_adult.female_straight_jaw.adult",
+          "proportion": "adult"
+        }
+      ],
+      "attire_sets": [],
+      "battle_profile": {
+        "style": "none"
+      },
+      "child_max_age": 17,
+      "context": "daily",
+      "fallbacks": [],
+      "id": "accepted_adult.female_straight_jaw",
+      "identity_group": "accepted_adult.female_straight_jaw",
+      "mode": "handcrafted",
+      "overrides": [
+        {
+          "ages": [
+            18,
+            59
+          ],
+          "asset_id": "portraits/accepted_adult_female_straight_jaw",
+          "body_basis": "adult_female_round_v1",
+          "context": "daily",
+          "geometry": {
+            "alpha_bounds": [
+              0,
+              18,
+              512,
+              750
+            ],
+            "facing": "right",
+            "logical_canvas": [
+              512,
+              768
+            ],
+            "mask_ids": [],
+            "palette_slots": [],
+            "pose": "idle",
+            "safe_crop": [
+              107,
+              10,
+              310,
+              310
+            ],
+            "source_size": [
+              512,
+              768
+            ],
+            "support_kind": "half_body_bottom",
+            "support_point": [
+              50,
+              100
+            ],
+            "view": "half_body"
+          },
+          "id": "accepted_adult.female_straight_jaw.full",
+          "pose": "idle",
+          "priority": 0,
+          "proportion": "adult",
+          "view": "half_body"
+        }
+      ],
+      "pose": "idle",
+      "view": "half_body"
+    },
+    "accepted_adult.long_full_oval": {
+      "age_domain": [
+        18,
+        59
+      ],
+      "age_variants": [
+        {
+          "ages": [
+            18,
+            59
+          ],
+          "body_basis": "adult_male_long_v1",
+          "components": [],
+          "id": "accepted_adult.long_full_oval.adult",
+          "proportion": "adult"
+        }
+      ],
+      "attire_sets": [],
+      "battle_profile": {
+        "style": "none"
+      },
+      "child_max_age": 17,
+      "context": "daily",
+      "fallbacks": [],
+      "id": "accepted_adult.long_full_oval",
+      "identity_group": "accepted_adult.long_full_oval",
+      "mode": "handcrafted",
+      "overrides": [
+        {
+          "ages": [
+            18,
+            59
+          ],
+          "asset_id": "portraits/accepted_adult_long_full_oval",
+          "body_basis": "adult_male_long_v1",
+          "context": "daily",
+          "geometry": {
+            "alpha_bounds": [
+              0,
+              20,
+              512,
+              748
+            ],
+            "facing": "right",
+            "logical_canvas": [
+              512,
+              768
+            ],
+            "mask_ids": [],
+            "palette_slots": [],
+            "pose": "idle",
+            "safe_crop": [
+              115,
+              9,
+              306,
+              306
+            ],
+            "source_size": [
+              512,
+              768
+            ],
+            "support_kind": "half_body_bottom",
+            "support_point": [
+              50,
+              100
+            ],
+            "view": "half_body"
+          },
+          "id": "accepted_adult.long_full_oval.full",
+          "pose": "idle",
+          "priority": 0,
+          "proportion": "adult",
+          "view": "half_body"
+        }
+      ],
+      "pose": "idle",
+      "view": "half_body"
+    },
+    "accepted_adult.long_high_cheek": {
+      "age_domain": [
+        18,
+        59
+      ],
+      "age_variants": [
+        {
+          "ages": [
+            18,
+            59
+          ],
+          "body_basis": "adult_male_long_v1",
+          "components": [],
+          "id": "accepted_adult.long_high_cheek.adult",
+          "proportion": "adult"
+        }
+      ],
+      "attire_sets": [],
+      "battle_profile": {
+        "style": "none"
+      },
+      "child_max_age": 17,
+      "context": "daily",
+      "fallbacks": [],
+      "id": "accepted_adult.long_high_cheek",
+      "identity_group": "accepted_adult.long_high_cheek",
+      "mode": "handcrafted",
+      "overrides": [
+        {
+          "ages": [
+            18,
+            59
+          ],
+          "asset_id": "portraits/accepted_adult_long_high_cheek",
+          "body_basis": "adult_male_long_v1",
+          "context": "daily",
+          "geometry": {
+            "alpha_bounds": [
+              0,
+              20,
+              512,
+              748
+            ],
+            "facing": "right",
+            "logical_canvas": [
+              512,
+              768
+            ],
+            "mask_ids": [],
+            "palette_slots": [],
+            "pose": "idle",
+            "safe_crop": [
+              115,
+              9,
+              306,
+              306
+            ],
+            "source_size": [
+              512,
+              768
+            ],
+            "support_kind": "half_body_bottom",
+            "support_point": [
+              50,
+              100
+            ],
+            "view": "half_body"
+          },
+          "id": "accepted_adult.long_high_cheek.full",
+          "pose": "idle",
+          "priority": 0,
+          "proportion": "adult",
+          "view": "half_body"
+        }
+      ],
+      "pose": "idle",
+      "view": "half_body"
+    },
+    "accepted_adult.long_narrow": {
+      "age_domain": [
+        18,
+        59
+      ],
+      "age_variants": [
+        {
+          "ages": [
+            18,
+            59
+          ],
+          "body_basis": "adult_male_long_v1",
+          "components": [],
+          "id": "accepted_adult.long_narrow.adult",
+          "proportion": "adult"
+        }
+      ],
+      "attire_sets": [],
+      "battle_profile": {
+        "style": "none"
+      },
+      "child_max_age": 17,
+      "context": "daily",
+      "fallbacks": [],
+      "id": "accepted_adult.long_narrow",
+      "identity_group": "accepted_adult.long_narrow",
+      "mode": "handcrafted",
+      "overrides": [
+        {
+          "ages": [
+            18,
+            59
+          ],
+          "asset_id": "portraits/accepted_adult_long_narrow",
+          "body_basis": "adult_male_long_v1",
+          "context": "daily",
+          "geometry": {
+            "alpha_bounds": [
+              0,
+              20,
+              512,
+              748
+            ],
+            "facing": "right",
+            "logical_canvas": [
+              512,
+              768
+            ],
+            "mask_ids": [],
+            "palette_slots": [],
+            "pose": "idle",
+            "safe_crop": [
+              115,
+              9,
+              306,
+              306
+            ],
+            "source_size": [
+              512,
+              768
+            ],
+            "support_kind": "half_body_bottom",
+            "support_point": [
+              50,
+              100
+            ],
+            "view": "half_body"
+          },
+          "id": "accepted_adult.long_narrow.full",
+          "pose": "idle",
+          "priority": 0,
+          "proportion": "adult",
+          "view": "half_body"
+        }
+      ],
+      "pose": "idle",
+      "view": "half_body"
+    },
+    "accepted_adult.long_straight_jaw": {
+      "age_domain": [
+        18,
+        59
+      ],
+      "age_variants": [
+        {
+          "ages": [
+            18,
+            59
+          ],
+          "body_basis": "adult_male_long_v1",
+          "components": [],
+          "id": "accepted_adult.long_straight_jaw.adult",
+          "proportion": "adult"
+        }
+      ],
+      "attire_sets": [],
+      "battle_profile": {
+        "style": "none"
+      },
+      "child_max_age": 17,
+      "context": "daily",
+      "fallbacks": [],
+      "id": "accepted_adult.long_straight_jaw",
+      "identity_group": "accepted_adult.long_straight_jaw",
+      "mode": "handcrafted",
+      "overrides": [
+        {
+          "ages": [
+            18,
+            59
+          ],
+          "asset_id": "portraits/accepted_adult_long_straight_jaw",
+          "body_basis": "adult_male_long_v1",
+          "context": "daily",
+          "geometry": {
+            "alpha_bounds": [
+              0,
+              20,
+              512,
+              748
+            ],
+            "facing": "right",
+            "logical_canvas": [
+              512,
+              768
+            ],
+            "mask_ids": [],
+            "palette_slots": [],
+            "pose": "idle",
+            "safe_crop": [
+              115,
+              9,
+              306,
+              306
+            ],
+            "source_size": [
+              512,
+              768
+            ],
+            "support_kind": "half_body_bottom",
+            "support_point": [
+              50,
+              100
+            ],
+            "view": "half_body"
+          },
+          "id": "accepted_adult.long_straight_jaw.full",
+          "pose": "idle",
+          "priority": 0,
+          "proportion": "adult",
+          "view": "half_body"
+        }
+      ],
+      "pose": "idle",
+      "view": "half_body"
+    },
+    "accepted_adult.medium_clear_long": {
+      "age_domain": [
+        18,
+        59
+      ],
+      "age_variants": [
+        {
+          "ages": [
+            18,
+            59
+          ],
+          "body_basis": "adult_male_medium_v2",
+          "components": [],
+          "id": "accepted_adult.medium_clear_long.adult",
+          "proportion": "adult"
+        }
+      ],
+      "attire_sets": [],
+      "battle_profile": {
+        "style": "none"
+      },
+      "child_max_age": 17,
+      "context": "daily",
+      "fallbacks": [],
+      "id": "accepted_adult.medium_clear_long",
+      "identity_group": "accepted_adult.medium_clear_long",
+      "mode": "handcrafted",
+      "overrides": [
+        {
+          "ages": [
+            18,
+            59
+          ],
+          "asset_id": "portraits/accepted_adult_medium_clear_long",
+          "body_basis": "adult_male_medium_v2",
+          "context": "daily",
+          "geometry": {
+            "alpha_bounds": [
+              0,
+              28,
+              512,
+              740
+            ],
+            "facing": "right",
+            "logical_canvas": [
+              512,
+              768
+            ],
+            "mask_ids": [],
+            "palette_slots": [],
+            "pose": "idle",
+            "safe_crop": [
+              110,
+              17,
+              310,
+              310
+            ],
+            "source_size": [
+              512,
+              768
+            ],
+            "support_kind": "half_body_bottom",
+            "support_point": [
+              50,
+              100
+            ],
+            "view": "half_body"
+          },
+          "id": "accepted_adult.medium_clear_long.full",
+          "pose": "idle",
+          "priority": 0,
+          "proportion": "adult",
+          "view": "half_body"
+        }
+      ],
+      "pose": "idle",
+      "view": "half_body"
+    },
+    "accepted_adult.medium_high_cheek": {
+      "age_domain": [
+        18,
+        59
+      ],
+      "age_variants": [
+        {
+          "ages": [
+            18,
+            59
+          ],
+          "body_basis": "adult_male_medium_v2",
+          "components": [],
+          "id": "accepted_adult.medium_high_cheek.adult",
+          "proportion": "adult"
+        }
+      ],
+      "attire_sets": [],
+      "battle_profile": {
+        "style": "none"
+      },
+      "child_max_age": 17,
+      "context": "daily",
+      "fallbacks": [],
+      "id": "accepted_adult.medium_high_cheek",
+      "identity_group": "accepted_adult.medium_high_cheek",
+      "mode": "handcrafted",
+      "overrides": [
+        {
+          "ages": [
+            18,
+            59
+          ],
+          "asset_id": "portraits/accepted_adult_medium_high_cheek",
+          "body_basis": "adult_male_medium_v2",
+          "context": "daily",
+          "geometry": {
+            "alpha_bounds": [
+              0,
+              28,
+              512,
+              740
+            ],
+            "facing": "right",
+            "logical_canvas": [
+              512,
+              768
+            ],
+            "mask_ids": [],
+            "palette_slots": [],
+            "pose": "idle",
+            "safe_crop": [
+              110,
+              17,
+              310,
+              310
+            ],
+            "source_size": [
+              512,
+              768
+            ],
+            "support_kind": "half_body_bottom",
+            "support_point": [
+              50,
+              100
+            ],
+            "view": "half_body"
+          },
+          "id": "accepted_adult.medium_high_cheek.full",
+          "pose": "idle",
+          "priority": 0,
+          "proportion": "adult",
+          "view": "half_body"
+        }
+      ],
+      "pose": "idle",
+      "view": "half_body"
+    },
+    "accepted_adult.medium_round_chin": {
+      "age_domain": [
+        18,
+        59
+      ],
+      "age_variants": [
+        {
+          "ages": [
+            18,
+            59
+          ],
+          "body_basis": "adult_male_medium_v2",
+          "components": [],
+          "id": "accepted_adult.medium_round_chin.adult",
+          "proportion": "adult"
+        }
+      ],
+      "attire_sets": [],
+      "battle_profile": {
+        "style": "none"
+      },
+      "child_max_age": 17,
+      "context": "daily",
+      "fallbacks": [],
+      "id": "accepted_adult.medium_round_chin",
+      "identity_group": "accepted_adult.medium_round_chin",
+      "mode": "handcrafted",
+      "overrides": [
+        {
+          "ages": [
+            18,
+            59
+          ],
+          "asset_id": "portraits/accepted_adult_medium_round_chin",
+          "body_basis": "adult_male_medium_v2",
+          "context": "daily",
+          "geometry": {
+            "alpha_bounds": [
+              0,
+              28,
+              512,
+              740
+            ],
+            "facing": "right",
+            "logical_canvas": [
+              512,
+              768
+            ],
+            "mask_ids": [],
+            "palette_slots": [],
+            "pose": "idle",
+            "safe_crop": [
+              110,
+              17,
+              310,
+              310
+            ],
+            "source_size": [
+              512,
+              768
+            ],
+            "support_kind": "half_body_bottom",
+            "support_point": [
+              50,
+              100
+            ],
+            "view": "half_body"
+          },
+          "id": "accepted_adult.medium_round_chin.full",
+          "pose": "idle",
+          "priority": 0,
+          "proportion": "adult",
+          "view": "half_body"
+        }
+      ],
+      "pose": "idle",
+      "view": "half_body"
+    },
+    "accepted_adult.medium_square_jaw": {
+      "age_domain": [
+        18,
+        59
+      ],
+      "age_variants": [
+        {
+          "ages": [
+            18,
+            59
+          ],
+          "body_basis": "adult_male_medium_v2",
+          "components": [],
+          "id": "accepted_adult.medium_square_jaw.adult",
+          "proportion": "adult"
+        }
+      ],
+      "attire_sets": [],
+      "battle_profile": {
+        "style": "none"
+      },
+      "child_max_age": 17,
+      "context": "daily",
+      "fallbacks": [],
+      "id": "accepted_adult.medium_square_jaw",
+      "identity_group": "accepted_adult.medium_square_jaw",
+      "mode": "handcrafted",
+      "overrides": [
+        {
+          "ages": [
+            18,
+            59
+          ],
+          "asset_id": "portraits/accepted_adult_medium_square_jaw",
+          "body_basis": "adult_male_medium_v2",
+          "context": "daily",
+          "geometry": {
+            "alpha_bounds": [
+              0,
+              28,
+              512,
+              740
+            ],
+            "facing": "right",
+            "logical_canvas": [
+              512,
+              768
+            ],
+            "mask_ids": [],
+            "palette_slots": [],
+            "pose": "idle",
+            "safe_crop": [
+              110,
+              17,
+              310,
+              310
+            ],
+            "source_size": [
+              512,
+              768
+            ],
+            "support_kind": "half_body_bottom",
+            "support_point": [
+              50,
+              100
+            ],
+            "view": "half_body"
+          },
+          "id": "accepted_adult.medium_square_jaw.full",
+          "pose": "idle",
+          "priority": 0,
+          "proportion": "adult",
+          "view": "half_body"
+        }
+      ],
+      "pose": "idle",
+      "view": "half_body"
+    },
+    "regional.adult_representatives_v1": {
+      "age_domain": [
+        18,
+        59
+      ],
+      "age_variants": [
+        {
+          "ages": [
+            18,
+            59
+          ],
+          "body_basis": "adult_male_medium_v2",
+          "components": [],
+          "id": "accepted_adult.medium_clear_long.adult",
+          "proportion": "adult"
+        }
+      ],
+      "attire_sets": [],
+      "battle_profile": {
+        "style": "none"
+      },
+      "child_max_age": 17,
+      "context": "daily",
+      "fallbacks": [],
+      "id": "regional.adult_representatives_v1",
+      "identity_group": "accepted_adult.medium_clear_long",
+      "mode": "handcrafted",
+      "overrides": [
+        {
+          "ages": [
+            18,
+            59
+          ],
+          "asset_id": "portraits/accepted_adult_medium_clear_long",
+          "body_basis": "adult_male_medium_v2",
+          "context": "daily",
+          "geometry": {
+            "alpha_bounds": [
+              0,
+              28,
+              512,
+              740
+            ],
+            "facing": "right",
+            "logical_canvas": [
+              512,
+              768
+            ],
+            "mask_ids": [],
+            "palette_slots": [],
+            "pose": "idle",
+            "safe_crop": [
+              110,
+              17,
+              310,
+              310
+            ],
+            "source_size": [
+              512,
+              768
+            ],
+            "support_kind": "half_body_bottom",
+            "support_point": [
+              50,
+              100
+            ],
+            "view": "half_body"
+          },
+          "id": "accepted_adult.medium_clear_long.full",
+          "pose": "idle",
+          "priority": 0,
+          "proportion": "adult",
+          "view": "half_body"
+        }
+      ],
+      "pose": "idle",
+      "view": "half_body"
+    }
+  },
+  "scene_templates": {
+    "qingchuan.grain.city": {
+      "id": "qingchuan.grain.city",
+      "view_kind": "city",
+      "logical_canvas": [
+        1672,
+        941
+      ],
+      "ui_safe_areas": [
+        [
+          0,
+          0,
+          1672,
+          174
+        ],
+        [
+          0,
+          174,
+          450,
+          550
+        ],
+        [
+          0,
+          729,
+          1672,
+          212
+        ]
+      ],
+      "layers": [
+        {
+          "id": "grain.ground",
+          "kind": "background",
+          "asset_id": "backgrounds/city.ground",
+          "anchor": [
+            0,
+            0
+          ],
+          "z_index": 0,
+          "after": [],
+          "geometry": {
+            "source_size": [
+              1672,
+              941
+            ],
+            "logical_canvas": [
+              1672,
+              941
+            ],
+            "alpha_bounds": [
+              0,
+              0,
+              1672,
+              941
+            ],
+            "safe_crop": [
+              0,
+              0,
+              1672,
+              941
+            ],
+            "support_kind": "foot",
+            "support_point": [
+              0,
+              0
+            ],
+            "pose": "idle",
+            "facing": "front",
+            "view": "scene",
+            "mask_ids": [],
+            "palette_slots": []
+          },
+          "target_ref": {
+            "kind": "place",
+            "id": "place.grain"
+          }
+        },
+        {
+          "id": "grain.courtyard_path",
+          "kind": "effect",
+          "asset_id": "backgrounds/city.ground",
+          "anchor": [
+            0,
+            0
+          ],
+          "z_index": 1,
+          "after": [
+            "grain.ground"
+          ],
+          "geometry": {
+            "source_size": [
+              1672,
+              941
+            ],
+            "logical_canvas": [
+              1672,
+              941
+            ],
+            "alpha_bounds": [
+              0,
+              0,
+              1672,
+              941
+            ],
+            "safe_crop": [
+              518,
+              621,
+              235,
+              94
+            ],
+            "support_kind": "foot",
+            "support_point": [
+              0,
+              0
+            ],
+            "pose": "idle",
+            "facing": "front",
+            "view": "scene",
+            "mask_ids": [],
+            "palette_slots": []
+          },
+          "target_ref": {
+            "kind": "place",
+            "id": "place.courtyard"
+          }
+        },
+        {
+          "id": "grain.body",
+          "kind": "building",
+          "asset_id": "backgrounds/city.grainshop_uncovered",
+          "anchor": [
+            60,
+            64
+          ],
+          "z_index": 10,
+          "after": [
+            "grain.ground"
+          ],
+          "geometry": {
+            "source_size": [
+              1536,
+              1024
+            ],
+            "logical_canvas": [
+              1672,
+              941
+            ],
+            "alpha_bounds": [
+              0,
+              15,
+              1536,
+              1009
+            ],
+            "safe_crop": [
+              0,
+              0,
+              1536,
+              1024
+            ],
+            "support_kind": "foot",
+            "support_point": [
+              51,
+              87
+            ],
+            "pose": "idle",
+            "facing": "front",
+            "view": "scene",
+            "mask_ids": [],
+            "palette_slots": []
+          },
+          "target_ref": {
+            "kind": "place",
+            "id": "place.grain"
+          },
+          "display_width": 740
+        },
+        {
+          "id": "grain.awning",
+          "kind": "furnishing",
+          "asset_id": "backgrounds/city.grainshop_awning",
+          "anchor": [
+            56,
+            46
+          ],
+          "z_index": 11,
+          "after": [
+            "grain.body"
+          ],
+          "geometry": {
+            "source_size": [
+              1536,
+              1024
+            ],
+            "logical_canvas": [
+              1672,
+              941
+            ],
+            "alpha_bounds": [
+              65,
+              25,
+              1401,
+              975
+            ],
+            "safe_crop": [
+              0,
+              0,
+              1536,
+              1024
+            ],
+            "support_kind": "foot",
+            "support_point": [
+              0,
+              0
+            ],
+            "pose": "idle",
+            "facing": "front",
+            "view": "scene",
+            "mask_ids": [],
+            "palette_slots": []
+          },
+          "target_ref": {
+            "kind": "place",
+            "id": "place.grain"
+          },
+          "display_width": 280
+        },
+        {
+          "id": "grain.merchant",
+          "kind": "actor",
+          "position": [
+            51,
+            76
+          ],
+          "extent": [
+            15,
+            34
+          ],
+          "target_ref": {
+            "kind": "actor",
+            "id": "actor.merchant"
+          },
+          "after": [
+            "grain.awning"
+          ]
+        },
+        {
+          "id": "grain.return",
+          "kind": "hotspot",
+          "rect": [
+            32,
+            67,
+            12,
+            7
+          ],
+          "target_layer_id": "grain.courtyard_path",
+          "after": [
+            "grain.courtyard_path"
+          ],
+          "candidate_selector": {
+            "command_kind": "move_local",
+            "params": {}
+          }
+        },
+        {
+          "id": "grain.talk",
+          "kind": "hotspot",
+          "rect": [
+            45,
+            43,
+            12,
+            32
+          ],
+          "target_layer_id": "grain.merchant",
+          "after": [
+            "grain.merchant"
+          ],
+          "candidate_selector": {
+            "command_kind": "talk",
+            "params": {
+              "role_id": "role.merchant"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "default_background": "city",
+  "default_portrait": "merchant",
+  "adult_appearance_composition": {
+    "catalog": "res://data/adult_appearance_compositions.json",
+    "resource_root": "res://character_studio/",
+    "fittings": "res://character_studio/fittings.json",
+    "representatives": "res://character_studio/representatives.json",
+    "renderer": "res://ui/adult_appearance_renderer.gd",
+    "session": "res://character_studio/src/studio_session.gd"
+  }
+}

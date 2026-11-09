@@ -1,0 +1,25 @@
+// 精确期间只证明原owner已采用完整服务；S0在真正gate consumer中一次增加N。
+#include "life_work_period.hpp"
+#include <algorithm>
+#include <limits>
+#include <set>
+#include <stdexcept>
+namespace hanmo::resident {namespace {
+struct Failure{RuleError error;};
+RuleError error(const char* code,ErrorKind kind=ErrorKind::rule){RuleError e;e.original={code,"life_work_period"};e.kind=kind;return e;}
+void fail(const char* code){throw Failure{error(code)};}
+template<class T>T take(Outcome<T> result){if(!result.ok)throw Failure{std::move(result.error)};return std::move(result.value);}
+template<class T,class F>Outcome<T> guard(F fn){try{return {true,fn(),{}};}catch(Failure& e){return {false,{},std::move(e.error)};}catch(const std::bad_alloc&){return {false,{},error("LifeWorkPeriodResourceExhausted",ErrorKind::internal)};}catch(const std::length_error&){return {false,{},error("LifeWorkPeriodResourceExhausted",ErrorKind::internal)};}}
+void source(const SourceRef& ref,Integer schema){if(!valid_source_ref(ref)||schema<=0||static_cast<std::uint64_t>(schema)>std::numeric_limits<std::uint32_t>::max())fail("InvalidLifeWorkPeriodSource");}
+void ids(const std::vector<StableId>& values){std::set<StableId> unique;for(const auto& id:values)if(id.empty()||!unique.insert(id).second)fail("DuplicateLifeWorkReference");}
+void refs(const std::vector<SourceRef>& values){for(std::size_t i=0;i<values.size();++i){if(!valid_source_ref(values[i]))fail("InvalidLifeWorkReference");for(std::size_t j=0;j<i;++j)if(same_source_ref(values[i],values[j]))fail("DuplicateLifeWorkReference");}}
+}
+bool same_life_work_period_ref(const LifeWorkPeriodSourceRef& a,const LifeWorkPeriodSourceRef& z){return a.source_schema==z.source_schema&&same_source_ref(a.source_ref,z.source_ref);}
+Status validate_life_work_period_value(const LifeWorkPeriodView& v,Integer n,ExactArithmeticBudget budget){return guard<Done>([&]{
+    source(v.ref.source_ref,v.ref.source_schema);take(validate_work_binding(v.execution_binding));const auto* binding=std::get_if<ActorActionWorkBinding>(&v.execution_binding);if(!binding||binding->source_owner_ref.domain!=v.ref.source_ref.domain||!life_half_day_stage_profile_name(v.gate_profile)||!valid_source_ref(v.stage_rule_source_ref)||v.completed_halfday_ordinal<0||v.applied_at.half_day_tick<0||v.service_segments.empty())fail("InvalidLifeWorkPeriod");take(encode_world_moment(v.applied_at,budget));auto required=take(fixed_duration_work_units(1,n,budget));WorkUnits total;const WorldMoment* previous=nullptr;
+    for(const auto& segment:v.service_segments){take(make_moment_span(segment.actual_span.from,segment.actual_span.to,budget));if(take(compare_world_moments(segment.actual_span.from,segment.actual_span.to,budget))>=0||segment.actual_span.from.half_day_tick<0||(previous&&take(compare_world_moments(*previous,segment.actual_span.from,budget))>0))fail("OverlappingLifeWorkService");if(take(compare_world_moments(segment.actual_span.to,v.applied_at,budget))>0||segment.actual_service_source_refs.empty())fail("MissingLifeWorkServiceSource");for(std::size_t i=0;i<segment.actual_service_source_refs.size();++i){const auto& ref=segment.actual_service_source_refs[i];source(ref.source_ref,ref.source_schema);for(std::size_t j=0;j<i;++j)if(ref.source_schema==segment.actual_service_source_refs[j].source_schema&&same_source_ref(ref.source_ref,segment.actual_service_source_refs[j].source_ref))fail("DuplicateLifeWorkServiceSource");}auto actual=take(duration_to_scale_units(take(elapsed_world_duration(segment.actual_span.from,segment.actual_span.to,budget)),n,budget));if(take(compare_fractions(actual.value,segment.provided_service_units.value,budget))!=0)fail("LifeWorkServiceUnitsMismatch");total=take(add_work_units(total,actual,budget));previous=&segment.actual_span.to;}
+    if(take(compare_world_moments(*previous,v.applied_at,budget))!=0||take(compare_fractions(total.value,required.value,budget))!=0||take(compare_fractions(v.consumed_service_units.value,total.value,budget))!=0)fail("LifeWorkPeriodNotComplete");
+    std::set<StableId> actors;for(const auto& role:v.actual_actor_roles)if(role.actor_id.empty()||role.role.empty()||!actors.insert(role.actor_id).second)fail("InvalidLifeWorkActorRole");if(actors.empty())fail("MissingLifeWorkActor");ids(v.actual_labor_allocations);ids(v.facility_claim_refs);refs(v.resource_effect_refs);refs(v.exertion_source_refs);refs(v.original_stage_result_refs);Integer prior=-1;for(const auto stage:v.completed_stage_ordinals){if(stage<0||stage<=prior)fail("InvalidLifeWorkStageOrder");prior=stage;}return Done{};
+});}
+Outcome<LifeWorkPeriodView> read_verified_life_work_period(const LifeWorkPeriodSourceRef& ref,const LifeWorkPeriodSourceRead& reader,Integer n,ExactArithmeticBudget budget){return guard<LifeWorkPeriodView>([&]{source(ref.source_ref,ref.source_schema);auto actual=take(reader.read_life_work_period(ref));if(!same_life_work_period_ref(actual.ref,ref))fail("LifeWorkPeriodSourceMismatch");take(validate_life_work_period_value(actual,n,budget));take(reader.validate_original_life_work_period(actual));return actual;});}
+}

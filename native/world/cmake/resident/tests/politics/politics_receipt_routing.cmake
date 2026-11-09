@@ -1,0 +1,7 @@
+# 政治与治理消费者登记：保留本组目标、测试、条件与局部变量的原执行顺序。
+# 共用政治Effects严格归属门，未知命令仍由原政治拒绝。
+add_executable(test_resident_politics_receipt_routing tests/resident/politics_receipt_routing_test.cpp)
+target_link_libraries(test_resident_politics_receipt_routing PRIVATE hanmo_resident)
+target_include_directories(test_resident_politics_receipt_routing PRIVATE src)
+target_compile_options(test_resident_politics_receipt_routing PRIVATE -UNDEBUG -fno-fast-math -ffp-contract=off)
+add_test(NAME resident_politics_receipt_routing COMMAND test_resident_politics_receipt_routing)

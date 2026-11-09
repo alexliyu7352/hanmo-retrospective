@@ -1,0 +1,21 @@
+# 成长与教学消费者登记：保留本组目标、测试、条件与局部变量的原执行顺序。
+# 原人物原因或Travel实际安装/控制的同候选来源组件，未启永久profile。
+add_executable(test_resident_growth_condition_binding tests/resident/growth_condition_binding_test.cpp)
+target_link_libraries(test_resident_growth_condition_binding PRIVATE hanmo_resident)
+target_include_directories(test_resident_growth_condition_binding PRIVATE src)
+target_compile_options(test_resident_growth_condition_binding PRIVATE -UNDEBUG -fno-fast-math -ffp-contract=off)
+add_test(NAME resident_growth_condition_binding COMMAND test_resident_growth_condition_binding)
+
+# 原人物原因或Travel实际安装/控制的同候选来源组件，未启永久profile。
+add_executable(test_resident_growth_condition_origin tests/resident/growth_condition_origin_test.cpp)
+target_link_libraries(test_resident_growth_condition_origin PRIVATE hanmo_resident)
+target_include_directories(test_resident_growth_condition_origin PRIVATE src)
+target_compile_options(test_resident_growth_condition_origin PRIVATE -UNDEBUG -fno-fast-math -ffp-contract=off)
+add_test(NAME resident_growth_condition_origin COMMAND test_resident_growth_condition_origin)
+
+# 原人物原因或Travel实际安装/控制的同候选来源组件，未启永久profile。
+add_executable(test_resident_growth_service_condition_source tests/resident/growth_service_condition_source_test.cpp)
+target_link_libraries(test_resident_growth_service_condition_source PRIVATE hanmo_resident)
+target_include_directories(test_resident_growth_service_condition_source PRIVATE src)
+target_compile_options(test_resident_growth_service_condition_source PRIVATE -UNDEBUG -fno-fast-math -ffp-contract=off)
+add_test(NAME resident_growth_service_condition_source COMMAND test_resident_growth_service_condition_source)

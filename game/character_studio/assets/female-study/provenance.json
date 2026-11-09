@@ -1,0 +1,17 @@
+{
+ "date":"2026-10-06",
+ "generator":"built-in image_gen",
+ "reference":"art-source/art-direction/characters/visual-targets/adult-face-families.png; original mature B4/C3 face-family direction, original Hanmo painterly style",
+ "scope":"Independent mature short-wide adult female calm-pose fitting family, not transformed from male rig",
+ "sources":[
+  {"file":"master-candidate.png","status":"rejected as too similar to first male rig; preserved research, no runtime reference"},
+  {"file":"master-v2.png","status":"complete independent original master; parent reviewed actual light/dark/checker composite and accepted continuing"},
+  {"file":"traveler.png","status":"same-master alternate complete outfit; original head/neck retained during real layer composition"},
+  {"file":"hair-scarf.png","status":"same-master fitted cloth headscarf; replaced only authored hair-region union"},
+  {"file":"features-alternate.png","status":"first alternate features; eye opening judged excessive, preserved research only"},
+  {"file":"features-alternate-v2.png","status":"corrected eye opening; alternate brows, eyes, nose and lips extracted separately in fixed authored regions"},
+  {"file":"face-angular.png","status":"same short-wide female family with more angular cheek/jaw; chosen independent features reapplied by renderer"}
+ ],
+ "production":"geometry.json records this family's own source-size fixed head/neck, hair, scarf and face-feature regions. build_female_layers.gd partitions original1024x1536 pixels; runtime combines source-size layers before uniform output downsampling.",
+ "review":"Actual six-combination and88/96avatar proofs were viewed. These are six combinations within one family, not six independent people. User final art acceptance remains separate."
+}

@@ -1,0 +1,8 @@
+// 有限页面只在真实原座所展示本人已知与同场人，不能通过指定place读取远方办理。
+#define POLITICAL_GOVERNANCE_AGENCY_MANDATE_FIXTURE_ONLY
+#include "political_governance_agency_mandate_test.cpp"
+#include "resident/domains/politics/governance_agencies/political_governance_agency_view.hpp"
+#include "resident/domains/local_economy/relief/public_relief_rules.hpp"
+int main(){try{
+ AgencyMandateFixture f;PublicReliefCatalog relief;auto rules=f.context();PoliticalGovernanceAgencyBusinessContext view{rules,relief,[](const auto&,const auto&,const auto&){return true;}};auto page=take(query_political_governance_agencies(view,"hall"));const auto& rows=boundary::array(boundary::field(page,"rows","page"),"rows");check(rows.size()==2,"current Office holder sees only two actual local candidates");check(!query_political_governance_agencies(view,"remote").ok,"remote place request cannot enumerate people or mandates");check(!query_political_governance_agencies(view,"hall",-1).ok,"negative cursor rejected");check(!query_political_governance_agencies(view,"hall",99).ok,"cursor cannot leap beyond finite own rows");f.common.state().actors.find("candidate")->location=SettlementLocation{"town","remote"};auto local=take(query_political_governance_agencies(view,"hall"));check(boundary::array(boundary::field(local,"rows","page"),"rows").size()==1,"remote candidate removed without fetching its live state into rows");f.common.state().actors.find("leader")->location=SettlementLocation{"town","remote"};check(!query_political_governance_agencies(view,"hall").ok,"former open page does not keep remote query permission");std::cout<<checks<<" agency local page assertions; no World\n";return 0;
+}catch(const std::exception& e){std::cerr<<e.what()<<'\n';return 1;}}

@@ -1,0 +1,60 @@
+{
+  "capture_kind": "CURRENT pre-refactor build captures; NOT F0.5 old-release originals",
+  "fixture_bytes": 58672,
+  "fixture_file": "v1-4f16935-family-after-adoption.hmsave",
+  "fixture_sha256": "153c7b14d6024ad7759ee8e7610b5b5d0d40568f9bfcffd83b4413d6c9325690",
+  "format": "HM-A2-V1-FIXTURE-PROVENANCE/1",
+  "historical_saves": {
+    "acceptance": "ARCH09",
+    "expected_sha256": "014ec72df268ab8202d4cea83ca4d37a2d1731448f7e1464f8e185f683cb1d17",
+    "provenance": [
+      "verification/f051/legacy-save.log",
+      "verification/m01/old-file.log"
+    ],
+    "reason": "真实F0.5发行原档字节未在授权恢复根找到；当前状态降ruleset不是历史黄金档",
+    "status": "GAP"
+  },
+  "original_receipt_ok": false,
+  "original_receipt_status": "INCOMPLETE",
+  "preservation": "Exact original persisted v1 bytes. No normalization, payload changes, ruleset downgrade or regeneration.",
+  "source_archive": "hanmo-pre-refactor-save-evidence-4f16935-20261002T005900Z.zip",
+  "source_archive_sha256": "b83e67191ade7a500a59b6d7b12b187c0c8ddce80f2a8823acdeac223d0e773d",
+  "source_baseline_receipt_sha256": "6f788db725df9c7c9210038421f48dc0244a6b319565f0967b259fca016ace0d",
+  "source_commit": "4f16935ca7e838480839143e2a92f9e0992c0683",
+  "source_manifest_entry": {
+    "after_restore_sha256": "cc3bee97664e8ef9cd7f5c6d5447ebed0f76f66169f6bdf8126c2af333f45a82",
+    "bytes": 58672,
+    "case": "family_succession",
+    "kind": "first-run-persisted-save",
+    "node": "04-after-adoption",
+    "path": "traces/family_succession/first/04-after-adoption.hmsave",
+    "recorded_sha256": "153c7b14d6024ad7759ee8e7610b5b5d0d40568f9bfcffd83b4413d6c9325690",
+    "revision": 4,
+    "sha256": "153c7b14d6024ad7759ee8e7610b5b5d0d40568f9bfcffd83b4413d6c9325690",
+    "source_commit": "4f16935ca7e838480839143e2a92f9e0992c0683",
+    "state_sha256": "cc3bee97664e8ef9cd7f5c6d5447ebed0f76f66169f6bdf8126c2af333f45a82",
+    "step": 4,
+    "tick": 2
+  },
+  "source_manifest_sha256": "4d1dd4c8409583fc93ce6aa4f6cabb22ba17d5f362b9bd2aa042c6372e6f575b",
+  "source_release_tag": "baseline-saves-4f16935",
+  "source_trace_checkpoint": {
+    "after_restore_sha256": "cc3bee97664e8ef9cd7f5c6d5447ebed0f76f66169f6bdf8126c2af333f45a82",
+    "label": "04-after-adoption",
+    "revision": 4,
+    "save": "04-after-adoption.hmsave",
+    "save_sha256": "153c7b14d6024ad7759ee8e7610b5b5d0d40568f9bfcffd83b4413d6c9325690",
+    "state_sha256": "cc3bee97664e8ef9cd7f5c6d5447ebed0f76f66169f6bdf8126c2af333f45a82",
+    "step": 4,
+    "tick": 2
+  },
+  "source_trace_entry": {
+    "bytes": 961270,
+    "case": "family_succession",
+    "kind": "first-run-trace",
+    "path": "traces/family_succession/first/trace.json",
+    "recorded_sha256": "6d72ff34ee019f17daa409c1b66b251a59cdfc9279fb9f6d9499ded976d633d9",
+    "sha256": "6d72ff34ee019f17daa409c1b66b251a59cdfc9279fb9f6d9499ded976d633d9",
+    "source_commit": "4f16935ca7e838480839143e2a92f9e0992c0683"
+  }
+}

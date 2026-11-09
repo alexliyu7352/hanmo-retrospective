@@ -1,0 +1,14 @@
+# 共同资源与执行消费者登记：保留本组目标、测试、条件与局部变量的原执行顺序。
+# 同一初货分配器供完整新局与独立初态投影，旧lot顺序必须逐字节一致。
+add_executable(test_resident_native_inventory_seed tests/resident/native_inventory_seed_test.cpp)
+target_link_libraries(test_resident_native_inventory_seed PRIVATE hanmo_resident)
+target_include_directories(test_resident_native_inventory_seed PRIVATE src)
+target_compile_options(test_resident_native_inventory_seed PRIVATE -UNDEBUG -fno-fast-math -ffp-contract=off)
+add_test(NAME resident_native_inventory_seed COMMAND test_resident_native_inventory_seed)
+
+# 已选市场静态保护在clone后仍生效；staging拒绝不能留下钱包、物品或实例号改动。
+add_executable(test_resident_protected_market_resources tests/resident/protected_market_resources_test.cpp)
+target_link_libraries(test_resident_protected_market_resources PRIVATE hanmo_resident)
+target_include_directories(test_resident_protected_market_resources PRIVATE src)
+target_compile_options(test_resident_protected_market_resources PRIVATE -UNDEBUG -fno-fast-math -ffp-contract=off)
+add_test(NAME resident_protected_market_resources COMMAND test_resident_protected_market_resources)

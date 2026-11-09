@@ -1,0 +1,12 @@
+// 独立未注册补任段；命令与持久形状均显式，旧Politics visitor不扩字段。
+#pragma once
+#include "political_subordinate_appointment_state.hpp"
+namespace hanmo::resident {
+StableId political_subordinate_appointment_command_kind(const PoliticalSubordinateAppointmentCommand&);
+bool is_political_subordinate_appointment_command(const StableId&);
+BoundaryValue encode_political_subordinate_appointment_command(const PoliticalSubordinateAppointmentCommand&);
+Outcome<PoliticalSubordinateAppointmentCommand> decode_political_subordinate_appointment_command(const StableId&,const BoundaryValue&);
+BoundaryValue encode_political_subordinate_appointment_state(const PoliticalSubordinateAppointmentState&);
+Outcome<PoliticalSubordinateAppointmentState> decode_political_subordinate_appointment_state(const BoundaryValue&);
+Status visit_political_subordinate_appointment_checkpoint(CodecVisitor&,PoliticalSubordinateAppointmentState&);
+}

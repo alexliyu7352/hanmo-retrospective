@@ -1,0 +1,22 @@
+{
+  "format": "HM-PACK-SELECTION",
+  "format_version": 1,
+  "packs": [
+    {
+      "id": "qingxi.campaign",
+      "version": "1.2.0"
+    },
+    {
+      "id": "hanmo.inland_fleet",
+      "version": "1.2.0"
+    },
+    {
+      "id": "hanmo.military_witness",
+      "version": "1.0.0"
+    },
+    {
+      "id": "hanmo.private_shop_estates",
+      "version": "1.0.0"
+    }
+  ]
+}

@@ -1,0 +1,424 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$ref": "#/$defs/politics_catalog",
+  "$defs": {
+    "politics_jurisdiction": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "name_key": {
+          "type": "string",
+          "minLength": 1,
+          "x-hanmo-ref": "texts"
+        },
+        "office_name_key": {
+          "type": "string",
+          "minLength": 1,
+          "x-hanmo-ref": "texts"
+        },
+        "seat_place_id": {
+          "type": "string",
+          "minLength": 1,
+          "x-hanmo-ref": "places"
+        },
+        "political_organization_id": {
+          "type": "string",
+          "minLength": 1,
+          "x-hanmo-ref": "organizations"
+        },
+        "controlling_organization_id": {
+          "type": "string",
+          "minLength": 1,
+          "x-hanmo-ref": "organizations"
+        },
+        "office_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "public_wallet_id": {
+          "type": "string",
+          "minLength": 1,
+          "x-hanmo-ref": "wallets"
+        },
+        "public_inventory_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "x-hanmo-ref": "inventories"
+          },
+          "minItems": 1,
+          "maxItems": 64,
+          "uniqueItems": true
+        },
+        "revision": {
+          "const": 0
+        }
+      },
+      "required": [
+        "id",
+        "name_key",
+        "office_name_key",
+        "seat_place_id",
+        "political_organization_id",
+        "controlling_organization_id",
+        "office_id",
+        "public_wallet_id",
+        "public_inventory_ids",
+        "revision"
+      ],
+      "additionalProperties": false
+    },
+    "politics_appointment_policy": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "name_key": {
+          "type": "string",
+          "minLength": 1,
+          "x-hanmo-ref": "texts"
+        },
+        "response_ticks": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 2147483647
+        },
+        "arrival_ticks": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 2147483647
+        },
+        "minimum_administration": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "minimum_merit": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "id",
+        "name_key",
+        "response_ticks",
+        "arrival_ticks",
+        "minimum_administration",
+        "minimum_merit"
+      ],
+      "additionalProperties": false
+    },
+    "politics_catalog": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "const": true
+        },
+        "jurisdictions": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/politics_jurisdiction"
+          },
+          "minProperties": 1,
+          "maxProperties": 10000
+        },
+        "appointment_policies": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/politics_appointment_policy"
+          },
+          "minProperties": 1,
+          "maxProperties": 128
+        },
+        "command_name_keys": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string",
+            "minLength": 1,
+            "x-hanmo-ref": "texts"
+          },
+          "maxProperties": 256
+        }
+      },
+      "required": [
+        "enabled",
+        "jurisdictions",
+        "appointment_policies",
+        "command_name_keys"
+      ],
+      "additionalProperties": false
+    },
+    "political_staffing_post": {
+      "type": "object",
+      "properties": {
+        "issuing_office_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "jurisdiction_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "appointment_policy_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "candidate_actor_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "x-hanmo-ref": "actors"
+          },
+          "maxItems": 16,
+          "uniqueItems": true,
+          "minItems": 1
+        }
+      },
+      "required": [
+        "issuing_office_id",
+        "jurisdiction_id",
+        "appointment_policy_id",
+        "candidate_actor_ids"
+      ],
+      "additionalProperties": false
+    },
+    "political_career_policy": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "response": {
+          "enum": [
+            "defer",
+            "accept_qualified",
+            "decline"
+          ]
+        },
+        "acceptable_organization_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "x-hanmo-ref": "organizations"
+          },
+          "maxItems": 64,
+          "uniqueItems": true
+        },
+        "acceptable_jurisdiction_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "maxItems": 64,
+          "uniqueItems": true
+        },
+        "staffing_posts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/political_staffing_post"
+          },
+          "maxItems": 8
+        },
+        "maximum_travel_quote_cost": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "id",
+        "response",
+        "acceptable_organization_ids",
+        "acceptable_jurisdiction_ids",
+        "staffing_posts",
+        "maximum_travel_quote_cost"
+      ],
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "response": {
+                "const": "accept_qualified"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "acceptable_organization_ids": {
+                "minItems": 1
+              },
+              "acceptable_jurisdiction_ids": {
+                "minItems": 1
+              }
+            }
+          }
+        }
+      ]
+    },
+    "political_fiscal_catalog": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "enabled"
+      ],
+      "additionalProperties": false
+    },
+    "political_appeasement_rule": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "name_key": {
+          "type": "string",
+          "minLength": 1
+        },
+        "grain_item_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "duration_ticks": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "cash_amount": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "grain_amount": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "base_support_gain": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "support_cap": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100
+        }
+      },
+      "required": [
+        "id",
+        "version",
+        "name_key",
+        "grain_item_id",
+        "duration_ticks",
+        "cash_amount",
+        "grain_amount",
+        "base_support_gain",
+        "support_cap"
+      ],
+      "additionalProperties": false
+    },
+    "politics_staffing_post": {
+      "type": "object",
+      "properties": {
+        "issuing_office_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "jurisdiction_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "appointment_policy_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "candidate_actor_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "maxItems": 16,
+          "uniqueItems": true,
+          "minItems": 1
+        }
+      },
+      "required": [
+        "issuing_office_id",
+        "jurisdiction_id",
+        "appointment_policy_id",
+        "candidate_actor_ids"
+      ],
+      "additionalProperties": false
+    },
+    "politics_career_policy": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "response": {
+          "enum": [
+            "defer",
+            "accept_qualified",
+            "decline"
+          ]
+        },
+        "maximum_travel_quote_cost": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "acceptable_organization_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "maxItems": 64,
+          "uniqueItems": true
+        },
+        "acceptable_jurisdiction_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "maxItems": 64,
+          "uniqueItems": true
+        },
+        "staffing_posts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/politics_staffing_post"
+          },
+          "maxItems": 8
+        }
+      },
+      "required": [
+        "id",
+        "response",
+        "maximum_travel_quote_cost",
+        "acceptable_organization_ids",
+        "acceptable_jurisdiction_ids",
+        "staffing_posts"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

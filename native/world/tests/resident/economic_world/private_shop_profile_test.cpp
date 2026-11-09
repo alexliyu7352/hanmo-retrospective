@@ -1,0 +1,6 @@
+// 正规声明与目录的边界独立测试，未知字段不能由两生产者自行删掉放行。
+#include "resident/domains/commerce/private_shop.hpp"
+#include "resident/checkpoint/ordered_value.hpp"
+#include <iostream>
+using namespace hanmo::resident;
+int main(){int failed=0;auto check=[&](bool ok){if(!ok)++failed;};auto block=parse_boundary_json(R"({"enabled":true,"version":1,"premises":{},"staff":{"policies":{}},"orders":{"policies":{}}})");check(block.ok);check(decode_private_shop_profile(block.value).ok);auto scenario=boundary::obj({{"dynamic_world",boundary::obj({{"profile",BoundaryValue{"local_society_v1"}},{"private_shops",block.value}})}});check(decode_private_shop_profile(scenario,{"private_shops_v1"}).ok);check(!decode_private_shop_profile(scenario,{}).ok);auto bad=block.value;bad.find("enabled")->data=false;check(!decode_private_shop_profile(bad).ok);bad=block.value;bad.find("enabled")->data=Integer{1};check(!decode_private_shop_profile(bad).ok);bad=block.value;bad.as<BoundaryValue::Dict>()->emplace_back("balance",BoundaryValue{Integer{100}});check(!decode_private_shop_profile(bad).ok);bad=block.value;bad.as<BoundaryValue::Dict>()->emplace_back("enabled",BoundaryValue{true});check(!decode_private_shop_profile(bad).ok);auto absent=decode_private_shop_profile(boundary::obj({}),{});check(absent.ok&&!absent.value);std::cout<<"private shop profile failures "<<failed<<'\n';return failed?1:0;}

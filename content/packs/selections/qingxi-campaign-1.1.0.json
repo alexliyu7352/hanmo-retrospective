@@ -1,0 +1,10 @@
+{
+  "format": "HM-PACK-SELECTION",
+  "format_version": 1,
+  "packs": [
+    {
+      "id": "qingxi.campaign",
+      "version": "1.1.0"
+    }
+  ]
+}

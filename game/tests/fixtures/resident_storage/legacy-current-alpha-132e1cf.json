@@ -1,0 +1,46 @@
+{
+  "writer_commit": "132e1cfcbf798fd5fe60ebef6c9255e45b63de8c",
+  "writer_sha256": "dc80eb282533379964a56f75d4bc06a7d560d8a8e23606d0ae59fd70b47309ef",
+  "test_sha256": "7e77e8b02c269e8104ad469e99092fc311a3e7a5586a22250031acd88ad49616",
+  "engine_version": "4.7.2.stable.official.ed1daf0bf",
+  "mode": "--legacy-only",
+  "returncode": 0,
+  "checks": 18,
+  "failures": 0,
+  "output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\nRESIDENT_NATIVE_STORAGE_CHECKS=18 FAILURES=0 ROOT=<本地路径> MODE=legacy-only SCOPE=shared physical writer; no native core/GUI acceptance\n",
+  "catalog_sha256": "ba33835bacace372f82cf442030252839c2ab699e5e827c9a6b00b3a99bc95c9",
+  "catalog_data_digest": "36388b3cd4b4cfd7cf19c7a154b53f5be8fcc1ef761919ff61540cc2126b2b15",
+  "capability_descriptor_sha256": "1f7d6b3de75725988d50d5cef4ed66a65fe93b2d721954509c03d950649f5158",
+  "schema_sha256": "a5a3b735952505ce9597fc3fb62187f76c0c4d19902428262c34a1cfc4bb8a59",
+  "case_files_sha256": {
+    "legacy-default-write/manual-1.A.hmsave": "6e2bca031b889316053f86551be9672d56f9045ce3949619b1a6a8883440a718",
+    "legacy-default-write/manual-1.B.hmcheckpoint": "df740775a54e2d01b63e8df373c1c4a67f158ce2005a8325cef809873d6f2e00",
+    "legacy-default-write/manual-1.B.hmsave": "767f0ee7c7077bd24fab77f0115e9884602d49db641f23f43ba61e22c399a863",
+    "legacy-default-write/source-current-v1.hmsave": "767f0ee7c7077bd24fab77f0115e9884602d49db641f23f43ba61e22c399a863"
+  },
+  "scope": "Fresh actual current-Alpha state via original GD Kernel.new_game and original SaveCodec.encode v1; actual default three-argument NativeStorage first/overwrite writes and full get_slot decode. Source world and catalog unchanged. No historical migration or native core/GUI acceptance. The 104 resident checks and 85 codec checks were not rerun unchanged.",
+  "historical_neighbor": {
+    "entry": "game/tests/test_storage_slot_inspection.gd",
+    "source_sha256": "9010a31b67059f2c708ec8ee3249395b21333f007ec31d1b8bad3f642de0dd89",
+    "status": "BLOCKED",
+    "reason": "Preserved v1 requires exact legacy catalog f0017626 and trusted capability descriptor 5ec81e22847b0cfb634df779d57afe277f633d512f23d1402660b432c584da9a. Matching catalog exists, descriptor was not recovered; current descriptor is incompatible. No headers/digests or expected results changed.",
+    "fixture_sha256_unchanged": "153c7b14d6024ad7759ee8e7610b5b5d0d40568f9bfcffd83b4413d6c9325690",
+    "runs": [
+      {
+        "log": "legacy-inspection.log",
+        "returncode": 1,
+        "reason": "Initial isolated staging lacked content.schema.json dependency."
+      },
+      {
+        "log": "legacy-write.log",
+        "returncode": 1,
+        "reason": "Current catalog content identity did not match the preserved v1 fixture."
+      },
+      {
+        "log": "legacy-write-matched.log",
+        "returncode": 1,
+        "reason": "Archived catalog requires missing exact legacy capability descriptor; detailed diagnostic ContentCapabilityContractMismatch."
+      }
+    ]
+  }
+}

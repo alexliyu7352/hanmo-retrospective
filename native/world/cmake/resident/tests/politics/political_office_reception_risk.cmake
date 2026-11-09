@@ -1,0 +1,7 @@
+# 政治与治理消费者登记：保留本组目标、测试、条件与局部变量的原执行顺序。
+# 原Common岗位写入后晚失败的实际回滚边界。
+add_executable(test_resident_political_office_reception_risk tests/resident/political_office_reception_risk_test.cpp)
+target_link_libraries(test_resident_political_office_reception_risk PRIVATE hanmo_resident)
+target_include_directories(test_resident_political_office_reception_risk PRIVATE src)
+target_compile_options(test_resident_political_office_reception_risk PRIVATE -UNDEBUG -fno-fast-math -ffp-contract=off)
+add_test(NAME resident_political_office_reception_risk COMMAND test_resident_political_office_reception_risk)

@@ -1,0 +1,19 @@
+// 新回执只复用Done字节；精确feature、空载荷与条件型不允许借旧外交暗中启用。
+#include "resident/kernel/command_types.hpp"
+#include "resident/domains/conditions/condition_model.hpp"
+#include <iostream>
+#include <cstdlib>
+using namespace hanmo::resident;
+namespace {int checks=0;void check(bool ok,const char* message){++checks;if(!ok){std::cerr<<message<<'\n';std::exit(1);}}}
+int main(){
+ for(const auto* kind:{"treaty_passage_present","treaty_passage_sign"}){
+  auto result=std::make_shared<CommitResult>();result->kind=kind;result->result_id="result:2";result->details=std::make_shared<ReceiptDetails>(ReceiptDetails{Done{}});std::shared_ptr<const CommitResult> pointer=result;
+  CodecVisitor::Buffer bytes;CodecVisitor write(bytes);write.schema_features=treaty_passage_checkpoint_feature;check(visit_resident_receipt(write,pointer).ok&&write.finish().ok,"new Done receipt write");CodecVisitor read(static_cast<const CodecVisitor::Buffer&>(bytes));read.schema_features=treaty_passage_checkpoint_feature;std::shared_ptr<const CommitResult> decoded;check(visit_resident_receipt(read,decoded).ok&&read.finish().ok&&decoded&&std::holds_alternative<Done>(decoded->details->data),"new Done receipt exact read");
+  CodecVisitor no_feature(static_cast<const CodecVisitor::Buffer&>(bytes));check(!visit_resident_receipt(no_feature,decoded).ok,"old feature cannot read new receipt");CodecVisitor::Buffer bad;CodecVisitor missing(bad);check(!visit_resident_receipt(missing,pointer).ok,"old writer cannot emit new receipt");
+  result->details=std::make_shared<ReceiptDetails>(ReceiptDetails{ActionStarted{"action:1"}});CodecVisitor wrong(bad);wrong.schema_features=treaty_passage_checkpoint_feature;check(!visit_resident_receipt(wrong,pointer).ok,"action receipt cannot masquerade as zero time treaty");
+  result->details.reset();CodecVisitor absent(bad);absent.schema_features=treaty_passage_checkpoint_feature;check(!visit_resident_receipt(absent,pointer).ok,"missing Done rejected");
+ }
+ Condition condition;condition.kind=Condition::Kind::treaty_personal_passage;condition.place_id="court";condition.offer_id="terms";CodecVisitor::Buffer b;CodecVisitor writer(b);writer.schema_features=treaty_passage_checkpoint_feature;check(visit_condition_checkpoint(writer,condition).ok&&writer.finish().ok,"explicit condition write");Condition copy;CodecVisitor reader(static_cast<const CodecVisitor::Buffer&>(b));reader.schema_features=treaty_passage_checkpoint_feature;check(visit_condition_checkpoint(reader,copy).ok&&copy.kind==condition.kind&&copy.offer_id=="terms"&&copy.place_id=="court","condition exact cold read");CodecVisitor old(static_cast<const CodecVisitor::Buffer&>(b));check(!visit_condition_checkpoint(old,copy).ok,"old feature rejects new condition opcode");
+ CommonState common_state;auto catalog=std::make_shared<CommonCatalog>();CommonStore common(common_state,catalog);InteractionState interaction;interaction.flags.push_back({"gate_open",false});ConditionAccess access;int calls=0;access.treaty_personal_passage=[&](const StableId& actor,const StableId& place,const StableId& terms)->Outcome<bool>{++calls;return {true,actor=="envoy"&&place=="court"&&terms=="terms",{}};};Condition ordinary;ordinary.kind=Condition::Kind::flag;ordinary.flag="gate_open";ordinary.equals=true;Condition all;all.kind=Condition::Kind::all;all.terms={ordinary,condition};auto refused=evaluate_condition(common,interaction,access,"envoy",all);check(refused.ok&&!refused.value&&calls==0,"treaty does not bypass neighboring required admission condition");Condition either=all;either.kind=Condition::Kind::any;auto accepted=evaluate_condition(common,interaction,access,"envoy",either);check(accepted.ok&&accepted.value&&calls==1,"only explicit any permits treaty alternative");access.treaty_personal_passage={};check(!evaluate_condition(common,interaction,access,"envoy",condition).ok,"missing treaty read is explicit unsupported");
+ std::cout<<checks<<" treaty boundary checks 0 failures\n";
+}

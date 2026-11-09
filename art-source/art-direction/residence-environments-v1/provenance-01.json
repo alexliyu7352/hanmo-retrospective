@@ -1,0 +1,32 @@
+{
+  "status": "CANDIDATE_REVISION_REQUIRED",
+  "tool": "built-in image_gen.imagegen",
+  "original_generated_path": "<本地路径>",
+  "path": "art-source/art-direction/residence-environments-v1/source/estate-overview-01.png",
+  "dimensions": [
+    1672,
+    941
+  ],
+  "mode": "RGB",
+  "byte_size": 3618162,
+  "sha256": "4a105ccb1cb873fd9239361074f01684e53420f9c45cd89d608a5e1f258a2c40",
+  "git_blob_oid": "c33b0543149c6013caf8d7f4bfaa9a45fb4ff256",
+  "actual_pixels_viewed": true,
+  "approved_by_user": false,
+  "runtime_exported": false,
+  "pixel_review": {
+    "pass": [
+      "已改为约35度斜俯视，能同时读出住宅、院地、仓廪、木栅和连续入田通路。",
+      "可辨笔触和木土陶草材质，色调、光线与已认可酒肆参照相容。",
+      "未发现烘焙人物、操作文字、UI、数值、热点或地图标识。",
+      "普通单层住宅保持朴素尺度，没有增加堡楼或工坊。"
+    ],
+    "revise": [
+      "仓廪主体在宽度约59%—80%，会被UI-28右侧35%事务区遮挡；需向左收拢，并保持右侧更低细节。"
+    ],
+    "not_verified": [
+      "结构时代精考与全部设施动态拆层。",
+      "引擎实际UI和人物合成；GUI/CUA未运行。"
+    ]
+  }
+}

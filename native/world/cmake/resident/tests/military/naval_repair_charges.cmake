@@ -1,0 +1,7 @@
+# 军旅与战斗消费者登记：保留本组目标、测试、条件与局部变量的原执行顺序。
+# 公营修船只验证原款项/材料守恒与坏档边界，不代正式World收费验收。
+add_executable(test_resident_naval_repair_charges tests/resident/naval_repair_charges_test.cpp)
+target_link_libraries(test_resident_naval_repair_charges PRIVATE hanmo_resident)
+target_include_directories(test_resident_naval_repair_charges PRIVATE src)
+target_compile_options(test_resident_naval_repair_charges PRIVATE -UNDEBUG -fno-fast-math -ffp-contract=off)
+add_test(NAME resident_naval_repair_charges COMMAND test_resident_naval_repair_charges)

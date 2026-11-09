@@ -1,0 +1,144 @@
+{
+  "case_id": "family_succession",
+  "scenario_id": "scenario.alpha_life",
+  "content": "res://data/generated/alpha_life.hmcatalog.json",
+  "description": "固定作者seed，输入经实际Kernel展开；稳定节点包含完整字节存档",
+  "commands": [
+    {
+      "op": "submit",
+      "kind": "move_local",
+      "params": {
+        "place_id": "west.estate"
+      }
+    },
+    {
+      "op": "checkpoint",
+      "label": "01-before-start"
+    },
+    {
+      "op": "submit",
+      "kind": "family_adopt",
+      "params": {
+        "display_name": "阿宁"
+      },
+      "context_role": "role.estate_steward"
+    },
+    {
+      "op": "checkpoint",
+      "label": "02-after-start"
+    },
+    {
+      "op": "advance",
+      "ticks": 1
+    },
+    {
+      "op": "checkpoint",
+      "label": "03-before-completion"
+    },
+    {
+      "op": "advance",
+      "ticks": 1
+    },
+    {
+      "op": "checkpoint",
+      "label": "04-after-adoption"
+    },
+    {
+      "op": "submit",
+      "kind": "long_rest",
+      "params": {
+        "estate_id": "estate.riverside",
+        "duration": 720
+      }
+    },
+    {
+      "op": "checkpoint",
+      "label": "05-rest-start"
+    },
+    {
+      "op": "advance",
+      "ticks": 719
+    },
+    {
+      "op": "checkpoint",
+      "label": "06-rest-before-completion"
+    },
+    {
+      "op": "advance",
+      "ticks": 1
+    },
+    {
+      "op": "checkpoint",
+      "label": "07-one-year"
+    },
+    {
+      "op": "submit",
+      "kind": "long_rest",
+      "params": {
+        "estate_id": "estate.riverside",
+        "duration": 720
+      }
+    },
+    {
+      "op": "advance",
+      "ticks": 719
+    },
+    {
+      "op": "checkpoint",
+      "label": "08-before-adulthood"
+    },
+    {
+      "op": "advance",
+      "ticks": 1
+    },
+    {
+      "op": "checkpoint",
+      "label": "09-adult-before-succession"
+    },
+    {
+      "op": "submit",
+      "kind": "family_designate",
+      "params": {
+        "heir_actor_id": "@child"
+      }
+    },
+    {
+      "op": "submit",
+      "kind": "family_retire",
+      "params": {}
+    },
+    {
+      "op": "checkpoint",
+      "label": "10-after-succession"
+    },
+    {
+      "op": "submit",
+      "kind": "estate_withdraw",
+      "params": {
+        "estate_id": "estate.riverside",
+        "item_id": "item.grain",
+        "quantity": 1
+      }
+    },
+    {
+      "op": "submit",
+      "kind": "move_local",
+      "params": {
+        "place_id": "west.street"
+      }
+    },
+    {
+      "op": "submit",
+      "kind": "wait",
+      "params": {}
+    },
+    {
+      "op": "advance",
+      "ticks": 1
+    },
+    {
+      "op": "checkpoint",
+      "label": "11-successor-continues"
+    }
+  ]
+}

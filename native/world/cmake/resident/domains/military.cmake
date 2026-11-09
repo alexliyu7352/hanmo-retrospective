@@ -1,0 +1,1413 @@
+# 军旅与战斗：显式保存本领域生产文件与身份清单，顺序由登记入口组合。
+# 连续段不合并重排，确保原目标和摘要的路径顺序保持不变。
+
+# 生产输入连续登记段：src/resident/domains/military/duty/military_duty_source_read.cpp。
+set(HANMO_RESIDENT_SOURCES_military_military_duty_source_read_cpp
+    src/resident/domains/military/duty/military_duty_source_read.cpp
+    src/resident/domains/military/dynamic_effect_codec.cpp
+    src/resident/domains/military/dynamic_effect_producer.cpp
+    src/resident/domains/military/dynamic_land_command_shock.cpp
+    src/resident/domains/military/dynamic_land_commander.cpp
+    src/resident/domains/military/dynamic_land_disposition.cpp
+    src/resident/domains/military/dynamic_military_phase.cpp
+    src/resident/domains/military/dynamic_objective.cpp
+    src/resident/domains/military/dynamic_objective_codec.cpp
+    src/resident/domains/military/dynamic_objective_result.cpp
+    src/resident/domains/military/dynamic_objective_terminal.cpp
+    src/resident/domains/military/dynamic_session_due.cpp
+    src/resident/domains/military/dynamic_verified_source.cpp
+    src/resident/domains/military/formation_exact.cpp
+    src/resident/domains/military/formation_exact_action_time.cpp
+    src/resident/domains/military/formation_exact_phase.cpp
+    src/resident/domains/military/formation_spatial.cpp
+    src/resident/domains/military/native_formation_original.cpp
+    src/resident/domains/military/native_military_world_scope.cpp
+    src/resident/domains/military/native_field_military_remaining.cpp
+    src/resident/domains/military/native_field_military_consumers.cpp
+)
+
+# 生产输入连续登记段：src/resident/domains/military/military_action_occupation_source.cpp。
+set(HANMO_RESIDENT_SOURCES_military_military_action_occupation_source_cpp
+    src/resident/domains/military/military_action_occupation_source.cpp
+    src/resident/domains/military/military_action_placement_read.cpp
+    src/resident/domains/military/military_action_time_read.cpp
+    src/resident/domains/military/military_action_time_record_codec.cpp
+    src/resident/domains/military/military_actor_spatial_point.cpp
+    src/resident/domains/military/military_exact_phase.cpp
+    src/resident/domains/military/military_exact_source_codec.cpp
+    src/resident/domains/military/military_formation_source.cpp
+    src/resident/domains/military/military_local_boundary.cpp
+    src/resident/domains/military/military_local_motion_codec.cpp
+    src/resident/domains/military/military_spatial_codec.cpp
+    src/resident/domains/military/military_spatial_definition_catalog.cpp
+    src/resident/domains/military/military_session_definition_catalog.cpp
+    src/resident/domains/military/military_supply_exact.cpp
+    src/resident/domains/military/military_supply_exact_codec.cpp
+    src/resident/domains/military/naval_repair_exact_action_time.cpp
+    src/resident/domains/military/naval_repair_exact_codec.cpp
+    src/resident/domains/military/naval_repair_exact_phase.cpp
+    src/resident/domains/military/naval_repair_exact_validation.cpp
+    src/resident/domains/military/naval_repair_legacy_battle.cpp
+    src/resident/domains/military/naval_repair_native_original.cpp
+    src/resident/domains/military/naval_repair_occupation_source.cpp
+    src/resident/domains/military/naval_repair_original_history.cpp
+    src/resident/domains/military/naval_repair_participation.cpp
+    src/resident/domains/military/naval_repair_source_local.cpp
+    src/resident/domains/military/office_exact.cpp
+    src/resident/domains/military/office_exact_action_time.cpp
+    src/resident/domains/military/office_exact_phase.cpp
+    src/resident/domains/military/office_exact_validation.cpp
+    src/resident/domains/military/native_office_original.cpp
+    src/resident/domains/military/resupply_exact.cpp
+    src/resident/domains/military/resupply_exact_action_time.cpp
+    src/resident/domains/military/resupply_exact_phase.cpp
+    src/resident/domains/military/resupply_exact_validation.cpp
+    src/resident/domains/military/return_exact.cpp
+    src/resident/domains/military/return_exact_action_time.cpp
+    src/resident/domains/military/return_exact_phase.cpp
+    src/resident/domains/military/return_exact_validation.cpp
+    src/resident/domains/military/return_spatial.cpp
+    src/resident/domains/military/training_exact.cpp
+    src/resident/domains/military/training_exact_action_time.cpp
+    src/resident/domains/military/training_exact_codec.cpp
+    src/resident/domains/military/training_exact_phase.cpp
+    src/resident/domains/military/training_exact_result_read.cpp
+    src/resident/domains/military/training_exact_validation.cpp
+)
+
+# 生产输入连续登记段：src/resident/domains/military/naval_vessel_identity.cpp。
+set(HANMO_RESIDENT_SOURCES_military_naval_vessel_identity_cpp
+    src/resident/domains/military/naval_vessel_identity.cpp
+    src/resident/domains/military/naval_vessel_ref.cpp
+    src/resident/domains/military/military_body_footprint_codec.cpp
+    src/resident/domains/military/military_body_footprint.cpp
+    src/resident/domains/military/dynamic_session_random_history.cpp
+    src/resident/domains/military/dynamic_land_postures.cpp
+    src/resident/domains/military/dynamic_effect_source.cpp
+    src/resident/domains/military/dynamic_effect_adoption.cpp
+    src/resident/domains/military/dynamic_effect.cpp
+)
+
+# 生产输入连续登记段：src/resident/domains/military/military_local_motion_prediction.cpp。
+set(HANMO_RESIDENT_SOURCES_military_military_local_motion_prediction_cpp
+    src/resident/domains/military/military_local_motion_prediction.cpp
+)
+
+# 生产输入连续登记段：src/resident/domains/military/formation_exact_validation.cpp。
+set(HANMO_RESIDENT_SOURCES_military_formation_exact_validation_cpp
+    src/resident/domains/military/formation_exact_validation.cpp
+)
+
+# 生产输入连续登记段：src/resident/domains/military/military_injury_source.cpp。
+set(HANMO_RESIDENT_SOURCES_military_military_injury_source_cpp
+    src/resident/domains/military/military_injury_source.cpp
+    src/resident/domains/military/military_actor_condition_source.cpp
+    src/resident/domains/military/military_actor_condition_write.cpp
+)
+
+# 生产输入连续登记段：src/resident/domains/military/military_officer_codec.cpp。
+set(HANMO_RESIDENT_SOURCES_military_military_officer_codec_cpp
+    src/resident/domains/military/military_officer_codec.cpp
+    src/resident/domains/military/military_officer_source.cpp
+    src/resident/domains/military/military_officer_rules.cpp
+    src/resident/domains/military/military_field_command_codec.cpp
+    src/resident/domains/military/military_field_command_source.cpp
+    src/resident/domains/military/military_field_command_rules.cpp
+    src/resident/domains/military/military_recovery_source.cpp
+    src/resident/domains/military/military_recovery_eligibility.cpp
+    src/resident/domains/military/military_recovery_rules.cpp
+    src/resident/domains/military/military_supply_attrition.cpp
+    src/resident/domains/military/military_rout_retreat.cpp
+    src/resident/domains/military/military_command_shock.cpp
+    src/resident/domains/military/military_command_shock_source.cpp
+    src/resident/domains/military/military_command_shock_codec.cpp
+    src/resident/domains/military/military_garrison_rest_source.cpp
+    src/resident/domains/military/military_garrison_rest_rules.cpp
+    src/resident/domains/military/military_garrison_rest_codec.cpp
+    src/resident/domains/military/military_combat_conditions.cpp
+    src/resident/domains/military/military_combat_conditions_source.cpp
+    src/resident/domains/military/military_combat_conditions_codec.cpp
+    src/resident/domains/military/military_commanded_damage.cpp
+    src/resident/domains/military/military_commanded_damage_source.cpp
+    src/resident/domains/military/military_commanded_damage_codec.cpp
+    src/resident/domains/military/military_sequential_rounds.cpp
+    src/resident/domains/military/military_sequential_rout.cpp
+    src/resident/domains/military/military_sequential_execution.cpp
+    src/resident/domains/military/military_field_terrain.cpp
+    src/resident/domains/military/military_field_terrain_source.cpp
+)
+
+# 生产输入连续登记段：src/resident/domains/military/military_command_resources.cpp。
+set(HANMO_RESIDENT_SOURCES_military_military_command_resources_cpp
+    src/resident/domains/military/military_command_resources.cpp
+    src/resident/domains/military/military_command_resources_source.cpp
+    src/resident/domains/military/military_command_resources_codec.cpp
+)
+
+# 生产输入连续登记段：src/resident/domains/military/military_tactic_learning.cpp。
+set(HANMO_RESIDENT_SOURCES_military_military_tactic_learning_cpp
+    src/resident/domains/military/military_tactic_learning.cpp
+    src/resident/domains/military/military_tactic_learning_source.cpp
+    src/resident/domains/military/military_tactic_learning_codec.cpp
+    src/resident/domains/military/military_tactic_learning_catalog.cpp
+    src/resident/domains/military/military_tactic_learning_views.cpp
+    src/resident/domains/military/military_tactic_entry.cpp
+    src/resident/domains/military/military_tactic_entry_source.cpp
+    src/resident/domains/military/military_tactic_entry_codec.cpp
+    src/resident/domains/military/military_tactic_practice.cpp
+    src/resident/domains/military/military_tactic_practice_codec.cpp
+)
+
+# 生产输入连续登记段：src/resident/domains/military/military_siege_engineering.cpp。
+set(HANMO_RESIDENT_SOURCES_military_military_siege_engineering_cpp
+    src/resident/domains/military/military_siege_engineering.cpp
+    src/resident/domains/military/military_siege_engineering_access.cpp
+    src/resident/domains/military/military_siege_engineering_codec.cpp
+    src/resident/domains/military/military_siege_engineering_history.cpp
+    src/resident/domains/military/military_siege_timeout_source.cpp
+    src/resident/domains/military/military_siege_engineering_rules.cpp
+    src/resident/domains/military/military_siege_engineering_source.cpp
+    src/resident/domains/military/military_siege_lifecycle.cpp
+    src/resident/domains/military/military_siege_lifecycle_authority.cpp
+    src/resident/domains/military/military_siege_lifecycle_codec.cpp
+    src/resident/domains/military/military_siege_lifecycle_commands.cpp
+    src/resident/domains/military/military_siege_lifecycle_history.cpp
+)
+
+# 生产输入连续登记段：src/resident/domains/military/military_rout_disposition.cpp。
+set(HANMO_RESIDENT_SOURCES_military_military_rout_disposition_cpp
+    src/resident/domains/military/military_rout_disposition.cpp
+    src/resident/domains/military/military_rout_status.cpp
+    src/resident/domains/military/military_rout_orders.cpp
+    src/resident/domains/military/military_rout_history.cpp
+    src/resident/domains/military/military_rout_codec.cpp
+    src/resident/domains/military/military_rout_shape.cpp
+    src/resident/domains/military/military_supply_attrition_rules.cpp
+    src/resident/domains/military/military_supply_attrition_codec.cpp
+    src/resident/domains/military/military_supply_attrition_battle.cpp
+    src/resident/domains/military/military_supply_attrition_views.cpp
+    src/resident/domains/military/population_military_attrition.cpp
+    src/resident/domains/military/military_recovery_codec.cpp
+    src/resident/domains/military/military_recovery_views.cpp
+    src/resident/domains/military/military_recovery_release.cpp
+    src/resident/domains/military/military_recovery_siege_release.cpp
+    src/resident/domains/military/military_recovery_growth.cpp
+    src/resident/domains/military/population_military_recovery.cpp
+)
+
+# 生产输入连续登记段：src/resident/domains/military/occupation_applied_source.cpp。
+set(HANMO_RESIDENT_SOURCES_military_occupation_applied_source_cpp
+    src/resident/domains/military/occupation_applied_source.cpp
+)
+
+# 生产输入连续登记段：src/resident/domains/military/siege_integration_decisions.cpp。
+set(HANMO_RESIDENT_SOURCES_military_siege_integration_decisions_cpp
+    src/resident/domains/military/siege_integration_decisions.cpp
+    src/resident/domains/military/siege_integration_codec.cpp
+    src/resident/domains/military/siege_integration_validation.cpp
+    src/resident/domains/military/military_integration_assets.cpp
+)
+
+# 生产输入连续登记段：src/resident/domains/military/battle_codec.cpp。
+set(HANMO_RESIDENT_SOURCES_military_battle_codec_cpp
+    src/resident/domains/military/battle_codec.cpp
+    src/resident/domains/military/battle_hex.cpp
+    src/resident/domains/military/battle_rules.cpp
+    src/resident/domains/military/military_commander.cpp
+    src/resident/domains/military/military_commander_history.cpp
+    src/resident/domains/military/military_journey_termination.cpp
+    src/resident/domains/military/military_battle_lifecycle.cpp
+    src/resident/domains/military/military_battle_lifecycle_codec.cpp
+    src/resident/domains/military/battle_world.cpp
+    src/resident/domains/military/battle_requests.cpp
+    src/resident/domains/military/battle_request_transition.cpp
+    src/resident/domains/military/battle_request_codec.cpp
+    src/resident/domains/military/battle_request_world.cpp
+    src/resident/domains/military/naval_asset_codec.cpp
+    src/resident/domains/military/naval_assets.cpp
+    src/resident/domains/military/naval_authoring.cpp
+    src/resident/domains/military/naval_command_codec.cpp
+    src/resident/domains/military/naval_commands.cpp
+    src/resident/domains/military/naval_asset_history.cpp
+    src/resident/domains/military/naval_battle_codec.cpp
+    src/resident/domains/military/naval_battle_command_codec.cpp
+    src/resident/domains/military/naval_battle_commands.cpp
+    src/resident/domains/military/naval_battle_creation.cpp
+    src/resident/domains/military/naval_battle_effects.cpp
+    src/resident/domains/military/naval_battle_history.cpp
+    src/resident/domains/military/naval_battle_phase.cpp
+    src/resident/domains/military/naval_battle_views.cpp
+    src/resident/domains/military/naval_capture.cpp
+    src/resident/domains/military/naval_capture_settlement.cpp
+    src/resident/domains/military/naval_capture_source.cpp
+    src/resident/domains/military/naval_casualties.cpp
+    src/resident/domains/military/naval_journey_termination.cpp
+    src/resident/domains/military/naval_codec.cpp
+    src/resident/domains/military/naval_repair.cpp
+    src/resident/domains/military/naval_repair_codec.cpp
+    src/resident/domains/military/naval_repair_history.cpp
+    src/resident/domains/military/naval_repair_authoring.cpp
+    src/resident/domains/military/naval_repair_schedule.cpp
+    src/resident/domains/military/naval_repair_views.cpp
+    src/resident/domains/military/naval_repair_charges.cpp
+    src/resident/domains/military/naval_repair_charges_codec.cpp
+    src/resident/domains/military/naval_repair_charges_history.cpp
+    src/resident/domains/military/naval_navigation.cpp
+    src/resident/domains/military/naval_tactical_navigation.cpp
+    src/resident/domains/military/naval_gunnery_source.cpp
+    src/resident/domains/military/naval_gunnery_codec.cpp
+    src/resident/domains/military/naval_gunnery_rules.cpp
+    src/resident/domains/military/naval_gunnery_authoring.cpp
+)
+
+# 生产输入连续登记段：src/resident/domains/military/naval_tactical_navigation_authoring.cpp。
+set(HANMO_RESIDENT_SOURCES_military_naval_tactical_navigation_authoring_cpp
+    src/resident/domains/military/naval_tactical_navigation_authoring.cpp
+    src/resident/domains/military/naval_navigation_apply.cpp
+    src/resident/domains/military/naval_navigation_geometry.cpp
+    src/resident/domains/military/naval_navigation_history.cpp
+    src/resident/domains/military/naval_navigation_codec.cpp
+    src/resident/domains/military/naval_navigation_authoring.cpp
+    src/resident/domains/military/naval_combat.cpp
+    src/resident/domains/military/naval_combat_authoring.cpp
+    src/resident/domains/military/naval_fleet_schedule.cpp
+    src/resident/domains/military/naval_contact.cpp
+    src/resident/domains/military/naval_contact_history.cpp
+    src/resident/domains/military/naval_contact_install.cpp
+    src/resident/domains/military/naval_continuation.cpp
+    src/resident/domains/military/naval_custody.cpp
+    src/resident/domains/military/naval_decision_history.cpp
+    src/resident/domains/military/naval_manifest_history.cpp
+    src/resident/domains/military/naval_npc_settlement.cpp
+    src/resident/domains/military/naval_plan_command.cpp
+    src/resident/domains/military/naval_planning.cpp
+    src/resident/domains/military/naval_postcombat_commands.cpp
+    src/resident/domains/military/naval_round_history.cpp
+    src/resident/domains/military/naval_round_supply.cpp
+    src/resident/domains/military/naval_settlement.cpp
+    src/resident/domains/military/naval_tactics.cpp
+    src/resident/domains/military/military_actor_occupation.cpp
+    src/resident/domains/military/military_siege_occupation.cpp
+    src/resident/domains/military/military_death_witness.cpp
+    src/resident/domains/military/military_roster_history.cpp
+    src/resident/domains/military/military_authority_history.cpp
+)
+
+# 生产输入连续登记段：src/resident/domains/military/naval_validation.cpp。
+set(HANMO_RESIDENT_SOURCES_military_naval_validation_cpp
+    src/resident/domains/military/naval_validation.cpp
+    src/resident/domains/military/naval_world.cpp
+    src/resident/domains/military/naval_views.cpp
+    src/resident/domains/military/camp_views.cpp
+    src/resident/domains/military/drill_rules.cpp
+    src/resident/domains/military/lifecycle_codec.cpp
+    src/resident/domains/military/march_codec.cpp
+    src/resident/domains/military/military_action_validation.cpp
+    src/resident/domains/military/military_codec.cpp
+    src/resident/domains/military/military_conditions.cpp
+    src/resident/domains/military/military_contact.cpp
+    src/resident/domains/military/military_lifecycle.cpp
+    src/resident/domains/military/military_return_destination_policy.cpp
+    src/resident/domains/military/military_clock.cpp
+    src/resident/domains/military/military_phases.cpp
+    src/resident/domains/military/military_rules.cpp
+    src/resident/domains/military/military_schedule.cpp
+    src/resident/domains/military/military_validation.cpp
+    src/resident/domains/military/population_military_codec.cpp
+    src/resident/domains/military/population_military_rules.cpp
+    src/resident/domains/military/population_occupation.cpp
+    src/resident/domains/military/population_military_validation.cpp
+    src/resident/domains/military/population_military_views.cpp
+    src/resident/domains/military/military_views.cpp
+    src/resident/domains/military/occupation_codec.cpp
+    src/resident/domains/military/occupation_rules.cpp
+    src/resident/domains/military/siege_codec.cpp
+    src/resident/domains/military/siege_command_codec.cpp
+    src/resident/domains/military/siege_departure.cpp
+    src/resident/domains/military/siege_rules.cpp
+    src/resident/domains/military/siege_views.cpp
+    src/resident/domains/military/siege_world.cpp
+    src/resident/domains/military/training_codec.cpp
+    src/resident/domains/military/training_rules.cpp
+    src/resident/domains/military/training_views.cpp
+)
+
+# 生产输入连续登记段：src/resident/domains/military/duty/military_duty.cpp。
+set(HANMO_RESIDENT_SOURCES_military_military_duty_cpp
+    src/resident/domains/military/duty/military_duty.cpp
+    src/resident/domains/military/duty/military_duty_assignment.cpp
+    src/resident/domains/military/duty/military_duty_codec.cpp
+    src/resident/domains/military/duty/military_duty_execution_read.cpp
+    src/resident/domains/military/duty/military_duty_phase.cpp
+    src/resident/domains/military/duty/military_duty_validation.cpp
+    src/resident/domains/military/duty/military_station_action_time.cpp
+    src/resident/domains/military/dynamic_land_allocation.cpp
+    src/resident/domains/military/dynamic_session.cpp
+    src/resident/domains/military/dynamic_session_codec.cpp
+    src/resident/domains/military/dynamic_session_random.cpp
+    src/resident/domains/military/military_attack_damage_core.cpp
+    src/resident/domains/military/military_calendar_phase.cpp
+    src/resident/domains/military/military_exact_sources.cpp
+    src/resident/domains/military/military_group_movement.cpp
+    src/resident/domains/military/military_local_motion.cpp
+    src/resident/domains/military/military_manifest_history.cpp
+    src/resident/domains/military/military_march_codec.cpp
+    src/resident/domains/military/military_march_source.cpp
+    src/resident/domains/military/military_spatial_chart.cpp
+    src/resident/domains/military/military_spatial_handoff.cpp
+    src/resident/domains/military/military_spatial_manifest.cpp
+)
+
+# 生产输入连续登记段：src/resident/domains/military/naval_repair_resource_recipe.cpp。
+set(HANMO_RESIDENT_SOURCES_military_naval_repair_resource_recipe_cpp
+    src/resident/domains/military/naval_repair_resource_recipe.cpp
+)
+
+# 生产输入连续登记段：src/resident/domains/military/naval_repair_exact.cpp。
+set(HANMO_RESIDENT_SOURCES_military_naval_repair_exact_cpp
+    src/resident/domains/military/naval_repair_exact.cpp
+)
+
+# 生产输入连续登记段：src/resident/domains/military/dynamic_action.cpp。
+set(HANMO_RESIDENT_SOURCES_military_dynamic_action_cpp
+    src/resident/domains/military/dynamic_action.cpp
+    src/resident/domains/military/dynamic_action_codec.cpp
+)
+
+# 生产输入连续登记段：src/resident/domains/military/dynamic_condition_consumer.cpp。
+set(HANMO_RESIDENT_SOURCES_military_dynamic_condition_consumer_cpp
+    src/resident/domains/military/dynamic_condition_consumer.cpp
+    src/resident/domains/military/dynamic_land_consequence.cpp
+    src/resident/domains/military/dynamic_land_strikes.cpp
+    src/resident/domains/military/population_military_exact.cpp
+)
+
+# 生产输入连续登记段：src/resident/domains/military/military_tactical_intent_codec.cpp。
+set(HANMO_RESIDENT_SOURCES_military_military_tactical_intent_codec_cpp
+    src/resident/domains/military/military_tactical_intent_codec.cpp
+    src/resident/domains/military/military_tactical_intent_read.cpp
+    src/resident/domains/military/military_action_time_state_codec.cpp
+    src/resident/domains/military/military_authority_time_codec.cpp
+    src/resident/domains/military/military_action_resources.cpp
+    src/resident/domains/military/military_action_conditions.cpp
+    src/resident/domains/military/military_action_condition_codec.cpp
+    src/resident/domains/military/military_training_completion_time.cpp
+    src/resident/domains/military/military_training_completion_time_codec.cpp
+    src/resident/domains/military/military_formation_reservations.cpp
+    src/resident/domains/military/military_formation_reservation_codec.cpp
+    src/resident/domains/military/military_action_resource_codec.cpp
+    src/resident/domains/military/military_return_detachment_model.cpp
+    src/resident/domains/military/military_return_detachment_codec.cpp
+    src/resident/domains/military/military_authority_time.cpp
+    src/resident/domains/military/military_fortification_nodes.cpp
+    src/resident/domains/military/military_fortification_node_codec.cpp
+    src/resident/domains/military/military_exact_layout.cpp
+    src/resident/domains/military/military_exact_state_codec.cpp
+    src/resident/domains/military/military_tactical_ownership_pins.cpp
+    src/resident/domains/military/military_tactical_ownership_codec.cpp
+    src/resident/domains/military/military_tactical_ownership.cpp
+)
+
+# 生产输入连续登记段：src/resident/domains/military/occupation_time.cpp。
+set(HANMO_RESIDENT_SOURCES_military_occupation_time_cpp
+    src/resident/domains/military/occupation_time.cpp
+)
+
+# 生产身份输入连续登记段：src/resident/domains/military/duty/military_duty_codec_fields.hpp。
+set(HANMO_RESIDENT_IDENTITY_military_military_duty_codec_fields_hpp
+    src/resident/domains/military/duty/military_duty_codec_fields.hpp
+    src/resident/domains/military/duty/military_duty_contract.hpp
+    src/resident/domains/military/duty/military_duty_assignment.hpp
+    src/resident/domains/military/duty/military_duty_qualification_capture.hpp
+    src/resident/domains/military/duty/military_station_original_sources.hpp
+    src/resident/domains/military/duty/military_duty_detail.hpp
+    src/resident/domains/military/duty/military_duty_execution_read.hpp
+    src/resident/domains/military/duty/military_duty_phase.hpp
+    src/resident/domains/military/duty/military_duty_source_read.cpp
+    src/resident/domains/military/duty/military_duty_source_read.hpp
+    src/resident/domains/military/dynamic_action.hpp
+    src/resident/domains/military/dynamic_action_codec.hpp
+    src/resident/domains/military/dynamic_action_codec_fields.hpp
+    src/resident/domains/military/dynamic_action_model.hpp
+    src/resident/domains/military/dynamic_attack_quote.hpp
+    src/resident/domains/military/dynamic_condition_consumer.hpp
+    src/resident/domains/military/dynamic_effect.hpp
+    src/resident/domains/military/dynamic_effect_adoption.hpp
+    src/resident/domains/military/dynamic_effect_codec.cpp
+    src/resident/domains/military/dynamic_effect_codec.hpp
+    src/resident/domains/military/dynamic_effect_codec_fields.hpp
+    src/resident/domains/military/dynamic_effect_model.hpp
+    src/resident/domains/military/dynamic_effect_producer.cpp
+    src/resident/domains/military/dynamic_effect_producer.hpp
+    src/resident/domains/military/dynamic_land_allocation.hpp
+    src/resident/domains/military/dynamic_land_command_shock.cpp
+    src/resident/domains/military/dynamic_land_command_shock.hpp
+    src/resident/domains/military/dynamic_land_commander.cpp
+    src/resident/domains/military/dynamic_land_commander.hpp
+    src/resident/domains/military/dynamic_land_consequence.hpp
+    src/resident/domains/military/dynamic_land_disposition.cpp
+    src/resident/domains/military/dynamic_land_disposition.hpp
+    src/resident/domains/military/dynamic_land_strikes.hpp
+    src/resident/domains/military/dynamic_military_phase.cpp
+    src/resident/domains/military/dynamic_military_phase.hpp
+    src/resident/domains/military/dynamic_objective.cpp
+    src/resident/domains/military/dynamic_objective.hpp
+    src/resident/domains/military/dynamic_objective_codec.cpp
+    src/resident/domains/military/dynamic_objective_codec.hpp
+    src/resident/domains/military/dynamic_objective_codec_fields.hpp
+    src/resident/domains/military/dynamic_objective_model.hpp
+    src/resident/domains/military/dynamic_objective_result.cpp
+    src/resident/domains/military/dynamic_objective_terminal.cpp
+    src/resident/domains/military/dynamic_session.hpp
+    src/resident/domains/military/dynamic_session_codec.hpp
+    src/resident/domains/military/dynamic_session_codec_fields.hpp
+    src/resident/domains/military/dynamic_session_due.cpp
+    src/resident/domains/military/dynamic_session_due.hpp
+    src/resident/domains/military/dynamic_session_model.hpp
+    src/resident/domains/military/dynamic_session_random.hpp
+    src/resident/domains/military/dynamic_verified_source.cpp
+    src/resident/domains/military/dynamic_verified_source.hpp
+    src/resident/domains/military/formation_exact.cpp
+    src/resident/domains/military/formation_exact.hpp
+    src/resident/domains/military/formation_exact_action_time.cpp
+    src/resident/domains/military/formation_exact_detail.hpp
+    src/resident/domains/military/formation_exact_phase.cpp
+    src/resident/domains/military/formation_exact_phase.hpp
+    src/resident/domains/military/formation_spatial.cpp
+    src/resident/domains/military/formation_spatial.hpp
+    src/resident/domains/military/native_formation_original.cpp
+    src/resident/domains/military/native_military_world_scope.cpp
+    src/resident/domains/military/native_field_military_remaining.cpp
+    src/resident/domains/military/native_field_military_consumers.cpp
+)
+
+# 生产身份输入连续登记段：src/resident/domains/military/native_formation_original.hpp。
+set(HANMO_RESIDENT_IDENTITY_military_native_formation_original_hpp
+    src/resident/domains/military/native_formation_original.hpp
+    src/resident/domains/military/native_military_world_scope.hpp
+    src/resident/domains/military/native_field_military_remaining.hpp
+    src/resident/domains/military/native_field_military_consumers.hpp
+)
+
+# 生产身份输入连续登记段：src/resident/domains/military/military_action_completion_build.hpp。
+set(HANMO_RESIDENT_IDENTITY_military_military_action_completion_build_hpp
+    src/resident/domains/military/military_action_completion_build.hpp
+    src/resident/domains/military/military_action_condition_codec.hpp
+    src/resident/domains/military/military_action_condition_fields.hpp
+    src/resident/domains/military/military_action_condition_model.hpp
+    src/resident/domains/military/military_action_conditions.hpp
+    src/resident/domains/military/military_action_occupation_source.cpp
+    src/resident/domains/military/military_action_occupation_source.hpp
+    src/resident/domains/military/military_action_original_rules.hpp
+    src/resident/domains/military/military_action_placement_read.cpp
+    src/resident/domains/military/military_action_placement_read.hpp
+    src/resident/domains/military/military_action_resource_codec.hpp
+    src/resident/domains/military/military_action_resource_fields.hpp
+    src/resident/domains/military/military_action_resource_model.hpp
+    src/resident/domains/military/military_action_resources.hpp
+    src/resident/domains/military/military_action_time_read.cpp
+    src/resident/domains/military/military_action_time_read.hpp
+    src/resident/domains/military/military_action_time_record_codec.cpp
+    src/resident/domains/military/military_action_time_record_codec.hpp
+    src/resident/domains/military/military_action_time_record_fields.hpp
+    src/resident/domains/military/military_action_time_records.hpp
+    src/resident/domains/military/military_action_time_state_codec.hpp
+    src/resident/domains/military/military_action_time_state_codec_fields.hpp
+    src/resident/domains/military/military_active_army_read.hpp
+    src/resident/domains/military/military_actor_spatial_point.cpp
+    src/resident/domains/military/military_actor_spatial_point.hpp
+    src/resident/domains/military/military_attack_damage_core.hpp
+    src/resident/domains/military/military_authority_contract.hpp
+    src/resident/domains/military/military_authority_history.hpp
+    src/resident/domains/military/military_authority_time.hpp
+    src/resident/domains/military/military_authority_time_codec.hpp
+    src/resident/domains/military/military_authority_time_codec_fields.hpp
+    src/resident/domains/military/military_calendar_phase.hpp
+    src/resident/domains/military/military_exact_phase.cpp
+    src/resident/domains/military/military_exact_phase.hpp
+    src/resident/domains/military/military_exact_source_codec.cpp
+    src/resident/domains/military/military_exact_source_codec.hpp
+    src/resident/domains/military/military_exact_source_codec_fields.hpp
+    src/resident/domains/military/military_exact_sources.hpp
+    src/resident/domains/military/military_fortification_nodes.hpp
+    src/resident/domains/military/military_fortification_node_codec.hpp
+    src/resident/domains/military/military_fortification_node_codec_fields.hpp
+    src/resident/domains/military/military_exact_layout.hpp
+    src/resident/domains/military/military_exact_root_bindings.hpp
+    src/resident/domains/military/military_exact_state_codec.hpp
+    src/resident/domains/military/military_exact_state_codec_fields.hpp
+    src/resident/domains/military/military_exact_validation.hpp
+    src/resident/domains/military/military_formation_reservation_codec.hpp
+    src/resident/domains/military/military_formation_reservation_model.hpp
+    src/resident/domains/military/military_formation_reservations.hpp
+    src/resident/domains/military/military_formation_source.cpp
+    src/resident/domains/military/military_formation_source.hpp
+    src/resident/domains/military/military_group_movement.hpp
+    src/resident/domains/military/military_local_body_codec_fields.hpp
+    src/resident/domains/military/military_local_boundary.cpp
+    src/resident/domains/military/military_local_boundary.hpp
+    src/resident/domains/military/military_local_boundary_codec_fields.hpp
+    src/resident/domains/military/military_local_motion.hpp
+    src/resident/domains/military/military_local_motion_codec.cpp
+    src/resident/domains/military/military_local_motion_codec.hpp
+    src/resident/domains/military/military_local_motion_codec_fields.hpp
+    src/resident/domains/military/military_manifest_history.hpp
+    src/resident/domains/military/military_march_codec.hpp
+    src/resident/domains/military/military_march_contract.hpp
+    src/resident/domains/military/military_march_source.hpp
+    src/resident/domains/military/military_projection_envelope.hpp
+    src/resident/domains/military/military_return_source.hpp
+    src/resident/domains/military/military_round_rng.hpp
+    src/resident/domains/military/military_spatial_codec.cpp
+    src/resident/domains/military/military_spatial_definition_catalog.cpp
+    src/resident/domains/military/military_session_definition_catalog.cpp
+    src/resident/domains/military/military_spatial_definition_catalog.hpp
+    src/resident/domains/military/military_session_definition_catalog.hpp
+    src/resident/domains/military/military_spatial_codec.hpp
+    src/resident/domains/military/military_spatial_codec_fields.hpp
+    src/resident/domains/military/military_spatial_handoff.hpp
+    src/resident/domains/military/military_spatial_manifest.hpp
+    src/resident/domains/military/military_spatial_point_codec_fields.hpp
+    src/resident/domains/military/military_state_codec_archive.hpp
+    src/resident/domains/military/military_supply_exact.cpp
+    src/resident/domains/military/military_supply_exact.hpp
+    src/resident/domains/military/military_supply_lookup.hpp
+    src/resident/domains/military/military_supply_exact_codec.cpp
+    src/resident/domains/military/military_supply_exact_codec.hpp
+    src/resident/domains/military/military_supply_exact_codec_fields.hpp
+    src/resident/domains/military/military_tactical_intent_codec.hpp
+    src/resident/domains/military/military_tactical_intent_codec_fields.hpp
+    src/resident/domains/military/military_tactical_intent_model.hpp
+    src/resident/domains/military/military_tactical_intent_read.hpp
+    src/resident/domains/military/military_tactical_ownership.hpp
+    src/resident/domains/military/military_tactical_ownership_codec.hpp
+    src/resident/domains/military/military_tactical_ownership_codec_fields.hpp
+    src/resident/domains/military/military_tactical_ownership_memory.hpp
+    src/resident/domains/military/military_tactical_ownership_model.hpp
+    src/resident/domains/military/military_training_completion_time.hpp
+    src/resident/domains/military/military_training_completion_time_codec.hpp
+    src/resident/domains/military/naval_repair_exact.hpp
+    src/resident/domains/military/naval_repair_exact_action_time.cpp
+    src/resident/domains/military/naval_repair_exact_codec.cpp
+    src/resident/domains/military/naval_repair_exact_codec.hpp
+    src/resident/domains/military/naval_repair_exact_detail.hpp
+    src/resident/domains/military/naval_repair_exact_fields.hpp
+    src/resident/domains/military/naval_repair_exact_model.hpp
+    src/resident/domains/military/naval_repair_exact_phase.cpp
+    src/resident/domains/military/naval_repair_exact_phase.hpp
+    src/resident/domains/military/naval_repair_exact_validation.cpp
+    src/resident/domains/military/naval_repair_legacy_battle.cpp
+    src/resident/domains/military/naval_repair_legacy_battle.hpp
+    src/resident/domains/military/naval_repair_native_original.cpp
+    src/resident/domains/military/naval_repair_native_original.hpp
+    src/resident/domains/military/naval_repair_occupation_source.cpp
+    src/resident/domains/military/naval_repair_occupation_source.hpp
+    src/resident/domains/military/naval_repair_original_history.cpp
+    src/resident/domains/military/naval_repair_original_history.hpp
+    src/resident/domains/military/naval_repair_participation.cpp
+    src/resident/domains/military/naval_repair_participation.hpp
+    src/resident/domains/military/naval_repair_source_local.cpp
+    src/resident/domains/military/naval_repair_source_local.hpp
+    src/resident/domains/military/occupation_time.hpp
+    src/resident/domains/military/occupation_time_codec_fields.hpp
+    src/resident/domains/military/office_exact.cpp
+    src/resident/domains/military/office_exact.hpp
+    src/resident/domains/military/office_exact_action_time.cpp
+    src/resident/domains/military/office_exact_detail.hpp
+    src/resident/domains/military/office_exact_phase.cpp
+    src/resident/domains/military/office_exact_phase.hpp
+    src/resident/domains/military/office_exact_validation.cpp
+    src/resident/domains/military/native_office_original.cpp
+    src/resident/domains/military/native_office_original.hpp
+    src/resident/domains/military/population_military_projection.hpp
+    src/resident/domains/military/resupply_exact.cpp
+    src/resident/domains/military/resupply_exact.hpp
+    src/resident/domains/military/resupply_exact_action_time.cpp
+    src/resident/domains/military/resupply_exact_detail.hpp
+    src/resident/domains/military/resupply_exact_phase.cpp
+    src/resident/domains/military/resupply_exact_phase.hpp
+    src/resident/domains/military/resupply_exact_validation.cpp
+    src/resident/domains/military/resupply_original_rules.hpp
+    src/resident/domains/military/return_exact.cpp
+    src/resident/domains/military/return_exact.hpp
+    src/resident/domains/military/return_exact_action_time.cpp
+    src/resident/domains/military/return_exact_detail.hpp
+    src/resident/domains/military/return_exact_phase.cpp
+    src/resident/domains/military/return_exact_phase.hpp
+    src/resident/domains/military/return_exact_validation.cpp
+    src/resident/domains/military/return_original_rules.hpp
+    src/resident/domains/military/return_spatial.cpp
+    src/resident/domains/military/return_spatial.hpp
+    src/resident/domains/military/siege_integration_projection.hpp
+    src/resident/domains/military/training_exact.cpp
+    src/resident/domains/military/training_exact.hpp
+    src/resident/domains/military/training_exact_action_time.cpp
+    src/resident/domains/military/training_exact_codec.cpp
+    src/resident/domains/military/training_exact_codec.hpp
+    src/resident/domains/military/training_exact_codec_fields.hpp
+    src/resident/domains/military/training_exact_detail.hpp
+    src/resident/domains/military/training_exact_model.hpp
+    src/resident/domains/military/training_exact_phase.cpp
+    src/resident/domains/military/training_exact_phase.hpp
+    src/resident/domains/military/training_exact_result_read.cpp
+    src/resident/domains/military/training_exact_result_read.hpp
+    src/resident/domains/military/training_exact_validation.cpp
+    src/resident/domains/military/training_original_rules.hpp
+    src/resident/domains/military/training_progress_values.hpp
+)
+
+# 生产身份输入连续登记段：src/resident/domains/military/military_return_detachment_model.hpp。
+set(HANMO_RESIDENT_IDENTITY_military_military_return_detachment_model_hpp
+    src/resident/domains/military/military_return_detachment_model.hpp
+    src/resident/domains/military/military_return_detachment_codec.hpp
+    src/resident/domains/military/military_return_detachment_fields.hpp
+)
+
+# 生产身份输入连续登记段：src/resident/domains/military/naval_vessel_identity.hpp。
+set(HANMO_RESIDENT_IDENTITY_military_naval_vessel_identity_hpp
+    src/resident/domains/military/naval_vessel_identity.hpp
+    src/resident/domains/military/naval_vessel_identity.cpp
+    src/resident/domains/military/naval_vessel_ref.cpp
+    src/resident/domains/military/military_spatial_chart.hpp
+    src/resident/domains/military/military_body_footprint_codec_fields.hpp
+    src/resident/domains/military/military_body_footprint_codec.hpp
+    src/resident/domains/military/military_body_footprint_codec.cpp
+    src/resident/domains/military/military_body_footprint.hpp
+    src/resident/domains/military/military_body_footprint.cpp
+    src/resident/domains/military/dynamic_session_random_history.hpp
+    src/resident/domains/military/dynamic_session_random_history.cpp
+    src/resident/domains/military/dynamic_land_postures.hpp
+    src/resident/domains/military/dynamic_land_postures.cpp
+    src/resident/domains/military/dynamic_effect_source.hpp
+    src/resident/domains/military/dynamic_effect_source.cpp
+    src/resident/domains/military/dynamic_effect_adoption.cpp
+    src/resident/domains/military/dynamic_effect.cpp
+)
+
+# 生产身份输入连续登记段：src/resident/domains/military/military_local_motion_prediction.cpp。
+set(HANMO_RESIDENT_IDENTITY_military_military_local_motion_prediction_cpp
+    src/resident/domains/military/military_local_motion_prediction.cpp
+    src/resident/domains/military/military_local_motion_prediction.hpp
+)
+
+# 生产身份输入连续登记段：src/resident/domains/military/formation_exact_validation.cpp。
+set(HANMO_RESIDENT_IDENTITY_military_formation_exact_validation_cpp
+    src/resident/domains/military/formation_exact_validation.cpp
+)
+
+# 生产身份输入连续登记段：src/resident/domains/military/military_travel_end_source.hpp。
+set(HANMO_RESIDENT_IDENTITY_military_military_travel_end_source_hpp
+    src/resident/domains/military/military_travel_end_source.hpp
+)
+
+# 生产身份输入连续登记段：src/resident/domains/military/military_injury_source.cpp。
+set(HANMO_RESIDENT_IDENTITY_military_military_injury_source_cpp
+    src/resident/domains/military/military_injury_source.cpp
+    src/resident/domains/military/military_actor_condition_source.cpp
+    src/resident/domains/military/military_actor_condition_write.cpp
+)
+
+# 生产身份输入连续登记段：src/resident/domains/military/military_injury_source.hpp。
+set(HANMO_RESIDENT_IDENTITY_military_military_injury_source_hpp
+    src/resident/domains/military/military_injury_source.hpp
+    src/resident/domains/military/military_actor_condition_source.hpp
+    src/resident/domains/military/military_actor_condition_write.hpp
+)
+
+# 生产身份输入连续登记段：src/resident/domains/military/military_actor_occupation.hpp。
+set(HANMO_RESIDENT_IDENTITY_military_military_actor_occupation_hpp
+    src/resident/domains/military/military_actor_occupation.hpp
+    src/resident/domains/military/military_siege_occupation.hpp
+    src/resident/domains/military/military_death_witness.hpp
+    src/resident/domains/military/military_roster_history.hpp
+)
+
+# 生产身份输入连续登记段：src/resident/domains/military/occupation_applied_source.cpp。
+set(HANMO_RESIDENT_IDENTITY_military_occupation_applied_source_cpp
+    src/resident/domains/military/occupation_applied_source.cpp
+    src/resident/domains/military/occupation_applied_source.hpp
+    src/resident/domains/military/occupation_reservations.hpp
+)
+
+# 生产身份输入连续登记段：src/resident/domains/military/siege_integration_model.hpp。
+set(HANMO_RESIDENT_IDENTITY_military_siege_integration_model_hpp
+    src/resident/domains/military/siege_integration_model.hpp
+    src/resident/domains/military/siege_integration_state.hpp
+    src/resident/domains/military/siege_integration_decisions.hpp
+    src/resident/domains/military/military_integration_asset_state.hpp
+    src/resident/domains/military/military_integration_assets.hpp
+)
+
+# 生产身份输入连续登记段：src/resident/domains/military/siege_integration_decisions.cpp。
+set(HANMO_RESIDENT_IDENTITY_military_siege_integration_decisions_cpp
+    src/resident/domains/military/siege_integration_decisions.cpp
+    src/resident/domains/military/siege_integration_codec.cpp
+    src/resident/domains/military/siege_integration_validation.cpp
+    src/resident/domains/military/military_integration_assets.cpp
+)
+
+# 生产身份输入连续登记段：src/resident/domains/military/battle_codec.cpp。
+set(HANMO_RESIDENT_IDENTITY_military_battle_codec_cpp
+    src/resident/domains/military/battle_codec.cpp
+    src/resident/domains/military/battle_codec.hpp
+    src/resident/domains/military/battle_hex.cpp
+    src/resident/domains/military/military_battle_lifecycle.hpp
+    src/resident/domains/military/military_battle_lifecycle_codec.hpp
+    src/resident/domains/military/battle_model.hpp
+    src/resident/domains/military/military_commander.hpp
+    src/resident/domains/military/military_commander_history.hpp
+    src/resident/domains/military/military_journey_termination.hpp
+    src/resident/domains/military/battle_rules.cpp
+    src/resident/domains/military/military_commander.cpp
+    src/resident/domains/military/military_commander_history.cpp
+    src/resident/domains/military/military_journey_termination.cpp
+    src/resident/domains/military/military_battle_lifecycle.cpp
+    src/resident/domains/military/military_battle_lifecycle_codec.cpp
+    src/resident/domains/military/battle_world.cpp
+    src/resident/domains/military/battle_requests.cpp
+    src/resident/domains/military/battle_request_transition.cpp
+    src/resident/domains/military/battle_request_codec.cpp
+    src/resident/domains/military/battle_request_world.cpp
+    src/resident/domains/military/naval_asset_codec.cpp
+    src/resident/domains/military/naval_assets.cpp
+    src/resident/domains/military/naval_authoring.cpp
+    src/resident/domains/military/naval_command_codec.cpp
+    src/resident/domains/military/naval_commands.cpp
+    src/resident/domains/military/naval_asset_history.cpp
+    src/resident/domains/military/naval_battle_codec.cpp
+    src/resident/domains/military/naval_battle_command_codec.cpp
+    src/resident/domains/military/naval_battle_commands.cpp
+    src/resident/domains/military/naval_battle_creation.cpp
+    src/resident/domains/military/naval_battle_effects.cpp
+    src/resident/domains/military/naval_battle_history.cpp
+    src/resident/domains/military/naval_battle_phase.cpp
+    src/resident/domains/military/naval_battle_views.cpp
+    src/resident/domains/military/naval_capture.cpp
+    src/resident/domains/military/naval_capture_settlement.cpp
+    src/resident/domains/military/naval_capture_source.cpp
+    src/resident/domains/military/naval_casualties.cpp
+    src/resident/domains/military/naval_journey_termination.cpp
+    src/resident/domains/military/naval_codec.cpp
+    src/resident/domains/military/naval_repair.cpp
+    src/resident/domains/military/naval_repair_codec.cpp
+    src/resident/domains/military/naval_repair_history.cpp
+    src/resident/domains/military/naval_repair_authoring.cpp
+    src/resident/domains/military/naval_repair_schedule.cpp
+    src/resident/domains/military/naval_repair_views.cpp
+    src/resident/domains/military/naval_repair_charges.cpp
+    src/resident/domains/military/naval_repair_charges_codec.cpp
+    src/resident/domains/military/naval_repair_charges_history.cpp
+    src/resident/domains/military/naval_navigation.cpp
+    src/resident/domains/military/naval_tactical_navigation.cpp
+    src/resident/domains/military/naval_gunnery_source.cpp
+    src/resident/domains/military/naval_gunnery_codec.cpp
+    src/resident/domains/military/naval_gunnery_rules.cpp
+    src/resident/domains/military/naval_gunnery_authoring.cpp
+)
+
+# 生产身份输入连续登记段：src/resident/domains/military/naval_tactical_navigation_authoring.cpp。
+set(HANMO_RESIDENT_IDENTITY_military_naval_tactical_navigation_authoring_cpp
+    src/resident/domains/military/naval_tactical_navigation_authoring.cpp
+    src/resident/domains/military/naval_navigation_apply.cpp
+    src/resident/domains/military/naval_navigation_geometry.cpp
+    src/resident/domains/military/naval_navigation_history.cpp
+    src/resident/domains/military/naval_navigation_codec.cpp
+    src/resident/domains/military/naval_navigation_authoring.cpp
+    src/resident/domains/military/naval_combat.cpp
+    src/resident/domains/military/naval_combat_authoring.cpp
+    src/resident/domains/military/naval_fleet_schedule.cpp
+    src/resident/domains/military/naval_contact.cpp
+    src/resident/domains/military/naval_contact_history.cpp
+    src/resident/domains/military/naval_contact_install.cpp
+    src/resident/domains/military/naval_continuation.cpp
+    src/resident/domains/military/naval_custody.cpp
+    src/resident/domains/military/naval_decision_history.cpp
+    src/resident/domains/military/naval_manifest_history.cpp
+    src/resident/domains/military/naval_npc_settlement.cpp
+    src/resident/domains/military/naval_plan_command.cpp
+    src/resident/domains/military/naval_planning.cpp
+    src/resident/domains/military/naval_postcombat_commands.cpp
+    src/resident/domains/military/naval_round_history.cpp
+    src/resident/domains/military/naval_round_supply.cpp
+    src/resident/domains/military/naval_settlement.cpp
+    src/resident/domains/military/naval_tactics.cpp
+    src/resident/domains/military/military_actor_occupation.cpp
+    src/resident/domains/military/military_siege_occupation.cpp
+    src/resident/domains/military/military_death_witness.cpp
+    src/resident/domains/military/military_roster_history.cpp
+    src/resident/domains/military/military_authority_history.cpp
+)
+
+# 生产身份输入连续登记段：src/resident/domains/military/naval_validation.cpp。
+set(HANMO_RESIDENT_IDENTITY_military_naval_validation_cpp
+    src/resident/domains/military/naval_validation.cpp
+    src/resident/domains/military/naval_world.cpp
+    src/resident/domains/military/naval_views.cpp
+    src/resident/domains/military/naval_asset_codec.hpp
+    src/resident/domains/military/military_return_authority.hpp
+    src/resident/domains/military/naval_assets.hpp
+    src/resident/domains/military/sea_embark_care_ref.hpp
+    src/resident/domains/military/naval_vessel_ref.hpp
+    src/resident/domains/military/naval_vessel_ref_codec_fields.hpp
+    src/resident/domains/military/sea_embark_care_ref_codec_fields.hpp
+    src/resident/domains/military/naval_authoring.hpp
+    src/resident/domains/military/naval_command_codec.hpp
+    src/resident/domains/military/naval_commands.hpp
+    src/resident/domains/military/naval_validation.hpp
+    src/resident/domains/military/naval_world.hpp
+    src/resident/domains/military/naval_views.hpp
+    src/resident/domains/military/naval_asset_history.hpp
+    src/resident/domains/military/naval_battle_codec.hpp
+    src/resident/domains/military/naval_battle_command_codec.hpp
+    src/resident/domains/military/naval_battle_commands.hpp
+    src/resident/domains/military/naval_battle_creation.hpp
+    src/resident/domains/military/naval_battle_effects.hpp
+    src/resident/domains/military/naval_battle_history.hpp
+    src/resident/domains/military/naval_battle_phase.hpp
+    src/resident/domains/military/naval_battle_state.hpp
+    src/resident/domains/military/naval_battle_views.hpp
+    src/resident/domains/military/naval_capture.hpp
+    src/resident/domains/military/naval_capture_settlement.hpp
+    src/resident/domains/military/naval_capture_source.hpp
+    src/resident/domains/military/naval_casualties.hpp
+    src/resident/domains/military/naval_journey_termination.hpp
+    src/resident/domains/military/naval_codec.hpp
+    src/resident/domains/military/naval_repair.hpp
+    src/resident/domains/military/naval_repair_model.hpp
+    src/resident/domains/military/naval_repair_codec.hpp
+    src/resident/domains/military/naval_repair_history.hpp
+    src/resident/domains/military/naval_repair_authoring.hpp
+    src/resident/domains/military/naval_repair_views.hpp
+    src/resident/domains/military/naval_repair_charges.hpp
+    src/resident/domains/military/naval_repair_charges_model.hpp
+    src/resident/domains/military/naval_repair_charges_codec.hpp
+    src/resident/domains/military/naval_repair_charges_history.hpp
+    src/resident/domains/military/naval_navigation.hpp
+    src/resident/domains/military/naval_tactical_navigation.hpp
+    src/resident/domains/military/naval_gunnery_skill_contract.hpp
+    src/resident/domains/military/naval_gunnery_model.hpp
+    src/resident/domains/military/naval_gunnery_source.hpp
+    src/resident/domains/military/naval_gunnery_codec.hpp
+    src/resident/domains/military/naval_gunnery_rules.hpp
+    src/resident/domains/military/naval_gunnery_authoring.hpp
+)
+
+# 生产身份输入连续登记段：src/resident/domains/military/naval_tactical_navigation_authoring.hpp。
+set(HANMO_RESIDENT_IDENTITY_military_naval_tactical_navigation_authoring_hpp
+    src/resident/domains/military/naval_tactical_navigation_authoring.hpp
+    src/resident/domains/military/naval_navigation_apply.hpp
+    src/resident/domains/military/naval_navigation_geometry.hpp
+    src/resident/domains/military/naval_navigation_history.hpp
+    src/resident/domains/military/naval_navigation_codec.hpp
+    src/resident/domains/military/naval_navigation_authoring.hpp
+    src/resident/domains/military/naval_navigation_model.hpp
+    src/resident/domains/military/naval_commander.hpp
+    src/resident/domains/military/naval_combat.hpp
+    src/resident/domains/military/naval_combat_authoring.hpp
+    src/resident/domains/military/naval_contact.hpp
+    src/resident/domains/military/naval_contact_history.hpp
+    src/resident/domains/military/naval_contact_install.hpp
+    src/resident/domains/military/naval_continuation.hpp
+    src/resident/domains/military/naval_custody.hpp
+    src/resident/domains/military/naval_decision_history.hpp
+    src/resident/domains/military/naval_fleet_schedule.hpp
+    src/resident/domains/military/naval_json_guard.hpp
+    src/resident/domains/military/naval_manifest_history.hpp
+    src/resident/domains/military/naval_npc_settlement.hpp
+    src/resident/domains/military/naval_plan_command.hpp
+    src/resident/domains/military/naval_planning.hpp
+    src/resident/domains/military/naval_postcombat_commands.hpp
+    src/resident/domains/military/naval_round_history.hpp
+    src/resident/domains/military/naval_round_supply.hpp
+    src/resident/domains/military/naval_settlement.hpp
+    src/resident/domains/military/naval_tactics.hpp
+    src/resident/domains/military/battle_world.hpp
+    src/resident/domains/military/battle_requests.hpp
+    src/resident/domains/military/battle_request_transition.hpp
+    src/resident/domains/military/military_officer_codec.cpp
+    src/resident/domains/military/military_officer_source.cpp
+    src/resident/domains/military/military_officer_rules.cpp
+    src/resident/domains/military/military_field_command_codec.cpp
+    src/resident/domains/military/military_field_command_source.cpp
+    src/resident/domains/military/military_field_command_rules.cpp
+    src/resident/domains/military/military_recovery_source.cpp
+    src/resident/domains/military/military_recovery_eligibility.cpp
+    src/resident/domains/military/military_recovery_rules.cpp
+    src/resident/domains/military/military_supply_attrition.cpp
+    src/resident/domains/military/military_rout_retreat.cpp
+    src/resident/domains/military/military_command_shock.cpp
+    src/resident/domains/military/military_command_shock_source.cpp
+    src/resident/domains/military/military_command_shock_codec.cpp
+    src/resident/domains/military/military_garrison_rest_source.cpp
+    src/resident/domains/military/military_garrison_rest_rules.cpp
+    src/resident/domains/military/military_garrison_rest_codec.cpp
+    src/resident/domains/military/military_combat_conditions.cpp
+    src/resident/domains/military/military_combat_conditions_source.cpp
+    src/resident/domains/military/military_combat_conditions_codec.cpp
+    src/resident/domains/military/military_commanded_damage.cpp
+    src/resident/domains/military/military_commanded_damage_source.cpp
+    src/resident/domains/military/military_commanded_damage_codec.cpp
+    src/resident/domains/military/military_sequential_rounds.cpp
+    src/resident/domains/military/military_sequential_rout.cpp
+    src/resident/domains/military/military_sequential_execution.cpp
+    src/resident/domains/military/military_field_terrain.cpp
+    src/resident/domains/military/military_field_terrain_source.cpp
+)
+
+# 生产身份输入连续登记段：src/resident/domains/military/military_command_resources.cpp。
+set(HANMO_RESIDENT_IDENTITY_military_military_command_resources_cpp
+    src/resident/domains/military/military_command_resources.cpp
+    src/resident/domains/military/military_command_resources_source.cpp
+    src/resident/domains/military/military_command_resources_codec.cpp
+)
+
+# 生产身份输入连续登记段：src/resident/domains/military/military_tactic_learning.cpp。
+set(HANMO_RESIDENT_IDENTITY_military_military_tactic_learning_cpp
+    src/resident/domains/military/military_tactic_learning.cpp
+    src/resident/domains/military/military_tactic_learning_source.cpp
+    src/resident/domains/military/military_tactic_learning_codec.cpp
+    src/resident/domains/military/military_tactic_learning_catalog.cpp
+    src/resident/domains/military/military_tactic_learning_views.cpp
+    src/resident/domains/military/military_tactic_entry.cpp
+    src/resident/domains/military/military_tactic_entry_source.cpp
+    src/resident/domains/military/military_tactic_entry_codec.cpp
+    src/resident/domains/military/military_tactic_practice.cpp
+    src/resident/domains/military/military_tactic_practice_codec.cpp
+)
+
+# 生产身份输入连续登记段：src/resident/domains/military/military_siege_engineering.cpp。
+set(HANMO_RESIDENT_IDENTITY_military_military_siege_engineering_cpp
+    src/resident/domains/military/military_siege_engineering.cpp
+    src/resident/domains/military/military_siege_engineering_access.cpp
+    src/resident/domains/military/military_siege_engineering_codec.cpp
+    src/resident/domains/military/military_siege_engineering_history.cpp
+    src/resident/domains/military/military_siege_timeout_source.cpp
+    src/resident/domains/military/military_siege_engineering_rules.cpp
+    src/resident/domains/military/military_siege_engineering_source.cpp
+    src/resident/domains/military/military_siege_lifecycle.cpp
+    src/resident/domains/military/military_siege_lifecycle_authority.cpp
+    src/resident/domains/military/military_siege_lifecycle_codec.cpp
+    src/resident/domains/military/military_siege_lifecycle_commands.cpp
+    src/resident/domains/military/military_siege_lifecycle_history.cpp
+)
+
+# 生产身份输入连续登记段：src/resident/domains/military/military_rout_disposition.cpp。
+set(HANMO_RESIDENT_IDENTITY_military_military_rout_disposition_cpp
+    src/resident/domains/military/military_rout_disposition.cpp
+    src/resident/domains/military/military_rout_status.cpp
+    src/resident/domains/military/military_rout_orders.cpp
+    src/resident/domains/military/military_rout_history.cpp
+    src/resident/domains/military/military_rout_codec.cpp
+    src/resident/domains/military/military_rout_shape.cpp
+    src/resident/domains/military/military_supply_attrition_rules.cpp
+    src/resident/domains/military/military_supply_attrition_codec.cpp
+    src/resident/domains/military/military_supply_attrition_battle.cpp
+    src/resident/domains/military/military_supply_attrition_views.cpp
+    src/resident/domains/military/population_military_attrition.cpp
+    src/resident/domains/military/military_recovery_codec.cpp
+    src/resident/domains/military/military_recovery_views.cpp
+    src/resident/domains/military/military_recovery_release.cpp
+    src/resident/domains/military/military_recovery_siege_release.cpp
+    src/resident/domains/military/military_recovery_growth.cpp
+    src/resident/domains/military/population_military_recovery.cpp
+)
+
+# 生产身份输入连续登记段：src/resident/domains/military/military_officer_codec.hpp。
+set(HANMO_RESIDENT_IDENTITY_military_military_officer_codec_hpp
+    src/resident/domains/military/military_officer_codec.hpp
+    src/resident/domains/military/military_officer_source.hpp
+    src/resident/domains/military/military_officer_rules.hpp
+)
+
+# 生产身份输入连续登记段：src/resident/domains/military/military_officer_model.hpp。
+set(HANMO_RESIDENT_IDENTITY_military_military_officer_model_hpp
+    src/resident/domains/military/military_officer_model.hpp
+    src/resident/domains/military/military_officer_contract.hpp
+    src/resident/domains/military/military_officer_profile.hpp
+    src/resident/domains/military/military_field_command_contract.hpp
+    src/resident/domains/military/military_field_command_model.hpp
+    src/resident/domains/military/military_field_command_profile.hpp
+    src/resident/domains/military/military_recovery_source.hpp
+    src/resident/domains/military/military_recovery_eligibility.hpp
+    src/resident/domains/military/military_recovery_rules.hpp
+    src/resident/domains/military/military_supply_attrition.hpp
+    src/resident/domains/military/military_supply_attrition_rules.hpp
+    src/resident/domains/military/military_supply_attrition_codec.hpp
+    src/resident/domains/military/military_supply_attrition_battle.hpp
+    src/resident/domains/military/military_supply_attrition_views.hpp
+    src/resident/domains/military/population_military_attrition.hpp
+    src/resident/domains/military/military_supply_attrition_model.hpp
+    src/resident/domains/military/military_supply_attrition_profile.hpp
+    src/resident/domains/military/military_rout_model.hpp
+    src/resident/domains/military/military_rout_contract.hpp
+    src/resident/domains/military/military_rout_profile.hpp
+    src/resident/domains/military/military_command_shock.hpp
+    src/resident/domains/military/military_command_shock_source.hpp
+    src/resident/domains/military/military_command_shock_codec.hpp
+    src/resident/domains/military/military_command_shock_contract.hpp
+    src/resident/domains/military/military_command_shock_profile.hpp
+    src/resident/domains/military/military_garrison_rest_model.hpp
+    src/resident/domains/military/military_garrison_rest_profile.hpp
+    src/resident/domains/military/military_garrison_rest.hpp
+    src/resident/domains/military/military_garrison_rest_codec.hpp
+    src/resident/domains/military/military_combat_conditions_model.hpp
+    src/resident/domains/military/military_combat_conditions.hpp
+    src/resident/domains/military/military_combat_conditions_profile.hpp
+    src/resident/domains/military/military_combat_conditions_source.hpp
+    src/resident/domains/military/military_combat_conditions_codec.hpp
+    src/resident/domains/military/military_commanded_damage.hpp
+    src/resident/domains/military/military_commanded_damage_contract.hpp
+    src/resident/domains/military/military_commanded_damage_model.hpp
+    src/resident/domains/military/military_commanded_damage_profile.hpp
+    src/resident/domains/military/military_sequential_contract.hpp
+    src/resident/domains/military/military_sequential_rounds.hpp
+    src/resident/domains/military/military_sequential_rout.hpp
+    src/resident/domains/military/military_sequential_execution.hpp
+    src/resident/domains/military/military_sequential_profile.hpp
+    src/resident/domains/military/military_field_terrain.hpp
+    src/resident/domains/military/military_field_terrain_contract.hpp
+    src/resident/domains/military/military_field_terrain_profile.hpp
+    src/resident/domains/military/military_field_terrain_source.hpp
+    src/resident/domains/military/military_commanded_damage_source.hpp
+    src/resident/domains/military/military_commanded_damage_codec.hpp
+)
+
+# 生产身份输入连续登记段：src/resident/domains/military/military_command_resources.hpp。
+set(HANMO_RESIDENT_IDENTITY_military_military_command_resources_hpp
+    src/resident/domains/military/military_command_resources.hpp
+    src/resident/domains/military/military_command_resources_model.hpp
+    src/resident/domains/military/military_command_resources_contract.hpp
+    src/resident/domains/military/military_command_resources_profile.hpp
+    src/resident/domains/military/military_command_resources_source.hpp
+    src/resident/domains/military/military_command_resources_codec.hpp
+)
+
+# 生产身份输入连续登记段：src/resident/domains/military/military_tactic_learning.hpp。
+set(HANMO_RESIDENT_IDENTITY_military_military_tactic_learning_hpp
+    src/resident/domains/military/military_tactic_learning.hpp
+    src/resident/domains/military/military_tactic_learning_source.hpp
+    src/resident/domains/military/military_tactic_learning_codec.hpp
+    src/resident/domains/military/military_tactic_learning_catalog.hpp
+    src/resident/domains/military/military_tactic_learning_views.hpp
+    src/resident/domains/military/military_tactic_entry.hpp
+    src/resident/domains/military/military_tactic_entry_source.hpp
+    src/resident/domains/military/military_tactic_entry_codec.hpp
+    src/resident/domains/military/military_tactic_practice.hpp
+    src/resident/domains/military/military_tactic_practice_codec.hpp
+    src/resident/domains/military/military_tactic_learning_contract.hpp
+    src/resident/domains/military/military_tactic_learning_model.hpp
+    src/resident/domains/military/military_tactic_learning_profile.hpp
+)
+
+# 生产身份输入连续登记段：src/resident/domains/military/military_siege_engineering.hpp。
+set(HANMO_RESIDENT_IDENTITY_military_military_siege_engineering_hpp
+    src/resident/domains/military/military_siege_engineering.hpp
+    src/resident/domains/military/military_siege_engineering_access.hpp
+    src/resident/domains/military/military_siege_engineering_codec.hpp
+    src/resident/domains/military/military_siege_engineering_contract.hpp
+    src/resident/domains/military/military_siege_engineering_history.hpp
+    src/resident/domains/military/military_siege_timeout_source.hpp
+    src/resident/domains/military/military_siege_engineering_profile.hpp
+    src/resident/domains/military/military_siege_engineering_rules.hpp
+    src/resident/domains/military/military_siege_engineering_source.hpp
+    src/resident/domains/military/military_siege_lifecycle.hpp
+    src/resident/domains/military/military_siege_lifecycle_authority.hpp
+    src/resident/domains/military/military_siege_office_boundary.hpp
+    src/resident/domains/military/military_siege_lifecycle_codec.hpp
+    src/resident/domains/military/military_siege_lifecycle_commands.hpp
+    src/resident/domains/military/military_siege_lifecycle_history.hpp
+)
+
+# 生产身份输入连续登记段：src/resident/domains/military/military_rout_retreat.hpp。
+set(HANMO_RESIDENT_IDENTITY_military_military_rout_retreat_hpp
+    src/resident/domains/military/military_rout_retreat.hpp
+    src/resident/domains/military/military_rout_disposition.hpp
+    src/resident/domains/military/military_rout_status.hpp
+    src/resident/domains/military/military_rout_orders.hpp
+    src/resident/domains/military/military_rout_history.hpp
+    src/resident/domains/military/military_rout_codec.hpp
+    src/resident/domains/military/military_recovery_codec.hpp
+    src/resident/domains/military/military_recovery_views.hpp
+    src/resident/domains/military/military_recovery_release.hpp
+    src/resident/domains/military/military_recovery_siege_release.hpp
+    src/resident/domains/military/military_recovery_growth.hpp
+    src/resident/domains/military/population_military_recovery.hpp
+    src/resident/domains/military/military_recovery_model.hpp
+    src/resident/domains/military/military_recovery_profile.hpp
+    src/resident/domains/military/military_recovery_actor_contract.hpp
+    src/resident/domains/military/military_field_command_source.hpp
+    src/resident/domains/military/military_field_command_rules.hpp
+    src/resident/domains/military/military_field_command_codec.hpp
+    src/resident/domains/military/battle_request_codec.hpp
+    src/resident/domains/military/battle_request_world.hpp
+    src/resident/domains/military/battle_world_model.hpp
+    src/resident/domains/military/camp_views.cpp
+    src/resident/domains/military/camp_views.hpp
+    src/resident/domains/military/drill_model.hpp
+    src/resident/domains/military/drill_rules.cpp
+    src/resident/domains/military/lifecycle_codec.cpp
+    src/resident/domains/military/lifecycle_codec.hpp
+    src/resident/domains/military/march_codec.cpp
+    src/resident/domains/military/march_codec.hpp
+    src/resident/domains/military/military_action_validation.cpp
+    src/resident/domains/military/military_codec.cpp
+    src/resident/domains/military/military_codec.hpp
+    src/resident/domains/military/military_conditions.cpp
+    src/resident/domains/military/military_conditions.hpp
+    src/resident/domains/military/military_contact.cpp
+    src/resident/domains/military/military_contact.hpp
+    src/resident/domains/military/military_equal.hpp
+    src/resident/domains/military/military_lifecycle.cpp
+    src/resident/domains/military/military_return_destination_policy.cpp
+    src/resident/domains/military/military_lifecycle.hpp
+    src/resident/domains/military/military_return_destination_policy.hpp
+    src/resident/domains/military/military_model.hpp
+    src/resident/domains/military/population_military.hpp
+    src/resident/domains/military/population_military_model.hpp
+    src/resident/domains/military/population_occupation.hpp
+    src/resident/domains/military/population_military_internal.hpp
+    src/resident/domains/military/military_clock.cpp
+    src/resident/domains/military/military_clock.hpp
+    src/resident/domains/military/military_phases.cpp
+    src/resident/domains/military/military_phases.hpp
+    src/resident/domains/military/military_rules.cpp
+    src/resident/domains/military/military_schedule.cpp
+    src/resident/domains/military/military_schedule.hpp
+    src/resident/domains/military/military_validation.cpp
+    src/resident/domains/military/population_military_codec.cpp
+    src/resident/domains/military/population_military_rules.cpp
+    src/resident/domains/military/population_occupation.cpp
+    src/resident/domains/military/population_military_validation.cpp
+    src/resident/domains/military/population_military_views.cpp
+    src/resident/domains/military/military_views.cpp
+    src/resident/domains/military/military_views.hpp
+    src/resident/domains/military/occupation_codec.cpp
+    src/resident/domains/military/occupation_codec.hpp
+    src/resident/domains/military/occupation_model.hpp
+    src/resident/domains/military/occupation_rules.cpp
+    src/resident/domains/military/occupation_rules.hpp
+    src/resident/domains/military/siege_codec.cpp
+    src/resident/domains/military/siege_codec.hpp
+    src/resident/domains/military/siege_command_codec.cpp
+    src/resident/domains/military/siege_command_codec.hpp
+    src/resident/domains/military/siege_departure.cpp
+    src/resident/domains/military/siege_model.hpp
+    src/resident/domains/military/siege_rules.cpp
+    src/resident/domains/military/siege_views.cpp
+    src/resident/domains/military/siege_views.hpp
+    src/resident/domains/military/siege_world.cpp
+    src/resident/domains/military/siege_world.hpp
+    src/resident/domains/military/training_codec.cpp
+    src/resident/domains/military/training_codec.hpp
+    src/resident/domains/military/training_model.hpp
+    src/resident/domains/military/training_rules.cpp
+    src/resident/domains/military/training_rules.hpp
+    src/resident/domains/military/training_views.cpp
+)
+
+# 生产身份输入连续登记段：src/resident/domains/military/duty/military_duty.cpp。
+set(HANMO_RESIDENT_IDENTITY_military_military_duty_cpp
+    src/resident/domains/military/duty/military_duty.cpp
+    src/resident/domains/military/duty/military_duty_assignment.cpp
+    src/resident/domains/military/duty/military_duty_codec.cpp
+    src/resident/domains/military/duty/military_duty_execution_read.cpp
+    src/resident/domains/military/duty/military_duty_phase.cpp
+    src/resident/domains/military/duty/military_duty_validation.cpp
+    src/resident/domains/military/duty/military_station_action_time.cpp
+    src/resident/domains/military/dynamic_action.cpp
+    src/resident/domains/military/dynamic_action_codec.cpp
+    src/resident/domains/military/dynamic_condition_consumer.cpp
+    src/resident/domains/military/dynamic_land_allocation.cpp
+    src/resident/domains/military/dynamic_land_consequence.cpp
+    src/resident/domains/military/dynamic_land_strikes.cpp
+    src/resident/domains/military/dynamic_session.cpp
+    src/resident/domains/military/dynamic_session_codec.cpp
+    src/resident/domains/military/dynamic_session_random.cpp
+    src/resident/domains/military/military_attack_damage_core.cpp
+    src/resident/domains/military/military_calendar_phase.cpp
+    src/resident/domains/military/military_exact_sources.cpp
+    src/resident/domains/military/military_group_movement.cpp
+    src/resident/domains/military/military_local_motion.cpp
+    src/resident/domains/military/military_manifest_history.cpp
+    src/resident/domains/military/military_march_codec.cpp
+    src/resident/domains/military/military_march_source.cpp
+    src/resident/domains/military/military_spatial_chart.cpp
+    src/resident/domains/military/military_spatial_handoff.cpp
+    src/resident/domains/military/military_spatial_manifest.cpp
+    src/resident/domains/military/occupation_time.cpp
+    src/resident/domains/military/population_military_exact.cpp
+)
+
+# 生产身份输入连续登记段：src/resident/domains/military/naval_repair_exact.cpp。
+set(HANMO_RESIDENT_IDENTITY_military_naval_repair_exact_cpp
+    src/resident/domains/military/naval_repair_exact.cpp
+)
+
+# 生产身份输入连续登记段：src/resident/domains/military/naval_repair_resource_recipe.hpp。
+set(HANMO_RESIDENT_IDENTITY_military_naval_repair_resource_recipe_hpp
+    src/resident/domains/military/naval_repair_resource_recipe.hpp
+)
+
+# 生产身份输入连续登记段：src/resident/domains/military/military_tactical_intent_codec.cpp。
+set(HANMO_RESIDENT_IDENTITY_military_military_tactical_intent_codec_cpp
+    src/resident/domains/military/military_tactical_intent_codec.cpp
+    src/resident/domains/military/military_tactical_intent_read.cpp
+    src/resident/domains/military/military_action_time_state_codec.cpp
+    src/resident/domains/military/military_authority_time_codec.cpp
+    src/resident/domains/military/military_action_resources.cpp
+    src/resident/domains/military/military_action_conditions.cpp
+    src/resident/domains/military/military_action_condition_codec.cpp
+    src/resident/domains/military/military_training_completion_time.cpp
+    src/resident/domains/military/military_training_completion_time_codec.cpp
+    src/resident/domains/military/military_formation_reservations.cpp
+    src/resident/domains/military/military_formation_reservation_codec.cpp
+    src/resident/domains/military/military_action_resource_codec.cpp
+    src/resident/domains/military/military_return_detachment_model.cpp
+    src/resident/domains/military/military_return_detachment_codec.cpp
+    src/resident/domains/military/military_authority_time.cpp
+    src/resident/domains/military/military_fortification_nodes.cpp
+    src/resident/domains/military/military_fortification_node_codec.cpp
+    src/resident/domains/military/military_exact_layout.cpp
+    src/resident/domains/military/military_exact_state_codec.cpp
+    src/resident/domains/military/military_tactical_ownership_pins.cpp
+    src/resident/domains/military/military_tactical_ownership_codec.cpp
+    src/resident/domains/military/military_tactical_ownership.cpp
+)
+
+# 生产身份输入连续登记段：src/resident/domains/military/naval_repair_resource_recipe.cpp。
+set(HANMO_RESIDENT_IDENTITY_military_naval_repair_resource_recipe_cpp
+    src/resident/domains/military/naval_repair_resource_recipe.cpp
+)
+
+# 本领域的拆分实现片段：只随原翻译单元包含，同时进入目标与生产身份清单。
+list(APPEND HANMO_RESIDENT_SPLIT_IMPLEMENTATION_SOURCES
+    src/resident/domains/military/source_owned_fields/dynamic_battle.inc
+    src/resident/domains/military/source_owned_fields/formation_logistics.inc
+    src/resident/domains/military/source_owned_fields/military_service.inc
+    src/resident/domains/military/source_owned_fields/naval_operations.inc
+    src/resident/domains/military/source_owned_fields/siege_operations.inc
+    src/resident/domains/military/source_owned_fields/tactical_motion.inc
+    src/resident/domains/military/world_codec/catalog_original_naval.inc
+    src/resident/domains/military/world_codec/catalog_population.inc
+    src/resident/domains/military/world_codec/checkpoint_read_dynamic_military.inc
+    src/resident/domains/military/world_codec/checkpoint_read_military.inc
+    src/resident/domains/military/world_codec/checkpoint_read_military_officer_political_module.inc
+    src/resident/domains/military/world_codec/checkpoint_read_military_tactic_learning_module.inc
+    src/resident/domains/military/world_codec/checkpoint_read_population_military.inc
+    src/resident/domains/military/world_codec/checkpoint_write_exact_actions.inc
+    src/resident/domains/military/world_codec/checkpoint_write_original.inc
+    src/resident/domains/military/world_codec/export_exact_actions.inc
+    src/resident/domains/military/world_codec/seed_exact_actions.inc
+    src/resident/domains/military/world_codec/seed_original_lifecycle.inc
+    src/resident/domains/military/world_codec/seed_population.inc
+    src/resident/domains/military/world_codec/selection_command.inc
+    src/resident/domains/military/world_codec/selection_population.inc
+    src/resident/domains/military/world_codec/selection_siege.inc
+)
+
+# field_battle/1 的真实资源、Session 安装、绑定与二进制状态闭包。
+list(APPEND HANMO_RESIDENT_SOURCES_military_military_duty_source_read_cpp
+    src/resident/domains/military/field_battle/field_author_data.cpp
+    src/resident/domains/military/field_battle/field_council_sources.cpp
+    src/resident/domains/military/field_battle/field_council_prepare.cpp
+    src/resident/domains/military/field_battle/field_council_validation.cpp
+    src/resident/domains/military/field_battle/field_ability_sources.cpp
+    src/resident/domains/military/field_battle/field_contact.cpp
+    src/resident/domains/military/field_battle/field_deployment.cpp
+    src/resident/domains/military/field_battle/field_formations.cpp
+    src/resident/domains/military/field_battle/field_generation.cpp
+    src/resident/domains/military/field_battle/field_install.cpp
+    src/resident/domains/military/field_battle/field_session_build.cpp
+    src/resident/domains/military/field_battle/field_state_codec.cpp
+    src/resident/domains/military/field_battle/field_terrain.cpp
+    src/resident/domains/military/field_battle/field_time.cpp
+    src/resident/domains/military/field_battle/field_validation.cpp
+    src/resident/domains/military/field_battle/field_view_projection.cpp
+    src/resident/domains/military/field_battle/field_world.cpp
+)
+list(APPEND HANMO_RESIDENT_IDENTITY_military_military_duty_codec_fields_hpp
+    src/resident/domains/military/field_battle/field_author_data.cpp
+    src/resident/domains/military/field_battle/field_council_sources.cpp
+    src/resident/domains/military/field_battle/field_council_prepare.cpp
+    src/resident/domains/military/field_battle/field_council_validation.cpp
+    src/resident/domains/military/field_battle/field_ability_sources.cpp
+    src/resident/domains/military/field_battle/field_contact.cpp
+    src/resident/domains/military/field_battle/field_deployment.cpp
+    src/resident/domains/military/field_battle/field_formations.cpp
+    src/resident/domains/military/field_battle/field_generation.cpp
+    src/resident/domains/military/field_battle/field_install.cpp
+    src/resident/domains/military/field_battle/field_session_build.cpp
+    src/resident/domains/military/field_battle/field_state_codec.cpp
+    src/resident/domains/military/field_battle/field_terrain.cpp
+    src/resident/domains/military/field_battle/field_time.cpp
+    src/resident/domains/military/field_battle/field_validation.cpp
+    src/resident/domains/military/field_battle/field_view_projection.cpp
+    src/resident/domains/military/field_battle/field_world.cpp
+    src/resident/domains/military/field_battle/field_author_data.hpp
+    src/resident/domains/military/field_battle/field_council_sources.hpp
+    src/resident/domains/military/field_battle/field_council_prepare.hpp
+    src/resident/domains/military/field_battle/field_council_validation.hpp
+    src/resident/domains/military/field_battle/field_ability_sources.hpp
+    src/resident/domains/military/field_battle/field_contact.hpp
+    src/resident/domains/military/field_battle/field_deployment.hpp
+    src/resident/domains/military/field_battle/field_formations.hpp
+    src/resident/domains/military/field_battle/field_generation.hpp
+    src/resident/domains/military/field_battle/field_install.hpp
+    src/resident/domains/military/field_battle/field_integer_geometry.hpp
+    src/resident/domains/military/field_battle/field_session.hpp
+    src/resident/domains/military/field_battle/field_session_build.hpp
+    src/resident/domains/military/field_battle/field_spatial_view.hpp
+    src/resident/domains/military/field_battle/field_state_codec.hpp
+    src/resident/domains/military/field_battle/field_terrain.hpp
+    src/resident/domains/military/field_battle/field_time.hpp
+    src/resident/domains/military/field_battle/field_validation.hpp
+    src/resident/domains/military/field_battle/field_view_projection.hpp
+    src/resident/domains/military/field_battle/field_world.hpp
+)
+list(APPEND HANMO_RESIDENT_SPLIT_IMPLEMENTATION_SOURCES
+    src/resident/domains/military/field_battle/field_state_codec_declarations.inc
+    src/resident/domains/military/field_battle/field_state_codec_fields.inc
+    src/resident/domains/military/field_battle/field_state_owned_fields.inc
+    src/resident/domains/military/field_battle/field_terrain_owned_fields.inc
+)
+
+# H2：轻量原合同只登记身份，不新增生产翻译单元。
+list(APPEND HANMO_RESIDENT_IDENTITY_military_battle_codec_cpp
+    src/resident/domains/military/military_refs.hpp
+    src/resident/domains/military/military_terms.hpp
+    src/resident/domains/military/military_command_contract.hpp
+)
+
+# Field 事件稳定拥有壳与强类型显式登记；不改变原领域/fixture选择。
+list(APPEND HANMO_RESIDENT_SOURCES_military_military_duty_source_read_cpp
+    src/resident/domains/military/field_battle/field_event_contact_phase_from.cpp
+    src/resident/domains/military/field_battle/field_event_mission_application.cpp
+    src/resident/domains/military/field_battle/field_event_mission_transition.cpp
+    src/resident/domains/military/field_battle/field_event_motion_application.cpp
+    src/resident/domains/military/field_battle/field_event_navigation_observation.cpp
+    src/resident/domains/military/field_battle/field_event_payloads.cpp
+    src/resident/domains/military/field_battle/field_event_registry.cpp
+)
+list(APPEND HANMO_RESIDENT_IDENTITY_military_military_duty_codec_fields_hpp
+    src/resident/domains/military/field_battle/field_council_model.hpp
+    src/resident/domains/military/field_battle/field_event.hpp
+    src/resident/domains/military/field_battle/field_event_codec_bridge.hpp
+    src/resident/domains/military/field_battle/field_event_contact_phase_from.cpp
+    src/resident/domains/military/field_battle/field_event_contact_phase_from.hpp
+    src/resident/domains/military/field_battle/field_event_legacy_kinds.hpp
+    src/resident/domains/military/field_battle/field_event_mission_application.cpp
+    src/resident/domains/military/field_battle/field_event_mission_application.hpp
+    src/resident/domains/military/field_battle/field_event_mission_transition.cpp
+    src/resident/domains/military/field_battle/field_event_mission_transition.hpp
+    src/resident/domains/military/field_battle/field_event_motion_application.cpp
+    src/resident/domains/military/field_battle/field_event_motion_application.hpp
+    src/resident/domains/military/field_battle/field_event_navigation_observation.cpp
+    src/resident/domains/military/field_battle/field_event_navigation_observation.hpp
+    src/resident/domains/military/field_battle/field_event_payloads.cpp
+    src/resident/domains/military/field_battle/field_event_payloads.hpp
+    src/resident/domains/military/field_battle/field_event_registry.cpp
+    src/resident/domains/military/field_battle/field_event_registry.hpp
+    src/resident/domains/military/field_battle/field_event_typed_codec.hpp
+    src/resident/domains/military/field_battle/field_mission_model.hpp
+    src/resident/domains/military/field_battle/field_result_model.hpp
+)

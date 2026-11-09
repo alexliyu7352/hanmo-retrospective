@@ -1,0 +1,43 @@
+{
+  "format": "HM-C-ACTUAL-LIVE-VIEWS/1",
+  "status": "PASS_AFTER_ORDER_FIX",
+  "scope": "Four original states queried through real ResidentReplaySession::execute_live, with actual command/restore transitions. Exact ordered finite DTOs, player-only args, encounter pause/choice failure, old revision/tick/epoch rejection, whole checkpoint/export equality for reads and failed operations, nested copy isolation. Not Main/Bridge/physical-slot acceptance or a scale-performance rerun.",
+  "production_delta": "Central changed only say DTO speaker/text emission order between the pinned red and green libraries. C domain view rules unchanged.",
+  "red": {
+    "source_commit": "8ff4c4d3dff6b0f9bffb1bf1a548d93d524ef648",
+    "libraries": {
+      "libhanmo_resident.a": "a63569998a7b450ef5159202f7b8989618d1bab59fcb62aedce4441a6eacde21",
+      "libhanmo_world.a": "5288091b4e83ed52b8b4c413fefea15e85248f5000d9143c2b416bac432a83a2",
+      "libhanmo_flecs.a": "3ffd22212ca3af8eb69c890a150ce6211db4574ab9128f446b388da607e1862a"
+    },
+    "test_source_sha256": "ea6063b17b6f374bc8b8bd393fb1b625846e360819b9531815cb55287ee3f336",
+    "test_binary_sha256": "4cce372af5d289e4885db4c0e07126d20ef87a6f91894138b5b380f8c4e07c52",
+    "log": ":dictionary_order\nexpected_keys: phase context node_id last_outcome speaker text\nactual_keys: phase context node_id last_outcome text speaker",
+    "log_sha256": "aa307937157b9fc452bfb218c45595989bbc5ed4d0ac667c9b55028f515df39a"
+  },
+  "green": {
+    "source_commit": "7e93e20c0c5ecbe900e2d822078f6bf1adea82fb",
+    "libraries": {
+      "libhanmo_resident.a": "278953cb3f9b8226cbe46d9aeb2c8552b0105a6b1d2d58cc07f26e30dfc2ea40",
+      "libhanmo_world.a": "5288091b4e83ed52b8b4c413fefea15e85248f5000d9143c2b416bac432a83a2",
+      "libhanmo_flecs.a": "3ffd22212ca3af8eb69c890a150ce6211db4574ab9128f446b388da607e1862a"
+    },
+    "test_source_sha256": "ea6063b17b6f374bc8b8bd393fb1b625846e360819b9531815cb55287ee3f336",
+    "test_binary_sha256": "94a8e10d23f52a5ae3b80a25c4b78d9b901a4fc23de72211a832591f77444b36",
+    "log": "background_live_views: PASS (4 actual session query inputs; original C DTOs, trusted-player args, encounter pause/choice rejection, revision and restored-epoch page guards, read-only/deep-copy checks)",
+    "log_sha256": "82d0ffe3c2934cf7effee63a0d9a39fe7be366dcda83eed0a426fe09fbc311df"
+  },
+  "red_original_exit": 134,
+  "green_exit": 0,
+  "current_test_source": "native/world/tests/resident/background_live_views.cpp",
+  "current_test_source_sha256": "ea6063b17b6f374bc8b8bd393fb1b625846e360819b9531815cb55287ee3f336",
+  "fixture": "native/world/tests/resident/background_journey_interaction_oracle.json",
+  "fixture_sha256": "b90572c83c69645456fe8fa5139cb45da06b21b729fef70afabf44a7d5355bea",
+  "compile_flags": [
+    "-std=c++17",
+    "-O1",
+    "-ffp-contract=off",
+    "-pthread"
+  ],
+  "header_identity": "Each test compiled against git-archived headers at its exact library source commit; archives copied and verified against central frozen-identity.json before linking."
+}

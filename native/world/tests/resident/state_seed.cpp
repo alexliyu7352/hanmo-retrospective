@@ -1,0 +1,14 @@
+// 直接冷读冻结1000人种子，通过共同独立validator并拒绝类型/资产/计数器损坏。
+#include "resident/storage/common_checkpoint.hpp"
+#include <fstream>
+#include <iostream>
+// 发布优化构建也必须执行本测试断言，不能让NDEBUG形成假绿。
+#ifdef NDEBUG
+#undef NDEBUG
+#endif
+#include <cassert>
+using namespace hanmo::resident;
+// 测试只读外部oracle，不复制大资源或在生产导入路径中跳过校验。
+BoundaryValue read(const char* path){std::ifstream f(path);std::string s((std::istreambuf_iterator<char>(f)),{});auto r=parse_boundary_json(s);if(!r.ok){std::cerr<<r.error.original.code<<":"<<r.error.original.path<<"\n";std::abort();}return std::move(r.value);}
+int main(int argc,char** argv){assert(argc==3);auto catalog=read(argv[1]),source=read(argv[2]);auto cat=decode_common_catalog(*catalog.find("data"));if(!cat.ok){std::cerr<<cat.error.original.code<<":"<<cat.error.original.path<<"\n";return 1;}auto seed=decode_common_seed(source,cat.value);if(!seed.ok){std::cerr<<seed.error.original.code<<":"<<seed.error.original.path<<"\n";return 1;}assert(seed.value.actors.size()==1000&&seed.value.inventories.size()==1057&&seed.value.next_instance_id==668);auto out=encode_common_state(seed.value);for(auto& row:std::get<BoundaryValue::Dict>(out.data)){auto* old=source.find(row.first);assert(old);auto diff=compare_boundary(*old,row.second);if(!diff.exact()){std::cerr<<row.first<<":"<<(diff.value_difference?diff.value_difference->path:diff.order_difference->path)<<"\n";return 1;}}
+seed.value.identity.execution_epoch=91;CodecVisitor::Buffer bytes;CodecVisitor writer(bytes);assert(visit_common_checkpoint(writer,seed.value).ok&&writer.finish().ok);CommonState restored;const auto& input=bytes;CodecVisitor reader(input);assert(visit_common_checkpoint(reader,restored).ok&&reader.finish().ok);assert(restored.identity.execution_epoch==0);assert(compare_boundary(encode_common_state(seed.value),encode_common_state(restored)).exact());assert(CommonStore(restored,std::make_shared<const CommonCatalog>(cat.value)).validate_common().ok);auto broken=seed.value;broken.actors.find("actor.player")->combat.weapon_id="item.grain";auto bad_weapon=CommonStore(broken,std::make_shared<const CommonCatalog>(cat.value)).validate_common();assert(!bad_weapon.ok&&bad_weapon.error.original.code=="UnknownEquippedWeapon");broken=seed.value;broken.actors.find("actor.player")->birth_tick=0;auto bad_age=CommonStore(broken,std::make_shared<const CommonCatalog>(cat.value)).validate_common();assert(!bad_age.ok&&bad_age.error.original.code=="BaseActorAgeMismatch");source.find("next_instance_id")->data=Integer(1);assert(!decode_common_seed(source,cat.value).ok);source.find("next_instance_id")->data=Integer(668);source.find("actors")->find("actor.player")->find("hp")->data=true;assert(!decode_common_seed(source,cat.value).ok);std::cout<<"state_seed: PASS (1000 actors/1057 inventories/complete common values/damage rejection)\n";}

@@ -1,0 +1,85 @@
+{
+  "format": "HM-NATIVE-TRAVEL-VERIFICATION/1",
+  "candidate_commit": "62654abb3238de1f4ad23037dbd250734c399608",
+  "oracle_commit": "8f7ebc4f7af5b3e9bdfc81adde4d09d2fed00d93",
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "expected_build": {
+    "source_commit": "62654abb3238de1f4ad23037dbd250734c399608",
+    "source_sha256": "b55e1083a866e4193c522b2ba8d0e165f19badf248eacaa6b117e8973542811f",
+    "core_source_sha256": "186418319a643aaf4cd1c9d30df272d25fed5b4c7860ca9a1150e3386d6ced91",
+    "godot_cpp_commit": "5ed72a0dc2517a8082598a950895c6b24e8aa282",
+    "api_sha256": "d0e4c08c03b165156dabe6bfb6a906baf0069189f62035341230a246c86d6986",
+    "trimmed_api_sha256": "84cfc8be34414573f58a7cc4ddc76166c1ab9d9b2c1d731254f049576e842d08",
+    "interface_sha256": "7d8c0a039d9743eb8ebf88681ae0c641d8d3aa5ffca11081745a84da803e09a1",
+    "profile_sha256": "7fed1570932453c2318b25e452f43d7ac530110b776779bb5babaa846ad6d24e",
+    "compiler": "GNU 14.2.0",
+    "dependency_lock_sha256": "ca0e5e4df4843d2c04b0358ed9874e13a45bb7c65eac531083d170615ed72c0d",
+    "cmake_configuration": "Release",
+    "profile": "native_travel_schedule",
+    "target": "Linux-x86_64",
+    "cpp_standard": "17",
+    "godot_target": "template_debug",
+    "precision": "single",
+    "real_t_bits": 32,
+    "pointer_bits": 64,
+    "builtin_configuration": "float_64"
+  },
+  "library_sha256": "65ada2192d00429b0edd77b0b16038c9247a6fff06d0828a2573d967c2f60fd1",
+  "extension_sha256": "6f09fbfb814c3c95f264c2811cc6f5a126fbfb9746c6046e97f6fdd55209fcd1",
+  "test_sha256": "513f39f1a13c3c59eded25cc08f5a7cabd44c46e1763a4c4548038fab2e6daea",
+  "oracle_sha256": "43c4262de91d090e1ca29782ab3b8227a5fe538b304b39fb00d6fc558917e745",
+  "source": {
+    "game/core/travel_schedule.gd": "306896d60e31b21a85c7298d317c4ad45f1f3b09a83b5ff57aa5355c12073cb1",
+    "game/core/backends/legacy_world_backend.gd": "711c222296cb92eb626987dc08ab470a9471aa863b3c0b4461b2e765d0724665",
+    "game/core/world_kernel.gd": "24de9b416faf76bdab9cfa7091d36f8ee80a5cfc0b92e89f9b87560919885a71",
+    "tests/dynamic_actor_content_fixture.py": "e339cb71c36ab4e56900e06045d2f8e7b733ccd7dca449c7b7808acaa48eab50",
+    "tests/military_content_fixture.py": "c34e1f47f63021b5dae0be4eaec6c5a9eaf575b9bcfc96de3d97e10d33c604f9",
+    "game/tests/test_dynamic_actor_schedule.gd": "0c2e6b748281fbc8fcdb210b9342b28e64f06aa663222f3414c24dbea27d042d"
+  },
+  "runs": {
+    "old_oracle": {
+      "checks": 77,
+      "failures": 0,
+      "rows": 35
+    },
+    "candidate_legacy": {
+      "checks": 77,
+      "failures": 0,
+      "rows": 35
+    },
+    "candidate_native": {
+      "checks": 231,
+      "failures": 0,
+      "rows": 35
+    },
+    "missing_library": {
+      "checks": 14,
+      "failures": 0,
+      "rows": 0
+    }
+  },
+  "evidence_sha256": {
+    "legacy_62654ab.log": "f9df2233ec063f1ab4946f70ec1ec7ea449057b0fd6c19da512deae973c7c0f6",
+    "missing_library_62654ab.json": "6d14aa7f3922287d3734cdde3843f7b70c45ceb1d8fbc229ed08bd4e7b8a230f",
+    "missing_library_62654ab.log": "a75d7d28329daa477daa3032465a5964181fd206caa423870531d1b5a8b6d532",
+    "native_62654ab.json": "4374f79a9c361a1b7c19db7c209e2b250412f33b7cefd2ad93ecf8d160c74cfe",
+    "native_62654ab.log": "458648ba4a6c0955c3e2aee9124a49a284a39624b2a4b18225e1cf338a0ed4f1"
+  },
+  "not_run": [
+    "Codec/save-load matrix",
+    "GUI/Main acceptance",
+    "whole-game aggregate",
+    "legacy Bridge adjacent matrix"
+  ],
+  "runtime_directory": "<本地路径>",
+  "comment_check": {
+    "historical_base": "6baae04",
+    "historical_status": "BLOCKED: missing Git object in recovered repository",
+    "scoped_checked_files": [
+      "game/tests/test_native_travel_schedule.gd",
+      "tests/fixtures/native_travel_schedule/prepare_fixture.py"
+    ],
+    "scoped_issues": []
+  },
+  "verified_at_utc": "2026-10-04T22:00:10Z"
+}

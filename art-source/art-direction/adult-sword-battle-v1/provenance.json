@@ -1,0 +1,56 @@
+{
+  "schema": "adult_sword_generation_provenance/1",
+  "date_utc": "2026-10-08",
+  "base_commit": "f49055ac3a086a5cf4f53e32843298c78dbf57c9",
+  "spec_read_ref": "4591995a",
+  "reference": {
+    "role": "Project-owned painting/style reference, not a face/identity edit target",
+    "repository_path": "game/assets/art/packs/society/assets/art/project/alpha-personal/swordsman.png",
+    "sha256": "20aa39ffc3e3f2da45ba311810c17c47ff319566eb7e925de266f474afd87d3e",
+    "actual_pixels_viewed": true
+  },
+  "outputs": [
+    {
+      "file": "source/atlas-01-original.png",
+      "status": "rejected_candidate",
+      "tool": "built-in image_gen.imagegen",
+      "transparent_background": true,
+      "original_output_path": "<本地路径>",
+      "prompt_file": "prompt-01.md",
+      "sha256": "485d0b5d4223d0aab743b31643be14db27701b5e0a49699221895d38d2368092",
+      "actual_size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "preservation": "Byte-for-byte copy of built-in tool output. No raster edits, cleaning, cropping or alpha replacement.",
+      "bright_red_pixels_alpha_ge16": 0
+    },
+    {
+      "file": "source/atlas-02-candidate.png",
+      "status": "WIP_for_rig_evaluation",
+      "tool": "built-in image_gen.imagegen",
+      "transparent_background": true,
+      "original_output_path": "<本地路径>",
+      "prompt_file": "prompt-02-refine.md",
+      "sha256": "9b1707f882dbee1ff6f8242da238c34ada9b9ac282d357f88ea6a34a1036f23c",
+      "actual_size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "preservation": "Byte-for-byte copy of built-in tool output. No raster edits, cleaning, cropping or alpha replacement.",
+      "bright_red_pixels_alpha_ge16": 0
+    }
+  ],
+  "generation_passes": 2,
+  "correction_passes": 1,
+  "registered_in_runtime_manifest": false,
+  "acceptance": "WIP. Actual pixels inspected; no final art or animation acceptance.",
+  "specs": [
+    "docs/presentation/art-design.md",
+    "docs/superpowers/specs/2026-09-09-hanmo/03_people_growth_cards.md#3.25",
+    "docs/superpowers/specs/2026-09-09-hanmo/05_duel_and_warfare.md#5.13",
+    "docs/superpowers/specs/2026-09-09-hanmo/09_ui_content_acceptance.md#9.12"
+  ]
+}

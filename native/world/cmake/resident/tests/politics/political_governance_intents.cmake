@@ -1,0 +1,5 @@
+# 政治与治理消费者登记：保留本组目标、测试、条件与局部变量的原执行顺序。
+# 原治理邀请和受领来源的有限NPC模板门，不替代真实World运行。
+add_executable(test_resident_political_governance_intents tests/resident/political_governance_intents_test.cpp)
+target_link_libraries(test_resident_political_governance_intents PRIVATE hanmo_resident)
+add_test(NAME resident_political_governance_intents COMMAND test_resident_political_governance_intents)

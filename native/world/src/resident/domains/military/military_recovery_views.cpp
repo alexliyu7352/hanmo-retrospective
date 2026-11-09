@@ -1,0 +1,27 @@
+// 有限营务投影依原本人/驻地/军职可见性；不导出完整史、私人伤势或敌军名单。
+#include "military_recovery_views.hpp"
+#include "military_officer_codec.hpp"
+#include "occupation_rules.hpp"
+#include "resident/storage/common_codec.hpp"
+#include <algorithm>
+#include <set>
+namespace hanmo::resident {
+namespace {
+using V=BoundaryValue;using D=V::Dict;using A=V::Array;
+template<class T>const T* find(const std::vector<T>& rows,const StableId& id){for(const auto& row:rows)if(row.id==id)return &row;return nullptr;}
+bool has(const std::vector<StableId>& rows,const StableId& id){return std::find(rows.begin(),rows.end(),id)!=rows.end();}
+}
+Outcome<MilitaryRecoveryPolicy> decode_military_recovery_policy(const BoundaryValue& input,const MilitaryCatalog& catalog){auto unique=military_officer_codec::validate_json_unique_keys(input);if(!unique.ok)return {false,{},unique.error};try{const StableId p="military_wounded_recovery";boundary::fields(input,{"profile","garrison_ids"},{},p);MilitaryRecoveryPolicy policy;policy.profile=boundary::get_string(input,"profile",p);for(const auto& v:boundary::array(boundary::field(input,"garrison_ids",p),p+"/garrison_ids"))policy.garrison_ids.push_back(boundary::string(v,p+"/garrison_ids"));auto valid=validate_military_recovery_policy(policy,catalog);if(!valid.ok)return {false,{},valid.error};return {true,std::move(policy),{}};}catch(const boundary::DecodeFailure& e){return {false,{},e.error};}}
+Outcome<BoundaryValue> military_wounded_recovery_page(const CommonStore& c,const MilitaryState& m,const MilitaryCatalog& cat,const MilitaryAccess& access,const StableId& observer){
+ if(!cat.recovery_policy)return {true,V{D{{"ok",V{true}},{"active",V{false}}}}, {}};const auto* actor=c.actor(observer);if(observer!=c.state().metadata.player_actor_id||!actor||!actor->alive)return {false,{},common_failure("MilitaryRecoveryObserverRequired",observer).error};auto location=c.resolved_location(observer);if(!location.ok)return {false,{},location.error};const auto* place=std::get_if<SettlementLocation>(&location.value);A rows;bool truncated=false;Integer batches=0;
+ if(place)for(const auto& camp:cat.garrisons){if(camp.place_id!=place->place_id||!has(cat.recovery_policy->garrison_ids,camp.id))continue;auto owner=military_garrison_owner(c,m,cat,access,camp.id);if(!owner.ok)return {false,{},owner.error};bool commanded=false;for(const auto& office:m.offices){const auto* definition=find(cat.offices,office.id);if(office.enabled&&office.holder_actor_id==observer&&definition&&definition->garrison_id==camp.id&&definition->organization_id==owner.value.organization_id)commanded=true;}
+  for(const auto& unit:m.military_units){if(unit.garrison_id!=camp.id||!unit.army_id.empty()||unit.organization_id!=owner.value.organization_id||(!commanded&&unit.commander_actor_id!=observer))continue;if(rows.size()>=32){truncated=true;continue;}A history;
+   for(const auto& casualty:m.casualty_facts){bool involved=false;for(const auto& row:casualty.units)if(row.unit_id==unit.id)involved=true;if(!involved)continue;auto batch=query_military_wound_batch(c,m,access,casualty.id,unit.id);if(!batch.ok)return {false,{},batch.error};if(batch.value.member_ids.empty())continue;auto progress=query_military_recovery_progress(c,m.recovery,batch.value);if(!progress.ok)return {false,{},progress.error};Integer remaining=0;for(const auto& member:batch.value.member_ids)if(has(unit.wounded,member)&&!has(progress.value.recovered_ids,member))++remaining;if(remaining==0)continue;++batches;if(history.size()>=16){truncated=true;continue;}const MilitaryRecoveryFact* last=nullptr;for(const auto& source:m.recovery.facts)if(source.casualty_fact_id==casualty.id&&source.unit_id==unit.id)last=&source;history.push_back(V{D{{"casualty_fact_id",V{casualty.id}},{"wounded_tick",V{batch.value.wounded_tick}},{"initial_count",V{Integer(batch.value.member_ids.size())}},{"remaining_count",V{remaining}},{"recovered_count",V{Integer(progress.value.recovered_ids.size())}},{"qualified_half_days",V{progress.value.qualified_half_days}},{"daily_quota",V{(Integer(batch.value.member_ids.size())+3)/4}},{"last_recovery_fact_id",V{last?last->id:StableId{}}},{"last_supply_fact_id",V{last?last->supply_fact_id:StableId{}}},{"last_qualified_tick",V{last?last->tick:Integer{-1}}}}});}
+   D visible{{"unit_id",V{unit.id}},{"garrison_id",V{camp.id}},{"fit_count",V{Integer(unit.fit.size())}},{"wounded_count",V{Integer(unit.wounded.size())}},{"batches",V{std::move(history)}}};
+   if(cat.garrison_rest_policy&&has(cat.garrison_rest_policy->garrison_ids,camp.id)&&unit.fatigue){const MilitaryGarrisonRestFact* last=nullptr;Integer count=0;for(const auto& f:m.garrison_rest.facts)if(f.unit_id==unit.id&&f.tick<=c.tick()){last=&f;++count;}D rest{{"fatigue",V{*unit.fatigue}},{"period_count",V{count}},{"rule",V{StableId{"原已启用部队条件的单位，在安全驻营且原半日足额供给、无训练或动员时疲劳减10，最低0。"}}}};if(last){rest.emplace_back("source_fact_id",V{last->id});rest.emplace_back("supply_fact_id",V{last->supply_fact_id});rest.emplace_back("tick",V{last->tick});rest.emplace_back("fatigue_before",V{last->fatigue_before});rest.emplace_back("fatigue_after",V{last->fatigue_after});}visible.emplace_back("garrison_rest",V{std::move(rest)});}
+   rows.push_back(V{std::move(visible)});
+  }
+ }
+ return {true,V{D{{"ok",V{true}},{"active",V{true}},{"actor_id",V{observer}},{"observed_tick",V{c.tick()}},{"units",V{std::move(rows)}},{"batch_count",V{batches}},{"truncated",V{truncated}},{"rule",V{StableId{"安全驻营且本半日已足额供给才累计；行军、动员、交战、围城或缺粮暂停。按每批原伤员数分四个合格日回队，具名伤兵另须真实伤势康复。"}}}}},{}};
+}
+}

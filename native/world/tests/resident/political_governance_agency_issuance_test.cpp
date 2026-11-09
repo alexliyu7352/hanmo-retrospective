@@ -1,0 +1,24 @@
+// 代理只新增本次签字见证，实际批准仍由原治理writer生成；本门历史控制/辖区为明确隔离回调。
+#define POLITICAL_GOVERNANCE_AGENCY_MANDATE_FIXTURE_ONLY
+#include "political_governance_agency_mandate_test.cpp"
+#include "resident/domains/politics/governance_agencies/political_governance_agency_access.hpp"
+namespace {
+struct AgencyIssuanceFixture:AgencyMandateFixture {
+ StableId offer,accepted;
+ AgencyIssuanceFixture(){cc->texts.insert("calm.name","安民");cc->items.insert("grain",{"grain",1,1,false,false});WalletView wallet;wallet.id="treasury";wallet.owner={Owner::Kind::organization,"city"};wallet.balance=500;common.state().wallets.insert(wallet.id,wallet);InventoryView stock;stock.id="granary";stock.owner={Owner::Kind::organization,"city"};stock.capacity=1000;common.state().inventories.insert(stock.id,stock);catalog.grants.find("governance")->continuity_policy_id="continue_under_organization";offer=apply("leader",proposal());accepted=apply("candidate",PoliticalAnswerGovernanceAgency{offer,true});}
+ PoliticalIssueAgencyGovernance request(){return {offer,accepted,"deputy"};}
+ // 引用同候选原Authority状态，不把回调留到夹具或短栈结束之后。
+ Outcome<GovernanceAuthorityApproval> approval(const StableId& id,bool with_agency=true){auto x=context();PoliticalGovernanceAgencyAccess agencies(x);PoliticsGovernanceAccess original(common,political_state,governance_state,governance,state,catalog,activity,with_agency?&agencies:nullptr);return original.governance_authority_approval(id);}
+ StableId issue(){common.state().metadata.player_actor_id="candidate";auto x=context();PoliticalGovernanceAgencyCommand command=request();auto q=take(preview_political_governance_agency(x,"candidate",command));auto id=take(apply_political_governance_agency_issue_in_candidate(common,governance_state,agencies_state,x,"candidate",request(),q));historical_players[id]="candidate";check(validate_political_governance_agency_sources(context()).ok,"actual signature and sole original approval cold-valid");return id;}
+};
+}
+#ifndef POLITICAL_GOVERNANCE_AGENCY_ISSUANCE_FIXTURE_ONLY
+int main(){try{
+ AgencyIssuanceFixture f;auto before=f.common.state().wallets.find("treasury")->balance;auto id=f.issue();const auto authority=f.agencies_state.issues.find(id)->authority_fact_id;auto original=take(f.approval(authority));check(original.issuer_actor_id=="leader"&&original.executor_actor_id=="deputy"&&f.agencies_state.issues.find(id)->delegate_actor_id=="candidate","principal and real proxy signer stay distinct");check(original.cash_limit==120&&original.grain_limit==10&&f.governance_state.authorities.size()==1&&f.common.state().wallets.find("treasury")->balance==before,"sole original authority freezes original cost without reserving or paying");check(!f.approval(authority,false).ok,"new prefix cannot fall back to original direct signature without agency source");f.apply("leader",PoliticalRevokeGovernanceAgency{{"city","chief",0,"leader"},f.offer});check(f.approval(authority).ok,"revocation preserves historically issued original authority");f.common.state().metadata.player_actor_id="candidate";check(!preview_political_governance_agency(f.context(),"candidate",f.request()).ok,"revocation stops only new signatures");
+ auto saved=f.agencies_state.issues;f.agencies_state.issues={};f.common.state().facts.erase(id);check(!f.approval(authority).ok,"removing proxy witness cannot impersonate old principal authority");
+ AgencyIssuanceFixture limit;limit.issue();limit.issue();check(!preview_political_governance_agency(limit.context(),"candidate",limit.request()).ok,"finite mandate count cannot be silently exceeded");
+ AgencyIssuanceFixture changed;changed.change("candidate");changed.common.state().metadata.player_actor_id="candidate";check(!preview_political_governance_agency(changed.context(),"candidate",changed.request()).ok,"new holder does not inherit original proxy appointment");
+ AgencyIssuanceFixture late;late.common.state().next_instance_id=INT64_MAX-1;auto oldfacts=late.common.state().facts.order();auto x=late.context();auto quote=take(preview_political_governance_agency(x,"candidate",late.request()));auto token=take(late.common.begin_savepoint());auto failed=apply_political_governance_agency_issue_in_candidate(late.common,late.governance_state,late.agencies_state,x,"candidate",late.request(),quote);check(!failed.ok&&failed.error.original.code=="InstanceIdOverflow","late original authority allocation fails after proxy signature");take(late.common.rollback_savepoint(token));check(late.common.state().next_instance_id==INT64_MAX-1&&late.common.state().facts.order()==oldfacts&&late.governance_state.authorities.empty()&&late.agencies_state.issues.empty(),"one candidate restores Common and both signature/authority ledgers");
+ std::cout<<checks<<" agency issuance source assertions; no World\n";return 0;
+}catch(const std::exception& e){std::cerr<<e.what()<<'\n';return 1;}}
+#endif

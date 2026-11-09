@@ -1,0 +1,27 @@
+#include "resident/domains/military/military_model.hpp"
+// NPC只看已经提交并结算的claim；玩家未交草案与未来随机结果不进入决策。
+#include "naval_npc_settlement.hpp"
+#include <algorithm>
+namespace hanmo::resident {
+namespace {
+template<class T>const T* find(const std::vector<T>& rows,const StableId& id){for(const auto& row:rows)if(row.id==id)return &row;return nullptr;}
+const BattleUnit* unit(const NavalTacticalFrame& f,const StableId& id){for(const auto& u:f.units)if(u.unit_id==id)return &u;return nullptr;}
+bool has(const std::vector<StableId>& rows,const StableId& id){return std::find(rows.begin(),rows.end(),id)!=rows.end();}
+template<class T>Outcome<T> fail(const StableId& code,const StableId& id={}){return {false,{},common_failure(code,id).error};}
+}
+Outcome<std::optional<NavalSettlementIntent>> next_naval_npc_settlement(const CommonRead& common,const MilitaryState& military,const MilitaryCatalog& commands,const NavalState& naval,const NavalCatalog& ships,const StableId& player,const std::vector<std::pair<StableId,StableId>>& failed){
+ if(!ships.combat_policy)return fail<std::optional<NavalSettlementIntent>>("NavalCombatProfileRequired");std::vector<const NavalBattleRecord*> battles;for(const auto& b:naval.battle.battles)if(b.frame.phase=="settlement")battles.push_back(&b);std::sort(battles.begin(),battles.end(),[](const auto* a,const auto* b){return a->frame.id<b->frame.id;});
+ for(const auto* battle:battles){if(battle->round_source_ids.empty())return fail<std::optional<NavalSettlementIntent>>("NavalSettlementRoundRequired",battle->frame.id);const auto* round=find(naval.battle.rounds,battle->round_source_ids.back());if(!round||round->tick!=common.tick())return fail<std::optional<NavalSettlementIntent>>("NavalSettlementClockMismatch",battle->frame.id);bool player_claim=false;
+  for(const auto& claim:round->claims){const NavalBattleBinding* binding=nullptr;for(const auto& row:round->after.bindings)if(row.unit_id==claim.unit_id)binding=&row;if(!binding)return fail<std::optional<NavalSettlementIntent>>("NavalCaptureClaimSourceMissing",claim.unit_id);bool decided=false;for(const auto& f:naval.battle.captures)if(f.round_source_id==round->id&&f.vessel_id==binding->vessel_id)decided=true;for(const auto& f:naval.battle.declines)if(f.round_source_id==round->id&&f.vessel_id==binding->vessel_id)decided=true;if(decided)continue;
+   const auto* taker=find(military.military_units,claim.captor_unit_id);const auto* army=taker?find(military.armies,taker->army_id):nullptr;const auto* actor=army?common.actor(army->commander_actor_id):nullptr;if(!taker||!army||army->status!="active"||taker->fit.empty()||taker->morale<=0||!actor||!actor->alive||!actor->available)continue;if(actor->id==player){player_claim=true;continue;}
+   const NavalFleetRecord* winner=nullptr;for(const auto& fleet:naval.fleets)if(fleet.status=="active"&&fleet.army_id==army->id)winner=&fleet;const auto* loser=find(naval.fleets,binding->fleet_id);const NavalVesselAssignment* defeated=nullptr;if(loser)for(const auto& row:loser->assignments)if(row.vessel_id==binding->vessel_id)defeated=&row;if(!winner||!loser||!defeated)return fail<std::optional<NavalSettlementIntent>>("NavalCaptureFleetMismatch",binding->vessel_id);
+   NavalCaptureCommand capture;capture.battle_id=battle->frame.id;capture.round_source_id=round->id;capture.vessel_id=binding->vessel_id;capture.captor_unit_id=claim.captor_unit_id;capture.request_key="naval-ai:"+round->id+":"+binding->vessel_id+":capture";capture.assignments=winner->assignments;
+   auto captives=claim.survivor_ids;const auto* enemy=unit(round->after,claim.unit_id);if(!enemy)return fail<std::optional<NavalSettlementIntent>>("NavalCaptureClaimSourceMissing",claim.unit_id);auto add=[&](const StableId& id){const auto* p=common.actor(id);if(p&&p->alive&&!has(captives,id))captives.push_back(id);};add(enemy->commander_actor_id);for(const auto& id:defeated->passenger_ids)add(id);
+   for(auto& row:capture.assignments)if(row.unit_id==claim.captor_unit_id){row.vessel_id=binding->vessel_id;row.prisoner_ids.insert(row.prisoner_ids.end(),captives.begin(),captives.end());row.prisoner_ids.insert(row.prisoner_ids.end(),defeated->prisoner_ids.begin(),defeated->prisoner_ids.end());}
+   const bool previously_failed=std::find(failed.begin(),failed.end(),std::make_pair(round->id,binding->vessel_id))!=failed.end();auto quote=preview_naval_capture(common,military,commands,naval,ships,naval.battle,actor->id,capture);if(!quote.ok&&quote.error.kind!=ErrorKind::rule)return {false,{},quote.error};NavalSettlementIntent intent;intent.actor_id=actor->id;intent.battle_id=battle->frame.id;intent.claim_vessel_id=binding->vessel_id;if(quote.ok&&!previously_failed)intent.command=std::move(capture);else{NavalClaimDeclineCommand decline;decline.battle_id=battle->frame.id;decline.round_source_id=round->id;decline.vessel_id=binding->vessel_id;decline.captor_unit_id=claim.captor_unit_id;decline.request_key="naval-ai:"+round->id+":"+binding->vessel_id+":decline";intent.command=std::move(decline);}return {true,std::move(intent),{}};
+  }
+  const auto* controller=common.actor(battle->frame.controller_actor_id);if(player_claim||(controller&&controller->alive&&controller->available))continue;NavalContinueCommand next;next.battle_id=battle->frame.id;next.round_source_id=round->id;next.request_key="naval-ai:"+round->id+":continue";NavalSettlementIntent intent;intent.battle_id=battle->frame.id;intent.system_continuation=true;intent.command=std::move(next);return {true,std::move(intent),{}};
+ }
+ return {true,std::nullopt,{}};
+}
+}

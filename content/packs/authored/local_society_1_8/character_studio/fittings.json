@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "fittings": [
+    {
+      "id": "adult_male_medium_v2",
+      "label": "适中男像",
+      "catalog": "res://catalog_medium_v3.json"
+    },
+    {
+      "id": "adult_female_round_v1",
+      "label": "偏宽女像",
+      "catalog": "res://catalog_female_v2.json"
+    },
+    {
+      "id": "adult_male_long_v1",
+      "label": "偏长男像",
+      "catalog": "res://catalog_long_v2.json"
+    }
+  ]
+}

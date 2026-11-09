@@ -1,0 +1,8 @@
+{
+  "commit": "ffec8fc044069e76d9d121dc366ced08bacc967b",
+  "path": "game/core/world_factory.gd",
+  "fixture": "game/tests/fixtures/scenario_factory/legacy_factory_ffec8fc.gd",
+  "sha256": "c049967ca510773a0759bbf84dd763da0588bd59d625e927bf99b4c16fe92b9c",
+  "path_rewrites": [],
+  "note": "原Factory逐字节保存，预期state由此脚本真实生成；依赖沿同一精确基底的现有res://路径。"
+}

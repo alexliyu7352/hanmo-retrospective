@@ -1,0 +1,61 @@
+{
+  "status": "PROPOSED_NOT_RUNTIME_GEOMETRY",
+  "coordinate_space": {
+    "width": 1672,
+    "height": 941,
+    "origin": "top-left",
+    "units": "source pixels"
+  },
+  "regions_approximate": {
+    "scene_primary": [
+      0,
+      0,
+      1105,
+      941
+    ],
+    "contextual_ui_safe_horizontal": [
+      1105,
+      0,
+      567,
+      941
+    ],
+    "courtyard_actor_floor": [
+      410,
+      410,
+      595,
+      210
+    ],
+    "house_interaction_focus": [
+      105,
+      290,
+      440,
+      205
+    ],
+    "granary_focus": [
+      790,
+      105,
+      307,
+      250
+    ],
+    "rear_gate": [
+      720,
+      145,
+      75,
+      155
+    ],
+    "front_approach": [
+      750,
+      650,
+      225,
+      150
+    ]
+  },
+  "requirements": [
+    "实际热点只能绑定原世界存在且可知的设施；这里没有命中区或可执行权限。",
+    "两种相机高度不同，旧estate的entrance=[39,65]不能照抄。",
+    "参照UI-28给事务面板保留右侧约34%—35%；若实际布局超过边界须调整构图/控件，不能隐藏仓廪后声称合格。",
+    "人物足点、比例和遮挡必须在未来真实UI中核对。",
+    "house继续用原1536×1024图；不因庄院总览另画合格民居。"
+  ],
+  "not_a_layered_asset": true
+}

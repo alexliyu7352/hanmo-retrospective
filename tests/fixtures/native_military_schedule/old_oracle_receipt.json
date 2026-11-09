@@ -1,0 +1,156 @@
+{
+  "format": "HM-MILITARY-OLD-ORACLE-RECEIPT/1",
+  "status": "OLD_ORACLE_CAPTURED_AND_REPLAYED",
+  "production_source_commit": "a4fa824f308b5b33bd602a7286dae19219dde50f",
+  "production_source_sha256": "d7e80dfe46f18d999d9dadd920465059572670c72c804889372a2b9eb926cab3",
+  "engine_version": "4.7.2.stable.official.ed1daf0bf",
+  "scope": "Only old GD oracle and fixture compatibility; no native implementation acceptance, Codec matrix, whole game or GUI",
+  "fixture_compatibility": "test_campaign_return.prepared now preserves real Catalog.read_prepared header and checks Factory result; no authored/rule/command changes",
+  "inputs": {
+    "game/tests/test_native_military_schedule.gd": "10aff09035a5df9be371fb3499421a74bb388b59b91c2fec7954c4a8831bfff4",
+    "game/tests/test_campaign_return.gd": "a1b19918aaf3d62a92b4ef726c5952b603c782703bfbe849270295bb4167701f",
+    "tests/fixtures/native_military_schedule/capture_return.gd": "7538750d47bdbda7e80b040778dc3b1c4da09cc36498677a378db9efb71fc2b4",
+    "tests/fixtures/native_military_schedule/prepare_fixture.py": "6a2e300b43c489c30fadb3ac18ae82815b004e5163a57274469622d76c2011b2"
+  },
+  "oracle": {
+    "old_return_oracle_a4fa824.json": "a7d8b26efca744ab03ee242d1a13e45e5eeeb1b0c146737a4fc7c9b4b6dc15e7",
+    "old_oracle_a4fa824.json": "7e67c29814ec5757bab892340399906fd3d4a42085d286be7b1314731585e7ab"
+  },
+  "evidence": [
+    {
+      "path": "tests/fixtures/native_military_schedule/evidence/import.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "tests/fixtures/native_military_schedule/evidence/import.log",
+      "sha256": "768031f71fbbcb8158d7727d48c6f804c5d3a30ba887058b96318068cb34610a"
+    },
+    {
+      "path": "tests/fixtures/native_military_schedule/evidence/prepare-initial-error.log",
+      "sha256": "642aa42931fc11a868eb83c796a0b5dbd7d1ad0c2a45bb240212ebc7972473e8"
+    },
+    {
+      "path": "tests/fixtures/native_military_schedule/evidence/prepare-v2.log",
+      "sha256": "e8f7164fc9297a1a1e4ea079679991ccd7e449f09f0b2df873f4044308f76c86"
+    },
+    {
+      "path": "tests/fixtures/native_military_schedule/evidence/record-1.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "tests/fixtures/native_military_schedule/evidence/record-1.log",
+      "sha256": "6a639d354ae55152f64262a3308c96cbebede929cd290baff44b88de29708b76"
+    },
+    {
+      "path": "tests/fixtures/native_military_schedule/evidence/record-2.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "tests/fixtures/native_military_schedule/evidence/record-2.log",
+      "sha256": "be69c270c984a7aa730d108504cb199bc9ffc6fc9a131559e945816fa4ebbdcf"
+    },
+    {
+      "path": "tests/fixtures/native_military_schedule/evidence/record-final.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "tests/fixtures/native_military_schedule/evidence/record-final.log",
+      "sha256": "6871539adcaf6c423d84bc1a31f51b1b2b28ff2ad55f71911a04e738c68e8e5e"
+    },
+    {
+      "path": "tests/fixtures/native_military_schedule/evidence/replay-2.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "tests/fixtures/native_military_schedule/evidence/replay-2.log",
+      "sha256": "a60262eb0d4eb917181881e0b7690bf7acf3d025497c3e13de1fb79fc6281e48"
+    },
+    {
+      "path": "tests/fixtures/native_military_schedule/evidence/replay-3.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "tests/fixtures/native_military_schedule/evidence/replay-3.log",
+      "sha256": "ee9fef8fcbb54e3bd6d7ef480c5a90653aa66e8cfdd97231662f662fe46e7301"
+    },
+    {
+      "path": "tests/fixtures/native_military_schedule/evidence/replay-final.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "tests/fixtures/native_military_schedule/evidence/replay-final.log",
+      "sha256": "460b7b9af3c95d03de19b030828af2be009666766ca14fe32f59ec742f4476b7"
+    },
+    {
+      "path": "tests/fixtures/native_military_schedule/evidence/return-record-1.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "tests/fixtures/native_military_schedule/evidence/return-record-1.log",
+      "sha256": "306c73a75f622a84612518ca281afd06dc48ac1583f746d458b170b3b8eb440b"
+    },
+    {
+      "path": "tests/fixtures/native_military_schedule/evidence/return-record-2.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "tests/fixtures/native_military_schedule/evidence/return-record-2.log",
+      "sha256": "d20d6d5127af9c8af3cc01f3ba3c73a6fc996adab27ee4046ae7059705aca10a"
+    },
+    {
+      "path": "tests/fixtures/native_military_schedule/evidence/return-replay-final.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "tests/fixtures/native_military_schedule/evidence/return-replay-final.log",
+      "sha256": "d20d6d5127af9c8af3cc01f3ba3c73a6fc996adab27ee4046ae7059705aca10a"
+    }
+  ],
+  "process_results": {
+    "main_capture": {
+      "checks": 168,
+      "failures": 0,
+      "rows": 69
+    },
+    "main_replay": {
+      "checks": 167,
+      "failures": 0,
+      "rows": 69
+    },
+    "return_capture": {
+      "checks": 25,
+      "failures": 0,
+      "rows": 12
+    },
+    "return_replay": {
+      "checks": 25,
+      "failures": 0,
+      "rows": 12
+    }
+  },
+  "covered_proposal_kinds": [
+    "army_form",
+    "army_return",
+    "campaign_accept",
+    "campaign_cancel",
+    "campaign_deliver",
+    "campaign_depart",
+    "campaign_report",
+    "campaign_return",
+    "move_local",
+    "office_accept",
+    "siege_close",
+    "siege_start",
+    "travel"
+  ],
+  "preserved_failures": [
+    "Initial prepared output protection refusal",
+    "Original test_campaign_return.prepared bare catalog caused ScriptError while process exited0; preserved return-record-1.log; not counted as pass"
+  ],
+  "note": "Original terminal-source logs include standalone record/replay commands documented in README. Initial 52/60-row development captures are not final expected files.",
+  "timing": {
+    "started_utc": "2026-10-04T22:14:47Z",
+    "checkpoint_utc": "2026-10-04T22:38:30Z",
+    "phase": "mixed source review, oracle implementation, bounded execution, fixture failure diagnosis and packaging; no parallel durations added"
+  }
+}

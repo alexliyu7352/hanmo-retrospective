@@ -1,0 +1,35 @@
+{
+  "status": "OFFLINE_PIXEL_PASS_CANDIDATE",
+  "tool": "built-in image_gen.imagegen",
+  "original_generated_path": "<本地路径>",
+  "edit_source_original_oid": "68b0e41f60979016bf5c2db0690aec0986e7b760",
+  "source_path": "art-source/art-direction/public-places-audit/source/city-clean-01.png",
+  "export_path": "game/assets/art/public-places-audit/city-clean.png",
+  "sha256": "56f1e8583f786bc405c3ecbe0717e906ef6a152620a17e61a228b4019e473dca",
+  "git_blob_oid": "6c97578c10e97fc530fd40631de23fe5b66802ce",
+  "dimensions": [
+    1586,
+    992
+  ],
+  "mode": "RGB",
+  "byte_size": 2553187,
+  "prompt": "art-source/art-direction/public-places-audit/prompt-01-city-clean.txt",
+  "pixels_modified_after_generation": false,
+  "actual_original_pixels_viewed": true,
+  "review": {
+    "pass": [
+      "原大型近景背影、右侧人物、街上和门洞内人物与骑马剪影已清除。",
+      "被遮挡的道路、两侧墙脚与摊位自然补齐，通往门楼的连续街路清楚。",
+      "门楼、屋檐、旗幡、光色与平视镜头关系保持；仍为街景而不是城域地图。",
+      "牌匾和旗幡仍为空白，未出现姓名、城市名、图标、数字、热点或UI。",
+      "没有新角色或新规则；实际群众和场所对象应由原投影/人物层决定。"
+    ],
+    "limits": [
+      "生成工具的原生尺寸如dimensions所记；不伪称与旧图逐像素相同。",
+      "单张清洁背景没有交付分层群众、建筑动态状态或引擎人物合成。",
+      "GUI/CUA未运行，未改中央清单或作者包。"
+    ]
+  },
+  "user_final_approval": "PENDING",
+  "runtime_registration": "NOT_REGISTERED"
+}

@@ -1,0 +1,14 @@
+// 独立代理持久化和四条精确命令；原政治/Office/Task段字节不增字段。
+#pragma once
+#include "political_governance_agency_contract.hpp"
+namespace hanmo::resident {
+BoundaryValue encode_political_governance_agency_state(const PoliticalGovernanceAgencyState&);
+Outcome<PoliticalGovernanceAgencyState> decode_political_governance_agency_state(const BoundaryValue&);
+Status visit_political_governance_agency_checkpoint(CodecVisitor&,PoliticalGovernanceAgencyState&);
+BoundaryValue encode_political_governance_agency_catalog(const PoliticalGovernanceAgencyCatalog&);
+Outcome<PoliticalGovernanceAgencyCatalog> decode_political_governance_agency_catalog(const BoundaryValue&);
+StableId political_governance_agency_command_kind(const PoliticalGovernanceAgencyCommand&);
+bool is_political_governance_agency_command(const StableId&);
+BoundaryValue encode_political_governance_agency_command(const PoliticalGovernanceAgencyCommand&);
+Outcome<PoliticalGovernanceAgencyCommand> decode_political_governance_agency_command(const StableId&,const BoundaryValue&);
+}

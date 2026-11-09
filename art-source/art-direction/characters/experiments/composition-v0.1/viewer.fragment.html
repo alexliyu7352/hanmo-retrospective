@@ -1,0 +1,102 @@
+<div id="hanmo-combination-sample-v1" lang="zh-CN">
+  <style>
+    #hanmo-combination-sample-v1 { --paper:#e9e0cd; --ink:#252a28; --line:#b6a88e; --red:#a34435; font:400 16px/1.55 'HanmoSans', 'Noto Sans SC', sans-serif; color:var(--ink); max-width:960px; margin:0 auto; }
+    #hanmo-combination-sample-v1 * { box-sizing:border-box; }
+    #hanmo-combination-sample-v1 .sample-grid { display:grid; grid-template-columns:minmax(230px,1fr) minmax(280px,.95fr); gap:24px; align-items:start; }
+    #hanmo-combination-sample-v1 .stage { background:var(--paper); }
+    #hanmo-combination-sample-v1 canvas { display:block; max-width:100%; }
+    #hanmo-combination-sample-v1 .portrait { width:100%; height:auto; }
+    #hanmo-combination-sample-v1 .controls { padding:16px; background:#f4eddf; border:1px solid var(--line); }
+    #hanmo-combination-sample-v1 .fields { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+    #hanmo-combination-sample-v1 label { display:block; min-width:0; }
+    #hanmo-combination-sample-v1 select { display:block; width:100%; min-height:44px; padding:6px 9px; margin-top:4px; background:#fff9ed; border:1px solid var(--line); border-radius:2px; color:var(--ink); font:inherit; }
+    #hanmo-combination-sample-v1 button { min-height:44px; padding:6px 12px; color:var(--ink); border:1px solid var(--line); border-radius:2px; background:#fff9ed; font:inherit; }
+    #hanmo-combination-sample-v1 button:active { background:#e2d5bd; }
+    #hanmo-combination-sample-v1 .actions { display:flex; flex-wrap:wrap; gap:8px; margin:16px 0; }
+    #hanmo-combination-sample-v1 .avatars { display:flex; flex-wrap:wrap; gap:18px; align-items:end; margin:18px 0 0; }
+    #hanmo-combination-sample-v1 figure { margin:0; }
+    #hanmo-combination-sample-v1 figcaption { text-align:center; margin-top:5px; }
+    #hanmo-combination-sample-v1 .avatars canvas { background:var(--paper); border:1px solid var(--line); box-sizing:content-box; }
+    #hanmo-combination-sample-v1 .status { min-height:25px; margin-top:12px; }
+    #hanmo-combination-sample-v1 .error { color:#9e312b; }
+    @media(max-width:650px) { #hanmo-combination-sample-v1 .sample-grid { grid-template-columns:1fr; gap:16px; } #hanmo-combination-sample-v1 .stage { max-width:390px; width:100%; margin:0 auto; } }
+  </style>
+  <div class="sample-grid">
+    <figure class="stage">
+      <canvas class="portrait" data-portrait width="512" height="768" role="img" aria-label="由当前选定的头脸、五官、发冠、胡须和衣身合成的人物半身"></canvas>
+    </figure>
+    <div class="controls">
+      <div class="fields">
+        <label>眉眼<select data-feature="eyes"><option value="0">锐长</option><option value="1">舒展</option></select></label>
+        <label>鼻型<select data-feature="nose"><option value="0">直鼻</option><option value="1">圆鼻</option></select></label>
+        <label>唇形<select data-feature="mouth"><option value="0">薄唇</option><option value="1">丰唇</option></select></label>
+        <label>表情<select data-feature="expression"><option value="0">平静</option><option value="1">微笑</option></select></label>
+        <label>发冠<select data-feature="hair"><option value="0">束发</option><option value="1" selected>布巾</option></select></label>
+        <label>胡须<select data-feature="beard"><option value="0">无须</option><option value="1">短须</option></select></label>
+        <label>衣身<select data-feature="body"><option value="0">日常</option><option value="1">行旅</option></select></label>
+        <label>查看<select data-layer><option value="all">合成人物</option><option value="head">头脸底层</option><option value="eyes">眉眼层</option><option value="nose">鼻部层</option><option value="mouth">口部层</option><option value="beard">胡须层</option><option value="hair">发冠层</option><option value="body">衣身层</option></select></label>
+      </div>
+      <div class="actions">
+        <button type="button" data-preset="0">五官方案 A</button>
+        <button type="button" data-preset="1">五官方案 B</button>
+        <button type="button" data-reset>恢复初始</button>
+      </div>
+      <div class="avatars">
+        <figure><canvas data-avatar="88" width="88" height="88" role="img" aria-label="当前人物的88像素头像"></canvas><figcaption>88 像素</figcaption></figure>
+        <figure><canvas data-avatar="96" width="96" height="96" role="img" aria-label="当前人物的96像素头像"></canvas><figcaption>96 像素</figcaption></figure>
+      </div>
+      <div class="status" data-status aria-live="polite">正在载入素材…</div>
+    </div>
+  </div>
+  <!--SAMPLE_RENDERER-->
+  <!--SAMPLE_TEXTURES-->
+  <script>
+    (async function () {
+      const root = document.getElementById('hanmo-combination-sample-v1');
+      const status = root.querySelector('[data-status]');
+      const createCanvas = (width,height) => { const c=document.createElement('canvas'); c.width=width;c.height=height;return c; };
+      const images = {};
+      try {
+        await Promise.all(Object.entries(window.HANMO_SAMPLE_TEXTURES).map(([name,source]) => new Promise((resolve,reject) => {
+          const image = new Image(); image.onload=()=>{images[name]=image;resolve();}; image.onerror=()=>reject(new Error('素材载入失败：'+name)); image.src=source;
+        })));
+        const renderer = window.HanmoSample.makeRenderer(createCanvas,images);
+        const currentShared = () => {
+          const shared=window.openai && window.openai.widgetState;
+          return shared && typeof shared==='object' && !Array.isArray(shared) ? shared : {};
+        };
+        const stored=currentShared().hanmoCharacterSample;
+        let state=renderer.validState(stored && stored.version===1 ? stored.state : null);
+        const portrait=root.querySelector('[data-portrait]');
+        const view=root.querySelector('[data-layer]');
+        const fields=Array.from(root.querySelectorAll('[data-feature]'));
+        const copy=(target,source)=>{const ctx=target.getContext('2d');ctx.clearRect(0,0,target.width,target.height);ctx.drawImage(source,0,0);};
+        function draw() {
+          fields.forEach(field=>field.value=String(state[field.dataset.feature]));
+          copy(portrait,view.value==='all'?renderer.compose(state):renderer.layer(view.value,state));
+          root.querySelectorAll('[data-avatar]').forEach(c=>copy(c,renderer.avatar(state,Number(c.dataset.avatar))));
+          status.textContent=view.value==='all'?'当前组合已更新':'图层保持原始位置';
+          root.dataset.ready='true';
+        }
+        function change() {
+          draw();
+          if(window.openai && typeof window.openai.setWidgetState==='function') {
+            Promise.resolve(window.openai.setWidgetState({...currentShared(),hanmoCharacterSample:{version:1,state:{...state}}})).catch(()=>{status.textContent='当前组合已更新，共享状态暂未保存';});
+          }
+        }
+        fields.forEach(field=>field.addEventListener('change',()=>{state[field.dataset.feature]=Number(field.value);change();}));
+        view.addEventListener('change',draw);
+        root.querySelectorAll('[data-preset]').forEach(button=>button.addEventListener('click',()=>{
+          for(const key of ['eyes','nose','mouth'])state[key]=Number(button.dataset.preset);change();
+        }));
+        root.querySelector('[data-reset]').addEventListener('click',()=>{state={...renderer.manifest.defaults};view.value='all';change();});
+        window.addEventListener('openai:set_globals',()=>{
+          const next=currentShared().hanmoCharacterSample;
+          if(next && next.version===1){state=renderer.validState(next.state);draw();}
+        });
+        root.__sample={renderer,getState:()=>({...state}),setState:next=>{state=renderer.validState(next);draw();}};
+        draw();
+      } catch(error) { status.textContent=error.message;status.classList.add('error');status.setAttribute('role','alert'); }
+    })();
+  </script>
+</div>

@@ -1,0 +1,14 @@
+# 家庭与生命阶段消费者登记：保留本组目标、测试、条件与局部变量的原执行顺序。
+# 原预约隔离、精确私粮消费和末操作失败回滚；来源为组件夹具，不代表真实World照护。
+add_executable(test_resident_child_care_relief_resources tests/resident/child_care_relief_resources_test.cpp)
+target_link_libraries(test_resident_child_care_relief_resources PRIVATE hanmo_resident)
+target_include_directories(test_resident_child_care_relief_resources PRIVATE src)
+target_compile_options(test_resident_child_care_relief_resources PRIVATE -UNDEBUG -fno-fast-math -ffp-contract=off)
+add_test(NAME resident_child_care_relief_resources COMMAND test_resident_child_care_relief_resources)
+
+# 首保留history仍核永久最新来源，逐缓存不得重复绑定；运行边界另按风险安排。
+add_executable(test_resident_child_care_relief_cache tests/resident/child_care_relief_cache_test.cpp)
+target_link_libraries(test_resident_child_care_relief_cache PRIVATE hanmo_resident)
+target_include_directories(test_resident_child_care_relief_cache PRIVATE src)
+target_compile_options(test_resident_child_care_relief_cache PRIVATE -UNDEBUG -fno-fast-math -ffp-contract=off)
+add_test(NAME resident_child_care_relief_cache COMMAND test_resident_child_care_relief_cache)

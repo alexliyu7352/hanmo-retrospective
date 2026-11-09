@@ -1,0 +1,18 @@
+#include "care_requirement_rules.hpp"
+#include "resident/domains/actor_foundation/actor_foundation_json_visitor.hpp"
+namespace hanmo::resident {namespace {
+Status original_rule(ActorFoundationJsonVisitor& c,ActorFoundationRuleRef& ref,const CatalogIdentity& identity){c.field("id",ref.id);c.field("version",ref.version);if(!c.status().ok)return c.status();if(ref.id.empty()||ref.id.size()>256||ref.version<1||identity.content_digest.empty())return c.reject("InvalidCareAuthorRuleRef");ref.catalog_digest=identity.content_digest;return c.status();}
+Outcome<CareRequirementRule> definition(const BoundaryValue& input,const CatalogIdentity& identity){CareRequirementRule rule;ActorFoundationJsonVisitor c(input);original_rule(c,rule.rule_ref,identity);c.field("service_kind",rule.service_kind);c.object("dependency_rule_ref",[&](auto& x){return original_rule(x,rule.dependency_rule_ref,identity);});c.object("cancellation_rule_ref",[&](auto& x){return original_rule(x,rule.cancellation_rule_ref,identity);});c.object("disclosure_rule_ref",[&](auto& x){return original_rule(x,rule.disclosure_rule_ref,identity);});c.field("state_need_policy_ref",rule.state_need_policy_ref);if(c.status().ok&&(rule.service_kind!="care_handover"||rule.state_need_policy_ref.empty()||rule.state_need_policy_ref.size()>256))c.reject("InvalidCareAuthorServicePolicy");auto status=c.finish();return {status.ok,std::move(rule),status.error};}
+}
+Outcome<CareRequirementCatalog> decode_care_requirement_catalog(const BoundaryValue& definitions,const BoundaryValue& config,const CatalogIdentity& identity){return decode_care_requirement_catalog(definitions,config,identity,3);}
+Outcome<CareRequirementCatalog> decode_care_requirement_catalog(const BoundaryValue& definitions,const BoundaryValue& config,const CatalogIdentity& identity,Integer trusted_selected_version){try{
+ if(trusted_selected_version<3||trusted_selected_version>6)return {false,{},common_failure("CareSelectedCatalogVersionRequired",{},ErrorKind::unsupported_capability).error};
+ using namespace boundary;const StableId path="care_requirements";fields(config,{"profile","birth_requirement_rule_id"},{},path);if(get_string(config,"profile",path)!="care_actual_time_v2")unsupported("CareAuthorProfileRequired",path);
+ const auto& rows=object(definitions,"care_requirement_rules");if(rows.empty()||rows.size()>4096)fail("CareAuthorRuleLimit","care_requirement_rules");for(std::size_t i=0;i<rows.size();++i){if(rows[i].first.empty()||rows[i].first.size()>256)fail("InvalidCareAuthorRuleId",rows[i].first);for(std::size_t j=0;j<i;++j)if(rows[j].first==rows[i].first)fail("DuplicateCareAuthorRule",rows[i].first);}
+ CareRequirementCatalog value;value.identity=identity;value.selected_version=trusted_selected_version;value.birth_requirement_rule_id=get_string(config,"birth_requirement_rule_id",path);if(value.birth_requirement_rule_id.empty()||value.birth_requirement_rule_id.size()>256)fail("InvalidCareBirthRuleSelection",path);
+ // Only the explicitly selected rule is installed. Unselected catalog rows do
+ // not create goals, expand dependency scope, or enable another care service.
+ auto selected=definition(field(definitions,value.birth_requirement_rule_id,"care_requirement_rules"),identity);if(!selected.ok)return {false,{},selected.error};if(selected.value.rule_ref.id!=value.birth_requirement_rule_id)fail("CareAuthorRuleKeyMismatch",value.birth_requirement_rule_id);if(!value.rules.insert(value.birth_requirement_rule_id,std::move(selected.value)))fail("DuplicateCareAuthorRule",value.birth_requirement_rule_id);
+ auto valid=validate_care_requirement_catalog(value);return {valid.ok,std::move(value),valid.error};
+ }catch(const boundary::DecodeFailure& e){return {false,{},e.error};}}
+}

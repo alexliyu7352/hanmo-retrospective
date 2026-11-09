@@ -1,0 +1,178 @@
+{
+  "format": "hanmo.schema.fragment/1",
+  "version": "diplomacy/1",
+  "status": "self-envoy presentation and explicit reply; acceptance pending ratification",
+  "property_target": "/$defs/dynamic_world/properties/diplomacy",
+  "property_schema": {
+    "$ref": "#/$defs/diplomacy_catalog"
+  },
+  "$defs": {
+    "diplomatic_passage_terms": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/entity_id"
+        },
+        "name_key": {
+          "$ref": "#/$defs/reference_texts"
+        },
+        "grantor_organization_id": {
+          "$ref": "#/$defs/reference_organizations"
+        },
+        "beneficiary_organization_id": {
+          "$ref": "#/$defs/reference_organizations"
+        },
+        "place_ids": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/reference_places"
+          },
+          "minItems": 1,
+          "maxItems": 4096,
+          "uniqueItems": true
+        },
+        "duration_ticks": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 2147483647
+        },
+        "expiry_notice_ticks": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 2147483647
+        }
+      },
+      "required": [
+        "id",
+        "name_key",
+        "grantor_organization_id",
+        "beneficiary_organization_id",
+        "place_ids",
+        "duration_ticks",
+        "expiry_notice_ticks"
+      ],
+      "additionalProperties": false
+    },
+    "diplomatic_task_terms": {
+      "type": "object",
+      "properties": {
+        "acceptance_valid_ticks": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 2147483647
+        },
+        "delivery_work_ticks": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 2147483647
+        },
+        "report_work_ticks": {
+          "const": 0
+        },
+        "return_report_required": {
+          "const": false
+        },
+        "continuity_policy_id": {
+          "const": "continue_under_organization"
+        }
+      },
+      "required": [
+        "acceptance_valid_ticks",
+        "delivery_work_ticks",
+        "report_work_ticks",
+        "return_report_required",
+        "continuity_policy_id"
+      ],
+      "additionalProperties": false
+    },
+    "diplomatic_mission_policy": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/entity_id"
+        },
+        "name_key": {
+          "$ref": "#/$defs/reference_texts"
+        },
+        "issuer_organization_id": {
+          "$ref": "#/$defs/reference_organizations"
+        },
+        "target_organization_id": {
+          "$ref": "#/$defs/reference_organizations"
+        },
+        "issuer_site_id": {
+          "$ref": "#/$defs/reference_places"
+        },
+        "target_site_id": {
+          "$ref": "#/$defs/reference_places"
+        },
+        "target_office_id": {
+          "$ref": "#/$defs/entity_id"
+        },
+        "passage_terms_ids": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/entity_id"
+          },
+          "minItems": 1,
+          "maxItems": 4096,
+          "uniqueItems": true
+        },
+        "offer_valid_ticks": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 2147483647
+        },
+        "task_terms": {
+          "$ref": "#/$defs/diplomatic_task_terms"
+        }
+      },
+      "required": [
+        "id",
+        "name_key",
+        "issuer_organization_id",
+        "target_organization_id",
+        "issuer_site_id",
+        "target_site_id",
+        "target_office_id",
+        "passage_terms_ids",
+        "offer_valid_ticks"
+      ],
+      "additionalProperties": false
+    },
+    "diplomacy_catalog": {
+      "type": "object",
+      "properties": {
+        "version": {
+          "const": 1
+        },
+        "enabled": {
+          "const": true
+        },
+        "passage_terms": {
+          "type": "object",
+          "minProperties": 1,
+          "maxProperties": 4096,
+          "additionalProperties": {
+            "$ref": "#/$defs/diplomatic_passage_terms"
+          }
+        },
+        "mission_policies": {
+          "type": "object",
+          "minProperties": 1,
+          "maxProperties": 4096,
+          "additionalProperties": {
+            "$ref": "#/$defs/diplomatic_mission_policy"
+          }
+        }
+      },
+      "required": [
+        "version",
+        "enabled",
+        "passage_terms",
+        "mission_policies"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

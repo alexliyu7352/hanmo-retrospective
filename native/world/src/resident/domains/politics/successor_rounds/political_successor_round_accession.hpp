@@ -1,0 +1,17 @@
+// 每轮已接受意愿只在原本人实际获知死因并有同任期首次空职后办理，不继承军令/资产或玩家控制。
+#pragma once
+#include "political_successor_round_rules.hpp"
+#include "resident/domains/politics/succession/political_succession_accession_sources.hpp"
+namespace hanmo::resident {
+// 仅复用只读DTO字段，不调用原首轮就任许可；policy_id指本轮显式目录。
+using PoliticalSuccessorRoundAccessionBasis=PoliticalSuccessionAccessionBasis;
+struct PoliticalSuccessorRoundAccessionSourceContext {const PoliticalSuccessorRoundContext& nominations;const FamilyDeathState& deaths;TaskDeliveredDeathNoticeRead delivered_notice;};
+struct PoliticalSuccessorRoundAccessionContext {const PoliticalSuccessorRoundAccessionSourceContext& sources;const PoliticalSuccessorRoundState& state;};
+struct PoliticalSuccessorRoundAccessionQuote {WorldIdentity identity;StableId actor_id;PoliticalAccedeNextSuccession command;PoliticalSuccessorRoundAccessionBasis basis;};
+Outcome<PoliticalSuccessorRoundAccessionBasis> read_political_successor_round_accession_basis(const PoliticalSuccessorRoundAccessionSourceContext&,const StableId& acceptance,const StableId& death,const StableId& notice);
+Outcome<PoliticalSuccessorRoundAccessionBasis> read_political_successor_round_accession_basis_before(const PoliticalSuccessorRoundAccessionSourceContext&,const StableId& acceptance,const StableId& death,const StableId& notice,Integer tick,const StableId& actual_accession);
+Status validate_political_successor_round_accessions(const PoliticalSuccessorRoundAccessionContext&);
+Outcome<PoliticalSuccessorRoundAccessionQuote> preview_political_successor_round_accession(const PoliticalSuccessorRoundAccessionContext&,const StableId& actor,const PoliticalAccedeNextSuccession&);
+// 外层同时保存Common/Organization/本轮账，两真实头全部成功后才发布两状态。
+Outcome<StableId> apply_political_successor_round_accession_in_candidate(CommonStore&,OrganizationState&,PoliticalSuccessorRoundState&,const PoliticalSuccessorRoundAccessionContext&,const StableId& actor,const PoliticalAccedeNextSuccession&,const PoliticalSuccessorRoundAccessionQuote&);
+}

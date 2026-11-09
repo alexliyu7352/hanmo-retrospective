@@ -1,0 +1,138 @@
+{
+  "case_id": "cultivation",
+  "scenario_id": "scenario.alpha_life",
+  "content": "res://data/generated/alpha_life.hmcatalog.json",
+  "description": "固定作者seed，输入经实际Kernel展开；稳定节点包含完整字节存档",
+  "commands": [
+    {
+      "op": "submit",
+      "kind": "move_local",
+      "params": {
+        "place_id": "west.training"
+      }
+    },
+    {
+      "op": "submit",
+      "kind": "talk",
+      "params": {
+        "role_id": "role.wei"
+      }
+    },
+    {
+      "op": "submit",
+      "kind": "dialogue_next",
+      "params": {}
+    },
+    {
+      "op": "submit",
+      "kind": "dialogue_choose",
+      "params": {
+        "option_id": "learn0"
+      }
+    },
+    {
+      "op": "checkpoint",
+      "label": "01-before-start"
+    },
+    {
+      "op": "submit",
+      "kind": "dialogue_confirm",
+      "params": {}
+    },
+    {
+      "op": "checkpoint",
+      "label": "02-after-start"
+    },
+    {
+      "op": "advance",
+      "ticks": 1
+    },
+    {
+      "op": "checkpoint",
+      "label": "03-before-completion"
+    },
+    {
+      "op": "advance",
+      "ticks": 1
+    },
+    {
+      "op": "checkpoint",
+      "label": "04-after-completion"
+    },
+    {
+      "op": "submit",
+      "kind": "end_interaction",
+      "params": {}
+    },
+    {
+      "op": "submit",
+      "kind": "practice_skill",
+      "params": {
+        "skill_id": "skill.cleave",
+        "ticks": 8
+      }
+    },
+    {
+      "op": "checkpoint",
+      "label": "05-practice-start"
+    },
+    {
+      "op": "advance",
+      "ticks": 7
+    },
+    {
+      "op": "checkpoint",
+      "label": "06-practice-before-completion"
+    },
+    {
+      "op": "advance",
+      "ticks": 1
+    },
+    {
+      "op": "checkpoint",
+      "label": "07-practice-completed"
+    },
+    {
+      "op": "submit",
+      "kind": "move_local",
+      "params": {
+        "place_id": "west.street"
+      }
+    },
+    {
+      "op": "submit",
+      "kind": "move_local",
+      "params": {
+        "place_id": "west.grain"
+      }
+    },
+    {
+      "op": "submit",
+      "kind": "teach_skill",
+      "params": {
+        "skill_id": "skill.cleave"
+      },
+      "context_role": "role.clerk"
+    },
+    {
+      "op": "checkpoint",
+      "label": "08-teach-start"
+    },
+    {
+      "op": "advance",
+      "ticks": 1
+    },
+    {
+      "op": "checkpoint",
+      "label": "09-teach-before-completion"
+    },
+    {
+      "op": "advance",
+      "ticks": 1
+    },
+    {
+      "op": "checkpoint",
+      "label": "10-teach-completed"
+    }
+  ]
+}

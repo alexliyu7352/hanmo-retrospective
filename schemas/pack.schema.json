@@ -1,0 +1,225 @@
+{
+  "type": "object",
+  "properties": {
+    "format": {
+      "const": "HM-PACK"
+    },
+    "format_version": {
+      "type": "integer",
+      "const": 1
+    },
+    "id": {
+      "$ref": "#/$defs/id"
+    },
+    "version": {
+      "$ref": "#/$defs/version"
+    },
+    "namespace": {
+      "$ref": "#/$defs/namespace"
+    },
+    "rules_api": {
+      "$ref": "#/$defs/range"
+    },
+    "dependencies": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/range"
+      },
+      "uniqueItems": true,
+      "maxItems": 4096
+    },
+    "conflicts": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/range"
+      },
+      "uniqueItems": true,
+      "maxItems": 4096
+    },
+    "required_capabilities": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/id"
+      },
+      "uniqueItems": true,
+      "maxItems": 50
+    },
+    "content_entries": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/path"
+      },
+      "uniqueItems": true,
+      "maxItems": 4096
+    },
+    "presentation_entries": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/path"
+      },
+      "uniqueItems": true,
+      "maxItems": 4096
+    },
+    "resources": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/resource"
+      },
+      "uniqueItems": true,
+      "maxItems": 4096
+    },
+    "author": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    },
+    "license": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 1024
+    },
+    "legacy_source": {
+      "enum": [
+        "procurement",
+        "two_stories",
+        "lived_city",
+        "alpha_life",
+        "journey_life"
+      ]
+    },
+    "legacy_imports": {
+      "type": "object",
+      "maxProperties": 10000,
+      "propertyNames": {
+        "pattern": "^[a-z][a-z0-9_-]{0,31}::[a-z][a-z0-9_.-]{0,79}(?![\\s\\S])"
+      },
+      "additionalProperties": {
+        "$ref": "#/$defs/id"
+      }
+    }
+  },
+  "required": [
+    "format",
+    "format_version",
+    "id",
+    "version",
+    "namespace",
+    "rules_api",
+    "dependencies",
+    "conflicts",
+    "required_capabilities",
+    "content_entries",
+    "presentation_entries",
+    "resources",
+    "author",
+    "license"
+  ],
+  "additionalProperties": false,
+  "oneOf": [
+    {
+      "required": [
+        "legacy_source"
+      ],
+      "properties": {
+        "content_entries": {
+          "maxItems": 0
+        },
+        "presentation_entries": {
+          "maxItems": 0
+        },
+        "resources": {
+          "maxItems": 0
+        }
+      }
+    },
+    {
+      "not": {
+        "required": [
+          "legacy_source"
+        ]
+      }
+    }
+  ],
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hanmo.local/schemas/pack.schema.json",
+  "$defs": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_.-]{0,79}(?![\\s\\S])"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?![\\s\\S])",
+      "maxLength": 96
+    },
+    "namespace": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_-]{0,31}(?![\\s\\S])"
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}(?![\\s\\S])"
+    },
+    "path": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 512,
+      "pattern": "^(?![A-Za-z]:)(?!/)(?!.*\\\\)(?!.*(?:^|/)\\.{1,2}(?:/|$))(?!.*//)[A-Za-z0-9_.-]+(?:/[A-Za-z0-9_.-]+)*(?![\\s\\S])"
+    },
+    "range": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/id"
+        },
+        "min_version": {
+          "$ref": "#/$defs/version"
+        },
+        "max_version_exclusive": {
+          "$ref": "#/$defs/version"
+        }
+      },
+      "required": [
+        "id",
+        "min_version",
+        "max_version_exclusive"
+      ],
+      "additionalProperties": false
+    },
+    "resource": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "$ref": "#/$defs/path"
+        },
+        "kind": {
+          "enum": [
+            "data",
+            "image",
+            "audio",
+            "font"
+          ]
+        },
+        "required": {
+          "type": "boolean"
+        },
+        "sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "license": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 1024
+        }
+      },
+      "required": [
+        "path",
+        "kind",
+        "required",
+        "sha256",
+        "license"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

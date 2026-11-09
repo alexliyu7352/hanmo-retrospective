@@ -1,0 +1,6 @@
+# 任务与履约消费者登记：保留本组目标、测试、条件与局部变量的原执行顺序。
+# 既有责任与真实路遇货物来源的窄检查；组织入口需要显式正式目录参数。
+add_executable(test_resident_personal_cargo_source tests/resident/personal_cargo_source.cpp)
+target_link_libraries(test_resident_personal_cargo_source PRIVATE hanmo_resident)
+target_compile_options(test_resident_personal_cargo_source PRIVATE -UNDEBUG -fno-fast-math -ffp-contract=off)
+add_test(NAME resident_personal_cargo_source COMMAND test_resident_personal_cargo_source)

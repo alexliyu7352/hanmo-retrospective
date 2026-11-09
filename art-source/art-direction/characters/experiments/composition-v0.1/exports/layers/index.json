@@ -1,0 +1,146 @@
+{
+  "version": "0.1.0",
+  "canvas": [
+    512,
+    768
+  ],
+  "layerOrder": [
+    "head",
+    "nose",
+    "eyes",
+    "mouth",
+    "beard",
+    "body",
+    "hair"
+  ],
+  "layers": [
+    {
+      "filename": "head-0-0.png",
+      "layer": "head",
+      "variant": 0,
+      "expression": 0,
+      "width": 512,
+      "height": 768
+    },
+    {
+      "filename": "nose-0-0.png",
+      "layer": "nose",
+      "variant": 0,
+      "expression": 0,
+      "width": 512,
+      "height": 768
+    },
+    {
+      "filename": "nose-1-0.png",
+      "layer": "nose",
+      "variant": 1,
+      "expression": 0,
+      "width": 512,
+      "height": 768
+    },
+    {
+      "filename": "eyes-0-0.png",
+      "layer": "eyes",
+      "variant": 0,
+      "expression": 0,
+      "width": 512,
+      "height": 768
+    },
+    {
+      "filename": "eyes-0-1.png",
+      "layer": "eyes",
+      "variant": 0,
+      "expression": 1,
+      "width": 512,
+      "height": 768
+    },
+    {
+      "filename": "eyes-1-0.png",
+      "layer": "eyes",
+      "variant": 1,
+      "expression": 0,
+      "width": 512,
+      "height": 768
+    },
+    {
+      "filename": "eyes-1-1.png",
+      "layer": "eyes",
+      "variant": 1,
+      "expression": 1,
+      "width": 512,
+      "height": 768
+    },
+    {
+      "filename": "mouth-0-0.png",
+      "layer": "mouth",
+      "variant": 0,
+      "expression": 0,
+      "width": 512,
+      "height": 768
+    },
+    {
+      "filename": "mouth-0-1.png",
+      "layer": "mouth",
+      "variant": 0,
+      "expression": 1,
+      "width": 512,
+      "height": 768
+    },
+    {
+      "filename": "mouth-1-0.png",
+      "layer": "mouth",
+      "variant": 1,
+      "expression": 0,
+      "width": 512,
+      "height": 768
+    },
+    {
+      "filename": "mouth-1-1.png",
+      "layer": "mouth",
+      "variant": 1,
+      "expression": 1,
+      "width": 512,
+      "height": 768
+    },
+    {
+      "filename": "beard-1-0.png",
+      "layer": "beard",
+      "variant": 1,
+      "expression": 0,
+      "width": 512,
+      "height": 768
+    },
+    {
+      "filename": "body-0-0.png",
+      "layer": "body",
+      "variant": 0,
+      "expression": 0,
+      "width": 512,
+      "height": 768
+    },
+    {
+      "filename": "body-1-0.png",
+      "layer": "body",
+      "variant": 1,
+      "expression": 0,
+      "width": 512,
+      "height": 768
+    },
+    {
+      "filename": "hair-0-0.png",
+      "layer": "hair",
+      "variant": 0,
+      "expression": 0,
+      "width": 512,
+      "height": 768
+    },
+    {
+      "filename": "hair-1-0.png",
+      "layer": "hair",
+      "variant": 1,
+      "expression": 0,
+      "width": 512,
+      "height": 768
+    }
+  ]
+}

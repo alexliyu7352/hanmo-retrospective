@@ -1,0 +1,163 @@
+{
+  "case_id": "escort",
+  "scenario_id": "scenario.alpha_life",
+  "content": "res://data/generated/alpha_life.hmcatalog.json",
+  "description": "固定作者seed，输入经实际Kernel展开；稳定节点包含完整字节存档",
+  "commands": [
+    {
+      "op": "submit",
+      "kind": "move_local",
+      "params": {
+        "place_id": "west.tavern"
+      }
+    },
+    {
+      "op": "submit",
+      "kind": "discover_offer",
+      "params": {
+        "offer_id": "offer.escort"
+      },
+      "context_role": "role.sender"
+    },
+    {
+      "op": "checkpoint",
+      "label": "01-before-start"
+    },
+    {
+      "op": "submit",
+      "kind": "accept_offer",
+      "params": {
+        "offer_id": "offer.escort"
+      },
+      "context_role": "role.sender"
+    },
+    {
+      "op": "checkpoint",
+      "label": "02-after-start"
+    },
+    {
+      "op": "advance",
+      "ticks": 1
+    },
+    {
+      "op": "submit",
+      "kind": "join_party",
+      "params": {},
+      "context_role": "role.carter"
+    },
+    {
+      "op": "submit",
+      "kind": "move_local",
+      "params": {
+        "place_id": "west.street"
+      }
+    },
+    {
+      "op": "submit",
+      "kind": "travel",
+      "params": {
+        "destination": "village.east"
+      }
+    },
+    {
+      "op": "checkpoint",
+      "label": "03-travel-start"
+    },
+    {
+      "op": "travel_until",
+      "city": "",
+      "conflict": true,
+      "limit": 12
+    },
+    {
+      "op": "checkpoint",
+      "label": "04-before-fight"
+    },
+    {
+      "op": "submit",
+      "kind": "encounter_fight",
+      "params": {
+        "encounter_id": "@encounter"
+      }
+    },
+    {
+      "op": "checkpoint",
+      "label": "05-fight-start"
+    },
+    {
+      "op": "battle_until_result",
+      "policy_actor": "actor.bandit"
+    },
+    {
+      "op": "checkpoint",
+      "label": "06-before-fight-close"
+    },
+    {
+      "op": "submit",
+      "kind": "battle_close",
+      "params": {
+        "battle_id": "@battle"
+      }
+    },
+    {
+      "op": "travel_until",
+      "city": "village.east"
+    },
+    {
+      "op": "submit",
+      "kind": "move_local",
+      "params": {
+        "place_id": "east.home"
+      }
+    },
+    {
+      "op": "checkpoint",
+      "label": "07-arrived-before-report"
+    },
+    {
+      "op": "submit",
+      "kind": "move_local",
+      "params": {
+        "place_id": "east.entrance"
+      }
+    },
+    {
+      "op": "submit",
+      "kind": "travel",
+      "params": {
+        "destination": "city.west"
+      }
+    },
+    {
+      "op": "travel_until",
+      "city": "city.west"
+    },
+    {
+      "op": "submit",
+      "kind": "move_local",
+      "params": {
+        "place_id": "west.tavern"
+      }
+    },
+    {
+      "op": "submit",
+      "kind": "report_offer",
+      "params": {
+        "offer_id": "offer.escort"
+      },
+      "context_role": "role.sender"
+    },
+    {
+      "op": "checkpoint",
+      "label": "08-before-completion"
+    },
+    {
+      "op": "advance",
+      "ticks": 1
+    },
+    {
+      "op": "checkpoint",
+      "label": "09-after-completion"
+    }
+  ]
+}

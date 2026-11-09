@@ -1,0 +1,21 @@
+# 交互与对白消费者登记：保留本组目标、测试、条件与局部变量的原执行顺序。
+# 问去向具名原亲见、实际Action及永久请求来源门；当前运行后置。
+add_executable(test_resident_contact_inquiry_source tests/resident/contact_inquiry_source_test.cpp)
+target_link_libraries(test_resident_contact_inquiry_source PRIVATE hanmo_resident)
+target_include_directories(test_resident_contact_inquiry_source PRIVATE src)
+target_compile_options(test_resident_contact_inquiry_source PRIVATE -UNDEBUG -fno-fast-math -ffp-contract=off)
+add_test(NAME resident_contact_inquiry_source COMMAND test_resident_contact_inquiry_source)
+
+# 问去向具名原亲见、实际Action及永久请求来源门；当前运行后置。
+add_executable(test_resident_contact_inquiry_action tests/resident/contact_inquiry_action_test.cpp)
+target_link_libraries(test_resident_contact_inquiry_action PRIVATE hanmo_resident)
+target_include_directories(test_resident_contact_inquiry_action PRIVATE src)
+target_compile_options(test_resident_contact_inquiry_action PRIVATE -UNDEBUG -fno-fast-math -ffp-contract=off)
+add_test(NAME resident_contact_inquiry_action COMMAND test_resident_contact_inquiry_action)
+
+# 问去向具名原亲见、实际Action及永久请求来源门；当前运行后置。
+add_executable(test_resident_contact_inquiry_receipts tests/resident/contact_inquiry_receipts_test.cpp)
+target_link_libraries(test_resident_contact_inquiry_receipts PRIVATE hanmo_resident)
+target_include_directories(test_resident_contact_inquiry_receipts PRIVATE src)
+target_compile_options(test_resident_contact_inquiry_receipts PRIVATE -UNDEBUG -fno-fast-math -ffp-contract=off)
+add_test(NAME resident_contact_inquiry_receipts COMMAND test_resident_contact_inquiry_receipts)

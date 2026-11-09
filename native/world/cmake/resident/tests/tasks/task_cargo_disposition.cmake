@@ -1,0 +1,6 @@
+# 任务与履约消费者登记：保留本组目标、测试、条件与局部变量的原执行顺序。
+# 货物守恒、真实战果来源、完整回滚和恢复只消费当前同源生产库。
+add_executable(test_resident_task_cargo_disposition tests/resident/task_cargo_disposition_test.cpp)
+target_link_libraries(test_resident_task_cargo_disposition PRIVATE hanmo_resident)
+target_compile_options(test_resident_task_cargo_disposition PRIVATE -UNDEBUG -fno-fast-math -ffp-contract=off)
+add_test(NAME resident_task_cargo_disposition COMMAND test_resident_task_cargo_disposition)

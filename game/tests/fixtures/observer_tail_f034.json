@@ -1,0 +1,53 @@
+{
+	"engine": "4.7.2-stable (official)",
+	"format": "HM-OBSERVER-TAIL-BASELINE/1",
+	"kernel_sha256": "55985bc46e5f91050a32e51d3e7d849c620c10309012be5adb2bc9dc90890d50",
+	"rows": [
+		{
+			"kind": "move_local",
+			"result_sha256": "3f1cc2e800a20b5f0f8afa003f40b65d15a5dc72250547cb28439cb19878cc01",
+			"state_sha256": "a49c3cb97fcdc947751b22c028fe27bd37462a574a2c49d46ee86d68c808fdef"
+		},
+		{
+			"kind": "end_interaction",
+			"result_sha256": "339b745738cbe6613a63e22b1b622d70658c2dba832cca9e67469e225034e552",
+			"state_sha256": "38b0f2ee7f2292960e9eb789483cea4bf69fe65e0df34d41ec3b92afb2f595ec"
+		},
+		{
+			"kind": "move_local",
+			"result_sha256": "7b5e4b145153093e6960ea252b2b768ae0315914025ada753184df3abe530367",
+			"state_sha256": "bababc7caadf1793f9eb55ea03452f2e9c5eaed9a0653f05a9f8658daa356f9f"
+		},
+		{
+			"kind": "move_local",
+			"result_sha256": "9a9e0cbbeac253d0b1a48f6b169f2c88fe7073bf1dc3b32cb719e4e6ba8bbbff",
+			"state_sha256": "bbe6a3cc530a948634199018d1133816cf185de648d93068fa7a9c355dfa29b0"
+		},
+		{
+			"kind": "trade",
+			"result_sha256": "83b52b74d2a04d31d8a1ce8232da389c68026feb47e5ece0d3940339f7e839da",
+			"state_sha256": "dfd7dd0c3e07cbe975ded28dd8b57cf176f00db547c56ccbb41113d3db72b5f3"
+		},
+		{
+			"kind": "advance",
+			"result_sha256": "8bf436db621430fb381dc8be790cf4cb41b1df0c892c8c4e138d7631c6d09e78",
+			"state_sha256": "966a5998e8a061a09a5041fd2c55db42938a59c5ccf57a6b9a8531218dbdb3db"
+		},
+		{
+			"kind": "move_local",
+			"result_sha256": "1be4957d0c23d807b954723dd06a8aaee7df9c05f0cd855bc9b2ba4c5b53ecda",
+			"state_sha256": "ad6b51ce238c396f190846305f16ce1069ab4e9e9df25757136b0a47ab96066c"
+		},
+		{
+			"kind": "wait",
+			"result_sha256": "dd8c7728d1124984980bfae7a81e519269edb91bee847d8099e4537fa4270835",
+			"state_sha256": "bef386837892a047ee4fb803e8f0ff43e69d6b57635fa290ca2b60072b1c7c1c"
+		},
+		{
+			"kind": "advance",
+			"result_sha256": "7d5f523d4414036512db0b1bd7527522a26f2c27035a00e91dbe5ab6e790d100",
+			"state_sha256": "5c1ef611b8861308fb3d8a18c191d228a6bcbe2ce596836fa0dd03a918e902d4"
+		}
+	],
+	"source_commit": "f034c35fe0f98d77cc89271aad7b0a2af8f5e8fa"
+}

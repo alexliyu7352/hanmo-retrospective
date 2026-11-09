@@ -1,0 +1,569 @@
+{
+  "version": 2,
+  "default_background": "city",
+  "default_portrait": "v05.sample.adult.body.round",
+  "backgrounds": {
+    "city": {
+      "path": "res://assets/art/alpha-visual/city.png"
+    }
+  },
+  "portraits": {
+    "v05.sample.child.body.round": {
+      "path": "res://assets/art/v05-modular-sample-20261003/layers/child.body.round.png"
+    },
+    "v05.sample.child.body.angular": {
+      "path": "res://assets/art/v05-modular-sample-20261003/layers/child.body.angular.png"
+    },
+    "v05.sample.child.garment.blue": {
+      "path": "res://assets/art/v05-modular-sample-20261003/layers/child.garment.blue.png"
+    },
+    "v05.sample.child.garment.olive": {
+      "path": "res://assets/art/v05-modular-sample-20261003/layers/child.garment.olive.png"
+    },
+    "v05.sample.adult.body.round": {
+      "path": "res://assets/art/v05-modular-sample-20261003/layers/adult.body.round.png"
+    },
+    "v05.sample.adult.body.angular": {
+      "path": "res://assets/art/v05-modular-sample-20261003/layers/adult.body.angular.png"
+    },
+    "v05.sample.adult.garment.blue": {
+      "path": "res://assets/art/v05-modular-sample-20261003/layers/adult.garment.blue.png"
+    },
+    "v05.sample.adult.garment.olive": {
+      "path": "res://assets/art/v05-modular-sample-20261003/layers/adult.garment.olive.png"
+    }
+  },
+  "components": {
+    "v05.sample.child.body.round": {
+      "id": "v05.sample.child.body.round",
+      "slot": "body",
+      "asset_id": "portraits/v05.sample.child.body.round",
+      "body_basis": "v05.sample.child.front",
+      "proportion": "child",
+      "anchor": [
+        50,
+        100
+      ],
+      "z_index": 0,
+      "tags": [
+        "v05.sample.child"
+      ],
+      "compatible_tags": [
+        "v05.sample.child"
+      ],
+      "incompatible_tags": [],
+      "after": [],
+      "geometry": {
+        "source_size": [
+          512,
+          768
+        ],
+        "logical_canvas": [
+          512,
+          768
+        ],
+        "alpha_bounds": [
+          14,
+          71,
+          485,
+          697
+        ],
+        "safe_crop": [
+          95,
+          60,
+          330,
+          375
+        ],
+        "support_kind": "half_body_bottom",
+        "support_point": [
+          50,
+          100
+        ],
+        "pose": "idle",
+        "facing": "front",
+        "view": "half_body",
+        "mask_ids": [],
+        "palette_slots": []
+      }
+    },
+    "v05.sample.child.body.angular": {
+      "id": "v05.sample.child.body.angular",
+      "slot": "body",
+      "asset_id": "portraits/v05.sample.child.body.angular",
+      "body_basis": "v05.sample.child.front",
+      "proportion": "child",
+      "anchor": [
+        50,
+        100
+      ],
+      "z_index": 0,
+      "tags": [
+        "v05.sample.child"
+      ],
+      "compatible_tags": [
+        "v05.sample.child"
+      ],
+      "incompatible_tags": [],
+      "after": [],
+      "geometry": {
+        "source_size": [
+          512,
+          768
+        ],
+        "logical_canvas": [
+          512,
+          768
+        ],
+        "alpha_bounds": [
+          0,
+          18,
+          503,
+          750
+        ],
+        "safe_crop": [
+          95,
+          60,
+          330,
+          375
+        ],
+        "support_kind": "half_body_bottom",
+        "support_point": [
+          50,
+          100
+        ],
+        "pose": "idle",
+        "facing": "front",
+        "view": "half_body",
+        "mask_ids": [],
+        "palette_slots": []
+      }
+    },
+    "v05.sample.child.garment.blue": {
+      "id": "v05.sample.child.garment.blue",
+      "slot": "garment",
+      "asset_id": "portraits/v05.sample.child.garment.blue",
+      "body_basis": "v05.sample.child.front",
+      "proportion": "child",
+      "anchor": [
+        50,
+        100
+      ],
+      "z_index": 10,
+      "tags": [
+        "v05.sample.child"
+      ],
+      "compatible_tags": [
+        "v05.sample.child"
+      ],
+      "incompatible_tags": [],
+      "after": [],
+      "geometry": {
+        "source_size": [
+          512,
+          768
+        ],
+        "logical_canvas": [
+          512,
+          768
+        ],
+        "alpha_bounds": [
+          0,
+          18,
+          512,
+          750
+        ],
+        "safe_crop": [
+          95,
+          60,
+          330,
+          375
+        ],
+        "support_kind": "half_body_bottom",
+        "support_point": [
+          50,
+          100
+        ],
+        "pose": "idle",
+        "facing": "front",
+        "view": "half_body",
+        "mask_ids": [],
+        "palette_slots": []
+      }
+    },
+    "v05.sample.child.garment.olive": {
+      "id": "v05.sample.child.garment.olive",
+      "slot": "garment",
+      "asset_id": "portraits/v05.sample.child.garment.olive",
+      "body_basis": "v05.sample.child.front",
+      "proportion": "child",
+      "anchor": [
+        50,
+        100
+      ],
+      "z_index": 10,
+      "tags": [
+        "v05.sample.child"
+      ],
+      "compatible_tags": [
+        "v05.sample.child"
+      ],
+      "incompatible_tags": [],
+      "after": [],
+      "geometry": {
+        "source_size": [
+          512,
+          768
+        ],
+        "logical_canvas": [
+          512,
+          768
+        ],
+        "alpha_bounds": [
+          0,
+          363,
+          512,
+          405
+        ],
+        "safe_crop": [
+          95,
+          60,
+          330,
+          375
+        ],
+        "support_kind": "half_body_bottom",
+        "support_point": [
+          50,
+          100
+        ],
+        "pose": "idle",
+        "facing": "front",
+        "view": "half_body",
+        "mask_ids": [],
+        "palette_slots": []
+      }
+    },
+    "v05.sample.adult.body.round": {
+      "id": "v05.sample.adult.body.round",
+      "slot": "body",
+      "asset_id": "portraits/v05.sample.adult.body.round",
+      "body_basis": "v05.sample.adult.front",
+      "proportion": "adult",
+      "anchor": [
+        50,
+        100
+      ],
+      "z_index": 0,
+      "tags": [
+        "v05.sample.adult"
+      ],
+      "compatible_tags": [
+        "v05.sample.adult"
+      ],
+      "incompatible_tags": [],
+      "after": [],
+      "geometry": {
+        "source_size": [
+          512,
+          768
+        ],
+        "logical_canvas": [
+          512,
+          768
+        ],
+        "alpha_bounds": [
+          0,
+          28,
+          512,
+          717
+        ],
+        "safe_crop": [
+          90,
+          15,
+          330,
+          355
+        ],
+        "support_kind": "half_body_bottom",
+        "support_point": [
+          50,
+          100
+        ],
+        "pose": "idle",
+        "facing": "front",
+        "view": "half_body",
+        "mask_ids": [],
+        "palette_slots": []
+      }
+    },
+    "v05.sample.adult.body.angular": {
+      "id": "v05.sample.adult.body.angular",
+      "slot": "body",
+      "asset_id": "portraits/v05.sample.adult.body.angular",
+      "body_basis": "v05.sample.adult.front",
+      "proportion": "adult",
+      "anchor": [
+        50,
+        100
+      ],
+      "z_index": 0,
+      "tags": [
+        "v05.sample.adult"
+      ],
+      "compatible_tags": [
+        "v05.sample.adult"
+      ],
+      "incompatible_tags": [],
+      "after": [],
+      "geometry": {
+        "source_size": [
+          512,
+          768
+        ],
+        "logical_canvas": [
+          512,
+          768
+        ],
+        "alpha_bounds": [
+          0,
+          45,
+          512,
+          700
+        ],
+        "safe_crop": [
+          90,
+          15,
+          330,
+          355
+        ],
+        "support_kind": "half_body_bottom",
+        "support_point": [
+          50,
+          100
+        ],
+        "pose": "idle",
+        "facing": "front",
+        "view": "half_body",
+        "mask_ids": [],
+        "palette_slots": []
+      }
+    },
+    "v05.sample.adult.garment.blue": {
+      "id": "v05.sample.adult.garment.blue",
+      "slot": "garment",
+      "asset_id": "portraits/v05.sample.adult.garment.blue",
+      "body_basis": "v05.sample.adult.front",
+      "proportion": "adult",
+      "anchor": [
+        50,
+        100
+      ],
+      "z_index": 10,
+      "tags": [
+        "v05.sample.adult"
+      ],
+      "compatible_tags": [
+        "v05.sample.adult"
+      ],
+      "incompatible_tags": [],
+      "after": [],
+      "geometry": {
+        "source_size": [
+          512,
+          768
+        ],
+        "logical_canvas": [
+          512,
+          768
+        ],
+        "alpha_bounds": [
+          0,
+          18,
+          512,
+          750
+        ],
+        "safe_crop": [
+          90,
+          15,
+          330,
+          355
+        ],
+        "support_kind": "half_body_bottom",
+        "support_point": [
+          50,
+          100
+        ],
+        "pose": "idle",
+        "facing": "front",
+        "view": "half_body",
+        "mask_ids": [],
+        "palette_slots": []
+      }
+    },
+    "v05.sample.adult.garment.olive": {
+      "id": "v05.sample.adult.garment.olive",
+      "slot": "garment",
+      "asset_id": "portraits/v05.sample.adult.garment.olive",
+      "body_basis": "v05.sample.adult.front",
+      "proportion": "adult",
+      "anchor": [
+        50,
+        100
+      ],
+      "z_index": 10,
+      "tags": [
+        "v05.sample.adult"
+      ],
+      "compatible_tags": [
+        "v05.sample.adult"
+      ],
+      "incompatible_tags": [],
+      "after": [],
+      "geometry": {
+        "source_size": [
+          512,
+          768
+        ],
+        "logical_canvas": [
+          512,
+          768
+        ],
+        "alpha_bounds": [
+          0,
+          33,
+          512,
+          735
+        ],
+        "safe_crop": [
+          90,
+          15,
+          330,
+          355
+        ],
+        "support_kind": "half_body_bottom",
+        "support_point": [
+          50,
+          100
+        ],
+        "pose": "idle",
+        "facing": "front",
+        "view": "half_body",
+        "mask_ids": [],
+        "palette_slots": []
+      }
+    }
+  },
+  "character_profiles": {
+    "v05.sample.person": {
+      "id": "v05.sample.person",
+      "identity_group": "v05.sample.identity",
+      "mode": "composite",
+      "view": "half_body",
+      "pose": "idle",
+      "context": "daily",
+      "age_domain": [
+        8,
+        40
+      ],
+      "child_max_age": 15,
+      "age_variants": [
+        {
+          "id": "child",
+          "ages": [
+            8,
+            15
+          ],
+          "body_basis": "v05.sample.child.front",
+          "proportion": "child",
+          "components": [
+            "v05.sample.child.body.round"
+          ],
+          "feature_bindings": [
+            {
+              "id": "head.round",
+              "features": {
+                "face_shape": "round"
+              },
+              "component_id": "v05.sample.child.body.round"
+            },
+            {
+              "id": "head.angular",
+              "features": {
+                "face_shape": "angular"
+              },
+              "component_id": "v05.sample.child.body.angular"
+            }
+          ]
+        },
+        {
+          "id": "adult",
+          "ages": [
+            16,
+            40
+          ],
+          "body_basis": "v05.sample.adult.front",
+          "proportion": "adult",
+          "components": [
+            "v05.sample.adult.body.round"
+          ],
+          "feature_bindings": [
+            {
+              "id": "head.round",
+              "features": {
+                "face_shape": "round"
+              },
+              "component_id": "v05.sample.adult.body.round"
+            },
+            {
+              "id": "head.angular",
+              "features": {
+                "face_shape": "angular"
+              },
+              "component_id": "v05.sample.adult.body.angular"
+            }
+          ]
+        }
+      ],
+      "attire_sets": [
+        {
+          "id": "plain",
+          "bindings": [
+            {
+              "body_basis": "v05.sample.child.front",
+              "components": [
+                "v05.sample.child.garment.blue"
+              ]
+            },
+            {
+              "body_basis": "v05.sample.adult.front",
+              "components": [
+                "v05.sample.adult.garment.blue"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "travel",
+          "bindings": [
+            {
+              "body_basis": "v05.sample.child.front",
+              "components": [
+                "v05.sample.child.garment.olive"
+              ]
+            },
+            {
+              "body_basis": "v05.sample.adult.front",
+              "components": [
+                "v05.sample.adult.garment.olive"
+              ]
+            }
+          ]
+        }
+      ],
+      "overrides": [],
+      "fallbacks": [],
+      "battle_profile": {
+        "style": "none"
+      }
+    }
+  },
+  "scene_templates": {}
+}

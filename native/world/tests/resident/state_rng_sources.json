@@ -1,0 +1,67 @@
+{
+  "commit": "ed1daf0bf001b61586d9930840f2f1394092c079",
+  "sources": [
+    {
+      "path": "thirdparty/misc/pcg.cpp",
+      "blob_sha": "914a353874d79802ed6ce024f28e77e5968bc85c",
+      "url": "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/thirdparty/misc/pcg.cpp",
+      "sha256": "23b041f6584431522bed4d1876338a4a99632d0b10b567ab8ab27b30a95d148d",
+      "bytes": 2257
+    },
+    {
+      "path": "thirdparty/misc/pcg.h",
+      "blob_sha": "0faab73e6409ef94b3cde25ae606fd8e764a7ef0",
+      "url": "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/thirdparty/misc/pcg.h",
+      "sha256": "922e5e90dc61027eebf4bcf1f0b019db320061729e1de7451c26ab80f622e3f3",
+      "bytes": 536
+    },
+    {
+      "path": "core/math/random_pcg.cpp",
+      "blob_sha": "51ce7b3a267ce2e46b2578e249ef654049febbfc",
+      "url": "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/core/math/random_pcg.cpp",
+      "sha256": "df1245e043d269d6c0bfc5769184c8bf9a0f5a8455124e85e084843dafdbd29b",
+      "bytes": 3982
+    },
+    {
+      "path": "core/math/random_pcg.h",
+      "blob_sha": "a9eb3db67f54da2d89f1aed99cf42e27c89b72d0",
+      "url": "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/core/math/random_pcg.h",
+      "sha256": "0a635dcd459d1ed485b92cfb527f104a321d1441d7ca5763622a6c41cbad2aa6",
+      "bytes": 6453
+    },
+    {
+      "path": "core/math/random_number_generator.h",
+      "blob_sha": "aa21b41a23f8e0a6e12d157565c3d42636b797a1",
+      "url": "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/core/math/random_number_generator.h",
+      "sha256": "ab927c1c3facfb9433875fd87f8713b36811978eb35b7e53c4f1a240990f89e1",
+      "bytes": 3470
+    },
+    {
+      "path": "LICENSE.txt",
+      "blob_sha": "0e3ba08d6b2e8cf435241829c96f10b74e4356fe",
+      "url": "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/LICENSE.txt",
+      "sha256": "b0435e3b3e4e55238f05f4b306f30524a1b2e20147810d436eaa554fa6855c80",
+      "bytes": 1149
+    }
+  ],
+  "engine_binary": "Godot_v4.7.2-stable_linux.x86_64 (existing verified portable binary; not included)",
+  "engine_sha256": "8d106cbe6144c2dc7e881d61d2429c1a8a76e6b22ef48bd5e48dcf934953f71e",
+  "vectors": {
+    "file": "state_rng_vectors.json",
+    "sha256": "66a4960241e58ef13afd091f0338326704ea592dce3609527b7ed6f662223eab",
+    "count": 952,
+    "seed_rows": 11,
+    "rejection_cases": 87,
+    "zero_draw_cases": 136,
+    "maximum_raw_draws": 8
+  },
+  "generator": {
+    "file": "state_rng_vectors.gd",
+    "sha256": "8af38a27ed2807fe0f67a8515882fac9fd695f5effc49265db50600f2da178bb"
+  },
+  "pcg_license": {
+    "url": "https://github.com/imneme/pcg-c-basic/blob/master/LICENSE.txt",
+    "blob_sha": "8dada3edaf50dbc082c9a125058f25def75e625a",
+    "license": "Apache-2.0"
+  }
+}

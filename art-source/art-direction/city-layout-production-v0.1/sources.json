@@ -1,0 +1,207 @@
+{
+  "scope": "Production-candidate isolated city art, not yet user-approved final art. Source prompts recorded as production specifications. Original generated PNG bytes preserved without offline retouching.",
+  "assets": [
+    {
+      "id": "city.ground",
+      "path": "game/assets/art/layered-city/ground.png",
+      "sha256": "9dabdd5940b3ab31c57d524c1a6471a7cf8a1bdcc26d2585555470261b153628",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB",
+      "transparent": false,
+      "generation": "built-in image_gen",
+      "prompt_spec": "Fine hand-painted semi-realistic late-Han Chinese market art; fixed oblique bird's-eye view about 40 degrees elevation; shallow orthographic perspective; warm daylight from upper left; muted blue-grey tiled roofs, warm plaster and timber. Match accepted market reference. No labels, UI or writing. A complete empty ground plate: continuous warm earth and worn paving over the full canvas, only a low plastered wall, distant roof ridges and tree crowns at the far top and extreme corners. Center remains entirely unobstructed, no buildings, stalls, people or holes.",
+      "references": [
+        "art-source/art-direction/market-district/v0.1/market-district-ui.png"
+      ],
+      "review_status": "actual pixels inspected; user art review pending"
+    },
+    {
+      "id": "city.tavern",
+      "path": "game/assets/art/layered-city/tavern.png",
+      "sha256": "49c2236571e7630a81ab2fdf2b151348ba5d569cc6a2f78c489629383e481a19",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "transparent": true,
+      "generation": "built-in image_gen",
+      "prompt_spec": "Fine hand-painted semi-realistic late-Han Chinese market art; fixed oblique bird's-eye view about 40 degrees elevation; shallow orthographic perspective; warm daylight from upper left; muted blue-grey tiled roofs, warm plaster and timber. Match accepted market reference. No labels, UI or writing. One isolated complete one-storey tavern building with broad open front, wooden tables and large wine jars under the eaves; a muted crimson cloth with no writing. Frontage faces lower left, right gable visible. Whole structure in frame, genuine transparency and only a small contact shadow.",
+      "references": [
+        "art-source/art-direction/market-district/v0.1/market-district-ui.png"
+      ],
+      "review_status": "actual pixels inspected; user art review pending"
+    },
+    {
+      "id": "city.grainshop",
+      "path": "game/assets/art/layered-city/grainshop.png",
+      "sha256": "586d74790462079c4ba43f5129171600acb3b6cf370893471d458978a02bdcbd",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "transparent": true,
+      "generation": "built-in image_gen",
+      "prompt_spec": "Fine hand-painted semi-realistic late-Han Chinese market art; fixed oblique bird's-eye view about 40 degrees elevation; shallow orthographic perspective; warm daylight from upper left; muted blue-grey tiled roofs, warm plaster and timber. Match accepted market reference. No labels, UI or writing. One isolated complete grain shop and storehouse with straw grain sacks, wooden bins and baskets under the eaves; clear middle doorway. Frontage faces lower left, right gable visible. Whole structure in frame, genuine transparency and only a small contact shadow.",
+      "references": [
+        "art-source/art-direction/market-district/v0.1/market-district-ui.png"
+      ],
+      "review_status": "actual pixels inspected; user art review pending"
+    },
+    {
+      "id": "city.clothshop",
+      "path": "game/assets/art/layered-city/clothshop.png",
+      "sha256": "9349f2b152de48ecd916f08cc26890f6b0160085e471ee45734bc3bd04337e27",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "transparent": true,
+      "generation": "built-in image_gen",
+      "prompt_spec": "Fine hand-painted semi-realistic late-Han Chinese market art; fixed oblique bird's-eye view about 40 degrees elevation; shallow orthographic perspective; warm daylight from upper left; muted blue-grey tiled roofs, warm plaster and timber. Match accepted market reference. No labels, UI or writing. One isolated complete textile shop, pale linen awning and restrained indigo, terracotta and undyed cloth under eaves; entrance toward left facade. Frontage faces lower left, right gable visible. Whole structure in frame, genuine transparency and only a small contact shadow.",
+      "references": [
+        "art-source/art-direction/market-district/v0.1/market-district-ui.png"
+      ],
+      "review_status": "actual pixels inspected; user art review pending"
+    },
+    {
+      "id": "city.grainshop_construction",
+      "path": "game/assets/art/layered-city/grainshop_construction.png",
+      "sha256": "021eaf430dc7789b2d0d89352fe393cd42075ba843ad067a356c551d7f857d2b",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "transparent": true,
+      "generation": "built-in image_gen",
+      "prompt_spec": "Fine hand-painted semi-realistic late-Han Chinese market art; fixed oblique bird's-eye view about 40 degrees elevation; shallow orthographic perspective; warm daylight from upper left; muted blue-grey tiled roofs, warm plaster and timber. Match accepted market reference. No labels, UI or writing. Construction-stage edit of the same grain shop, maintaining canvas, foundation, footprint, projection and lighting. Roof partly tiled, exposed timber frame over right half, scaffold attached to facade and right wall, small stack of tiles and timber. Genuine transparent background, no people or added environment.",
+      "references": [
+        "art-source/art-direction/market-district/v0.1/market-district-ui.png",
+        "game/assets/art/layered-city/grainshop.png"
+      ],
+      "review_status": "actual pixels inspected; user art review pending"
+    },
+    {
+      "id": "city.tree",
+      "path": "game/assets/art/layered-city/tree.png",
+      "sha256": "fed53569c5c6434c18b0b6e53f52c9d6200ff9774a923860033f47bc7762fcc5",
+      "size": [
+        1399,
+        1124
+      ],
+      "mode": "RGBA",
+      "transparent": true,
+      "generation": "built-in image_gen",
+      "prompt_spec": "Fine hand-painted semi-realistic late-Han Chinese market art; fixed oblique bird's-eye view about 40 degrees elevation; shallow orthographic perspective; warm daylight from upper left; muted blue-grey tiled roofs, warm plaster and timber. Match accepted market reference. No labels, UI or writing. One isolated mature scholar tree with full green-golden canopy, natural branching trunk and roots; same high oblique camera and lighting. Genuine transparency, no ground patch, only minimal soft contact shadow, no buildings or people.",
+      "references": [
+        "art-source/art-direction/market-district/v0.1/market-district-ui.png"
+      ],
+      "review_status": "actual pixels inspected; user art review pending"
+    },
+    {
+      "id": "city.inn",
+      "path": "game/assets/art/layered-city/inn.png",
+      "sha256": "7d0d5082794f8a1f193f8c1d8d46fa52193bb3c4708f061f4b198b055327f7f8",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "transparent": true,
+      "generation": "built-in image_gen",
+      "prompt_spec": "Fine hand-painted semi-realistic late-Han Chinese market art; fixed oblique bird's-eye view about 40 degrees elevation; shallow orthographic perspective; warm daylight from upper left; muted blue-grey tiled roofs, warm plaster and timber. Match accepted market reference. No labels, UI or writing. One isolated modest guesthouse with a distinct L-shaped courtyard silhouette and slightly taller central timber entry pavilion; blue-grey tiled roofs, plaster, timber doors, sheltered bench and rolled sleeping mat beside the gate. Entire courtyard inside unit, gate facing lower left. Genuine transparency, no people, writing, UI or opaque ground rectangle.",
+      "references": [
+        "art-source/art-direction/market-district/v0.1/market-district-ui.png"
+      ],
+      "review_status": "actual pixels inspected; user art review pending"
+    },
+    {
+      "id": "city.road_earth",
+      "path": "game/assets/art/layered-city/road_earth.png",
+      "sha256": "42e893d3bc25792c8930cba386de4f26d6b010232705a228cc998812d9ae60f1",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGB",
+      "transparent": false,
+      "generation": "built-in image_gen",
+      "prompt_spec": "Seamless square material texture tile for compacted warm sandy late-Han market earth, fine hand-painted semi-realistic brushwork, low-contrast grain and tiny pebbles. No scene, people, buildings, writing, large marks or borders. Repeats across variable-width road polygons. Approved market material reference.",
+      "review_status": "source inspected; rendered editable-road stage pending review"
+    },
+    {
+      "id": "city.grainshop_foundation",
+      "path": "game/assets/art/layered-city/grainshop_foundation.png",
+      "sha256": "bb7377b49bec76d025f1988ecaf711a208e757290d02990c56ba89bed1aca90b",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "transparent": true,
+      "generation": "built-in image_gen",
+      "prompt_spec": "Same grain shop foundation stage: preserve canvas, camera, foundation footprint and doorstep; remove roof and high walls, retain low stone plinth and short timber sills. No people/UI/opaque terrain patch.",
+      "references": [
+        "game/assets/art/layered-city/grainshop.png"
+      ],
+      "review_status": "source and actual Godot full scene/closeup inspected; same-building shape and anchor retained; user final art approval pending"
+    },
+    {
+      "id": "city.grainshop_damaged",
+      "path": "game/assets/art/layered-city/grainshop_damaged.png",
+      "sha256": "3719422f02fcd76a59dbfd57a58807d522956c76b69185f3d4537f89a280367d",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "transparent": true,
+      "generation": "built-in image_gen",
+      "prompt_spec": "Same complete grain shop with localized missing roof tiles, exposed broken rafters, cracked right plaster and torn awning. Preserve primary silhouette, entrance, light, canvas and footprint; no new building or background.",
+      "references": [
+        "game/assets/art/layered-city/grainshop.png"
+      ],
+      "review_status": "source and actual Godot full scene/closeup inspected; same-building shape and anchor retained; user final art approval pending"
+    },
+    {
+      "id": "city.grainshop_uncovered",
+      "path": "game/assets/art/layered-city/grainshop_uncovered.png",
+      "sha256": "7bbfeff1e056555d8b068fe0c062259f61434e9c2a2af0286480ff01437d73b7",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "transparent": true,
+      "generation": "built-in image_gen",
+      "prompt_spec": "Remove only front-right cream canvas awning and its two thin support poles; retain main structure, goods and paving and fill previously hidden rear content. Match original grainshop camera, canvas and light. Source output reframed about 7 percent larger despite invariant request; uses explicit author uniform body_scale=0.925 around same foot, pending actual visual acceptance.",
+      "references": [
+        "game/assets/art/layered-city/grainshop.png"
+      ],
+      "review_status": "actual Godot on/off closeup and moved-parent composition inspected; rear structure complete and contact natural after declared uniform author registration; user final art approval pending"
+    },
+    {
+      "id": "city.grainshop_awning",
+      "path": "game/assets/art/layered-city/grainshop_awning.png",
+      "sha256": "7a0f330bb6531b1a89d606dbb0e5cceb09b2ef7bee3f5ed6e8c21a9be6ebbe7e",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "transparent": true,
+      "generation": "built-in image_gen",
+      "prompt_spec": "Extract only original front-right cream fabric canopy and two thin upright poles; shallow rear/front edge slopes, reference projection and natural linen/wood. No buildings, goods, terrain or people; genuine transparent opening between poles. First candidate too steep, second chosen provisionally for actual-engine fit review.",
+      "references": [
+        "game/assets/art/layered-city/grainshop.png"
+      ],
+      "review_status": "actual Godot on/off closeup and moved-parent composition inspected; rear structure complete and contact natural after declared uniform author registration; user final art approval pending"
+    }
+  ]
+}

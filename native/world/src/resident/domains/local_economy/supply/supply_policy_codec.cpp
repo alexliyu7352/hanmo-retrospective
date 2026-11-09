@@ -1,0 +1,13 @@
+// 只做显式新段的严格字段/版本准入；加载不会补政策、批准、观察或任何钱货。
+#include "resident/checkpoint/checkpoint_decode_lifecycle.hpp"
+#include "supply_policy_codec.hpp"
+#include "../economic_payload_guard.hpp"
+namespace hanmo::resident {
+Outcome<EconomicSupplyPolicyCatalog> decode_economic_supply_policy_catalog(const BoundaryValue& input){auto unique=validate_economic_payload_fields(input);if(!unique.ok)return {false,{},unique.error};try{// The original authored optional is read directly from its actual dictionary;
+// no copied Boundary tree or synthesized null field is needed.
+auto out=dynamic_economy_codec::decode_root<EconomicSupplyPolicyCatalog>(input,economic_supply_policy_module);if(out.version!=1)boundary::fail("UnsupportedEconomicSupplyPolicyVersion",economic_supply_policy_module);return {true,std::move(out),{}};}catch(const boundary::DecodeFailure& error){return {false,{},error.error};}}
+Outcome<EconomicSupplyPolicyState> decode_economic_supply_policy_state(const BoundaryValue& input){auto unique=validate_economic_payload_fields(input);if(!unique.ok)return {false,{},unique.error};try{auto out=dynamic_economy_codec::decode_root<EconomicSupplyPolicyState>(input,economic_supply_policy_module);if(out.version!=1)boundary::fail("UnsupportedEconomicSupplyPolicyVersion",economic_supply_policy_module);return {true,std::move(out),{}};}catch(const boundary::DecodeFailure& error){return {false,{},error.error};}}
+Status emit_economic_supply_policy_state_fields(ProjectionWriter& writer,const EconomicSupplyPolicyState& state){try{if(state.version!=1)boundary::fail("UnsupportedEconomicSupplyPolicyVersion",economic_supply_policy_module);return dynamic_economy_codec::emit_fields(writer,state);}catch(const boundary::DecodeFailure&failure){return writer.reject(failure.error.original.code,failure.error.original.path);}}
+BoundaryValue encode_economic_supply_policy_state(const EconomicSupplyPolicyState& state){BoundaryValue out;BoundaryProjectionWriter writer(out);auto valid=writer.object("",[&](auto&fields){return emit_economic_supply_policy_state_fields(fields,state);});if(valid.ok)valid=writer.finish();if(!valid.ok)throw boundary::DecodeFailure{valid.error};return out;}
+Status visit_economic_supply_policy_checkpoint(CodecVisitor& visitor,EconomicSupplyPolicyState& state){if(!visitor.reading()&&state.version!=1)return visitor.reject("UnsupportedEconomicSupplyPolicyVersion",economic_supply_policy_module);auto result=dynamic_economy_codec::checkpoint(visitor,economic_supply_policy_module,state);if(!result.ok)return result;return state.version==1?visitor.status():visitor.reject("UnsupportedEconomicSupplyPolicyVersion",economic_supply_policy_module);}
+}

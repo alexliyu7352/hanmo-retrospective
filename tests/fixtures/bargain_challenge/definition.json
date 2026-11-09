@@ -1,0 +1,122 @@
+{
+  "id": "bargain.lesson",
+  "difficulty": 1,
+  "conditions": [
+    {
+      "id": "small",
+      "kind": "supply",
+      "text_key": "bargain.supply.small",
+      "matched": true
+    },
+    {
+      "id": "batch",
+      "kind": "supply",
+      "text_key": "bargain.supply.batch",
+      "matched": true
+    },
+    {
+      "id": "cash",
+      "kind": "terms",
+      "text_key": "bargain.terms.cash",
+      "matched": true
+    },
+    {
+      "id": "unmatched",
+      "kind": "terms",
+      "text_key": "bargain.terms.later",
+      "matched": false
+    }
+  ],
+  "rounds": [
+    {
+      "id": "round.1",
+      "prompt_key": "bargain.round.1",
+      "options": [
+        {
+          "id": "small",
+          "kind": "quantity",
+          "method": "small_quantity",
+          "text_key": "bargain.quantity",
+          "supply_condition_id": "small",
+          "terms_condition_id": "cash"
+        },
+        {
+          "id": "batch",
+          "kind": "batch",
+          "method": "combined_purchase",
+          "text_key": "bargain.batch",
+          "supply_condition_id": "batch",
+          "terms_condition_id": "unmatched"
+        },
+        {
+          "id": "cash",
+          "kind": "payment",
+          "method": "cash",
+          "text_key": "bargain.payment",
+          "supply_condition_id": null,
+          "terms_condition_id": "cash"
+        }
+      ]
+    },
+    {
+      "id": "round.2",
+      "prompt_key": "bargain.round.2",
+      "options": [
+        {
+          "id": "small",
+          "kind": "quantity",
+          "method": "small_quantity",
+          "text_key": "bargain.quantity",
+          "supply_condition_id": "small",
+          "terms_condition_id": "cash"
+        },
+        {
+          "id": "batch",
+          "kind": "batch",
+          "method": "combined_purchase",
+          "text_key": "bargain.batch",
+          "supply_condition_id": "batch",
+          "terms_condition_id": "unmatched"
+        },
+        {
+          "id": "cash",
+          "kind": "payment",
+          "method": "cash",
+          "text_key": "bargain.payment",
+          "supply_condition_id": null,
+          "terms_condition_id": "cash"
+        }
+      ]
+    },
+    {
+      "id": "round.3",
+      "prompt_key": "bargain.round.3",
+      "options": [
+        {
+          "id": "small",
+          "kind": "quantity",
+          "method": "small_quantity",
+          "text_key": "bargain.quantity",
+          "supply_condition_id": "small",
+          "terms_condition_id": "cash"
+        },
+        {
+          "id": "batch",
+          "kind": "batch",
+          "method": "combined_purchase",
+          "text_key": "bargain.batch",
+          "supply_condition_id": "batch",
+          "terms_condition_id": "unmatched"
+        },
+        {
+          "id": "cash",
+          "kind": "payment",
+          "method": "cash",
+          "text_key": "bargain.payment",
+          "supply_condition_id": null,
+          "terms_condition_id": "cash"
+        }
+      ]
+    }
+  ]
+}

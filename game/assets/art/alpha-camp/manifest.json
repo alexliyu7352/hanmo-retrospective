@@ -1,0 +1,14 @@
+{
+  "file": "camp-courtyard.png",
+  "tool": "built-in image_gen",
+  "source": "<本地路径>",
+  "prompt_file": "prompt.txt",
+  "size": [
+    1536,
+    1024
+  ],
+  "sha256": "2f5649b6a342bb7cedbfa3fde882e9625ea27c98d80dfc90c109bdee519fedc9",
+  "actual_viewed": true,
+  "purpose": "原创军营场景底图；无人物、无文字、无UI；由root注册camp并接同工程两营场景。",
+  "runtime_screenshot": false
+}

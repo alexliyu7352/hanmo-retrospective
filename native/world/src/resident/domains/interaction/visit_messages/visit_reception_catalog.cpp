@@ -1,0 +1,39 @@
+#include "resident/kernel/catalog_section_observation.hpp"
+// 显式入口至声明节点的路径只含原say/choice，所有运行准入仍由原对白预览复核。
+#include "visit_reception_catalog.hpp"
+#include <set>
+namespace hanmo::resident {namespace {
+void unique(const BoundaryValue& value,const StableId& path){std::set<StableId> names;for(const auto& row:boundary::object(value,path))if(!names.insert(row.first).second)boundary::fail("DuplicateVisitReceptionField",path);}
+const VisitMessagePolicy* policy(const VisitMessageCatalog& c,const StableId& id){for(const auto& p:c.policies)if(p.id==id)return &p;return nullptr;}
+const DialogueNode* node(const DialogueDefinition& d,const StableId& id){const DialogueNode* result=nullptr;for(const auto& n:d.nodes)if(n.id==id){if(result)return nullptr;result=&n;}return result;}
+}
+const VisitReceptionIntent* visit_reception_intent(const VisitReceptionCatalog& c,const StableId& id){for(const auto& i:c.intents)if(i.id==id)return &i;return nullptr;}
+const VisitReceptionIntent* visit_reception_actor_intent(const VisitReceptionCatalog& catalog,const StableId& actor){for(const auto& i:catalog.intents)if(i.actor_id==actor)return &i;return nullptr;}
+Status validate_visit_reception_catalog(const VisitReceptionCatalog& c,const VisitMessageCatalog& messages,const InteractionCatalog& interactions){
+  // 只旁观本次原入口；返回值与首错仍由原函数独占。
+  ::hanmo::resident::catalog_section_observation::Scope catalog_cost_observation(
+      ::hanmo::resident::catalog_section_observation::Kind::catalog_validation, 62, "VisitReceptionCatalog", "validate_visit_reception_catalog", &c);
+
+    auto valid=validate_visit_message_catalog(messages,interactions);if(!valid.ok)return valid;
+    if(c.version!=1)return common_failure("UnsupportedVisitReceptionVersion");if(c.intents.empty()||c.intents.size()>4096)return common_failure("InvalidVisitReceptionCatalog");std::set<StableId> ids,actors;
+    for(const auto& intent:c.intents){const auto* source=policy(messages,intent.message_policy_id);
+        if(intent.id.empty()||!ids.insert(intent.id).second||!actors.insert(intent.actor_id).second||!source||(intent.purpose!="deposit"&&intent.purpose!="receive")||intent.actor_id!=(intent.purpose=="deposit"?source->sender_actor_id:source->recipient_actor_id)||intent.cooldown_ticks<1||intent.cooldown_ticks>120||intent.route.size()>16)return common_failure("InvalidVisitReceptionIntent",intent.id);
+        const DialogueDefinition* dialogue=nullptr;for(const auto& d:interactions.dialogues)if(d.id==source->dialogue_id)dialogue=&d;if(!dialogue)return common_failure("InvalidVisitReceptionDialogue",intent.id);
+        const auto target=intent.purpose=="deposit"?source->deposit_node_id:source->receive_node_id;StableId current=dialogue->entry;std::set<StableId> seen;
+        for(const auto& step:intent.route){if(current==target||step.node_id!=current||!seen.insert(current).second)return common_failure("InvalidVisitReceptionRoute",intent.id);const auto* n=node(*dialogue,current);if(!n)return common_failure("InvalidVisitReceptionRoute",intent.id);
+            if(n->kind=="say"){if(!step.option_id.empty()||n->next.empty())return common_failure("InvalidVisitReceptionRoute",intent.id);current=n->next;}
+            else if(n->kind=="choice"){const DialogueOption* option=nullptr;for(const auto& o:n->options)if(o.id==step.option_id){if(option)return common_failure("InvalidVisitReceptionRoute",intent.id);option=&o;}if(!option||option->next.empty())return common_failure("InvalidVisitReceptionRoute",intent.id);current=option->next;}
+            else return common_failure("VisitReceptionUnsafeRoute",intent.id);
+        }
+        if(current!=target||seen.count(target))return common_failure("VisitReceptionDeclarationUnreachable",intent.id);
+    }return common_success();
+}
+Outcome<VisitReceptionCatalog> decode_visit_reception_catalog(const BoundaryValue& value,const VisitMessageCatalog& messages,const InteractionCatalog& interactions){try{
+    using namespace boundary;unique(value,"visit_reception_intents");fields(value,{"version","intents"},{},"visit_reception_intents");VisitReceptionCatalog result;result.version=get_int(value,"version","visit_reception_intents");if(result.version!=1)unsupported("UnsupportedVisitReceptionVersion","visit_reception_intents");const auto& rows=array(field(value,"intents","visit_reception_intents"),"intents");if(rows.size()>4096)fail("VisitReceptionIntentLimit","intents");
+    for(const auto& row:rows){unique(row,"intent");fields(row,{"id","actor_id","message_policy_id","purpose","cooldown_ticks","route"},{},"intent");VisitReceptionIntent i;i.id=get_string(row,"id","intent");i.actor_id=get_string(row,"actor_id","intent");i.message_policy_id=get_string(row,"message_policy_id","intent");i.purpose=get_string(row,"purpose","intent");i.cooldown_ticks=get_int(row,"cooldown_ticks","intent");const auto& route=array(field(row,"route","intent"),"route");if(route.size()>16)fail("VisitReceptionRouteLimit",i.id);for(const auto& step:route){unique(step,"step");fields(step,{"node_id"},{"option_id"},"step");VisitReceptionStep s;s.node_id=get_string(step,"node_id","step");if(const auto* option=step.find("option_id"))s.option_id=string(*option,"option_id");i.route.push_back(std::move(s));}result.intents.push_back(std::move(i));}
+    auto valid=validate_visit_reception_catalog(result,messages,interactions);if(!valid.ok)return {false,{},valid.error};return {true,std::move(result),{}};
+}catch(const boundary::DecodeFailure& e){return {false,{},e.error};}}
+BoundaryValue encode_visit_reception_catalog(const VisitReceptionCatalog& c){using V=BoundaryValue;V::Array rows;for(const auto& i:c.intents){V::Array route;for(const auto& step:i.route){auto row=boundary::obj({{"node_id",V{step.node_id}}});if(!step.option_id.empty())row.as<V::Dict>()->emplace_back("option_id",V{step.option_id});route.push_back(std::move(row));}rows.push_back(boundary::obj({{"id",V{i.id}},{"actor_id",V{i.actor_id}},{"message_policy_id",V{i.message_policy_id}},{"purpose",V{i.purpose}},{"cooldown_ticks",V{i.cooldown_ticks}},{"route",V{std::move(route)}}}));}return boundary::obj({{"version",V{c.version}},{"intents",V{std::move(rows)}}});}
+Outcome<bool> decode_visit_reception_profile(const BoundaryValue& scenario,const std::vector<StableId>& capabilities){try{using namespace boundary;unique(scenario,"scenario");const auto* profile=scenario.find("visit_reception_profile"),*catalog=scenario.find("visit_reception_intents");if(!profile){if(catalog)unsupported("VisitReceptionProfileRequired","visit_reception_intents");return {true,false,{}};}if(string(*profile,"visit_reception_profile")!="authored_local_reception_v1")unsupported("UnsupportedVisitReceptionProfile","visit_reception_profile");if(!catalog)unsupported("VisitReceptionCatalogRequired","visit_reception_intents");auto messages=decode_visit_message_profile(scenario,capabilities);if(!messages.ok)return messages;if(!messages.value)unsupported("VisitMessageProfileRequired","visit_reception_profile");if(std::find(capabilities.begin(),capabilities.end(),"visit_reception_v1")==capabilities.end())unsupported("VisitReceptionCapabilityRequired","visit_reception_profile");return {true,true,{}};}catch(const boundary::DecodeFailure& e){return {false,{},e.error};}}
+Status validate_visit_reception_layout(const std::vector<std::pair<StableId,StableId>>& modules,const VisitReceptionCatalog* catalog,const VisitMessageCatalog* messages){Integer found=0,claims=0;for(const auto& m:modules){if(m.first=="visit_reception_intents"){++found;if(m.second!="1")return common_failure("UnsupportedVisitReceptionVersion");}if(m.first=="visit_reception_claims"){++claims;if(m.second!="1")return common_failure("UnsupportedVisitReceptionClaimVersion");}}if(found!=(catalog?1:0)||claims!=found||(catalog&&(!messages||catalog->version!=1)))return common_failure("VisitReceptionProfileMismatch");return common_success();}
+}

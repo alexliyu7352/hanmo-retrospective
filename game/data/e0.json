@@ -1,0 +1,597 @@
+{
+  "content_version": "e0-1",
+  "ruleset_id": "e0-1",
+  "scenario_id": "e0-sandbox",
+  "epoch": 190,
+  "description": "原创功能测试拓扑，不是已考据的汉末地理。路遇、NPC、战斗、职业晋升尚未接入。",
+  "features": {
+    "encounters": false,
+    "npc_ai": false,
+    "combat": false,
+    "commission_q04": true
+  },
+  "actor": {
+    "id": "traveler",
+    "name": "行舟",
+    "origin_tag": "original-test",
+    "attributes": {
+      "leadership": 50,
+      "martial": 50,
+      "intellect": 65,
+      "administration": 70,
+      "charm": 65
+    },
+    "skills": {
+      "infantry": 0,
+      "cavalry": 0,
+      "archery": 0,
+      "martial": 0,
+      "strategy": 0,
+      "debate": 0,
+      "negotiation": 0,
+      "rites": 0,
+      "commerce": 0,
+      "transport": 0
+    },
+    "initial_place": "C01",
+    "money": 800
+  },
+  "nodes": [
+    {
+      "id": "C01",
+      "name": "西城",
+      "type": "city",
+      "map_xy": [
+        0.16,
+        0.4
+      ],
+      "facilities": [
+        "work",
+        "rest",
+        "market"
+      ]
+    },
+    {
+      "id": "C02",
+      "name": "东城",
+      "type": "city",
+      "map_xy": [
+        0.34,
+        0.29
+      ],
+      "facilities": [
+        "work",
+        "rest",
+        "market"
+      ]
+    },
+    {
+      "id": "C03",
+      "name": "桑城",
+      "type": "city",
+      "map_xy": [
+        0.51,
+        0.23
+      ],
+      "facilities": [
+        "work",
+        "rest",
+        "market"
+      ]
+    },
+    {
+      "id": "C04",
+      "name": "山城",
+      "type": "city",
+      "map_xy": [
+        0.68,
+        0.29
+      ],
+      "facilities": [
+        "work",
+        "rest",
+        "market"
+      ]
+    },
+    {
+      "id": "C05",
+      "name": "南市",
+      "type": "city",
+      "map_xy": [
+        0.65,
+        0.58
+      ],
+      "facilities": [
+        "work",
+        "rest",
+        "market"
+      ]
+    },
+    {
+      "id": "C06",
+      "name": "竹城",
+      "type": "city",
+      "map_xy": [
+        0.75,
+        0.74
+      ],
+      "facilities": [
+        "work",
+        "rest",
+        "market"
+      ]
+    },
+    {
+      "id": "C07",
+      "name": "石城",
+      "type": "city",
+      "map_xy": [
+        0.88,
+        0.47
+      ],
+      "facilities": [
+        "work",
+        "rest",
+        "market"
+      ]
+    },
+    {
+      "id": "C08",
+      "name": "远城",
+      "type": "city",
+      "map_xy": [
+        0.41,
+        0.76
+      ],
+      "facilities": [
+        "work",
+        "rest",
+        "market"
+      ]
+    },
+    {
+      "id": "V01",
+      "name": "青溪乡",
+      "type": "village",
+      "map_xy": [
+        0.28,
+        0.55
+      ],
+      "facilities": [
+        "work",
+        "rest"
+      ]
+    },
+    {
+      "id": "V02",
+      "name": "白石乡",
+      "type": "village",
+      "map_xy": [
+        0.64,
+        0.87
+      ],
+      "facilities": [
+        "work",
+        "rest"
+      ]
+    },
+    {
+      "id": "F01",
+      "name": "南渡",
+      "type": "ferry",
+      "map_xy": [
+        0.71,
+        0.43
+      ],
+      "facilities": [
+        "work",
+        "rest"
+      ]
+    },
+    {
+      "id": "M01",
+      "name": "北营",
+      "type": "camp",
+      "map_xy": [
+        0.48,
+        0.39
+      ],
+      "facilities": [
+        "work",
+        "rest"
+      ]
+    }
+  ],
+  "routes": [
+    {
+      "id": "R01a",
+      "pair": "R01",
+      "origin": "C01",
+      "destination": "C02",
+      "base_steps": 2,
+      "fee": 0,
+      "risk_bp": 0
+    },
+    {
+      "id": "R01b",
+      "pair": "R01",
+      "origin": "C02",
+      "destination": "C01",
+      "base_steps": 2,
+      "fee": 0,
+      "risk_bp": 0
+    },
+    {
+      "id": "R02a",
+      "pair": "R02",
+      "origin": "C02",
+      "destination": "C03",
+      "base_steps": 2,
+      "fee": 0,
+      "risk_bp": 0
+    },
+    {
+      "id": "R02b",
+      "pair": "R02",
+      "origin": "C03",
+      "destination": "C02",
+      "base_steps": 2,
+      "fee": 0,
+      "risk_bp": 0
+    },
+    {
+      "id": "R03a",
+      "pair": "R03",
+      "origin": "C03",
+      "destination": "C04",
+      "base_steps": 3,
+      "fee": 0,
+      "risk_bp": 0
+    },
+    {
+      "id": "R03b",
+      "pair": "R03",
+      "origin": "C04",
+      "destination": "C03",
+      "base_steps": 3,
+      "fee": 0,
+      "risk_bp": 0
+    },
+    {
+      "id": "R04a",
+      "pair": "R04",
+      "origin": "C01",
+      "destination": "V01",
+      "base_steps": 1,
+      "fee": 0,
+      "risk_bp": 0
+    },
+    {
+      "id": "R04b",
+      "pair": "R04",
+      "origin": "V01",
+      "destination": "C01",
+      "base_steps": 1,
+      "fee": 0,
+      "risk_bp": 0
+    },
+    {
+      "id": "R05a",
+      "pair": "R05",
+      "origin": "V01",
+      "destination": "C03",
+      "base_steps": 4,
+      "fee": 0,
+      "risk_bp": 0
+    },
+    {
+      "id": "R05b",
+      "pair": "R05",
+      "origin": "C03",
+      "destination": "V01",
+      "base_steps": 4,
+      "fee": 0,
+      "risk_bp": 0
+    },
+    {
+      "id": "R06a",
+      "pair": "R06",
+      "origin": "C02",
+      "destination": "M01",
+      "base_steps": 1,
+      "fee": 0,
+      "risk_bp": 0
+    },
+    {
+      "id": "R06b",
+      "pair": "R06",
+      "origin": "M01",
+      "destination": "C02",
+      "base_steps": 1,
+      "fee": 0,
+      "risk_bp": 0
+    },
+    {
+      "id": "R07a",
+      "pair": "R07",
+      "origin": "M01",
+      "destination": "C04",
+      "base_steps": 3,
+      "fee": 0,
+      "risk_bp": 0
+    },
+    {
+      "id": "R07b",
+      "pair": "R07",
+      "origin": "C04",
+      "destination": "M01",
+      "base_steps": 3,
+      "fee": 0,
+      "risk_bp": 0
+    },
+    {
+      "id": "R08a",
+      "pair": "R08",
+      "origin": "C04",
+      "destination": "F01",
+      "base_steps": 2,
+      "fee": 0,
+      "risk_bp": 0
+    },
+    {
+      "id": "R08b",
+      "pair": "R08",
+      "origin": "F01",
+      "destination": "C04",
+      "base_steps": 2,
+      "fee": 0,
+      "risk_bp": 0
+    },
+    {
+      "id": "R09a",
+      "pair": "R09",
+      "origin": "F01",
+      "destination": "C05",
+      "base_steps": 2,
+      "fee": 0,
+      "risk_bp": 0
+    },
+    {
+      "id": "R09b",
+      "pair": "R09",
+      "origin": "C05",
+      "destination": "F01",
+      "base_steps": 2,
+      "fee": 0,
+      "risk_bp": 0
+    },
+    {
+      "id": "R10a",
+      "pair": "R10",
+      "origin": "C05",
+      "destination": "C06",
+      "base_steps": 2,
+      "fee": 0,
+      "risk_bp": 0
+    },
+    {
+      "id": "R10b",
+      "pair": "R10",
+      "origin": "C06",
+      "destination": "C05",
+      "base_steps": 2,
+      "fee": 0,
+      "risk_bp": 0
+    },
+    {
+      "id": "R11a",
+      "pair": "R11",
+      "origin": "C06",
+      "destination": "C07",
+      "base_steps": 3,
+      "fee": 0,
+      "risk_bp": 0
+    },
+    {
+      "id": "R11b",
+      "pair": "R11",
+      "origin": "C07",
+      "destination": "C06",
+      "base_steps": 3,
+      "fee": 0,
+      "risk_bp": 0
+    },
+    {
+      "id": "R12a",
+      "pair": "R12",
+      "origin": "C07",
+      "destination": "C08",
+      "base_steps": 2,
+      "fee": 0,
+      "risk_bp": 0
+    },
+    {
+      "id": "R12b",
+      "pair": "R12",
+      "origin": "C08",
+      "destination": "C07",
+      "base_steps": 2,
+      "fee": 0,
+      "risk_bp": 0
+    },
+    {
+      "id": "R13a",
+      "pair": "R13",
+      "origin": "C08",
+      "destination": "C05",
+      "base_steps": 4,
+      "fee": 0,
+      "risk_bp": 0
+    },
+    {
+      "id": "R13b",
+      "pair": "R13",
+      "origin": "C05",
+      "destination": "C08",
+      "base_steps": 4,
+      "fee": 0,
+      "risk_bp": 0
+    },
+    {
+      "id": "R14a",
+      "pair": "R14",
+      "origin": "C06",
+      "destination": "V02",
+      "base_steps": 1,
+      "fee": 0,
+      "risk_bp": 0
+    },
+    {
+      "id": "R14b",
+      "pair": "R14",
+      "origin": "V02",
+      "destination": "C06",
+      "base_steps": 1,
+      "fee": 0,
+      "risk_bp": 0
+    },
+    {
+      "id": "R15a",
+      "pair": "R15",
+      "origin": "V02",
+      "destination": "C08",
+      "base_steps": 3,
+      "fee": 0,
+      "risk_bp": 0
+    },
+    {
+      "id": "R15b",
+      "pair": "R15",
+      "origin": "C08",
+      "destination": "V02",
+      "base_steps": 3,
+      "fee": 0,
+      "risk_bp": 0
+    },
+    {
+      "id": "R16a",
+      "pair": "R16",
+      "origin": "C03",
+      "destination": "C05",
+      "base_steps": 6,
+      "fee": 0,
+      "risk_bp": 0
+    },
+    {
+      "id": "R16b",
+      "pair": "R16",
+      "origin": "C05",
+      "destination": "C03",
+      "base_steps": 6,
+      "fee": 0,
+      "risk_bp": 0
+    },
+    {
+      "id": "R17a",
+      "pair": "R17",
+      "origin": "C04",
+      "destination": "C07",
+      "base_steps": 6,
+      "fee": 0,
+      "risk_bp": 0
+    },
+    {
+      "id": "R17b",
+      "pair": "R17",
+      "origin": "C07",
+      "destination": "C04",
+      "base_steps": 6,
+      "fee": 0,
+      "risk_bp": 0
+    },
+    {
+      "id": "R18a",
+      "pair": "R18",
+      "origin": "C01",
+      "destination": "C08",
+      "base_steps": 8,
+      "fee": 0,
+      "risk_bp": 0
+    },
+    {
+      "id": "R18b",
+      "pair": "R18",
+      "origin": "C08",
+      "destination": "C01",
+      "base_steps": 8,
+      "fee": 0,
+      "risk_bp": 0
+    }
+  ],
+  "items": [
+    {
+      "id": "grain",
+      "name": "粮",
+      "base_price": 40,
+      "weight": 1,
+      "production": 12,
+      "demand": 10
+    },
+    {
+      "id": "cloth",
+      "name": "布",
+      "base_price": 120,
+      "weight": 2,
+      "production": 5,
+      "demand": 4
+    },
+    {
+      "id": "wood",
+      "name": "木材",
+      "base_price": 60,
+      "weight": 2,
+      "production": 6,
+      "demand": 5
+    },
+    {
+      "id": "iron",
+      "name": "铁料",
+      "base_price": 100,
+      "weight": 3,
+      "production": 4,
+      "demand": 3
+    },
+    {
+      "id": "salt",
+      "name": "盐",
+      "base_price": 80,
+      "weight": 1,
+      "production": 5,
+      "demand": 4
+    },
+    {
+      "id": "herbs",
+      "name": "药材",
+      "base_price": 150,
+      "weight": 1,
+      "production": 3,
+      "demand": 2
+    },
+    {
+      "id": "tack",
+      "name": "马具",
+      "base_price": 300,
+      "weight": 5,
+      "production": 1,
+      "demand": 1
+    },
+    {
+      "id": "weapon",
+      "name": "普通兵器",
+      "base_price": 500,
+      "weight": 5,
+      "production": 1,
+      "demand": 1
+    }
+  ]
+}

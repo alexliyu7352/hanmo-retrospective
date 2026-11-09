@@ -1,0 +1,524 @@
+{
+  "schema": "adult_sword_body_rig/1",
+  "status": "WIP_ASSET_CANDIDATE_UNVERIFIED_POSES",
+  "atlas_path": "art-source/art-direction/adult-sword-battle-v1/source/atlas-02-candidate.png",
+  "source_size": [
+    1254,
+    1254
+  ],
+  "source_sha256": "9b1707f882dbee1ff6f8242da238c34ada9b9ac282d357f88ea6a34a1036f23c",
+  "pixels_per_unit": 800.0,
+  "coordinate_convention": "Pixels: origin top-left, +x right, +y down. region is source atlas x/y/w/h; pivot, anchors and optional source_patches are region-local. Transform each source patch through the same part transform, never draw the full region when patches exist.",
+  "view": "adult_medium_three_quarter_screen_right",
+  "side_convention": {
+    "right": "near side, sword hand",
+    "left": "far side"
+  },
+  "identity_policy": "Shared adult battle body only; actor_id, existing portrait, name and faction remain authoritative. No face/appearance/save or equipment mutation.",
+  "parts": {
+    "torso": {
+      "region": [
+        355,
+        8,
+        325,
+        436
+      ],
+      "pivot": [
+        165,
+        268
+      ],
+      "anchors": {
+        "neck": [
+          147,
+          58
+        ],
+        "shoulder": [
+          150,
+          92
+        ],
+        "left_shoulder": [
+          59,
+          97
+        ],
+        "right_shoulder": [
+          239,
+          103
+        ],
+        "left_hip": [
+          125,
+          271
+        ],
+        "right_hip": [
+          202,
+          272
+        ]
+      },
+      "parent": "",
+      "parent_anchor": "",
+      "z": 30,
+      "uniform_scale": 1.0,
+      "alpha_bbox_ge16": [
+        7,
+        7,
+        319,
+        432
+      ],
+      "source_patches": [
+        [
+          0,
+          0,
+          325,
+          419
+        ],
+        [
+          179,
+          419,
+          64,
+          17
+        ]
+      ]
+    },
+    "head": {
+      "region": [
+        58,
+        40,
+        271,
+        336
+      ],
+      "pivot": [
+        130,
+        314
+      ],
+      "anchors": {
+        "crown": [
+          162,
+          72
+        ]
+      },
+      "parent": "torso",
+      "parent_anchor": "neck",
+      "z": 31,
+      "uniform_scale": 0.6,
+      "alpha_bbox_ge16": [
+        6,
+        6,
+        265,
+        330
+      ]
+    },
+    "right_upper_arm": {
+      "region": [
+        704,
+        64,
+        192,
+        298
+      ],
+      "pivot": [
+        140,
+        53
+      ],
+      "anchors": {
+        "end": [
+          86,
+          261
+        ]
+      },
+      "parent": "torso",
+      "parent_anchor": "right_shoulder",
+      "z": 45,
+      "uniform_scale": 0.75,
+      "alpha_bbox_ge16": [
+        6,
+        6,
+        186,
+        292
+      ]
+    },
+    "left_upper_arm": {
+      "region": [
+        1009,
+        65,
+        195,
+        297
+      ],
+      "pivot": [
+        39,
+        50
+      ],
+      "anchors": {
+        "end": [
+          135,
+          260
+        ]
+      },
+      "parent": "torso",
+      "parent_anchor": "left_shoulder",
+      "z": 14,
+      "uniform_scale": 0.72,
+      "alpha_bbox_ge16": [
+        6,
+        6,
+        189,
+        291
+      ]
+    },
+    "right_forearm": {
+      "region": [
+        100,
+        380,
+        212,
+        271
+      ],
+      "pivot": [
+        108,
+        147
+      ],
+      "anchors": {
+        "end": [
+          170,
+          242
+        ]
+      },
+      "parent": "right_upper_arm",
+      "parent_anchor": "end",
+      "z": 46,
+      "uniform_scale": 0.85,
+      "alpha_bbox_ge16": [
+        6,
+        6,
+        206,
+        265
+      ]
+    },
+    "left_forearm": {
+      "region": [
+        400,
+        423,
+        170,
+        226
+      ],
+      "pivot": [
+        88,
+        113
+      ],
+      "anchors": {
+        "end": [
+          44,
+          198
+        ]
+      },
+      "parent": "left_upper_arm",
+      "parent_anchor": "end",
+      "z": 15,
+      "uniform_scale": 1.0,
+      "alpha_bbox_ge16": [
+        7,
+        4,
+        162,
+        220
+      ],
+      "source_patches": [
+        [
+          0,
+          4,
+          134,
+          14
+        ],
+        [
+          0,
+          18,
+          170,
+          208
+        ]
+      ]
+    },
+    "right_hand": {
+      "region": [
+        714,
+        448,
+        148,
+        174
+      ],
+      "pivot": [
+        47,
+        32
+      ],
+      "anchors": {
+        "end": [
+          106,
+          151
+        ],
+        "grip": [
+          90,
+          118
+        ]
+      },
+      "parent": "right_forearm",
+      "parent_anchor": "end",
+      "z": 48,
+      "uniform_scale": 0.6,
+      "alpha_bbox_ge16": [
+        6,
+        6,
+        142,
+        168
+      ]
+    },
+    "left_hand": {
+      "region": [
+        1024,
+        470,
+        174,
+        174
+      ],
+      "pivot": [
+        43,
+        34
+      ],
+      "anchors": {
+        "end": [
+          139,
+          134
+        ]
+      },
+      "parent": "left_forearm",
+      "parent_anchor": "end",
+      "z": 16,
+      "uniform_scale": 0.58,
+      "alpha_bbox_ge16": [
+        6,
+        6,
+        168,
+        168
+      ]
+    },
+    "right_thigh": {
+      "region": [
+        63,
+        650,
+        214,
+        296
+      ],
+      "pivot": [
+        132,
+        36
+      ],
+      "anchors": {
+        "end": [
+          72,
+          240
+        ]
+      },
+      "parent": "torso",
+      "parent_anchor": "right_hip",
+      "z": 22,
+      "uniform_scale": 0.95,
+      "alpha_bbox_ge16": [
+        6,
+        6,
+        208,
+        290
+      ]
+    },
+    "left_thigh": {
+      "region": [
+        396,
+        647,
+        251,
+        302
+      ],
+      "pivot": [
+        79,
+        37
+      ],
+      "anchors": {
+        "end": [
+          157,
+          243
+        ]
+      },
+      "parent": "torso",
+      "parent_anchor": "left_hip",
+      "z": 7,
+      "uniform_scale": 0.9,
+      "alpha_bbox_ge16": [
+        6,
+        6,
+        245,
+        296
+      ]
+    },
+    "right_shin": {
+      "region": [
+        707,
+        650,
+        170,
+        284
+      ],
+      "pivot": [
+        87,
+        61
+      ],
+      "anchors": {
+        "end": [
+          82,
+          254
+        ]
+      },
+      "parent": "right_thigh",
+      "parent_anchor": "end",
+      "z": 21,
+      "uniform_scale": 1.05,
+      "alpha_bbox_ge16": [
+        6,
+        6,
+        164,
+        278
+      ]
+    },
+    "left_shin": {
+      "region": [
+        1018,
+        651,
+        171,
+        287
+      ],
+      "pivot": [
+        86,
+        59
+      ],
+      "anchors": {
+        "end": [
+          73,
+          255
+        ]
+      },
+      "parent": "left_thigh",
+      "parent_anchor": "end",
+      "z": 6,
+      "uniform_scale": 1.02,
+      "alpha_bbox_ge16": [
+        6,
+        6,
+        165,
+        281
+      ]
+    },
+    "right_foot": {
+      "region": [
+        108,
+        967,
+        225,
+        210
+      ],
+      "pivot": [
+        64,
+        73
+      ],
+      "anchors": {
+        "contact": [
+          144,
+          202
+        ],
+        "toe": [
+          205,
+          161
+        ]
+      },
+      "parent": "right_shin",
+      "parent_anchor": "end",
+      "z": 20,
+      "uniform_scale": 0.57,
+      "alpha_bbox_ge16": [
+        6,
+        6,
+        219,
+        204
+      ]
+    },
+    "left_foot": {
+      "region": [
+        460,
+        976,
+        228,
+        195
+      ],
+      "pivot": [
+        68,
+        73
+      ],
+      "anchors": {
+        "contact": [
+          158,
+          187
+        ],
+        "toe": [
+          209,
+          151
+        ]
+      },
+      "parent": "left_shin",
+      "parent_anchor": "end",
+      "z": 5,
+      "uniform_scale": 0.55,
+      "alpha_bbox_ge16": [
+        6,
+        6,
+        222,
+        189
+      ]
+    },
+    "sword": {
+      "region": [
+        860,
+        840,
+        79,
+        394
+      ],
+      "pivot": [
+        39,
+        302
+      ],
+      "anchors": {
+        "end": [
+          39,
+          9
+        ],
+        "guard": [
+          39,
+          256
+        ]
+      },
+      "parent": "right_hand",
+      "parent_anchor": "grip",
+      "z": 47,
+      "uniform_scale": 1.3,
+      "alpha_bbox_ge16": [
+        6,
+        6,
+        72,
+        388
+      ]
+    }
+  },
+  "candidate_notes": [
+    "Actual generated canvas is 1254×1254, not requested 1536×1536. Fifteen source components; no rendered grid or labels.",
+    "Generated cells did not preserve common physical scale. uniform_scale is an explicitly declared proportional assembly correction per part; no anisotropic deformation or raster edits.",
+    "Torso and left_forearm need source_patches because their bounding rectangles overlap in the atlas while visible pixels are separate. Patches retain every alpha>=16 component pixel and avoid visible foreign components; geometric verification is in pixel-inspection.json.",
+    "Head is deliberately anonymous and featureless after one correction. Low-detail silhouette is not an identity portrait.",
+    "Source retains slight flat cut-cap shading, nearly opaque interiors and very low-alpha edge/noise pixels. No seam or visual acceptance is claimed.",
+    "20% overlap was generation guidance. Pivots are manually selected candidates, not a measured rotation guarantee.",
+    "All bones, shoe contacts, grip and layer order require Godot composite review before reuse. No eight-direction or full animation approval.",
+    "Shoe contact points are measured at the mean x of the lowest alpha>=128 outsole row: right global [252,1169], left [618,1163].",
+    "One metadata-only joint calibration after six-pose review: head/forearm/hand layer order now covers predecessor end caps; elbow and wrist anchors moved to visible cap centers; hands uniformly sized to their wrist joints. Source raster unchanged. Earlier candidate retained as asset-candidate-before-joint-calibration.json. This does not claim seam acceptance."
+  ],
+  "validation": {
+    "raw_pixels_viewed": true,
+    "png_rgba_inspected": true,
+    "regions_measured": true,
+    "rig_pose_verified": false,
+    "joint_seams_verified": false,
+    "final_art_approved": false,
+    "main_registered": false
+  }
+}

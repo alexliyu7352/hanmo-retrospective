@@ -1,0 +1,7 @@
+# 成长与教学消费者登记：保留本组目标、测试、条件与局部变量的原执行顺序。
+# 原补任领域必要门，运行范围按具名回执。
+add_executable(hanmo_resident_growth_attribute_origin_test tests/resident/growth_attribute_origin_test.cpp)
+target_link_libraries(hanmo_resident_growth_attribute_origin_test PRIVATE hanmo_resident)
+target_include_directories(hanmo_resident_growth_attribute_origin_test PRIVATE src)
+target_compile_options(hanmo_resident_growth_attribute_origin_test PRIVATE -UNDEBUG -fno-fast-math -ffp-contract=off)
+add_test(NAME resident_growth_attribute_origin COMMAND hanmo_resident_growth_attribute_origin_test)

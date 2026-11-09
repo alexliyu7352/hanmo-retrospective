@@ -1,0 +1,11 @@
+// 原公共赈济计划在代理签发前仍须完整核准；本段不持Task、资源预约或第二份公账。
+#pragma once
+#include "political_governance_agency_rules.hpp"
+#include "political_governance_agency_receipts.hpp"
+#include "resident/domains/local_economy/relief/public_relief_catalog_links.hpp"
+namespace hanmo::resident {
+struct PoliticalGovernanceAgencyBusinessContext {const PoliticalGovernanceAgencyContext& rules;const PublicReliefCatalog& relief_catalog;PoliticalGovernanceAgencyResultMatch result_match;};
+Status validate_political_governance_agencies(const PoliticalGovernanceAgencyBusinessContext&);
+Outcome<PoliticalGovernanceAgencyQuote> preview_political_governance_agency_business(const PoliticalGovernanceAgencyBusinessContext&,const StableId&,const PoliticalGovernanceAgencyCommand&);
+Outcome<StableId> apply_political_governance_agency_business_in_candidate(CommonStore&,PoliticsGovernanceState&,PoliticalGovernanceAgencyState&,const PoliticalGovernanceAgencyBusinessContext&,const StableId&,const PoliticalGovernanceAgencyCommand&,const PoliticalGovernanceAgencyQuote&);
+}

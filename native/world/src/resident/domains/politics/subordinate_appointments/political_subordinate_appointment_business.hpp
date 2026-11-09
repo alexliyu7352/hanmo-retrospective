@@ -1,0 +1,9 @@
+// 首府提名与目标座所到任的有限本人办理页；显示只读原业务来源。
+#pragma once
+#include "political_subordinate_appointment_rules.hpp"
+#include "political_subordinate_appointment_receipts.hpp"
+namespace hanmo::resident {
+Outcome<PoliticsEffects> apply_political_subordinate_appointment_business_in_candidate(CommonStore&,OrganizationState&,PoliticalSubordinateAppointmentState&,const PoliticalSubordinateAppointmentContext&,const StableId&,const PoliticalSubordinateAppointmentCommand&,const PoliticalSubordinateAppointmentQuote&);
+BoundaryValue encode_political_subordinate_appointment_quote(const PoliticalSubordinateAppointmentQuote&);
+Outcome<BoundaryValue> query_political_subordinate_appointments(const PoliticalSubordinateAppointmentContext&,const StableId& actual_place,Integer cursor);
+}

@@ -1,0 +1,7 @@
+# 任务与履约消费者登记：保留本组目标、测试、条件与局部变量的原执行顺序。
+# 返报历史控制只认自身真实头，原Q01控制口不扩大。
+add_executable(test_resident_task_personal_report_control tests/resident/task_personal_report_control_test.cpp)
+target_link_libraries(test_resident_task_personal_report_control PRIVATE hanmo_resident)
+target_include_directories(test_resident_task_personal_report_control PRIVATE src)
+target_compile_options(test_resident_task_personal_report_control PRIVATE -UNDEBUG -fno-fast-math -ffp-contract=off)
+add_test(NAME resident_task_personal_report_control COMMAND test_resident_task_personal_report_control)

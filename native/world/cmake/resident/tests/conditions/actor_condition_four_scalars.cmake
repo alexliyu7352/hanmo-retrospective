@@ -1,0 +1,6 @@
+# 人物条件消费者登记：保留本组目标、测试、条件与局部变量的原执行顺序。
+add_executable(test_native_actor_condition_four_scalars tests/resident/actor_condition_four_scalars_test.cpp)
+target_link_libraries(test_native_actor_condition_four_scalars PRIVATE hanmo_resident)
+target_include_directories(test_native_actor_condition_four_scalars PRIVATE "${HANMO_JSON_ROOT}/single_include" "${HANMO_PICOSHA2_ROOT}")
+target_compile_options(test_native_actor_condition_four_scalars PRIVATE -UNDEBUG -fno-fast-math -ffp-contract=off)
+add_test(NAME native_actor_condition_four_scalars COMMAND test_native_actor_condition_four_scalars )

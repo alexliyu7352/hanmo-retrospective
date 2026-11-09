@@ -1,0 +1,7 @@
+# 军旅与战斗消费者登记：保留本组目标、测试、条件与局部变量的原执行顺序。
+# 冷标题实际共用的Military14版本层门，不连接或构造第二World。
+add_executable(test_resident_military_commanded_layout tests/resident/military_commanded_layout_test.cpp)
+target_link_libraries(test_resident_military_commanded_layout PRIVATE hanmo_resident)
+target_include_directories(test_resident_military_commanded_layout PRIVATE src)
+target_compile_options(test_resident_military_commanded_layout PRIVATE -UNDEBUG -fno-fast-math -ffp-contract=off)
+add_test(NAME resident_military_commanded_layout COMMAND test_resident_military_commanded_layout)

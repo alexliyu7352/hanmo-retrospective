@@ -1,0 +1,21 @@
+{
+  "schema": "adult_sword_generation_provenance/1",
+  "date_utc": "2026-10-08",
+  "scope": "Separately authorized continuation: one targeted joint surface edit after original two-image round.",
+  "tool": "built-in image_gen.imagegen",
+  "transparent_background": true,
+  "prompt": "prompt-03-joint-surfaces.md",
+  "reference_and_edit_target": "source/atlas-02-candidate.png",
+  "output": "source/atlas-03-joint-surfaces.png",
+  "original_output_path": "<本地路径>",
+  "source_sha256": "f4a95c5465c7503ad8f8121e69794c2c391dceb67ac577fbe624ad0b4eeb5618",
+  "actual_size": [
+    1254,
+    1254
+  ],
+  "mode": "RGBA",
+  "bytes": 1266574,
+  "preservation": "Byte-for-byte copy; previous PNGs/candidate/composites retained. No raster cleanup or crop.",
+  "status": "WIP; old region fit and four poses not yet verified at generation time.",
+  "limitation": "Generator changed 528965 canvas pixels including portions outside requested retouch; do not claim a pixel-exact local edit."
+}

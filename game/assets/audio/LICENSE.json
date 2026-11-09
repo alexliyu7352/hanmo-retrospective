@@ -1,0 +1,21 @@
+{
+  "origin": "Original procedural composition created for Hanmo; no external audio samples or melodies.",
+  "generator": "tools/compose_ambience.py",
+  "assets": [
+    {
+      "path": "assets/audio/ambience.wav",
+      "sha256": "c6b3f291a097e0aed3c701d1cf4233ff1e8fb6950a5548d946658c5319ddf2e9",
+      "seconds": 32.0
+    },
+    {
+      "path": "assets/audio/paper.wav",
+      "sha256": "9bca22dbfc29dc0b55e96f5ac7510c21bbe51d20f94cb71a2679f2a2558db0d1",
+      "seconds": 0.08
+    },
+    {
+      "path": "assets/audio/confirm.wav",
+      "sha256": "f10e373292443886548b256651f4a860759346868e757c1f68af6d3457f94ea0",
+      "seconds": 0.34997732426303857
+    }
+  ]
+}

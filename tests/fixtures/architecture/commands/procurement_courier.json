@@ -1,0 +1,266 @@
+{
+  "case_id": "procurement_courier",
+  "scenario_id": "scenario.two_stories",
+  "content": "res://data/generated/two_stories.hmcatalog.json",
+  "description": "固定作者seed，输入经实际Kernel展开；稳定节点包含完整字节存档",
+  "commands": [
+    {
+      "op": "checkpoint",
+      "label": "01-before-start"
+    },
+    {
+      "op": "submit",
+      "kind": "unknown_baseline_command",
+      "params": {},
+      "expected_code": "UnsupportedAction"
+    },
+    {
+      "op": "submit",
+      "kind": "wait",
+      "params": {},
+      "revision_delta": -1,
+      "expected_code": "StalePreview"
+    },
+    {
+      "op": "submit",
+      "kind": "move_local",
+      "params": {
+        "place_id": "west.office"
+      }
+    },
+    {
+      "op": "submit",
+      "kind": "inspect",
+      "params": {
+        "prop_id": "notice.grain"
+      }
+    },
+    {
+      "op": "submit",
+      "kind": "accept_offer",
+      "params": {
+        "offer_id": "offer.grain"
+      },
+      "context_role": "role.office"
+    },
+    {
+      "op": "checkpoint",
+      "label": "02-after-start"
+    },
+    {
+      "op": "repeat_last"
+    },
+    {
+      "op": "advance",
+      "ticks": 1
+    },
+    {
+      "op": "submit",
+      "kind": "move_local",
+      "params": {
+        "place_id": "west.street"
+      }
+    },
+    {
+      "op": "submit",
+      "kind": "move_local",
+      "params": {
+        "place_id": "west.grain"
+      }
+    },
+    {
+      "op": "submit",
+      "kind": "trade",
+      "params": {
+        "shop_id": "shop.grain",
+        "item_id": "item.grain",
+        "side": "buy",
+        "quantity": 10,
+        "payer_wallet_id": "@task_budget:offer.grain"
+      },
+      "context_role": "role.merchant"
+    },
+    {
+      "op": "checkpoint",
+      "label": "03-purchase-before-completion"
+    },
+    {
+      "op": "advance",
+      "ticks": 1
+    },
+    {
+      "op": "checkpoint",
+      "label": "04-purchase-completed"
+    },
+    {
+      "op": "submit",
+      "kind": "move_local",
+      "params": {
+        "place_id": "west.street"
+      }
+    },
+    {
+      "op": "submit",
+      "kind": "move_local",
+      "params": {
+        "place_id": "west.office"
+      }
+    },
+    {
+      "op": "submit",
+      "kind": "report_offer",
+      "params": {
+        "offer_id": "offer.grain"
+      },
+      "context_role": "role.office"
+    },
+    {
+      "op": "checkpoint",
+      "label": "05-before-completion"
+    },
+    {
+      "op": "advance",
+      "ticks": 1
+    },
+    {
+      "op": "checkpoint",
+      "label": "06-after-completion"
+    },
+    {
+      "op": "submit",
+      "kind": "move_local",
+      "params": {
+        "place_id": "west.street"
+      }
+    },
+    {
+      "op": "submit",
+      "kind": "move_local",
+      "params": {
+        "place_id": "west.tavern"
+      }
+    },
+    {
+      "op": "submit",
+      "kind": "discover_offer",
+      "params": {
+        "offer_id": "offer.letter"
+      },
+      "context_role": "role.sender"
+    },
+    {
+      "op": "checkpoint",
+      "label": "07-letter-before-start"
+    },
+    {
+      "op": "submit",
+      "kind": "accept_offer",
+      "params": {
+        "offer_id": "offer.letter"
+      },
+      "context_role": "role.sender"
+    },
+    {
+      "op": "checkpoint",
+      "label": "08-letter-after-start"
+    },
+    {
+      "op": "advance",
+      "ticks": 1
+    },
+    {
+      "op": "submit",
+      "kind": "move_local",
+      "params": {
+        "place_id": "west.street"
+      }
+    },
+    {
+      "op": "submit",
+      "kind": "travel",
+      "params": {
+        "destination": "village.east"
+      }
+    },
+    {
+      "op": "checkpoint",
+      "label": "09-letter-travel-start"
+    },
+    {
+      "op": "travel_until",
+      "city": "village.east"
+    },
+    {
+      "op": "submit",
+      "kind": "move_local",
+      "params": {
+        "place_id": "east.home"
+      }
+    },
+    {
+      "op": "submit",
+      "kind": "deliver_message",
+      "params": {
+        "offer_id": "offer.letter"
+      },
+      "context_role": "role.recipient"
+    },
+    {
+      "op": "checkpoint",
+      "label": "10-letter-before-delivery"
+    },
+    {
+      "op": "advance",
+      "ticks": 1
+    },
+    {
+      "op": "checkpoint",
+      "label": "11-letter-after-delivery"
+    },
+    {
+      "op": "submit",
+      "kind": "move_local",
+      "params": {
+        "place_id": "east.entrance"
+      }
+    },
+    {
+      "op": "submit",
+      "kind": "travel",
+      "params": {
+        "destination": "city.west"
+      }
+    },
+    {
+      "op": "travel_until",
+      "city": "city.west"
+    },
+    {
+      "op": "submit",
+      "kind": "move_local",
+      "params": {
+        "place_id": "west.tavern"
+      }
+    },
+    {
+      "op": "submit",
+      "kind": "report_offer",
+      "params": {
+        "offer_id": "offer.letter"
+      },
+      "context_role": "role.sender"
+    },
+    {
+      "op": "checkpoint",
+      "label": "12-letter-before-completion"
+    },
+    {
+      "op": "advance",
+      "ticks": 1
+    },
+    {
+      "op": "checkpoint",
+      "label": "13-letter-completed"
+    }
+  ]
+}

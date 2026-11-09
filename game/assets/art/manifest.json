@@ -1,0 +1,173 @@
+{
+  "status": "temporary derived illustration studies; not final or historical reference",
+  "sources": [
+    "a_wide_promotional_game_ui_collage_in_a_hand_paint.png",
+    "a_wide_collage_style_promotional_layout_for_a_chi.png",
+    "a_wide_collage_infographic_image_in_a_game_concept.png"
+  ],
+  "backgrounds": [
+    {
+      "id": "city",
+      "path": "assets/art/city.webp",
+      "source": "wide_cinematic_game_ui_scene_of_a_historical_chine.png",
+      "crop": [
+        362,
+        1,
+        1218,
+        514
+      ],
+      "status": "temporary-derived-original",
+      "note": "Generated street illustration crop; original poster UI excluded. Generic street extras are background scenery, not named interactable actors."
+    },
+    {
+      "id": "hall",
+      "path": "assets/art/hall.webp",
+      "source": "original programmatic room blocking, hand-composed geometry",
+      "crop": null,
+      "status": "temporary-derived-original",
+      "note": "Temporary spatial blocking study, not a final generated painting. No NPC baked into room backdrop."
+    },
+    {
+      "id": "shop",
+      "path": "assets/art/shop.webp",
+      "source": "original programmatic room blocking, hand-composed geometry",
+      "crop": null,
+      "status": "temporary-derived-original",
+      "note": "Temporary spatial blocking study, not a final generated painting. No NPC baked into room backdrop."
+    },
+    {
+      "id": "tavern",
+      "path": "assets/art/tavern.webp",
+      "source": "original programmatic room blocking, hand-composed geometry",
+      "crop": null,
+      "status": "temporary-derived-original",
+      "note": "Temporary spatial blocking study, not a final generated painting. No NPC baked into room backdrop."
+    },
+    {
+      "id": "inn",
+      "path": "assets/art/inn.webp",
+      "source": "original programmatic room blocking, hand-composed geometry",
+      "crop": null,
+      "status": "temporary-derived-original",
+      "note": "Temporary spatial blocking study, not a final generated painting. No NPC baked into room backdrop."
+    },
+    {
+      "id": "house",
+      "path": "assets/art/house.webp",
+      "source": "original programmatic room blocking, hand-composed geometry",
+      "crop": null,
+      "status": "temporary-derived-original",
+      "note": "Temporary spatial blocking study, not a final generated painting. No NPC baked into room backdrop."
+    }
+  ],
+  "portraits": [
+    {
+      "id": "official",
+      "path": "assets/art/official.png",
+      "source": "a_wide_collage_style_promotional_layout_for_a_chi.png",
+      "crop": [
+        1180,
+        47,
+        1400,
+        211
+      ],
+      "status": "temporary-derived-original"
+    },
+    {
+      "id": "merchant",
+      "path": "assets/art/merchant.png",
+      "source": "a_wide_collage_style_promotional_layout_for_a_chi.png",
+      "crop": [
+        124,
+        414,
+        294,
+        543
+      ],
+      "status": "temporary-derived-original"
+    },
+    {
+      "id": "host",
+      "path": "assets/art/host.png",
+      "source": "a_wide_collage_style_promotional_layout_for_a_chi.png",
+      "crop": [
+        677,
+        418,
+        817,
+        542
+      ],
+      "status": "temporary-derived-original"
+    },
+    {
+      "id": "innkeeper",
+      "path": "assets/art/innkeeper.png",
+      "source": "a_wide_promotional_game_ui_collage_in_a_hand_paint.png",
+      "crop": [
+        277,
+        725,
+        400,
+        850
+      ],
+      "status": "temporary-derived-original"
+    },
+    {
+      "id": "carter",
+      "path": "assets/art/carter.png",
+      "source": "a_wide_collage_infographic_image_in_a_game_concept.png",
+      "crop": [
+        537,
+        494,
+        766,
+        650
+      ],
+      "status": "temporary-derived-original"
+    },
+    {
+      "id": "guard",
+      "path": "assets/art/guard.png",
+      "source": "a_wide_collage_infographic_image_in_a_game_concept.png",
+      "crop": [
+        495,
+        215,
+        573,
+        341
+      ],
+      "status": "temporary-derived-original"
+    },
+    {
+      "id": "sender",
+      "path": "assets/art/sender.png",
+      "source": "a_wide_collage_infographic_image_in_a_game_concept.png",
+      "crop": [
+        791,
+        213,
+        848,
+        325
+      ],
+      "status": "temporary-derived-original"
+    },
+    {
+      "id": "recipient",
+      "path": "assets/art/recipient.png",
+      "source": "a_wide_promotional_game_ui_collage_in_a_hand_paint.png",
+      "crop": [
+        1258,
+        442,
+        1405,
+        580
+      ],
+      "status": "temporary-derived-original"
+    },
+    {
+      "id": "player",
+      "path": "assets/art/player.png",
+      "source": "a_wide_collage_infographic_image_in_a_game_concept.png",
+      "crop": [
+        1091,
+        810,
+        1172,
+        901
+      ],
+      "status": "temporary-derived-original"
+    }
+  ]
+}

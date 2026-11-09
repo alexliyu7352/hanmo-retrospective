@@ -1,0 +1,186 @@
+{
+  "format": "HM-ORDINARY-SKILL-ROUTES",
+  "scenario_id": "scenario.study_routes",
+  "namespace": "qingstudy",
+  "baseline_source_sha256": "13204c8e07240490d3134e44119a132c0eb2b435f9589bd23cb22f80fb33926e",
+  "baseline_scenario_sha256": {
+    "scenario.first_term": "0e087b2a48b47b3d379715a8eb57419ee00f302a4d32cb2071cb48d5e39aa3bd",
+    "scenario.camp_term": "830e43b7b6d80f8e5b0780fa3029ecb0d87c56f7fd4d7c2083d63b873ffe6c27",
+    "scenario.sword_term": "0397904ff66e1b4e5da02b5ec823ef9714eda1de03ab6aeb186ba889027fed5f"
+  },
+  "original_actors": 5,
+  "original_roles": 4,
+  "groups": [
+    {
+      "key": "letters",
+      "primary_actor_id": "actor.tutor",
+      "alternate_actor_id": "actor.study_scholar",
+      "skills": [
+        "rites",
+        "debate"
+      ]
+    },
+    {
+      "key": "trade",
+      "primary_actor_id": "actor.merchant",
+      "alternate_actor_id": "actor.study_caravanner",
+      "skills": [
+        "commerce",
+        "negotiation",
+        "transport"
+      ]
+    },
+    {
+      "key": "arms",
+      "primary_actor_id": "actor.camp_officer",
+      "alternate_actor_id": "actor.study_veteran",
+      "skills": [
+        "infantry",
+        "cavalry",
+        "archery",
+        "tactics"
+      ]
+    },
+    {
+      "key": "martial",
+      "primary_actor_id": "actor.sword_master",
+      "alternate_actor_id": "actor.study_swordswoman",
+      "skills": [
+        "martial"
+      ]
+    }
+  ],
+  "routes": [
+    {
+      "skill_id": "rites",
+      "place_id": "place.school",
+      "facility_role_id": "role.study_letters_facility",
+      "teacher_role_ids": [
+        "role.study_letters_master",
+        "role.study_letters_alternate"
+      ],
+      "teacher_actor_ids": [
+        "actor.tutor",
+        "actor.study_scholar"
+      ]
+    },
+    {
+      "skill_id": "debate",
+      "place_id": "place.school",
+      "facility_role_id": "role.study_letters_facility",
+      "teacher_role_ids": [
+        "role.study_letters_master",
+        "role.study_letters_alternate"
+      ],
+      "teacher_actor_ids": [
+        "actor.tutor",
+        "actor.study_scholar"
+      ]
+    },
+    {
+      "skill_id": "commerce",
+      "place_id": "place.grain",
+      "facility_role_id": "role.study_trade_facility",
+      "teacher_role_ids": [
+        "role.study_trade_master",
+        "role.study_trade_alternate"
+      ],
+      "teacher_actor_ids": [
+        "actor.merchant",
+        "actor.study_caravanner"
+      ]
+    },
+    {
+      "skill_id": "negotiation",
+      "place_id": "place.grain",
+      "facility_role_id": "role.study_trade_facility",
+      "teacher_role_ids": [
+        "role.study_trade_master",
+        "role.study_trade_alternate"
+      ],
+      "teacher_actor_ids": [
+        "actor.merchant",
+        "actor.study_caravanner"
+      ]
+    },
+    {
+      "skill_id": "transport",
+      "place_id": "place.grain",
+      "facility_role_id": "role.study_trade_facility",
+      "teacher_role_ids": [
+        "role.study_trade_master",
+        "role.study_trade_alternate"
+      ],
+      "teacher_actor_ids": [
+        "actor.merchant",
+        "actor.study_caravanner"
+      ]
+    },
+    {
+      "skill_id": "infantry",
+      "place_id": "place.training_camp",
+      "facility_role_id": "role.study_arms_facility",
+      "teacher_role_ids": [
+        "role.study_arms_master",
+        "role.study_arms_alternate"
+      ],
+      "teacher_actor_ids": [
+        "actor.camp_officer",
+        "actor.study_veteran"
+      ]
+    },
+    {
+      "skill_id": "cavalry",
+      "place_id": "place.training_camp",
+      "facility_role_id": "role.study_arms_facility",
+      "teacher_role_ids": [
+        "role.study_arms_master",
+        "role.study_arms_alternate"
+      ],
+      "teacher_actor_ids": [
+        "actor.camp_officer",
+        "actor.study_veteran"
+      ]
+    },
+    {
+      "skill_id": "archery",
+      "place_id": "place.training_camp",
+      "facility_role_id": "role.study_arms_facility",
+      "teacher_role_ids": [
+        "role.study_arms_master",
+        "role.study_arms_alternate"
+      ],
+      "teacher_actor_ids": [
+        "actor.camp_officer",
+        "actor.study_veteran"
+      ]
+    },
+    {
+      "skill_id": "tactics",
+      "place_id": "place.training_camp",
+      "facility_role_id": "role.study_arms_facility",
+      "teacher_role_ids": [
+        "role.study_arms_master",
+        "role.study_arms_alternate"
+      ],
+      "teacher_actor_ids": [
+        "actor.camp_officer",
+        "actor.study_veteran"
+      ]
+    },
+    {
+      "skill_id": "martial",
+      "place_id": "place.sword_court",
+      "facility_role_id": "role.study_martial_facility",
+      "teacher_role_ids": [
+        "role.study_martial_master",
+        "role.study_martial_alternate"
+      ],
+      "teacher_actor_ids": [
+        "actor.sword_master",
+        "actor.study_swordswoman"
+      ]
+    }
+  ],
+  "scope": "独立作者覆盖样本；不证明完整成长、实际死亡/调度或GUI体验；原三章初态另核"
+}

@@ -1,0 +1,18 @@
+{
+  "format": "HM-RESIDENT-CHECKPOINT-ORDER-PROBE/1",
+  "status": "KNOWN_RESTORE_ADMISSION_GAP",
+  "baseline_library_sha256": "5e32b79dc0278bc1b91c0e82f8073569d27934ee435a60c0c3f1348c6b0c171d",
+  "baseline_library_build_commit": "1c5a6d066f48c7c02b94c2e0822ada3ee4622d22",
+  "source_state_sha256": "e401369000dc162ea8e65dd81054a5d31d489f62c6f7975160868192326d8301",
+  "mutation": "candidate.interaction.encounters.front().field_order[1] = field_order[0]; then ordinary encode_world_checkpoint recalculates valid integrity checks",
+  "assertions": {
+    "checkpoint_decode_succeeded": true,
+    "typed_world_validation_succeeded": true,
+    "cold_export_error": "BoundaryFieldOrderMismatch",
+    "public_restore_succeeded": true,
+    "public_export_after_restore_succeeded": false,
+    "execution_epoch_changed": true
+  },
+  "fixed_expectation": "Public restore must reject BoundaryFieldOrderMismatch before publication; full prior export and world_id/epoch/revision/tick unchanged. Run the same test with --expect-reject.",
+  "test_source": "background_checkpoint_order_probe.cpp"
+}

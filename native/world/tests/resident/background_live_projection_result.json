@@ -1,0 +1,30 @@
+{
+  "format": "HM-C-MAIN-LIVE-PROJECTION-GATE/1",
+  "status": "PASS",
+  "source_commit": "0236316aa04ac4a0deb07abacf2ea374403366d4",
+  "archive_sha256": {
+    "libhanmo_resident.a": "308a9c1181e9a5f0c8647865fd8e2b0f299d612ed6c857c4e029bceb9d5eabde",
+    "libhanmo_world.a": "5288091b4e83ed52b8b4c413fefea15e85248f5000d9143c2b416bac432a83a2",
+    "libhanmo_flecs.a": "3ffd22212ca3af8eb69c890a150ce6211db4574ab9128f446b388da607e1862a"
+  },
+  "header_snapshot": "git archive of exact0236316 source; no mixed pre-metadata header layout",
+  "character": {
+    "source_commit": "16156935a6b0941f40d4f8c800bbeca8e442a50e",
+    "test_sha256": "7ede29a2dedca3699dca70166df09e4a644f4f363a9c70641d3d4f5436bbc40d",
+    "binary_sha256": "3d1fabed7e6271b67c66e8cfc01f237e06b98b6e6a6b830aa226d19d8760cdab",
+    "result": "background_journey_character: PASS (6 actual GD sources; 10 selected self/peer portraits; real A public fields; denied reads never call A; party early return, speaker/observer isolation, deep copies and unchanged world)"
+  },
+  "assembly": {
+    "test_sha256": "3dde8be48eded7e1b51db9d731948af5c8ab02818a207865df6f43baf2209c5e",
+    "binary_sha256": "a9c06c763ab5096c72e83d9e35e714e4480d2ed0f0457c27f278f326067868e9",
+    "result": "background_live_projection: PASS (3 original Main projections through actual session; six B wires, selected character, personal HUD, checked screen inactivity, 10 cold template cases and explicit unsupported-source guards; zero read mutation)"
+  },
+  "original_godot_oracle": {
+    "source": "native/world/tests/resident/background_live_projection_oracle.gd",
+    "source_sha256": "bc080c55896c30d5986321372be4d6943b725b8e559030a4abef144394ef0a68",
+    "fixture_sha256": "fa76d76c304d2f4b6c2e97d03238a47de1a2f1238554294f570e0e6d597b84cc",
+    "result": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\nbackground_live_projection_oracle: PASS rows=3"
+  },
+  "scope": "Only selected-character and finite assembled-query gates. Character public fields are compared with original GD; 3 full Main projection source rows compare HUD and inactive children/order. B map wire remains integer and is checked against original display values; no scale replay or Main GUI acceptance claim. Template/battle/study/HUD ownership negatives are controlled read-only fixtures.",
+  "component_attempt": "Earlier standalone component build was stopped after link failure before any test ran; no PASS is claimed or used for it."
+}

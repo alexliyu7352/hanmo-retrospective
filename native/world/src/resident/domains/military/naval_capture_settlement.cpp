@@ -1,0 +1,40 @@
+#include "resident/domains/military/military_model.hpp"
+// 船只换主与原人口俘虏分类在一个值候选内形成；不暗转军库余额、私人物品或建造替代船。
+#include "naval_capture_settlement.hpp"
+#include "naval_custody.hpp"
+#include <algorithm>
+#include <charconv>
+namespace hanmo::resident {
+namespace {
+// 只查既有唯一对象，不产生推断出来的船、单位、人物或容器。
+template<class T>T* find(std::vector<T>& rows,const StableId& id){for(auto& r:rows)if(r.id==id)return &r;return nullptr;}
+template<class T>const T* find(const std::vector<T>& rows,const StableId& id){for(const auto& r:rows)if(r.id==id)return &r;return nullptr;}
+bool has(const std::vector<StableId>& rows,const StableId& id){return std::find(rows.begin(),rows.end(),id)!=rows.end();}
+void erase(std::vector<StableId>& rows,const StableId& id){rows.erase(std::remove(rows.begin(),rows.end(),id),rows.end());}
+template<class T>Outcome<T> fail(const StableId& code,const StableId& path={}){return {false,{},common_failure(code,path).error};}
+bool allocated(const StableId& id){const StableId prefix="naval_capture:";if(id.rfind(prefix,0)!=0)return false;const auto suffix=id.substr(prefix.size());Integer n=0;auto p=std::from_chars(suffix.data(),suffix.data()+suffix.size(),n);return p.ec==std::errc{}&&p.ptr==suffix.data()+suffix.size()&&n>0&&std::to_string(n)==suffix;}
+bool same_assignments(const std::vector<NavalVesselAssignment>& a,const std::vector<NavalVesselAssignment>& b){if(a.size()!=b.size())return false;for(std::size_t i=0;i<a.size();++i)if(a[i].vessel_id!=b[i].vessel_id||a[i].unit_id!=b[i].unit_id||a[i].passenger_ids!=b[i].passenger_ids||a[i].prisoner_ids!=b[i].prisoner_ids||a[i].extra_inventory_ids!=b[i].extra_inventory_ids)return false;return true;}
+}
+// 先处理永久业务键重放，再按原Common观察报价；分配给新请求的ID不进入旧事实。
+Outcome<NavalCaptureSettlement> settle_naval_capture_candidate(const CommonRead& common,const MilitaryState& military,const MilitaryCatalog& commands,const NavalState& naval,const NavalCatalog& ships,const StableId& actor,const NavalCaptureCommand& command,const StableId& fact_id){
+ if(!ships.combat_policy)return fail<NavalCaptureSettlement>("NavalCombatProfileRequired");
+ for(const auto& previous:naval.battle.captures)if(previous.actor_id==actor&&previous.request_key==command.request_key){if(previous.battle_id!=command.battle_id||previous.round_source_id!=command.round_source_id||previous.vessel_id!=command.vessel_id||previous.captor_unit_id!=command.captor_unit_id||!same_assignments(previous.after_assignments,command.assignments))return fail<NavalCaptureSettlement>("NavalCaptureReplayMismatch",previous.id);return {true,{military,naval,previous,{},{},{},true},{}};}
+ if(!allocated(fact_id)||find(naval.battle.captures,fact_id))return fail<NavalCaptureSettlement>("InvalidNavalCaptureFactId",fact_id);
+ auto quote=preview_naval_capture(common,military,commands,naval,ships,naval.battle,actor,command);if(!quote.ok)return {false,{},quote.error};const auto& q=quote.value;
+ NavalCaptureSettlement next;next.military=military;next.naval=naval;next.resources=q.resources;next.interrupted_action_ids=q.interrupted_action_ids;
+ auto* winner=find(next.naval.fleets,q.to_fleet_id);auto* loser=find(next.naval.fleets,q.from_fleet_id);auto* winning_army=winner?find(next.military.armies,winner->army_id):nullptr;auto* losing_army=loser?find(next.military.armies,loser->army_id):nullptr;
+ if(!winner||!loser||!winning_army||!losing_army)return fail<NavalCaptureSettlement>("NavalCaptureFleetMismatch");
+ const NavalVesselAssignment* lost=nullptr;for(const auto& a:loser->assignments)if(a.vessel_id==q.vessel_id)lost=&a;auto* defeated=lost?find(next.military.military_units,lost->unit_id):nullptr;if(!defeated)return fail<NavalCaptureSettlement>("NavalCaptureRosterChanged");
+ // 尚无战中继任军令时，不能俘获指挥船后把仍有人在船的同军永久锁死；必须最后处置该船。
+ if(has(q.prisoner_ids,losing_army->commander_actor_id)&&loser->assignments.size()!=1)return fail<NavalCaptureSettlement>("NavalCommandVesselMustBeLast",q.vessel_id);
+ NavalCaptureFact fact;fact.id=fact_id;fact.battle_id=command.battle_id;fact.round_source_id=q.round_source_id;fact.request_key=command.request_key;fact.actor_id=actor;fact.vessel_id=q.vessel_id;fact.from_fleet_id=q.from_fleet_id;fact.to_fleet_id=q.to_fleet_id;fact.captor_unit_id=q.captor_unit_id;fact.authority_source=q.authority_source;fact.tick=common.tick();fact.from_owner=q.from_owner;fact.to_owner=q.to_owner;fact.anchor=q.anchor;fact.before_assignments=winner->assignments;fact.from_before_assignments=loser->assignments;fact.interrupted_action_ids=q.interrupted_action_ids;fact.after_assignments=q.assignments;fact.released_vessel_ids=q.released_vessel_ids;fact.prisoner_ids=q.prisoner_ids;fact.original_prisoner_ids=q.original_prisoner_ids;fact.cargo=q.cargo;fact.emptied_inventory_ids=q.emptied_inventory_ids;
+ for(const auto& id:q.prisoner_ids){if(has(defeated->fit,id)||has(defeated->wounded,id)){erase(defeated->fit,id);erase(defeated->wounded,id);if(has(defeated->captured,id))return fail<NavalCaptureSettlement>("NavalCaptiveAlreadyAssigned",id);defeated->captured.push_back(id);defeated->captors.emplace_back(id,winning_army->id);}erase(losing_army->member_actor_ids,id);if(has(winning_army->prisoner_ids,id))return fail<NavalCaptureSettlement>("NavalCaptiveAlreadyAssigned",id);winning_army->prisoner_ids.push_back(id);if(common.actor(id)){MilitaryActorChange change;change.actor_id=id;change.army_id=losing_army->id;change.captor_army_id=winning_army->id;change.status="captured";next.actor_changes.push_back(std::move(change));}}
+ // 原俘虏只是更换真实看管方，保持原被俘单位、身份和私产，不当作第二次新捕获。
+ for(const auto& id:q.original_prisoner_ids){if(!has(losing_army->prisoner_ids,id)||has(winning_army->prisoner_ids,id))return fail<NavalCaptureSettlement>("NavalPrisonerCustodyMismatch",id);bool source=false;for(auto& unit:next.military.military_units)for(auto& custody:unit.captors)if(custody.first==id){if(source||custody.second!=losing_army->id)return fail<NavalCaptureSettlement>("NavalPrisonerCustodyMismatch",id);custody.second=winning_army->id;source=true;}if(!source&&naval_custodian(naval,id)!=std::optional<StableId>(losing_army->id))return fail<NavalCaptureSettlement>("NavalPrisonerSourceRequired",id);erase(losing_army->prisoner_ids,id);winning_army->prisoner_ids.push_back(id);if(common.actor(id)){MilitaryActorChange change;change.actor_id=id;change.army_id=losing_army->id;change.captor_army_id=winning_army->id;change.status="captured";next.actor_changes.push_back(std::move(change));}}
+ defeated->morale=0;winner->assignments=q.assignments;loser->assignments.erase(std::remove_if(loser->assignments.begin(),loser->assignments.end(),[&](const auto& a){return a.vessel_id==q.vessel_id;}),loser->assignments.end());
+ if(loser->assignments.empty()){loser->status="captured";loser->released_tick=common.tick();loser->release_source_id=fact.id;loser->release_request_key=fact.request_key;loser->release_actor_id=actor;loser->release_authority_kind="capture";loser->release_authority_id=q.captor_unit_id;loser->release_authority_source=q.round_source_id;losing_army->status="defeated";auto* campaign=find(next.military.campaigns,losing_army->order_id);if(!campaign)return fail<NavalCaptureSettlement>("NavalCampaignSourceRequired",losing_army->id);campaign->status="defeated";campaign->settlement_id=fact.id;campaign->objective_result=CampaignObjectiveResult{"defeated",common.tick(),fact.id,{}};}
+ else for(const auto& id:q.emptied_inventory_ids){bool present=false;for(const auto& a:loser->assignments)if(has(a.extra_inventory_ids,id))present=true;if(!present)loser->assignments.front().extra_inventory_ids.push_back(id);}
+ for(auto& vessel:next.naval.vessels){if(vessel.id==q.vessel_id){vessel.owner=q.to_owner;vessel.fleet_id=winner->id;vessel.berth_id=winner->formation_berth_id;vessel.afloat_location.reset();}else if(has(q.released_vessel_ids,vessel.id)){vessel.fleet_id.clear();vessel.berth_id.clear();vessel.afloat_location=Location{q.anchor};}}
+ fact.from_after_assignments=loser->assignments;next.fact=fact;next.naval.battle.captures.push_back(std::move(fact));return {true,std::move(next),{}};
+}
+}

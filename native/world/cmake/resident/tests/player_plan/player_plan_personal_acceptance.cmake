@@ -1,0 +1,7 @@
+# 玩家计划消费者登记：保留本组目标、测试、条件与局部变量的原执行顺序。
+# 原受领Action/SAY/实际结果的Plan局部绑定门。
+add_executable(test_resident_player_plan_personal_acceptance tests/resident/player_plan_personal_acceptance_test.cpp)
+target_link_libraries(test_resident_player_plan_personal_acceptance PRIVATE hanmo_resident)
+target_include_directories(test_resident_player_plan_personal_acceptance PRIVATE src)
+target_compile_options(test_resident_player_plan_personal_acceptance PRIVATE -UNDEBUG -fno-fast-math -ffp-contract=off)
+add_test(NAME resident_player_plan_personal_acceptance COMMAND test_resident_player_plan_personal_acceptance)

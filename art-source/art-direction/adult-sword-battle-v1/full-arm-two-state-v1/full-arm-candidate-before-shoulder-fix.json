@@ -1,0 +1,204 @@
+{
+  "schema": "adult_sword_full_arm/1",
+  "status": "WIP_TWO_STATE_ASSET_CANDIDATE",
+  "atlas_path": "art-source/art-direction/adult-sword-battle-v1/full-arm-two-state-v1/source/full-arm-atlas-01.png",
+  "source_size": [
+    1254,
+    1254
+  ],
+  "source_sha256": "5b15b3373c7beb774ad91399ad3b9d0fe937e470d7fad4a9f33923ab2c62c3ab",
+  "base_definition_path": "art-source/art-direction/adult-sword-battle-v1/asset-candidate.json",
+  "base_definition_sha256": "65ffc7546f3ebe110ad9e7cf8e424e94c4908a1ea66f320bcec67b771f3a6a24",
+  "base_atlas_path": "art-source/art-direction/adult-sword-battle-v1/source/atlas-03-joint-surfaces.png",
+  "base_atlas_sha256": "f4a95c5465c7503ad8f8121e69794c2c391dceb67ac577fbe624ad0b4eeb5618",
+  "coordinate_convention": "region is x/y/w/h in arms atlas; pivot/anchors are region-local pixels. Keep source parts rigid: torso rotation plus rest_rotation, fixed uniform_scale. Shoulder roots bind base torso right_shoulder/left_shoulder; collar pivot binds base torso neck.",
+  "supported_pose_kinds": [
+    "idle",
+    "strike"
+  ],
+  "parts": {
+    "near_neutral": {
+      "region": [
+        45,
+        58,
+        411,
+        606
+      ],
+      "pivot": [
+        106,
+        86
+      ],
+      "anchors": {
+        "grip": [
+          337,
+          560
+        ],
+        "shoulder_cover": [
+          125,
+          115
+        ]
+      },
+      "uniform_scale": 0.5,
+      "rest_rotation": 0.38,
+      "z": 50,
+      "alpha_bbox_ge16": [
+        6,
+        6,
+        405,
+        600
+      ],
+      "sword_angle": -1.5707963267948966
+    },
+    "near_strike": {
+      "region": [
+        478,
+        166,
+        759,
+        330
+      ],
+      "pivot": [
+        89,
+        124
+      ],
+      "anchors": {
+        "grip": [
+          690,
+          281
+        ],
+        "shoulder_cover": [
+          117,
+          130
+        ]
+      },
+      "uniform_scale": 0.5,
+      "rest_rotation": -0.9788626499416742,
+      "z": 50,
+      "alpha_bbox_ge16": [
+        6,
+        6,
+        753,
+        324
+      ],
+      "sword_angle": 0.2555210292804102
+    },
+    "far_neutral": {
+      "region": [
+        77,
+        658,
+        548,
+        547
+      ],
+      "pivot": [
+        438,
+        72
+      ],
+      "anchors": {
+        "hand_end": [
+          68,
+          480
+        ],
+        "shoulder_cover": [
+          414,
+          93
+        ]
+      },
+      "uniform_scale": 0.5,
+      "rest_rotation": -0.5,
+      "z": 15,
+      "alpha_bbox_ge16": [
+        6,
+        2,
+        542,
+        541
+      ]
+    },
+    "shoulder_collar": {
+      "region": [
+        653,
+        734,
+        575,
+        363
+      ],
+      "pivot": [
+        273,
+        73
+      ],
+      "anchors": {
+        "near_shoulder_cover": [
+          515,
+          154
+        ],
+        "far_shoulder_cover": [
+          65,
+          142
+        ],
+        "neck_opening": [
+          273,
+          91
+        ]
+      },
+      "uniform_scale": 0.43,
+      "rest_rotation": 0.0,
+      "z": 55,
+      "alpha_bbox_ge16": [
+        6,
+        6,
+        569,
+        357
+      ]
+    }
+  },
+  "reuse_base_parts": [
+    "head",
+    "torso",
+    "left_thigh",
+    "left_shin",
+    "left_foot",
+    "right_thigh",
+    "right_shin",
+    "right_foot",
+    "sword"
+  ],
+  "excluded_base_parts": [
+    "left_upper_arm",
+    "left_forearm",
+    "left_hand",
+    "right_upper_arm",
+    "right_forearm",
+    "right_hand"
+  ],
+  "occlusion_contract": [
+    "far_neutral is behind torso; its shoulder root is hidden by torso, not by cutting the limb.",
+    "near_neutral/near_strike render over torso and independent sword, with shoulder_collar above near shoulder root.",
+    "shoulder_collar is a physical cloth overlay; transparent neck and lower center leave original torso visible. Do not use it to hide elbows/wrists or crop entire limb.",
+    "Base head pixels and transform remain unchanged. The collar neck opening must leave the original head/neck naturally visible in both poses; any overlap covering the face fails visual review.",
+    "Independent sword grip attaches near arm anchors.grip; the arm artwork includes dark grip-like shading that must be reviewed against actual weapon insertion. No new equipment or identity is implied."
+  ],
+  "candidate_notes": [
+    "Only three entire arm layers plus one collar were generated; base atlas03 was neither edited nor regenerated.",
+    "Arm cutouts include continuous sleeve/elbow/forearm/wrist/hand; no separate elbow/wrist transforms.",
+    "All three arms use fixed 0.50 scale for initial assembly; collar 0.43. These are candidates from physical proportions and must be checked in two-pose composition.",
+    "No full six-pose bank, wounded/fallen arm variants, Main/registry entry, new event timing or world mutation.",
+    "near_strike rest_rotation compensates the two-state sample peak torso lean (public shoulder-hip [0.23,-0.31]) and measured source shoulder-to-grip direction, so the complete arm and independent blade point screen right at that chosen sample. This is a fixed pose variant, not a generic timing or arbitrary-pose solver."
+  ],
+  "validation": {
+    "actual_source_pixels_viewed": true,
+    "source_regions_measured": true,
+    "main_component_clipping": false,
+    "two_pose_composite_verified": false,
+    "final_art_approved": false
+  },
+  "pose_registration": {
+    "strike_sample_public_shoulder_minus_hip": [
+      0.23,
+      -0.31
+    ],
+    "base_torso_axis": [
+      -15,
+      -176
+    ],
+    "strike_torso_rotation": 0.723341620661264,
+    "strike_source_shoulder_to_grip_angle": 0.2555210292804102,
+    "basis": "Measured arm endpoints and existing public pose fixture; no world data edits."
+  }
+}

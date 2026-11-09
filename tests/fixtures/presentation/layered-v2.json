@@ -1,0 +1,1045 @@
+{
+  "version": 2,
+  "default_background": "fixture.scene",
+  "default_portrait": "fixture.child",
+  "backgrounds": {
+    "fixture.scene": {
+      "path": "res://assets/art/presentation-fixtures/scene.png"
+    }
+  },
+  "portraits": {
+    "fixture.child-body": {
+      "path": "res://assets/art/presentation-fixtures/child-body.png"
+    },
+    "fixture.adult-body": {
+      "path": "res://assets/art/presentation-fixtures/adult-body.png"
+    },
+    "fixture.child-garment": {
+      "path": "res://assets/art/presentation-fixtures/child-garment.png"
+    },
+    "fixture.adult-garment": {
+      "path": "res://assets/art/presentation-fixtures/adult-garment.png"
+    },
+    "fixture.child": {
+      "path": "res://assets/art/presentation-fixtures/child-body.png"
+    }
+  },
+  "components": {
+    "child.body": {
+      "id": "child.body",
+      "slot": "body",
+      "asset_id": "portraits/fixture.child-body",
+      "body_basis": "child.front",
+      "proportion": "child",
+      "anchor": [
+        50,
+        50
+      ],
+      "z_index": 0,
+      "tags": [
+        "child"
+      ],
+      "compatible_tags": [
+        "child"
+      ],
+      "incompatible_tags": [],
+      "after": [],
+      "geometry": {
+        "source_size": [
+          8,
+          8
+        ],
+        "logical_canvas": [
+          8,
+          8
+        ],
+        "alpha_bounds": [
+          2,
+          2,
+          4,
+          6
+        ],
+        "safe_crop": [
+          0,
+          0,
+          8,
+          8
+        ],
+        "support_kind": "half_body_bottom",
+        "support_point": [
+          50,
+          100
+        ],
+        "pose": "idle",
+        "facing": "front",
+        "view": "half_body",
+        "mask_ids": [],
+        "palette_slots": []
+      }
+    },
+    "child.garment": {
+      "id": "child.garment",
+      "slot": "garment",
+      "asset_id": "portraits/fixture.child-garment",
+      "body_basis": "child.front",
+      "proportion": "child",
+      "anchor": [
+        50,
+        50
+      ],
+      "z_index": 1,
+      "tags": [
+        "child"
+      ],
+      "compatible_tags": [
+        "child"
+      ],
+      "incompatible_tags": [],
+      "after": [],
+      "geometry": {
+        "source_size": [
+          8,
+          8
+        ],
+        "logical_canvas": [
+          8,
+          8
+        ],
+        "alpha_bounds": [
+          1,
+          4,
+          6,
+          4
+        ],
+        "safe_crop": [
+          0,
+          0,
+          8,
+          8
+        ],
+        "support_kind": "half_body_bottom",
+        "support_point": [
+          50,
+          100
+        ],
+        "pose": "idle",
+        "facing": "front",
+        "view": "half_body",
+        "mask_ids": [],
+        "palette_slots": [
+          "cloth_primary"
+        ]
+      }
+    },
+    "adult.body": {
+      "id": "adult.body",
+      "slot": "body",
+      "asset_id": "portraits/fixture.adult-body",
+      "body_basis": "adult.front",
+      "proportion": "adult",
+      "anchor": [
+        50,
+        50
+      ],
+      "z_index": 0,
+      "tags": [
+        "adult"
+      ],
+      "compatible_tags": [
+        "adult"
+      ],
+      "incompatible_tags": [],
+      "after": [],
+      "geometry": {
+        "source_size": [
+          8,
+          8
+        ],
+        "logical_canvas": [
+          8,
+          8
+        ],
+        "alpha_bounds": [
+          2,
+          0,
+          4,
+          8
+        ],
+        "safe_crop": [
+          0,
+          0,
+          8,
+          8
+        ],
+        "support_kind": "half_body_bottom",
+        "support_point": [
+          50,
+          100
+        ],
+        "pose": "idle",
+        "facing": "front",
+        "view": "half_body",
+        "mask_ids": [],
+        "palette_slots": []
+      }
+    },
+    "adult.garment": {
+      "id": "adult.garment",
+      "slot": "garment",
+      "asset_id": "portraits/fixture.adult-garment",
+      "body_basis": "adult.front",
+      "proportion": "adult",
+      "anchor": [
+        50,
+        50
+      ],
+      "z_index": 1,
+      "tags": [
+        "adult"
+      ],
+      "compatible_tags": [
+        "adult"
+      ],
+      "incompatible_tags": [],
+      "after": [],
+      "geometry": {
+        "source_size": [
+          8,
+          8
+        ],
+        "logical_canvas": [
+          8,
+          8
+        ],
+        "alpha_bounds": [
+          1,
+          2,
+          6,
+          6
+        ],
+        "safe_crop": [
+          0,
+          0,
+          8,
+          8
+        ],
+        "support_kind": "half_body_bottom",
+        "support_point": [
+          50,
+          100
+        ],
+        "pose": "idle",
+        "facing": "front",
+        "view": "half_body",
+        "mask_ids": [],
+        "palette_slots": [
+          "cloth_primary"
+        ]
+      }
+    },
+    "child.body.battle": {
+      "id": "child.body.battle",
+      "slot": "body",
+      "asset_id": "portraits/fixture.child-body",
+      "body_basis": "child.front",
+      "proportion": "child",
+      "anchor": [
+        50,
+        50
+      ],
+      "z_index": 0,
+      "tags": [
+        "child"
+      ],
+      "compatible_tags": [
+        "child"
+      ],
+      "incompatible_tags": [],
+      "after": [],
+      "geometry": {
+        "source_size": [
+          8,
+          8
+        ],
+        "logical_canvas": [
+          8,
+          8
+        ],
+        "alpha_bounds": [
+          2,
+          2,
+          4,
+          6
+        ],
+        "safe_crop": [
+          0,
+          0,
+          8,
+          8
+        ],
+        "support_kind": "foot",
+        "support_point": [
+          50,
+          100
+        ],
+        "pose": "idle",
+        "facing": "front",
+        "view": "battle",
+        "mask_ids": [],
+        "palette_slots": []
+      }
+    },
+    "child.garment.battle": {
+      "id": "child.garment.battle",
+      "slot": "garment",
+      "asset_id": "portraits/fixture.child-garment",
+      "body_basis": "child.front",
+      "proportion": "child",
+      "anchor": [
+        50,
+        50
+      ],
+      "z_index": 1,
+      "tags": [
+        "child"
+      ],
+      "compatible_tags": [
+        "child"
+      ],
+      "incompatible_tags": [],
+      "after": [],
+      "geometry": {
+        "source_size": [
+          8,
+          8
+        ],
+        "logical_canvas": [
+          8,
+          8
+        ],
+        "alpha_bounds": [
+          1,
+          4,
+          6,
+          4
+        ],
+        "safe_crop": [
+          0,
+          0,
+          8,
+          8
+        ],
+        "support_kind": "foot",
+        "support_point": [
+          50,
+          100
+        ],
+        "pose": "idle",
+        "facing": "front",
+        "view": "battle",
+        "mask_ids": [],
+        "palette_slots": [
+          "cloth_primary"
+        ]
+      }
+    },
+    "adult.body.battle": {
+      "id": "adult.body.battle",
+      "slot": "body",
+      "asset_id": "portraits/fixture.adult-body",
+      "body_basis": "adult.front",
+      "proportion": "adult",
+      "anchor": [
+        50,
+        50
+      ],
+      "z_index": 0,
+      "tags": [
+        "adult"
+      ],
+      "compatible_tags": [
+        "adult"
+      ],
+      "incompatible_tags": [],
+      "after": [],
+      "geometry": {
+        "source_size": [
+          8,
+          8
+        ],
+        "logical_canvas": [
+          8,
+          8
+        ],
+        "alpha_bounds": [
+          2,
+          0,
+          4,
+          8
+        ],
+        "safe_crop": [
+          0,
+          0,
+          8,
+          8
+        ],
+        "support_kind": "foot",
+        "support_point": [
+          50,
+          100
+        ],
+        "pose": "idle",
+        "facing": "front",
+        "view": "battle",
+        "mask_ids": [],
+        "palette_slots": []
+      }
+    },
+    "adult.garment.battle": {
+      "id": "adult.garment.battle",
+      "slot": "garment",
+      "asset_id": "portraits/fixture.adult-garment",
+      "body_basis": "adult.front",
+      "proportion": "adult",
+      "anchor": [
+        50,
+        50
+      ],
+      "z_index": 1,
+      "tags": [
+        "adult"
+      ],
+      "compatible_tags": [
+        "adult"
+      ],
+      "incompatible_tags": [],
+      "after": [],
+      "geometry": {
+        "source_size": [
+          8,
+          8
+        ],
+        "logical_canvas": [
+          8,
+          8
+        ],
+        "alpha_bounds": [
+          1,
+          2,
+          6,
+          6
+        ],
+        "safe_crop": [
+          0,
+          0,
+          8,
+          8
+        ],
+        "support_kind": "foot",
+        "support_point": [
+          50,
+          100
+        ],
+        "pose": "idle",
+        "facing": "front",
+        "view": "battle",
+        "mask_ids": [],
+        "palette_slots": [
+          "cloth_primary"
+        ]
+      }
+    }
+  },
+  "character_profiles": {
+    "fixture.person": {
+      "id": "fixture.person",
+      "identity_group": "fixture.identity",
+      "mode": "composite",
+      "view": "half_body",
+      "pose": "idle",
+      "context": "daily",
+      "age_domain": [
+        0,
+        80
+      ],
+      "child_max_age": 15,
+      "age_variants": [
+        {
+          "id": "young",
+          "ages": [
+            0,
+            15
+          ],
+          "body_basis": "child.front",
+          "proportion": "child",
+          "components": [
+            "child.body"
+          ]
+        },
+        {
+          "id": "grown",
+          "ages": [
+            16,
+            80
+          ],
+          "body_basis": "adult.front",
+          "proportion": "adult",
+          "components": [
+            "adult.body"
+          ]
+        }
+      ],
+      "attire_sets": [
+        {
+          "id": "plain",
+          "bindings": [
+            {
+              "body_basis": "child.front",
+              "components": [
+                "child.garment"
+              ]
+            },
+            {
+              "body_basis": "adult.front",
+              "components": [
+                "adult.garment"
+              ]
+            }
+          ]
+        }
+      ],
+      "overrides": [],
+      "fallbacks": [],
+      "battle_profile": {
+        "style": "simple",
+        "profile_id": "fixture.battle"
+      }
+    },
+    "fixture.second": {
+      "id": "fixture.second",
+      "identity_group": "fixture.identity",
+      "mode": "composite",
+      "view": "half_body",
+      "pose": "idle",
+      "context": "daily",
+      "age_domain": [
+        0,
+        80
+      ],
+      "child_max_age": 15,
+      "age_variants": [
+        {
+          "id": "young",
+          "ages": [
+            0,
+            15
+          ],
+          "body_basis": "child.front",
+          "proportion": "child",
+          "components": [
+            "child.body"
+          ]
+        },
+        {
+          "id": "grown",
+          "ages": [
+            16,
+            80
+          ],
+          "body_basis": "adult.front",
+          "proportion": "adult",
+          "components": [
+            "adult.body"
+          ]
+        }
+      ],
+      "attire_sets": [
+        {
+          "id": "plain",
+          "bindings": [
+            {
+              "body_basis": "child.front",
+              "components": [
+                "child.garment"
+              ]
+            },
+            {
+              "body_basis": "adult.front",
+              "components": [
+                "adult.garment"
+              ]
+            }
+          ]
+        }
+      ],
+      "overrides": [],
+      "fallbacks": [],
+      "battle_profile": {
+        "style": "simple",
+        "profile_id": "fixture.battle"
+      }
+    },
+    "fixture.battle": {
+      "id": "fixture.battle",
+      "identity_group": "fixture.identity",
+      "mode": "composite",
+      "view": "battle",
+      "pose": "idle",
+      "context": "battle",
+      "age_domain": [
+        0,
+        80
+      ],
+      "child_max_age": 15,
+      "age_variants": [
+        {
+          "id": "young",
+          "ages": [
+            0,
+            15
+          ],
+          "body_basis": "child.front",
+          "proportion": "child",
+          "components": [
+            "child.body.battle"
+          ]
+        },
+        {
+          "id": "grown",
+          "ages": [
+            16,
+            80
+          ],
+          "body_basis": "adult.front",
+          "proportion": "adult",
+          "components": [
+            "adult.body.battle"
+          ]
+        }
+      ],
+      "attire_sets": [
+        {
+          "id": "plain",
+          "bindings": [
+            {
+              "body_basis": "child.front",
+              "components": [
+                "child.garment.battle"
+              ]
+            },
+            {
+              "body_basis": "adult.front",
+              "components": [
+                "adult.garment.battle"
+              ]
+            }
+          ]
+        }
+      ],
+      "overrides": [],
+      "fallbacks": [],
+      "battle_profile": {
+        "style": "none"
+      }
+    },
+    "fixture.dedicated": {
+      "id": "fixture.dedicated",
+      "identity_group": "fixture.identity",
+      "mode": "handcrafted",
+      "view": "half_body",
+      "pose": "idle",
+      "context": "daily",
+      "age_domain": [
+        0,
+        80
+      ],
+      "child_max_age": 15,
+      "age_variants": [
+        {
+          "id": "young",
+          "ages": [
+            0,
+            15
+          ],
+          "body_basis": "child.front",
+          "proportion": "child",
+          "components": []
+        },
+        {
+          "id": "grown",
+          "ages": [
+            16,
+            80
+          ],
+          "body_basis": "adult.front",
+          "proportion": "adult",
+          "components": []
+        }
+      ],
+      "attire_sets": [],
+      "overrides": [
+        {
+          "id": "young",
+          "ages": [
+            0,
+            15
+          ],
+          "view": "half_body",
+          "pose": "idle",
+          "context": "daily",
+          "priority": 10,
+          "asset_id": "portraits/fixture.child-body",
+          "body_basis": "child.front",
+          "proportion": "child",
+          "geometry": {
+            "source_size": [
+              8,
+              8
+            ],
+            "logical_canvas": [
+              8,
+              8
+            ],
+            "alpha_bounds": [
+              2,
+              2,
+              4,
+              6
+            ],
+            "safe_crop": [
+              0,
+              0,
+              8,
+              8
+            ],
+            "support_kind": "half_body_bottom",
+            "support_point": [
+              50,
+              100
+            ],
+            "pose": "idle",
+            "facing": "front",
+            "view": "half_body",
+            "mask_ids": [],
+            "palette_slots": []
+          }
+        },
+        {
+          "id": "grown",
+          "ages": [
+            16,
+            80
+          ],
+          "view": "half_body",
+          "pose": "idle",
+          "context": "daily",
+          "priority": 10,
+          "asset_id": "portraits/fixture.adult-body",
+          "body_basis": "adult.front",
+          "proportion": "adult",
+          "geometry": {
+            "source_size": [
+              8,
+              8
+            ],
+            "logical_canvas": [
+              8,
+              8
+            ],
+            "alpha_bounds": [
+              2,
+              0,
+              4,
+              8
+            ],
+            "safe_crop": [
+              0,
+              0,
+              8,
+              8
+            ],
+            "support_kind": "half_body_bottom",
+            "support_point": [
+              50,
+              100
+            ],
+            "pose": "idle",
+            "facing": "front",
+            "view": "half_body",
+            "mask_ids": [],
+            "palette_slots": []
+          }
+        }
+      ],
+      "fallbacks": [
+        "fixture.person"
+      ],
+      "battle_profile": {
+        "style": "none"
+      }
+    }
+  },
+  "scene_templates": {
+    "fixture.room": {
+      "id": "fixture.room",
+      "view_kind": "interior",
+      "logical_canvas": [
+        8,
+        8
+      ],
+      "ui_safe_areas": [
+        [
+          0,
+          0,
+          2,
+          2
+        ]
+      ],
+      "layers": [
+        {
+          "id": "back",
+          "kind": "background",
+          "asset_id": "backgrounds/fixture.scene",
+          "anchor": [
+            50,
+            50
+          ],
+          "z_index": 0,
+          "after": [],
+          "geometry": {
+            "source_size": [
+              8,
+              8
+            ],
+            "logical_canvas": [
+              8,
+              8
+            ],
+            "alpha_bounds": [
+              0,
+              0,
+              8,
+              8
+            ],
+            "safe_crop": [
+              0,
+              0,
+              8,
+              8
+            ],
+            "support_kind": "foot",
+            "support_point": [
+              50,
+              100
+            ],
+            "pose": "idle",
+            "facing": "front",
+            "view": "scene",
+            "mask_ids": [],
+            "palette_slots": []
+          }
+        },
+        {
+          "id": "person",
+          "kind": "actor",
+          "position": [
+            50,
+            80
+          ],
+          "profile_id": "fixture.person",
+          "after": [
+            "back"
+          ]
+        },
+        {
+          "id": "inspect",
+          "kind": "hotspot",
+          "rect": [
+            30,
+            30,
+            40,
+            60
+          ],
+          "target_layer_id": "person",
+          "after": [
+            "person"
+          ]
+        }
+      ]
+    },
+    "fixture.city": {
+      "id": "fixture.city",
+      "view_kind": "city",
+      "logical_canvas": [
+        8,
+        8
+      ],
+      "ui_safe_areas": [
+        [
+          0,
+          0,
+          2,
+          2
+        ]
+      ],
+      "layers": [
+        {
+          "id": "back",
+          "kind": "background",
+          "asset_id": "backgrounds/fixture.scene",
+          "anchor": [
+            50,
+            50
+          ],
+          "z_index": 0,
+          "after": [],
+          "geometry": {
+            "source_size": [
+              8,
+              8
+            ],
+            "logical_canvas": [
+              8,
+              8
+            ],
+            "alpha_bounds": [
+              0,
+              0,
+              8,
+              8
+            ],
+            "safe_crop": [
+              0,
+              0,
+              8,
+              8
+            ],
+            "support_kind": "foot",
+            "support_point": [
+              50,
+              100
+            ],
+            "pose": "idle",
+            "facing": "front",
+            "view": "scene",
+            "mask_ids": [],
+            "palette_slots": []
+          }
+        },
+        {
+          "id": "person",
+          "kind": "actor",
+          "position": [
+            50,
+            80
+          ],
+          "profile_id": "fixture.person",
+          "after": [
+            "back"
+          ]
+        },
+        {
+          "id": "inspect",
+          "kind": "hotspot",
+          "rect": [
+            30,
+            30,
+            40,
+            60
+          ],
+          "target_layer_id": "person",
+          "after": [
+            "person"
+          ]
+        }
+      ]
+    },
+    "fixture.world": {
+      "id": "fixture.world",
+      "view_kind": "world",
+      "logical_canvas": [
+        8,
+        8
+      ],
+      "ui_safe_areas": [
+        [
+          0,
+          0,
+          2,
+          2
+        ]
+      ],
+      "layers": [
+        {
+          "id": "back",
+          "kind": "background",
+          "asset_id": "backgrounds/fixture.scene",
+          "anchor": [
+            50,
+            50
+          ],
+          "z_index": 0,
+          "after": [],
+          "geometry": {
+            "source_size": [
+              8,
+              8
+            ],
+            "logical_canvas": [
+              8,
+              8
+            ],
+            "alpha_bounds": [
+              0,
+              0,
+              8,
+              8
+            ],
+            "safe_crop": [
+              0,
+              0,
+              8,
+              8
+            ],
+            "support_kind": "foot",
+            "support_point": [
+              50,
+              100
+            ],
+            "pose": "idle",
+            "facing": "front",
+            "view": "scene",
+            "mask_ids": [],
+            "palette_slots": []
+          }
+        },
+        {
+          "id": "person",
+          "kind": "actor",
+          "position": [
+            50,
+            80
+          ],
+          "profile_id": "fixture.person",
+          "after": [
+            "back"
+          ]
+        },
+        {
+          "id": "inspect",
+          "kind": "hotspot",
+          "rect": [
+            30,
+            30,
+            40,
+            60
+          ],
+          "target_layer_id": "person",
+          "after": [
+            "person"
+          ]
+        }
+      ]
+    }
+  }
+}

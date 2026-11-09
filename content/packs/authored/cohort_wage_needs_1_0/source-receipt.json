@@ -1,0 +1,29 @@
+{
+  "source_git_oid": "9f82428a0a98904b30aad6690d4b9a4d0dba0930",
+  "source_pack": "hanmo.political_economy/1.1.0",
+  "fiscal_generator_git_oid": "6155d578a86e4f4e5e764cfe97d68defda898cd7",
+  "source_scenario": "civicecon::scenario.qingchuan_governance",
+  "target_scenarios": [
+    "cohortwages::scenario.qingchuan_cohort_wages_all",
+    "cohortwages::scenario.qingchuan_cohort_wages_only",
+    "cohortwages::scenario.qingchuan_cohort_wages_named",
+    "cohortwages::scenario.qingchuan_cohort_wages_fiscal"
+  ],
+  "module": "cohort_wage_need_policies/1",
+  "affairs_codec": 4,
+  "initial_people_and_assets_unchanged": true,
+  "provisional_author_parameters": {
+    "cash_wage_per_person_per_four_ticks": 34
+  },
+  "actual_original_basis": {
+    "cohort_headcount": 6,
+    "payer_cash": 200,
+    "existing_issuer_limit": 1000
+  },
+  "expected_path_unverified": "due204/pay200 at4; actual tax12 arrives; automatic old4 clears at5; next due remains separate",
+  "independent_named_fiscal_switches": true,
+  "pressure_rate_id": "rate.city_household_wage.pressure",
+  "other_obligation_rates_unchanged": true,
+  "runtime_verified": false,
+  "compose_verified": false
+}

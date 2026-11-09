@@ -1,0 +1,5 @@
+.godot/
+*.uid
+# 单张矩阵中间产物可由确定性脚本重建；保留正式对照板与对应选值。
+evidence/matrix-[0-9].png
+evidence/matrix-[0-9].png.import

@@ -1,0 +1,32 @@
+{
+  "format": "HM-PACK",
+  "format_version": 1,
+  "id": "foundation.journey_life",
+  "version": "0.6.1",
+  "namespace": "journey_life",
+  "rules_api": {
+    "id": "hanmo.rules",
+    "min_version": "1.0.0",
+    "max_version_exclusive": "2.0.0"
+  },
+  "dependencies": [],
+  "conflicts": [],
+  "required_capabilities": [
+    "multi_actor",
+    "places",
+    "dialogue",
+    "tasks.procurement",
+    "economy",
+    "tasks.message",
+    "events",
+    "services",
+    "companions",
+    "road_encounters"
+  ],
+  "content_entries": [],
+  "presentation_entries": [],
+  "resources": [],
+  "author": "Hanmo legacy adapter",
+  "license": "NOASSERTION",
+  "legacy_source": "journey_life"
+}

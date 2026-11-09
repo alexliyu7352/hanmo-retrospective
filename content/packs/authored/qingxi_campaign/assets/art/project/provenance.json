@@ -1,0 +1,38 @@
+{
+  "format": "HM-PROJECT-ART-USE",
+  "format_version": 1,
+  "use": "project-local-authorized-use",
+  "external_distribution_verified": false,
+  "resources": [
+    {
+      "source": "game/assets/art/alpha-camp/camp-courtyard.png",
+      "sha256": "2f5649b6a342bb7cedbfa3fde882e9625ea27c98d80dfc90c109bdee519fedc9",
+      "generation_manifest": "game/assets/art/alpha-camp/manifest.json",
+      "generation_manifest_sha256": "850e689fa96bd16695769263afa5a92e51cdfc0e9ab864c4396c3156ffbeeda9"
+    },
+    {
+      "source": "game/assets/art/alpha-military/valley.png",
+      "sha256": "119fd0b283827ac0af6ab41d5c8a084b7ea19fd77434df0e5c5133f5aa3f92b6",
+      "generation_manifest": "game/assets/art/alpha-military/manifest.json",
+      "generation_manifest_sha256": "6bbf79c5476743bd6751acde58381bb46ce9bd4f4e52afa2f2852d931625cf2f"
+    },
+    {
+      "source": "game/assets/art/alpha-visual/official.png",
+      "sha256": "b56d9131133b89a9a04796c59491883d2c871fc4f5fd8a60fbba6ef0db3e4683",
+      "generation_manifest": "game/assets/art/alpha-visual/manifest.json",
+      "generation_manifest_sha256": "cf5fd10647d22ce647150c1a87ff5642e5339aadfac03300df7be283bf732438"
+    },
+    {
+      "source": "game/assets/art/alpha-military/infantry.png",
+      "sha256": "c970dfe82d03651e85f77b2fee76944086432cda02cb94f219278c51fd373db5",
+      "generation_manifest": "game/assets/art/alpha-military/manifest.json",
+      "generation_manifest_sha256": "6bbf79c5476743bd6751acde58381bb46ce9bd4f4e52afa2f2852d931625cf2f"
+    },
+    {
+      "source": "game/assets/art/alpha-military/archers.png",
+      "sha256": "126577f8ea32db37254dc70f658f8e32b05915e2d57f8d6a01f43409f0b229a8",
+      "generation_manifest": "game/assets/art/alpha-military/manifest.json",
+      "generation_manifest_sha256": "6bbf79c5476743bd6751acde58381bb46ce9bd4f4e52afa2f2852d931625cf2f"
+    }
+  ]
+}

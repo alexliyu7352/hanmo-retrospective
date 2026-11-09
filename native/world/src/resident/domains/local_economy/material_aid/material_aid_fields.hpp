@@ -1,0 +1,25 @@
+// P27/1's single finite field table. No S6 scheduling cursor is serialized.
+#pragma once
+#include "material_aid_codec.hpp"
+namespace hanmo::resident::material_aid_fields {
+template<class C>void fields(C&c,SourceRef&v){c("domain",v.domain);c("kind",v.kind);c("id",v.id);}
+template<class C>void fields(C&c,MomentOwnerSource&v){c("source_ref",v.source_ref);c("source_schema",v.source_schema);}
+template<class C>void fields(C&c,SubjectRef&v){c("kind",v.kind);c("id",v.id);}
+template<class C>void fields(C&c,ObligationRef&v){obligation_ref_fields(c,v);}
+template<class C>void fields(C&c,BudgetUnit&v){Integer tag=static_cast<Integer>(v.index());c("kind",tag);if(tag<0||tag>1){c.reject("InvalidMaterialAidBudgetMeasure","");return;}if(c.reading()){if(tag==0)v=BudgetMoneyQian{};else v=BudgetItemQuantity{};}if(tag==1)c("item_id",std::get<BudgetItemQuantity>(v).item_id);}
+template<class C>void fields(C&c,TreatyAidItemAmount&v){c("item_id",v.item_id);c("quantity",v.quantity);}
+template<class C>void fields(C&c,TreatyAidMoney&v){c("currency_id",v.currency_id);c("amount",v.amount);}
+template<class C>void fields(C&c,AidOccurrenceKey&v){c("treaty_id",v.treaty_id);c("terms_revision",v.terms_revision);c("term_id",v.term_id);c("ordinal",v.ordinal);}
+template<class C>void fields(C&c,AidItemContainerRoute&v){c("item_id",v.item_id);c("source_inventory_id",v.source_inventory_id);c("beneficiary_inventory_id",v.beneficiary_inventory_id);}
+template<class C>void fields(C&c,AidMoneyContainerRoute&v){c("source_wallet_id",v.source_wallet_id);c("beneficiary_wallet_id",v.beneficiary_wallet_id);}
+template<class C>void fields(C&c,AidSourceLegRef&v){c("source",v.source);c("leg_ordinal",v.leg_ordinal);}
+template<class C>void fields(C&c,AidScheduleCommitment&v){c("id",v.id);c("schedule_id",v.schedule_id);c("treaty_term_ref",v.treaty_term_ref);c("resource_acceptance_ref",v.resource_acceptance_ref);c("accepted_at",v.accepted_at);c("authority_refs",v.authority_refs);c("occurrence_cap_reservation_refs",v.occurrence_cap_reservation_refs);c("budget_binding_refs",v.budget_binding_refs);c("established_occurrence_refs",v.established_occurrence_refs);c("termination_source_ref",v.termination_source_ref);}
+template<class C>void fields(C&c,AidOccurrenceCapReservation&v){c("id",v.id);c("schedule_commitment_id",v.schedule_commitment_id);c("occurrence_ordinal",v.occurrence_ordinal);c("unit",v.unit);c("quantity",v.quantity);c("establishment_result_ref",v.establishment_result_ref);c("release_result_ref",v.release_result_ref);}
+template<class C>void fields(C&c,MaterialAidObligation&v){c("id",v.id);c("schedule_commitment_id",v.schedule_commitment_id);c("occurrence",v.occurrence);c("established_at",v.established_at);c("due_tick",v.due_tick);c("delivery_deadline_tick",v.delivery_deadline_tick);c("beneficiary",v.beneficiary);c("delivery_site",v.delivery_site);c("frozen_items",v.frozen_items);c("frozen_money",v.frozen_money);c("resource_acceptance_ref",v.resource_acceptance_ref);c("item_routes",v.item_routes);c("money_route",v.money_route);c("original_money_obligation_id",v.original_money_obligation_id);c("original_money_arrear_id",v.original_money_arrear_id);c("issue_result_refs",v.issue_result_refs);c("receipt_result_refs",v.receipt_result_refs);c("deadline_result_ref",v.deadline_result_ref);c("state",v.state);}
+template<class C>void fields(C&c,MaterialAidEstablishment&v){c("id",v.id);c("schedule_commitment_id",v.schedule_commitment_id);c("occurrence_ordinal",v.occurrence_ordinal);c("original_obligation_ref",v.original_obligation_ref);c("established_at",v.established_at);c("converted_reservation_refs",v.converted_reservation_refs);}
+template<class C>void fields(C&c,MaterialAidResourceIssue&v){c("id",v.id);c("obligation_id",v.obligation_id);c("actual_issue_ref",v.actual_issue_ref);c("occurred_at",v.occurred_at);}
+template<class C>void fields(C&c,MaterialAidReceipt&v){c("id",v.id);c("obligation_id",v.obligation_id);c("issue_result_id",v.issue_result_id);c("actual_receipt_ref",v.actual_receipt_ref);c("occurred_at",v.occurred_at);}
+template<class C>void fields(C&c,MaterialAidScheduleRelease&v){c("id",v.id);c("schedule_commitment_id",v.schedule_commitment_id);c("actual_termination_ref",v.actual_termination_ref);c("occurred_at",v.occurred_at);c("released_reservation_refs",v.released_reservation_refs);}
+template<class C>void fields(C&c,MaterialAidDeadlineResult&v){c("id",v.id);c("obligation_id",v.obligation_id);c("occurred_at",v.occurred_at);c("compensation_obligation_ref",v.compensation_obligation_ref);}
+template<class C>void fields(C&c,TreatyMaterialAidState&v){c("schema_version",v.schema_version);if(v.schema_version!=1){c.reject("UnsupportedTreatyMaterialAidVersion","");return;}c("schedule_commitments",v.schedule_commitments);c("occurrence_cap_reservations",v.occurrence_cap_reservations);c("establishments",v.establishments);c("obligations",v.obligations);c("resource_issues",v.resource_issues);c("receipts",v.receipts);c("schedule_releases",v.schedule_releases);c("deadline_results",v.deadline_results);}
+}

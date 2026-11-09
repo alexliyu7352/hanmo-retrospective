@@ -1,0 +1,662 @@
+{
+  "schema_version": 1,
+  "scope": "Finite reviewed source paths; this gate is not semantic or runtime capability admission",
+  "update_owner": "central sole writer; update original interface and all actual consumers together",
+  "entries": [
+    {
+      "id": "action_occupation",
+      "owner": "S0 central",
+      "header": "src/resident/kernel/common_action_occupation.hpp",
+      "implementation": "src/resident/kernel/common_action_occupation.cpp",
+      "symbols": [
+        {
+          "name": "adopt_started_action_in_candidate",
+          "definition_regex": "(^|[\r\n])[ \t]*(inline[ \t]+)?Status[ \t]+adopt_started_action_in_candidate[ \t\r\n]*\\([^;{}]*\\)[ \t\r\n]*(noexcept[ \t\r\n]*)?\\{"
+        },
+        {
+          "name": "release_action_occupation_in_candidate",
+          "definition_regex": "(^|[\r\n])[ \t]*(inline[ \t]+)?Status[ \t]+release_action_occupation_in_candidate[ \t\r\n]*\\([^;{}]*\\)[ \t\r\n]*(noexcept[ \t\r\n]*)?\\{"
+        },
+        {
+          "name": "erase_released_action_in_candidate",
+          "definition_regex": "(^|[\r\n])[ \t]*(inline[ \t]+)?Status[ \t]+erase_released_action_in_candidate[ \t\r\n]*\\([^;{}]*\\)[ \t\r\n]*(noexcept[ \t\r\n]*)?\\{"
+        },
+        {
+          "name": "pause_action_participation_in_candidate",
+          "definition_regex": "(^|[\r\n])[ \t]*(inline[ \t]+)?Status[ \t]+pause_action_participation_in_candidate[ \t\r\n]*\\([^;{}]*\\)[ \t\r\n]*(noexcept[ \t\r\n]*)?\\{"
+        },
+        {
+          "name": "resume_action_participation_in_candidate",
+          "definition_regex": "(^|[\r\n])[ \t]*(inline[ \t]+)?Status[ \t]+resume_action_participation_in_candidate[ \t\r\n]*\\([^;{}]*\\)[ \t\r\n]*(noexcept[ \t\r\n]*)?\\{"
+        }
+      ],
+      "consumers": [
+        {
+          "path": "src/resident/kernel/dispatcher.cpp",
+          "required_call_regexes": [
+            "adopt_started_action_in_candidate[ \t\r\n]*\\("
+          ],
+          "forbidden_regexes": []
+        },
+        {
+          "path": "src/resident/kernel/world_bundle.cpp",
+          "required_call_regexes": [
+            "release_action_occupation_in_candidate[ \t\r\n]*\\(",
+            "erase_released_action_in_candidate[ \t\r\n]*\\("
+          ],
+          "forbidden_regexes": []
+        },
+        {
+          "path": "src/resident/domains/family/care_handover_start.cpp",
+          "required_call_regexes": [
+            "adopt_started_action_in_candidate[ \t\r\n]*\\("
+          ],
+          "forbidden_regexes": [
+            "\\.apply_action[ \t\r\n]*\\(",
+            "\\.apply_actor[ \t\r\n]*\\("
+          ]
+        },
+        {
+          "path": "src/resident/domains/family/care_handover_completion.cpp",
+          "required_call_regexes": [
+            "release_action_occupation_in_candidate[ \t\r\n]*\\(",
+            "erase_released_action_in_candidate[ \t\r\n]*\\("
+          ],
+          "forbidden_regexes": [
+            "\\.apply_action[ \t\r\n]*\\(",
+            "\\.apply_actor[ \t\r\n]*\\("
+          ]
+        },
+        {
+          "path": "src/resident/domains/growth/growth_rules.cpp",
+          "required_call_regexes": [
+            "pause_action_participation_in_candidate[ \t\r\n]*\\(",
+            "resume_action_participation_in_candidate[ \t\r\n]*\\("
+          ],
+          "forbidden_regexes": []
+        }
+      ],
+      "required_original_gates": "Caller validates accepted business, exact participants and qualification before Common adoption; source-local historical occupation is a separate Required dependency. Pause retains Action and reservations.",
+      "forbidden_parallel_implementation": "A domain cannot copy the insert/occupy or release/erase skeleton. Direct unrelated Actor skill mutations remain domain-owned.",
+      "missing_owner_handoff": "S0 central; do not add a generic participant setter",
+      "original_contracts": [
+        "core/native-core-specification §§3.1,5.5",
+        "life-facility-holder-history §5.3B"
+      ],
+      "retirement_evidence": [
+        "central2306/2319",
+        "K3 2312/2319/2322"
+      ]
+    },
+    {
+      "id": "cash_recipe",
+      "owner": "Common/storage K5",
+      "header": "src/resident/storage/money_transfer_recipe.hpp",
+      "implementation": "src/resident/storage/money_transfer_recipe.cpp",
+      "symbols": [
+        {
+          "name": "append_money_transfer",
+          "definition_regex": "(^|[\r\n])[ \t]*(inline[ \t]+)?Status[ \t]+append_money_transfer[ \t\r\n]*\\([^;{}]*\\)[ \t\r\n]*(noexcept[ \t\r\n]*)?\\{"
+        },
+        {
+          "name": "append_reserved_money_payment",
+          "definition_regex": "(^|[\r\n])[ \t]*(inline[ \t]+)?Status[ \t]+append_reserved_money_payment[ \t\r\n]*\\([^;{}]*\\)[ \t\r\n]*(noexcept[ \t\r\n]*)?\\{"
+        }
+      ],
+      "consumers": [
+        {
+          "path": "src/resident/domains/growth/growth_rules.cpp",
+          "required_call_regexes": [
+            "resource_recipe::append_money_transfer[ \t\r\n]*\\(",
+            "resource_recipe::append_reserved_money_payment[ \t\r\n]*\\("
+          ],
+          "forbidden_regexes": [
+            "WalletDelta[ \t\r\n]*\\{"
+          ]
+        },
+        {
+          "path": "src/resident/domains/family/family_rules.cpp",
+          "required_call_regexes": [
+            "resource_recipe::append_money_transfer[ \t\r\n]*\\("
+          ],
+          "forbidden_regexes": [
+            "WalletDelta[ \t\r\n]*\\{"
+          ]
+        },
+        {
+          "path": "src/resident/domains/military/naval_repair_charges.cpp",
+          "required_call_regexes": [
+            "resource_recipe::append_reserved_money_payment[ \t\r\n]*\\("
+          ],
+          "forbidden_regexes": [
+            "WalletDelta[ \t\r\n]*\\{"
+          ]
+        }
+      ],
+      "required_original_gates": "Preserve original four WalletDelta policies, reservation ordering, same-recipe CreateWallet and original same-wallet rule; Common alone executes balances. This is no authority, fee or payable algorithm.",
+      "forbidden_parallel_implementation": "No local two-wallet recipe or copied reservation-payment order; original one-leg fees remain one-leg.",
+      "missing_owner_handoff": "K5 Common/storage; a missing finite original policy is not permission to copy the recipe",
+      "original_contracts": [
+        "core-spatial-contracts shared resource boundary",
+        "E original Common execution; Study termination §§5.1–5.2"
+      ],
+      "retirement_evidence": [
+        "K5 231500",
+        "K3 2316/2319",
+        "K4 2317"
+      ]
+    },
+    {
+      "id": "ordinary_study_tariff",
+      "owner": "K3 original Growth",
+      "header": "src/resident/domains/growth/growth_internal.hpp",
+      "implementation": "src/resident/domains/growth/growth_rules.cpp",
+      "symbols": [
+        {
+          "name": "original_study_lesson_cost",
+          "definition_regex": "(^|[\r\n])[ \t]*(inline[ \t]+)?Integer[ \t]+original_study_lesson_cost[ \t\r\n]*\\([^;{}]*\\)[ \t\r\n]*(noexcept[ \t\r\n]*)?\\{"
+        }
+      ],
+      "consumers": [
+        {
+          "path": "src/resident/domains/growth/study_service_termination.cpp",
+          "required_call_regexes": [
+            "growth::original_study_lesson_cost[ \t\r\n]*\\("
+          ],
+          "forbidden_regexes": [
+            "20[ \t]*\\+[ \t]*10[ \t]*\\*"
+          ]
+        },
+        {
+          "path": "src/resident/domains/growth/growth_complete_validation.cpp",
+          "required_call_regexes": [
+            "growth::original_study_lesson_cost[ \t\r\n]*\\("
+          ],
+          "forbidden_regexes": [
+            "20[ \t]*\\+[ \t]*10[ \t]*\\*"
+          ]
+        },
+        {
+          "path": "src/resident/domains/growth/growth_views.cpp",
+          "required_call_regexes": [
+            "growth::original_study_lesson_cost[ \t\r\n]*\\("
+          ],
+          "forbidden_regexes": [
+            "20[ \t]*\\+[ \t]*10[ \t]*\\*"
+          ]
+        }
+      ],
+      "required_original_gates": "Use frozen accepted XP and only ordinary Study tariff; no price changes.",
+      "forbidden_parallel_implementation": "No duplicate ordinary Study price formula in quote, payment, cancellation, cold or views; other businesses retain their own tariffs.",
+      "missing_owner_handoff": "K3 Growth",
+      "original_contracts": [
+        "study-service-termination §5.1"
+      ],
+      "retirement_evidence": [
+        "K3 2309/2345"
+      ]
+    },
+    {
+      "id": "bounded_catalog_rows",
+      "owner": "K9 checkpoint",
+      "header": "src/resident/checkpoint/checkpoint_catalog_rows.hpp",
+      "implementation": "src/resident/checkpoint/checkpoint_catalog_rows.hpp",
+      "symbols": [
+        {
+          "name": "CheckpointCatalogRows",
+          "definition_regex": "class[ \t]+CheckpointCatalogRows[ \t]*\\{"
+        }
+      ],
+      "consumers": [
+        {
+          "path": "src/resident/domains/actor_foundation/authored_catalog.cpp",
+          "required_call_regexes": [
+            "CheckpointCatalogRows[ \t]*<"
+          ],
+          "forbidden_regexes": [
+            "class[ \t]+AuthoredRows"
+          ]
+        },
+        {
+          "path": "src/resident/domains/growth/growth_permanent_author.cpp",
+          "required_call_regexes": [
+            "CheckpointCatalogRows[ \t]*<"
+          ],
+          "forbidden_regexes": [
+            "class[ \t]+AuthoredRows"
+          ]
+        }
+      ],
+      "required_original_gates": "Same actual job/budget; original field order, duplicate semantics, defaults and final original-source validators remain. Whole catalog construction is still Required.",
+      "forbidden_parallel_implementation": "No copied private row growth/adoption helper.",
+      "missing_owner_handoff": "K9 checkpoint; central applies shared leaf only",
+      "original_contracts": [
+        "original authored row decoder promoted unchanged; checkpoint actual pre-allocation contract"
+      ],
+      "retirement_evidence": [
+        "K9 2318",
+        "K3 2321"
+      ]
+    },
+    {
+      "id": "naval_repair_material_recipe",
+      "owner": "K4 original Naval repair",
+      "header": "src/resident/domains/military/naval_repair_resource_recipe.hpp",
+      "implementation": "src/resident/domains/military/naval_repair_resource_recipe.cpp",
+      "symbols": [
+        {
+          "name": "append_original_naval_repair_material_reservation",
+          "definition_regex": "(^|[\r\n])[ \t]*(inline[ \t]+)?void[ \t]+append_original_naval_repair_material_reservation[ \t\r\n]*\\([^;{}]*\\)[ \t\r\n]*(noexcept[ \t\r\n]*)?\\{"
+        },
+        {
+          "name": "append_original_naval_repair_material_terminal",
+          "definition_regex": "(^|[\r\n])[ \t]*(inline[ \t]+)?void[ \t]+append_original_naval_repair_material_terminal[ \t\r\n]*\\([^;{}]*\\)[ \t\r\n]*(noexcept[ \t\r\n]*)?\\{"
+        }
+      ],
+      "consumers": [
+        {
+          "path": "src/resident/domains/military/naval_repair.cpp",
+          "required_call_regexes": [
+            "append_original_naval_repair_material_reservation[ \t\r\n]*\\(",
+            "append_original_naval_repair_material_terminal[ \t\r\n]*\\("
+          ],
+          "forbidden_regexes": [
+            "ReserveLots[ \t\r\n]*\\{",
+            "ConsumeLots[ \t\r\n]*\\{"
+          ]
+        },
+        {
+          "path": "src/resident/domains/military/naval_repair_exact.cpp",
+          "required_call_regexes": [
+            "append_original_naval_repair_material_reservation[ \t\r\n]*\\(",
+            "append_original_naval_repair_material_terminal[ \t\r\n]*\\("
+          ],
+          "forbidden_regexes": [
+            "ReserveLots[ \t\r\n]*\\{",
+            "ConsumeLots[ \t\r\n]*\\{"
+          ]
+        }
+      ],
+      "required_original_gates": "Real materials, terms, resources, service permission, full FSL and genuine outcome remain respective profile owners. Common executes the recipe.",
+      "forbidden_parallel_implementation": "No second loop constructing C21 reserve/consume material operations.",
+      "missing_owner_handoff": "K4 original Naval repair",
+      "original_contracts": [
+        "core-spatial-contracts lines305–314",
+        "battle-world M05"
+      ],
+      "retirement_evidence": [
+        "K4 2258"
+      ]
+    },
+    {
+      "id": "study_original_numeric_rules",
+      "owner": "K3 original Growth",
+      "header": "src/resident/domains/growth/growth_internal.hpp",
+      "implementation": "src/resident/domains/growth/growth_rules.cpp",
+      "symbols": [
+        {
+          "name": "original_skill_threshold",
+          "definition_regex": "(^|[\r\n])[ \t]*(inline[ \t]+)?Integer[ \t]+original_skill_threshold[ \t\r\n]*\\([^;{}]*\\)[ \t\r\n]*(noexcept[ \t\r\n]*)?\\{"
+        },
+        {
+          "name": "original_study_efficiency",
+          "definition_regex": "(^|[\r\n])[ \t]*(inline[ \t]+)?OriginalStudyEfficiency[ \t]+original_study_efficiency[ \t\r\n]*\\([^;{}]*\\)[ \t\r\n]*(noexcept[ \t\r\n]*)?\\{"
+        }
+      ],
+      "consumers": [
+        {
+          "path": "src/resident/domains/growth/growth_views.cpp",
+          "required_call_regexes": [
+            "growth::original_skill_threshold[ \t\r\n]*\\("
+          ],
+          "forbidden_regexes": [
+            "\\{[ \\t]*0[ \\t]*,[ \\t]*100[ \\t]*,[ \\t]*300[ \\t]*,[ \\t]*650[ \\t]*,[ \\t]*1200[ \\t]*\\}"
+          ]
+        },
+        {
+          "path": "src/resident/domains/growth/growth_validation.cpp",
+          "required_call_regexes": [
+            "growth::original_skill_threshold[ \t\r\n]*\\("
+          ],
+          "forbidden_regexes": [
+            "\\{[ \\t]*0[ \\t]*,[ \\t]*100[ \\t]*,[ \\t]*300[ \\t]*,[ \\t]*650[ \\t]*,[ \\t]*1200[ \\t]*\\}"
+          ]
+        },
+        {
+          "path": "src/resident/domains/actor_foundation/character_capability.cpp",
+          "required_call_regexes": [
+            "growth::original_study_efficiency[ \t\r\n]*\\("
+          ],
+          "forbidden_regexes": []
+        }
+      ],
+      "required_original_gates": "Original Study-only fatigue/injury and skill thresholds. Normal Work remains its actual authored cutoffs; no cross-domain numeric substitution.",
+      "forbidden_parallel_implementation": "No copied Growth skill threshold table or Study fatigue/injury min table in migrated consumers.",
+      "missing_owner_handoff": "K3 Growth original numeric owner",
+      "original_contracts": [
+        "original Growth Study numeric rules; K3 2345 exact original formula preservation"
+      ],
+      "retirement_evidence": [
+        "K3 2345-study-original-rule-reuse"
+      ]
+    },
+    {
+      "id": "inventory_item_count",
+      "owner": "K5 Common/storage",
+      "header": "src/resident/storage/common_store.hpp",
+      "implementation": "src/resident/storage/common_store.cpp",
+      "symbols": [
+        {
+          "name": "count_inventory_items",
+          "definition_regex": "(^|[\r\n])[ \t]*(inline[ \t]+)?Outcome<Integer>[ \t]+count_inventory_items[ \t\r\n]*\\([^;{}]*\\)[ \t\r\n]*(noexcept[ \t\r\n]*)?\\{"
+        },
+        {
+          "name": "count_inventory_items_all_owners",
+          "definition_regex": "(^|[\r\n])[ \t]*(inline[ \t]+)?Outcome<Integer>[ \t]+count_inventory_items_all_owners[ \t\r\n]*\\([^;{}]*\\)[ \t\r\n]*(noexcept[ \t\r\n]*)?\\{"
+        }
+      ],
+      "consumers": [
+        {
+          "path": "src/resident/domains/military/military_lifecycle.cpp",
+          "required_call_regexes": [
+            "count_inventory_items[ \t\r\n]*\\("
+          ],
+          "forbidden_regexes": []
+        },
+        {
+          "path": "src/resident/domains/military/formation_exact_validation.cpp",
+          "required_call_regexes": [
+            "count_inventory_items_all_owners[ \t\r\n]*\\("
+          ],
+          "forbidden_regexes": []
+        }
+      ],
+      "required_original_gates": "Use original Common count_lots filter/negative/overflow semantics. All-owner enumeration is explicit; empty scoped owners are never a wildcard. Domain exact escrow owner/zero/unknown-item/full-set coverage remains mandatory.",
+      "forbidden_parallel_implementation": "No second inventory item/owner/reservation quantity accumulation in the migrated military callers.",
+      "missing_owner_handoff": "K5 Common count; do not copy for missing scope",
+      "original_contracts": [
+        "Core shared inventory/resource owner; S2 exact formation and Naval repair original escrow"
+      ],
+      "retirement_evidence": [
+        "K5 233900/000700",
+        "K4 2345/2350/2356/0010"
+      ]
+    },
+    {
+      "id": "work_frozen_plan_terms",
+      "owner": "K6 original Work",
+      "header": "src/resident/domains/tasks/work_execution/work_execution_contract.hpp",
+      "implementation": "src/resident/domains/tasks/work_execution/work_execution_read.cpp",
+      "symbols": [
+        {
+          "name": "same_work_plan_terms",
+          "definition_regex": "(^|[\r\n])[ \t]*(inline[ \t]+)?bool[ \t]+same_work_plan_terms[ \t\r\n]*\\([^;{}]*\\)[ \t\r\n]*(noexcept[ \t\r\n]*)?\\{"
+        }
+      ],
+      "consumers": [
+        {
+          "path": "src/resident/domains/tasks/work_execution/work_execution_detail.hpp",
+          "required_call_regexes": [
+            "same_work_plan_terms[ \t\r\n]*\\("
+          ],
+          "forbidden_regexes": [
+            "const auto\\*x=std::get_if<PatrolPlan>"
+          ]
+        },
+        {
+          "path": "src/resident/domains/politics/governance_targets/governance_work_history.cpp",
+          "required_call_regexes": [
+            "same_work_plan_terms[ \t\r\n]*\\("
+          ],
+          "forbidden_regexes": []
+        }
+      ],
+      "required_original_gates": "Original WorkTaskRead accepted plan remains authoritative. S6 keeps real task acceptance, fee ref, approval, Common cut and double-binding validation. This comparator is no lifecycle decision.",
+      "forbidden_parallel_implementation": "No hand-assembled Plan equality in S6 or second full plan_matches body; old private helper delegates only.",
+      "missing_owner_handoff": "K6 Work; S6 supplies original approval and continuity",
+      "original_contracts": [
+        "S6 original accepted-work source; S6 235900 exact transfer of existing K6 plan_matches body"
+      ],
+      "retirement_evidence": [
+        "K6 0017 actual adoption",
+        "S6 235900 four original consumers"
+      ]
+    },
+    {
+      "id": "catalog_required_capabilities",
+      "owner": "K9 original catalog decode",
+      "header": "src/resident/kernel/native_catalog_decode.hpp",
+      "implementation": "src/resident/kernel/native_catalog_decode.cpp",
+      "symbols": [
+        {
+          "name": "NativeCatalogCapabilities",
+          "definition_regex": "(^|[\r\n])[ \t]*const std::vector<StableId>&[ \\t]+NativeCatalogCapabilities::operator\\(\\)\\(\\)[ \\t\\r\\n]*\\{"
+        }
+      ],
+      "consumers": [
+        {
+          "path": "src/resident/kernel/native_initial_state.cpp",
+          "required_call_regexes": [
+            "required_capabilities[ \t\r\n]*\\("
+          ],
+          "forbidden_regexes": [
+            "strings\\(field\\(reception_data,\"required_capabilities\""
+          ]
+        },
+        {
+          "path": "src/resident/kernel/world_codec.cpp",
+          "required_call_regexes": [
+            "required_capabilities[ \t\r\n]*\\("
+          ],
+          "forbidden_regexes": [
+            "strings\\(field\\(data,\"required_capabilities\""
+          ]
+        }
+      ],
+      "required_original_gates": "One lazy original read per immutable factory input at the first original consumer. Original domain checks/order and same-job lifetime remain; full input memory is still Required.",
+      "forbidden_parallel_implementation": "No duplicate required_capabilities array decode or private equivalent lazy lambda in these original factories.",
+      "missing_owner_handoff": "K9 catalog owner; central applies factory hunks only",
+      "original_contracts": [
+        "Original bounded catalog input ownership; existing2304 implementation promoted"
+      ],
+      "retirement_evidence": [
+        "K9 0007",
+        "central0015 two actual factories,52+64 calls"
+      ]
+    },
+    {
+      "id": "original_source_only_service_finance",
+      "owner": "K5 original S5/P11",
+      "header": "src/resident/domains/local_economy/service_finance_execution.hpp",
+      "implementation": "src/resident/domains/local_economy/service_finance_execution.cpp",
+      "symbols": [
+        {
+          "name": "post_payable_in_candidate",
+          "definition_regex": "(^|[\r\n])[ \t]*(inline[ \t]+)?Status[ \t]+post_payable_in_candidate[ \t\r\n]*\\([^;{}]*\\)[ \t\r\n]*(noexcept[ \t\r\n]*)?\\{"
+        },
+        {
+          "name": "record_payment_in_candidate",
+          "definition_regex": "(^|[\r\n])[ \t]*(inline[ \t]+)?Status[ \t]+record_payment_in_candidate[ \t\r\n]*\\([^;{}]*\\)[ \t\r\n]*(noexcept[ \t\r\n]*)?\\{"
+        }
+      ],
+      "consumers": [
+        {
+          "path": "src/resident/domains/local_economy/governance_work/governance_work_expense_contract.cpp",
+          "required_call_regexes": [
+            "service_finance::post_payable_in_candidate[ \t\r\n]*\\(",
+            "service_finance::record_payment_in_candidate[ \t\r\n]*\\("
+          ],
+          "forbidden_regexes": [
+            "\\.obligations\\.insert[ \\t\\r\\n]*\\(",
+            "\\.arrears\\.insert[ \\t\\r\\n]*\\(",
+            "->paid_amount[ \\t]*=",
+            "->last_receipt_id[ \\t]*="
+          ]
+        },
+        {
+          "path": "src/resident/domains/commerce/repair_service/repair_service_money.cpp",
+          "required_call_regexes": [
+            "service_finance::post_payable_in_candidate[ \t\r\n]*\\(",
+            "service_finance::record_payment_in_candidate[ \t\r\n]*\\("
+          ],
+          "forbidden_regexes": [
+            "\\.obligations\\.insert[ \\t\\r\\n]*\\(",
+            "\\.arrears\\.insert[ \\t\\r\\n]*\\(",
+            "->paid_amount[ \\t]*=",
+            "->last_receipt_id[ \\t]*="
+          ]
+        }
+      ],
+      "required_original_gates": "Actual charge and genesis source, canonical SourceOnly debt, cash-only paid_amount, same-candidate single-use resource capture, payment epoch and original authority. This static registration does not admit P11 or LE6-10; all original sources and complete ownership remain Required.",
+      "forbidden_parallel_implementation": "No local payable insertion, paid_amount or last_receipt_id mutation in these two consumers. No prepayment writer; original resource reservations remain.",
+      "missing_owner_handoff": "K5 S5 owns source-only debt/cash execution. Missing original charge, payment authority or actor source must reject; never restore period1 fallback.",
+      "original_contracts": [
+        "E22.6.1 ApplyServiceAdvancePayment/ConsumeServiceActualTermination original shared-owner duty, narrowed by user removal of prepayment",
+        "economy/03 D01 and economy/04 V02,05 L2"
+      ],
+      "retirement_evidence": [
+        "K5 004200 corrects rejected224500 semantics and retires repair_service_advance.cpp",
+        "K5 004700 exact cumulative registered inputs"
+      ]
+    },
+    {
+      "id": "original_common_fact_prefix",
+      "owner": "S0 Common original append history",
+      "header": "src/resident/kernel/common_fact_prefix.hpp",
+      "implementation": "src/resident/kernel/common_fact_prefix.cpp",
+      "symbols": [
+        {
+          "name": "read_actual_common_fact_prefix",
+          "definition_regex": "(^|[\r\n])[ \t]*(inline[ \t]+)?Outcome<std::size_t>[ \t]+read_actual_common_fact_prefix[ \t\r\n]*\\([ \t\r\n]*const[ \t\r\n]+CommonStore[ \t\r\n]*&[ \t\r\n]*[A-Za-z_][A-Za-z_0-9]*[ \t\r\n]*,[ \t\r\n]*const[ \t\r\n]+CommonActualFactPrefix[ \t\r\n]*&[ \t\r\n]*[A-Za-z_][A-Za-z_0-9]*[ \t\r\n]*\\)[ \t\r\n]*(noexcept[ \t\r\n]*)?\\{"
+        },
+        {
+          "name": "read_actual_common_fact_prefix",
+          "definition_regex": "(^|[\r\n])[ \t]*(inline[ \t]+)?Outcome<std::size_t>[ \t]+read_actual_common_fact_prefix[ \t\r\n]*\\([ \t\r\n]*const[ \t\r\n]+CommonStore[ \t\r\n]*&[ \t\r\n]*[A-Za-z_][A-Za-z_0-9]*[ \t\r\n]*,[ \t\r\n]*const[ \t\r\n]+CurrentCommonFactPrefix[ \t\r\n]*&[ \t\r\n]*[A-Za-z_][A-Za-z_0-9]*[ \t\r\n]*\\)[ \t\r\n]*(noexcept[ \t\r\n]*)?\\{"
+        },
+        {
+          "name": "read_current_common_fact_prefix",
+          "definition_regex": "(^|[\r\n])[ \t]*(inline[ \t]+)?Outcome<CurrentCommonFactPrefix>[ \t]+read_current_common_fact_prefix[ \t\r\n]*\\([^;{}]*\\)[ \t\r\n]*(noexcept[ \t\r\n]*)?\\{"
+        }
+      ],
+      "consumers": [
+        {
+          "path": "src/resident/domains/travel/actor_spatial_history.cpp",
+          "required_call_regexes": [
+            "read_actual_common_fact_prefix[ \t\r\n]*\\("
+          ],
+          "forbidden_regexes": []
+        },
+        {
+          "path": "src/resident/domains/craft/craft_spatial_sources.cpp",
+          "required_call_regexes": [
+            "read_current_common_fact_prefix[ \t\r\n]*\\("
+          ],
+          "forbidden_regexes": []
+        },
+        {
+          "path": "src/resident/domains/craft/repair_spatial_sources.cpp",
+          "required_call_regexes": [
+            "read_current_common_fact_prefix[ \t\r\n]*\\("
+          ],
+          "forbidden_regexes": []
+        }
+      ],
+      "required_original_gates": "Mechanical count/anchor/header/first-append verification only. Original business proves real adoption time and cause; a persistent count requires retention of its whole prefix.",
+      "forbidden_parallel_implementation": "No second mechanical actual-prefix or current-count/last-header algorithm; do not replace full historical source/permission validation with a prefix.",
+      "missing_owner_handoff": "S0 central Common prefix; original domain retains precise error mapping, own M and source proof.",
+      "original_contracts": [
+        "S1 original actual_fact_prefix history branch promoted unchanged; original Craft/Repair current-prefix capture"
+      ],
+      "retirement_evidence": [
+        "central0052",
+        "K4 actual0054 adoption",
+        "K5 actual010000 Craft/Repair adoption"
+      ]
+    },
+    {
+      "id": "original_catalog_identity",
+      "owner": "S0 original immutable catalog identity",
+      "header": "src/resident/kernel/original_catalog_identity.hpp",
+      "implementation": "src/resident/kernel/original_catalog_identity.hpp",
+      "symbols": [
+        {
+          "name": "same_original_catalog_identity",
+          "definition_regex": "(^|[\r\n])[ \t]*inline[ \t]+bool[ \t]+same_original_catalog_identity[ \t\r\n]*\\([^;{}]*\\)[ \t\r\n]*\\{"
+        }
+      ],
+      "consumers": [
+        {
+          "path": "src/resident/kernel/native_actor_social_occupancy.cpp",
+          "required_call_regexes": [
+            "same_original_catalog_identity[ \t\r\n]*\\("
+          ],
+          "forbidden_regexes": [
+            "bool[ \\t]+same[ \\t]*\\(const CatalogIdentity"
+          ]
+        },
+        {
+          "path": "src/resident/kernel/native_original_social_world.cpp",
+          "required_call_regexes": [
+            "same_original_catalog_identity[ \t\r\n]*\\("
+          ],
+          "forbidden_regexes": []
+        },
+        {
+          "path": "src/resident/kernel/native_initial_state.cpp",
+          "required_call_regexes": [
+            "same_original_catalog_identity[ \t\r\n]*\\("
+          ],
+          "forbidden_regexes": [
+            "bool[ \t]+same_identity[ \t]*\\(const CatalogIdentity"
+          ]
+        },
+        {
+          "path": "src/resident/kernel/native_social_selection.cpp",
+          "required_call_regexes": [
+            "same_original_catalog_identity[ \t\r\n]*\\("
+          ],
+          "forbidden_regexes": []
+        }
+      ],
+      "required_original_gates": "All eight original identity fields, including module versions and optional pack-set digest; actual immutable catalogs remain separately decoded and source-validated.",
+      "forbidden_parallel_implementation": "The original occupancy comparison body is promoted unchanged; these consumers call it rather than duplicating the field comparison.",
+      "missing_owner_handoff": "Central owns this finite identity comparison. Original domains still own authored source and whole-history validation.",
+      "original_contracts": [
+        "Original selected catalog identity and same-candidate owning rule; existing native_actor_social_occupancy.cpp comparison"
+      ],
+      "retirement_evidence": [
+        "Occupancy local same(CatalogIdentity,CatalogIdentity) body removed in central0142; original Social group calls the same implementation.",
+        "central0506 removes native_initial_state same_identity; source selection and final immutable identity use the same original eight-field comparator."
+      ]
+    }
+  ],
+  "required_not_admitted": [
+    {
+      "id": "source_only_payable",
+      "owner": "K5 S5",
+      "reason": "K5 004200 corrects Work/Repair to the original P11/V02 source-only and cash-only rules; 224500 remains rejected. Complete LE6-10 selection, World root and every other original P11 source/authority are still required. Transport/Aid old nonperiodic paths cannot fall back or cause duplicate cash."
+    },
+    {
+      "id": "advance_payment",
+      "owner": "root design + K5 source owner",
+      "reason": "User-directed removal is implemented in unadmitted K5 004200 and K6 Result4 0014. No new advance success route. Work1 keeps zero-only original bytes; old nonempty result1-3 advance data rejects explicitly. Full root/consumer integration remains Required.",
+      "contract": "central contracts/service-payment-no-advance-20261020.md"
+    },
+    {
+      "id": "full_occupation_history",
+      "owner": "S0 with original domain sources",
+      "reason": "Shared execution does not prove full F/W/V/M/Legacy history."
+    },
+    {
+      "id": "full_catalog_input",
+      "owner": "central + K9",
+      "reason": "GD/parser, manual and effective-tree pre-allocation still Required."
+    }
+  ],
+  "retired_source_paths": [
+    {
+      "path": "src/resident/domains/commerce/repair_service/repair_service_advance.cpp",
+      "reason": "User-directed removal; original retired input is preserved in K5 deleted-files.json and historical freezes."
+    }
+  ]
+}

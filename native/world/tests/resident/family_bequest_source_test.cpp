@@ -1,0 +1,28 @@
+// 遗赠声明来源组件：钱货只读、排除预留/公产与死后伪签；不代正式死亡World。
+#include "resident/domains/family/family_bequest_source.hpp"
+#include "resident/storage/common_checkpoint.hpp"
+#include <iostream>
+#include <stdexcept>
+using namespace hanmo::resident;
+namespace {
+int checks=0;
+// 原件保持首个失败的实际标签，不能用后续断言掩盖。
+void check(bool value,const char* why){++checks;if(!value)throw std::runtime_error(why);}
+// 只构造被本域读取的共同容器；无军事结果或World生产假象。
+struct Fixture {
+ std::shared_ptr<CommonCatalog> catalog=std::make_shared<CommonCatalog>();CommonState state;FamilyState family;
+ Fixture(){state.identity.world_id[0]=3;state.identity.execution_epoch=7;state.identity.tick=20;state.identity.revision=4;state.metadata.player_actor_id="former";state.metadata.scenario_id="scene";state.next_instance_id=100;family.founder_actor_id="former";catalog->items.insert("grain",{"grain",1,1,false,false});
+  for(const auto* id:{"former","next"}){ActorRecord actor;actor.id=id;actor.alive=true;actor.available=true;actor.hp=100;actor.birth_tick=-20000;actor.wallet_id=StableId("cash:")+id;actor.inventory_id=StableId("bag:")+id;state.actors.insert(id,actor);Owner owner{Owner::Kind::actor,id,{}};state.wallets.insert(actor.wallet_id,{actor.wallet_id,owner,0,{},{}});state.inventories.insert(actor.inventory_id,{actor.inventory_id,owner,100,0,{},{}});}
+  state.wallets.find("cash:former")->balance=100;state.wallets.find("cash:former")->reserved.push_back({"duty",20});state.inventories.find("bag:next")->capacity=0;
+  auto& bag=*state.inventories.find("bag:former");Owner owner{Owner::Kind::actor,"former",{}},public_owner{Owner::Kind::organization,"public",{}};bag.lots.push_back({"lot:1","grain",{},5,owner,{}});bag.lots.push_back({"lot:2","grain","duty",3,owner,{}});bag.lots.push_back({"lot:3","grain",{},4,public_owner,{}});
+  AdultAdoptionFact adopted;adopted.agreement.adopter_actor_id="former";adopted.agreement.adoptee_actor_id="next";adopted.agreement.accepted_tick=1;family.facts.insert("family:4",adopted);family.children.insert("next","family:4");state.facts.insert("family:4",{"family:4","family_adult_adoption","family",{}});
+ }
+};
+}
+int main(){try{Fixture f;CommonStore common(f.state,f.catalog);FamilyBequestPolicy policy{true};SuccessionPersonalSelection selection;selection.money=30;selection.goods.push_back({"grain",3,{}});auto before=encode_common_state(common.state());
+ auto quote=preview_family_bequest_declaration(common,f.family,policy,"former","next",selection);check(quote.ok,"private declaration refused because recipient bag is full");check(quote.value.source.terms.money==30&&quote.value.source.terms.lots.size()==1&&quote.value.source.terms.lots[0].lot_id=="lot:1"&&quote.value.source_spendable==80,"reserved/public lot leaked into declaration");check(compare_boundary(before,encode_common_state(common.state())).exact(),"declaration preview changed money/goods/identity");check(revalidate_family_bequest_declaration(common,f.family,policy,quote.value).ok,"exact quote rejected");
+ auto bad=selection;bad.money=81;check(!preview_family_bequest_declaration(common,f.family,policy,"former","next",bad).ok,"reserved money bequeathed");bad=selection;bad.goods[0].quantity=6;check(!preview_family_bequest_declaration(common,f.family,policy,"former","next",bad).ok,"reserved or public grain bequeathed");bad=selection;bad.goods.push_back(bad.goods[0]);check(!preview_family_bequest_declaration(common,f.family,policy,"former","next",bad).ok,"duplicate item counted");check(!preview_family_bequest_declaration(common,f.family,policy,"former","next",{}).ok,"empty authority source accepted");check(!preview_family_bequest_declaration(common,f.family,{},"former","next",selection).ok,"disabled bequest accepted");check(!preview_family_bequest_declaration(common,f.family,policy,"next","former",selection).ok,"uncontrolled NPC declaration accepted");
+ auto stale=quote.value;stale.identity.execution_epoch++;check(!revalidate_family_bequest_declaration(common,f.family,policy,stale).ok,"old epoch declaration accepted");stale=quote.value;stale.source.terms.lots[0].lot_id="lot:3";check(!revalidate_family_bequest_declaration(common,f.family,policy,stale).ok,"public source spliced into quote");auto corrupt=quote.value.source;corrupt.terms.lots[0].lot_id="lot:100";check(!validate_family_bequest_source(common,f.family,corrupt).ok,"future lot source accepted");corrupt=quote.value.source;corrupt.world_id[0]++;check(!validate_family_bequest_source(common,f.family,corrupt).ok,"cross-world declaration accepted");corrupt=quote.value.source;corrupt.scope="all_assets";check(!validate_family_bequest_source(common,f.family,corrupt).ok,"blanket disposition scope accepted");
+ common.state().actors.find("former")->alive=false;check(!preview_family_bequest_declaration(common,f.family,policy,"former","next",selection).ok,"dead donor signed new declaration");common.state().actors.find("former")->alive=true;common.state().actors.find("next")->birth_tick=0;check(!preview_family_bequest_declaration(common,f.family,policy,"former","next",selection).ok,"minor recipient entered adult-only first source");common.state().actors.find("next")->birth_tick=-20000;common.state().wallets.find("cash:former")->owner={Owner::Kind::organization,"public",{}};check(!preview_family_bequest_declaration(common,f.family,policy,"former","next",selection).ok,"public container bequeathed");common.state().wallets.find("cash:former")->owner={Owner::Kind::actor,"former",{}};check(compare_boundary(before,encode_common_state(common.state())).exact(),"refusals mutated Common");
+ std::cout<<"FAMILY_BEQUEST_SOURCE "<<checks<<" checks 0 failures\n";return 0;
+}catch(const std::exception& e){std::cerr<<"FAMILY_BEQUEST_SOURCE "<<checks<<" checks 1 failure: "<<e.what()<<'\n';return 1;}}

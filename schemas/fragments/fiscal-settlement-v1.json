@@ -1,0 +1,162 @@
+{
+  "format": "hanmo.schema.fragment/1",
+  "version": "fiscal_settlement/1",
+  "status": "central registration pending; authoring-only fragment",
+  "$defs": {
+    "fiscal_tax_source": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/entity_id"
+        },
+        "taxpayer": {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "enum": [
+                "cohort",
+                "organization"
+              ]
+            },
+            "id": {
+              "$ref": "#/$defs/entity_id"
+            }
+          },
+          "required": [
+            "kind",
+            "id"
+          ],
+          "additionalProperties": false
+        },
+        "wallet_id": {
+          "$ref": "#/$defs/entity_id"
+        },
+        "inventory_id": {
+          "$ref": "#/$defs/entity_id"
+        },
+        "grain_item_id": {
+          "$ref": "#/$defs/reference_items"
+        },
+        "production_unit_ids": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/entity_id"
+          },
+          "uniqueItems": true,
+          "maxItems": 256
+        },
+        "base_cash_due": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647,
+          "description": "每个财政周期的基准钱税；实际转移仍受真实余额/预留限制，缺额记原欠期。"
+        },
+        "grain_share_bp": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 10000
+        },
+        "civilian_grain_reserve": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647,
+          "description": "该粮库须保护的实际民用留粮份数；不得以预计粮产替代库存。"
+        }
+      },
+      "required": [
+        "id",
+        "taxpayer",
+        "wallet_id",
+        "inventory_id",
+        "grain_item_id",
+        "production_unit_ids",
+        "base_cash_due",
+        "grain_share_bp",
+        "civilian_grain_reserve"
+      ],
+      "additionalProperties": false
+    },
+    "fiscal_district_profile": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/entity_id"
+        },
+        "site_id": {
+          "$ref": "#/$defs/reference_places"
+        },
+        "period_ticks": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 2147483647
+        },
+        "first_due_tick": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 2147483647
+        },
+        "initial_tax_base_bp": {
+          "type": "integer",
+          "minimum": 5000,
+          "maximum": 15000
+        },
+        "normal_recovery_bp": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 300,
+          "description": "开发推荐100基点/期，只从低于基准恢复到100%；不是GDD既定平衡值，作者必须明示。"
+        },
+        "sources": {
+          "type": "object",
+          "minProperties": 1,
+          "maxProperties": 10000,
+          "additionalProperties": {
+            "$ref": "#/$defs/fiscal_tax_source"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "site_id",
+        "period_ticks",
+        "first_due_tick",
+        "initial_tax_base_bp",
+        "normal_recovery_bp",
+        "sources"
+      ],
+      "additionalProperties": false
+    },
+    "fiscal_settlement": {
+      "type": "object",
+      "properties": {
+        "version": {
+          "type": "integer",
+          "const": 1
+        },
+        "districts": {
+          "type": "object",
+          "minProperties": 1,
+          "maxProperties": 1000,
+          "additionalProperties": {
+            "$ref": "#/$defs/fiscal_district_profile"
+          }
+        }
+      },
+      "required": [
+        "version",
+        "districts"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "property_target": "/$defs/dynamic_world/properties/fiscal_settlement",
+  "property_schema": {
+    "$ref": "#/$defs/fiscal_settlement"
+  },
+  "integration_notes": [
+    "独立FiscalSettlementState/Catalog与fiscal_settlement/1冷块，不提高local_economy生产管理/自养旧codec。",
+    "调用check_fiscal_settlement(pack,index)；政策由S6实际FiscalPolicyRead提供，缺政策期不默认常赋。",
+    "required_capabilities延续native_dynamic_world，不改全局能力摘要。",
+    "作者字段必须由原schema驱动panel提供；正式运行须具名源、真实政治政策、真实生产与两方资产。"
+  ]
+}

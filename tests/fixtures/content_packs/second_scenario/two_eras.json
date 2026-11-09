@@ -1,0 +1,1271 @@
+{
+  "settlements": [
+    {
+      "id": "city.west",
+      "name_key": "name.city.west",
+      "kind": "city",
+      "map_xy": [
+        100,
+        100
+      ],
+      "entry_place": "west.square"
+    },
+    {
+      "id": "city.east",
+      "name_key": "name.city.east",
+      "kind": "city",
+      "map_xy": [
+        600,
+        100
+      ],
+      "entry_place": "east.square"
+    }
+  ],
+  "routes": [],
+  "places": [
+    {
+      "id": "west.square",
+      "name_key": "name.west.square",
+      "settlement_id": "city.west",
+      "parent_place": null,
+      "visual_tag": "city",
+      "passages": [
+        "west.office"
+      ],
+      "admission": []
+    },
+    {
+      "id": "east.square",
+      "name_key": "name.east.square",
+      "settlement_id": "city.east",
+      "parent_place": null,
+      "visual_tag": "city",
+      "passages": [
+        "east.office"
+      ],
+      "admission": []
+    },
+    {
+      "id": "west.office",
+      "name_key": "name.west.office",
+      "settlement_id": "city.west",
+      "parent_place": "west.square",
+      "visual_tag": "hall",
+      "passages": [
+        "west.square"
+      ],
+      "admission": []
+    },
+    {
+      "id": "east.office",
+      "name_key": "name.east.office",
+      "settlement_id": "city.east",
+      "parent_place": "east.square",
+      "visual_tag": "hall",
+      "passages": [
+        "east.square"
+      ],
+      "admission": []
+    }
+  ],
+  "actors": [
+    {
+      "id": "actor.player",
+      "origin": "original",
+      "source_note": "原创工程验收人物，不是已考据历史人物",
+      "initial_place": "west.square",
+      "attributes": {
+        "leadership": 60,
+        "martial": 60,
+        "intellect": 60,
+        "administration": 60,
+        "charisma": 60
+      },
+      "skills": {
+        "infantry": 0,
+        "cavalry": 0,
+        "archery": 0,
+        "martial": 0,
+        "tactics": 0,
+        "debate": 0,
+        "negotiation": 0,
+        "rites": 0,
+        "commerce": 0,
+        "transport": 0
+      },
+      "dialogue_id": null,
+      "appearance_note": "形象资源尚未制作；使用编辑器字段而非冒称正式立绘",
+      "name_key": "name.actor.player",
+      "initial_age_years": 24,
+      "appearance_definition": {
+        "kind": "generated",
+        "generator_version": "appearance-v1",
+        "attire_style": "plain",
+        "candidates": {
+          "face_shape": [
+            "plain"
+          ],
+          "eyes": [
+            "plain"
+          ],
+          "brows": [
+            "plain"
+          ],
+          "nose": [
+            "plain"
+          ],
+          "mouth": [
+            "plain"
+          ],
+          "hair": [
+            "plain"
+          ],
+          "beard": [
+            "plain"
+          ],
+          "skin_palette": [
+            "plain"
+          ],
+          "build": [
+            "plain"
+          ]
+        }
+      }
+    },
+    {
+      "id": "actor.partner",
+      "origin": "original",
+      "source_note": "原创工程验收人物，不是已考据历史人物",
+      "initial_place": "west.office",
+      "attributes": {
+        "leadership": 60,
+        "martial": 60,
+        "intellect": 60,
+        "administration": 60,
+        "charisma": 60
+      },
+      "skills": {
+        "infantry": 0,
+        "cavalry": 0,
+        "archery": 0,
+        "martial": 0,
+        "tactics": 0,
+        "debate": 0,
+        "negotiation": 0,
+        "rites": 0,
+        "commerce": 0,
+        "transport": 0
+      },
+      "dialogue_id": null,
+      "appearance_note": "形象资源尚未制作；使用编辑器字段而非冒称正式立绘",
+      "name_key": "name.actor.partner",
+      "initial_age_years": 24,
+      "appearance_definition": {
+        "kind": "generated",
+        "generator_version": "appearance-v1",
+        "attire_style": "plain",
+        "candidates": {
+          "face_shape": [
+            "plain"
+          ],
+          "eyes": [
+            "plain"
+          ],
+          "brows": [
+            "plain"
+          ],
+          "nose": [
+            "plain"
+          ],
+          "mouth": [
+            "plain"
+          ],
+          "hair": [
+            "plain"
+          ],
+          "beard": [
+            "plain"
+          ],
+          "skin_palette": [
+            "plain"
+          ],
+          "build": [
+            "plain"
+          ]
+        }
+      }
+    },
+    {
+      "id": "actor.deceased",
+      "origin": "original",
+      "source_note": "原创工程验收人物，不是已考据历史人物",
+      "initial_place": "west.square",
+      "attributes": {
+        "leadership": 60,
+        "martial": 60,
+        "intellect": 60,
+        "administration": 60,
+        "charisma": 60
+      },
+      "skills": {
+        "infantry": 0,
+        "cavalry": 0,
+        "archery": 0,
+        "martial": 0,
+        "tactics": 0,
+        "debate": 0,
+        "negotiation": 0,
+        "rites": 0,
+        "commerce": 0,
+        "transport": 0
+      },
+      "dialogue_id": null,
+      "appearance_note": "形象资源尚未制作；使用编辑器字段而非冒称正式立绘",
+      "name_key": "name.actor.deceased",
+      "initial_age_years": 24,
+      "appearance_definition": {
+        "kind": "generated",
+        "generator_version": "appearance-v1",
+        "attire_style": "plain",
+        "candidates": {
+          "face_shape": [
+            "plain"
+          ],
+          "eyes": [
+            "plain"
+          ],
+          "brows": [
+            "plain"
+          ],
+          "nose": [
+            "plain"
+          ],
+          "mouth": [
+            "plain"
+          ],
+          "hair": [
+            "plain"
+          ],
+          "beard": [
+            "plain"
+          ],
+          "skin_palette": [
+            "plain"
+          ],
+          "build": [
+            "plain"
+          ]
+        }
+      }
+    },
+    {
+      "id": "actor.prototype",
+      "origin": "original",
+      "source_note": "原创工程验收人物，不是已考据历史人物",
+      "initial_place": "west.square",
+      "attributes": {
+        "leadership": 60,
+        "martial": 60,
+        "intellect": 60,
+        "administration": 60,
+        "charisma": 60
+      },
+      "skills": {
+        "infantry": 0,
+        "cavalry": 0,
+        "archery": 0,
+        "martial": 0,
+        "tactics": 0,
+        "debate": 0,
+        "negotiation": 0,
+        "rites": 0,
+        "commerce": 0,
+        "transport": 0
+      },
+      "dialogue_id": null,
+      "appearance_note": "形象资源尚未制作；使用编辑器字段而非冒称正式立绘",
+      "name_key": "name.actor.prototype",
+      "initial_age_years": 24,
+      "appearance_definition": {
+        "kind": "generated",
+        "generator_version": "appearance-v1",
+        "attire_style": "plain",
+        "candidates": {
+          "face_shape": [
+            "plain"
+          ],
+          "eyes": [
+            "plain"
+          ],
+          "brows": [
+            "plain"
+          ],
+          "nose": [
+            "plain"
+          ],
+          "mouth": [
+            "plain"
+          ],
+          "hair": [
+            "plain"
+          ],
+          "beard": [
+            "plain"
+          ],
+          "skin_palette": [
+            "plain"
+          ],
+          "build": [
+            "plain"
+          ]
+        }
+      }
+    }
+  ],
+  "organizations": [
+    {
+      "id": "org.west",
+      "name_key": "name.org.west",
+      "kind": "political",
+      "leader_actor": "actor.partner"
+    },
+    {
+      "id": "org.east",
+      "name_key": "name.org.east",
+      "kind": "political",
+      "leader_actor": "actor.partner"
+    }
+  ],
+  "roles": [
+    {
+      "id": "role.west",
+      "name_key": "name.role.west",
+      "organization_id": "org.west",
+      "initial_actor": "actor.partner",
+      "place_id": "west.office",
+      "services": [
+        "family_adopt",
+        "information",
+        "accept_offer",
+        "report_offer"
+      ],
+      "family": {
+        "prototype_id": "actor.prototype",
+        "child_name_key": "name.child",
+        "child_age_years": 6,
+        "fee": 20,
+        "wallet_id": "wallet.west",
+        "adoption_ticks": 2,
+        "guardian_min_age": 18,
+        "heir_min_age": 18,
+        "retirement_min_age": 40
+      }
+    },
+    {
+      "id": "role.east",
+      "name_key": "name.role.east",
+      "organization_id": "org.east",
+      "initial_actor": "actor.partner",
+      "place_id": "east.office",
+      "services": [
+        "family_adopt",
+        "information",
+        "accept_offer",
+        "report_offer"
+      ],
+      "family": {
+        "prototype_id": "actor.prototype",
+        "child_name_key": "name.child",
+        "child_age_years": 6,
+        "fee": 20,
+        "wallet_id": "wallet.east",
+        "adoption_ticks": 2,
+        "guardian_min_age": 18,
+        "heir_min_age": 18,
+        "retirement_min_age": 40
+      }
+    }
+  ],
+  "wallets": [
+    {
+      "id": "wallet.west",
+      "owner": {
+        "kind": "organization",
+        "id": "org.west"
+      },
+      "initial_balance": 5000
+    },
+    {
+      "id": "wallet.east",
+      "owner": {
+        "kind": "organization",
+        "id": "org.east"
+      },
+      "initial_balance": 5000
+    }
+  ],
+  "items": [
+    {
+      "id": "item.grain",
+      "kind": "commodity",
+      "base_price": 40,
+      "weight": 1,
+      "name_key": "name.item.grain"
+    }
+  ],
+  "inventories": [
+    {
+      "id": "inventory.west",
+      "owner": {
+        "kind": "organization",
+        "id": "org.west"
+      },
+      "capacity": 300,
+      "goods": [
+        {
+          "item_id": "item.grain",
+          "quantity": 50
+        }
+      ]
+    },
+    {
+      "id": "inventory.east",
+      "owner": {
+        "kind": "organization",
+        "id": "org.east"
+      },
+      "capacity": 300,
+      "goods": [
+        {
+          "item_id": "item.grain",
+          "quantity": 50
+        }
+      ]
+    }
+  ],
+  "shops": [],
+  "props": [],
+  "offers": [
+    {
+      "id": "offer.west",
+      "template": "procurement",
+      "issuer": {
+        "kind": "organization",
+        "id": "org.west"
+      },
+      "discovery_sources": [
+        {
+          "kind": "actor",
+          "id": "actor.partner"
+        }
+      ],
+      "accept_role": "role.west",
+      "report_role": "role.west",
+      "funding_wallet": "wallet.west",
+      "budget": 650,
+      "reward": 80,
+      "deadline_ticks": 8,
+      "accept_ticks": 1,
+      "goal": {
+        "kind": "deliver_item",
+        "item_id": "item.grain",
+        "quantity": 10,
+        "receiver_role": "role.west"
+      },
+      "on_unavailable": "known_replacement",
+      "name_key": "name.offer.west"
+    },
+    {
+      "id": "offer.east",
+      "template": "procurement",
+      "issuer": {
+        "kind": "organization",
+        "id": "org.east"
+      },
+      "discovery_sources": [
+        {
+          "kind": "actor",
+          "id": "actor.partner"
+        }
+      ],
+      "accept_role": "role.east",
+      "report_role": "role.east",
+      "funding_wallet": "wallet.east",
+      "budget": 650,
+      "reward": 80,
+      "deadline_ticks": 8,
+      "accept_ticks": 1,
+      "goal": {
+        "kind": "deliver_item",
+        "item_id": "item.grain",
+        "quantity": 10,
+        "receiver_role": "role.east"
+      },
+      "on_unavailable": "known_replacement",
+      "name_key": "name.offer.east"
+    }
+  ],
+  "dialogues": [
+    {
+      "id": "dialog.west",
+      "context_role": "role.west",
+      "entry": "hello",
+      "nodes": [
+        {
+          "id": "hello",
+          "kind": "say",
+          "speaker": "$provider",
+          "text_key": "name.child",
+          "next": "end"
+        },
+        {
+          "id": "end",
+          "kind": "end"
+        }
+      ]
+    },
+    {
+      "id": "dialog.east",
+      "context_role": "role.east",
+      "entry": "hello",
+      "nodes": [
+        {
+          "id": "hello",
+          "kind": "say",
+          "speaker": "$provider",
+          "text_key": "name.child",
+          "next": "end"
+        },
+        {
+          "id": "end",
+          "kind": "end"
+        }
+      ]
+    }
+  ],
+  "events": [],
+  "relations": [
+    {
+      "id": "relation.partners",
+      "from_actor": "actor.player",
+      "to_actor": "actor.partner",
+      "affinity": 40,
+      "trust": 60
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "scenario.west",
+      "name_key": "name.scenario.west",
+      "player_actor": "actor.player",
+      "seed_text": "two-eras-fixed",
+      "world_map_id": "map.west",
+      "playable_actor_ids": [
+        "actor.partner",
+        "actor.player"
+      ],
+      "start_date": {
+        "year": 184,
+        "day_of_year": 32,
+        "half_day": 1
+      },
+      "enabled": {
+        "settlements": [
+          "city.west"
+        ],
+        "places": [
+          "west.square",
+          "west.office"
+        ],
+        "world_maps": [
+          "map.west"
+        ],
+        "actors": [
+          "actor.player",
+          "actor.partner",
+          "actor.deceased"
+        ],
+        "organizations": [
+          "org.west"
+        ],
+        "roles": [
+          "role.west"
+        ],
+        "wallets": [
+          "wallet.west"
+        ],
+        "inventories": [
+          "inventory.west"
+        ],
+        "items": [
+          "item.grain"
+        ],
+        "relations": [
+          "relation.partners"
+        ],
+        "texts": [
+          "name.scenario.west"
+        ],
+        "flags": [
+          "flag.civic"
+        ],
+        "offers": [
+          "offer.west"
+        ],
+        "dialogues": [
+          "dialog.west"
+        ]
+      },
+      "initial": {
+        "actors": [
+          {
+            "actor_id": "actor.player",
+            "place_id": "west.square",
+            "alive": true,
+            "available": true,
+            "age_years": 24,
+            "attributes": {
+              "leadership": 60,
+              "martial": 60,
+              "intellect": 60,
+              "administration": 60,
+              "charisma": 60
+            },
+            "skills": {
+              "infantry": 0,
+              "cavalry": 0,
+              "archery": 0,
+              "martial": 0,
+              "tactics": 0,
+              "debate": 0,
+              "negotiation": 0,
+              "rites": 0,
+              "commerce": 0,
+              "transport": 0
+            },
+            "combat": {},
+            "appearance_definition": {
+              "kind": "generated",
+              "generator_version": "appearance-v1",
+              "attire_style": "plain",
+              "candidates": {
+                "face_shape": [
+                  "plain"
+                ],
+                "eyes": [
+                  "plain"
+                ],
+                "brows": [
+                  "plain"
+                ],
+                "nose": [
+                  "plain"
+                ],
+                "mouth": [
+                  "plain"
+                ],
+                "hair": [
+                  "plain"
+                ],
+                "beard": [
+                  "plain"
+                ],
+                "skin_palette": [
+                  "plain"
+                ],
+                "build": [
+                  "plain"
+                ]
+              }
+            }
+          },
+          {
+            "actor_id": "actor.partner",
+            "place_id": "west.office",
+            "alive": true,
+            "available": true,
+            "age_years": 24,
+            "attributes": {
+              "leadership": 60,
+              "martial": 60,
+              "intellect": 60,
+              "administration": 60,
+              "charisma": 60
+            },
+            "skills": {
+              "infantry": 0,
+              "cavalry": 0,
+              "archery": 0,
+              "martial": 0,
+              "tactics": 0,
+              "debate": 0,
+              "negotiation": 0,
+              "rites": 0,
+              "commerce": 0,
+              "transport": 0
+            },
+            "combat": {},
+            "appearance_definition": {
+              "kind": "generated",
+              "generator_version": "appearance-v1",
+              "attire_style": "plain",
+              "candidates": {
+                "face_shape": [
+                  "plain"
+                ],
+                "eyes": [
+                  "plain"
+                ],
+                "brows": [
+                  "plain"
+                ],
+                "nose": [
+                  "plain"
+                ],
+                "mouth": [
+                  "plain"
+                ],
+                "hair": [
+                  "plain"
+                ],
+                "beard": [
+                  "plain"
+                ],
+                "skin_palette": [
+                  "plain"
+                ],
+                "build": [
+                  "plain"
+                ]
+              }
+            }
+          },
+          {
+            "actor_id": "actor.deceased",
+            "place_id": "west.square",
+            "alive": false,
+            "available": false,
+            "age_years": 24,
+            "attributes": {
+              "leadership": 60,
+              "martial": 60,
+              "intellect": 60,
+              "administration": 60,
+              "charisma": 60
+            },
+            "skills": {
+              "infantry": 0,
+              "cavalry": 0,
+              "archery": 0,
+              "martial": 0,
+              "tactics": 0,
+              "debate": 0,
+              "negotiation": 0,
+              "rites": 0,
+              "commerce": 0,
+              "transport": 0
+            },
+            "combat": {},
+            "appearance_definition": {
+              "kind": "generated",
+              "generator_version": "appearance-v1",
+              "attire_style": "plain",
+              "candidates": {
+                "face_shape": [
+                  "plain"
+                ],
+                "eyes": [
+                  "plain"
+                ],
+                "brows": [
+                  "plain"
+                ],
+                "nose": [
+                  "plain"
+                ],
+                "mouth": [
+                  "plain"
+                ],
+                "hair": [
+                  "plain"
+                ],
+                "beard": [
+                  "plain"
+                ],
+                "skin_palette": [
+                  "plain"
+                ],
+                "build": [
+                  "plain"
+                ]
+              }
+            }
+          }
+        ],
+        "wallets": [
+          {
+            "id": "wallet.west",
+            "owner": {
+              "kind": "organization",
+              "id": "org.west"
+            },
+            "initial_balance": 300
+          }
+        ],
+        "inventories": [
+          {
+            "id": "inventory.west",
+            "owner": {
+              "kind": "organization",
+              "id": "org.west"
+            },
+            "capacity": 300,
+            "goods": [
+              {
+                "item_id": "item.grain",
+                "quantity": 25
+              }
+            ]
+          }
+        ],
+        "roles": [
+          {
+            "role_id": "role.west",
+            "actor_id": "actor.partner",
+            "enabled": true
+          }
+        ],
+        "relations": [
+          {
+            "id": "relation.partners",
+            "from_actor": "actor.player",
+            "to_actor": "actor.partner",
+            "affinity": 40,
+            "trust": 60
+          }
+        ],
+        "offer_ids": [
+          "offer.west"
+        ]
+      }
+    },
+    {
+      "id": "scenario.east",
+      "name_key": "name.scenario.east",
+      "player_actor": "actor.player",
+      "seed_text": "two-eras-fixed",
+      "world_map_id": "map.east",
+      "playable_actor_ids": [
+        "actor.partner",
+        "actor.player"
+      ],
+      "start_date": {
+        "year": 204,
+        "day_of_year": 32,
+        "half_day": 1
+      },
+      "enabled": {
+        "settlements": [
+          "city.east"
+        ],
+        "places": [
+          "east.square",
+          "east.office"
+        ],
+        "world_maps": [
+          "map.east"
+        ],
+        "actors": [
+          "actor.player",
+          "actor.partner",
+          "actor.deceased"
+        ],
+        "organizations": [
+          "org.east"
+        ],
+        "roles": [
+          "role.east"
+        ],
+        "wallets": [
+          "wallet.east"
+        ],
+        "inventories": [
+          "inventory.east"
+        ],
+        "items": [
+          "item.grain"
+        ],
+        "relations": [
+          "relation.partners"
+        ],
+        "texts": [
+          "name.scenario.east"
+        ],
+        "flags": [
+          "flag.eastern"
+        ],
+        "offers": [
+          "offer.east"
+        ],
+        "dialogues": [
+          "dialog.east"
+        ]
+      },
+      "initial": {
+        "actors": [
+          {
+            "actor_id": "actor.player",
+            "place_id": "east.square",
+            "alive": true,
+            "available": true,
+            "age_years": 44,
+            "attributes": {
+              "leadership": 60,
+              "martial": 60,
+              "intellect": 60,
+              "administration": 60,
+              "charisma": 60
+            },
+            "skills": {
+              "infantry": 0,
+              "cavalry": 0,
+              "archery": 0,
+              "martial": 0,
+              "tactics": 0,
+              "debate": 0,
+              "negotiation": 0,
+              "rites": 0,
+              "commerce": 0,
+              "transport": 0
+            },
+            "combat": {},
+            "appearance_definition": {
+              "kind": "generated",
+              "generator_version": "appearance-v1",
+              "attire_style": "plain",
+              "candidates": {
+                "face_shape": [
+                  "plain"
+                ],
+                "eyes": [
+                  "plain"
+                ],
+                "brows": [
+                  "plain"
+                ],
+                "nose": [
+                  "plain"
+                ],
+                "mouth": [
+                  "plain"
+                ],
+                "hair": [
+                  "plain"
+                ],
+                "beard": [
+                  "plain"
+                ],
+                "skin_palette": [
+                  "plain"
+                ],
+                "build": [
+                  "plain"
+                ]
+              }
+            }
+          },
+          {
+            "actor_id": "actor.partner",
+            "place_id": "east.office",
+            "alive": true,
+            "available": true,
+            "age_years": 44,
+            "attributes": {
+              "leadership": 60,
+              "martial": 60,
+              "intellect": 60,
+              "administration": 60,
+              "charisma": 60
+            },
+            "skills": {
+              "infantry": 0,
+              "cavalry": 0,
+              "archery": 0,
+              "martial": 0,
+              "tactics": 0,
+              "debate": 0,
+              "negotiation": 0,
+              "rites": 0,
+              "commerce": 0,
+              "transport": 0
+            },
+            "combat": {},
+            "appearance_definition": {
+              "kind": "generated",
+              "generator_version": "appearance-v1",
+              "attire_style": "plain",
+              "candidates": {
+                "face_shape": [
+                  "plain"
+                ],
+                "eyes": [
+                  "plain"
+                ],
+                "brows": [
+                  "plain"
+                ],
+                "nose": [
+                  "plain"
+                ],
+                "mouth": [
+                  "plain"
+                ],
+                "hair": [
+                  "plain"
+                ],
+                "beard": [
+                  "plain"
+                ],
+                "skin_palette": [
+                  "plain"
+                ],
+                "build": [
+                  "plain"
+                ]
+              }
+            }
+          },
+          {
+            "actor_id": "actor.deceased",
+            "place_id": "east.square",
+            "alive": false,
+            "available": false,
+            "age_years": 44,
+            "attributes": {
+              "leadership": 60,
+              "martial": 60,
+              "intellect": 60,
+              "administration": 60,
+              "charisma": 60
+            },
+            "skills": {
+              "infantry": 0,
+              "cavalry": 0,
+              "archery": 0,
+              "martial": 0,
+              "tactics": 0,
+              "debate": 0,
+              "negotiation": 0,
+              "rites": 0,
+              "commerce": 0,
+              "transport": 0
+            },
+            "combat": {},
+            "appearance_definition": {
+              "kind": "generated",
+              "generator_version": "appearance-v1",
+              "attire_style": "plain",
+              "candidates": {
+                "face_shape": [
+                  "plain"
+                ],
+                "eyes": [
+                  "plain"
+                ],
+                "brows": [
+                  "plain"
+                ],
+                "nose": [
+                  "plain"
+                ],
+                "mouth": [
+                  "plain"
+                ],
+                "hair": [
+                  "plain"
+                ],
+                "beard": [
+                  "plain"
+                ],
+                "skin_palette": [
+                  "plain"
+                ],
+                "build": [
+                  "plain"
+                ]
+              }
+            }
+          }
+        ],
+        "wallets": [
+          {
+            "id": "wallet.east",
+            "owner": {
+              "kind": "organization",
+              "id": "org.east"
+            },
+            "initial_balance": 1700
+          }
+        ],
+        "inventories": [
+          {
+            "id": "inventory.east",
+            "owner": {
+              "kind": "organization",
+              "id": "org.east"
+            },
+            "capacity": 300,
+            "goods": [
+              {
+                "item_id": "item.grain",
+                "quantity": 75
+              }
+            ]
+          }
+        ],
+        "roles": [
+          {
+            "role_id": "role.east",
+            "actor_id": "actor.partner",
+            "enabled": true
+          }
+        ],
+        "relations": [
+          {
+            "id": "relation.partners",
+            "from_actor": "actor.player",
+            "to_actor": "actor.partner",
+            "affinity": 40,
+            "trust": 60
+          }
+        ],
+        "offer_ids": [
+          "offer.east"
+        ]
+      }
+    }
+  ],
+  "personal_skills": [],
+  "personal_battlefields": [],
+  "personal_objectives": [],
+  "world_maps": [
+    {
+      "id": "map.west",
+      "name_key": "name.map.west",
+      "width": 400,
+      "height": 400,
+      "cell_size": 200,
+      "cells": [
+        {
+          "terrain": "plain"
+        },
+        {
+          "terrain": "plain"
+        },
+        {
+          "terrain": "plain"
+        },
+        {
+          "terrain": "plain"
+        }
+      ],
+      "budgets": {
+        "foot": 100,
+        "army": 80,
+        "boat": 100
+      },
+      "money_per_tick": 0,
+      "fatigue_per_tick": 2
+    },
+    {
+      "id": "map.east",
+      "name_key": "name.map.east",
+      "width": 800,
+      "height": 400,
+      "cell_size": 200,
+      "cells": [
+        {
+          "terrain": "plain"
+        },
+        {
+          "terrain": "plain"
+        },
+        {
+          "terrain": "plain"
+        },
+        {
+          "terrain": "plain"
+        },
+        {
+          "terrain": "plain"
+        },
+        {
+          "terrain": "plain"
+        },
+        {
+          "terrain": "plain"
+        },
+        {
+          "terrain": "plain"
+        }
+      ],
+      "budgets": {
+        "foot": 100,
+        "army": 80,
+        "boat": 100
+      },
+      "money_per_tick": 0,
+      "fatigue_per_tick": 2
+    }
+  ],
+  "estates": [],
+  "battlefields": [],
+  "troop_types": [],
+  "military_objectives": [],
+  "offices": [],
+  "garrisons": [],
+  "military_orders": [],
+  "strongholds": [],
+  "siege_topologies": [],
+  "format": "HM-CONTENT",
+  "schema_version": 1,
+  "id": "snapshot.two_eras",
+  "version": "1.0.0",
+  "required_capabilities": [
+    "dialogue",
+    "economy",
+    "family",
+    "multi_actor",
+    "places",
+    "tasks.procurement",
+    "world_terrain"
+  ],
+  "texts": {
+    "name.actor.player": "actor.player",
+    "name.actor.partner": "actor.partner",
+    "name.actor.deceased": "actor.deceased",
+    "name.actor.prototype": "actor.prototype",
+    "name.city.west": "west settlements",
+    "name.west.square": "west places",
+    "name.map.west": "west world_maps",
+    "name.org.west": "west organizations",
+    "name.role.west": "west roles",
+    "name.city.east": "east settlements",
+    "name.east.square": "east places",
+    "name.map.east": "east world_maps",
+    "name.org.east": "east organizations",
+    "name.role.east": "east roles",
+    "name.item.grain": "粮食",
+    "name.child": "新家庭成员",
+    "name.scenario.west": "184 west",
+    "name.scenario.east": "204 east",
+    "name.west.office": "west公署",
+    "name.east.office": "east公署",
+    "name.offer.west": "粮食征购 west",
+    "name.offer.east": "粮食征购 east"
+  },
+  "flags": {
+    "flag.civic": false,
+    "flag.eastern": true
+  }
+}

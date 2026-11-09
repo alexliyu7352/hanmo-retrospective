@@ -1,0 +1,81 @@
+{
+  "format": "hanmo.schema.fragment/1",
+  "version": "household_provisioning/1",
+  "status": "central registration pending; authoring-only fragment",
+  "$defs": {
+    "dynamic_household_provision_authorization": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/entity_id"
+        },
+        "household_group_id": {
+          "$ref": "#/$defs/entity_id"
+        },
+        "cohort_id": {
+          "$ref": "#/$defs/entity_id"
+        },
+        "obligation_id": {
+          "$ref": "#/$defs/entity_id"
+        },
+        "provision_binding_id": {
+          "$ref": "#/$defs/entity_id"
+        },
+        "inventory_id": {
+          "$ref": "#/$defs/entity_id"
+        },
+        "item_id": {
+          "$ref": "#/$defs/reference_items"
+        },
+        "rate_profile_id": {
+          "$ref": "#/$defs/entity_id"
+        }
+      },
+      "required": [
+        "id",
+        "household_group_id",
+        "cohort_id",
+        "obligation_id",
+        "provision_binding_id",
+        "inventory_id",
+        "item_id",
+        "rate_profile_id"
+      ],
+      "additionalProperties": false,
+      "description": "原家庭、原群体、原义务与唯一供养绑定共享同一私粮容器。"
+    },
+    "dynamic_household_provisioning": {
+      "type": "object",
+      "properties": {
+        "version": {
+          "type": "integer",
+          "const": 1
+        },
+        "authorizations": {
+          "type": "object",
+          "minProperties": 1,
+          "maxProperties": 65536,
+          "additionalProperties": {
+            "$ref": "#/$defs/dynamic_household_provision_authorization"
+          }
+        }
+      },
+      "required": [
+        "version",
+        "authorizations"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "property_target": "/$defs/dynamic_local_economy/properties/household_provisioning",
+  "property_schema": {
+    "$ref": "#/$defs/dynamic_household_provisioning"
+  },
+  "integration_notes": [
+    "新增独立module household_provisioning/1与local_economy codec5；原三个选项仍独立判定。",
+    "通用动态表ID循环须跳过household_provisioning；另调用check_household_provision(pack,index)。",
+    "每个情景取household_ration_authorizations(scenario,index)；仅在原机构义务issuer检查中跳过其完整核准ID，其他旧检查保留。",
+    "原schema驱动作者panel生成基础字段控件；不存在玩家对aggregate家庭的控制授权，不添加命令。",
+    "required_capabilities延续native_dynamic_world，不改旧全局摘要。"
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "format": "HM-PACK",
+  "format_version": 1,
+  "id": "hanmo.political_economy",
+  "version": "1.0.0",
+  "namespace": "civicecon",
+  "rules_api": {
+    "id": "hanmo.rules",
+    "min_version": "1.0.0",
+    "max_version_exclusive": "2.0.0"
+  },
+  "dependencies": [
+    {
+      "id": "hanmo.local_society",
+      "min_version": "1.11.0",
+      "max_version_exclusive": "1.12.0"
+    }
+  ],
+  "conflicts": [],
+  "required_capabilities": [
+    "multi_actor",
+    "places",
+    "services",
+    "economy",
+    "dialogue",
+    "cultivation",
+    "military",
+    "personal_combat",
+    "native_dynamic_world",
+    "tasks.procurement",
+    "npc_society",
+    "road_encounters",
+    "population_military_v1",
+    "regional_life_v1",
+    "named_membership_v1",
+    "estates",
+    "family"
+  ],
+  "content_entries": [
+    "content.json"
+  ],
+  "presentation_entries": [],
+  "resources": [],
+  "author": "Hanmo project authors",
+  "license": "NOASSERTION"
+}

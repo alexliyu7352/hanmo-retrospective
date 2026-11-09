@@ -1,0 +1,13 @@
+#include "visit_message_native.hpp"
+#include "resident/kernel/world_bundle.hpp"
+namespace hanmo::resident {namespace {
+Status bound(const WorldBundle&w,const CharacterConditionSources&body){
+ if(!w.catalog||!w.catalog->common||!w.catalog->interaction||!w.catalog->interaction->visit_messages||!w.interaction.visit_messages||w.interaction.visit_messages->version<2||w.interaction.visit_messages->version>3||w.catalog->interaction->visit_messages->version!=w.interaction.visit_messages->version||!w.catalog->family||!w.catalog->family_life||!w.catalog->family_life->enabled||w.catalog->family_life->selected_version!=4||!w.catalog->actor_foundation||!w.actor_foundation||!body.life_sources)return common_failure("VisitMessageLife4OwningSourcesRequired",{},ErrorKind::unsupported_capability);
+ if(&body.common!=&w.common||&body.state!=&*w.actor_foundation||&body.catalog!=w.catalog->actor_foundation.get()||body.deaths!=&w.family_life||body.family_catalog!=w.catalog->family.get()||body.shared!=w.catalog->common.get())return common_failure("VisitMessageLifeCandidateMismatch",{},ErrorKind::internal);
+ auto now=w.actual_phase_moment();if(!now.ok)return {false,{},now.error};auto same=compare_world_moments(body.actual_now,now.value);if(!same.ok)return {false,{},same.error};return !same.value?common_success():common_failure("VisitMessageLifeActualClockMismatch",{},ErrorKind::internal);
+}
+}
+NativeVisitMessageLifeRead::NativeVisitMessageLifeRead(const WorldBundle&w,const CharacterConditionWorldRead&owner,const CharacterConditionSources&body):world_(w),body_owner_(owner),clock_(w),context_{w.common,*w.interaction.visit_messages,*w.catalog->interaction->visit_messages,*w.catalog->interaction,w.interaction,*w.catalog->family_life,w.family_life,*body.life_sources,clock_}{}
+Outcome<std::unique_ptr<NativeVisitMessageLifeRead>>NativeVisitMessageLifeRead::create(const WorldBundle&w,const CharacterConditionWorldRead&owner){auto body=owner.sources();if(!body.ok)return {false,{},body.error};auto valid=bound(w,body.value);if(!valid.ok)return {false,{},valid.error};return {true,std::unique_ptr<NativeVisitMessageLifeRead>(new NativeVisitMessageLifeRead(w,owner,body.value)),{}};}
+Outcome<const VisitMessageLifeContext*>NativeVisitMessageLifeRead::context()const{auto body=body_owner_.sources();if(!body.ok)return {false,{},body.error};auto valid=bound(world_,body.value);if(!valid.ok)return {false,{},valid.error};if(body.value.life_sources!=&context_.causes||&context_.state!=&*world_.interaction.visit_messages||&context_.interactions!=&world_.interaction)return {false,{},common_failure("VisitMessageLifeLeaseChanged",{},ErrorKind::internal).error};return {true,&context_,{}};}
+}

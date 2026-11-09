@@ -1,0 +1,56 @@
+{
+  "format": "HM-CONTENT",
+  "schema_version": 1,
+  "id": "foundation.procurement",
+  "version": "0.3.1",
+  "required_capabilities": [
+    "multi_actor"
+  ],
+  "texts": {},
+  "flags": {},
+  "settlements": [],
+  "routes": [],
+  "places": [],
+  "actors": [
+    {
+      "id": "actor.extension",
+      "origin": "original",
+      "source_note": "原创工程验收人物，不是已考据历史人物",
+      "initial_place": "base::west.grain",
+      "attributes": {
+        "leadership": 60,
+        "martial": 60,
+        "intellect": 60,
+        "administration": 60,
+        "charisma": 60
+      },
+      "skills": {
+        "infantry": 0,
+        "cavalry": 0,
+        "archery": 0,
+        "martial": 0,
+        "tactics": 0,
+        "debate": 0,
+        "negotiation": 0,
+        "rites": 0,
+        "commerce": 0,
+        "transport": 0
+      },
+      "dialogue_id": null,
+      "appearance_note": "形象资源尚未制作；使用编辑器字段而非冒称正式立绘",
+      "name_key": "base::name.actor.apprentice"
+    }
+  ],
+  "organizations": [],
+  "roles": [],
+  "wallets": [],
+  "items": [],
+  "inventories": [],
+  "shops": [],
+  "props": [],
+  "offers": [],
+  "dialogues": [],
+  "events": [],
+  "relations": [],
+  "scenarios": []
+}

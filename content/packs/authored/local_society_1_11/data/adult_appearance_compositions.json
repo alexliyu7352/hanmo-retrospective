@@ -1,0 +1,3407 @@
+{
+  "version": 1,
+  "scope": "qingchuan_adult_compositions_v1",
+  "age_domain": [
+    18,
+    59
+  ],
+  "families": [
+    {
+      "id": "adult_male_medium_v2",
+      "label": "适中男像",
+      "catalog": "catalog_medium_v3.json"
+    },
+    {
+      "id": "adult_female_round_v1",
+      "label": "偏宽女像",
+      "catalog": "catalog_female_v2.json"
+    },
+    {
+      "id": "adult_male_long_v1",
+      "label": "偏长男像",
+      "catalog": "catalog_long_v2.json"
+    }
+  ],
+  "faces": [
+    {
+      "id": "medium_clear_long",
+      "label": "适中男像 · 清朗长脸",
+      "fitting_id": "adult_male_medium_v2",
+      "face_index": 0
+    },
+    {
+      "id": "medium_square_jaw",
+      "label": "适中男像 · 宽颌方脸",
+      "fitting_id": "adult_male_medium_v2",
+      "face_index": 1
+    },
+    {
+      "id": "medium_round_chin",
+      "label": "适中男像 · 丰颊圆颏",
+      "fitting_id": "adult_male_medium_v2",
+      "face_index": 2
+    },
+    {
+      "id": "medium_high_cheek",
+      "label": "适中男像 · 高颧收颌",
+      "fitting_id": "adult_male_medium_v2",
+      "face_index": 3
+    },
+    {
+      "id": "female_round_broad",
+      "label": "偏宽女像 · 圆阔脸",
+      "fitting_id": "adult_female_round_v1",
+      "face_index": 0
+    },
+    {
+      "id": "female_straight_jaw",
+      "label": "偏宽女像 · 宽直颌",
+      "fitting_id": "adult_female_round_v1",
+      "face_index": 1
+    },
+    {
+      "id": "female_short_chin",
+      "label": "偏宽女像 · 丰颊短颏",
+      "fitting_id": "adult_female_round_v1",
+      "face_index": 2
+    },
+    {
+      "id": "female_high_cheek",
+      "label": "偏宽女像 · 高颧收颊",
+      "fitting_id": "adult_female_round_v1",
+      "face_index": 3
+    },
+    {
+      "id": "long_narrow",
+      "label": "偏长男像 · 长窄脸",
+      "fitting_id": "adult_male_long_v1",
+      "face_index": 0
+    },
+    {
+      "id": "long_straight_jaw",
+      "label": "偏长男像 · 长直颌",
+      "fitting_id": "adult_male_long_v1",
+      "face_index": 1
+    },
+    {
+      "id": "long_full_oval",
+      "label": "偏长男像 · 丰颊长卵脸",
+      "fitting_id": "adult_male_long_v1",
+      "face_index": 2
+    },
+    {
+      "id": "long_high_cheek",
+      "label": "偏长男像 · 高颧收颊",
+      "fitting_id": "adult_male_long_v1",
+      "face_index": 3
+    }
+  ],
+  "options": {
+    "brows": [
+      {
+        "id": "arched",
+        "label": "锋眉"
+      },
+      {
+        "id": "straight",
+        "label": "平眉"
+      }
+    ],
+    "eyes": [
+      {
+        "id": "open",
+        "label": "明眸"
+      },
+      {
+        "id": "narrow",
+        "label": "平睑"
+      }
+    ],
+    "nose": [
+      {
+        "id": "straight",
+        "label": "挺鼻"
+      },
+      {
+        "id": "round",
+        "label": "圆鼻"
+      }
+    ],
+    "mouth": [
+      {
+        "id": "neutral",
+        "label": "平唇"
+      },
+      {
+        "id": "smile",
+        "label": "丰唇含笑"
+      }
+    ]
+  },
+  "records": [
+    {
+      "id": "medium_clear_long.arched.open.straight.neutral",
+      "label": "适中男像 · 清朗长脸",
+      "base_features": {
+        "face_shape": "medium_clear_long",
+        "eyes": "open",
+        "brows": "arched",
+        "nose": "straight",
+        "mouth": "neutral",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_medium_v2"
+    },
+    {
+      "id": "medium_clear_long.arched.open.straight.smile",
+      "label": "适中男像 · 清朗长脸",
+      "base_features": {
+        "face_shape": "medium_clear_long",
+        "eyes": "open",
+        "brows": "arched",
+        "nose": "straight",
+        "mouth": "smile",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_medium_v2"
+    },
+    {
+      "id": "medium_clear_long.arched.open.round.neutral",
+      "label": "适中男像 · 清朗长脸",
+      "base_features": {
+        "face_shape": "medium_clear_long",
+        "eyes": "open",
+        "brows": "arched",
+        "nose": "round",
+        "mouth": "neutral",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_medium_v2"
+    },
+    {
+      "id": "medium_clear_long.arched.open.round.smile",
+      "label": "适中男像 · 清朗长脸",
+      "base_features": {
+        "face_shape": "medium_clear_long",
+        "eyes": "open",
+        "brows": "arched",
+        "nose": "round",
+        "mouth": "smile",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_medium_v2"
+    },
+    {
+      "id": "medium_clear_long.arched.narrow.straight.neutral",
+      "label": "适中男像 · 清朗长脸",
+      "base_features": {
+        "face_shape": "medium_clear_long",
+        "eyes": "narrow",
+        "brows": "arched",
+        "nose": "straight",
+        "mouth": "neutral",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_medium_v2"
+    },
+    {
+      "id": "medium_clear_long.arched.narrow.straight.smile",
+      "label": "适中男像 · 清朗长脸",
+      "base_features": {
+        "face_shape": "medium_clear_long",
+        "eyes": "narrow",
+        "brows": "arched",
+        "nose": "straight",
+        "mouth": "smile",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_medium_v2"
+    },
+    {
+      "id": "medium_clear_long.arched.narrow.round.neutral",
+      "label": "适中男像 · 清朗长脸",
+      "base_features": {
+        "face_shape": "medium_clear_long",
+        "eyes": "narrow",
+        "brows": "arched",
+        "nose": "round",
+        "mouth": "neutral",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_medium_v2"
+    },
+    {
+      "id": "medium_clear_long.arched.narrow.round.smile",
+      "label": "适中男像 · 清朗长脸",
+      "base_features": {
+        "face_shape": "medium_clear_long",
+        "eyes": "narrow",
+        "brows": "arched",
+        "nose": "round",
+        "mouth": "smile",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_medium_v2"
+    },
+    {
+      "id": "medium_clear_long.straight.open.straight.neutral",
+      "label": "适中男像 · 清朗长脸",
+      "base_features": {
+        "face_shape": "medium_clear_long",
+        "eyes": "open",
+        "brows": "straight",
+        "nose": "straight",
+        "mouth": "neutral",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_medium_v2"
+    },
+    {
+      "id": "medium_clear_long.straight.open.straight.smile",
+      "label": "适中男像 · 清朗长脸",
+      "base_features": {
+        "face_shape": "medium_clear_long",
+        "eyes": "open",
+        "brows": "straight",
+        "nose": "straight",
+        "mouth": "smile",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_medium_v2"
+    },
+    {
+      "id": "medium_clear_long.straight.open.round.neutral",
+      "label": "适中男像 · 清朗长脸",
+      "base_features": {
+        "face_shape": "medium_clear_long",
+        "eyes": "open",
+        "brows": "straight",
+        "nose": "round",
+        "mouth": "neutral",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_medium_v2"
+    },
+    {
+      "id": "medium_clear_long.straight.open.round.smile",
+      "label": "适中男像 · 清朗长脸",
+      "base_features": {
+        "face_shape": "medium_clear_long",
+        "eyes": "open",
+        "brows": "straight",
+        "nose": "round",
+        "mouth": "smile",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_medium_v2"
+    },
+    {
+      "id": "medium_clear_long.straight.narrow.straight.neutral",
+      "label": "适中男像 · 清朗长脸",
+      "base_features": {
+        "face_shape": "medium_clear_long",
+        "eyes": "narrow",
+        "brows": "straight",
+        "nose": "straight",
+        "mouth": "neutral",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_medium_v2"
+    },
+    {
+      "id": "medium_clear_long.straight.narrow.straight.smile",
+      "label": "适中男像 · 清朗长脸",
+      "base_features": {
+        "face_shape": "medium_clear_long",
+        "eyes": "narrow",
+        "brows": "straight",
+        "nose": "straight",
+        "mouth": "smile",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_medium_v2"
+    },
+    {
+      "id": "medium_clear_long.straight.narrow.round.neutral",
+      "label": "适中男像 · 清朗长脸",
+      "base_features": {
+        "face_shape": "medium_clear_long",
+        "eyes": "narrow",
+        "brows": "straight",
+        "nose": "round",
+        "mouth": "neutral",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_medium_v2"
+    },
+    {
+      "id": "medium_clear_long.straight.narrow.round.smile",
+      "label": "适中男像 · 清朗长脸",
+      "base_features": {
+        "face_shape": "medium_clear_long",
+        "eyes": "narrow",
+        "brows": "straight",
+        "nose": "round",
+        "mouth": "smile",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_medium_v2"
+    },
+    {
+      "id": "medium_square_jaw.arched.open.straight.neutral",
+      "label": "适中男像 · 宽颌方脸",
+      "base_features": {
+        "face_shape": "medium_square_jaw",
+        "eyes": "open",
+        "brows": "arched",
+        "nose": "straight",
+        "mouth": "neutral",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_medium_v2"
+    },
+    {
+      "id": "medium_square_jaw.arched.open.straight.smile",
+      "label": "适中男像 · 宽颌方脸",
+      "base_features": {
+        "face_shape": "medium_square_jaw",
+        "eyes": "open",
+        "brows": "arched",
+        "nose": "straight",
+        "mouth": "smile",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_medium_v2"
+    },
+    {
+      "id": "medium_square_jaw.arched.open.round.neutral",
+      "label": "适中男像 · 宽颌方脸",
+      "base_features": {
+        "face_shape": "medium_square_jaw",
+        "eyes": "open",
+        "brows": "arched",
+        "nose": "round",
+        "mouth": "neutral",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_medium_v2"
+    },
+    {
+      "id": "medium_square_jaw.arched.open.round.smile",
+      "label": "适中男像 · 宽颌方脸",
+      "base_features": {
+        "face_shape": "medium_square_jaw",
+        "eyes": "open",
+        "brows": "arched",
+        "nose": "round",
+        "mouth": "smile",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_medium_v2"
+    },
+    {
+      "id": "medium_square_jaw.arched.narrow.straight.neutral",
+      "label": "适中男像 · 宽颌方脸",
+      "base_features": {
+        "face_shape": "medium_square_jaw",
+        "eyes": "narrow",
+        "brows": "arched",
+        "nose": "straight",
+        "mouth": "neutral",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_medium_v2"
+    },
+    {
+      "id": "medium_square_jaw.arched.narrow.straight.smile",
+      "label": "适中男像 · 宽颌方脸",
+      "base_features": {
+        "face_shape": "medium_square_jaw",
+        "eyes": "narrow",
+        "brows": "arched",
+        "nose": "straight",
+        "mouth": "smile",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_medium_v2"
+    },
+    {
+      "id": "medium_square_jaw.arched.narrow.round.neutral",
+      "label": "适中男像 · 宽颌方脸",
+      "base_features": {
+        "face_shape": "medium_square_jaw",
+        "eyes": "narrow",
+        "brows": "arched",
+        "nose": "round",
+        "mouth": "neutral",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_medium_v2"
+    },
+    {
+      "id": "medium_square_jaw.arched.narrow.round.smile",
+      "label": "适中男像 · 宽颌方脸",
+      "base_features": {
+        "face_shape": "medium_square_jaw",
+        "eyes": "narrow",
+        "brows": "arched",
+        "nose": "round",
+        "mouth": "smile",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_medium_v2"
+    },
+    {
+      "id": "medium_square_jaw.straight.open.straight.neutral",
+      "label": "适中男像 · 宽颌方脸",
+      "base_features": {
+        "face_shape": "medium_square_jaw",
+        "eyes": "open",
+        "brows": "straight",
+        "nose": "straight",
+        "mouth": "neutral",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_medium_v2"
+    },
+    {
+      "id": "medium_square_jaw.straight.open.straight.smile",
+      "label": "适中男像 · 宽颌方脸",
+      "base_features": {
+        "face_shape": "medium_square_jaw",
+        "eyes": "open",
+        "brows": "straight",
+        "nose": "straight",
+        "mouth": "smile",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_medium_v2"
+    },
+    {
+      "id": "medium_square_jaw.straight.open.round.neutral",
+      "label": "适中男像 · 宽颌方脸",
+      "base_features": {
+        "face_shape": "medium_square_jaw",
+        "eyes": "open",
+        "brows": "straight",
+        "nose": "round",
+        "mouth": "neutral",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_medium_v2"
+    },
+    {
+      "id": "medium_square_jaw.straight.open.round.smile",
+      "label": "适中男像 · 宽颌方脸",
+      "base_features": {
+        "face_shape": "medium_square_jaw",
+        "eyes": "open",
+        "brows": "straight",
+        "nose": "round",
+        "mouth": "smile",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_medium_v2"
+    },
+    {
+      "id": "medium_square_jaw.straight.narrow.straight.neutral",
+      "label": "适中男像 · 宽颌方脸",
+      "base_features": {
+        "face_shape": "medium_square_jaw",
+        "eyes": "narrow",
+        "brows": "straight",
+        "nose": "straight",
+        "mouth": "neutral",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_medium_v2"
+    },
+    {
+      "id": "medium_square_jaw.straight.narrow.straight.smile",
+      "label": "适中男像 · 宽颌方脸",
+      "base_features": {
+        "face_shape": "medium_square_jaw",
+        "eyes": "narrow",
+        "brows": "straight",
+        "nose": "straight",
+        "mouth": "smile",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_medium_v2"
+    },
+    {
+      "id": "medium_square_jaw.straight.narrow.round.neutral",
+      "label": "适中男像 · 宽颌方脸",
+      "base_features": {
+        "face_shape": "medium_square_jaw",
+        "eyes": "narrow",
+        "brows": "straight",
+        "nose": "round",
+        "mouth": "neutral",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_medium_v2"
+    },
+    {
+      "id": "medium_square_jaw.straight.narrow.round.smile",
+      "label": "适中男像 · 宽颌方脸",
+      "base_features": {
+        "face_shape": "medium_square_jaw",
+        "eyes": "narrow",
+        "brows": "straight",
+        "nose": "round",
+        "mouth": "smile",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_medium_v2"
+    },
+    {
+      "id": "medium_round_chin.arched.open.straight.neutral",
+      "label": "适中男像 · 丰颊圆颏",
+      "base_features": {
+        "face_shape": "medium_round_chin",
+        "eyes": "open",
+        "brows": "arched",
+        "nose": "straight",
+        "mouth": "neutral",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_medium_v2"
+    },
+    {
+      "id": "medium_round_chin.arched.open.straight.smile",
+      "label": "适中男像 · 丰颊圆颏",
+      "base_features": {
+        "face_shape": "medium_round_chin",
+        "eyes": "open",
+        "brows": "arched",
+        "nose": "straight",
+        "mouth": "smile",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_medium_v2"
+    },
+    {
+      "id": "medium_round_chin.arched.open.round.neutral",
+      "label": "适中男像 · 丰颊圆颏",
+      "base_features": {
+        "face_shape": "medium_round_chin",
+        "eyes": "open",
+        "brows": "arched",
+        "nose": "round",
+        "mouth": "neutral",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_medium_v2"
+    },
+    {
+      "id": "medium_round_chin.arched.open.round.smile",
+      "label": "适中男像 · 丰颊圆颏",
+      "base_features": {
+        "face_shape": "medium_round_chin",
+        "eyes": "open",
+        "brows": "arched",
+        "nose": "round",
+        "mouth": "smile",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_medium_v2"
+    },
+    {
+      "id": "medium_round_chin.arched.narrow.straight.neutral",
+      "label": "适中男像 · 丰颊圆颏",
+      "base_features": {
+        "face_shape": "medium_round_chin",
+        "eyes": "narrow",
+        "brows": "arched",
+        "nose": "straight",
+        "mouth": "neutral",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_medium_v2"
+    },
+    {
+      "id": "medium_round_chin.arched.narrow.straight.smile",
+      "label": "适中男像 · 丰颊圆颏",
+      "base_features": {
+        "face_shape": "medium_round_chin",
+        "eyes": "narrow",
+        "brows": "arched",
+        "nose": "straight",
+        "mouth": "smile",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_medium_v2"
+    },
+    {
+      "id": "medium_round_chin.arched.narrow.round.neutral",
+      "label": "适中男像 · 丰颊圆颏",
+      "base_features": {
+        "face_shape": "medium_round_chin",
+        "eyes": "narrow",
+        "brows": "arched",
+        "nose": "round",
+        "mouth": "neutral",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_medium_v2"
+    },
+    {
+      "id": "medium_round_chin.arched.narrow.round.smile",
+      "label": "适中男像 · 丰颊圆颏",
+      "base_features": {
+        "face_shape": "medium_round_chin",
+        "eyes": "narrow",
+        "brows": "arched",
+        "nose": "round",
+        "mouth": "smile",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_medium_v2"
+    },
+    {
+      "id": "medium_round_chin.straight.open.straight.neutral",
+      "label": "适中男像 · 丰颊圆颏",
+      "base_features": {
+        "face_shape": "medium_round_chin",
+        "eyes": "open",
+        "brows": "straight",
+        "nose": "straight",
+        "mouth": "neutral",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_medium_v2"
+    },
+    {
+      "id": "medium_round_chin.straight.open.straight.smile",
+      "label": "适中男像 · 丰颊圆颏",
+      "base_features": {
+        "face_shape": "medium_round_chin",
+        "eyes": "open",
+        "brows": "straight",
+        "nose": "straight",
+        "mouth": "smile",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_medium_v2"
+    },
+    {
+      "id": "medium_round_chin.straight.open.round.neutral",
+      "label": "适中男像 · 丰颊圆颏",
+      "base_features": {
+        "face_shape": "medium_round_chin",
+        "eyes": "open",
+        "brows": "straight",
+        "nose": "round",
+        "mouth": "neutral",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_medium_v2"
+    },
+    {
+      "id": "medium_round_chin.straight.open.round.smile",
+      "label": "适中男像 · 丰颊圆颏",
+      "base_features": {
+        "face_shape": "medium_round_chin",
+        "eyes": "open",
+        "brows": "straight",
+        "nose": "round",
+        "mouth": "smile",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_medium_v2"
+    },
+    {
+      "id": "medium_round_chin.straight.narrow.straight.neutral",
+      "label": "适中男像 · 丰颊圆颏",
+      "base_features": {
+        "face_shape": "medium_round_chin",
+        "eyes": "narrow",
+        "brows": "straight",
+        "nose": "straight",
+        "mouth": "neutral",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_medium_v2"
+    },
+    {
+      "id": "medium_round_chin.straight.narrow.straight.smile",
+      "label": "适中男像 · 丰颊圆颏",
+      "base_features": {
+        "face_shape": "medium_round_chin",
+        "eyes": "narrow",
+        "brows": "straight",
+        "nose": "straight",
+        "mouth": "smile",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_medium_v2"
+    },
+    {
+      "id": "medium_round_chin.straight.narrow.round.neutral",
+      "label": "适中男像 · 丰颊圆颏",
+      "base_features": {
+        "face_shape": "medium_round_chin",
+        "eyes": "narrow",
+        "brows": "straight",
+        "nose": "round",
+        "mouth": "neutral",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_medium_v2"
+    },
+    {
+      "id": "medium_round_chin.straight.narrow.round.smile",
+      "label": "适中男像 · 丰颊圆颏",
+      "base_features": {
+        "face_shape": "medium_round_chin",
+        "eyes": "narrow",
+        "brows": "straight",
+        "nose": "round",
+        "mouth": "smile",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_medium_v2"
+    },
+    {
+      "id": "medium_high_cheek.arched.open.straight.neutral",
+      "label": "适中男像 · 高颧收颌",
+      "base_features": {
+        "face_shape": "medium_high_cheek",
+        "eyes": "open",
+        "brows": "arched",
+        "nose": "straight",
+        "mouth": "neutral",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_medium_v2"
+    },
+    {
+      "id": "medium_high_cheek.arched.open.straight.smile",
+      "label": "适中男像 · 高颧收颌",
+      "base_features": {
+        "face_shape": "medium_high_cheek",
+        "eyes": "open",
+        "brows": "arched",
+        "nose": "straight",
+        "mouth": "smile",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_medium_v2"
+    },
+    {
+      "id": "medium_high_cheek.arched.open.round.neutral",
+      "label": "适中男像 · 高颧收颌",
+      "base_features": {
+        "face_shape": "medium_high_cheek",
+        "eyes": "open",
+        "brows": "arched",
+        "nose": "round",
+        "mouth": "neutral",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_medium_v2"
+    },
+    {
+      "id": "medium_high_cheek.arched.open.round.smile",
+      "label": "适中男像 · 高颧收颌",
+      "base_features": {
+        "face_shape": "medium_high_cheek",
+        "eyes": "open",
+        "brows": "arched",
+        "nose": "round",
+        "mouth": "smile",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_medium_v2"
+    },
+    {
+      "id": "medium_high_cheek.arched.narrow.straight.neutral",
+      "label": "适中男像 · 高颧收颌",
+      "base_features": {
+        "face_shape": "medium_high_cheek",
+        "eyes": "narrow",
+        "brows": "arched",
+        "nose": "straight",
+        "mouth": "neutral",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_medium_v2"
+    },
+    {
+      "id": "medium_high_cheek.arched.narrow.straight.smile",
+      "label": "适中男像 · 高颧收颌",
+      "base_features": {
+        "face_shape": "medium_high_cheek",
+        "eyes": "narrow",
+        "brows": "arched",
+        "nose": "straight",
+        "mouth": "smile",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_medium_v2"
+    },
+    {
+      "id": "medium_high_cheek.arched.narrow.round.neutral",
+      "label": "适中男像 · 高颧收颌",
+      "base_features": {
+        "face_shape": "medium_high_cheek",
+        "eyes": "narrow",
+        "brows": "arched",
+        "nose": "round",
+        "mouth": "neutral",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_medium_v2"
+    },
+    {
+      "id": "medium_high_cheek.arched.narrow.round.smile",
+      "label": "适中男像 · 高颧收颌",
+      "base_features": {
+        "face_shape": "medium_high_cheek",
+        "eyes": "narrow",
+        "brows": "arched",
+        "nose": "round",
+        "mouth": "smile",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_medium_v2"
+    },
+    {
+      "id": "medium_high_cheek.straight.open.straight.neutral",
+      "label": "适中男像 · 高颧收颌",
+      "base_features": {
+        "face_shape": "medium_high_cheek",
+        "eyes": "open",
+        "brows": "straight",
+        "nose": "straight",
+        "mouth": "neutral",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_medium_v2"
+    },
+    {
+      "id": "medium_high_cheek.straight.open.straight.smile",
+      "label": "适中男像 · 高颧收颌",
+      "base_features": {
+        "face_shape": "medium_high_cheek",
+        "eyes": "open",
+        "brows": "straight",
+        "nose": "straight",
+        "mouth": "smile",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_medium_v2"
+    },
+    {
+      "id": "medium_high_cheek.straight.open.round.neutral",
+      "label": "适中男像 · 高颧收颌",
+      "base_features": {
+        "face_shape": "medium_high_cheek",
+        "eyes": "open",
+        "brows": "straight",
+        "nose": "round",
+        "mouth": "neutral",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_medium_v2"
+    },
+    {
+      "id": "medium_high_cheek.straight.open.round.smile",
+      "label": "适中男像 · 高颧收颌",
+      "base_features": {
+        "face_shape": "medium_high_cheek",
+        "eyes": "open",
+        "brows": "straight",
+        "nose": "round",
+        "mouth": "smile",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_medium_v2"
+    },
+    {
+      "id": "medium_high_cheek.straight.narrow.straight.neutral",
+      "label": "适中男像 · 高颧收颌",
+      "base_features": {
+        "face_shape": "medium_high_cheek",
+        "eyes": "narrow",
+        "brows": "straight",
+        "nose": "straight",
+        "mouth": "neutral",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_medium_v2"
+    },
+    {
+      "id": "medium_high_cheek.straight.narrow.straight.smile",
+      "label": "适中男像 · 高颧收颌",
+      "base_features": {
+        "face_shape": "medium_high_cheek",
+        "eyes": "narrow",
+        "brows": "straight",
+        "nose": "straight",
+        "mouth": "smile",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_medium_v2"
+    },
+    {
+      "id": "medium_high_cheek.straight.narrow.round.neutral",
+      "label": "适中男像 · 高颧收颌",
+      "base_features": {
+        "face_shape": "medium_high_cheek",
+        "eyes": "narrow",
+        "brows": "straight",
+        "nose": "round",
+        "mouth": "neutral",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_medium_v2"
+    },
+    {
+      "id": "medium_high_cheek.straight.narrow.round.smile",
+      "label": "适中男像 · 高颧收颌",
+      "base_features": {
+        "face_shape": "medium_high_cheek",
+        "eyes": "narrow",
+        "brows": "straight",
+        "nose": "round",
+        "mouth": "smile",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_medium_v2"
+    },
+    {
+      "id": "female_round_broad.arched.open.straight.neutral",
+      "label": "偏宽女像 · 圆阔脸",
+      "base_features": {
+        "face_shape": "female_round_broad",
+        "eyes": "open",
+        "brows": "arched",
+        "nose": "straight",
+        "mouth": "neutral",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_female_round_v1"
+    },
+    {
+      "id": "female_round_broad.arched.open.straight.smile",
+      "label": "偏宽女像 · 圆阔脸",
+      "base_features": {
+        "face_shape": "female_round_broad",
+        "eyes": "open",
+        "brows": "arched",
+        "nose": "straight",
+        "mouth": "smile",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_female_round_v1"
+    },
+    {
+      "id": "female_round_broad.arched.open.round.neutral",
+      "label": "偏宽女像 · 圆阔脸",
+      "base_features": {
+        "face_shape": "female_round_broad",
+        "eyes": "open",
+        "brows": "arched",
+        "nose": "round",
+        "mouth": "neutral",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_female_round_v1"
+    },
+    {
+      "id": "female_round_broad.arched.open.round.smile",
+      "label": "偏宽女像 · 圆阔脸",
+      "base_features": {
+        "face_shape": "female_round_broad",
+        "eyes": "open",
+        "brows": "arched",
+        "nose": "round",
+        "mouth": "smile",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_female_round_v1"
+    },
+    {
+      "id": "female_round_broad.arched.narrow.straight.neutral",
+      "label": "偏宽女像 · 圆阔脸",
+      "base_features": {
+        "face_shape": "female_round_broad",
+        "eyes": "narrow",
+        "brows": "arched",
+        "nose": "straight",
+        "mouth": "neutral",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_female_round_v1"
+    },
+    {
+      "id": "female_round_broad.arched.narrow.straight.smile",
+      "label": "偏宽女像 · 圆阔脸",
+      "base_features": {
+        "face_shape": "female_round_broad",
+        "eyes": "narrow",
+        "brows": "arched",
+        "nose": "straight",
+        "mouth": "smile",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_female_round_v1"
+    },
+    {
+      "id": "female_round_broad.arched.narrow.round.neutral",
+      "label": "偏宽女像 · 圆阔脸",
+      "base_features": {
+        "face_shape": "female_round_broad",
+        "eyes": "narrow",
+        "brows": "arched",
+        "nose": "round",
+        "mouth": "neutral",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_female_round_v1"
+    },
+    {
+      "id": "female_round_broad.arched.narrow.round.smile",
+      "label": "偏宽女像 · 圆阔脸",
+      "base_features": {
+        "face_shape": "female_round_broad",
+        "eyes": "narrow",
+        "brows": "arched",
+        "nose": "round",
+        "mouth": "smile",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_female_round_v1"
+    },
+    {
+      "id": "female_round_broad.straight.open.straight.neutral",
+      "label": "偏宽女像 · 圆阔脸",
+      "base_features": {
+        "face_shape": "female_round_broad",
+        "eyes": "open",
+        "brows": "straight",
+        "nose": "straight",
+        "mouth": "neutral",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_female_round_v1"
+    },
+    {
+      "id": "female_round_broad.straight.open.straight.smile",
+      "label": "偏宽女像 · 圆阔脸",
+      "base_features": {
+        "face_shape": "female_round_broad",
+        "eyes": "open",
+        "brows": "straight",
+        "nose": "straight",
+        "mouth": "smile",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_female_round_v1"
+    },
+    {
+      "id": "female_round_broad.straight.open.round.neutral",
+      "label": "偏宽女像 · 圆阔脸",
+      "base_features": {
+        "face_shape": "female_round_broad",
+        "eyes": "open",
+        "brows": "straight",
+        "nose": "round",
+        "mouth": "neutral",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_female_round_v1"
+    },
+    {
+      "id": "female_round_broad.straight.open.round.smile",
+      "label": "偏宽女像 · 圆阔脸",
+      "base_features": {
+        "face_shape": "female_round_broad",
+        "eyes": "open",
+        "brows": "straight",
+        "nose": "round",
+        "mouth": "smile",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_female_round_v1"
+    },
+    {
+      "id": "female_round_broad.straight.narrow.straight.neutral",
+      "label": "偏宽女像 · 圆阔脸",
+      "base_features": {
+        "face_shape": "female_round_broad",
+        "eyes": "narrow",
+        "brows": "straight",
+        "nose": "straight",
+        "mouth": "neutral",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_female_round_v1"
+    },
+    {
+      "id": "female_round_broad.straight.narrow.straight.smile",
+      "label": "偏宽女像 · 圆阔脸",
+      "base_features": {
+        "face_shape": "female_round_broad",
+        "eyes": "narrow",
+        "brows": "straight",
+        "nose": "straight",
+        "mouth": "smile",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_female_round_v1"
+    },
+    {
+      "id": "female_round_broad.straight.narrow.round.neutral",
+      "label": "偏宽女像 · 圆阔脸",
+      "base_features": {
+        "face_shape": "female_round_broad",
+        "eyes": "narrow",
+        "brows": "straight",
+        "nose": "round",
+        "mouth": "neutral",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_female_round_v1"
+    },
+    {
+      "id": "female_round_broad.straight.narrow.round.smile",
+      "label": "偏宽女像 · 圆阔脸",
+      "base_features": {
+        "face_shape": "female_round_broad",
+        "eyes": "narrow",
+        "brows": "straight",
+        "nose": "round",
+        "mouth": "smile",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_female_round_v1"
+    },
+    {
+      "id": "female_straight_jaw.arched.open.straight.neutral",
+      "label": "偏宽女像 · 宽直颌",
+      "base_features": {
+        "face_shape": "female_straight_jaw",
+        "eyes": "open",
+        "brows": "arched",
+        "nose": "straight",
+        "mouth": "neutral",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_female_round_v1"
+    },
+    {
+      "id": "female_straight_jaw.arched.open.straight.smile",
+      "label": "偏宽女像 · 宽直颌",
+      "base_features": {
+        "face_shape": "female_straight_jaw",
+        "eyes": "open",
+        "brows": "arched",
+        "nose": "straight",
+        "mouth": "smile",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_female_round_v1"
+    },
+    {
+      "id": "female_straight_jaw.arched.open.round.neutral",
+      "label": "偏宽女像 · 宽直颌",
+      "base_features": {
+        "face_shape": "female_straight_jaw",
+        "eyes": "open",
+        "brows": "arched",
+        "nose": "round",
+        "mouth": "neutral",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_female_round_v1"
+    },
+    {
+      "id": "female_straight_jaw.arched.open.round.smile",
+      "label": "偏宽女像 · 宽直颌",
+      "base_features": {
+        "face_shape": "female_straight_jaw",
+        "eyes": "open",
+        "brows": "arched",
+        "nose": "round",
+        "mouth": "smile",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_female_round_v1"
+    },
+    {
+      "id": "female_straight_jaw.arched.narrow.straight.neutral",
+      "label": "偏宽女像 · 宽直颌",
+      "base_features": {
+        "face_shape": "female_straight_jaw",
+        "eyes": "narrow",
+        "brows": "arched",
+        "nose": "straight",
+        "mouth": "neutral",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_female_round_v1"
+    },
+    {
+      "id": "female_straight_jaw.arched.narrow.straight.smile",
+      "label": "偏宽女像 · 宽直颌",
+      "base_features": {
+        "face_shape": "female_straight_jaw",
+        "eyes": "narrow",
+        "brows": "arched",
+        "nose": "straight",
+        "mouth": "smile",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_female_round_v1"
+    },
+    {
+      "id": "female_straight_jaw.arched.narrow.round.neutral",
+      "label": "偏宽女像 · 宽直颌",
+      "base_features": {
+        "face_shape": "female_straight_jaw",
+        "eyes": "narrow",
+        "brows": "arched",
+        "nose": "round",
+        "mouth": "neutral",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_female_round_v1"
+    },
+    {
+      "id": "female_straight_jaw.arched.narrow.round.smile",
+      "label": "偏宽女像 · 宽直颌",
+      "base_features": {
+        "face_shape": "female_straight_jaw",
+        "eyes": "narrow",
+        "brows": "arched",
+        "nose": "round",
+        "mouth": "smile",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_female_round_v1"
+    },
+    {
+      "id": "female_straight_jaw.straight.open.straight.neutral",
+      "label": "偏宽女像 · 宽直颌",
+      "base_features": {
+        "face_shape": "female_straight_jaw",
+        "eyes": "open",
+        "brows": "straight",
+        "nose": "straight",
+        "mouth": "neutral",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_female_round_v1"
+    },
+    {
+      "id": "female_straight_jaw.straight.open.straight.smile",
+      "label": "偏宽女像 · 宽直颌",
+      "base_features": {
+        "face_shape": "female_straight_jaw",
+        "eyes": "open",
+        "brows": "straight",
+        "nose": "straight",
+        "mouth": "smile",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_female_round_v1"
+    },
+    {
+      "id": "female_straight_jaw.straight.open.round.neutral",
+      "label": "偏宽女像 · 宽直颌",
+      "base_features": {
+        "face_shape": "female_straight_jaw",
+        "eyes": "open",
+        "brows": "straight",
+        "nose": "round",
+        "mouth": "neutral",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_female_round_v1"
+    },
+    {
+      "id": "female_straight_jaw.straight.open.round.smile",
+      "label": "偏宽女像 · 宽直颌",
+      "base_features": {
+        "face_shape": "female_straight_jaw",
+        "eyes": "open",
+        "brows": "straight",
+        "nose": "round",
+        "mouth": "smile",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_female_round_v1"
+    },
+    {
+      "id": "female_straight_jaw.straight.narrow.straight.neutral",
+      "label": "偏宽女像 · 宽直颌",
+      "base_features": {
+        "face_shape": "female_straight_jaw",
+        "eyes": "narrow",
+        "brows": "straight",
+        "nose": "straight",
+        "mouth": "neutral",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_female_round_v1"
+    },
+    {
+      "id": "female_straight_jaw.straight.narrow.straight.smile",
+      "label": "偏宽女像 · 宽直颌",
+      "base_features": {
+        "face_shape": "female_straight_jaw",
+        "eyes": "narrow",
+        "brows": "straight",
+        "nose": "straight",
+        "mouth": "smile",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_female_round_v1"
+    },
+    {
+      "id": "female_straight_jaw.straight.narrow.round.neutral",
+      "label": "偏宽女像 · 宽直颌",
+      "base_features": {
+        "face_shape": "female_straight_jaw",
+        "eyes": "narrow",
+        "brows": "straight",
+        "nose": "round",
+        "mouth": "neutral",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_female_round_v1"
+    },
+    {
+      "id": "female_straight_jaw.straight.narrow.round.smile",
+      "label": "偏宽女像 · 宽直颌",
+      "base_features": {
+        "face_shape": "female_straight_jaw",
+        "eyes": "narrow",
+        "brows": "straight",
+        "nose": "round",
+        "mouth": "smile",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_female_round_v1"
+    },
+    {
+      "id": "female_short_chin.arched.open.straight.neutral",
+      "label": "偏宽女像 · 丰颊短颏",
+      "base_features": {
+        "face_shape": "female_short_chin",
+        "eyes": "open",
+        "brows": "arched",
+        "nose": "straight",
+        "mouth": "neutral",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_female_round_v1"
+    },
+    {
+      "id": "female_short_chin.arched.open.straight.smile",
+      "label": "偏宽女像 · 丰颊短颏",
+      "base_features": {
+        "face_shape": "female_short_chin",
+        "eyes": "open",
+        "brows": "arched",
+        "nose": "straight",
+        "mouth": "smile",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_female_round_v1"
+    },
+    {
+      "id": "female_short_chin.arched.open.round.neutral",
+      "label": "偏宽女像 · 丰颊短颏",
+      "base_features": {
+        "face_shape": "female_short_chin",
+        "eyes": "open",
+        "brows": "arched",
+        "nose": "round",
+        "mouth": "neutral",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_female_round_v1"
+    },
+    {
+      "id": "female_short_chin.arched.open.round.smile",
+      "label": "偏宽女像 · 丰颊短颏",
+      "base_features": {
+        "face_shape": "female_short_chin",
+        "eyes": "open",
+        "brows": "arched",
+        "nose": "round",
+        "mouth": "smile",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_female_round_v1"
+    },
+    {
+      "id": "female_short_chin.arched.narrow.straight.neutral",
+      "label": "偏宽女像 · 丰颊短颏",
+      "base_features": {
+        "face_shape": "female_short_chin",
+        "eyes": "narrow",
+        "brows": "arched",
+        "nose": "straight",
+        "mouth": "neutral",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_female_round_v1"
+    },
+    {
+      "id": "female_short_chin.arched.narrow.straight.smile",
+      "label": "偏宽女像 · 丰颊短颏",
+      "base_features": {
+        "face_shape": "female_short_chin",
+        "eyes": "narrow",
+        "brows": "arched",
+        "nose": "straight",
+        "mouth": "smile",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_female_round_v1"
+    },
+    {
+      "id": "female_short_chin.arched.narrow.round.neutral",
+      "label": "偏宽女像 · 丰颊短颏",
+      "base_features": {
+        "face_shape": "female_short_chin",
+        "eyes": "narrow",
+        "brows": "arched",
+        "nose": "round",
+        "mouth": "neutral",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_female_round_v1"
+    },
+    {
+      "id": "female_short_chin.arched.narrow.round.smile",
+      "label": "偏宽女像 · 丰颊短颏",
+      "base_features": {
+        "face_shape": "female_short_chin",
+        "eyes": "narrow",
+        "brows": "arched",
+        "nose": "round",
+        "mouth": "smile",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_female_round_v1"
+    },
+    {
+      "id": "female_short_chin.straight.open.straight.neutral",
+      "label": "偏宽女像 · 丰颊短颏",
+      "base_features": {
+        "face_shape": "female_short_chin",
+        "eyes": "open",
+        "brows": "straight",
+        "nose": "straight",
+        "mouth": "neutral",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_female_round_v1"
+    },
+    {
+      "id": "female_short_chin.straight.open.straight.smile",
+      "label": "偏宽女像 · 丰颊短颏",
+      "base_features": {
+        "face_shape": "female_short_chin",
+        "eyes": "open",
+        "brows": "straight",
+        "nose": "straight",
+        "mouth": "smile",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_female_round_v1"
+    },
+    {
+      "id": "female_short_chin.straight.open.round.neutral",
+      "label": "偏宽女像 · 丰颊短颏",
+      "base_features": {
+        "face_shape": "female_short_chin",
+        "eyes": "open",
+        "brows": "straight",
+        "nose": "round",
+        "mouth": "neutral",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_female_round_v1"
+    },
+    {
+      "id": "female_short_chin.straight.open.round.smile",
+      "label": "偏宽女像 · 丰颊短颏",
+      "base_features": {
+        "face_shape": "female_short_chin",
+        "eyes": "open",
+        "brows": "straight",
+        "nose": "round",
+        "mouth": "smile",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_female_round_v1"
+    },
+    {
+      "id": "female_short_chin.straight.narrow.straight.neutral",
+      "label": "偏宽女像 · 丰颊短颏",
+      "base_features": {
+        "face_shape": "female_short_chin",
+        "eyes": "narrow",
+        "brows": "straight",
+        "nose": "straight",
+        "mouth": "neutral",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_female_round_v1"
+    },
+    {
+      "id": "female_short_chin.straight.narrow.straight.smile",
+      "label": "偏宽女像 · 丰颊短颏",
+      "base_features": {
+        "face_shape": "female_short_chin",
+        "eyes": "narrow",
+        "brows": "straight",
+        "nose": "straight",
+        "mouth": "smile",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_female_round_v1"
+    },
+    {
+      "id": "female_short_chin.straight.narrow.round.neutral",
+      "label": "偏宽女像 · 丰颊短颏",
+      "base_features": {
+        "face_shape": "female_short_chin",
+        "eyes": "narrow",
+        "brows": "straight",
+        "nose": "round",
+        "mouth": "neutral",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_female_round_v1"
+    },
+    {
+      "id": "female_short_chin.straight.narrow.round.smile",
+      "label": "偏宽女像 · 丰颊短颏",
+      "base_features": {
+        "face_shape": "female_short_chin",
+        "eyes": "narrow",
+        "brows": "straight",
+        "nose": "round",
+        "mouth": "smile",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_female_round_v1"
+    },
+    {
+      "id": "female_high_cheek.arched.open.straight.neutral",
+      "label": "偏宽女像 · 高颧收颊",
+      "base_features": {
+        "face_shape": "female_high_cheek",
+        "eyes": "open",
+        "brows": "arched",
+        "nose": "straight",
+        "mouth": "neutral",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_female_round_v1"
+    },
+    {
+      "id": "female_high_cheek.arched.open.straight.smile",
+      "label": "偏宽女像 · 高颧收颊",
+      "base_features": {
+        "face_shape": "female_high_cheek",
+        "eyes": "open",
+        "brows": "arched",
+        "nose": "straight",
+        "mouth": "smile",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_female_round_v1"
+    },
+    {
+      "id": "female_high_cheek.arched.open.round.neutral",
+      "label": "偏宽女像 · 高颧收颊",
+      "base_features": {
+        "face_shape": "female_high_cheek",
+        "eyes": "open",
+        "brows": "arched",
+        "nose": "round",
+        "mouth": "neutral",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_female_round_v1"
+    },
+    {
+      "id": "female_high_cheek.arched.open.round.smile",
+      "label": "偏宽女像 · 高颧收颊",
+      "base_features": {
+        "face_shape": "female_high_cheek",
+        "eyes": "open",
+        "brows": "arched",
+        "nose": "round",
+        "mouth": "smile",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_female_round_v1"
+    },
+    {
+      "id": "female_high_cheek.arched.narrow.straight.neutral",
+      "label": "偏宽女像 · 高颧收颊",
+      "base_features": {
+        "face_shape": "female_high_cheek",
+        "eyes": "narrow",
+        "brows": "arched",
+        "nose": "straight",
+        "mouth": "neutral",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_female_round_v1"
+    },
+    {
+      "id": "female_high_cheek.arched.narrow.straight.smile",
+      "label": "偏宽女像 · 高颧收颊",
+      "base_features": {
+        "face_shape": "female_high_cheek",
+        "eyes": "narrow",
+        "brows": "arched",
+        "nose": "straight",
+        "mouth": "smile",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_female_round_v1"
+    },
+    {
+      "id": "female_high_cheek.arched.narrow.round.neutral",
+      "label": "偏宽女像 · 高颧收颊",
+      "base_features": {
+        "face_shape": "female_high_cheek",
+        "eyes": "narrow",
+        "brows": "arched",
+        "nose": "round",
+        "mouth": "neutral",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_female_round_v1"
+    },
+    {
+      "id": "female_high_cheek.arched.narrow.round.smile",
+      "label": "偏宽女像 · 高颧收颊",
+      "base_features": {
+        "face_shape": "female_high_cheek",
+        "eyes": "narrow",
+        "brows": "arched",
+        "nose": "round",
+        "mouth": "smile",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_female_round_v1"
+    },
+    {
+      "id": "female_high_cheek.straight.open.straight.neutral",
+      "label": "偏宽女像 · 高颧收颊",
+      "base_features": {
+        "face_shape": "female_high_cheek",
+        "eyes": "open",
+        "brows": "straight",
+        "nose": "straight",
+        "mouth": "neutral",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_female_round_v1"
+    },
+    {
+      "id": "female_high_cheek.straight.open.straight.smile",
+      "label": "偏宽女像 · 高颧收颊",
+      "base_features": {
+        "face_shape": "female_high_cheek",
+        "eyes": "open",
+        "brows": "straight",
+        "nose": "straight",
+        "mouth": "smile",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_female_round_v1"
+    },
+    {
+      "id": "female_high_cheek.straight.open.round.neutral",
+      "label": "偏宽女像 · 高颧收颊",
+      "base_features": {
+        "face_shape": "female_high_cheek",
+        "eyes": "open",
+        "brows": "straight",
+        "nose": "round",
+        "mouth": "neutral",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_female_round_v1"
+    },
+    {
+      "id": "female_high_cheek.straight.open.round.smile",
+      "label": "偏宽女像 · 高颧收颊",
+      "base_features": {
+        "face_shape": "female_high_cheek",
+        "eyes": "open",
+        "brows": "straight",
+        "nose": "round",
+        "mouth": "smile",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_female_round_v1"
+    },
+    {
+      "id": "female_high_cheek.straight.narrow.straight.neutral",
+      "label": "偏宽女像 · 高颧收颊",
+      "base_features": {
+        "face_shape": "female_high_cheek",
+        "eyes": "narrow",
+        "brows": "straight",
+        "nose": "straight",
+        "mouth": "neutral",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_female_round_v1"
+    },
+    {
+      "id": "female_high_cheek.straight.narrow.straight.smile",
+      "label": "偏宽女像 · 高颧收颊",
+      "base_features": {
+        "face_shape": "female_high_cheek",
+        "eyes": "narrow",
+        "brows": "straight",
+        "nose": "straight",
+        "mouth": "smile",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_female_round_v1"
+    },
+    {
+      "id": "female_high_cheek.straight.narrow.round.neutral",
+      "label": "偏宽女像 · 高颧收颊",
+      "base_features": {
+        "face_shape": "female_high_cheek",
+        "eyes": "narrow",
+        "brows": "straight",
+        "nose": "round",
+        "mouth": "neutral",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_female_round_v1"
+    },
+    {
+      "id": "female_high_cheek.straight.narrow.round.smile",
+      "label": "偏宽女像 · 高颧收颊",
+      "base_features": {
+        "face_shape": "female_high_cheek",
+        "eyes": "narrow",
+        "brows": "straight",
+        "nose": "round",
+        "mouth": "smile",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_female_round_v1"
+    },
+    {
+      "id": "long_narrow.arched.open.straight.neutral",
+      "label": "偏长男像 · 长窄脸",
+      "base_features": {
+        "face_shape": "long_narrow",
+        "eyes": "open",
+        "brows": "arched",
+        "nose": "straight",
+        "mouth": "neutral",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_long_v1"
+    },
+    {
+      "id": "long_narrow.arched.open.straight.smile",
+      "label": "偏长男像 · 长窄脸",
+      "base_features": {
+        "face_shape": "long_narrow",
+        "eyes": "open",
+        "brows": "arched",
+        "nose": "straight",
+        "mouth": "smile",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_long_v1"
+    },
+    {
+      "id": "long_narrow.arched.open.round.neutral",
+      "label": "偏长男像 · 长窄脸",
+      "base_features": {
+        "face_shape": "long_narrow",
+        "eyes": "open",
+        "brows": "arched",
+        "nose": "round",
+        "mouth": "neutral",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_long_v1"
+    },
+    {
+      "id": "long_narrow.arched.open.round.smile",
+      "label": "偏长男像 · 长窄脸",
+      "base_features": {
+        "face_shape": "long_narrow",
+        "eyes": "open",
+        "brows": "arched",
+        "nose": "round",
+        "mouth": "smile",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_long_v1"
+    },
+    {
+      "id": "long_narrow.arched.narrow.straight.neutral",
+      "label": "偏长男像 · 长窄脸",
+      "base_features": {
+        "face_shape": "long_narrow",
+        "eyes": "narrow",
+        "brows": "arched",
+        "nose": "straight",
+        "mouth": "neutral",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_long_v1"
+    },
+    {
+      "id": "long_narrow.arched.narrow.straight.smile",
+      "label": "偏长男像 · 长窄脸",
+      "base_features": {
+        "face_shape": "long_narrow",
+        "eyes": "narrow",
+        "brows": "arched",
+        "nose": "straight",
+        "mouth": "smile",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_long_v1"
+    },
+    {
+      "id": "long_narrow.arched.narrow.round.neutral",
+      "label": "偏长男像 · 长窄脸",
+      "base_features": {
+        "face_shape": "long_narrow",
+        "eyes": "narrow",
+        "brows": "arched",
+        "nose": "round",
+        "mouth": "neutral",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_long_v1"
+    },
+    {
+      "id": "long_narrow.arched.narrow.round.smile",
+      "label": "偏长男像 · 长窄脸",
+      "base_features": {
+        "face_shape": "long_narrow",
+        "eyes": "narrow",
+        "brows": "arched",
+        "nose": "round",
+        "mouth": "smile",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_long_v1"
+    },
+    {
+      "id": "long_narrow.straight.open.straight.neutral",
+      "label": "偏长男像 · 长窄脸",
+      "base_features": {
+        "face_shape": "long_narrow",
+        "eyes": "open",
+        "brows": "straight",
+        "nose": "straight",
+        "mouth": "neutral",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_long_v1"
+    },
+    {
+      "id": "long_narrow.straight.open.straight.smile",
+      "label": "偏长男像 · 长窄脸",
+      "base_features": {
+        "face_shape": "long_narrow",
+        "eyes": "open",
+        "brows": "straight",
+        "nose": "straight",
+        "mouth": "smile",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_long_v1"
+    },
+    {
+      "id": "long_narrow.straight.open.round.neutral",
+      "label": "偏长男像 · 长窄脸",
+      "base_features": {
+        "face_shape": "long_narrow",
+        "eyes": "open",
+        "brows": "straight",
+        "nose": "round",
+        "mouth": "neutral",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_long_v1"
+    },
+    {
+      "id": "long_narrow.straight.open.round.smile",
+      "label": "偏长男像 · 长窄脸",
+      "base_features": {
+        "face_shape": "long_narrow",
+        "eyes": "open",
+        "brows": "straight",
+        "nose": "round",
+        "mouth": "smile",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_long_v1"
+    },
+    {
+      "id": "long_narrow.straight.narrow.straight.neutral",
+      "label": "偏长男像 · 长窄脸",
+      "base_features": {
+        "face_shape": "long_narrow",
+        "eyes": "narrow",
+        "brows": "straight",
+        "nose": "straight",
+        "mouth": "neutral",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_long_v1"
+    },
+    {
+      "id": "long_narrow.straight.narrow.straight.smile",
+      "label": "偏长男像 · 长窄脸",
+      "base_features": {
+        "face_shape": "long_narrow",
+        "eyes": "narrow",
+        "brows": "straight",
+        "nose": "straight",
+        "mouth": "smile",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_long_v1"
+    },
+    {
+      "id": "long_narrow.straight.narrow.round.neutral",
+      "label": "偏长男像 · 长窄脸",
+      "base_features": {
+        "face_shape": "long_narrow",
+        "eyes": "narrow",
+        "brows": "straight",
+        "nose": "round",
+        "mouth": "neutral",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_long_v1"
+    },
+    {
+      "id": "long_narrow.straight.narrow.round.smile",
+      "label": "偏长男像 · 长窄脸",
+      "base_features": {
+        "face_shape": "long_narrow",
+        "eyes": "narrow",
+        "brows": "straight",
+        "nose": "round",
+        "mouth": "smile",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_long_v1"
+    },
+    {
+      "id": "long_straight_jaw.arched.open.straight.neutral",
+      "label": "偏长男像 · 长直颌",
+      "base_features": {
+        "face_shape": "long_straight_jaw",
+        "eyes": "open",
+        "brows": "arched",
+        "nose": "straight",
+        "mouth": "neutral",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_long_v1"
+    },
+    {
+      "id": "long_straight_jaw.arched.open.straight.smile",
+      "label": "偏长男像 · 长直颌",
+      "base_features": {
+        "face_shape": "long_straight_jaw",
+        "eyes": "open",
+        "brows": "arched",
+        "nose": "straight",
+        "mouth": "smile",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_long_v1"
+    },
+    {
+      "id": "long_straight_jaw.arched.open.round.neutral",
+      "label": "偏长男像 · 长直颌",
+      "base_features": {
+        "face_shape": "long_straight_jaw",
+        "eyes": "open",
+        "brows": "arched",
+        "nose": "round",
+        "mouth": "neutral",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_long_v1"
+    },
+    {
+      "id": "long_straight_jaw.arched.open.round.smile",
+      "label": "偏长男像 · 长直颌",
+      "base_features": {
+        "face_shape": "long_straight_jaw",
+        "eyes": "open",
+        "brows": "arched",
+        "nose": "round",
+        "mouth": "smile",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_long_v1"
+    },
+    {
+      "id": "long_straight_jaw.arched.narrow.straight.neutral",
+      "label": "偏长男像 · 长直颌",
+      "base_features": {
+        "face_shape": "long_straight_jaw",
+        "eyes": "narrow",
+        "brows": "arched",
+        "nose": "straight",
+        "mouth": "neutral",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_long_v1"
+    },
+    {
+      "id": "long_straight_jaw.arched.narrow.straight.smile",
+      "label": "偏长男像 · 长直颌",
+      "base_features": {
+        "face_shape": "long_straight_jaw",
+        "eyes": "narrow",
+        "brows": "arched",
+        "nose": "straight",
+        "mouth": "smile",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_long_v1"
+    },
+    {
+      "id": "long_straight_jaw.arched.narrow.round.neutral",
+      "label": "偏长男像 · 长直颌",
+      "base_features": {
+        "face_shape": "long_straight_jaw",
+        "eyes": "narrow",
+        "brows": "arched",
+        "nose": "round",
+        "mouth": "neutral",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_long_v1"
+    },
+    {
+      "id": "long_straight_jaw.arched.narrow.round.smile",
+      "label": "偏长男像 · 长直颌",
+      "base_features": {
+        "face_shape": "long_straight_jaw",
+        "eyes": "narrow",
+        "brows": "arched",
+        "nose": "round",
+        "mouth": "smile",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_long_v1"
+    },
+    {
+      "id": "long_straight_jaw.straight.open.straight.neutral",
+      "label": "偏长男像 · 长直颌",
+      "base_features": {
+        "face_shape": "long_straight_jaw",
+        "eyes": "open",
+        "brows": "straight",
+        "nose": "straight",
+        "mouth": "neutral",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_long_v1"
+    },
+    {
+      "id": "long_straight_jaw.straight.open.straight.smile",
+      "label": "偏长男像 · 长直颌",
+      "base_features": {
+        "face_shape": "long_straight_jaw",
+        "eyes": "open",
+        "brows": "straight",
+        "nose": "straight",
+        "mouth": "smile",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_long_v1"
+    },
+    {
+      "id": "long_straight_jaw.straight.open.round.neutral",
+      "label": "偏长男像 · 长直颌",
+      "base_features": {
+        "face_shape": "long_straight_jaw",
+        "eyes": "open",
+        "brows": "straight",
+        "nose": "round",
+        "mouth": "neutral",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_long_v1"
+    },
+    {
+      "id": "long_straight_jaw.straight.open.round.smile",
+      "label": "偏长男像 · 长直颌",
+      "base_features": {
+        "face_shape": "long_straight_jaw",
+        "eyes": "open",
+        "brows": "straight",
+        "nose": "round",
+        "mouth": "smile",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_long_v1"
+    },
+    {
+      "id": "long_straight_jaw.straight.narrow.straight.neutral",
+      "label": "偏长男像 · 长直颌",
+      "base_features": {
+        "face_shape": "long_straight_jaw",
+        "eyes": "narrow",
+        "brows": "straight",
+        "nose": "straight",
+        "mouth": "neutral",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_long_v1"
+    },
+    {
+      "id": "long_straight_jaw.straight.narrow.straight.smile",
+      "label": "偏长男像 · 长直颌",
+      "base_features": {
+        "face_shape": "long_straight_jaw",
+        "eyes": "narrow",
+        "brows": "straight",
+        "nose": "straight",
+        "mouth": "smile",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_long_v1"
+    },
+    {
+      "id": "long_straight_jaw.straight.narrow.round.neutral",
+      "label": "偏长男像 · 长直颌",
+      "base_features": {
+        "face_shape": "long_straight_jaw",
+        "eyes": "narrow",
+        "brows": "straight",
+        "nose": "round",
+        "mouth": "neutral",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_long_v1"
+    },
+    {
+      "id": "long_straight_jaw.straight.narrow.round.smile",
+      "label": "偏长男像 · 长直颌",
+      "base_features": {
+        "face_shape": "long_straight_jaw",
+        "eyes": "narrow",
+        "brows": "straight",
+        "nose": "round",
+        "mouth": "smile",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_long_v1"
+    },
+    {
+      "id": "long_full_oval.arched.open.straight.neutral",
+      "label": "偏长男像 · 丰颊长卵脸",
+      "base_features": {
+        "face_shape": "long_full_oval",
+        "eyes": "open",
+        "brows": "arched",
+        "nose": "straight",
+        "mouth": "neutral",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_long_v1"
+    },
+    {
+      "id": "long_full_oval.arched.open.straight.smile",
+      "label": "偏长男像 · 丰颊长卵脸",
+      "base_features": {
+        "face_shape": "long_full_oval",
+        "eyes": "open",
+        "brows": "arched",
+        "nose": "straight",
+        "mouth": "smile",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_long_v1"
+    },
+    {
+      "id": "long_full_oval.arched.open.round.neutral",
+      "label": "偏长男像 · 丰颊长卵脸",
+      "base_features": {
+        "face_shape": "long_full_oval",
+        "eyes": "open",
+        "brows": "arched",
+        "nose": "round",
+        "mouth": "neutral",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_long_v1"
+    },
+    {
+      "id": "long_full_oval.arched.open.round.smile",
+      "label": "偏长男像 · 丰颊长卵脸",
+      "base_features": {
+        "face_shape": "long_full_oval",
+        "eyes": "open",
+        "brows": "arched",
+        "nose": "round",
+        "mouth": "smile",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_long_v1"
+    },
+    {
+      "id": "long_full_oval.arched.narrow.straight.neutral",
+      "label": "偏长男像 · 丰颊长卵脸",
+      "base_features": {
+        "face_shape": "long_full_oval",
+        "eyes": "narrow",
+        "brows": "arched",
+        "nose": "straight",
+        "mouth": "neutral",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_long_v1"
+    },
+    {
+      "id": "long_full_oval.arched.narrow.straight.smile",
+      "label": "偏长男像 · 丰颊长卵脸",
+      "base_features": {
+        "face_shape": "long_full_oval",
+        "eyes": "narrow",
+        "brows": "arched",
+        "nose": "straight",
+        "mouth": "smile",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_long_v1"
+    },
+    {
+      "id": "long_full_oval.arched.narrow.round.neutral",
+      "label": "偏长男像 · 丰颊长卵脸",
+      "base_features": {
+        "face_shape": "long_full_oval",
+        "eyes": "narrow",
+        "brows": "arched",
+        "nose": "round",
+        "mouth": "neutral",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_long_v1"
+    },
+    {
+      "id": "long_full_oval.arched.narrow.round.smile",
+      "label": "偏长男像 · 丰颊长卵脸",
+      "base_features": {
+        "face_shape": "long_full_oval",
+        "eyes": "narrow",
+        "brows": "arched",
+        "nose": "round",
+        "mouth": "smile",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_long_v1"
+    },
+    {
+      "id": "long_full_oval.straight.open.straight.neutral",
+      "label": "偏长男像 · 丰颊长卵脸",
+      "base_features": {
+        "face_shape": "long_full_oval",
+        "eyes": "open",
+        "brows": "straight",
+        "nose": "straight",
+        "mouth": "neutral",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_long_v1"
+    },
+    {
+      "id": "long_full_oval.straight.open.straight.smile",
+      "label": "偏长男像 · 丰颊长卵脸",
+      "base_features": {
+        "face_shape": "long_full_oval",
+        "eyes": "open",
+        "brows": "straight",
+        "nose": "straight",
+        "mouth": "smile",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_long_v1"
+    },
+    {
+      "id": "long_full_oval.straight.open.round.neutral",
+      "label": "偏长男像 · 丰颊长卵脸",
+      "base_features": {
+        "face_shape": "long_full_oval",
+        "eyes": "open",
+        "brows": "straight",
+        "nose": "round",
+        "mouth": "neutral",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_long_v1"
+    },
+    {
+      "id": "long_full_oval.straight.open.round.smile",
+      "label": "偏长男像 · 丰颊长卵脸",
+      "base_features": {
+        "face_shape": "long_full_oval",
+        "eyes": "open",
+        "brows": "straight",
+        "nose": "round",
+        "mouth": "smile",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_long_v1"
+    },
+    {
+      "id": "long_full_oval.straight.narrow.straight.neutral",
+      "label": "偏长男像 · 丰颊长卵脸",
+      "base_features": {
+        "face_shape": "long_full_oval",
+        "eyes": "narrow",
+        "brows": "straight",
+        "nose": "straight",
+        "mouth": "neutral",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_long_v1"
+    },
+    {
+      "id": "long_full_oval.straight.narrow.straight.smile",
+      "label": "偏长男像 · 丰颊长卵脸",
+      "base_features": {
+        "face_shape": "long_full_oval",
+        "eyes": "narrow",
+        "brows": "straight",
+        "nose": "straight",
+        "mouth": "smile",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_long_v1"
+    },
+    {
+      "id": "long_full_oval.straight.narrow.round.neutral",
+      "label": "偏长男像 · 丰颊长卵脸",
+      "base_features": {
+        "face_shape": "long_full_oval",
+        "eyes": "narrow",
+        "brows": "straight",
+        "nose": "round",
+        "mouth": "neutral",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_long_v1"
+    },
+    {
+      "id": "long_full_oval.straight.narrow.round.smile",
+      "label": "偏长男像 · 丰颊长卵脸",
+      "base_features": {
+        "face_shape": "long_full_oval",
+        "eyes": "narrow",
+        "brows": "straight",
+        "nose": "round",
+        "mouth": "smile",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_long_v1"
+    },
+    {
+      "id": "long_high_cheek.arched.open.straight.neutral",
+      "label": "偏长男像 · 高颧收颊",
+      "base_features": {
+        "face_shape": "long_high_cheek",
+        "eyes": "open",
+        "brows": "arched",
+        "nose": "straight",
+        "mouth": "neutral",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_long_v1"
+    },
+    {
+      "id": "long_high_cheek.arched.open.straight.smile",
+      "label": "偏长男像 · 高颧收颊",
+      "base_features": {
+        "face_shape": "long_high_cheek",
+        "eyes": "open",
+        "brows": "arched",
+        "nose": "straight",
+        "mouth": "smile",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_long_v1"
+    },
+    {
+      "id": "long_high_cheek.arched.open.round.neutral",
+      "label": "偏长男像 · 高颧收颊",
+      "base_features": {
+        "face_shape": "long_high_cheek",
+        "eyes": "open",
+        "brows": "arched",
+        "nose": "round",
+        "mouth": "neutral",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_long_v1"
+    },
+    {
+      "id": "long_high_cheek.arched.open.round.smile",
+      "label": "偏长男像 · 高颧收颊",
+      "base_features": {
+        "face_shape": "long_high_cheek",
+        "eyes": "open",
+        "brows": "arched",
+        "nose": "round",
+        "mouth": "smile",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_long_v1"
+    },
+    {
+      "id": "long_high_cheek.arched.narrow.straight.neutral",
+      "label": "偏长男像 · 高颧收颊",
+      "base_features": {
+        "face_shape": "long_high_cheek",
+        "eyes": "narrow",
+        "brows": "arched",
+        "nose": "straight",
+        "mouth": "neutral",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_long_v1"
+    },
+    {
+      "id": "long_high_cheek.arched.narrow.straight.smile",
+      "label": "偏长男像 · 高颧收颊",
+      "base_features": {
+        "face_shape": "long_high_cheek",
+        "eyes": "narrow",
+        "brows": "arched",
+        "nose": "straight",
+        "mouth": "smile",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_long_v1"
+    },
+    {
+      "id": "long_high_cheek.arched.narrow.round.neutral",
+      "label": "偏长男像 · 高颧收颊",
+      "base_features": {
+        "face_shape": "long_high_cheek",
+        "eyes": "narrow",
+        "brows": "arched",
+        "nose": "round",
+        "mouth": "neutral",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_long_v1"
+    },
+    {
+      "id": "long_high_cheek.arched.narrow.round.smile",
+      "label": "偏长男像 · 高颧收颊",
+      "base_features": {
+        "face_shape": "long_high_cheek",
+        "eyes": "narrow",
+        "brows": "arched",
+        "nose": "round",
+        "mouth": "smile",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_long_v1"
+    },
+    {
+      "id": "long_high_cheek.straight.open.straight.neutral",
+      "label": "偏长男像 · 高颧收颊",
+      "base_features": {
+        "face_shape": "long_high_cheek",
+        "eyes": "open",
+        "brows": "straight",
+        "nose": "straight",
+        "mouth": "neutral",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_long_v1"
+    },
+    {
+      "id": "long_high_cheek.straight.open.straight.smile",
+      "label": "偏长男像 · 高颧收颊",
+      "base_features": {
+        "face_shape": "long_high_cheek",
+        "eyes": "open",
+        "brows": "straight",
+        "nose": "straight",
+        "mouth": "smile",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_long_v1"
+    },
+    {
+      "id": "long_high_cheek.straight.open.round.neutral",
+      "label": "偏长男像 · 高颧收颊",
+      "base_features": {
+        "face_shape": "long_high_cheek",
+        "eyes": "open",
+        "brows": "straight",
+        "nose": "round",
+        "mouth": "neutral",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_long_v1"
+    },
+    {
+      "id": "long_high_cheek.straight.open.round.smile",
+      "label": "偏长男像 · 高颧收颊",
+      "base_features": {
+        "face_shape": "long_high_cheek",
+        "eyes": "open",
+        "brows": "straight",
+        "nose": "round",
+        "mouth": "smile",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_long_v1"
+    },
+    {
+      "id": "long_high_cheek.straight.narrow.straight.neutral",
+      "label": "偏长男像 · 高颧收颊",
+      "base_features": {
+        "face_shape": "long_high_cheek",
+        "eyes": "narrow",
+        "brows": "straight",
+        "nose": "straight",
+        "mouth": "neutral",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_long_v1"
+    },
+    {
+      "id": "long_high_cheek.straight.narrow.straight.smile",
+      "label": "偏长男像 · 高颧收颊",
+      "base_features": {
+        "face_shape": "long_high_cheek",
+        "eyes": "narrow",
+        "brows": "straight",
+        "nose": "straight",
+        "mouth": "smile",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_long_v1"
+    },
+    {
+      "id": "long_high_cheek.straight.narrow.round.neutral",
+      "label": "偏长男像 · 高颧收颊",
+      "base_features": {
+        "face_shape": "long_high_cheek",
+        "eyes": "narrow",
+        "brows": "straight",
+        "nose": "round",
+        "mouth": "neutral",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_long_v1"
+    },
+    {
+      "id": "long_high_cheek.straight.narrow.round.smile",
+      "label": "偏长男像 · 高颧收颊",
+      "base_features": {
+        "face_shape": "long_high_cheek",
+        "eyes": "narrow",
+        "brows": "straight",
+        "nose": "round",
+        "mouth": "smile",
+        "hair": "bun",
+        "beard": "none",
+        "skin_palette": "warm",
+        "build": "normal"
+      },
+      "attire_style": "plain",
+      "fitting_id": "adult_male_long_v1"
+    }
+  ]
+}

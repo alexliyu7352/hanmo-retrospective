@@ -1,0 +1,27 @@
+{
+  "tool": "built-in image_gen.imagegen",
+  "original_output_path": "<本地路径>",
+  "output": "source/shoulder-only-02.png",
+  "prompt": "prompt-02-shoulder-only.md",
+  "source_sha256": "5cace2bcb6b4fee16184311b2c575ae80243e1c5787f7bef43dc59b6d42909ba",
+  "source_size": [
+    1254,
+    1254
+  ],
+  "mode": "RGBA",
+  "bytes": 615957,
+  "alpha_zero_pixels": 1325340,
+  "alpha_1_to_15_pixels": 5501,
+  "alpha_bbox_ge16": [
+    330,
+    329,
+    946,
+    1005
+  ],
+  "pixel_mutation": false,
+  "preserved_source_pixels": [
+    "full-arm-atlas-01.png unchanged",
+    "atlas-03-joint-surfaces.png unchanged"
+  ],
+  "status": "WIP single shoulder cover; no collar; placement not yet tested"
+}

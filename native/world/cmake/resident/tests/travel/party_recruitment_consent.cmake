@@ -1,0 +1,6 @@
+# 旅行与空间消费者登记：保留本组目标、测试、条件与局部变量的原执行顺序。
+# 招伴只证明本人原话与原费用/Party提交，不替代完整可视验收。
+add_executable(test_resident_party_recruitment_consent tests/resident/party_recruitment_consent_test.cpp)
+target_link_libraries(test_resident_party_recruitment_consent PRIVATE hanmo_resident)
+target_include_directories(test_resident_party_recruitment_consent PRIVATE src)
+target_compile_options(test_resident_party_recruitment_consent PRIVATE -UNDEBUG -fno-fast-math -ffp-contract=off)

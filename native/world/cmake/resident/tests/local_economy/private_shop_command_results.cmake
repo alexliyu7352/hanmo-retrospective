@@ -1,0 +1,7 @@
+# 地方经济与责任账消费者登记：保留本组目标、测试、条件与局部变量的原执行顺序。
+# 实际提交来源/裁剪边界用例，必须另在匹配正式库执行。
+add_executable(test_resident_private_shop_command_results tests/resident/economic_world/private_shop_command_results_test.cpp)
+target_link_libraries(test_resident_private_shop_command_results PRIVATE hanmo_resident)
+target_include_directories(test_resident_private_shop_command_results PRIVATE src)
+target_compile_options(test_resident_private_shop_command_results PRIVATE -UNDEBUG -fno-fast-math -ffp-contract=off)
+add_test(NAME resident_private_shop_command_results COMMAND test_resident_private_shop_command_results)

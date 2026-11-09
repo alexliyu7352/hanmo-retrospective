@@ -1,0 +1,47 @@
+// 实际Common/Recovery数学与typed原伤因组件；Military原payload及在场服务回调由World另验。
+#include "resident/domains/growth/growth_personal_injury_history.hpp"
+#include "resident/storage/common_codec.hpp"
+#include <iostream>
+#include <stdexcept>
+using namespace hanmo::resident;
+namespace {
+Integer checks=0;void check(bool value,const char* message){++checks;if(!value)throw std::runtime_error(message);}
+struct Source final:GrowthInjurySourceRead {
+ const CommonStore& common;std::vector<GrowthInjuryCause> causes;
+ explicit Source(const CommonStore& c):common(c){}
+ Outcome<std::vector<GrowthInjuryCause>> injury_causes(const StableId& actor,const DynamicStepInput*)const override{auto out=causes;if(actor!="patient")out.clear();for(auto& row:out){row.source_identity=common.state().identity;row.actor_id=actor;}return {true,std::move(out),{}};}
+};
+}
+int main(){try{
+ // 原个人战先分配battle，入场头随后创建，伤因头直到终局才追加。
+ {
+  auto book=std::make_shared<CommonCatalog>();book->actor_ids={"patient"};book->actor_initial_birth.insert("patient",-14400);FamilyCatalog defs;defs.prototypes.insert("patient",IdentityPrototype{});FamilyState family;
+  CommonState seed;seed.identity.tick=7;seed.next_instance_id=4;ActorRecord actor;actor.id="patient";actor.alive=true;actor.injury=1;seed.actors.insert("patient",actor);CommonStore c(seed,book);
+  c.state().facts.insert("personal_entry:2",{"personal_entry:2","personal_combat_entered","personal"});c.state().facts.insert("battle:1",{"battle:1","personal_battle","personal"});Source source(c);source.causes.push_back({{},"patient","battle:1",7,GrowthInjuryCauseKind::personal_defeat,1,"result:3"});
+  GrowthState growth;GrowthRecoveryCatalog catalog;GrowthRecoveryState state;GrowthSkillOriginContext origins{*book,defs,family,nullptr};GrowthRecoveryHistoryAccess access{origins,source,{},{},{}};
+  auto prior=read_growth_personal_entry_injury_before_fact(c,growth,catalog,state,access,"patient",7,"personal_entry:2");check(prior.ok&&prior.value.injury==0,"late terminal injury from earlier allocated battle preserves its own healthy entry");
+ }
+ auto shared=std::make_shared<CommonCatalog>();FamilyCatalog family_catalog;FamilyState family;CommonState seed;seed.identity.world_id[0]=1;seed.identity.tick=6;seed.next_instance_id=100;
+ for(const auto* id:{"patient","provider"}){shared->actor_ids.push_back(id);shared->actor_initial_birth.insert(id,-14400);family_catalog.prototypes.insert(id,IdentityPrototype{});ActorRecord actor;actor.id=id;actor.alive=true;actor.birth_tick=-14400;actor.created_tick=0;seed.actors.insert(id,actor);}
+ CommonStore common(seed,shared);GrowthState growth;GrowthRecoveryCatalog catalog;GrowthRecoveryState state;Source source(common);GrowthSkillOriginContext origins{*shared,family_catalog,family,nullptr};GrowthRecoveryHistoryAccess access{origins,source,[](const StableId&,const DynamicStepInput*)->Outcome<std::optional<FamilyDeathOrigin>>{return {true,std::nullopt,{}};},[](const GrowthRecoveryService&,Integer,const StableId&){return common_success();}};
+ auto head=[&](const StableId& id,const StableId& kind,const StableId& domain){common.state().facts.insert(id,{id,kind,domain});};
+ head("military:1","military_casualties","military");source.causes.push_back({{},"patient","military:1",1,GrowthInjuryCauseKind::military_wound,1});head("personal_entry:2","personal_combat_entered","personal");head("action:3","life_activity","growth");
+ LifeActivityRecord life;life.view.fact_id=life.view.action_id="action:3";life.view.actor_id="patient";life.view.provider_actor_id="provider";life.view.kind=LifeActivityKind::service;life.view.activity="rest";life.view.phase=LifeActivityPhase::completed;life.view.start_tick=2;life.view.completed_tick=6;life.context.role_id="inn";life.context.place_id="place";ServiceTerms terms;terms.duration=4;terms.cost=20;life.terms=terms;life.cost_paid=20;growth.life_activities.insert("action:3",life);
+ catalog.service_roles.insert("inn",GrowthRecoveryMethod::safe_lodging);state.services.insert("action:3",{"patient","provider","inn","place",GrowthRecoveryMethod::safe_lodging,2,4,{}});
+ GrowthRecoveryProgress progress{1,0};for(Integer n=1;n<=4;++n){const auto next=apply_growth_recovery_points(progress,1);GrowthRecoveryStep step;step.action_id="action:3";step.tick=2+n;step.ordinal=n;step.before=progress;step.after=next.value.after;step.offered_points=step.used_points=1;progress=step.after;const auto id="recovery:"+std::to_string(n+3);state.credits.insert(id,step);head(id,"personal_recovery_credit","personal_injury_recovery");}
+ GrowthRecoveryClosure closure;closure.action_id="action:3";closure.tick=6;closure.provided_half_days=4;closure.reason="completed";state.closures.insert("recovery:8",closure);head("recovery:8","personal_recovery_closed","personal_injury_recovery");head("personal_entry:9","personal_combat_entered","personal");
+ auto read=[&](Integer tick,const StableId& boundary){return read_growth_personal_entry_injury_before_fact(common,growth,catalog,state,access,"patient",tick,boundary);};
+ const auto untouched=encode_common_state(common.state());auto wounded=read(1,"personal_entry:2");check(wounded.ok&&wounded.value.injury==1&&wounded.value.recovery_points==0,"actual wound before early entry");check(wounded.value.causal_fact_ids==std::vector<StableId>{"military:1"},"future recovery is not copied into old injury");
+ auto healed=read(6,"personal_entry:9");check(healed.ok&&healed.value.injury==0,"four actual recovery periods explain healed entry");check(healed.value.causal_fact_ids==std::vector<StableId>{"military:1","action:3","recovery:4","recovery:5","recovery:6","recovery:7"},"all real prior damage/service/credit causes in exact Common order");
+ auto current=read_growth_personal_entry_injury(common,growth,catalog,state,access,"patient");check(current.ok&&current.value.before_fact_id.empty()&&current.value.observed_tick==6&&current.value.injury==0,"stable current reuses same original ledger");check(compare_boundary(untouched,encode_common_state(common.state())).exact(),"reads preserve all Common bytes");
+ check(!read(7,"personal_entry:9").ok,"future entry tick rejected");check(!read(6,{}).ok,"empty actual boundary rejected");check(!read(6,"action:3").ok,"arbitrary existing head rejected");common.state().facts.find("personal_entry:9")->domain="military";check(!read(6,"personal_entry:9").ok,"wrong domain rejected");common.state().facts.find("personal_entry:9")->domain="personal";
+ common.state().identity.tick=7;head("battle:10","personal_battle","personal");source.causes.push_back({{},"patient","battle:10",7,GrowthInjuryCauseKind::personal_defeat,2,"result:11"});common.state().actors.find("patient")->injury=2;head("personal_entry:12","personal_combat_entered","personal");
+ auto later=read(7,"personal_entry:12");check(later.ok&&later.value.injury==2&&later.value.causal_fact_ids.back()=="battle:10","actual personal defeat contributes injury2");check(read(6,"personal_entry:9").ok&&read(6,"personal_entry:9").value.injury==0,"later defeat does not invalidate earlier healed entry");
+ head("battle:13","personal_battle","personal");source.causes.push_back({{},"patient","battle:13",7,GrowthInjuryCauseKind::personal_defeat,2,"result:14"});common.state().actors.find("patient")->injury=3;head("personal_entry:15","personal_combat_entered","personal");check(read(7,"personal_entry:12").ok&&read(7,"personal_entry:12").value.injury==2,"same-tick actual fact sequence distinguishes later new injury");check(read(7,"personal_entry:15").ok&&read(7,"personal_entry:15").value.injury==3,"original capped injury math preserved");
+ common.state().actors.find("patient")->injury=0;check(!read(6,"personal_entry:9").ok,"today zero without actual recovery source rejects entire history");common.state().actors.find("patient")->injury=3;
+ auto forged=state;forged.credits.find("recovery:4")->after.injury=0;check(!read_growth_personal_entry_injury(common,growth,catalog,forged,access,"patient").ok,"forged early cure rejected");auto missing=growth;missing.life_activities.erase("action:3");check(!read_growth_personal_entry_injury(common,missing,catalog,state,access,"patient").ok,"missing original paid service rejected");auto no_source=access;no_source.service_qualified_before={};check(!read_growth_personal_entry_injury(common,growth,catalog,state,no_source,"patient").ok,"qualified service cannot be presumed");
+ // 终局分配号与Common追加位置必须同侧，不能把其旧battle分配号误当施伤点。
+ auto saved=source.causes.back().completion_id;source.causes.back().completion_id.clear();check(!read(7,"personal_entry:12").ok,"missing actual personal terminal allocation rejected");source.causes.back().completion_id="result:13";check(!read(7,"personal_entry:12").ok,"terminal must be newly allocated after battle");source.causes.back().completion_id=saved;
+ OrderedTable<FactRecord> moved;for(const auto& row:common.state().facts.rows()){if(row.first=="personal_entry:12")moved.insert("battle:13",*common.state().facts.find("battle:13"));if(row.first!="battle:13")moved.insert(row.first,row.second);}common.state().facts=std::move(moved);check(!read(7,"personal_entry:12").ok&&read(7,"personal_entry:12").error.original.code=="GrowthPersonalInjurySourceOrderInvalid","actual terminal allocation and Common append sides must agree");
+ std::cout<<"GROWTH_PERSONAL_INJURY_HISTORY "<<checks<<" checks 0 failures\n";return 0;
+}catch(const std::exception& e){std::cerr<<"GROWTH_PERSONAL_INJURY_HISTORY "<<checks<<" checks 1 failure: "<<e.what()<<'\n';return 1;}}

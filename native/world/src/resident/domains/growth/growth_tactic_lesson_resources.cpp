@@ -1,0 +1,33 @@
+// 资源报价没有写操作；真实recipe在同一World/Common保存点发布，失败不得留下钱款或半份课时。
+#include "resident/storage/money_transfer_recipe.hpp"
+#include "growth_tactic_lesson_resources.hpp"
+#include <algorithm>
+namespace hanmo::resident {namespace {
+template<class T>Outcome<T> fail(const Status& s){return {false,{},s.error};}
+Outcome<const GrowthTacticLessonStart*> start(const CommonStore& c,const GrowthTacticLessonState& state,const StableId& id){auto valid=validate_growth_tactic_lesson_shape(state);if(!valid.ok)return fail<const GrowthTacticLessonStart*>(valid);const auto* s=state.starts.find(id);const auto* header=c.state().facts.find(id);if(!s||!header||header->id!=id||header->kind!=s->kind||header->domain!="growth_tactic_lessons")return fail<const GrowthTacticLessonStart*>(common_failure("TacticLessonActualStartRequired",id));return {true,s,{}};}
+bool closed(const GrowthTacticLessonState& state,const StableId& id){for(const auto& row:state.closures.rows())if(row.second.started_fact_id==id)return true;return false;}
+Integer periods(const GrowthTacticLessonState& state,const StableId& id){Integer n=0;for(const auto& row:state.credits.rows())if(row.second.started_fact_id==id)++n;return n;}
+// 原本人钱包必须保持本人的实际容器，不能用同名临时钱包或公共钱冒私人学费。
+Status wallets(const CommonStore& c,const GrowthTacticLessonAgreement& s){const auto* student=c.actor(s.student_id);const auto* teacher=c.actor(s.teacher_id);const auto* payer=c.wallet(s.payer_wallet_id);const auto* payee=c.wallet(s.recipient_wallet_id);if(!student||!teacher||!payer||!payee||student->wallet_id!=s.payer_wallet_id||s.payer_wallet_id==s.recipient_wallet_id||!owner_equal(payer->owner,Owner{Owner::Kind::actor,s.student_id,{},{}})||!owner_equal(payee->owner,Owner{Owner::Kind::actor,s.teacher_id,{},{}}))return common_failure("TacticLessonPrivatePaymentRequired");return common_success();}
+Status active(const CommonStore& c,const GrowthTacticLessonState& state,const StableId& id,const GrowthTacticLessonStart& s){const auto* action=c.action(s.action_id);return !closed(state,id)&&action&&action->id==s.action_id&&action->kind=="tactic_lesson"&&action->actor_id==s.agreement.student_id&&action->participants==std::vector<StableId>{s.agreement.student_id,s.agreement.teacher_id}&&action->start_tick==s.agreement.tick?common_success():common_failure("TacticLessonActiveActionRequired",id);}
+}
+Status validate_growth_tactic_lesson_reservation(const CommonStore& c,const GrowthTacticLessonState& state,const StableId& id,Integer remaining){
+    auto original=start(c,state,id);if(!original.ok)return {false,{},original.error};const auto& s=*original.value;auto valid=wallets(c,s.agreement);if(!valid.ok)return valid;if(remaining<0||remaining>s.agreement.total_fee)return common_failure("InvalidTacticLessonRemainingFee",id);const ReservationRef ref{s.action_id};Integer actual=0;bool found=false;
+    for(const auto& row:c.state().wallets.rows())for(const auto& hold:row.second.reserved)if(hold.action_id==ref){if(found||row.first!=s.agreement.payer_wallet_id||hold.amount<0||hold.amount>s.agreement.total_fee)return common_failure("UnexpectedTacticLessonReservation",id);found=true;actual=hold.amount;}
+    for(const auto& row:c.state().inventories.rows())for(const auto& lot:row.second.lots)if(lot.reserved_by==ref)return common_failure("UnexpectedTacticLessonGoodsReservation",id);
+    return actual==remaining&&(!remaining||c.action(s.action_id))?common_success():common_failure("TacticLessonReservationAmountMismatch",id);
+}
+Outcome<ResourceRecipe> reserve_growth_tactic_lesson_recipe(const CommonStore& c,const GrowthTacticLessonState& state,const StableId& id){
+    auto original=start(c,state,id);if(!original.ok)return {false,{},original.error};const auto& s=*original.value;auto valid=active(c,state,id,s);if(!valid.ok)return fail<ResourceRecipe>(valid);if(periods(state,id)!=0)return fail<ResourceRecipe>(common_failure("TacticLessonAlreadyProvided",id));valid=validate_growth_tactic_lesson_reservation(c,state,id,0);if(!valid.ok)return fail<ResourceRecipe>(valid);
+    auto amount=c.spendable(s.agreement.payer_wallet_id);if(!amount.ok)return {false,{},amount.error};if(amount.value<s.agreement.total_fee)return fail<ResourceRecipe>(common_failure("InsufficientFunds"));ResourceRecipe recipe;recipe.operations.push_back(SetReservation{s.agreement.payer_wallet_id,s.action_id,s.agreement.total_fee,false});return {true,std::move(recipe),{}};
+}
+Outcome<GrowthTacticLessonPayment> pay_growth_tactic_lesson_recipe(const CommonStore& c,const GrowthTacticLessonState& state,const StableId& id){
+    auto original=start(c,state,id);if(!original.ok)return {false,{},original.error};const auto& s=*original.value;auto valid=active(c,state,id,s);if(!valid.ok)return fail<GrowthTacticLessonPayment>(valid);const auto n=periods(state,id);auto previous=growth_tactic_lesson_fee_through(s.agreement.total_fee,s.agreement.duration,n);auto part=growth_tactic_lesson_fee_for_ordinal(s.agreement.total_fee,s.agreement.duration,n+1);if(!previous.ok)return {false,{},previous.error};if(!part.ok)return {false,{},part.error};valid=validate_growth_tactic_lesson_reservation(c,state,id,s.agreement.total_fee-previous.value);if(!valid.ok)return fail<GrowthTacticLessonPayment>(valid);
+    GrowthTacticLessonPayment out;out.provided_half_days=n+1;out.fee_paid=part.value;out.fee_remaining=s.agreement.total_fee-previous.value-part.value;
+    // 先明确消减自己的hold，再走普通spendable扣款；其他承诺的预留从不被这笔教学花掉。
+    valid=resource_recipe::append_reserved_money_payment(out.recipe,SetReservation{s.agreement.payer_wallet_id,s.action_id,out.fee_remaining,false},s.agreement.recipient_wallet_id,part.value,resource_recipe::ReservedMoneyPaymentOrder::release_then_spendable);if(!valid.ok)return fail<GrowthTacticLessonPayment>(valid);return {true,std::move(out),{}};
+}
+Outcome<GrowthTacticLessonPayment> release_growth_tactic_lesson_recipe(const CommonStore& c,const GrowthTacticLessonState& state,const StableId& id){
+    auto original=start(c,state,id);if(!original.ok)return {false,{},original.error};const auto& s=*original.value;auto valid=active(c,state,id,s);if(!valid.ok)return fail<GrowthTacticLessonPayment>(valid);const auto n=periods(state,id);auto paid=growth_tactic_lesson_fee_through(s.agreement.total_fee,s.agreement.duration,n);if(!paid.ok)return {false,{},paid.error};valid=validate_growth_tactic_lesson_reservation(c,state,id,s.agreement.total_fee-paid.value);if(!valid.ok)return fail<GrowthTacticLessonPayment>(valid);GrowthTacticLessonPayment out;out.provided_half_days=n;out.fee_paid=paid.value;out.fee_remaining=s.agreement.total_fee-paid.value;out.recipe.operations={SetReservation{s.agreement.payer_wallet_id,s.action_id,0,true}};return {true,std::move(out),{}};
+}
+}

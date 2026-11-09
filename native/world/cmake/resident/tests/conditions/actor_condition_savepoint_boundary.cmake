@@ -1,0 +1,7 @@
+# 人物条件消费者登记：保留本组目标、测试、条件与局部变量的原执行顺序。
+# 同一人物捕获中的原保存点连续读护栏，不代替人物条件或advance业务来源。
+add_executable(test_resident_actor_condition_savepoint_boundary tests/resident/actor_condition_savepoint_boundary_test.cpp)
+target_link_libraries(test_resident_actor_condition_savepoint_boundary PRIVATE hanmo_resident)
+target_include_directories(test_resident_actor_condition_savepoint_boundary PRIVATE src)
+target_compile_options(test_resident_actor_condition_savepoint_boundary PRIVATE -UNDEBUG -fno-fast-math -ffp-contract=off)
+add_test(NAME resident_actor_condition_savepoint_boundary COMMAND test_resident_actor_condition_savepoint_boundary)

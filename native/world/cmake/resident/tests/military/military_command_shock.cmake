@@ -1,0 +1,12 @@
+# 军旅与战斗消费者登记：保留本组目标、测试、条件与局部变量的原执行顺序。
+add_executable(test_resident_military_command_shock tests/resident/military_command_shock_test.cpp)
+target_link_libraries(test_resident_military_command_shock PRIVATE hanmo_resident)
+target_include_directories(test_resident_military_command_shock PRIVATE src)
+target_compile_options(test_resident_military_command_shock PRIVATE -UNDEBUG -fno-fast-math -ffp-contract=off)
+add_test(NAME resident_military_command_shock COMMAND test_resident_military_command_shock)
+
+add_executable(test_resident_military_command_shock_codec tests/resident/military_command_shock_codec_test.cpp)
+target_link_libraries(test_resident_military_command_shock_codec PRIVATE hanmo_resident)
+target_include_directories(test_resident_military_command_shock_codec PRIVATE src)
+target_compile_options(test_resident_military_command_shock_codec PRIVATE -UNDEBUG -fno-fast-math -ffp-contract=off)
+add_test(NAME resident_military_command_shock_codec COMMAND test_resident_military_command_shock_codec)

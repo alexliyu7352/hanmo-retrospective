@@ -1,0 +1,38 @@
+// 从指定原师承、原死因与真实生日读取非血缘依据；不写亲缘、技能、资产或玩家控制。
+#include "apprenticeship_legacy_basis.hpp"
+#include "family_continuation_people4.hpp"
+#include "apprenticeship_receipts.hpp"
+#include <algorithm>
+namespace hanmo::resident {namespace {
+Outcome<ApprenticeshipLegacyBasis> read(const ApprenticeshipLegacyBasisContext& access,const StableId& bond_id,const StableId& predecessor,const StableId& successor,Integer tick,const StableId& boundary,bool historical,const CommonActualFactPrefix* prefix=nullptr){
+    const auto& c=access.common;auto fail=[](const StableId& code)->Outcome<ApprenticeshipLegacyBasis>{return {false,{},common_failure(code).error};};
+    if(predecessor.empty()||successor.empty()||predecessor==successor||(!access.death_origin&&!access.complete_people))return fail("DiscipleLegacyPartiesRequired");
+    if(tick<0||tick>c.tick()||(!historical&&(!boundary.empty()||tick!=c.tick())))return fail("DiscipleLegacyBoundaryInvalid");
+    if(access.catalog.family_birth_identity_enabled&&!access.births)return fail("DiscipleLegacyBirthSourceRequired");
+    auto bindings=validate_apprenticeship_result_bindings(c,access.apprenticeships);if(!bindings.ok)return {false,{},bindings.error};
+    if(access.complete_people){
+        const auto& people=*access.complete_people;if(!people.bound_to(c,access.deaths))return {false,{},common_failure("FamilyContinuationCandidateMismatch",{},ErrorKind::internal).error};if(prefix){auto cut=read_actual_common_fact_prefix(c,*prefix);if(!cut.ok)return {false,{},cut.error};}const auto* h=historical&&!prefix?c.state().facts.find(boundary):nullptr;if(historical&&!prefix&&!h)return fail("DiscipleLegacyBoundaryInvalid");
+        auto death=prefix?people.life().read_actor_death_at_original_prefix(predecessor,tick,*prefix):historical?people.life().read_actor_death_before_original_fact(predecessor,tick,{h->domain,h->kind,boundary}):people.life().read_actor_death(predecessor);if(!death.ok)return {false,{},death.error};if(!death.value)return fail("DiscipleLegacyDeathRequired");const auto& died=*death.value;
+        auto relation=read_apprenticeship_bond_before_fact(c,access.apprenticeships,bond_id,died.effective_at.exact_moment.half_day_tick,died.cause_ref.id);if(!relation.ok)return {false,{},relation.error};if(!relation.value||relation.value->exit_fact_id)return fail("DiscipleLegacyRelationshipBeforeDeathRequired");const auto& bond=*relation.value;if(bond.teacher_actor_id!=predecessor||bond.student_actor_id!=successor)return fail("DiscipleLegacyRelationshipMismatch");
+        if(historical){auto current=prefix?read_apprenticeship_bond_at_original_prefix(c,access.apprenticeships,bond_id,tick,*prefix):read_apprenticeship_bond_before_fact(c,access.apprenticeships,bond_id,tick,boundary);if(!current.ok)return {false,{},current.error};if(!current.value||current.value->exit_fact_id)return fail("DiscipleLegacyRelationshipEnded");}else for(const auto& exit:access.apprenticeships.exits.rows())if(exit.second.bond_id==bond_id)return fail("DiscipleLegacyRelationshipEnded");
+        auto presence=prefix?people.read_presence_at_original_prefix(successor,tick,*prefix):historical?people.read_presence_before_original_fact(successor,tick,{h->domain,h->kind,boundary}):people.read_current_presence(successor);if(!presence.ok)return {false,{},presence.error};if(!presence.value.alive)return fail("DiscipleLegacyLivingSuccessorRequired");auto age=prefix?people.read_age_at_original_prefix(successor,tick,*prefix):historical?people.read_age_before_original_fact(successor,tick,{h->domain,h->kind,boundary}):people.read_current_age(successor);if(!age.ok)return {false,{},age.error};if(age.value.age_years<18)return fail("DiscipleLegacyAdultRequired");
+        ApprenticeshipLegacyBasis out;out.source_identity=c.state().identity;out.predecessor_actor_id=predecessor;out.successor_actor_id=successor;out.bond_fact_id=bond_id;out.skill_id=bond.skill_id;out.death_fact_id=died.death_ref.id;if(died.cause_kind=="military_casualty")out.casualty_fact_id=died.cause_ref.id;out.before_fact_id=boundary;out.accepted_tick=bond.accepted_tick;out.death_tick=died.effective_at.exact_moment.half_day_tick;out.observed_tick=tick;out.successor_birth_tick=c.state().actors.find(successor)->birth_tick;out.verified_death=died;return {true,std::move(out),{}};
+    }
+    if(prefix)return fail("DiscipleLegacyCompletePrefixReaderRequired");
+    auto death=historical?read_actor_death_before_fact(c,access.deaths,predecessor,tick,boundary):read_actor_death(c,access.deaths,predecessor);if(!death.ok)return {false,{},death.error};if(!death.value)return fail("DiscipleLegacyDeathRequired");const auto& origin=*death.value;
+    const auto* original=access.deaths.deaths.find(origin.death_fact_id);if(!original)return fail("DiscipleLegacyDeathRequired");auto source=validate_family_death_record(c,*original,access.death_origin);if(!source.ok)return {false,{},source.error};
+    // 同tick也严格以原 casualty 为界；在Life登记间隙追加关系不能取得接续依据。
+    auto relation=read_apprenticeship_bond_before_fact(c,access.apprenticeships,bond_id,origin.death_tick,origin.cause_fact_id);if(!relation.ok)return {false,{},relation.error};if(!relation.value||relation.value->exit_fact_id)return fail("DiscipleLegacyRelationshipBeforeDeathRequired");const auto& bond=*relation.value;
+    if(bond.teacher_actor_id!=predecessor||bond.student_actor_id!=successor)return fail("DiscipleLegacyRelationshipMismatch");
+    if(historical){auto current=read_apprenticeship_bond_before_fact(c,access.apprenticeships,bond_id,tick,boundary);if(!current.ok)return {false,{},current.error};if(!current.value||current.value->exit_fact_id)return fail("DiscipleLegacyRelationshipEnded");}
+    else for(const auto& exit:access.apprenticeships.exits.rows())if(exit.second.bond_id==bond_id)return fail("DiscipleLegacyRelationshipEnded");
+    auto presence=historical?read_actor_presence_before_fact(c,access.catalog,access.death_origin,successor,tick,boundary):read_actor_presence(c,access.catalog,access.death_origin,successor);if(!presence.ok)return {false,{},presence.error};if(!presence.value.alive)return fail("DiscipleLegacyLivingSuccessorRequired");
+    auto age=access.births?(historical?read_actor_age_before_fact(c,access.catalog,*access.births,successor,tick,boundary):read_actor_age(c,access.catalog,*access.births,successor)):(historical?read_actor_age_before_fact(c,access.catalog,successor,tick,boundary):read_actor_age(c,access.catalog,successor));if(!age.ok)return {false,{},age.error};if(!age.value.adult)return fail("DiscipleLegacyAdultRequired");
+    return {true,{c.state().identity,predecessor,successor,bond_id,bond.skill_id,origin.death_fact_id,origin.cause_fact_id,boundary,bond.accepted_tick,origin.death_tick,tick,age.value.birth_tick},{}};
+}
+}
+Outcome<ApprenticeshipLegacyBasis> read_apprenticeship_legacy_basis(const ApprenticeshipLegacyBasisContext& access,const StableId& bond,const StableId& predecessor,const StableId& successor){return read(access,bond,predecessor,successor,access.common.tick(),{},false);}
+Outcome<ApprenticeshipLegacyBasis> read_apprenticeship_legacy_basis_before_fact(const ApprenticeshipLegacyBasisContext& access,const StableId& bond,const StableId& predecessor,const StableId& successor,Integer tick,const StableId& boundary){return read(access,bond,predecessor,successor,tick,boundary,true);}
+Outcome<ApprenticeshipLegacyBasis> read_apprenticeship_legacy_basis_at_original_prefix(const ApprenticeshipLegacyBasisContext& access,const StableId& bond,const StableId& predecessor,const StableId& successor,Integer tick,const CommonActualFactPrefix& prefix){return read(access,bond,predecessor,successor,tick,{},true,&prefix);}
+
+}

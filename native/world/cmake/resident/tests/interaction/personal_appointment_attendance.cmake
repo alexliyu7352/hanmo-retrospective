@@ -1,0 +1,7 @@
+# 交互与对白消费者登记：保留本组目标、测试、条件与局部变量的原执行顺序。
+# 原已受领约定的有界NPC赴约源门。
+add_executable(test_resident_personal_appointment_attendance tests/resident/personal_appointment_attendance_test.cpp)
+target_link_libraries(test_resident_personal_appointment_attendance PRIVATE hanmo_resident)
+target_include_directories(test_resident_personal_appointment_attendance PRIVATE src)
+target_compile_options(test_resident_personal_appointment_attendance PRIVATE -UNDEBUG -fno-fast-math -ffp-contract=off)
+add_test(NAME resident_personal_appointment_attendance COMMAND test_resident_personal_appointment_attendance)

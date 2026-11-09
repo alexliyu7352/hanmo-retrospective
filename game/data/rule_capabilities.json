@@ -1,0 +1,2743 @@
+{
+  "format": "HM-RULE-CAPABILITIES/1",
+  "content_abi": 1,
+  "modules": {
+    "world_factory": "res://core/world_factory.gd",
+    "dialogue_runner": "res://core/dialogue_runner.gd",
+    "task_rules": "res://core/task_rules.gd",
+    "escort_rules": "res://core/escort_rules.gd",
+    "economy_rules": "res://core/economy_rules.gd",
+    "event_rules": "res://core/event_rules.gd",
+    "service_rules": "res://core/service_rules.gd",
+    "party_rules": "res://core/party_rules.gd",
+    "encounter_rules": "res://core/encounter_rules.gd",
+    "personal_combat": "res://core/personal_combat.gd",
+    "cultivation_rules": "res://core/cultivation_rules.gd",
+    "social_rules": "res://core/social_rules.gd",
+    "world_terrain": "res://core/world_terrain.gd",
+    "estate_rules": "res://core/estate_rules.gd",
+    "family_rules": "res://core/family_rules.gd",
+    "military_world": "res://core/military_world.gd",
+    "world_location": "res://core/world_location.gd",
+    "native_dynamic_profile": "res://core/backends/native_dynamic_profile.gd"
+  },
+  "capabilities": [
+    {
+      "capability_id": "multi_actor",
+      "rule_version": "f10-appearance-1",
+      "module_id": "world_factory",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "actors"
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_foundation",
+        "test_actor_identity",
+        "test_actor_appearance",
+        "test_actor_appearance_world"
+      ],
+      "evidence": [
+        {
+          "run_id": "20261001T212750576575Z-3485e1bb",
+          "stage": "godot_test_foundation",
+          "status": "PASS",
+          "log_sha256": "6dc844a0c7ac4efeb0246aa064dd1a4fb6a232ac045d2a94b360183d10ba85bb",
+          "scope": "historical_headless_only"
+        },
+        {
+          "run_id": "20261001T212750576575Z-3485e1bb",
+          "stage": "godot_test_actor_identity",
+          "status": "PASS",
+          "log_sha256": "ccb43d511b28fccc52aa93f4e92d83525388a8da35c3ab4374e9fbdda2d44058",
+          "scope": "historical_headless_only"
+        }
+      ]
+    },
+    {
+      "capability_id": "places",
+      "rule_version": "f10-architecture-1",
+      "module_id": "world_location",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "places"
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_rules",
+        "test_travel_control"
+      ],
+      "evidence": [
+        {
+          "run_id": "20261001T212750576575Z-3485e1bb",
+          "stage": "godot_test_rules",
+          "status": "PASS",
+          "log_sha256": "6925350d2ed3a5f234b771ef4e1a58c608e4957bca4dfdd452c54f987975b2a1",
+          "scope": "historical_headless_only"
+        },
+        {
+          "run_id": "20261001T212750576575Z-3485e1bb",
+          "stage": "godot_test_travel_control",
+          "status": "PASS",
+          "log_sha256": "3111698fa4e1579a2542dc283903c24c3759fd5417973877e7f849506e3d13fa",
+          "scope": "historical_headless_only"
+        }
+      ]
+    },
+    {
+      "capability_id": "dialogue",
+      "rule_version": "f10-architecture-1",
+      "module_id": "dialogue_runner",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "dialogues"
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_foundation"
+      ],
+      "evidence": [
+        {
+          "run_id": "20261001T212750576575Z-3485e1bb",
+          "stage": "godot_test_foundation",
+          "status": "PASS",
+          "log_sha256": "6dc844a0c7ac4efeb0246aa064dd1a4fb6a232ac045d2a94b360183d10ba85bb",
+          "scope": "historical_headless_only"
+        }
+      ]
+    },
+    {
+      "capability_id": "tasks.procurement",
+      "rule_version": "f10-architecture-1",
+      "module_id": "task_rules",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "offers.*.template",
+          "equals": "procurement"
+        }
+      ],
+      "supported_semantics": [
+        {
+          "table": "offers",
+          "field": "on_unavailable",
+          "values": [
+            "known_replacement",
+            "wait_or_leave"
+          ],
+          "code": "UNSUPPORTED_TASK_POLICY",
+          "where": {
+            "template": "procurement"
+          }
+        }
+      ],
+      "test_ids": [
+        "test_rules",
+        "test_foundation",
+        "test_task_policy",
+        "test_storage"
+      ],
+      "evidence": [
+        {
+          "run_id": "20261001T212750576575Z-3485e1bb",
+          "stage": "godot_test_rules",
+          "status": "PASS",
+          "log_sha256": "6925350d2ed3a5f234b771ef4e1a58c608e4957bca4dfdd452c54f987975b2a1",
+          "scope": "historical_headless_only"
+        },
+        {
+          "run_id": "20261001T212750576575Z-3485e1bb",
+          "stage": "godot_test_foundation",
+          "status": "PASS",
+          "log_sha256": "6dc844a0c7ac4efeb0246aa064dd1a4fb6a232ac045d2a94b360183d10ba85bb",
+          "scope": "historical_headless_only"
+        },
+        {
+          "run_id": "a04-focused-20261002",
+          "stage": "godot_test_task_policy",
+          "status": "PASS",
+          "log_sha256": "3ffa221751dfcd49818cd0538c994a47b6f051e6228875b95f627c1f47390b06",
+          "scope": "a04_headless_policy_only"
+        },
+        {
+          "run_id": "a04-focused-20261002",
+          "stage": "godot_test_storage",
+          "status": "PASS",
+          "log_sha256": "ad05da14f9d5cd73463ea24a1b7e9b3295dd2f666b6f4a76bd15ae1ff2944b71",
+          "scope": "a04_headless_policy_only"
+        }
+      ],
+      "limitations": [
+        "仅现有known_replacement组织同岗正式重办及wait_or_leave私人原对象语义；不会自动代办、转移私人承诺或自动发奖。",
+        "只允许从未拨款且无残留产权的受领中断重试；headless证据不等于平台运行认证。"
+      ]
+    },
+    {
+      "capability_id": "tasks.message",
+      "rule_version": "f10-architecture-1",
+      "module_id": "task_rules",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "offers.*.template",
+          "equals": "message"
+        }
+      ],
+      "supported_semantics": [
+        {
+          "table": "offers",
+          "field": "on_unavailable",
+          "values": [
+            "wait_or_leave"
+          ],
+          "code": "UNSUPPORTED_TASK_POLICY",
+          "where": {
+            "template": "message"
+          }
+        }
+      ],
+      "test_ids": [
+        "test_rules",
+        "test_foundation",
+        "test_task_policy",
+        "test_storage"
+      ],
+      "evidence": [
+        {
+          "run_id": "20261001T212750576575Z-3485e1bb",
+          "stage": "godot_test_rules",
+          "status": "PASS",
+          "log_sha256": "6925350d2ed3a5f234b771ef4e1a58c608e4957bca4dfdd452c54f987975b2a1",
+          "scope": "historical_headless_only"
+        },
+        {
+          "run_id": "20261001T212750576575Z-3485e1bb",
+          "stage": "godot_test_foundation",
+          "status": "PASS",
+          "log_sha256": "6dc844a0c7ac4efeb0246aa064dd1a4fb6a232ac045d2a94b360183d10ba85bb",
+          "scope": "historical_headless_only"
+        },
+        {
+          "run_id": "a04-focused-20261002",
+          "stage": "godot_test_task_policy",
+          "status": "PASS",
+          "log_sha256": "3ffa221751dfcd49818cd0538c994a47b6f051e6228875b95f627c1f47390b06",
+          "scope": "a04_headless_policy_only"
+        },
+        {
+          "run_id": "a04-focused-20261002",
+          "stage": "godot_test_storage",
+          "status": "PASS",
+          "log_sha256": "ad05da14f9d5cd73463ea24a1b7e9b3295dd2f666b6f4a76bd15ae1ff2944b71",
+          "scope": "a04_headless_policy_only"
+        }
+      ],
+      "limitations": [
+        "仅现有known_replacement组织同岗正式重办及wait_or_leave私人原对象语义；不会自动代办、转移私人承诺或自动发奖。",
+        "只允许从未拨款且无残留产权的受领中断重试；headless证据不等于平台运行认证。"
+      ]
+    },
+    {
+      "capability_id": "tasks.escort",
+      "rule_version": "f10-architecture-1",
+      "module_id": "escort_rules",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "offers.*.template",
+          "equals": "escort"
+        }
+      ],
+      "supported_semantics": [
+        {
+          "table": "offers",
+          "field": "on_unavailable",
+          "values": [
+            "wait_or_leave"
+          ],
+          "code": "UNSUPPORTED_TASK_POLICY",
+          "where": {
+            "template": "escort"
+          }
+        }
+      ],
+      "test_ids": [
+        "test_escort_world",
+        "test_task_policy",
+        "test_storage"
+      ],
+      "evidence": [
+        {
+          "run_id": "20261001T212750576575Z-3485e1bb",
+          "stage": "godot_test_escort_world",
+          "status": "PASS",
+          "log_sha256": "1792657ea9c291772df3cf6c7cfd0a6314c6e19aa4caffdb5a3aa6da7de427d5",
+          "scope": "historical_headless_only"
+        },
+        {
+          "run_id": "a04-focused-20261002",
+          "stage": "godot_test_task_policy",
+          "status": "PASS",
+          "log_sha256": "3ffa221751dfcd49818cd0538c994a47b6f051e6228875b95f627c1f47390b06",
+          "scope": "a04_headless_policy_only"
+        },
+        {
+          "run_id": "a04-focused-20261002",
+          "stage": "godot_test_storage",
+          "status": "PASS",
+          "log_sha256": "ad05da14f9d5cd73463ea24a1b7e9b3295dd2f666b6f4a76bd15ae1ff2944b71",
+          "scope": "a04_headless_policy_only"
+        }
+      ],
+      "limitations": [
+        "仅现有known_replacement组织同岗正式重办及wait_or_leave私人原对象语义；不会自动代办、转移私人承诺或自动发奖。",
+        "只允许从未拨款且无残留产权的受领中断重试；headless证据不等于平台运行认证。"
+      ]
+    },
+    {
+      "capability_id": "economy",
+      "rule_version": "f10-bargain-1",
+      "module_id": "economy_rules",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "shops"
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_rules",
+        "test_trade_inventory_screen"
+      ],
+      "evidence": [
+        {
+          "run_id": "20261001T212750576575Z-3485e1bb",
+          "stage": "godot_test_rules",
+          "status": "PASS",
+          "log_sha256": "6925350d2ed3a5f234b771ef4e1a58c608e4957bca4dfdd452c54f987975b2a1",
+          "scope": "historical_headless_only"
+        },
+        {
+          "run_id": "20261001T212750576575Z-3485e1bb",
+          "stage": "godot_test_trade_inventory_screen",
+          "status": "PASS",
+          "log_sha256": "03f202efab5ce5c1907a0acf732e0f298d8bdea315de5b2778958c2a0cb5c604",
+          "scope": "historical_headless_only"
+        }
+      ]
+    },
+    {
+      "capability_id": "events",
+      "rule_version": "f10-architecture-1",
+      "module_id": "event_rules",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "events"
+        }
+      ],
+      "supported_semantics": [
+        {
+          "table": "events",
+          "field": "trigger",
+          "values": [
+            "on_enter"
+          ],
+          "code": "UNSUPPORTED_EVENT_TRIGGER",
+          "where": {}
+        },
+        {
+          "table": "events",
+          "field": "on_unavailable",
+          "values": [
+            "cancel"
+          ],
+          "code": "UNSUPPORTED_EVENT_POLICY",
+          "where": {}
+        }
+      ],
+      "test_ids": [
+        "test_foundation",
+        "test_event_policy",
+        "test_storage"
+      ],
+      "evidence": [
+        {
+          "run_id": "20261001T212750576575Z-3485e1bb",
+          "stage": "godot_test_foundation",
+          "status": "PASS",
+          "log_sha256": "6dc844a0c7ac4efeb0246aa064dd1a4fb6a232ac045d2a94b360183d10ba85bb",
+          "scope": "historical_headless_only"
+        },
+        {
+          "run_id": "a04-focused-20261002",
+          "stage": "godot_test_event_policy",
+          "status": "PASS",
+          "log_sha256": "2ab9976aec3d2da3625ad4d02f299934dd109f1f8859eda711a57094194ba51f",
+          "scope": "a04_headless_policy_only"
+        },
+        {
+          "run_id": "a04-focused-20261002",
+          "stage": "godot_test_storage",
+          "status": "PASS",
+          "log_sha256": "ad05da14f9d5cd73463ea24a1b7e9b3295dd2f666b6f4a76bd15ae1ff2944b71",
+          "scope": "a04_headless_policy_only"
+        }
+      ],
+      "limitations": [
+        "仅现有on_enter+cancel语义：正常提交取消语义失效队列，暂忙不取消；旧记录未保存历史provider，不能证明通用人员绑定。",
+        "headless策略/存档回归不等于图形、Web或跨平台运行认证。"
+      ]
+    },
+    {
+      "capability_id": "services",
+      "rule_version": "f10-architecture-1",
+      "module_id": "service_rules",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "roles.*.activities"
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_life_services"
+      ],
+      "evidence": [
+        {
+          "run_id": "20261001T212750576575Z-3485e1bb",
+          "stage": "godot_test_life_services",
+          "status": "PASS",
+          "log_sha256": "702c63378fa54ea8f16ca0d3ce6ac2fc42c2526643734b670506f9b142a2380e",
+          "scope": "historical_headless_only"
+        }
+      ]
+    },
+    {
+      "capability_id": "companions",
+      "rule_version": "f10-architecture-1",
+      "module_id": "party_rules",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "roles.*.services",
+          "contains": "join_party"
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_parties",
+        "test_companion_reuse"
+      ],
+      "evidence": [
+        {
+          "run_id": "20261001T212750576575Z-3485e1bb",
+          "stage": "godot_test_parties",
+          "status": "PASS",
+          "log_sha256": "18ba9b963689037bdd3ec9827f3b1187ee2c4358f2c414ea3826469801470e00",
+          "scope": "historical_headless_only"
+        },
+        {
+          "run_id": "20261001T212750576575Z-3485e1bb",
+          "stage": "godot_test_companion_reuse",
+          "status": "PASS",
+          "log_sha256": "143032a48fdb0aef326a327162ca758e731d0580769cfcd8a75142bc5fa559d8",
+          "scope": "historical_headless_only"
+        }
+      ]
+    },
+    {
+      "capability_id": "road_encounters",
+      "rule_version": "f10-architecture-1",
+      "module_id": "encounter_rules",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "actors.*.travel_plan"
+        },
+        {
+          "path": "actors.*.road_dialogue_id"
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_encounters",
+        "test_road_contacts"
+      ],
+      "evidence": [
+        {
+          "run_id": "20261001T212750576575Z-3485e1bb",
+          "stage": "godot_test_encounters",
+          "status": "PASS",
+          "log_sha256": "3b2993a69f2be38b6b3dc48d2da3901f663fc24951733f8cbdcb94a0bc81301e",
+          "scope": "historical_headless_only"
+        },
+        {
+          "run_id": "20261001T212750576575Z-3485e1bb",
+          "stage": "godot_test_road_contacts",
+          "status": "PASS",
+          "log_sha256": "a8cc1541029655dd22a564d36b011baefaa4edc47236bf8d8bb24350b6432b08",
+          "scope": "historical_headless_only"
+        }
+      ]
+    },
+    {
+      "capability_id": "personal_combat",
+      "rule_version": "f10-combat-7",
+      "module_id": "personal_combat",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "personal_battlefields"
+        },
+        {
+          "path": "roles.*.sparring"
+        },
+        {
+          "path": "actors.*.road_conflict"
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_personal_round",
+        "test_personal_world"
+      ],
+      "evidence": [
+        {
+          "run_id": "20261001T212750576575Z-3485e1bb",
+          "stage": "godot_test_personal_round",
+          "status": "PASS",
+          "log_sha256": "85e0d68a325492e4dd2b7c51a3dd26f5224c0bc43337d509e554243619a372c6",
+          "scope": "historical_headless_only"
+        },
+        {
+          "run_id": "20261001T212750576575Z-3485e1bb",
+          "stage": "godot_test_personal_world",
+          "status": "PASS",
+          "log_sha256": "bbc8aedc660552b43ea7259c2f56b7901b3eea49580747645f7236f90849b034",
+          "scope": "historical_headless_only"
+        }
+      ]
+    },
+    {
+      "capability_id": "cultivation",
+      "rule_version": "f10-cultivation-3",
+      "module_id": "cultivation_rules",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "personal_skills"
+        },
+        {
+          "path": "roles.*.lessons"
+        },
+        {
+          "path": "roles.*.skill_courses"
+        },
+        {
+          "path": "etiquette_challenges"
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_cultivation_rules",
+        "test_skill_study_progress"
+      ],
+      "evidence": [
+        {
+          "run_id": "20261001T212750576575Z-3485e1bb",
+          "stage": "godot_test_cultivation_rules",
+          "status": "PASS",
+          "log_sha256": "9ea2f41f6101366feb6afef70f26ed1d975e865c6e33630b4ed63e4b752e6681",
+          "scope": "historical_headless_only"
+        }
+      ]
+    },
+    {
+      "capability_id": "npc_society",
+      "rule_version": "f10-architecture-1",
+      "module_id": "social_rules",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "actors.*.social"
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_social_rules",
+        "test_social_world"
+      ],
+      "evidence": [
+        {
+          "run_id": "20261001T212750576575Z-3485e1bb",
+          "stage": "godot_test_social_rules",
+          "status": "PASS",
+          "log_sha256": "85091ea37a60575f51d40fb89baf82f3bfeb01207b064804062fe2dcd30b9fd4",
+          "scope": "historical_headless_only"
+        },
+        {
+          "run_id": "20261001T212750576575Z-3485e1bb",
+          "stage": "godot_test_social_world",
+          "status": "PASS",
+          "log_sha256": "b4f8af8ccf55efa79c6ead20bea8367e551f74d1ad3df9f965cbef7647927600",
+          "scope": "historical_headless_only"
+        }
+      ]
+    },
+    {
+      "capability_id": "world_terrain",
+      "rule_version": "f10-architecture-1",
+      "module_id": "world_terrain",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "world_maps"
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_world_terrain",
+        "test_terrain_journey"
+      ],
+      "evidence": [
+        {
+          "run_id": "20261001T212750576575Z-3485e1bb",
+          "stage": "godot_test_world_terrain",
+          "status": "PASS",
+          "log_sha256": "cdd6df324d5d8e9316943fcaa330948a6bb6df8264904f76e048dc75a4f9709a",
+          "scope": "historical_headless_only"
+        },
+        {
+          "run_id": "20261001T212750576575Z-3485e1bb",
+          "stage": "godot_test_terrain_journey",
+          "status": "PASS",
+          "log_sha256": "09bee411bae4c4d4f4fea5f0dc61c63d00f9ea66f807eff2bba763b934e59acb",
+          "scope": "historical_headless_only"
+        }
+      ]
+    },
+    {
+      "capability_id": "estates",
+      "rule_version": "f10-architecture-1",
+      "module_id": "estate_rules",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "estates"
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_estate_rules"
+      ],
+      "evidence": [
+        {
+          "run_id": "20261001T212750576575Z-3485e1bb",
+          "stage": "godot_test_estate_rules",
+          "status": "PASS",
+          "log_sha256": "71eb8065d0617aaba54f077c7375052fc35fa0f57744218adb9845d3a30af1f5",
+          "scope": "historical_headless_only"
+        }
+      ]
+    },
+    {
+      "capability_id": "family",
+      "rule_version": "f10-architecture-1",
+      "module_id": "family_rules",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "roles.*.family"
+        },
+        {
+          "path": "roles.*.services",
+          "contains": "family_adopt"
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_family_rules",
+        "test_family_world"
+      ],
+      "evidence": [
+        {
+          "run_id": "20261001T212750576575Z-3485e1bb",
+          "stage": "godot_test_family_rules",
+          "status": "PASS",
+          "log_sha256": "b321b493aa87b7c09ff5323f455dece3831870745ec216f59d3421982f80348f",
+          "scope": "historical_headless_only"
+        },
+        {
+          "run_id": "20261001T212750576575Z-3485e1bb",
+          "stage": "godot_test_family_world",
+          "status": "PASS",
+          "log_sha256": "6d5e8da0a9c34fcfda2e2c97514c5e59ac9a9633415df0e3768880fdec7c7faa",
+          "scope": "historical_headless_only"
+        }
+      ]
+    },
+    {
+      "capability_id": "military",
+      "rule_version": "f10-combat-8",
+      "module_id": "military_world",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "battlefields"
+        },
+        {
+          "path": "troop_types"
+        },
+        {
+          "path": "military_objectives"
+        },
+        {
+          "path": "offices"
+        },
+        {
+          "path": "garrisons"
+        },
+        {
+          "path": "military_orders"
+        },
+        {
+          "path": "strongholds"
+        },
+        {
+          "path": "siege_topologies"
+        },
+        {
+          "path": "actors.*.military_plan"
+        },
+        {
+          "path": "roles.*.services",
+          "contains": "office_accept"
+        },
+        {
+          "path": "roles.*.services",
+          "contains": "office_resign"
+        },
+        {
+          "path": "roles.*.services",
+          "contains": "military_order"
+        },
+        {
+          "path": "roles.*.services",
+          "contains": "military_report"
+        },
+        {
+          "path": "scenarios.*.military_condition_model",
+          "equals": "terrain_march_v1"
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_military_content",
+        "test_military_world",
+        "test_military_logistics",
+        "test_military_march_conditions"
+      ],
+      "evidence": [
+        {
+          "run_id": "20261001T212750576575Z-3485e1bb",
+          "stage": "godot_test_military_content",
+          "status": "PASS",
+          "log_sha256": "219018d70a463a93f372156725708f95b9072772b1d8595983d0562f08552153",
+          "scope": "historical_headless_only"
+        },
+        {
+          "run_id": "20261001T212750576575Z-3485e1bb",
+          "stage": "godot_test_military_world",
+          "status": "PASS",
+          "log_sha256": "ffd1db94075d54901401f18bb1200005a5f41a7edd95d4311b8252bbf4237a62",
+          "scope": "historical_headless_only"
+        },
+        {
+          "run_id": "20261001T212750576575Z-3485e1bb",
+          "stage": "godot_test_military_logistics",
+          "status": "PASS",
+          "log_sha256": "96b12c26aa9c66264d36cab5acbf19bd0fe6666d9cfeea108f2c17dbce528a18",
+          "scope": "historical_headless_only"
+        }
+      ]
+    },
+    {
+      "capability_id": "native_dynamic_world",
+      "rule_version": "local_society_v1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.dynamic_world"
+        },
+        {
+          "path": "task_templates"
+        },
+        {
+          "path": "actors.*.road_conflict.cargo_policy"
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_dynamic_world_player_flow",
+        "test_dynamic_obligation_player_flow"
+      ],
+      "evidence": []
+    },
+    {
+      "capability_id": "population_military_v1",
+      "rule_version": "local_society_v1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.dynamic_world.population_military"
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_population_military_player_flow"
+      ],
+      "evidence": []
+    },
+    {
+      "capability_id": "regional_life_v1",
+      "rule_version": "local_society_v1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.dynamic_world.regional_life"
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_regional_life_player_flow"
+      ],
+      "evidence": []
+    },
+    {
+      "capability_id": "siege_integration_v1",
+      "rule_version": "local_society_v1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.dynamic_world.siege_integration"
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_siege_integration_player_flow"
+      ],
+      "evidence": []
+    },
+    {
+      "capability_id": "named_membership_v1",
+      "rule_version": "local_society_v1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.dynamic_world.organization.named_membership_enabled"
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_named_membership_player_flow"
+      ],
+      "evidence": []
+    },
+    {
+      "capability_id": "task_offer_responses_v1",
+      "rule_version": "known_offers_v1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.task_offer_response_profile",
+          "equals": "known_offers_v1"
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_interaction_tasks_panel",
+        "test_interaction_tasks_prepare"
+      ],
+      "evidence": []
+    },
+    {
+      "capability_id": "military_naval_v1",
+      "rule_version": "afloat_inland_v1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.military_naval"
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_military_naval_panel"
+      ],
+      "evidence": []
+    },
+    {
+      "capability_id": "production_disruptions_v1",
+      "rule_version": "authored_production_disruptions_v1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.dynamic_world.production_disruptions"
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_economic_production_context"
+      ],
+      "evidence": []
+    },
+    {
+      "capability_id": "military_naval_combat_v1",
+      "rule_version": "boarding_ram_v1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.military_naval.combat_policy"
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_military_naval_battle_screen"
+      ],
+      "evidence": []
+    },
+    {
+      "capability_id": "family_life_v1",
+      "rule_version": "verified_military_deaths_v1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.family_life"
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_family_death_screen"
+      ],
+      "evidence": []
+    },
+    {
+      "capability_id": "military_naval_commanders_v1",
+      "rule_version": "boarding_exposure_v1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.military_naval.combat_policy.commander_losses"
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_military_naval_battle_screen"
+      ],
+      "evidence": []
+    },
+    {
+      "capability_id": "family_legacy_v1",
+      "rule_version": "authored_posthumous_control_consent_v1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.family_legacy.profile",
+          "equals": "authored_posthumous_control_consent_v1"
+        },
+        {
+          "path": "legacy_control_consent_requests.*"
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_family_legacy_screen"
+      ],
+      "evidence": []
+    },
+    {
+      "capability_id": "task_message_handoffs_v1",
+      "rule_version": "observed_letter_delivery_v1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.task_message_handoff_profile",
+          "equals": "observed_letter_delivery_v1"
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_interaction_tasks_panel",
+        "test_interaction_tasks_prepare"
+      ],
+      "evidence": []
+    },
+    {
+      "capability_id": "occupation_fiscal_v1",
+      "rule_version": "occupation_tax_v1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.dynamic_world.political_occupation_fiscal.enabled",
+          "equals": true
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_political_career_player_flow",
+        "test_fiscal_settlement_panel"
+      ],
+      "evidence": []
+    },
+    {
+      "capability_id": "task_static_public_execution_v2",
+      "rule_version": "static_cash_v2",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.dynamic_world.political_takeover.task_execution_version",
+          "equals": 2
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_interaction_tasks_panel",
+        "test_interaction_tasks_prepare"
+      ],
+      "evidence": []
+    },
+    {
+      "capability_id": "task_message_reports_v2",
+      "rule_version": "observed_letter_delivery_and_report_v2",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.task_message_handoff_profile",
+          "equals": "observed_letter_delivery_and_report_v2"
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_interaction_tasks_panel",
+        "test_interaction_tasks_prepare"
+      ],
+      "evidence": []
+    },
+    {
+      "capability_id": "family_bequest_v1",
+      "rule_version": "revocable_personal_bequest_v1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.family_bequest"
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_family_bequest_screen"
+      ],
+      "evidence": []
+    },
+    {
+      "capability_id": "military_field_commanders_v1",
+      "rule_version": "field_exposure_v1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "battlefields.*.commander_losses"
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_military_battle_screen"
+      ],
+      "evidence": []
+    },
+    {
+      "capability_id": "occupation_fiscal_needs_v1",
+      "rule_version": "occupation_fiscal_needs_v1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.dynamic_world.occupation_fiscal_needs.enabled",
+          "equals": true
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_occupation_fiscal_panel"
+      ],
+      "evidence": []
+    },
+    {
+      "capability_id": "task_death_notices_v1",
+      "rule_version": "witnessed_death_letters_v1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.task_message_notices.profile",
+          "equals": "witnessed_death_letters_v1"
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_interaction_tasks_panel",
+        "test_interaction_tasks_prepare"
+      ],
+      "evidence": []
+    },
+    {
+      "capability_id": "treaty_passage_v1",
+      "rule_version": "treaty_passage_v1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.dynamic_world.treaty_passage.enabled",
+          "equals": true
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_diplomacy_player_flow"
+      ],
+      "evidence": []
+    },
+    {
+      "capability_id": "family_inheritance_v1",
+      "rule_version": "disclosed_personal_bequest_v1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.family_inheritance"
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_family_inheritance_screen"
+      ],
+      "evidence": []
+    },
+    {
+      "capability_id": "fiscal_taxpayer_continuity_v1",
+      "rule_version": "fiscal_taxpayer_continuity_v1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.dynamic_world.fiscal_taxpayer_continuity.enabled",
+          "equals": true
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_fiscal_taxpayer_continuity_panel"
+      ],
+      "evidence": []
+    },
+    {
+      "capability_id": "military_officer_assignments_v1",
+      "rule_version": "political_appointment_v1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.military_officer_assignments"
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_military_camp_screen"
+      ],
+      "evidence": []
+    },
+    {
+      "capability_id": "political_military_appointments_v1",
+      "rule_version": "political_military_appointments_v1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.dynamic_world.political_military_appointments.enabled",
+          "equals": true
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_politics_entry_lifecycle"
+      ],
+      "evidence": []
+    },
+    {
+      "capability_id": "task_authored_continuation_v1",
+      "rule_version": "authored_task_continuation_v1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.dynamic_world.director.authored_task_continuation.version",
+          "equals": 1
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_interaction_tasks_prepare"
+      ],
+      "evidence": []
+    },
+    {
+      "capability_id": "family_marriage_v1",
+      "rule_version": "personal_marriage_separate_assets_v1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.family_marriage"
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_family_marriage_screen"
+      ],
+      "evidence": []
+    },
+    {
+      "capability_id": "task_static_assets_v1",
+      "rule_version": "original_task_assets_v1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.task_static_asset_profile",
+          "equals": "original_task_assets_v1"
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_interaction_tasks_panel",
+        "test_interaction_tasks_prepare"
+      ],
+      "evidence": []
+    },
+    {
+      "capability_id": "estate_employment_v1",
+      "rule_version": "estate_employment_v1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.dynamic_world.estate_employment.version",
+          "equals": 1
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_task_employment_panel_guard"
+      ],
+      "evidence": []
+    },
+    {
+      "capability_id": "military_field_commands_v1",
+      "rule_version": "casualty_appointment_v1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.military_field_commands"
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_military_camp_screen"
+      ],
+      "evidence": []
+    },
+    {
+      "capability_id": "political_field_appointments_v1",
+      "rule_version": "political_field_appointments_v1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.dynamic_world.political_field_appointments.enabled",
+          "equals": true
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_political_field_appointment_panel"
+      ],
+      "evidence": []
+    },
+    {
+      "capability_id": "party_provider_consent_v1",
+      "rule_version": "provider_declaration_v1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.party_recruitment_profile",
+          "equals": "provider_declaration_v1"
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_party_recruitment_panel_guard"
+      ],
+      "evidence": []
+    },
+    {
+      "capability_id": "military_naval_repairs_v1",
+      "rule_version": "stationary_materials_v1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.military_naval.repair_policy.profile",
+          "equals": "stationary_materials_v1"
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_military_naval_repairs"
+      ],
+      "evidence": []
+    },
+    {
+      "capability_id": "military_naval_maneuvers_v1",
+      "rule_version": "alternating_approach_v1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.military_naval.combat_policy.ai_maneuver_policy",
+          "equals": "alternating_approach_v1"
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_military_naval_battle_screen"
+      ],
+      "evidence": []
+    },
+    {
+      "capability_id": "economic_supply_policies_v1",
+      "rule_version": "economic_supply_policies_v1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.dynamic_world.economic_supply_policies.version",
+          "equals": 1
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_supply_policy_panel_guard",
+        "test_political_supply_choice_panel"
+      ],
+      "evidence": []
+    },
+    {
+      "capability_id": "task_authored_continuation_v2",
+      "rule_version": "authored_task_continuation_v2",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.dynamic_world.director.authored_task_continuation.version",
+          "equals": 2
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_dynamic_actor_schedule"
+      ],
+      "evidence": []
+    },
+    {
+      "capability_id": "family_birth_v1",
+      "rule_version": "adult_birth_personal_care_v1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.family_birth"
+        },
+        {
+          "path": "scenarios.*.family_lineage"
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_family_birth_screen"
+      ],
+      "evidence": []
+    },
+    {
+      "capability_id": "military_naval_repair_charges_v1",
+      "rule_version": "public_dock_fees_v1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.military_naval.repair_charge_policy.profile",
+          "equals": "public_dock_fees_v1"
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_military_naval_repairs"
+      ],
+      "evidence": []
+    },
+    {
+      "capability_id": "political_supply_renewals_v1",
+      "rule_version": "political_supply_renewals_v1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.dynamic_world.director.political_supply_renewals.version",
+          "equals": 1
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_supply_policy_panel_guard",
+        "test_political_supply_choice_panel"
+      ],
+      "evidence": []
+    },
+    {
+      "capability_id": "visit_messages_v1",
+      "rule_version": "witnessed_reception_v1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.visit_message_profile",
+          "equals": "witnessed_reception_v1"
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_visit_message_panel_guard"
+      ],
+      "evidence": []
+    },
+    {
+      "capability_id": "family_innate_learning_v1",
+      "rule_version": "lineage_per_lesson_v1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.family_innate_learning"
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_skill_study_segments",
+        "test_study_segments_player_flow"
+      ],
+      "evidence": []
+    },
+    {
+      "capability_id": "military_naval_navigation_v1",
+      "rule_version": "committed_navigation_v1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.military_naval.navigation_policy.profile",
+          "equals": "committed_navigation_v1"
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_military_naval_navigation"
+      ],
+      "evidence": []
+    },
+    {
+      "capability_id": "visit_reception_v1",
+      "rule_version": "authored_local_reception_v1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.visit_reception_profile",
+          "equals": "authored_local_reception_v1"
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_visit_reception_catalog"
+      ],
+      "evidence": []
+    },
+    {
+      "capability_id": "military_naval_tactical_navigation_v1",
+      "rule_version": "hex_helm_current_v1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.military_naval.combat_policy.tactical_navigation.profile",
+          "equals": "hex_helm_current_v1"
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_military_naval_tactical_navigation"
+      ],
+      "evidence": []
+    },
+    {
+      "capability_id": "family_care_relief_v1",
+      "rule_version": "living_parent_private_relief_v1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.family_care_relief"
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_child_care_relief_screen"
+      ],
+      "evidence": []
+    },
+    {
+      "capability_id": "military_naval_gunnery_v1",
+      "rule_version": "entry_naval_skill_v1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.military_naval.combat_policy.gunnery.profile",
+          "equals": "entry_naval_skill_v1"
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_military_naval_gunnery"
+      ],
+      "evidence": []
+    },
+    {
+      "capability_id": "political_shop_licensing_v1",
+      "rule_version": "political_shop_licensing_v1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.dynamic_world.political_shop_licensing.version",
+          "equals": 1
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_political_shop_licensing_panel"
+      ],
+      "evidence": []
+    },
+    {
+      "capability_id": "growth_market_history_v1",
+      "rule_version": "growth_market_history_v1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.dynamic_world.growth_market_history.version",
+          "equals": 1
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_native_resident_backend"
+      ],
+      "evidence": []
+    },
+    {
+      "capability_id": "private_shops_v1",
+      "rule_version": "private_shops_v1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.dynamic_world.private_shops.version",
+          "equals": 1
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_private_shop_panel_guard"
+      ],
+      "evidence": []
+    },
+    {
+      "capability_id": "task_shop_orders_v1",
+      "rule_version": "task_shop_orders_v1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.task_shop_order_profile",
+          "equals": "private_shop_orders_v1"
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_task_shop_orders_panel_guard"
+      ],
+      "evidence": []
+    },
+    {
+      "capability_id": "task_extensions_v1",
+      "rule_version": "private_actor_deadline_v1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.task_extensions.profile",
+          "equals": "private_actor_deadline_v1"
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_task_extension_panel_guard"
+      ],
+      "evidence": []
+    },
+    {
+      "capability_id": "political_shop_registry_successions_v1",
+      "rule_version": "political_shop_registry_successions_v1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.dynamic_world.political_shop_registry_successions.version",
+          "equals": 1
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_political_shop_registry_panel"
+      ],
+      "evidence": []
+    },
+    {
+      "capability_id": "personal_appointments_v1",
+      "rule_version": "witnessed_personal_meetings_v1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.personal_appointment_profile",
+          "equals": "witnessed_personal_meetings_v1"
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_personal_appointment_panel_guard"
+      ],
+      "evidence": [],
+      "limitations": [
+        "首片仅原私人岗位本人当面答允、当面取消和一个半日实际会面；不含远程答复、代表授权、改约或自动NPC赴约。"
+      ]
+    },
+    {
+      "capability_id": "personal_injury_recovery_v1",
+      "rule_version": "personal_injury_recovery_v1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.dynamic_world.personal_injury_recovery.version",
+          "equals": 1
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_native_resident_backend"
+      ],
+      "evidence": []
+    },
+    {
+      "capability_id": "military_wounded_recovery_v1",
+      "rule_version": "supplied_wound_batches_v1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.military_wounded_recovery"
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_military_wounded_recovery"
+      ],
+      "evidence": []
+    },
+    {
+      "capability_id": "political_shop_registry_intents_v1",
+      "rule_version": "political_shop_registry_intents_v1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.dynamic_world.director.political_shop_registry_intents.version",
+          "equals": 1
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_political_shop_registry_panel"
+      ],
+      "evidence": []
+    },
+    {
+      "capability_id": "personal_appointment_attendance_v1",
+      "rule_version": "accepted_personal_appointment_attendance_v1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.dynamic_world.director.personal_appointment_attendance.version",
+          "equals": 1
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_personal_appointment_attendance_catalog"
+      ],
+      "evidence": []
+    },
+    {
+      "capability_id": "military_supply_attrition_v1",
+      "rule_version": "anonymous_shortage_v1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.military_supply_attrition"
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_military_supply_attrition"
+      ],
+      "evidence": []
+    },
+    {
+      "capability_id": "political_shop_licensing_receipts_v1",
+      "rule_version": "political_shop_licensing_receipts_v1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.dynamic_world.political_shop_licensing_receipts.version",
+          "equals": 1
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_political_shop_licensing_panel"
+      ],
+      "evidence": []
+    },
+    {
+      "capability_id": "private_shop_liquidations_v1",
+      "rule_version": "named_estate_executor_v1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.dynamic_world.private_shop_liquidations.version",
+          "equals": 1
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_private_shop_liquidations_panel_guard"
+      ],
+      "evidence": []
+    },
+    {
+      "capability_id": "military_rout_retreat_v1",
+      "rule_version": "two_blocked_rounds_v1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.military_rout_retreat"
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_military_rout_retreat"
+      ],
+      "evidence": []
+    },
+    {
+      "capability_id": "family_apprenticeship_v1",
+      "rule_version": "adult_personal_apprenticeship_v1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.family_apprenticeship"
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_apprenticeship_screen"
+      ],
+      "evidence": []
+    },
+    {
+      "capability_id": "political_governance_continuations_v1",
+      "rule_version": "political_governance_continuations_v1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.dynamic_world.political_governance_continuations.version",
+          "equals": 1
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_political_governance_continuation_panel"
+      ],
+      "evidence": []
+    },
+    {
+      "capability_id": "military_command_shock_v1",
+      "rule_version": "army_commander_once_v1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.military_command_shock"
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_military_command_shock"
+      ],
+      "evidence": []
+    },
+    {
+      "capability_id": "contact_inquiries_v1",
+      "rule_version": "witnessed_personal_inquiries_v1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.contact_inquiry_profile",
+          "equals": "witnessed_personal_inquiries_v1"
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_contact_inquiries_panel_guard"
+      ],
+      "evidence": [],
+      "limitations": [
+        "原私人本人say后消耗一个半日；只答复本人在开工前的原亲见，明确未知或拒答。无远方实时定位、转述递归、NPC自动问话或社交奖励。"
+      ]
+    },
+    {
+      "capability_id": "military_garrison_rest_v1",
+      "rule_version": "supplied_garrison_rest_v1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.military_garrison_rest"
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_military_garrison_rest"
+      ],
+      "evidence": []
+    },
+    {
+      "capability_id": "political_governance_intents_v1",
+      "rule_version": "political_governance_intents_v1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.dynamic_world.director.political_governance_intents.version",
+          "equals": 1
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_political_governance_continuation_panel"
+      ],
+      "evidence": []
+    },
+    {
+      "capability_id": "visit_message_replies_v1",
+      "rule_version": "witnessed_visit_replies_v1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.visit_reply_profile",
+          "equals": "witnessed_visit_replies_v1"
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_visit_message_replies_panel_guard"
+      ],
+      "evidence": [],
+      "limitations": [
+        "首片仅受控本人对已领原拜帖答复，并由原发信人真实到原接待者处领取；没有NPC自动回复、远程即时通知、预约承诺、关系或去向奖励。"
+      ]
+    },
+    {
+      "capability_id": "family_disciple_legacy_v1",
+      "rule_version": "accepted_disciple_posthumous_control_v1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.family_disciple_legacy"
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_family_legacy_screen"
+      ],
+      "evidence": []
+    },
+    {
+      "capability_id": "military_combat_conditions_v1",
+      "rule_version": "entry_fatigue_03_v1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.military_combat_conditions"
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_military_combat_conditions"
+      ],
+      "evidence": []
+    },
+    {
+      "capability_id": "visit_message_replies_v2",
+      "rule_version": "witnessed_authored_visit_replies_v2",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.visit_reply_profile",
+          "equals": "witnessed_authored_visit_replies_v2"
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_visit_message_replies_panel_guard"
+      ],
+      "evidence": [],
+      "limitations": [
+        "仅原已领读及真正认领会话的具名NPC托回固定答复；回复当时控制身份按原Family全史精确证明。原发信人仍需亲领，不授预约/位置/关系。自然World尚待。"
+      ]
+    },
+    {
+      "capability_id": "military_commanded_damage_v1",
+      "rule_version": "entry_commanded_damage_05_v1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.military_commanded_damage"
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_military_commanded_damage"
+      ],
+      "evidence": []
+    },
+    {
+      "capability_id": "political_governance_invitation_replies_v1",
+      "rule_version": "political_governance_invitation_replies_v1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.dynamic_world.political_governance_invitation_replies.version",
+          "equals": 1
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_governance_invitation_reply_panel"
+      ],
+      "evidence": []
+    },
+    {
+      "capability_id": "private_shop_daily_rent_v1",
+      "rule_version": "opening_anchored_two_halfdays_v1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.dynamic_world.private_shop_daily_rent.version",
+          "equals": 1
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_private_shop_daily_rent_panel_guard"
+      ],
+      "evidence": []
+    },
+    {
+      "capability_id": "military_sequential_rounds_v1",
+      "rule_version": "entry_initiative_05_v1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.military_sequential_rounds"
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_military_sequential"
+      ],
+      "evidence": []
+    },
+    {
+      "capability_id": "born_personal_dialogues_v1",
+      "rule_version": "born_personal_dialogues/1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.dynamic_world.born_personal_dialogues.version",
+          "equals": 1
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_born_personal_dialogues_panel_guard"
+      ],
+      "evidence": [],
+      "limitations": [
+        "实际成年出生者与其原亲生父母本人当面，精确原prototype模板与provider say；只开交谈，不自动授同意/控制/财产。完整World尚待。"
+      ]
+    },
+    {
+      "capability_id": "family_legacy_v2",
+      "rule_version": "posthumous_control_sources_v2",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.family_legacy.profile",
+          "equals": "posthumous_control_sources_v2"
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_family_legacy_screen"
+      ],
+      "evidence": []
+    },
+    {
+      "capability_id": "family_biological_legacy_v1",
+      "rule_version": "biological_posthumous_control_v1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.family_biological_legacy"
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_family_legacy_screen"
+      ],
+      "evidence": []
+    },
+    {
+      "capability_id": "military_command_resources_v1",
+      "rule_version": "entry_tactics_recovery_05_v1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.military_command_resources"
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_military_command_resources"
+      ],
+      "evidence": []
+    },
+    {
+      "capability_id": "political_successions_v1",
+      "rule_version": "political_successions_v1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.dynamic_world.political_successions.version",
+          "equals": 1
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_political_succession_panel"
+      ],
+      "evidence": []
+    },
+    {
+      "capability_id": "visit_appointments_v1",
+      "rule_version": "visit_appointment_invitations/1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.visit_appointment_profile",
+          "equals": "witnessed_visit_appointments_v1"
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_visit_appointments_panel_guard"
+      ],
+      "evidence": [],
+      "limitations": [
+        "原收件人实际领读后明确承诺固定约期；原发送人实领后自己接受。NPC只具名原认领会话意向；真实到场一期会面及当面取消。World/GUI待同代验证。"
+      ]
+    },
+    {
+      "capability_id": "visit_appointment_intents_v1",
+      "rule_version": "visit_appointment_intents/1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.visit_appointment_intents.version",
+          "equals": 1
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_visit_appointments_panel_guard"
+      ],
+      "evidence": [],
+      "limitations": [
+        "原收件人实际领读后明确承诺固定约期；原发送人实领后自己接受。NPC只具名原认领会话意向；真实到场一期会面及当面取消。World/GUI待同代验证。"
+      ]
+    },
+    {
+      "capability_id": "political_head_handovers_v1",
+      "rule_version": "political_head_handovers_v1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.dynamic_world.political_head_handovers.version",
+          "equals": 1
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_political_head_handover_panel"
+      ],
+      "evidence": []
+    },
+    {
+      "capability_id": "visit_appointment_attendance_v1",
+      "rule_version": "own_written_visit_promise_attendance_v1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.visit_appointment_attendance.version",
+          "equals": 1
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_visit_appointment_attendance_catalog"
+      ],
+      "evidence": []
+    },
+    {
+      "capability_id": "military_tactic_learning_v1",
+      "rule_version": "1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.military_tactic_learning"
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_military_tactic_learning"
+      ],
+      "evidence": []
+    },
+    {
+      "capability_id": "growth_tactic_lessons_v1",
+      "rule_version": "actual_provider_half_day_tactic_lessons_v1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.dynamic_world.growth_tactic_lessons"
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_tactic_lesson_screen"
+      ],
+      "evidence": []
+    },
+    {
+      "capability_id": "political_successor_rounds_v1",
+      "rule_version": "political_successor_rounds_v1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.dynamic_world.political_successor_rounds.version",
+          "equals": 1
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_political_successor_round_panel"
+      ],
+      "evidence": []
+    },
+    {
+      "capability_id": "military_field_terrain_v1",
+      "rule_version": "terrain_and_zones_05_v1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.military_field_terrain"
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_military_field_terrain"
+      ],
+      "evidence": []
+    },
+    {
+      "capability_id": "private_shop_command_results_v1",
+      "rule_version": "actual_shop_submission_results_v1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.dynamic_world.private_shop_command_results.version",
+          "equals": 1
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_private_shop_panel_guard"
+      ],
+      "evidence": []
+    },
+    {
+      "capability_id": "political_term_handovers_v1",
+      "rule_version": "political_term_handovers_v1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.dynamic_world.political_term_handovers.version",
+          "equals": 1
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_political_term_handover_panel"
+      ],
+      "evidence": []
+    },
+    {
+      "capability_id": "visit_message_receipts_v1",
+      "rule_version": "original_visit_message_actual_results_v1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.visit_message_receipt_profile",
+          "equals": "permanent_visit_message_results_v1"
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_visit_message_receipts_catalog"
+      ],
+      "evidence": []
+    },
+    {
+      "capability_id": "known_personal_dialogues_v1",
+      "rule_version": "known_personal_dialogues/1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.dynamic_world.known_personal_dialogues.version",
+          "equals": 1
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_known_personal_dialogues_panel_guard"
+      ],
+      "evidence": [],
+      "limitations": [
+        "实际本人与眼前真实成年人的显式Installed/Birth模板；不读亲缘、代人同意或授控制权。完整World尚待。"
+      ]
+    },
+    {
+      "capability_id": "military_siege_engineering_v1",
+      "rule_version": "commander_fortification_05_v1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.military_siege_engineering"
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_military_siege_engineering"
+      ],
+      "evidence": []
+    },
+    {
+      "capability_id": "political_office_receptions_v1",
+      "rule_version": "political_office_receptions_v1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.dynamic_world.political_office_receptions.version",
+          "equals": 1
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_political_office_reception_panel"
+      ],
+      "evidence": []
+    },
+    {
+      "capability_id": "task_shop_order_contacts_v1",
+      "rule_version": "task_shop_order_contacts/1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.task_shop_order_contact_profile",
+          "equals": "original_shop_order_contacts_v1"
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_task_shop_order_contacts_catalog"
+      ],
+      "evidence": [],
+      "limitations": [
+        "只原私人店单真实交付开工；原TaskShop1字节保持，缺永久开工源不得补旧史。整World待验。"
+      ]
+    },
+    {
+      "capability_id": "family_legacy_v3",
+      "rule_version": "posthumous_control_sources_v3",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.family_legacy.profile",
+          "equals": "posthumous_control_sources_v3"
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_family_legacy_screen"
+      ],
+      "evidence": []
+    },
+    {
+      "capability_id": "family_collateral_legacy_v1",
+      "rule_version": "recognized_collateral_control_v1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.family_collateral_legacy"
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_family_legacy_screen"
+      ],
+      "evidence": []
+    },
+    {
+      "capability_id": "political_governance_agencies_v1",
+      "rule_version": "political_governance_agencies_v1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.dynamic_world.political_governance_agencies.version",
+          "equals": 1
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_political_governance_agency_panel"
+      ],
+      "evidence": []
+    },
+    {
+      "capability_id": "personal_simultaneous_outcomes_v1",
+      "rule_version": "mutual_defeat_draw_v1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.personal_simultaneous_outcomes"
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_personal_simultaneous_outcomes"
+      ],
+      "evidence": []
+    },
+    {
+      "capability_id": "task_message_returns_v1",
+      "rule_version": "task_message_returns/1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.task_message_returns.profile",
+          "equals": "private_round_trip_letter_v1"
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_task_message_returns_catalog",
+        "test_task_message_returns_panel_guard",
+        "test_task_message_return_task_hooks",
+        "test_task_message_returns_registration"
+      ],
+      "evidence": [],
+      "limitations": [
+        "Q03仅原私人静态送信；真实收件人托回、原报告同recipe交付，旧段字节不变。完整World行为待验。"
+      ]
+    },
+    {
+      "capability_id": "family_voluntary_paths_v1",
+      "rule_version": "living_accepted_family_paths_v1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.family_voluntary_paths.version",
+          "equals": 1
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_family_voluntary_paths_screen"
+      ],
+      "evidence": []
+    },
+    {
+      "capability_id": "political_governance_agencies_v2",
+      "rule_version": "political_governance_agencies_v2",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.dynamic_world.political_governance_agencies.version",
+          "equals": 2
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_political_governance_agency_panel"
+      ],
+      "evidence": []
+    },
+    {
+      "capability_id": "political_governance_agency_intents_v1",
+      "rule_version": "political_governance_agency_intents_v1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.dynamic_world.director.governance_agency_intents.version",
+          "equals": 1
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_political_governance_agency_panel"
+      ],
+      "evidence": []
+    },
+    {
+      "capability_id": "task_personal_message_deliveries_v1",
+      "rule_version": "task_personal_message_deliveries/1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.dynamic_world.task_personal_message_deliveries.profile",
+          "equals": "known_private_recipient_v1"
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_task_personal_messages_catalog",
+        "test_task_personal_messages_panel_guard",
+        "test_task_personal_messages_registration"
+      ],
+      "evidence": [],
+      "limitations": [
+        "Q01只向原私人收件者真实Known本人SAY交付原Task信件；handoff3独立选择。完整World行为待验。"
+      ]
+    },
+    {
+      "capability_id": "political_office_resignations_v1",
+      "rule_version": "political_office_resignations_v1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.dynamic_world.political_office_resignations.version",
+          "equals": 1
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_political_office_resignation_panel"
+      ],
+      "evidence": []
+    },
+    {
+      "capability_id": "political_office_resignations_v2",
+      "rule_version": "political_office_resignations_v2",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.dynamic_world.political_office_resignations.version",
+          "equals": 2
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_political_office_resignation_responses"
+      ],
+      "evidence": []
+    },
+    {
+      "capability_id": "political_office_resignation_responses_v1",
+      "rule_version": "political_office_resignation_responses_v1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.dynamic_world.director.office_resignation_responses.version",
+          "equals": 1
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_political_office_resignation_responses"
+      ],
+      "evidence": []
+    },
+    {
+      "capability_id": "task_personal_message_reports_v1",
+      "rule_version": "task_personal_message_reports/1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.dynamic_world.task_personal_message_reports.profile",
+          "equals": "known_private_sender_report_v1"
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_task_personal_reports_catalog",
+        "test_task_personal_reports_panel_guard",
+        "test_task_personal_reports_registration"
+      ],
+      "evidence": [],
+      "limitations": [
+        "原私人信件实交后，向原sender真实Known声明半日返报；原Task唯一结酬，显式handoff4。完整World行为待验。"
+      ]
+    },
+    {
+      "capability_id": "task_personal_message_cancellations_v1",
+      "rule_version": "task_personal_message_cancellations/1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.dynamic_world.task_personal_message_cancellations.profile",
+          "equals": "known_private_sender_cancellation_v1"
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_task_personal_cancellations_catalog",
+        "test_task_personal_cancellations_panel_guard",
+        "test_task_personal_cancellations_registration"
+      ],
+      "evidence": [],
+      "limitations": [
+        "原私人信件已受领后，原sender真实Known本人SAY明确销约，原Task唯一返还预算和现有可返任务物；遗失/远端物不免责。首片同Offer无延期/回书/死讯，完整World待验。"
+      ]
+    },
+    {
+      "capability_id": "political_subordinate_appointments_v1",
+      "rule_version": "political_subordinate_appointments_v1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.dynamic_world.political_subordinate_appointments.version",
+          "equals": 1
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_political_subordinate_appointment_panel"
+      ],
+      "evidence": []
+    },
+    {
+      "capability_id": "political_subordinate_appointment_intents_v1",
+      "rule_version": "political_subordinate_appointment_intents_v1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.dynamic_world.political_subordinate_appointment_intents.version",
+          "equals": 1
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_political_subordinate_appointment_panel"
+      ],
+      "evidence": []
+    },
+    {
+      "capability_id": "task_personal_message_acceptances_v1",
+      "rule_version": "task_personal_message_acceptances/1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.dynamic_world.task_personal_message_acceptances.profile",
+          "equals": "known_private_sender_acceptance_v1"
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_task_personal_acceptances_catalog",
+        "test_task_personal_acceptances_panel_guard",
+        "test_task_personal_acceptances_registration"
+      ],
+      "evidence": [],
+      "limitations": [
+        "原discover_offer知情后，原sender真实Known本人SAY授权半日受领；原Task唯一发放预算/信件。所选Offer旧accept拒并强制源覆盖。首片无同Offer延期/回书/死讯/Task付款2；完整World待验。"
+      ]
+    },
+    {
+      "capability_id": "political_dismissal_sources_v1",
+      "rule_version": "political_dismissal_sources_v1",
+      "module_id": "native_dynamic_profile",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "scenarios.*.dynamic_world.political_dismissal_sources.version",
+          "equals": 1
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_political_dismissal_sources"
+      ],
+      "evidence": []
+    }
+  ],
+  "evidence": [
+    {
+      "run_id": "20261001T212750576575Z-3485e1bb",
+      "receipt": "verification/architecture-a02/20261001T212750576575Z-3485e1bb/report.json",
+      "commit": "88fcabd347507fa7857d88a33cf46a8f952f9502",
+      "dirty_diff_sha256": "c9fcc08f0f1904c50d7a8c17a47e5bc853424a56e4dcd939738e1a456c000bc5",
+      "aggregate_status": "BLOCKED",
+      "scope": "历史Linux headless阶段证据；不代表当前源码、图形界面、Web或跨平台认证。",
+      "receipt_sha256": "e66fe3202c74e9435faedb34ccdd5ad787955bf3bc90406817781cac671e8233"
+    }
+  ]
+}

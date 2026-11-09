@@ -1,0 +1,13 @@
+{
+  "source_commit": "3f4f8be037539fc13b1b6796b0433aa2ab92afa7",
+  "backend_sha256": "16302874514c2796943ab023068fa577044a52b421d87b47c36685dfe39b56ab",
+  "test_sha256": "746b15355e8822cb150e19342cbf06ae40e04b366b9cba6453a31b7cf8db24ff",
+  "presenter_source": "26909e9",
+  "presenter_sha256": "a4995ed1307fc74fefcc517dda78f53182eb7da35eb72562c909ee77c84e3461",
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "returncode": 0,
+  "checks": 67,
+  "failures": 0,
+  "output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\nNATIVE_RESIDENT_BACKEND_PROTOCOL_CHECKS=67 FAILURES=0 SCOPE=explicit transport fixture, no real core/Main acceptance\n",
+  "scope": "Actual backend and presenter Nodes with an explicit bounded transport fixture; proves serialization, single-slot sequencing, atomic same-source caches, previews, source adoption and stale-reader draining. Does not claim native core/Main acceptance."
+}

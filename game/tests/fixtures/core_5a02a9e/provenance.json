@@ -1,0 +1,16 @@
+{
+  "commit": "5a02a9edf92d1a1408a91e0484eeb323a1d7f688",
+  "adaptation": "Only the old Kernel Builtin preload is redirected to the frozen fixture; all business logic stays exact old bytes",
+  "sources": {
+    "builtin_modules.gd": {
+      "path": "game/core/runtime/builtin_modules.gd",
+      "original_sha256": "784434128e6c4098dc71ff7752608455a8389e9fe3a186867313a8e6bb664e9c",
+      "fixture_sha256": "784434128e6c4098dc71ff7752608455a8389e9fe3a186867313a8e6bb664e9c"
+    },
+    "world_kernel.gd": {
+      "path": "game/core/world_kernel.gd",
+      "original_sha256": "94339d760005bf9844f5d05056c4f21d487bed050e0bb34a8ee72968450c14ff",
+      "fixture_sha256": "6f4a20873db1153aece1270f69e5e4588ebb2edf00f342124e10f668299a7fe2"
+    }
+  }
+}

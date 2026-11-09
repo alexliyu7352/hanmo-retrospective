@@ -1,0 +1,612 @@
+#include "treaty_resource_release.hpp"
+#include "resident/kernel/common_fact_prefix.hpp"
+// 保留原完整解除算法；仅上游激活/终止严格选2，reply/权限Basis/知情仍原1。
+#include <algorithm>
+namespace hanmo::resident {
+namespace {
+struct Failure {
+  RuleError error;
+};
+// 拒绝不改业务状态；所有原writer错误仍由外层撤销整World候选。
+[[noreturn]] void fail(const char *code, const StableId &id = {}) {
+  throw Failure{common_failure(code, id).error};
+}
+template <class T> T take(Outcome<T> r) {
+  if (!r.ok)
+    throw Failure{std::move(r.error)};
+  return std::move(r.value);
+}
+void take(Status r) {
+  if (!r.ok)
+    throw Failure{std::move(r.error)};
+}
+int compare(const WorldMoment &a, const WorldMoment &b) {
+  return take(compare_world_moments(a, b));
+}
+const TreatyRevisionContext &revisions(const TreatyResourceReleaseContext &x) {
+  return x.treaties.activations.signatures.links.revisions;
+}
+bool actor(const ActingAuthority &a, const ActingAuthority &b) {
+  return a.actor_id == b.actor_id && a.organization_id == b.organization_id &&
+         a.office_id == b.office_id && a.authority_epoch == b.authority_epoch;
+}
+bool exact_source(const SourceRef &r, const char *kind) {
+  return valid_source_ref(r) && r.domain == "politics" && r.kind == kind;
+}
+std::size_t position(const CommonStore &c, const SourceRef &ref) {
+  return take(read_actual_common_fact_position(c, ref));
+}
+// 激活是原source；只沿终止原行/真实cut检查当时仍有效，避免termination→consent回环。
+TreatyActivationView active_at(const TreatyResourceReleaseContext &x,
+                               const SourceRef &activation,
+                               const StableId &treaty, Integer version,
+                               const ActingAuthority &who,
+                               const WorldMoment &at, const SourceRef *cut) {
+  const auto &r = revisions(x);
+  auto a = take(read_original_treaty_resource_activation(x.treaties.activations,
+                                                         activation, 2));
+  const auto &terms = a.revision.definition->terms;
+  if (a.source->treaty_id != treaty || a.source->terms_revision != version ||
+      std::find(terms.parties.begin(), terms.parties.end(),
+                who.organization_id) == terms.parties.end() ||
+      compare(a.source->activated_at, at) > 0 ||
+      !take(treaty_window_contains(terms.effective_window, at)) ||
+      compare(at, take(r.clock.read_organization_authority_now())) > 0 ||
+      std::find(terms.termination_policy.begin(),
+                terms.termination_policy.end(),
+                TreatyTerminationMethod::mutual_release) ==
+          terms.termination_policy.end())
+    fail("TreatyReleaseNotPermitted", activation.id);
+  if (cut && position(r.common, activation) >= position(r.common, *cut))
+    fail("TreatyReleaseBeforeActivation", activation.id);
+  for (const auto &row : x.treaties.terminations.rows())
+    if (same_source_ref(row.second.activation_ref, activation)) {
+      take(validate_treaty_termination_shape(row.second));
+      const auto end = treaty_termination_source(row.second);
+      const auto end_index = position(r.common, end);
+      if (row.first != row.second.id || row.second.treaty_id != treaty ||
+          row.second.terms_revision != version)
+        fail("TreatyReleaseTerminationIdentityMismatch", row.first);
+      if (!cut || end_index < position(r.common, *cut))
+        fail("TreatyReleaseAfterTermination", activation.id);
+    }
+  return a;
+}
+SingleGrantAuthorityRequest
+authority_request(const TreatyResourceReleaseContext &x,
+                  const TreatyActivationView &a, const ActingAuthority &who,
+                  bool answer, const SourceRef *cut) {
+  auto q = take(x.originals.read_treaty_release_authority(a, who, answer, cut));
+  if (!actor(q.acting, who) ||
+      q.command_kind !=
+          (answer ? "answer_treaty_release" : "request_treaty_release"))
+    fail("TreatyReleaseAuthorityRequestMismatch", a.source->id);
+  return q;
+}
+const TreatyReleaseRequestSource &
+request_raw(const TreatyResourceReleaseContext &x, const SourceRef &ref) {
+  if (!exact_source(ref, "treaty_release_requested"))
+    fail("TreatyReleaseRequestSourceUnsupported", ref.id);
+  const auto *row = x.replies.find(ref.id);
+  const auto *p = row ? std::get_if<TreatyReleaseRequestSource>(row) : nullptr;
+  if (!p || p->id != ref.id)
+    fail("TreatyReleaseRequestMissing", ref.id);
+  take(validate_treaty_release_request_shape(*p));
+  position(revisions(x).common, ref);
+  auto a = active_at(x, p->activation_source, p->treaty_id, p->terms_revision,
+                     p->requester, p->requested_at, &ref);
+  if (!same_source_ref(p->terms_source, a.revision.source))
+    fail("TreatyReleaseTermsMismatch", ref.id);
+  take(x.originals.validate_treaty_release_request_inputs(
+      a, p->requester, p->requested_at, &ref));
+  return *p;
+}
+const TreatyReleaseAnswerSource &
+answer_raw(const TreatyResourceReleaseContext &x, const SourceRef &ref) {
+  if (!exact_source(ref, "treaty_release_answered"))
+    fail("TreatyReleaseAnswerSourceUnsupported", ref.id);
+  const auto *row = x.replies.find(ref.id);
+  const auto *p = row ? std::get_if<TreatyReleaseAnswerSource>(row) : nullptr;
+  if (!p || p->id != ref.id)
+    fail("TreatyReleaseAnswerMissing", ref.id);
+  take(validate_treaty_release_answer_shape(*p));
+  position(revisions(x).common, ref);
+  const auto &request = request_raw(x, p->request_source);
+  auto a = active_at(x, p->activation_source, p->treaty_id, p->terms_revision,
+                     p->respondent, p->answered_at, &ref);
+  if (request.treaty_id != p->treaty_id ||
+      request.terms_revision != p->terms_revision ||
+      !same_source_ref(request.activation_source, p->activation_source) ||
+      request.requester.organization_id == p->respondent.organization_id ||
+      compare(request.requested_at, p->answered_at) > 0 ||
+      position(revisions(x).common, p->request_source) >=
+          position(revisions(x).common, ref))
+    fail("TreatyReleaseAnswerRequestMismatch", ref.id);
+  take(x.originals.validate_treaty_release_answer_inputs(
+      a, request, p->respondent, p->decision, p->answered_at, &ref));
+  return *p;
+}
+// 唯一Basis仍在原registry，委托/资源/金额全部与实际原request逐字段核等。
+void authority(const TreatyResourceReleaseContext &x, const SourceRef &ref,
+               const TreatyActivationView &a, const ActingAuthority &who,
+               bool answer, const WorldMoment &at) {
+  const auto &r = revisions(x);
+  auto q = authority_request(x, a, who, answer, &ref);
+  NativeTreatyResourceReleaseIssueRead issue(x);
+  const auto *b = take(read_registered_authority_basis(
+      r.common, r.authority_bases, r.organization, r.organization_catalog,
+      r.organization_catalog.authority_catalog_identity, {ref, 1}, issue,
+      r.budgets));
+  if (b->actor_id != who.actor_id ||
+      b->organization_id != who.organization_id ||
+      b->office_id != who.office_id || b->office_epoch != who.authority_epoch ||
+      b->command_kind != q.command_kind || b->scope.kind != q.scope.kind ||
+      b->scope.id != q.scope.id || b->amount != q.amount ||
+      b->resources.size() != q.resources.size() ||
+      !same_authority_amount_components(b->amount_components,
+                                        q.amount_components) ||
+      b->issued_at.kind != ActorFoundationAt::Kind::exact_moment ||
+      compare(b->issued_at.exact_moment, at))
+    fail("TreatyReleaseBasisMismatch", ref.id);
+  for (std::size_t i = 0; i < q.resources.size(); ++i)
+    if (q.resources[i].kind != b->resources[i].kind ||
+        q.resources[i].id != b->resources[i].id)
+      fail("TreatyReleaseBasisResourceMismatch", ref.id);
+  if (q.requires_delegation) {
+    auto g = take(read_historical_authority_grant(
+        r.common, r.organization, r.organization_catalog,
+        r.organization_catalog.authority_catalog_identity, *b, issue,
+        r.budgets));
+    if (!g.terms || !g.terms->may_delegate)
+      fail("TreatyReleaseDelegationDenied", ref.id);
+  }
+}
+void known_request(const TreatyResourceReleaseContext &x,
+                   const TreatyReleaseRequestSource &request,
+                   const TreatyReleaseAnswerSource &answer,
+                   const SourceRef *cut) {
+  const auto &s = x.treaties.activations.signatures;
+  const auto content =
+      take(read_treaty_resource_release_request_official_content(
+          x, treaty_release_request_source(request), 1));
+  auto receipt =
+      take(cut ? read_actor_official_content_receipt_before_source(
+                     s.links.revisions.common, s.social, s.communications,
+                     s.communication_sources, s.times, s.result_stamp,
+                     answer.respondent.actor_id, content,
+                     answer.actual_request_receipt, *cut)
+               : read_actor_official_content_receipt(
+                     s.links.revisions.common, s.social, s.communications,
+                     s.communication_sources, s.times, s.result_stamp,
+                     answer.respondent.actor_id, content,
+                     answer.actual_request_receipt));
+  if (!receipt.delivery ||
+      compare(receipt.delivery->delivered_at, request.requested_at) < 0 ||
+      compare(receipt.delivery->delivered_at, answer.answered_at) > 0)
+    fail("TreatyReleaseRequestKnowledgeMismatch", answer.id);
+}
+void candidate(CommonStore &common, OrderedTable<TreatyReplyRecord> &rows,
+               AuthorityBasisRegistry &bases,
+               const TreatyResourceReleaseContext &x) {
+  const auto &r = revisions(x);
+  if (&common != &r.common || &rows != &x.replies ||
+      &bases != &r.authority_bases ||
+      !r.organization_catalog.authority_lifecycle_enabled ||
+      !r.organization_catalog.exact_fact_clock_enabled)
+    fail("TreatyReleaseCandidateMismatch");
+}
+// 每原party恰一源，按原条款party序返回。只核明确接受，不把沉默或refuse当同意。
+std::optional<TreatyMutualReleaseReady>
+consent(const TreatyResourceReleaseContext &x, const SourceRef &ref,
+        const SourceRef *cut) {
+  const auto *request = take(read_treaty_resource_release_request(x, ref, 1));
+  auto a = take(read_original_treaty_resource_activation(
+      x.treaties.activations, request->activation_source, 2));
+  TreatyMutualReleaseReady ready{
+      request->activation_source, {}, request->requested_at};
+  const auto &common = revisions(x).common;
+  if (cut && position(common, ref) >= position(common, *cut))
+    fail("TreatyReleaseConsentAfterTermination", ref.id);
+  for (const auto &party : a.revision.definition->terms.parties) {
+    if (party == request->requester.organization_id) {
+      ready.cause.release_acceptance_refs.push_back(ref);
+      continue;
+    }
+    const TreatyReleaseAnswerSource *selected = nullptr;
+    for (const auto &row : x.replies.rows())
+      if (const auto *answer =
+              std::get_if<TreatyReleaseAnswerSource>(&row.second))
+        if (same_source_ref(answer->request_source, ref) &&
+            answer->respondent.organization_id == party &&
+            (!cut || position(common, treaty_release_answer_source(*answer)) <
+                         position(common, *cut))) {
+          if (selected)
+            fail("DuplicateTreatyReleasePartyAnswer", row.first);
+          selected = take(read_treaty_resource_release_answer(
+              x, treaty_release_answer_source(*answer), 1));
+        }
+    if (!selected || selected->decision != TreatyReplyDecision::accept)
+      return std::nullopt;
+    ready.cause.release_acceptance_refs.push_back(
+        treaty_release_answer_source(*selected));
+    if (compare(selected->answered_at, ready.agreed_at) > 0)
+      ready.agreed_at = selected->answered_at;
+  }
+  return ready;
+}
+} // namespace
+Outcome<WorldMoment>
+NativeTreatyResourceReleaseIssueRead::read_organization_authority_now() const {
+  return revisions(x_).clock.read_organization_authority_now();
+}
+Outcome<AuthorityIssueSourceView>
+NativeTreatyResourceReleaseIssueRead::read_authority_issue_source(
+    const SourceRef &ref) const {
+  try {
+    ActingAuthority who;
+    WorldMoment at;
+    SourceRef active;
+    const bool answer = ref.kind == "treaty_release_answered";
+    if (answer) {
+      const auto &p = answer_raw(x_, ref);
+      // Basis 单独消费也必须证明本人真实收知；只回 request 原源，不回 answer
+      // Basis。
+      const auto *request =
+          take(read_treaty_resource_release_request(x_, p.request_source, 1));
+      known_request(x_, *request, p, &ref);
+      who = p.respondent;
+      at = p.answered_at;
+      active = p.activation_source;
+    } else {
+      const auto &p = request_raw(x_, ref);
+      who = p.requester;
+      at = p.requested_at;
+      active = p.activation_source;
+    }
+    auto a = take(read_original_treaty_resource_activation(
+        x_.treaties.activations, active, 2));
+    auto q = authority_request(x_, a, who, answer, &ref);
+    ActorFoundationAt exact;
+    exact.kind = ActorFoundationAt::Kind::exact_moment;
+    exact.exact_moment = at;
+    return {true,
+            {ref, who.actor_id, q.command_kind, std::move(exact),
+             std::move(q.amount_components)},
+            {}};
+  } catch (const Failure &f) {
+    return {false, {}, f.error};
+  }
+}
+Outcome<const TreatyReleaseRequestSource *>
+read_treaty_resource_release_request(const TreatyResourceReleaseContext &x,
+                                     const SourceRef &ref, Integer schema) {
+  try {
+    if (schema != 1)
+      fail("TreatyReleaseSourceSchemaUnsupported", ref.id);
+    const auto &p = request_raw(x, ref);
+    auto a = take(read_original_treaty_resource_activation(
+        x.treaties.activations, p.activation_source, 2));
+    authority(x, ref, a, p.requester, false, p.requested_at);
+    return {true, &p, {}};
+  } catch (const Failure &f) {
+    return {false, nullptr, f.error};
+  }
+}
+Outcome<const TreatyReleaseAnswerSource *>
+read_treaty_resource_release_answer(const TreatyResourceReleaseContext &x,
+                                    const SourceRef &ref, Integer schema) {
+  try {
+    if (schema != 1)
+      fail("TreatyReleaseSourceSchemaUnsupported", ref.id);
+    const auto &p = answer_raw(x, ref);
+    const auto *request =
+        take(read_treaty_resource_release_request(x, p.request_source, 1));
+    known_request(x, *request, p, &ref);
+    auto a = take(read_original_treaty_resource_activation(
+        x.treaties.activations, p.activation_source, 2));
+    authority(x, ref, a, p.respondent, true, p.answered_at);
+    for (const auto &row : x.replies.rows())
+      if (const auto *other =
+              std::get_if<TreatyReleaseAnswerSource>(&row.second))
+        if (other->id != p.id &&
+            same_source_ref(other->request_source, p.request_source) &&
+            other->respondent.organization_id == p.respondent.organization_id)
+          fail("DuplicateTreatyReleasePartyAnswer", p.id);
+    return {true, &p, {}};
+  } catch (const Failure &f) {
+    return {false, nullptr, f.error};
+  }
+}
+Status validate_treaty_resource_release_sources(
+    const TreatyResourceReleaseContext &x) {
+  try {
+    for (const auto &row : x.replies.rows()) {
+      if (const auto *request =
+              std::get_if<TreatyReleaseRequestSource>(&row.second)) {
+        if (row.first != request->id)
+          fail("TreatyReleaseRequestIdentityMismatch", row.first);
+        take(read_treaty_resource_release_request(
+            x, treaty_release_request_source(*request), 1));
+      } else if (const auto *answer =
+                     std::get_if<TreatyReleaseAnswerSource>(&row.second)) {
+        if (row.first != answer->id)
+          fail("TreatyReleaseAnswerIdentityMismatch", row.first);
+        take(read_treaty_resource_release_answer(
+            x, treaty_release_answer_source(*answer), 1));
+      }
+    }
+    // 最后真实接受不能已发布却漏掉同候选解除；这里只核原终止行，完整后果另由原validator覆盖。
+    for (const auto &row : x.replies.rows())
+      if (const auto *request =
+              std::get_if<TreatyReleaseRequestSource>(&row.second)) {
+        auto ready =
+            consent(x, treaty_release_request_source(*request), nullptr);
+        if (!ready)
+          continue;
+        const TreatyTerminationSource *ended = nullptr;
+        for (const auto &end : x.treaties.terminations.rows())
+          if (same_source_ref(end.second.activation_ref,
+                              ready->activation_source)) {
+            if (ended)
+              fail("DuplicateTreatyTermination", end.first);
+            ended = &end.second;
+          }
+        if (!ended)
+          fail("TreatyReleaseFinalAnswerUnconsumed", request->id);
+        const auto *cause =
+            std::get_if<TreatyMutualReleaseTermination>(&ended->cause);
+        if (!cause)
+          fail("TreatyReleaseTerminalCauseMismatch", ended->id);
+        const auto ref = treaty_termination_source(*ended);
+        auto active = take(read_original_treaty_resource_activation(
+            x.treaties.activations, ready->activation_source, 2));
+        take(validate_treaty_resource_mutual_release_consent(
+            x, active, *cause, ended->terminated_at, &ref));
+        if (cause->release_acceptance_refs.size() !=
+            ready->cause.release_acceptance_refs.size())
+          fail("TreatyReleaseTerminalConsentMismatch", ended->id);
+        for (std::size_t i = 0; i < cause->release_acceptance_refs.size(); ++i)
+          if (!same_source_ref(cause->release_acceptance_refs[i],
+                               ready->cause.release_acceptance_refs[i]))
+            fail("TreatyReleaseTerminalConsentMismatch", ended->id);
+      }
+    for (const auto &row : revisions(x).common.state().facts.rows())
+      if (row.second.domain == "politics" &&
+          (row.second.kind == "treaty_release_requested" ||
+           row.second.kind == "treaty_release_answered")) {
+        const auto *v = x.replies.find(row.first);
+        if (!v ||
+            (row.second.kind == "treaty_release_requested"
+                 ? !std::holds_alternative<TreatyReleaseRequestSource>(*v)
+                 : !std::holds_alternative<TreatyReleaseAnswerSource>(*v)))
+          fail("TreatyReleaseOrphanFact", row.first);
+      }
+    return common_success();
+  } catch (const Failure &f) {
+    return {false, {}, f.error};
+  }
+}
+Outcome<OfficialContentRef>
+read_treaty_resource_release_request_official_content(
+    const TreatyResourceReleaseContext &x, const SourceRef &ref,
+    Integer schema) {
+  auto r = read_treaty_resource_release_request(x, ref, schema);
+  if (!r.ok)
+    return {false, {}, r.error};
+  OfficialContentRef content{OfficialContentKind::treaty_release_request,
+                             ref.id, Revision{r.value->terms_revision}};
+  auto valid = validate_official_content_ref(content);
+  return {valid.ok, std::move(content), valid.error};
+}
+Outcome<TreatyReleaseRequestBody>
+read_treaty_resource_release_request_official_body(
+    const TreatyResourceReleaseContext &x, const OfficialContentRef &content) {
+  try {
+    take(validate_official_content_ref(content));
+    const auto *version = std::get_if<Revision>(&content.terms_revision);
+    if (content.kind != OfficialContentKind::treaty_release_request || !version)
+      fail("TreatyReleaseOfficialSourceRequired", content.id);
+    const auto *p = take(read_treaty_resource_release_request(
+        x, {"politics", "treaty_release_requested", content.id}, 1));
+    if (p->terms_revision != version->revision)
+      fail("TreatyReleaseOfficialRevisionMismatch", content.id);
+    return {true,
+            {p, take(read_original_treaty_resource_activation(
+                    x.treaties.activations, p->activation_source, 2))},
+            {}};
+  } catch (const Failure &f) {
+    return {false, {}, f.error};
+  }
+}
+Outcome<SourceRef> request_treaty_resource_release_in_candidate(
+    CommonStore &common, OrderedTable<TreatyReplyRecord> &rows,
+    AuthorityBasisRegistry &bases, const TreatyResourceReleaseContext &x,
+    const RequestTreatyReleaseCommand &command) {
+  try {
+    candidate(common, rows, bases, x);
+    const auto &r = revisions(x);
+    auto a = take(read_original_treaty_resource_activation(
+        x.treaties.activations, command.activation_source, 2));
+    TreatyReleaseRequestSource p;
+    p.treaty_id = a.source->treaty_id;
+    p.terms_revision = command.terms_revision;
+    p.activation_source = command.activation_source;
+    p.terms_source = a.revision.source;
+    p.requester = command.authority;
+    p.requested_at = take(r.clock.read_organization_authority_now());
+    a = active_at(x, p.activation_source, p.treaty_id, p.terms_revision,
+                  p.requester, p.requested_at, nullptr);
+    take(x.originals.validate_treaty_release_request_inputs(
+        a, p.requester, p.requested_at, nullptr));
+    auto q = authority_request(x, a, p.requester, false, nullptr);
+    auto captured = take(check_current_grant_authority(
+        common, r.organization, r.organization_catalog,
+        r.organization_catalog.authority_catalog_identity, q, &r.clock));
+    p.id = take(common.next_id("treaty_release_request"));
+    take(validate_treaty_release_request_shape(p));
+    const auto ref = treaty_release_request_source(p);
+    take(common.append_fact({ref.id, ref.kind, ref.domain}));
+    if (!rows.insert(ref.id, TreatyReplyRecord{std::move(p)}))
+      fail("DuplicateTreatyReleaseSource", ref.id);
+    NativeTreatyResourceReleaseIssueRead issue(x);
+    take(register_authority_basis_for_fact(
+        common, bases, r.organization, r.organization_catalog,
+        r.organization_catalog.authority_catalog_identity, q, captured, ref,
+        issue, {}, r.budgets));
+    take(read_treaty_resource_release_request(x, ref, 1));
+    return {true, ref, {}};
+  } catch (const Failure &f) {
+    return {false, {}, f.error};
+  }
+}
+Outcome<SourceRef> answer_treaty_resource_release_in_candidate(
+    CommonStore &common, OrderedTable<TreatyReplyRecord> &rows,
+    AuthorityBasisRegistry &bases, const TreatyResourceReleaseContext &x,
+    const AnswerTreatyReleaseCommand &command) {
+  try {
+    candidate(common, rows, bases, x);
+    const auto *request = take(
+        read_treaty_resource_release_request(x, command.request_source, 1));
+    for (const auto &row : rows.rows())
+      if (const auto *old = std::get_if<TreatyReleaseAnswerSource>(&row.second))
+        if (same_source_ref(old->request_source, command.request_source) &&
+            old->respondent.organization_id ==
+                command.authority.organization_id) {
+          const auto ref = treaty_release_answer_source(*old);
+          take(read_treaty_resource_release_answer(x, ref, 1));
+          if (!actor(old->respondent, command.authority) ||
+              old->decision != command.decision ||
+              !same_source_ref(old->actual_request_receipt.source_ref,
+                               command.actual_request_receipt.source_ref) ||
+              old->actual_request_receipt.source_schema !=
+                  command.actual_request_receipt.source_schema)
+            fail("TreatyReleaseAlreadyAnswered", ref.id);
+          return {true, ref, {}};
+        }
+    const auto &r = revisions(x);
+    TreatyReleaseAnswerSource p;
+    p.treaty_id = request->treaty_id;
+    p.terms_revision = request->terms_revision;
+    p.activation_source = request->activation_source;
+    p.request_source = command.request_source;
+    p.respondent = command.authority;
+    p.decision = command.decision;
+    p.actual_request_receipt = command.actual_request_receipt;
+    p.answered_at = take(r.clock.read_organization_authority_now());
+    if (p.respondent.organization_id == request->requester.organization_id)
+      fail("TreatyReleaseRequesterAlreadyConsented", p.treaty_id);
+    auto a = active_at(x, p.activation_source, p.treaty_id, p.terms_revision,
+                       p.respondent, p.answered_at, nullptr);
+    known_request(x, *request, p, nullptr);
+    take(x.originals.validate_treaty_release_answer_inputs(
+        a, *request, p.respondent, p.decision, p.answered_at, nullptr));
+    auto q = authority_request(x, a, p.respondent, true, nullptr);
+    auto captured = take(check_current_grant_authority(
+        common, r.organization, r.organization_catalog,
+        r.organization_catalog.authority_catalog_identity, q, &r.clock));
+    p.id = take(common.next_id("treaty_release_answer"));
+    take(validate_treaty_release_answer_shape(p));
+    const auto ref = treaty_release_answer_source(p);
+    take(common.append_fact({ref.id, ref.kind, ref.domain}));
+    if (!rows.insert(ref.id, TreatyReplyRecord{std::move(p)}))
+      fail("DuplicateTreatyReleaseSource", ref.id);
+    NativeTreatyResourceReleaseIssueRead issue(x);
+    take(register_authority_basis_for_fact(
+        common, bases, r.organization, r.organization_catalog,
+        r.organization_catalog.authority_catalog_identity, q, captured, ref,
+        issue, {}, r.budgets));
+    take(read_treaty_resource_release_answer(x, ref, 1));
+    return {true, ref, {}};
+  } catch (const Failure &f) {
+    return {false, {}, f.error};
+  }
+}
+Outcome<std::optional<TreatyMutualReleaseReady>>
+read_treaty_resource_mutual_release_ready(const TreatyResourceReleaseContext &x,
+                                          const SourceRef &request) {
+  try {
+    return {true, consent(x, request, nullptr), {}};
+  } catch (const Failure &f) {
+    return {false, {}, f.error};
+  }
+}
+Status validate_treaty_resource_mutual_release_consent(
+    const TreatyResourceReleaseContext &x, const TreatyActivationView &a,
+    const TreatyMutualReleaseTermination &cause, const WorldMoment &at,
+    const SourceRef *cut) {
+  try {
+    std::optional<SourceRef> request;
+    for (const auto &ref : cause.release_acceptance_refs)
+      if (ref.domain == "politics" && ref.kind == "treaty_release_requested") {
+        if (request)
+          fail("TreatyReleaseRequestNotUnique", a.source->id);
+        request = ref;
+      }
+    if (!request)
+      fail("TreatyReleaseRequestRequired", a.source->id);
+    auto ready = consent(x, *request, cut);
+    if (!ready ||
+        !same_source_ref(ready->activation_source,
+                         treaty_activation_source(*a.source)) ||
+        compare(ready->agreed_at, at) ||
+        ready->cause.release_acceptance_refs.size() !=
+            cause.release_acceptance_refs.size())
+      fail("TreatyReleaseConsentIncomplete", a.source->id);
+    for (std::size_t i = 0; i < cause.release_acceptance_refs.size(); ++i)
+      if (!same_source_ref(cause.release_acceptance_refs[i],
+                           ready->cause.release_acceptance_refs[i]))
+        fail("TreatyReleaseConsentPartyMismatch", a.source->id);
+    return common_success();
+  } catch (const Failure &f) {
+    return {false, {}, f.error};
+  }
+}
+Outcome<AnswerAndReleaseTreatyResult>
+answer_and_release_treaty_resource_in_candidate(
+    CommonStore &common, OrderedTable<TreatyReplyRecord> &rows,
+    AuthorityBasisRegistry &bases, OrderedTable<TreatyTerminationSource> &ends,
+    const TreatyResourceReleaseContext &x,
+    TreatyTerminationOriginalWrite &consequences,
+    const AnswerTreatyReleaseCommand &command) {
+  try {
+    if (&ends != &x.treaties.terminations)
+      fail("TreatyReleaseCandidateMismatch");
+    AnswerAndReleaseTreatyResult result;
+    result.answer = take(answer_treaty_resource_release_in_candidate(
+        common, rows, bases, x, command));
+    auto ready = take(
+        read_treaty_resource_mutual_release_ready(x, command.request_source));
+    if (!ready)
+      return {true, std::move(result), {}};
+    for (const auto &row : ends.rows())
+      if (same_source_ref(row.second.activation_ref,
+                          ready->activation_source)) {
+        const auto ref = treaty_termination_source(row.second);
+        auto ended =
+            take(read_verified_treaty_resource_termination(x.treaties, ref, 2));
+        const auto *cause =
+            std::get_if<TreatyMutualReleaseTermination>(&ended.source->cause);
+        if (!cause || cause->release_acceptance_refs.size() !=
+                          ready->cause.release_acceptance_refs.size())
+          fail("TreatyReleaseTerminationChanged", ref.id);
+        for (std::size_t i = 0; i < cause->release_acceptance_refs.size(); ++i)
+          if (!same_source_ref(cause->release_acceptance_refs[i],
+                               ready->cause.release_acceptance_refs[i]))
+            fail("TreatyReleaseTerminationChanged", ref.id);
+        take(validate_treaty_resource_mutual_release_consent(
+            x, ended.activation, *cause, ended.source->terminated_at, &ref));
+        result.termination = ref;
+        return {true, std::move(result), {}};
+      }
+    if (compare(ready->agreed_at,
+                take(revisions(x).clock.read_organization_authority_now())))
+      fail("TreatyReleaseMustApplyWithFinalAnswer", command.request_source.id);
+    result.termination = take(terminate_treaty_resource_terms_in_candidate(
+        common, ends, x.treaties, consequences, ready->activation_source,
+        ready->cause));
+    return {true, std::move(result), {}};
+  } catch (const Failure &f) {
+    return {false, {}, f.error};
+  }
+}
+} // namespace hanmo::resident

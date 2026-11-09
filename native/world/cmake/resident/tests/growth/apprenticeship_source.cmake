@@ -1,0 +1,7 @@
+# 成长与教学消费者登记：保留本组目标、测试、条件与局部变量的原执行顺序。
+# 师承本人来源/实际请求和原课程必要域门；不替代完整 World。
+add_executable(test_resident_apprenticeship_source tests/resident/apprenticeship_source_test.cpp)
+target_link_libraries(test_resident_apprenticeship_source PRIVATE hanmo_resident)
+target_include_directories(test_resident_apprenticeship_source PRIVATE src)
+target_compile_options(test_resident_apprenticeship_source PRIVATE -UNDEBUG -fno-fast-math -ffp-contract=off)
+add_test(NAME resident_apprenticeship_source COMMAND test_resident_apprenticeship_source)

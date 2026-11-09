@@ -1,0 +1,10 @@
+{
+  "source_content_git_oid": "af9a555d44b382a758a7b8ced87b4613a7ffac1e",
+  "source_pack": "hanmo.household_economy/1.0.0",
+  "scenario": "household::scenario.qingchuan_household_management",
+  "explicit_author_example_control_through_tick": 20,
+  "initial_people_money_food_unchanged": true,
+  "old_scenario_unchanged": true,
+  "new_private_role": "role.household_provision_steward",
+  "runtime_registered": false
+}

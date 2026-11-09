@@ -1,0 +1,1 @@
+{"military_proposals":[{"kind":"campaign_depart","params":{"campaign_id":"campaign:2072"},"actor_id":"actor.blackwater.commander"}],"march_model_enabled":false,"army_ids":["army:2586"],"campaign_statuses":[{"id":"campaign:2072","status":"mustered","army_id":"army:2586"},{"id":"campaign:2578","status":"accepted","army_id":""}],"military_contacts":[]}

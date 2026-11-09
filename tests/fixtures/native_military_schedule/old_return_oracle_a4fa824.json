@@ -1,0 +1,2444 @@
+{
+	"format": "HM-MILITARY-RETURN-ORACLE/1",
+	"rows": [
+		{
+			"label": "domain_actual_occupation",
+			"proposals": [
+				{
+					"actor_id": "actor.shen",
+					"kind": "campaign_return",
+					"params": {
+						"campaign_id": "campaign:27"
+					}
+				}
+			],
+			"report_roles": [],
+			"return_destination": {
+				"army_id": "army:35",
+				"cost": 2560,
+				"destination_settlement_id": "city.west",
+				"ok": true,
+				"return_garrison_id": "garrison.c"
+			}
+		},
+		{
+			"label": "domain_actual_return_requested",
+			"proposals": [
+				{
+					"actor_id": "actor.shen",
+					"kind": "move_local",
+					"params": {
+						"place_id": "east.entrance"
+					}
+				}
+			],
+			"report_roles": [
+				"role.return_c"
+			],
+			"return_destination": {
+				"army_id": "army:35",
+				"cost": 2560,
+				"destination_settlement_id": "city.west",
+				"ok": true,
+				"return_garrison_id": "garrison.c"
+			}
+		},
+		{
+			"label": "pure_return/no_friend",
+			"proposals": [],
+			"report_roles": [],
+			"return_destination": {
+				"code": "CampaignNoFriendlyGarrison",
+				"ok": false,
+				"return_garrison_id": ""
+			}
+		},
+		{
+			"label": "pure_return/no_route",
+			"proposals": [],
+			"report_roles": [
+				"role.return_c"
+			],
+			"return_destination": {
+				"code": "CampaignNoFriendlyRoute",
+				"ok": false,
+				"return_garrison_id": "garrison.c"
+			}
+		},
+		{
+			"label": "pure_return/pending_active",
+			"proposals": [],
+			"report_roles": [
+				"role.return_c"
+			],
+			"return_destination": {
+				"army_id": "army:35",
+				"cost": 2560,
+				"destination_settlement_id": "city.west",
+				"ok": true,
+				"return_garrison_id": "garrison.c"
+			}
+		},
+		{
+			"label": "pure_return/pending_result_player",
+			"proposals": [],
+			"report_roles": [
+				"role.return_c"
+			],
+			"return_destination": {
+				"army_id": "army:35",
+				"cost": 2560,
+				"destination_settlement_id": "city.west",
+				"ok": true,
+				"return_garrison_id": "garrison.c"
+			}
+		},
+		{
+			"label": "pure_return/pending_result_npc",
+			"proposals": [
+				{
+					"actor_id": "actor.shen",
+					"kind": "siege_close",
+					"params": {
+						"siege_id": "siege:38"
+					}
+				}
+			],
+			"report_roles": [
+				"role.return_c"
+			],
+			"return_destination": {
+				"army_id": "army:35",
+				"cost": 2560,
+				"destination_settlement_id": "city.west",
+				"ok": true,
+				"return_garrison_id": "garrison.c"
+			}
+		},
+		{
+			"label": "pure_return/report_far",
+			"proposals": [
+				{
+					"actor_id": "actor.shen",
+					"kind": "campaign_report",
+					"params": {
+						"campaign_id": "campaign:27",
+						"context": {
+							"place_id": "east.home",
+							"provider_actor_id": "actor.zheng",
+							"role_id": "role.military_b"
+						}
+					}
+				}
+			],
+			"report_roles": [
+				"role.military_b",
+				"role.return_c"
+			],
+			"return_destination": {
+				"army_id": "army:35",
+				"cost": 2560,
+				"destination_settlement_id": "city.west",
+				"ok": true,
+				"return_garrison_id": "garrison.c"
+			}
+		},
+		{
+			"label": "pure_return/report_same_city",
+			"proposals": [
+				{
+					"actor_id": "actor.shen",
+					"kind": "campaign_report",
+					"params": {
+						"campaign_id": "campaign:27",
+						"context": {
+							"place_id": "west.street",
+							"provider_actor_id": "actor.host",
+							"role_id": "role.return_c"
+						}
+					}
+				}
+			],
+			"report_roles": [
+				"role.military_b",
+				"role.return_c"
+			],
+			"return_destination": {
+				"army_id": "army:35",
+				"cost": 0,
+				"destination_settlement_id": "city.west",
+				"ok": true,
+				"return_garrison_id": "garrison.c"
+			}
+		},
+		{
+			"label": "pure_return/report_absent",
+			"proposals": [],
+			"report_roles": [],
+			"return_destination": {
+				"army_id": "army:35",
+				"cost": 2560,
+				"destination_settlement_id": "city.west",
+				"ok": true,
+				"return_garrison_id": "garrison.c"
+			}
+		},
+		{
+			"label": "domain_npc_before_close",
+			"proposals": [
+				{
+					"actor_id": "actor.player",
+					"kind": "siege_close",
+					"params": {
+						"siege_id": "siege:38"
+					}
+				},
+				{
+					"actor_id": "actor.shen",
+					"kind": "move_local",
+					"params": {
+						"place_id": "east.entrance"
+					}
+				}
+			],
+			"report_roles": [
+				"role.military_b"
+			],
+			"return_destination": {
+				"army_id": "army:35",
+				"cost": 0,
+				"destination_settlement_id": "village.east",
+				"ok": true,
+				"return_garrison_id": "garrison.b"
+			}
+		},
+		{
+			"label": "domain_npc_close_result",
+			"request": {
+				"actor_id": "actor.player",
+				"kind": "siege_close",
+				"params": {
+					"siege_id": "siege:38"
+				}
+			},
+			"result": {
+				"details": {
+					"siege_id": "siege:38"
+				},
+				"ok": true
+			},
+			"state": {
+				"actions": {},
+				"actors": {
+					"actor.apprentice": {
+						"action_id": "",
+						"alive": true,
+						"appearance": {
+							"attire_style": "legacy",
+							"base_features": {},
+							"format_version": 1,
+							"generation_seed": "not-sampled",
+							"generator_version": "legacy-portrait-v1",
+							"parent_sources": [],
+							"source": "legacy"
+						},
+						"attributes": {
+							"administration": 60,
+							"charisma": 60,
+							"intellect": 60,
+							"leadership": 60,
+							"martial": 60
+						},
+						"available": true,
+						"combat": {
+							"heart_id": "",
+							"learned": {},
+							"weapon_id": ""
+						},
+						"fatigue": 0,
+						"hp": 100,
+						"id": "actor.apprentice",
+						"injury": 0,
+						"inventory_id": "bag:actor.apprentice",
+						"location": {
+							"kind": "Settlement",
+							"place_id": "west.grain",
+							"settlement_id": "city.west"
+						},
+						"merit": 0,
+						"skills": {
+							"archery": 0,
+							"cavalry": 0,
+							"commerce": 0,
+							"debate": 0,
+							"infantry": 0,
+							"martial": 0,
+							"negotiation": 0,
+							"rites": 0,
+							"tactics": 0,
+							"transport": 0
+						},
+						"wallet_id": "personal:actor.apprentice"
+					},
+					"actor.carter": {
+						"action_id": "",
+						"alive": true,
+						"appearance": {
+							"attire_style": "legacy",
+							"base_features": {},
+							"format_version": 1,
+							"generation_seed": "not-sampled",
+							"generator_version": "legacy-portrait-v1",
+							"parent_sources": [],
+							"source": "legacy"
+						},
+						"attributes": {
+							"administration": 60,
+							"charisma": 60,
+							"intellect": 60,
+							"leadership": 60,
+							"martial": 60
+						},
+						"available": true,
+						"combat": {
+							"heart_id": "",
+							"learned": {},
+							"weapon_id": ""
+						},
+						"fatigue": 0,
+						"hp": 100,
+						"id": "actor.carter",
+						"injury": 0,
+						"inventory_id": "bag:actor.carter",
+						"location": {
+							"army_id": "army:19",
+							"kind": "InArmy"
+						},
+						"merit": 0,
+						"skills": {
+							"archery": 0,
+							"cavalry": 0,
+							"commerce": 0,
+							"debate": 0,
+							"infantry": 0,
+							"martial": 0,
+							"negotiation": 0,
+							"rites": 0,
+							"tactics": 0,
+							"transport": 0
+						},
+						"wallet_id": "personal:actor.carter"
+					},
+					"actor.chen": {
+						"action_id": "",
+						"alive": true,
+						"appearance": {
+							"attire_style": "legacy",
+							"base_features": {},
+							"format_version": 1,
+							"generation_seed": "not-sampled",
+							"generator_version": "legacy-portrait-v1",
+							"parent_sources": [],
+							"source": "legacy"
+						},
+						"attributes": {
+							"administration": 60,
+							"charisma": 60,
+							"intellect": 60,
+							"leadership": 60,
+							"martial": 60
+						},
+						"available": true,
+						"combat": {
+							"heart_id": "",
+							"learned": {},
+							"weapon_id": ""
+						},
+						"fatigue": 0,
+						"hp": 100,
+						"id": "actor.chen",
+						"injury": 0,
+						"inventory_id": "bag:actor.chen",
+						"location": {
+							"kind": "Settlement",
+							"place_id": "west.office",
+							"settlement_id": "city.west"
+						},
+						"merit": 0,
+						"skills": {
+							"archery": 0,
+							"cavalry": 0,
+							"commerce": 0,
+							"debate": 0,
+							"infantry": 0,
+							"martial": 0,
+							"negotiation": 0,
+							"rites": 0,
+							"tactics": 0,
+							"transport": 0
+						},
+						"wallet_id": "personal:actor.chen"
+					},
+					"actor.gate": {
+						"action_id": "",
+						"alive": true,
+						"appearance": {
+							"attire_style": "legacy",
+							"base_features": {},
+							"format_version": 1,
+							"generation_seed": "not-sampled",
+							"generator_version": "legacy-portrait-v1",
+							"parent_sources": [],
+							"source": "legacy"
+						},
+						"attributes": {
+							"administration": 60,
+							"charisma": 60,
+							"intellect": 60,
+							"leadership": 60,
+							"martial": 60
+						},
+						"available": true,
+						"combat": {
+							"heart_id": "",
+							"learned": {},
+							"weapon_id": ""
+						},
+						"fatigue": 0,
+						"hp": 100,
+						"id": "actor.gate",
+						"injury": 0,
+						"inventory_id": "bag:actor.gate",
+						"location": {
+							"kind": "Settlement",
+							"place_id": "west.office",
+							"settlement_id": "city.west"
+						},
+						"merit": 0,
+						"skills": {
+							"archery": 0,
+							"cavalry": 0,
+							"commerce": 0,
+							"debate": 0,
+							"infantry": 0,
+							"martial": 0,
+							"negotiation": 0,
+							"rites": 0,
+							"tactics": 0,
+							"transport": 0
+						},
+						"wallet_id": "personal:actor.gate"
+					},
+					"actor.he": {
+						"action_id": "",
+						"alive": true,
+						"appearance": {
+							"attire_style": "legacy",
+							"base_features": {},
+							"format_version": 1,
+							"generation_seed": "not-sampled",
+							"generator_version": "legacy-portrait-v1",
+							"parent_sources": [],
+							"source": "legacy"
+						},
+						"attributes": {
+							"administration": 60,
+							"charisma": 60,
+							"intellect": 60,
+							"leadership": 60,
+							"martial": 60
+						},
+						"available": true,
+						"combat": {
+							"heart_id": "",
+							"learned": {},
+							"weapon_id": ""
+						},
+						"fatigue": 0,
+						"hp": 100,
+						"id": "actor.he",
+						"injury": 0,
+						"inventory_id": "bag:actor.he",
+						"location": {
+							"kind": "Settlement",
+							"place_id": "east.home",
+							"settlement_id": "village.east"
+						},
+						"merit": 0,
+						"skills": {
+							"archery": 0,
+							"cavalry": 0,
+							"commerce": 0,
+							"debate": 0,
+							"infantry": 0,
+							"martial": 0,
+							"negotiation": 0,
+							"rites": 0,
+							"tactics": 0,
+							"transport": 0
+						},
+						"wallet_id": "personal:actor.he"
+					},
+					"actor.host": {
+						"action_id": "",
+						"alive": true,
+						"appearance": {
+							"attire_style": "legacy",
+							"base_features": {},
+							"format_version": 1,
+							"generation_seed": "not-sampled",
+							"generator_version": "legacy-portrait-v1",
+							"parent_sources": [],
+							"source": "legacy"
+						},
+						"attributes": {
+							"administration": 60,
+							"charisma": 60,
+							"intellect": 60,
+							"leadership": 60,
+							"martial": 60
+						},
+						"available": true,
+						"combat": {
+							"heart_id": "",
+							"learned": {},
+							"weapon_id": ""
+						},
+						"fatigue": 0,
+						"hp": 100,
+						"id": "actor.host",
+						"injury": 0,
+						"inventory_id": "bag:actor.host",
+						"location": {
+							"kind": "Settlement",
+							"place_id": "west.street",
+							"settlement_id": "city.west"
+						},
+						"merit": 0,
+						"skills": {
+							"archery": 0,
+							"cavalry": 0,
+							"commerce": 0,
+							"debate": 0,
+							"infantry": 0,
+							"martial": 0,
+							"negotiation": 0,
+							"rites": 0,
+							"tactics": 0,
+							"transport": 0
+						},
+						"wallet_id": "wallet.host"
+					},
+					"actor.innkeeper": {
+						"action_id": "",
+						"alive": true,
+						"appearance": {
+							"attire_style": "legacy",
+							"base_features": {},
+							"format_version": 1,
+							"generation_seed": "not-sampled",
+							"generator_version": "legacy-portrait-v1",
+							"parent_sources": [],
+							"source": "legacy"
+						},
+						"attributes": {
+							"administration": 60,
+							"charisma": 60,
+							"intellect": 60,
+							"leadership": 60,
+							"martial": 60
+						},
+						"available": true,
+						"combat": {
+							"heart_id": "",
+							"learned": {},
+							"weapon_id": ""
+						},
+						"fatigue": 0,
+						"hp": 100,
+						"id": "actor.innkeeper",
+						"injury": 0,
+						"inventory_id": "bag:actor.innkeeper",
+						"location": {
+							"kind": "Settlement",
+							"place_id": "west.inn",
+							"settlement_id": "city.west"
+						},
+						"merit": 0,
+						"skills": {
+							"archery": 0,
+							"cavalry": 0,
+							"commerce": 0,
+							"debate": 0,
+							"infantry": 0,
+							"martial": 0,
+							"negotiation": 0,
+							"rites": 0,
+							"tactics": 0,
+							"transport": 0
+						},
+						"wallet_id": "wallet.inn"
+					},
+					"actor.player": {
+						"action_id": "",
+						"alive": true,
+						"appearance": {
+							"attire_style": "legacy",
+							"base_features": {},
+							"format_version": 1,
+							"generation_seed": "not-sampled",
+							"generator_version": "legacy-portrait-v1",
+							"parent_sources": [],
+							"source": "legacy"
+						},
+						"attributes": {
+							"administration": 60,
+							"charisma": 60,
+							"intellect": 60,
+							"leadership": 60,
+							"martial": 60
+						},
+						"available": true,
+						"combat": {
+							"heart_id": "",
+							"learned": {},
+							"weapon_id": ""
+						},
+						"fatigue": 0,
+						"hp": 100,
+						"id": "actor.player",
+						"injury": 0,
+						"inventory_id": "bag:actor.player",
+						"location": {
+							"kind": "Settlement",
+							"place_id": "east.home",
+							"settlement_id": "village.east"
+						},
+						"merit": 0,
+						"skills": {
+							"archery": 0,
+							"cavalry": 0,
+							"commerce": 0,
+							"debate": 0,
+							"infantry": 0,
+							"martial": 0,
+							"negotiation": 0,
+							"rites": 0,
+							"tactics": 0,
+							"transport": 0
+						},
+						"wallet_id": "wallet.player"
+					},
+					"actor.shen": {
+						"action_id": "",
+						"alive": true,
+						"appearance": {
+							"attire_style": "legacy",
+							"base_features": {},
+							"format_version": 1,
+							"generation_seed": "not-sampled",
+							"generator_version": "legacy-portrait-v1",
+							"parent_sources": [],
+							"source": "legacy"
+						},
+						"attributes": {
+							"administration": 60,
+							"charisma": 60,
+							"intellect": 60,
+							"leadership": 60,
+							"martial": 60
+						},
+						"available": true,
+						"combat": {
+							"heart_id": "",
+							"learned": {},
+							"weapon_id": ""
+						},
+						"fatigue": 0,
+						"hp": 100,
+						"id": "actor.shen",
+						"injury": 0,
+						"inventory_id": "bag:actor.shen",
+						"location": {
+							"kind": "Settlement",
+							"place_id": "east.home",
+							"settlement_id": "village.east"
+						},
+						"merit": 0,
+						"skills": {
+							"archery": 0,
+							"cavalry": 0,
+							"commerce": 0,
+							"debate": 0,
+							"infantry": 0,
+							"martial": 0,
+							"negotiation": 0,
+							"rites": 0,
+							"tactics": 0,
+							"transport": 0
+						},
+						"wallet_id": "wallet.shen"
+					},
+					"actor.zheng": {
+						"action_id": "",
+						"alive": true,
+						"appearance": {
+							"attire_style": "legacy",
+							"base_features": {},
+							"format_version": 1,
+							"generation_seed": "not-sampled",
+							"generator_version": "legacy-portrait-v1",
+							"parent_sources": [],
+							"source": "legacy"
+						},
+						"attributes": {
+							"administration": 60,
+							"charisma": 60,
+							"intellect": 60,
+							"leadership": 60,
+							"martial": 60
+						},
+						"available": true,
+						"combat": {
+							"heart_id": "",
+							"learned": {},
+							"weapon_id": ""
+						},
+						"fatigue": 0,
+						"hp": 100,
+						"id": "actor.zheng",
+						"injury": 0,
+						"inventory_id": "bag:actor.zheng",
+						"location": {
+							"kind": "Settlement",
+							"place_id": "east.home",
+							"settlement_id": "village.east"
+						},
+						"merit": 0,
+						"skills": {
+							"archery": 0,
+							"cavalry": 0,
+							"commerce": 0,
+							"debate": 0,
+							"infantry": 0,
+							"martial": 0,
+							"negotiation": 0,
+							"rites": 0,
+							"tactics": 0,
+							"transport": 0
+						},
+						"wallet_id": "personal:actor.zheng"
+					}
+				},
+				"armies": {
+					"army:19": {
+						"commander_actor_id": "actor.player",
+						"formation_source": "action:13",
+						"garrison_id": "garrison.a",
+						"id": "army:19",
+						"inventory_id": "army_inventory:army:19",
+						"last_supply_tick": 8,
+						"member_actor_ids": [
+							"actor.player",
+							"actor.carter"
+						],
+						"order_id": "campaign:12",
+						"organization_id": "org.office",
+						"prisoner_ids": [],
+						"retainers": {},
+						"status": "active",
+						"unit_ids": [
+							"unit.garrison.a.a",
+							"unit.garrison.a.b"
+						],
+						"wallet_id": "army_wallet:army:19"
+					},
+					"army:35": {
+						"commander_actor_id": "actor.shen",
+						"formation_source": "action:28",
+						"garrison_id": "garrison.b",
+						"id": "army:35",
+						"inventory_id": "army_inventory:army:35",
+						"last_supply_tick": 8,
+						"member_actor_ids": [
+							"actor.shen"
+						],
+						"order_id": "campaign:27",
+						"organization_id": "org.grain",
+						"prisoner_ids": [],
+						"retainers": {},
+						"status": "active",
+						"unit_ids": [
+							"unit.garrison.b.a"
+						],
+						"wallet_id": "army_wallet:army:35"
+					}
+				},
+				"battles": {},
+				"campaigns": {
+					"campaign:12": {
+						"accepted_tick": 1,
+						"actor_id": "actor.player",
+						"army_id": "army:19",
+						"arrival_fact_id": "",
+						"deadline_tick": 401,
+						"garrison_id": "garrison.a",
+						"id": "campaign:12",
+						"issuer_organization_id": "org.office",
+						"issuer_role_id": "role.office",
+						"last_tick": 8,
+						"objective_result": {},
+						"office_id": "office.a",
+						"recipient_army_id": "",
+						"return_garrison_id": "",
+						"return_receipt_id": "",
+						"return_wait_reason": "",
+						"settlement_id": "",
+						"status": "mustered",
+						"template_id": "office.a"
+					},
+					"campaign:27": {
+						"accepted_tick": 3,
+						"actor_id": "actor.shen",
+						"army_id": "army:35",
+						"arrival_fact_id": "",
+						"deadline_tick": 403,
+						"garrison_id": "garrison.b",
+						"id": "campaign:27",
+						"issuer_organization_id": "org.grain",
+						"issuer_role_id": "role.military_b",
+						"last_tick": 8,
+						"objective_result": {},
+						"office_id": "office.b",
+						"recipient_army_id": "",
+						"return_garrison_id": "",
+						"return_receipt_id": "",
+						"return_wait_reason": "",
+						"settlement_id": "",
+						"status": "mustered",
+						"template_id": "office.b"
+					}
+				},
+				"content_digest": "d09738fefdd14c526bceaec07681e7c605e88ddab12c5016f2d1a93fbbfe7fcb",
+				"content_id": "foundation.lived_city",
+				"content_version": "0.4.0",
+				"encounters": {},
+				"engine_build": "4.7.2-stable (official)",
+				"events": {},
+				"facts": {
+					"action:13": {
+						"actor_id": "actor.player",
+						"command": "army_form",
+						"completed_tick": 2,
+						"context": {},
+						"kind": "military_action",
+						"phase": "completed",
+						"result": {
+							"army_id": "army:19",
+							"ok": true,
+							"order_id": "campaign:12"
+						},
+						"start_tick": 1,
+						"success": true,
+						"terms": {
+							"actor_id": "actor.player",
+							"commanders": {
+								"unit.garrison.a.a": "actor.player",
+								"unit.garrison.a.b": "actor.carter"
+							},
+							"garrison_id": "garrison.a",
+							"goods": {
+								"item.grain": 100,
+								"item.spear": 14
+							},
+							"member_actor_ids": [
+								"actor.player",
+								"actor.carter"
+							],
+							"money": 40,
+							"office_id": "office.a",
+							"order_id": "campaign:12",
+							"organization_id": "org.office",
+							"ownership_id": "",
+							"place_id": "west.office",
+							"retainers": {},
+							"source_inventory_id": "inventory.garrison.a",
+							"source_wallet_id": "wallet.garrison.a",
+							"unit_ids": [
+								"unit.garrison.a.a",
+								"unit.garrison.a.b"
+							]
+						}
+					},
+					"action:22": {
+						"actor_id": "actor.shen",
+						"command": "office_accept",
+						"completed_tick": 3,
+						"context": {
+							"place_id": "east.home",
+							"provider_actor_id": "actor.zheng",
+							"role_id": "role.military_b"
+						},
+						"kind": "military_action",
+						"phase": "completed",
+						"result": {
+							"office_id": "office.b"
+						},
+						"start_tick": 2,
+						"success": true,
+						"terms": {
+							"actor_id": "actor.shen",
+							"office_id": "office.b",
+							"organization_id": "org.grain",
+							"place_id": "east.home",
+							"provider_actor_id": "actor.zheng"
+						}
+					},
+					"action:28": {
+						"actor_id": "actor.shen",
+						"command": "army_form",
+						"completed_tick": 4,
+						"context": {},
+						"kind": "military_action",
+						"phase": "completed",
+						"result": {
+							"army_id": "army:35",
+							"ok": true,
+							"order_id": "campaign:27"
+						},
+						"start_tick": 3,
+						"success": true,
+						"terms": {
+							"actor_id": "actor.shen",
+							"commanders": {
+								"unit.garrison.b.a": "actor.shen"
+							},
+							"garrison_id": "garrison.b",
+							"goods": {
+								"item.beans": 100,
+								"item.spear": 6
+							},
+							"member_actor_ids": [
+								"actor.shen"
+							],
+							"money": 40,
+							"office_id": "office.b",
+							"order_id": "campaign:27",
+							"organization_id": "org.grain",
+							"ownership_id": "",
+							"place_id": "east.home",
+							"retainers": {},
+							"source_inventory_id": "inventory.garrison.b",
+							"source_wallet_id": "wallet.garrison.b",
+							"unit_ids": [
+								"unit.garrison.b.a"
+							]
+						}
+					},
+					"action:8": {
+						"actor_id": "actor.player",
+						"command": "office_accept",
+						"completed_tick": 1,
+						"context": {
+							"place_id": "west.office",
+							"provider_actor_id": "actor.chen",
+							"role_id": "role.office"
+						},
+						"kind": "military_action",
+						"phase": "completed",
+						"result": {
+							"office_id": "office.a"
+						},
+						"start_tick": 0,
+						"success": true,
+						"terms": {
+							"actor_id": "actor.player",
+							"office_id": "office.a",
+							"organization_id": "org.office",
+							"place_id": "west.office",
+							"provider_actor_id": "actor.chen"
+						}
+					},
+					"military:10": {
+						"army_id": "",
+						"consumed": 7,
+						"garrison_id": "garrison.b",
+						"item_id": "item.beans",
+						"kind": "military_supply",
+						"mouth_ids": [
+							"actor.shen",
+							"soldier:unit.garrison.b.a:1",
+							"soldier:unit.garrison.b.a:2",
+							"soldier:unit.garrison.b.a:3",
+							"soldier:unit.garrison.b.a:4",
+							"soldier:unit.garrison.b.a:5",
+							"soldier:unit.garrison.b.a:6"
+						],
+						"organization_id": "org.grain",
+						"ownership_id": "",
+						"required": 7,
+						"shortage": 0,
+						"tick": 1
+					},
+					"military:11": {
+						"army_id": "",
+						"consumed": 6,
+						"garrison_id": "garrison.c",
+						"item_id": "item.beans",
+						"kind": "military_supply",
+						"mouth_ids": [
+							"soldier:unit.garrison.c.a:1",
+							"soldier:unit.garrison.c.a:2",
+							"soldier:unit.garrison.c.a:3",
+							"soldier:unit.garrison.c.a:4",
+							"soldier:unit.garrison.c.a:5",
+							"soldier:unit.garrison.c.a:6"
+						],
+						"organization_id": "org.grain",
+						"ownership_id": "",
+						"required": 6,
+						"shortage": 0,
+						"tick": 1
+					},
+					"military:16": {
+						"army_id": "",
+						"consumed": 12,
+						"garrison_id": "garrison.a",
+						"item_id": "item.grain",
+						"kind": "military_supply",
+						"mouth_ids": [
+							"actor.carter",
+							"actor.player",
+							"soldier:unit.garrison.a.a:1",
+							"soldier:unit.garrison.a.a:2",
+							"soldier:unit.garrison.a.a:3",
+							"soldier:unit.garrison.a.a:4",
+							"soldier:unit.garrison.a.a:5",
+							"soldier:unit.garrison.a.a:6",
+							"soldier:unit.garrison.a.b:1",
+							"soldier:unit.garrison.a.b:2",
+							"soldier:unit.garrison.a.b:3",
+							"soldier:unit.garrison.a.b:4"
+						],
+						"organization_id": "org.office",
+						"ownership_id": "",
+						"required": 12,
+						"shortage": 0,
+						"tick": 2
+					},
+					"military:17": {
+						"army_id": "",
+						"consumed": 7,
+						"garrison_id": "garrison.b",
+						"item_id": "item.beans",
+						"kind": "military_supply",
+						"mouth_ids": [
+							"actor.shen",
+							"soldier:unit.garrison.b.a:1",
+							"soldier:unit.garrison.b.a:2",
+							"soldier:unit.garrison.b.a:3",
+							"soldier:unit.garrison.b.a:4",
+							"soldier:unit.garrison.b.a:5",
+							"soldier:unit.garrison.b.a:6"
+						],
+						"organization_id": "org.grain",
+						"ownership_id": "",
+						"required": 7,
+						"shortage": 0,
+						"tick": 2
+					},
+					"military:18": {
+						"army_id": "",
+						"consumed": 6,
+						"garrison_id": "garrison.c",
+						"item_id": "item.beans",
+						"kind": "military_supply",
+						"mouth_ids": [
+							"soldier:unit.garrison.c.a:1",
+							"soldier:unit.garrison.c.a:2",
+							"soldier:unit.garrison.c.a:3",
+							"soldier:unit.garrison.c.a:4",
+							"soldier:unit.garrison.c.a:5",
+							"soldier:unit.garrison.c.a:6"
+						],
+						"organization_id": "org.grain",
+						"ownership_id": "",
+						"required": 6,
+						"shortage": 0,
+						"tick": 2
+					},
+					"military:23": {
+						"army_id": "",
+						"consumed": 0,
+						"garrison_id": "garrison.a",
+						"item_id": "item.grain",
+						"kind": "military_supply",
+						"mouth_ids": [],
+						"organization_id": "org.office",
+						"ownership_id": "",
+						"required": 0,
+						"shortage": 0,
+						"tick": 3
+					},
+					"military:24": {
+						"army_id": "",
+						"consumed": 7,
+						"garrison_id": "garrison.b",
+						"item_id": "item.beans",
+						"kind": "military_supply",
+						"mouth_ids": [
+							"actor.shen",
+							"soldier:unit.garrison.b.a:1",
+							"soldier:unit.garrison.b.a:2",
+							"soldier:unit.garrison.b.a:3",
+							"soldier:unit.garrison.b.a:4",
+							"soldier:unit.garrison.b.a:5",
+							"soldier:unit.garrison.b.a:6"
+						],
+						"organization_id": "org.grain",
+						"ownership_id": "",
+						"required": 7,
+						"shortage": 0,
+						"tick": 3
+					},
+					"military:25": {
+						"army_id": "",
+						"consumed": 6,
+						"garrison_id": "garrison.c",
+						"item_id": "item.beans",
+						"kind": "military_supply",
+						"mouth_ids": [
+							"soldier:unit.garrison.c.a:1",
+							"soldier:unit.garrison.c.a:2",
+							"soldier:unit.garrison.c.a:3",
+							"soldier:unit.garrison.c.a:4",
+							"soldier:unit.garrison.c.a:5",
+							"soldier:unit.garrison.c.a:6"
+						],
+						"organization_id": "org.grain",
+						"ownership_id": "",
+						"required": 6,
+						"shortage": 0,
+						"tick": 3
+					},
+					"military:26": {
+						"army_id": "army:19",
+						"consumed": 12,
+						"garrison_id": "",
+						"item_id": "item.grain",
+						"kind": "military_supply",
+						"mouth_ids": [
+							"actor.carter",
+							"actor.player",
+							"soldier:unit.garrison.a.a:1",
+							"soldier:unit.garrison.a.a:2",
+							"soldier:unit.garrison.a.a:3",
+							"soldier:unit.garrison.a.a:4",
+							"soldier:unit.garrison.a.a:5",
+							"soldier:unit.garrison.a.a:6",
+							"soldier:unit.garrison.a.b:1",
+							"soldier:unit.garrison.a.b:2",
+							"soldier:unit.garrison.a.b:3",
+							"soldier:unit.garrison.a.b:4"
+						],
+						"organization_id": "org.office",
+						"ownership_id": "",
+						"required": 12,
+						"shortage": 0,
+						"tick": 3
+					},
+					"military:31": {
+						"army_id": "",
+						"consumed": 0,
+						"garrison_id": "garrison.a",
+						"item_id": "item.grain",
+						"kind": "military_supply",
+						"mouth_ids": [],
+						"organization_id": "org.office",
+						"ownership_id": "",
+						"required": 0,
+						"shortage": 0,
+						"tick": 4
+					},
+					"military:32": {
+						"army_id": "",
+						"consumed": 7,
+						"garrison_id": "garrison.b",
+						"item_id": "item.beans",
+						"kind": "military_supply",
+						"mouth_ids": [
+							"actor.shen",
+							"soldier:unit.garrison.b.a:1",
+							"soldier:unit.garrison.b.a:2",
+							"soldier:unit.garrison.b.a:3",
+							"soldier:unit.garrison.b.a:4",
+							"soldier:unit.garrison.b.a:5",
+							"soldier:unit.garrison.b.a:6"
+						],
+						"organization_id": "org.grain",
+						"ownership_id": "",
+						"required": 7,
+						"shortage": 0,
+						"tick": 4
+					},
+					"military:33": {
+						"army_id": "",
+						"consumed": 6,
+						"garrison_id": "garrison.c",
+						"item_id": "item.beans",
+						"kind": "military_supply",
+						"mouth_ids": [
+							"soldier:unit.garrison.c.a:1",
+							"soldier:unit.garrison.c.a:2",
+							"soldier:unit.garrison.c.a:3",
+							"soldier:unit.garrison.c.a:4",
+							"soldier:unit.garrison.c.a:5",
+							"soldier:unit.garrison.c.a:6"
+						],
+						"organization_id": "org.grain",
+						"ownership_id": "",
+						"required": 6,
+						"shortage": 0,
+						"tick": 4
+					},
+					"military:34": {
+						"army_id": "army:19",
+						"consumed": 12,
+						"garrison_id": "",
+						"item_id": "item.grain",
+						"kind": "military_supply",
+						"mouth_ids": [
+							"actor.carter",
+							"actor.player",
+							"soldier:unit.garrison.a.a:1",
+							"soldier:unit.garrison.a.a:2",
+							"soldier:unit.garrison.a.a:3",
+							"soldier:unit.garrison.a.a:4",
+							"soldier:unit.garrison.a.a:5",
+							"soldier:unit.garrison.a.a:6",
+							"soldier:unit.garrison.a.b:1",
+							"soldier:unit.garrison.a.b:2",
+							"soldier:unit.garrison.a.b:3",
+							"soldier:unit.garrison.a.b:4"
+						],
+						"organization_id": "org.office",
+						"ownership_id": "",
+						"required": 12,
+						"shortage": 0,
+						"tick": 4
+					},
+					"military:39": {
+						"army_id": "",
+						"consumed": 0,
+						"garrison_id": "garrison.a",
+						"item_id": "item.grain",
+						"kind": "military_supply",
+						"mouth_ids": [],
+						"organization_id": "org.office",
+						"ownership_id": "",
+						"required": 0,
+						"shortage": 0,
+						"tick": 5
+					},
+					"military:40": {
+						"army_id": "",
+						"consumed": 0,
+						"garrison_id": "garrison.b",
+						"item_id": "item.beans",
+						"kind": "military_supply",
+						"mouth_ids": [],
+						"organization_id": "org.grain",
+						"ownership_id": "",
+						"required": 0,
+						"shortage": 0,
+						"tick": 5
+					},
+					"military:41": {
+						"army_id": "",
+						"consumed": 6,
+						"garrison_id": "garrison.c",
+						"item_id": "item.beans",
+						"kind": "military_supply",
+						"mouth_ids": [
+							"soldier:unit.garrison.c.a:1",
+							"soldier:unit.garrison.c.a:2",
+							"soldier:unit.garrison.c.a:3",
+							"soldier:unit.garrison.c.a:4",
+							"soldier:unit.garrison.c.a:5",
+							"soldier:unit.garrison.c.a:6"
+						],
+						"organization_id": "org.grain",
+						"ownership_id": "",
+						"required": 6,
+						"shortage": 0,
+						"tick": 5
+					},
+					"military:42": {
+						"army_id": "army:19",
+						"consumed": 12,
+						"garrison_id": "",
+						"item_id": "item.grain",
+						"kind": "military_supply",
+						"mouth_ids": [
+							"actor.carter",
+							"actor.player",
+							"soldier:unit.garrison.a.a:1",
+							"soldier:unit.garrison.a.a:2",
+							"soldier:unit.garrison.a.a:3",
+							"soldier:unit.garrison.a.a:4",
+							"soldier:unit.garrison.a.a:5",
+							"soldier:unit.garrison.a.a:6",
+							"soldier:unit.garrison.a.b:1",
+							"soldier:unit.garrison.a.b:2",
+							"soldier:unit.garrison.a.b:3",
+							"soldier:unit.garrison.a.b:4"
+						],
+						"organization_id": "org.office",
+						"ownership_id": "",
+						"required": 12,
+						"shortage": 0,
+						"tick": 5
+					},
+					"military:43": {
+						"army_id": "army:35",
+						"consumed": 7,
+						"garrison_id": "",
+						"item_id": "item.beans",
+						"kind": "military_supply",
+						"mouth_ids": [
+							"actor.shen",
+							"soldier:unit.garrison.b.a:1",
+							"soldier:unit.garrison.b.a:2",
+							"soldier:unit.garrison.b.a:3",
+							"soldier:unit.garrison.b.a:4",
+							"soldier:unit.garrison.b.a:5",
+							"soldier:unit.garrison.b.a:6"
+						],
+						"organization_id": "org.grain",
+						"ownership_id": "",
+						"required": 7,
+						"shortage": 0,
+						"tick": 5
+					},
+					"military:44": {
+						"army_id": "",
+						"consumed": 0,
+						"garrison_id": "garrison.a",
+						"item_id": "item.grain",
+						"kind": "military_supply",
+						"mouth_ids": [],
+						"organization_id": "org.office",
+						"ownership_id": "",
+						"required": 0,
+						"shortage": 0,
+						"tick": 6
+					},
+					"military:45": {
+						"army_id": "",
+						"consumed": 0,
+						"garrison_id": "garrison.b",
+						"item_id": "item.beans",
+						"kind": "military_supply",
+						"mouth_ids": [],
+						"organization_id": "org.grain",
+						"ownership_id": "",
+						"required": 0,
+						"shortage": 0,
+						"tick": 6
+					},
+					"military:46": {
+						"army_id": "",
+						"consumed": 6,
+						"garrison_id": "garrison.c",
+						"item_id": "item.beans",
+						"kind": "military_supply",
+						"mouth_ids": [
+							"soldier:unit.garrison.c.a:1",
+							"soldier:unit.garrison.c.a:2",
+							"soldier:unit.garrison.c.a:3",
+							"soldier:unit.garrison.c.a:4",
+							"soldier:unit.garrison.c.a:5",
+							"soldier:unit.garrison.c.a:6"
+						],
+						"organization_id": "org.grain",
+						"ownership_id": "",
+						"required": 6,
+						"shortage": 0,
+						"tick": 6
+					},
+					"military:47": {
+						"army_id": "army:19",
+						"consumed": 12,
+						"garrison_id": "",
+						"item_id": "item.grain",
+						"kind": "military_supply",
+						"mouth_ids": [
+							"actor.carter",
+							"actor.player",
+							"soldier:unit.garrison.a.a:1",
+							"soldier:unit.garrison.a.a:2",
+							"soldier:unit.garrison.a.a:3",
+							"soldier:unit.garrison.a.a:4",
+							"soldier:unit.garrison.a.a:5",
+							"soldier:unit.garrison.a.a:6",
+							"soldier:unit.garrison.a.b:1",
+							"soldier:unit.garrison.a.b:2",
+							"soldier:unit.garrison.a.b:3",
+							"soldier:unit.garrison.a.b:4"
+						],
+						"organization_id": "org.office",
+						"ownership_id": "",
+						"required": 12,
+						"shortage": 0,
+						"tick": 6
+					},
+					"military:48": {
+						"army_id": "army:35",
+						"consumed": 7,
+						"garrison_id": "",
+						"item_id": "item.beans",
+						"kind": "military_supply",
+						"mouth_ids": [
+							"actor.shen",
+							"soldier:unit.garrison.b.a:1",
+							"soldier:unit.garrison.b.a:2",
+							"soldier:unit.garrison.b.a:3",
+							"soldier:unit.garrison.b.a:4",
+							"soldier:unit.garrison.b.a:5",
+							"soldier:unit.garrison.b.a:6"
+						],
+						"organization_id": "org.grain",
+						"ownership_id": "",
+						"required": 7,
+						"shortage": 0,
+						"tick": 6
+					},
+					"military:49": {
+						"army_id": "",
+						"consumed": 0,
+						"garrison_id": "garrison.a",
+						"item_id": "item.grain",
+						"kind": "military_supply",
+						"mouth_ids": [],
+						"organization_id": "org.office",
+						"ownership_id": "",
+						"required": 0,
+						"shortage": 0,
+						"tick": 7
+					},
+					"military:50": {
+						"army_id": "",
+						"consumed": 0,
+						"garrison_id": "garrison.b",
+						"item_id": "item.beans",
+						"kind": "military_supply",
+						"mouth_ids": [],
+						"organization_id": "org.grain",
+						"ownership_id": "",
+						"required": 0,
+						"shortage": 0,
+						"tick": 7
+					},
+					"military:51": {
+						"army_id": "",
+						"consumed": 6,
+						"garrison_id": "garrison.c",
+						"item_id": "item.beans",
+						"kind": "military_supply",
+						"mouth_ids": [
+							"soldier:unit.garrison.c.a:1",
+							"soldier:unit.garrison.c.a:2",
+							"soldier:unit.garrison.c.a:3",
+							"soldier:unit.garrison.c.a:4",
+							"soldier:unit.garrison.c.a:5",
+							"soldier:unit.garrison.c.a:6"
+						],
+						"organization_id": "org.grain",
+						"ownership_id": "",
+						"required": 6,
+						"shortage": 0,
+						"tick": 7
+					},
+					"military:52": {
+						"army_id": "army:19",
+						"consumed": 12,
+						"garrison_id": "",
+						"item_id": "item.grain",
+						"kind": "military_supply",
+						"mouth_ids": [
+							"actor.carter",
+							"actor.player",
+							"soldier:unit.garrison.a.a:1",
+							"soldier:unit.garrison.a.a:2",
+							"soldier:unit.garrison.a.a:3",
+							"soldier:unit.garrison.a.a:4",
+							"soldier:unit.garrison.a.a:5",
+							"soldier:unit.garrison.a.a:6",
+							"soldier:unit.garrison.a.b:1",
+							"soldier:unit.garrison.a.b:2",
+							"soldier:unit.garrison.a.b:3",
+							"soldier:unit.garrison.a.b:4"
+						],
+						"organization_id": "org.office",
+						"ownership_id": "",
+						"required": 12,
+						"shortage": 0,
+						"tick": 7
+					},
+					"military:53": {
+						"army_id": "army:35",
+						"consumed": 7,
+						"garrison_id": "",
+						"item_id": "item.beans",
+						"kind": "military_supply",
+						"mouth_ids": [
+							"actor.shen",
+							"soldier:unit.garrison.b.a:1",
+							"soldier:unit.garrison.b.a:2",
+							"soldier:unit.garrison.b.a:3",
+							"soldier:unit.garrison.b.a:4",
+							"soldier:unit.garrison.b.a:5",
+							"soldier:unit.garrison.b.a:6"
+						],
+						"organization_id": "org.grain",
+						"ownership_id": "",
+						"required": 7,
+						"shortage": 0,
+						"tick": 7
+					},
+					"military:54": {
+						"army_id": "",
+						"consumed": 0,
+						"garrison_id": "garrison.a",
+						"item_id": "item.grain",
+						"kind": "military_supply",
+						"mouth_ids": [],
+						"organization_id": "org.office",
+						"ownership_id": "",
+						"required": 0,
+						"shortage": 0,
+						"tick": 8
+					},
+					"military:55": {
+						"army_id": "",
+						"consumed": 0,
+						"garrison_id": "garrison.b",
+						"item_id": "item.beans",
+						"kind": "military_supply",
+						"mouth_ids": [],
+						"organization_id": "org.grain",
+						"ownership_id": "",
+						"required": 0,
+						"shortage": 0,
+						"tick": 8
+					},
+					"military:56": {
+						"army_id": "",
+						"consumed": 6,
+						"garrison_id": "garrison.c",
+						"item_id": "item.beans",
+						"kind": "military_supply",
+						"mouth_ids": [
+							"soldier:unit.garrison.c.a:1",
+							"soldier:unit.garrison.c.a:2",
+							"soldier:unit.garrison.c.a:3",
+							"soldier:unit.garrison.c.a:4",
+							"soldier:unit.garrison.c.a:5",
+							"soldier:unit.garrison.c.a:6"
+						],
+						"organization_id": "org.grain",
+						"ownership_id": "",
+						"required": 6,
+						"shortage": 0,
+						"tick": 8
+					},
+					"military:57": {
+						"army_id": "army:19",
+						"consumed": 12,
+						"garrison_id": "",
+						"item_id": "item.grain",
+						"kind": "military_supply",
+						"mouth_ids": [
+							"actor.carter",
+							"actor.player",
+							"soldier:unit.garrison.a.a:1",
+							"soldier:unit.garrison.a.a:2",
+							"soldier:unit.garrison.a.a:3",
+							"soldier:unit.garrison.a.a:4",
+							"soldier:unit.garrison.a.a:5",
+							"soldier:unit.garrison.a.a:6",
+							"soldier:unit.garrison.a.b:1",
+							"soldier:unit.garrison.a.b:2",
+							"soldier:unit.garrison.a.b:3",
+							"soldier:unit.garrison.a.b:4"
+						],
+						"organization_id": "org.office",
+						"ownership_id": "",
+						"required": 12,
+						"shortage": 0,
+						"tick": 8
+					},
+					"military:58": {
+						"army_id": "army:35",
+						"consumed": 7,
+						"garrison_id": "",
+						"item_id": "item.beans",
+						"kind": "military_supply",
+						"mouth_ids": [
+							"actor.shen",
+							"soldier:unit.garrison.b.a:1",
+							"soldier:unit.garrison.b.a:2",
+							"soldier:unit.garrison.b.a:3",
+							"soldier:unit.garrison.b.a:4",
+							"soldier:unit.garrison.b.a:5",
+							"soldier:unit.garrison.b.a:6"
+						],
+						"organization_id": "org.grain",
+						"ownership_id": "",
+						"required": 7,
+						"shortage": 0,
+						"tick": 8
+					},
+					"military:9": {
+						"army_id": "",
+						"consumed": 12,
+						"garrison_id": "garrison.a",
+						"item_id": "item.grain",
+						"kind": "military_supply",
+						"mouth_ids": [
+							"actor.carter",
+							"actor.player",
+							"soldier:unit.garrison.a.a:1",
+							"soldier:unit.garrison.a.a:2",
+							"soldier:unit.garrison.a.a:3",
+							"soldier:unit.garrison.a.a:4",
+							"soldier:unit.garrison.a.a:5",
+							"soldier:unit.garrison.a.a:6",
+							"soldier:unit.garrison.a.b:1",
+							"soldier:unit.garrison.a.b:2",
+							"soldier:unit.garrison.a.b:3",
+							"soldier:unit.garrison.a.b:4"
+						],
+						"organization_id": "org.office",
+						"ownership_id": "",
+						"required": 12,
+						"shortage": 0,
+						"tick": 1
+					}
+				},
+				"family": {
+					"children": {},
+					"designations": {},
+					"founder_actor_id": "actor.player",
+					"successions": []
+				},
+				"flags": {
+					"letter.discovered": false,
+					"office.introduced": false
+				},
+				"garrisons": {
+					"garrison.a": {
+						"id": "garrison.a",
+						"last_supply_tick": 8,
+						"prisoner_ids": [],
+						"unit_ids": [
+							"unit.garrison.a.a",
+							"unit.garrison.a.b"
+						]
+					},
+					"garrison.b": {
+						"id": "garrison.b",
+						"last_supply_tick": 8,
+						"prisoner_ids": [],
+						"unit_ids": [
+							"unit.garrison.b.a"
+						]
+					},
+					"garrison.c": {
+						"id": "garrison.c",
+						"last_supply_tick": 8,
+						"prisoner_ids": [],
+						"unit_ids": [
+							"unit.garrison.c.a"
+						]
+					}
+				},
+				"history": [],
+				"interactions": {},
+				"inventories": {
+					"army_inventory:army:19": {
+						"capacity": 200,
+						"id": "army_inventory:army:19",
+						"lots": [
+							{
+								"id": "lot:20",
+								"item_id": "item.grain",
+								"owner": {
+									"id": "org.office",
+									"kind": "organization"
+								},
+								"quantity": 28,
+								"reserved_by": ""
+							},
+							{
+								"id": "lot:21",
+								"item_id": "item.spear",
+								"owner": {
+									"id": "org.office",
+									"kind": "organization"
+								},
+								"quantity": 14,
+								"reserved_by": ""
+							}
+						],
+						"owner": {
+							"id": "org.office",
+							"kind": "organization"
+						},
+						"revision": 8
+					},
+					"army_inventory:army:35": {
+						"capacity": 200,
+						"id": "army_inventory:army:35",
+						"lots": [
+							{
+								"id": "lot:36",
+								"item_id": "item.beans",
+								"owner": {
+									"id": "org.grain",
+									"kind": "organization"
+								},
+								"quantity": 72,
+								"reserved_by": ""
+							},
+							{
+								"id": "lot:37",
+								"item_id": "item.spear",
+								"owner": {
+									"id": "org.grain",
+									"kind": "organization"
+								},
+								"quantity": 6,
+								"reserved_by": ""
+							}
+						],
+						"owner": {
+							"id": "org.grain",
+							"kind": "organization"
+						},
+						"revision": 6
+					},
+					"bag:actor.apprentice": {
+						"capacity": 20,
+						"id": "bag:actor.apprentice",
+						"lots": [],
+						"owner": {
+							"id": "actor.apprentice",
+							"kind": "actor"
+						},
+						"revision": 0
+					},
+					"bag:actor.carter": {
+						"capacity": 20,
+						"id": "bag:actor.carter",
+						"lots": [],
+						"owner": {
+							"id": "actor.carter",
+							"kind": "actor"
+						},
+						"revision": 0
+					},
+					"bag:actor.chen": {
+						"capacity": 20,
+						"id": "bag:actor.chen",
+						"lots": [],
+						"owner": {
+							"id": "actor.chen",
+							"kind": "actor"
+						},
+						"revision": 0
+					},
+					"bag:actor.gate": {
+						"capacity": 20,
+						"id": "bag:actor.gate",
+						"lots": [],
+						"owner": {
+							"id": "actor.gate",
+							"kind": "actor"
+						},
+						"revision": 0
+					},
+					"bag:actor.he": {
+						"capacity": 20,
+						"id": "bag:actor.he",
+						"lots": [],
+						"owner": {
+							"id": "actor.he",
+							"kind": "actor"
+						},
+						"revision": 0
+					},
+					"bag:actor.host": {
+						"capacity": 20,
+						"id": "bag:actor.host",
+						"lots": [],
+						"owner": {
+							"id": "actor.host",
+							"kind": "actor"
+						},
+						"revision": 0
+					},
+					"bag:actor.innkeeper": {
+						"capacity": 20,
+						"id": "bag:actor.innkeeper",
+						"lots": [],
+						"owner": {
+							"id": "actor.innkeeper",
+							"kind": "actor"
+						},
+						"revision": 0
+					},
+					"bag:actor.player": {
+						"capacity": 20,
+						"id": "bag:actor.player",
+						"lots": [],
+						"owner": {
+							"id": "actor.player",
+							"kind": "actor"
+						},
+						"revision": 0
+					},
+					"bag:actor.shen": {
+						"capacity": 20,
+						"id": "bag:actor.shen",
+						"lots": [],
+						"owner": {
+							"id": "actor.shen",
+							"kind": "actor"
+						},
+						"revision": 0
+					},
+					"bag:actor.zheng": {
+						"capacity": 20,
+						"id": "bag:actor.zheng",
+						"lots": [],
+						"owner": {
+							"id": "actor.zheng",
+							"kind": "actor"
+						},
+						"revision": 0
+					},
+					"inventory.garrison.a": {
+						"capacity": 100000,
+						"id": "inventory.garrison.a",
+						"lots": [
+							{
+								"id": "lot:2",
+								"item_id": "item.grain",
+								"owner": {
+									"id": "org.office",
+									"kind": "organization"
+								},
+								"quantity": 9876,
+								"reserved_by": ""
+							},
+							{
+								"id": "lot:3",
+								"item_id": "item.spear",
+								"owner": {
+									"id": "org.office",
+									"kind": "organization"
+								},
+								"quantity": 186,
+								"reserved_by": ""
+							}
+						],
+						"owner": {
+							"id": "org.office",
+							"kind": "organization"
+						},
+						"revision": 8
+					},
+					"inventory.garrison.b": {
+						"capacity": 100000,
+						"id": "inventory.garrison.b",
+						"lots": [
+							{
+								"id": "lot:4",
+								"item_id": "item.beans",
+								"owner": {
+									"id": "org.grain",
+									"kind": "organization"
+								},
+								"quantity": 9872,
+								"reserved_by": ""
+							},
+							{
+								"id": "lot:5",
+								"item_id": "item.spear",
+								"owner": {
+									"id": "org.grain",
+									"kind": "organization"
+								},
+								"quantity": 194,
+								"reserved_by": ""
+							}
+						],
+						"owner": {
+							"id": "org.grain",
+							"kind": "organization"
+						},
+						"revision": 10
+					},
+					"inventory.garrison.c": {
+						"capacity": 100000,
+						"id": "inventory.garrison.c",
+						"lots": [
+							{
+								"id": "lot:6",
+								"item_id": "item.beans",
+								"owner": {
+									"id": "org.grain",
+									"kind": "organization"
+								},
+								"quantity": 9952,
+								"reserved_by": ""
+							},
+							{
+								"id": "lot:7",
+								"item_id": "item.spear",
+								"owner": {
+									"id": "org.grain",
+									"kind": "organization"
+								},
+								"quantity": 200,
+								"reserved_by": ""
+							}
+						],
+						"owner": {
+							"id": "org.grain",
+							"kind": "organization"
+						},
+						"revision": 8
+					},
+					"inventory.shop": {
+						"capacity": 300,
+						"id": "inventory.shop",
+						"lots": [
+							{
+								"id": "lot:1",
+								"item_id": "item.grain",
+								"owner": {
+									"id": "org.grain",
+									"kind": "organization"
+								},
+								"quantity": 100,
+								"reserved_by": ""
+							}
+						],
+						"owner": {
+							"id": "org.grain",
+							"kind": "organization"
+						},
+						"revision": 0
+					},
+					"store:org.grain": {
+						"capacity": 2147483647,
+						"id": "store:org.grain",
+						"lots": [],
+						"owner": {
+							"id": "org.grain",
+							"kind": "organization"
+						},
+						"revision": 0
+					},
+					"store:org.office": {
+						"capacity": 2147483647,
+						"id": "store:org.office",
+						"lots": [],
+						"owner": {
+							"id": "org.office",
+							"kind": "organization"
+						},
+						"revision": 0
+					}
+				},
+				"itineraries": {},
+				"knowledge": {
+					"actor.apprentice": {},
+					"actor.carter": {},
+					"actor.chen": {},
+					"actor.gate": {},
+					"actor.he": {},
+					"actor.host": {},
+					"actor.innkeeper": {},
+					"actor.player": {},
+					"actor.shen": {},
+					"actor.zheng": {}
+				},
+				"military_units": {
+					"unit.garrison.a.a": {
+						"army_id": "army:19",
+						"captors": {},
+						"captured": [],
+						"commander_actor_id": "actor.player",
+						"dead": [],
+						"deserted": [],
+						"fit": [
+							"soldier:unit.garrison.a.a:1",
+							"soldier:unit.garrison.a.a:2",
+							"soldier:unit.garrison.a.a:3",
+							"soldier:unit.garrison.a.a:4",
+							"soldier:unit.garrison.a.a:5",
+							"soldier:unit.garrison.a.a:6"
+						],
+						"garrison_id": "",
+						"id": "unit.garrison.a.a",
+						"member_ids": [
+							"soldier:unit.garrison.a.a:1",
+							"soldier:unit.garrison.a.a:2",
+							"soldier:unit.garrison.a.a:3",
+							"soldier:unit.garrison.a.a:4",
+							"soldier:unit.garrison.a.a:5",
+							"soldier:unit.garrison.a.a:6"
+						],
+						"mobilizing_action_id": "",
+						"morale": 70,
+						"organization_id": "org.office",
+						"retainer_sources": {},
+						"source_garrison_id": "garrison.a",
+						"troop_type_id": "troop.foot",
+						"wounded": []
+					},
+					"unit.garrison.a.b": {
+						"army_id": "army:19",
+						"captors": {},
+						"captured": [],
+						"commander_actor_id": "actor.carter",
+						"dead": [],
+						"deserted": [],
+						"fit": [
+							"soldier:unit.garrison.a.b:1",
+							"soldier:unit.garrison.a.b:2",
+							"soldier:unit.garrison.a.b:3",
+							"soldier:unit.garrison.a.b:4"
+						],
+						"garrison_id": "",
+						"id": "unit.garrison.a.b",
+						"member_ids": [
+							"soldier:unit.garrison.a.b:1",
+							"soldier:unit.garrison.a.b:2",
+							"soldier:unit.garrison.a.b:3",
+							"soldier:unit.garrison.a.b:4"
+						],
+						"mobilizing_action_id": "",
+						"morale": 70,
+						"organization_id": "org.office",
+						"retainer_sources": {},
+						"source_garrison_id": "garrison.a",
+						"troop_type_id": "troop.archer",
+						"wounded": []
+					},
+					"unit.garrison.b.a": {
+						"army_id": "army:35",
+						"captors": {},
+						"captured": [],
+						"commander_actor_id": "actor.shen",
+						"dead": [],
+						"deserted": [],
+						"fit": [
+							"soldier:unit.garrison.b.a:1",
+							"soldier:unit.garrison.b.a:2",
+							"soldier:unit.garrison.b.a:3",
+							"soldier:unit.garrison.b.a:4",
+							"soldier:unit.garrison.b.a:5",
+							"soldier:unit.garrison.b.a:6"
+						],
+						"garrison_id": "",
+						"id": "unit.garrison.b.a",
+						"member_ids": [
+							"soldier:unit.garrison.b.a:1",
+							"soldier:unit.garrison.b.a:2",
+							"soldier:unit.garrison.b.a:3",
+							"soldier:unit.garrison.b.a:4",
+							"soldier:unit.garrison.b.a:5",
+							"soldier:unit.garrison.b.a:6"
+						],
+						"mobilizing_action_id": "",
+						"morale": 70,
+						"organization_id": "org.grain",
+						"retainer_sources": {},
+						"source_garrison_id": "garrison.b",
+						"troop_type_id": "troop.foot",
+						"wounded": []
+					},
+					"unit.garrison.c.a": {
+						"army_id": "",
+						"captors": {},
+						"captured": [],
+						"commander_actor_id": "actor.he",
+						"dead": [],
+						"deserted": [],
+						"fit": [
+							"soldier:unit.garrison.c.a:1",
+							"soldier:unit.garrison.c.a:2",
+							"soldier:unit.garrison.c.a:3",
+							"soldier:unit.garrison.c.a:4",
+							"soldier:unit.garrison.c.a:5",
+							"soldier:unit.garrison.c.a:6"
+						],
+						"garrison_id": "garrison.c",
+						"id": "unit.garrison.c.a",
+						"member_ids": [
+							"soldier:unit.garrison.c.a:1",
+							"soldier:unit.garrison.c.a:2",
+							"soldier:unit.garrison.c.a:3",
+							"soldier:unit.garrison.c.a:4",
+							"soldier:unit.garrison.c.a:5",
+							"soldier:unit.garrison.c.a:6"
+						],
+						"mobilizing_action_id": "",
+						"morale": 70,
+						"organization_id": "org.grain",
+						"retainer_sources": {},
+						"source_garrison_id": "garrison.c",
+						"troop_type_id": "troop.foot",
+						"wounded": []
+					}
+				},
+				"next_instance_id": 59,
+				"offices": {
+					"office.a": {
+						"appointment_id": "action:8",
+						"enabled": true,
+						"holder_actor_id": "actor.player",
+						"id": "office.a"
+					},
+					"office.b": {
+						"appointment_id": "action:22",
+						"enabled": true,
+						"holder_actor_id": "actor.shen",
+						"id": "office.b"
+					}
+				},
+				"parties": {},
+				"player_actor_id": "actor.host",
+				"relations": {
+					"relation.chen_player": {
+						"affinity": 10,
+						"from_actor": "actor.chen",
+						"id": "relation.chen_player",
+						"to_actor": "actor.player",
+						"trust": 0
+					}
+				},
+				"request_sequences": {
+					"actor.apprentice": 0,
+					"actor.carter": 0,
+					"actor.chen": 0,
+					"actor.gate": 0,
+					"actor.he": 0,
+					"actor.host": 0,
+					"actor.innkeeper": 0,
+					"actor.player": 0,
+					"actor.shen": 0,
+					"actor.zheng": 0
+				},
+				"results": {},
+				"revision": 0,
+				"rng": {
+					"battle": {
+						"seed": "7554573659985676433",
+						"state": "-1036116300976829937"
+					},
+					"duel": {
+						"seed": "5746543533643721946",
+						"state": "3745189314783617508"
+					},
+					"event": {
+						"seed": "7760567117035036507",
+						"state": "-351441934808039023"
+					},
+					"minigame": {
+						"seed": "549114678624821473",
+						"state": "-4295975275094261729"
+					},
+					"world": {
+						"seed": "7581031756906636113",
+						"state": "1421032927128108495"
+					}
+				},
+				"rng_backend": "godot:4.7.2-stable (official)",
+				"roles": {
+					"role.carter": {
+						"actor_id": "actor.carter",
+						"enabled": true
+					},
+					"role.clerk": {
+						"actor_id": "actor.apprentice",
+						"enabled": true
+					},
+					"role.gate": {
+						"actor_id": "actor.gate",
+						"enabled": true
+					},
+					"role.host": {
+						"actor_id": "actor.host",
+						"enabled": true
+					},
+					"role.inn": {
+						"actor_id": "actor.innkeeper",
+						"enabled": true
+					},
+					"role.merchant": {
+						"actor_id": "actor.zheng",
+						"enabled": true
+					},
+					"role.military_b": {
+						"actor_id": "actor.zheng",
+						"enabled": true
+					},
+					"role.office": {
+						"actor_id": "actor.chen",
+						"enabled": true
+					},
+					"role.recipient": {
+						"actor_id": "actor.he",
+						"enabled": true
+					},
+					"role.return_c": {
+						"actor_id": "actor.host",
+						"enabled": true
+					},
+					"role.sender": {
+						"actor_id": "actor.shen",
+						"enabled": true
+					}
+				},
+				"ruleset_id": "f10-appearance-1",
+				"scenario_id": "scenario.lived_city",
+				"sieges": {
+					"siege:38": {
+						"ai_plans": {},
+						"armies": {
+							"army:19": 0,
+							"army:35": 1
+						},
+						"blockaded": false,
+						"campaign_id": "campaign:12",
+						"engine_work": {},
+						"id": "siege:38",
+						"inner_hold_ticks": 2,
+						"last_events": [
+							{
+								"campaign_id": "campaign:12",
+								"kind": "occupation_request",
+								"stronghold_id": "stronghold.test"
+							}
+						],
+						"last_tick": 8,
+						"node_hp": {
+							"A": 0,
+							"D": 0,
+							"G": 0,
+							"I": 0,
+							"S": 30,
+							"W": 20
+						},
+						"pending_nodes": {},
+						"phase": "closed",
+						"result": {
+							"kind": "occupied",
+							"tick": 8,
+							"winner_side": 0
+						},
+						"round": 5,
+						"seen_receipt_ids": [],
+						"started_tick": 4,
+						"stronghold_id": "stronghold.test",
+						"topology_id": "topology.ownership",
+						"unit_nodes": {
+							"unit.garrison.a.a": "I",
+							"unit.garrison.a.b": "I"
+						},
+						"unsupplied_ticks": 0,
+						"withdrawn_army_ids": [
+							"army:35"
+						]
+					}
+				},
+				"social": {
+					"events": {},
+					"last_tick": 0,
+					"memories": {}
+				},
+				"strongholds": {
+					"stronghold.test": {
+						"id": "stronghold.test",
+						"occupation_id": "",
+						"owner_organization_id": "org.grain",
+						"siege_id": ""
+					}
+				},
+				"tasks": {},
+				"tick": 8,
+				"wallets": {
+					"army_wallet:army:19": {
+						"balance": 40,
+						"id": "army_wallet:army:19",
+						"owner": {
+							"id": "org.office",
+							"kind": "organization"
+						},
+						"reserved": {}
+					},
+					"army_wallet:army:35": {
+						"balance": 40,
+						"id": "army_wallet:army:35",
+						"owner": {
+							"id": "org.grain",
+							"kind": "organization"
+						},
+						"reserved": {}
+					},
+					"personal:actor.apprentice": {
+						"balance": 0,
+						"id": "personal:actor.apprentice",
+						"owner": {
+							"id": "actor.apprentice",
+							"kind": "actor"
+						},
+						"reserved": {}
+					},
+					"personal:actor.carter": {
+						"balance": 0,
+						"id": "personal:actor.carter",
+						"owner": {
+							"id": "actor.carter",
+							"kind": "actor"
+						},
+						"reserved": {}
+					},
+					"personal:actor.chen": {
+						"balance": 0,
+						"id": "personal:actor.chen",
+						"owner": {
+							"id": "actor.chen",
+							"kind": "actor"
+						},
+						"reserved": {}
+					},
+					"personal:actor.gate": {
+						"balance": 0,
+						"id": "personal:actor.gate",
+						"owner": {
+							"id": "actor.gate",
+							"kind": "actor"
+						},
+						"reserved": {}
+					},
+					"personal:actor.he": {
+						"balance": 0,
+						"id": "personal:actor.he",
+						"owner": {
+							"id": "actor.he",
+							"kind": "actor"
+						},
+						"reserved": {}
+					},
+					"personal:actor.zheng": {
+						"balance": 0,
+						"id": "personal:actor.zheng",
+						"owner": {
+							"id": "actor.zheng",
+							"kind": "actor"
+						},
+						"reserved": {}
+					},
+					"wallet.garrison.a": {
+						"balance": 460,
+						"id": "wallet.garrison.a",
+						"owner": {
+							"id": "org.office",
+							"kind": "organization"
+						},
+						"reserved": {}
+					},
+					"wallet.garrison.b": {
+						"balance": 460,
+						"id": "wallet.garrison.b",
+						"owner": {
+							"id": "org.grain",
+							"kind": "organization"
+						},
+						"reserved": {}
+					},
+					"wallet.garrison.c": {
+						"balance": 500,
+						"id": "wallet.garrison.c",
+						"owner": {
+							"id": "org.grain",
+							"kind": "organization"
+						},
+						"reserved": {}
+					},
+					"wallet.host": {
+						"balance": 1200,
+						"id": "wallet.host",
+						"owner": {
+							"id": "actor.host",
+							"kind": "actor"
+						},
+						"reserved": {}
+					},
+					"wallet.inn": {
+						"balance": 600,
+						"id": "wallet.inn",
+						"owner": {
+							"id": "actor.innkeeper",
+							"kind": "actor"
+						},
+						"reserved": {}
+					},
+					"wallet.office": {
+						"balance": 5000,
+						"id": "wallet.office",
+						"owner": {
+							"id": "org.office",
+							"kind": "organization"
+						},
+						"reserved": {}
+					},
+					"wallet.player": {
+						"balance": 800,
+						"id": "wallet.player",
+						"owner": {
+							"id": "actor.player",
+							"kind": "actor"
+						},
+						"reserved": {}
+					},
+					"wallet.shen": {
+						"balance": 600,
+						"id": "wallet.shen",
+						"owner": {
+							"id": "actor.shen",
+							"kind": "actor"
+						},
+						"reserved": {}
+					},
+					"wallet.shop": {
+						"balance": 10000,
+						"id": "wallet.shop",
+						"owner": {
+							"id": "org.grain",
+							"kind": "organization"
+						},
+						"reserved": {}
+					}
+				}
+			}
+		}
+	],
+	"source_commit": "a4fa824f308b5b33bd602a7286dae19219dde50f"
+}

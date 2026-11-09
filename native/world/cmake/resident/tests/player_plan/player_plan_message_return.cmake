@@ -1,0 +1,5 @@
+# 玩家计划消费者登记：保留本组目标、测试、条件与局部变量的原执行顺序。
+# 原回书接取Action的继续许可、SAY与实际完成有限门。
+add_executable(test_resident_player_plan_message_return tests/resident/player_plan_message_return_test.cpp)
+target_link_libraries(test_resident_player_plan_message_return PRIVATE hanmo_resident)
+add_test(NAME resident_player_plan_message_return COMMAND test_resident_player_plan_message_return)

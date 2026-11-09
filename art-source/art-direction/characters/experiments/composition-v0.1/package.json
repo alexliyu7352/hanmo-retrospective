@@ -1,0 +1,8 @@
+{
+  "name": "hanmo-character-composition-sample",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A limited art asset composition sample, not a Godot integration",
+  "dependencies": {"@napi-rs/canvas": "0.1.100", "sharp": "0.35.4"},
+  "devDependencies": {"playwright": "1.62.1"}
+}

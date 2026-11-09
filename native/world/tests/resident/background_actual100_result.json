@@ -1,0 +1,21 @@
+{
+  "format": "HM-C-ACTUAL100-TAIL-TEST/1",
+  "production_base_commit": "906d9b4b049f555bc7e58713c607e0f17894f23e",
+  "change": "Trailing typed MilitaryJourneyRequest field_order metadata; production rules unchanged.",
+  "flags": [
+    "-std=c++17",
+    "-O1",
+    "-ffp-contract=off"
+  ],
+  "oracle_index_sha256": "65e5205157bec6f23b2a82cf2959df540fc9bc6aec617b4cf65f834efa95d1e9",
+  "schedule_witness_sha256": "d8bb9e8651956d5190cd1273c80f50a3b3248cf9c230fe2e51f4a86108102591",
+  "original_source_sha256": {
+    "core/military_schedule.gd": "d7e80dfe46f18d999d9dadd920465059572670c72c804889372a2b9eb926cab3",
+    "core/military_contact.gd": "1791cc6afa74a5504c0fc446885fdd595a46287ccf7704707f64dd9719763440",
+    "core/domains/military/march_conditions.gd": "91b90eb8f7a79f4ec742075bd3741652ee25206b5a868d7308f1f8609723294d"
+  },
+  "godot_binary_sha256": "8d106cbe6144c2dc7e881d61d2429c1a8a76e6b22ef48bd5e48dcf934953f71e",
+  "test_binary_sha256": "d3176c38ba08f09de377cb05f176e92e7032be7ecb811aae7e5a70a988ff0aad",
+  "result": "background_actual100: PASS (15 actual C boundaries/checkpoints; 2 original tick7/8 empty schedule/contact tails; arrival fact:369 retained)",
+  "scope": "15 actual after-command C imports/validators/ordered exports and military checkpoints; original GD tick7/tick8 empty schedule/contact witnesses; no whole-world central replay claim."
+}

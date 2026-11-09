@@ -1,0 +1,769 @@
+{
+  "format": "HM-RULE-CAPABILITIES/1",
+  "content_abi": 1,
+  "modules": {
+    "world_factory": "res://core/world_factory.gd",
+    "dialogue_runner": "res://core/dialogue_runner.gd",
+    "task_rules": "res://core/task_rules.gd",
+    "escort_rules": "res://core/escort_rules.gd",
+    "economy_rules": "res://core/economy_rules.gd",
+    "event_rules": "res://core/event_rules.gd",
+    "service_rules": "res://core/service_rules.gd",
+    "party_rules": "res://core/party_rules.gd",
+    "encounter_rules": "res://core/encounter_rules.gd",
+    "personal_combat": "res://core/personal_combat.gd",
+    "cultivation_rules": "res://core/cultivation_rules.gd",
+    "social_rules": "res://core/social_rules.gd",
+    "world_terrain": "res://core/world_terrain.gd",
+    "estate_rules": "res://core/estate_rules.gd",
+    "family_rules": "res://core/family_rules.gd",
+    "military_world": "res://core/military_world.gd",
+    "world_location": "res://core/world_location.gd"
+  },
+  "capabilities": [
+    {
+      "capability_id": "multi_actor",
+      "rule_version": "f10-appearance-1",
+      "module_id": "world_factory",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "actors"
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_foundation",
+        "test_actor_identity",
+        "test_actor_appearance",
+        "test_actor_appearance_world"
+      ],
+      "evidence": [
+        {
+          "run_id": "20261001T212750576575Z-3485e1bb",
+          "stage": "godot_test_foundation",
+          "status": "PASS",
+          "log_sha256": "6dc844a0c7ac4efeb0246aa064dd1a4fb6a232ac045d2a94b360183d10ba85bb",
+          "scope": "historical_headless_only"
+        },
+        {
+          "run_id": "20261001T212750576575Z-3485e1bb",
+          "stage": "godot_test_actor_identity",
+          "status": "PASS",
+          "log_sha256": "ccb43d511b28fccc52aa93f4e92d83525388a8da35c3ab4374e9fbdda2d44058",
+          "scope": "historical_headless_only"
+        }
+      ]
+    },
+    {
+      "capability_id": "places",
+      "rule_version": "f10-architecture-1",
+      "module_id": "world_location",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "places"
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_rules",
+        "test_travel_control"
+      ],
+      "evidence": [
+        {
+          "run_id": "20261001T212750576575Z-3485e1bb",
+          "stage": "godot_test_rules",
+          "status": "PASS",
+          "log_sha256": "6925350d2ed3a5f234b771ef4e1a58c608e4957bca4dfdd452c54f987975b2a1",
+          "scope": "historical_headless_only"
+        },
+        {
+          "run_id": "20261001T212750576575Z-3485e1bb",
+          "stage": "godot_test_travel_control",
+          "status": "PASS",
+          "log_sha256": "3111698fa4e1579a2542dc283903c24c3759fd5417973877e7f849506e3d13fa",
+          "scope": "historical_headless_only"
+        }
+      ]
+    },
+    {
+      "capability_id": "dialogue",
+      "rule_version": "f10-architecture-1",
+      "module_id": "dialogue_runner",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "dialogues"
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_foundation"
+      ],
+      "evidence": [
+        {
+          "run_id": "20261001T212750576575Z-3485e1bb",
+          "stage": "godot_test_foundation",
+          "status": "PASS",
+          "log_sha256": "6dc844a0c7ac4efeb0246aa064dd1a4fb6a232ac045d2a94b360183d10ba85bb",
+          "scope": "historical_headless_only"
+        }
+      ]
+    },
+    {
+      "capability_id": "tasks.procurement",
+      "rule_version": "f10-architecture-1",
+      "module_id": "task_rules",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "offers.*.template",
+          "equals": "procurement"
+        }
+      ],
+      "supported_semantics": [
+        {
+          "table": "offers",
+          "field": "on_unavailable",
+          "values": [
+            "known_replacement"
+          ],
+          "code": "UNSUPPORTED_TASK_POLICY",
+          "where": {
+            "template": "procurement"
+          }
+        }
+      ],
+      "test_ids": [
+        "test_rules",
+        "test_foundation",
+        "test_task_policy",
+        "test_storage"
+      ],
+      "evidence": [
+        {
+          "run_id": "20261001T212750576575Z-3485e1bb",
+          "stage": "godot_test_rules",
+          "status": "PASS",
+          "log_sha256": "6925350d2ed3a5f234b771ef4e1a58c608e4957bca4dfdd452c54f987975b2a1",
+          "scope": "historical_headless_only"
+        },
+        {
+          "run_id": "20261001T212750576575Z-3485e1bb",
+          "stage": "godot_test_foundation",
+          "status": "PASS",
+          "log_sha256": "6dc844a0c7ac4efeb0246aa064dd1a4fb6a232ac045d2a94b360183d10ba85bb",
+          "scope": "historical_headless_only"
+        },
+        {
+          "run_id": "a04-focused-20261002",
+          "stage": "godot_test_task_policy",
+          "status": "PASS",
+          "log_sha256": "3ffa221751dfcd49818cd0538c994a47b6f051e6228875b95f627c1f47390b06",
+          "scope": "a04_headless_policy_only"
+        },
+        {
+          "run_id": "a04-focused-20261002",
+          "stage": "godot_test_storage",
+          "status": "PASS",
+          "log_sha256": "ad05da14f9d5cd73463ea24a1b7e9b3295dd2f666b6f4a76bd15ae1ff2944b71",
+          "scope": "a04_headless_policy_only"
+        }
+      ],
+      "limitations": [
+        "仅现有known_replacement组织同岗正式重办及wait_or_leave私人原对象语义；不会自动代办、转移私人承诺或自动发奖。",
+        "只允许从未拨款且无残留产权的受领中断重试；headless证据不等于平台运行认证。"
+      ]
+    },
+    {
+      "capability_id": "tasks.message",
+      "rule_version": "f10-architecture-1",
+      "module_id": "task_rules",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "offers.*.template",
+          "equals": "message"
+        }
+      ],
+      "supported_semantics": [
+        {
+          "table": "offers",
+          "field": "on_unavailable",
+          "values": [
+            "wait_or_leave"
+          ],
+          "code": "UNSUPPORTED_TASK_POLICY",
+          "where": {
+            "template": "message"
+          }
+        }
+      ],
+      "test_ids": [
+        "test_rules",
+        "test_foundation",
+        "test_task_policy",
+        "test_storage"
+      ],
+      "evidence": [
+        {
+          "run_id": "20261001T212750576575Z-3485e1bb",
+          "stage": "godot_test_rules",
+          "status": "PASS",
+          "log_sha256": "6925350d2ed3a5f234b771ef4e1a58c608e4957bca4dfdd452c54f987975b2a1",
+          "scope": "historical_headless_only"
+        },
+        {
+          "run_id": "20261001T212750576575Z-3485e1bb",
+          "stage": "godot_test_foundation",
+          "status": "PASS",
+          "log_sha256": "6dc844a0c7ac4efeb0246aa064dd1a4fb6a232ac045d2a94b360183d10ba85bb",
+          "scope": "historical_headless_only"
+        },
+        {
+          "run_id": "a04-focused-20261002",
+          "stage": "godot_test_task_policy",
+          "status": "PASS",
+          "log_sha256": "3ffa221751dfcd49818cd0538c994a47b6f051e6228875b95f627c1f47390b06",
+          "scope": "a04_headless_policy_only"
+        },
+        {
+          "run_id": "a04-focused-20261002",
+          "stage": "godot_test_storage",
+          "status": "PASS",
+          "log_sha256": "ad05da14f9d5cd73463ea24a1b7e9b3295dd2f666b6f4a76bd15ae1ff2944b71",
+          "scope": "a04_headless_policy_only"
+        }
+      ],
+      "limitations": [
+        "仅现有known_replacement组织同岗正式重办及wait_or_leave私人原对象语义；不会自动代办、转移私人承诺或自动发奖。",
+        "只允许从未拨款且无残留产权的受领中断重试；headless证据不等于平台运行认证。"
+      ]
+    },
+    {
+      "capability_id": "tasks.escort",
+      "rule_version": "f10-architecture-1",
+      "module_id": "escort_rules",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "offers.*.template",
+          "equals": "escort"
+        }
+      ],
+      "supported_semantics": [
+        {
+          "table": "offers",
+          "field": "on_unavailable",
+          "values": [
+            "wait_or_leave"
+          ],
+          "code": "UNSUPPORTED_TASK_POLICY",
+          "where": {
+            "template": "escort"
+          }
+        }
+      ],
+      "test_ids": [
+        "test_escort_world",
+        "test_task_policy",
+        "test_storage"
+      ],
+      "evidence": [
+        {
+          "run_id": "20261001T212750576575Z-3485e1bb",
+          "stage": "godot_test_escort_world",
+          "status": "PASS",
+          "log_sha256": "1792657ea9c291772df3cf6c7cfd0a6314c6e19aa4caffdb5a3aa6da7de427d5",
+          "scope": "historical_headless_only"
+        },
+        {
+          "run_id": "a04-focused-20261002",
+          "stage": "godot_test_task_policy",
+          "status": "PASS",
+          "log_sha256": "3ffa221751dfcd49818cd0538c994a47b6f051e6228875b95f627c1f47390b06",
+          "scope": "a04_headless_policy_only"
+        },
+        {
+          "run_id": "a04-focused-20261002",
+          "stage": "godot_test_storage",
+          "status": "PASS",
+          "log_sha256": "ad05da14f9d5cd73463ea24a1b7e9b3295dd2f666b6f4a76bd15ae1ff2944b71",
+          "scope": "a04_headless_policy_only"
+        }
+      ],
+      "limitations": [
+        "仅现有known_replacement组织同岗正式重办及wait_or_leave私人原对象语义；不会自动代办、转移私人承诺或自动发奖。",
+        "只允许从未拨款且无残留产权的受领中断重试；headless证据不等于平台运行认证。"
+      ]
+    },
+    {
+      "capability_id": "economy",
+      "rule_version": "f10-architecture-1",
+      "module_id": "economy_rules",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "shops"
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_rules",
+        "test_trade_inventory_screen"
+      ],
+      "evidence": [
+        {
+          "run_id": "20261001T212750576575Z-3485e1bb",
+          "stage": "godot_test_rules",
+          "status": "PASS",
+          "log_sha256": "6925350d2ed3a5f234b771ef4e1a58c608e4957bca4dfdd452c54f987975b2a1",
+          "scope": "historical_headless_only"
+        },
+        {
+          "run_id": "20261001T212750576575Z-3485e1bb",
+          "stage": "godot_test_trade_inventory_screen",
+          "status": "PASS",
+          "log_sha256": "03f202efab5ce5c1907a0acf732e0f298d8bdea315de5b2778958c2a0cb5c604",
+          "scope": "historical_headless_only"
+        }
+      ]
+    },
+    {
+      "capability_id": "events",
+      "rule_version": "f10-architecture-1",
+      "module_id": "event_rules",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "events"
+        }
+      ],
+      "supported_semantics": [
+        {
+          "table": "events",
+          "field": "trigger",
+          "values": [
+            "on_enter"
+          ],
+          "code": "UNSUPPORTED_EVENT_TRIGGER",
+          "where": {}
+        },
+        {
+          "table": "events",
+          "field": "on_unavailable",
+          "values": [
+            "cancel"
+          ],
+          "code": "UNSUPPORTED_EVENT_POLICY",
+          "where": {}
+        }
+      ],
+      "test_ids": [
+        "test_foundation",
+        "test_event_policy",
+        "test_storage"
+      ],
+      "evidence": [
+        {
+          "run_id": "20261001T212750576575Z-3485e1bb",
+          "stage": "godot_test_foundation",
+          "status": "PASS",
+          "log_sha256": "6dc844a0c7ac4efeb0246aa064dd1a4fb6a232ac045d2a94b360183d10ba85bb",
+          "scope": "historical_headless_only"
+        },
+        {
+          "run_id": "a04-focused-20261002",
+          "stage": "godot_test_event_policy",
+          "status": "PASS",
+          "log_sha256": "2ab9976aec3d2da3625ad4d02f299934dd109f1f8859eda711a57094194ba51f",
+          "scope": "a04_headless_policy_only"
+        },
+        {
+          "run_id": "a04-focused-20261002",
+          "stage": "godot_test_storage",
+          "status": "PASS",
+          "log_sha256": "ad05da14f9d5cd73463ea24a1b7e9b3295dd2f666b6f4a76bd15ae1ff2944b71",
+          "scope": "a04_headless_policy_only"
+        }
+      ],
+      "limitations": [
+        "仅现有on_enter+cancel语义：正常提交取消语义失效队列，暂忙不取消；旧记录未保存历史provider，不能证明通用人员绑定。",
+        "headless策略/存档回归不等于图形、Web或跨平台运行认证。"
+      ]
+    },
+    {
+      "capability_id": "services",
+      "rule_version": "f10-architecture-1",
+      "module_id": "service_rules",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "roles.*.activities"
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_life_services"
+      ],
+      "evidence": [
+        {
+          "run_id": "20261001T212750576575Z-3485e1bb",
+          "stage": "godot_test_life_services",
+          "status": "PASS",
+          "log_sha256": "702c63378fa54ea8f16ca0d3ce6ac2fc42c2526643734b670506f9b142a2380e",
+          "scope": "historical_headless_only"
+        }
+      ]
+    },
+    {
+      "capability_id": "companions",
+      "rule_version": "f10-architecture-1",
+      "module_id": "party_rules",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "roles.*.services",
+          "contains": "join_party"
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_parties",
+        "test_companion_reuse"
+      ],
+      "evidence": [
+        {
+          "run_id": "20261001T212750576575Z-3485e1bb",
+          "stage": "godot_test_parties",
+          "status": "PASS",
+          "log_sha256": "18ba9b963689037bdd3ec9827f3b1187ee2c4358f2c414ea3826469801470e00",
+          "scope": "historical_headless_only"
+        },
+        {
+          "run_id": "20261001T212750576575Z-3485e1bb",
+          "stage": "godot_test_companion_reuse",
+          "status": "PASS",
+          "log_sha256": "143032a48fdb0aef326a327162ca758e731d0580769cfcd8a75142bc5fa559d8",
+          "scope": "historical_headless_only"
+        }
+      ]
+    },
+    {
+      "capability_id": "road_encounters",
+      "rule_version": "f10-architecture-1",
+      "module_id": "encounter_rules",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "actors.*.travel_plan"
+        },
+        {
+          "path": "actors.*.road_dialogue_id"
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_encounters",
+        "test_road_contacts"
+      ],
+      "evidence": [
+        {
+          "run_id": "20261001T212750576575Z-3485e1bb",
+          "stage": "godot_test_encounters",
+          "status": "PASS",
+          "log_sha256": "3b2993a69f2be38b6b3dc48d2da3901f663fc24951733f8cbdcb94a0bc81301e",
+          "scope": "historical_headless_only"
+        },
+        {
+          "run_id": "20261001T212750576575Z-3485e1bb",
+          "stage": "godot_test_road_contacts",
+          "status": "PASS",
+          "log_sha256": "a8cc1541029655dd22a564d36b011baefaa4edc47236bf8d8bb24350b6432b08",
+          "scope": "historical_headless_only"
+        }
+      ]
+    },
+    {
+      "capability_id": "personal_combat",
+      "rule_version": "f10-architecture-1",
+      "module_id": "personal_combat",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "personal_battlefields"
+        },
+        {
+          "path": "roles.*.sparring"
+        },
+        {
+          "path": "actors.*.road_conflict"
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_personal_round",
+        "test_personal_world"
+      ],
+      "evidence": [
+        {
+          "run_id": "20261001T212750576575Z-3485e1bb",
+          "stage": "godot_test_personal_round",
+          "status": "PASS",
+          "log_sha256": "85e0d68a325492e4dd2b7c51a3dd26f5224c0bc43337d509e554243619a372c6",
+          "scope": "historical_headless_only"
+        },
+        {
+          "run_id": "20261001T212750576575Z-3485e1bb",
+          "stage": "godot_test_personal_world",
+          "status": "PASS",
+          "log_sha256": "bbc8aedc660552b43ea7259c2f56b7901b3eea49580747645f7236f90849b034",
+          "scope": "historical_headless_only"
+        }
+      ]
+    },
+    {
+      "capability_id": "cultivation",
+      "rule_version": "f10-architecture-1",
+      "module_id": "cultivation_rules",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "personal_skills"
+        },
+        {
+          "path": "roles.*.lessons"
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_cultivation_rules"
+      ],
+      "evidence": [
+        {
+          "run_id": "20261001T212750576575Z-3485e1bb",
+          "stage": "godot_test_cultivation_rules",
+          "status": "PASS",
+          "log_sha256": "9ea2f41f6101366feb6afef70f26ed1d975e865c6e33630b4ed63e4b752e6681",
+          "scope": "historical_headless_only"
+        }
+      ]
+    },
+    {
+      "capability_id": "npc_society",
+      "rule_version": "f10-architecture-1",
+      "module_id": "social_rules",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "actors.*.social"
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_social_rules",
+        "test_social_world"
+      ],
+      "evidence": [
+        {
+          "run_id": "20261001T212750576575Z-3485e1bb",
+          "stage": "godot_test_social_rules",
+          "status": "PASS",
+          "log_sha256": "85091ea37a60575f51d40fb89baf82f3bfeb01207b064804062fe2dcd30b9fd4",
+          "scope": "historical_headless_only"
+        },
+        {
+          "run_id": "20261001T212750576575Z-3485e1bb",
+          "stage": "godot_test_social_world",
+          "status": "PASS",
+          "log_sha256": "b4f8af8ccf55efa79c6ead20bea8367e551f74d1ad3df9f965cbef7647927600",
+          "scope": "historical_headless_only"
+        }
+      ]
+    },
+    {
+      "capability_id": "world_terrain",
+      "rule_version": "f10-architecture-1",
+      "module_id": "world_terrain",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "world_maps"
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_world_terrain",
+        "test_terrain_journey"
+      ],
+      "evidence": [
+        {
+          "run_id": "20261001T212750576575Z-3485e1bb",
+          "stage": "godot_test_world_terrain",
+          "status": "PASS",
+          "log_sha256": "cdd6df324d5d8e9316943fcaa330948a6bb6df8264904f76e048dc75a4f9709a",
+          "scope": "historical_headless_only"
+        },
+        {
+          "run_id": "20261001T212750576575Z-3485e1bb",
+          "stage": "godot_test_terrain_journey",
+          "status": "PASS",
+          "log_sha256": "09bee411bae4c4d4f4fea5f0dc61c63d00f9ea66f807eff2bba763b934e59acb",
+          "scope": "historical_headless_only"
+        }
+      ]
+    },
+    {
+      "capability_id": "estates",
+      "rule_version": "f10-architecture-1",
+      "module_id": "estate_rules",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "estates"
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_estate_rules"
+      ],
+      "evidence": [
+        {
+          "run_id": "20261001T212750576575Z-3485e1bb",
+          "stage": "godot_test_estate_rules",
+          "status": "PASS",
+          "log_sha256": "71eb8065d0617aaba54f077c7375052fc35fa0f57744218adb9845d3a30af1f5",
+          "scope": "historical_headless_only"
+        }
+      ]
+    },
+    {
+      "capability_id": "family",
+      "rule_version": "f10-architecture-1",
+      "module_id": "family_rules",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "roles.*.family"
+        },
+        {
+          "path": "roles.*.services",
+          "contains": "family_adopt"
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_family_rules",
+        "test_family_world"
+      ],
+      "evidence": [
+        {
+          "run_id": "20261001T212750576575Z-3485e1bb",
+          "stage": "godot_test_family_rules",
+          "status": "PASS",
+          "log_sha256": "b321b493aa87b7c09ff5323f455dece3831870745ec216f59d3421982f80348f",
+          "scope": "historical_headless_only"
+        },
+        {
+          "run_id": "20261001T212750576575Z-3485e1bb",
+          "stage": "godot_test_family_world",
+          "status": "PASS",
+          "log_sha256": "6d5e8da0a9c34fcfda2e2c97514c5e59ac9a9633415df0e3768880fdec7c7faa",
+          "scope": "historical_headless_only"
+        }
+      ]
+    },
+    {
+      "capability_id": "military",
+      "rule_version": "f10-architecture-1",
+      "module_id": "military_world",
+      "support_status": "implemented/unverified",
+      "schema_selectors": [
+        {
+          "path": "battlefields"
+        },
+        {
+          "path": "troop_types"
+        },
+        {
+          "path": "military_objectives"
+        },
+        {
+          "path": "offices"
+        },
+        {
+          "path": "garrisons"
+        },
+        {
+          "path": "military_orders"
+        },
+        {
+          "path": "strongholds"
+        },
+        {
+          "path": "siege_topologies"
+        },
+        {
+          "path": "actors.*.military_plan"
+        },
+        {
+          "path": "roles.*.services",
+          "contains": "office_accept"
+        },
+        {
+          "path": "roles.*.services",
+          "contains": "office_resign"
+        },
+        {
+          "path": "roles.*.services",
+          "contains": "military_order"
+        },
+        {
+          "path": "roles.*.services",
+          "contains": "military_report"
+        }
+      ],
+      "supported_semantics": [],
+      "test_ids": [
+        "test_military_content",
+        "test_military_world",
+        "test_military_logistics"
+      ],
+      "evidence": [
+        {
+          "run_id": "20261001T212750576575Z-3485e1bb",
+          "stage": "godot_test_military_content",
+          "status": "PASS",
+          "log_sha256": "219018d70a463a93f372156725708f95b9072772b1d8595983d0562f08552153",
+          "scope": "historical_headless_only"
+        },
+        {
+          "run_id": "20261001T212750576575Z-3485e1bb",
+          "stage": "godot_test_military_world",
+          "status": "PASS",
+          "log_sha256": "ffd1db94075d54901401f18bb1200005a5f41a7edd95d4311b8252bbf4237a62",
+          "scope": "historical_headless_only"
+        },
+        {
+          "run_id": "20261001T212750576575Z-3485e1bb",
+          "stage": "godot_test_military_logistics",
+          "status": "PASS",
+          "log_sha256": "96b12c26aa9c66264d36cab5acbf19bd0fe6666d9cfeea108f2c17dbce528a18",
+          "scope": "historical_headless_only"
+        }
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "run_id": "20261001T212750576575Z-3485e1bb",
+      "receipt": "verification/architecture-a02/20261001T212750576575Z-3485e1bb/report.json",
+      "commit": "88fcabd347507fa7857d88a33cf46a8f952f9502",
+      "dirty_diff_sha256": "c9fcc08f0f1904c50d7a8c17a47e5bc853424a56e4dcd939738e1a456c000bc5",
+      "aggregate_status": "BLOCKED",
+      "scope": "历史Linux headless阶段证据；不代表当前源码、图形界面、Web或跨平台认证。",
+      "receipt_sha256": "e66fe3202c74e9435faedb34ccdd5ad787955bf3bc90406817781cac671e8233"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+// 冻结真实seed各边界的B域typed往返；与全世界等价/性能验收明确分开。
+#include "resident/domains/travel/travel.hpp"
+#include <fstream>
+#include <iostream>
+#include <sstream>
+using namespace hanmo::resident;
+namespace {
+int failures=0,checks=0;
+// 每个断言记独立行为，失败打印实际字段/错误码。
+void check(bool condition,const std::string& label){++checks;if(!condition){++failures;std::cerr<<"FAIL "<<label<<"\n";}}
+// 只读本地冻结oracle输入，缺文件/解析失败明确终止当前fixture。
+Outcome<BoundaryValue> read(const std::string& path){std::ifstream input(path);std::stringstream bytes;bytes<<input.rdbuf();return parse_boundary_json(bytes.str());}
+// 领域出口与源世界对应参数/事实/行程逐值逐类型逐顺序比较。
+void compare(const BoundaryValue& source,const BoundaryValue& domain){
+    for(const auto& key:{"action_params","facts","itineraries"}){const auto* value=domain.find(key);check(value&&value->as<BoundaryValue::Dict>(),std::string("domain ")+key);if(!value||!value->as<BoundaryValue::Dict>())continue;
+        for(const auto& row:*value->as<BoundaryValue::Dict>()){const BoundaryValue* expected=nullptr;if(std::string(key)=="action_params"){const auto* action=source.find("actions")->find(row.first);if(action)expected=action->find("params");}else expected=source.find(key)->find(row.first);check(expected!=nullptr,std::string(key)+"/"+row.first+" exists");if(expected){auto result=compare_boundary(*expected,row.second);check(result.exact(),std::string(key)+"/"+row.first+(result.value_difference?" value="+result.value_difference->path:"")+(result.order_difference?" order="+result.order_difference->path:""));}}
+    }
+}
+// 损坏字段必须保留原领域错误；合法旧可选路遇字段省略时也须精确往返。
+void check_mutations(const BoundaryValue& source){const auto* actions=source.find("actions")->as<BoundaryValue::Dict>();const StableId* id=nullptr;for(const auto& row:*actions)if(row.second.find("kind")&&*row.second.find("kind")->as<StableId>()=="travel"){id=&row.first;break;}if(id){auto invalid=source;invalid.find("actions")->find(*id)->find("params")->find("travel_credit")->data=true;auto decoded=decode_travel_seed(invalid);check(!decoded.ok&&decoded.error.original.code=="InvalidTerrainCredit","credit bool original error");invalid=source;invalid.find("actions")->find(*id)->find("params")->find("route_index")->data=true;decoded=decode_travel_seed(invalid);check(!decoded.ok&&decoded.error.original.code=="TerrainJourneySuffixMismatch","index bool original error");invalid=source;invalid.find("actions")->find(*id)->find("params")->find("met_actions")->data=BoundaryValue::Array{BoundaryValue{Integer{1}}};decoded=decode_travel_seed(invalid);check(!decoded.ok&&decoded.error.original.code=="InvalidMetJourneys","met ID integer original error");invalid=source;auto* p=invalid.find("actions")->find(*id)->find("params");p->find("budget")->data=true;p->find("route_index")->data=true;decoded=decode_travel_seed(invalid);check(!decoded.ok&&decoded.error.original.code=="InvalidTerrainJourney","budget shape precedes suffix error");auto older=source;auto& old_params=*older.find("actions")->find(*id)->find("params")->as<BoundaryValue::Dict>();old_params.erase(std::remove_if(old_params.begin(),old_params.end(),[](const auto& row){return row.first=="encounter_id"||row.first=="met_actions";}),old_params.end());decoded=decode_travel_seed(older);check(decoded.ok,"optional encounter fields may be absent");if(decoded.ok){auto output=export_travel_state(decoded.value);check(output.ok&&compare_boundary(*older.find("actions")->find(*id)->find("params"),*output.value.find("action_params")->find(*id)).exact(),"optional absence and order preserved");CodecVisitor::Buffer bytes;CodecVisitor writer(bytes);check(visit_travel_checkpoint(writer,decoded.value).ok&&writer.finish().ok,"optional checkpoint write");TravelState restored;CodecVisitor reader(static_cast<const CodecVisitor::Buffer&>(bytes));check(visit_travel_checkpoint(reader,restored).ok&&reader.finish().ok,"optional checkpoint read");auto saved=export_travel_state(restored);check(saved.ok&&compare_boundary(output.value,saved.value).exact(),"optional checkpoint exact");check(resume_after_encounter(restored,*id,false).ok,"legacy resume materializes encounter key");auto resumed=export_travel_state(restored);check(resumed.ok&&resumed.value.find("action_params")->find(*id)->find("encounter_id")&&!resumed.value.find("action_params")->find(*id)->find("met_actions"),"only written optional key becomes present");}}
+    if(const auto* itineraries=source.find("itineraries")->as<BoundaryValue::Dict>();itineraries&&!itineraries->empty()){auto invalid=source;invalid.find("itineraries")->find(itineraries->front().first)->find("ready_tick")->data=true;auto decoded=decode_travel_seed(invalid);check(!decoded.ok&&decoded.error.original.code=="InvalidItinerary","itinerary bool original error");}
+}
+
+}
+// 参数为冻结catalog文件及一个或多个state文件，测试不启动未来世界预演。
+int main(int argc,char** argv){if(argc<3){std::cerr<<"Usage: travel_codec catalog state...\n";return 2;}auto raw=read(argv[1]);check(raw.ok,"read catalog");if(!raw.ok)return 1;auto first=read(argv[2]);check(first.ok,"read first state");if(!first.ok)return 1;auto scenario=*first.value.find("scenario_id")->as<StableId>();auto catalog=decode_travel_catalog(*raw.value.find("data"),scenario);check(catalog.ok,catalog.ok?"catalog":"catalog "+catalog.error.original.code+catalog.error.original.path);
+    for(int i=2;i<argc;++i){auto state=read(argv[i]);check(state.ok,"read state");if(!state.ok)continue;auto travel=decode_travel_seed(state.value);check(travel.ok,travel.ok?"decode state":"decode "+travel.error.original.code+travel.error.original.path);if(!travel.ok)continue;auto exported=export_travel_state(travel.value);check(exported.ok,"export");compare(state.value,exported.value);check_mutations(state.value);
+        CodecVisitor::Buffer bytes;CodecVisitor writer(bytes);check(visit_travel_checkpoint(writer,travel.value).ok&&writer.finish().ok,"checkpoint encode");TravelState restored;const auto& immutable=bytes;CodecVisitor reader(immutable);check(visit_travel_checkpoint(reader,restored).ok&&reader.finish().ok,"checkpoint decode");auto restored_export=export_travel_state(restored);check(compare_boundary(exported.value,restored_export.value).exact(),"checkpoint exact roundtrip");
+        bytes.pop_back();CodecVisitor damaged(static_cast<const CodecVisitor::Buffer&>(bytes));TravelState rejected;check(!visit_travel_checkpoint(damaged,rejected).ok,"checkpoint truncation rejected");
+    }
+    std::cout<<"TRAVEL_CODEC_CHECKS="<<checks<<" FAILURES="<<failures<<"\n";return failures?1:0;
+}

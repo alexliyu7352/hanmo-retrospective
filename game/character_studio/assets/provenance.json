@@ -1,0 +1,50 @@
+{
+  "date": "2026-10-06",
+  "generator": "built-in image_gen",
+  "reference": "Existing repository art-direction characters/same-person-comparison and confirmed tavern dialogue; used for original Hanmo painterly style only",
+  "scope": "Original same-master adult calm medium-build fitting family. No claim of full age/gender/body library or user final acceptance.",
+  "sources": [
+    {
+      "file": "master.png",
+      "purpose": "Unified complete original portrait followed by background extraction; continuous face/ears/neck and collar",
+      "status": "parent actual-pixel review accepted for continuing technical master"
+    },
+    {
+      "file": "traveler.png",
+      "purpose": "Same master, clothing below unchanged cream inner collar replaced with olive traveler robe, belt and strap",
+      "status": "actual reassembled collar visually reviewed"
+    },
+    {
+      "file": "eyes-relaxed.png",
+      "purpose": "First whole-portrait local eye edit",
+      "status": "difference too weak, preserved research only, not used by runtime catalog"
+    },
+    {
+      "file": "eyes-narrow.png",
+      "purpose": "Second whole-portrait local eye edit",
+      "status": "difference too weak, preserved research only, not used by runtime catalog"
+    },
+    {
+      "file": "face-soft-source.png",
+      "purpose": "Same master face crop edited for flat brows, hooded eyes, rounder nose and fuller smiling lips; normalized to original crop and extracted by individual shaped regions",
+      "status": "actual mixed features visually reviewed"
+    },
+    {
+      "file": "face-broad-source.png",
+      "purpose": "Same master broader jaw and cheek structure with fixed fitting anchors; runtime reapplies independent selected eyebrows, eyes, nose and mouth",
+      "status": "actual mixed broader-jaw composition visually reviewed"
+    },
+    {
+      "file": "hair-cap-source.png",
+      "purpose": "Same-master charcoal cloth headwrap replacing original hair/topknot/ribbon; old/new hair-region union removes orphan old hair",
+      "status": "actual mixed headwear composition visually reviewed"
+    },
+    {
+      "file": "beard-source.png",
+      "purpose": "Same-master cropped-face short moustache and chin beard; currently restricted to long-face flat-mouth fit",
+      "status": "actual short-beard composition visually reviewed"
+    }
+  ],
+  "production": "tests/build_runtime_layers.gd exports mutually exclusive layers at original 1024x1536. Runtime composes at source size, then uniformly downsamples the finished portrait to512x768; this prevents inner alpha seam loss. No freely stretched or repositioned feature parts. catalog.json is the standalone workbench part catalog; formal integration deferred.",
+  "acceptance": "Automated checks and internal visual review are separate. Old composition-v0.1 remains failed. Final user art review pending."
+}

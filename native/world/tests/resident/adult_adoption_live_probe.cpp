@@ -1,0 +1,51 @@
+// 成年收养必要安全门：真实对白请求、原人物钱货、一次事实、晚ID整账回滚和冷档来源。
+#define DIPLOMACY_BOUNDARY_HELPERS_ONLY
+#include "diplomacy_boundary_test.cpp"
+#include "resident/checkpoint/checkpoint_selection.hpp"
+namespace {
+// 只按实际银行已核目录头准备原生冷入口，保留所选情景的全部模块身份。
+auto prepared_for(ResidentReplaySession& world,const V& catalog){
+    const auto bank=need(world.checkpoint(),"original selected bank");auto reader=create_resident_replay_session();
+    const auto selection=need(reader->inspect_checkpoint_selection(bank),"original bank selection");const auto& source=field(selection,"catalog");
+    CatalogIdentity expected;expected.content_id=text(source,"content_id");expected.content_version=text(source,"content_version");expected.content_digest=text(source,"content_digest");expected.ruleset_id=text(source,"ruleset_id");expected.schema_sha256=text(source,"schema_sha256");expected.artifact_sha256=text(source,"artifact_sha256");if(source.find("pack_set_digest"))expected.pack_set_digest=text(source,"pack_set_digest");
+    for(const auto& module:boundary::array(field(source,"module_versions"),"modules"))expected.module_versions.emplace_back(text(module,"name"),text(module,"version"));
+    return need(prepare_native_catalog(catalog,text(selection,"scenario_id"),expected),"prepare original selected catalog");
+}
+// 只把自然会面状态的实例计数改为末端，完整安装后沿同一正式命令验证回滚。
+void late_id(ResidentReplaySession& natural,const V& catalog,const V& params){
+    const auto original=need(natural.checkpoint(),"natural request bank");auto state=export_state(natural);state.find("next_instance_id")->data=std::numeric_limits<Integer>::max()-1;
+    auto prepared=prepared_for(natural,catalog);ResidentWorld isolated;need(isolated.install(prepared,need(decode_world_seed(state,*prepared),"decode exhausted source")),"validate exhausted source");
+    const auto identity=need(isolated.identity(),"isolated identity");const auto context=query(natural,"command_context");
+    CommandEnvelope command;command.world_id=identity.world_id;command.execution_epoch=identity.execution_epoch;command.expected_revision=identity.revision;command.actor_id=text(context,"actor_id");command.request_seq=boundary::get_int(context,"next_request_seq","context");command.payload=std::make_shared<const CommandPayload>(need(decode_resident_command("family_adopt_existing",params),"decode actual adoption"));
+    const auto before=need(isolated.checkpoint(),"before terminal failure");need(isolated.preview(command),"terminal source passes business quote");auto refused=isolated.submit(command);
+    check(!refused.ok&&refused.error.original.code=="InstanceIdOverflow","second ID must fail after relationship allocation: "+refused.error.original.code);check(before==need(isolated.checkpoint(),"after terminal failure"),"terminal receipt failure changed world");
+    // JSON种子不承诺已安装world_id；直达领域的对照候选必须借上方真实Installed身份，不能自造或用全零值。
+    WorldBundle candidate(prepared,need(decode_world_seed(state,*prepared),"same candidate source"));candidate.common.state().identity=identity;need(candidate.validate(),"same candidate validates");auto interaction_access=candidate.services.interaction_access();auto access=candidate.services.family_access(interaction_access);const auto typed=need(decode_family_command("family_adopt_existing",params),"same family payload");const auto quote=need(preview_family(candidate.common,candidate.family,*prepared->family,*prepared->common,candidate.estate,*prepared->estate,access,command.actor_id,typed),"same family quote");
+    need(apply_family_instant(candidate.common,candidate.family,candidate.estate,*prepared->family,*prepared->common,*prepared->estate,access,command.actor_id,typed,quote),"relationship allocation precedes receipt failure");check(candidate.family.children.find(text(params,"adoptee_actor_id")),"direct candidate did not record real relationship");check(!candidate.common.next_id("result").ok,"second receipt ID was not exhausted");check(original==need(natural.checkpoint(),"natural bank remains"),"isolated failure touched natural world");
+}
+// 篡改有正确封装摘要的新域来源与顺序，恢复必须拒绝且不能替换当前有效世界。
+void bad_cold(ResidentReplaySession& live,const V& catalog){
+    const auto original=need(live.checkpoint(),"valid adoption bank");const auto prepared=prepared_for(live,catalog);auto state=export_state(live);
+    auto* facts=state.find("family")->find("facts")->as<V::Dict>();check(facts,"family facts must be object");V* agreement=nullptr;
+    for(auto& row:*facts)if(row.second.find("kind")&&text(row.second,"kind")=="family_adult_adoption")agreement=row.second.find("agreement");check(agreement,"actual adoption agreement missing");agreement->find("adoptee_actor_id")->data=StableId("society::actor.study_swordswoman");
+    auto seed=decode_world_seed(state,*prepared);bool refused=!seed.ok;if(seed.ok){ResidentWorld broken;refused=!broken.install(prepared,std::move(seed.value)).ok;}check(refused,"cold source allowed different adoptee");
+    auto envelope=need(decode_checkpoint(original,prepared->identity,need(checkpoint_domains_from_identity({{},0,0,prepared->identity}),"selected domain contract")),"decode original envelope");bool changed=false;
+    for(auto& section:envelope.sections)if(section.domain=="family"){
+        check(section.codec_version==5,"ordinary adult profile must be Family5");const StableId key="role_id";auto found=std::find_end(section.payload.begin(),section.payload.end(),key.begin(),key.end());check(found!=section.payload.end(),"saved context order key missing");std::copy_n("bad_key",7,found);changed=true;
+    }
+    check(changed,"family section missing");const auto malformed=need(encode_checkpoint(envelope),"valid outer digest around bad new field order");check(!live.restore(malformed).ok,"bad context field order restored");check(original==need(live.checkpoint(),"bank after failed restoration"),"failed restoration replaced current world");auto cold=create_resident_replay_session();check(!cold->initialize_checkpoint(catalog,malformed).ok,"fresh cold reader accepted malformed field order");
+}
+}
+int main(int argc,char** argv){std::filesystem::path root;try{
+    check(argc==4,"Usage: adult_adoption_live_probe CATALOG REQUEST FRESH_OUTPUT");root=argv[3];check(!std::filesystem::exists(root),"fresh output required");std::filesystem::create_directories(root);
+    const auto catalog=read(argv[1]),request=read(argv[2]);check(text(request,"scenario_id")=="adultfamily::scenario.qingchuan_adult_adoption","formal adult author required");auto world=create_resident_replay_session();need(world->initialize_native(catalog,request),"formal adult scene");
+    auto page=query(*world,"adult_adoption_requests",boundary::obj({{"page",V{Integer{0}}}}));check(boundary::get_int(page,"request_count","page")==0,"unreached private request leaked");
+    submit(*world,"talk",boundary::obj({{"role_id",V{"adultfamily::role.adoption_request"}}}));page=query(*world,"adult_adoption_requests",boundary::obj({{"page",V{Integer{0}}}}));const auto& requests=boundary::array(field(page,"requests"),"requests");check(requests.size()==1&&boundary::get_bool(requests.front(),"eligible","request"),"actual authored request not eligible");const auto params=field(requests.front(),"params");
+    const auto before=export_state(*world);const auto original=need(world->checkpoint(),"actual meeting bank");auto quote=call(*world,LiveOperationKind::preview,boundary::obj({{"kind",V{"family_adopt_existing"}},{"params",params},{"actor_id",field(query(*world,"command_context"),"actor_id")}}),"actual adoption quote");check(original==need(world->checkpoint(),"after quote"),"quote changed world");save_bank(*world,root,"request");late_id(*world,catalog,params);
+    auto command=envelope(*world,"family_adopt_existing",params);auto receipt=call(*world,LiveOperationKind::command,command,"accept adult adoption");const auto accepted=need(world->checkpoint(),"accepted bank");auto replay=call(*world,LiveOperationKind::command,command,"same adoption command replay");check(compare_boundary(receipt,replay).exact()&&accepted==need(world->checkpoint(),"replay bank"),"same command duplicated relationship");const auto after=export_state(*world);
+    for(const auto* key:{"actors","wallets","inventories","roles"})check(compare_boundary(field(before,key),field(after,key)).exact(),StableId("adoption changed original ")+key);
+    check(boundary::get_int(before,"tick","state")==boundary::get_int(after,"tick","state"),"instant adoption advanced life clock");check(compare_boundary(field(field(before,"family"),"designations"),field(field(after,"family"),"designations")).exact(),"adoption designated heir");
+    page=query(*world,"adult_adoption_requests",boundary::obj({{"page",V{Integer{0}}}}));check(boundary::get_int(page,"history_count","page")==1,"one actual relation fact required");
+    auto denied=call(*world,LiveOperationKind::preview,boundary::obj({{"kind",V{"family_designate"}},{"params",boundary::obj({{"heir_actor_id",field(params,"adoptee_actor_id")}})},{"actor_id",field(query(*world,"command_context"),"actor_id")}}),"adoption is not succession consent",false);check(!boundary::get_bool(denied,"ok","quote"),"adoption silently authorised succession");
+    save_bank(*world,root,"adopted");bad_cold(*world,catalog);auto cold=create_resident_replay_session();need(cold->initialize_checkpoint(catalog,accepted),"cold original adult relation");check(accepted==need(cold->checkpoint(),"cold adult bytes"),"new Family5 bank bytes changed");submit(*cold,"end_interaction",boundary::obj({}));const auto closed=need(cold->checkpoint(),"closed historical source");auto after_close=create_resident_replay_session();need(after_close->initialize_checkpoint(catalog,closed),"history survives old session close");check(boundary::get_int(query(*after_close,"adult_adoption_requests",boundary::obj({{"page",V{Integer{0}}}})),"history_count","page")==1,"historical relation depends on active session");save_bank(*after_close,root,"closed");save((root/"result.json").c_str(),true);std::cout<<"ADULT_ADOPTION_LIVE "<<checks<<" checks 0 failures\n";return 0;
+}catch(const std::exception& e){if(!root.empty()&&std::filesystem::exists(root))try{save((root/"failure.json").c_str(),false,e.what());}catch(...){}std::cerr<<"ADULT_ADOPTION_LIVE FAIL "<<e.what()<<'\n';return 1;}}

@@ -1,0 +1,1545 @@
+{
+  "binding_patches": [
+    {
+      "op": "replace",
+      "path": "/scene_templates/fixture.room/layers/1/target_ref",
+      "value": {
+        "kind": "actor",
+        "id": "actor.chen"
+      }
+    },
+    {
+      "op": "remove",
+      "path": "/scene_templates/fixture.room/layers/1/profile_id"
+    },
+    {
+      "op": "replace",
+      "path": "/scene_templates/fixture.room/layers/2/candidate_selector",
+      "value": {
+        "command_kind": "talk",
+        "params": {
+          "role_id": "role.office"
+        }
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/scene_templates/fixture.room/layers/1/extent",
+      "value": [
+        25,
+        40
+      ]
+    }
+  ],
+  "registry": [
+    {
+      "name": "legacy_unbound_layers",
+      "patches": [],
+      "ok": true,
+      "code": "",
+      "path": ""
+    },
+    {
+      "name": "bound_actor_without_template_profile",
+      "patches": [
+        {
+          "op": "replace",
+          "path": "/scene_templates/fixture.room/layers/1/target_ref",
+          "value": {
+            "kind": "actor",
+            "id": "actor.chen"
+          }
+        },
+        {
+          "op": "remove",
+          "path": "/scene_templates/fixture.room/layers/1/profile_id"
+        },
+        {
+          "op": "replace",
+          "path": "/scene_templates/fixture.room/layers/2/candidate_selector",
+          "value": {
+            "command_kind": "talk",
+            "params": {
+              "role_id": "role.office"
+            }
+          }
+        },
+        {
+          "op": "replace",
+          "path": "/scene_templates/fixture.room/layers/1/extent",
+          "value": [
+            25,
+            40
+          ]
+        }
+      ],
+      "ok": true,
+      "code": "",
+      "path": ""
+    },
+    {
+      "name": "bound_actor_with_legacy_profile",
+      "patches": [
+        {
+          "op": "replace",
+          "path": "/scene_templates/fixture.room/layers/1/target_ref",
+          "value": {
+            "kind": "actor",
+            "id": "actor.chen"
+          }
+        },
+        {
+          "op": "replace",
+          "path": "/scene_templates/fixture.room/layers/2/candidate_selector",
+          "value": {
+            "command_kind": "talk",
+            "params": {
+              "role_id": "role.office"
+            }
+          }
+        },
+        {
+          "op": "replace",
+          "path": "/scene_templates/fixture.room/layers/1/extent",
+          "value": [
+            25,
+            40
+          ]
+        }
+      ],
+      "ok": true,
+      "code": "",
+      "path": ""
+    },
+    {
+      "name": "missing_world_objects_allowed_in_schema",
+      "patches": [
+        {
+          "op": "replace",
+          "path": "/scene_templates/fixture.room/layers/0/target_ref",
+          "value": {
+            "kind": "estate",
+            "id": "estate.does.not.exist"
+          }
+        },
+        {
+          "op": "replace",
+          "path": "/scene_templates/fixture.room/layers/0/visible_if",
+          "value": [
+            {
+              "field": "facilities.farm",
+              "equals": 0
+            }
+          ]
+        }
+      ],
+      "ok": true,
+      "code": "",
+      "path": ""
+    },
+    {
+      "name": "bounded_estate_facility_predicates",
+      "patches": [
+        {
+          "op": "replace",
+          "path": "/scene_templates/fixture.room/layers/0/target_ref",
+          "value": {
+            "kind": "estate",
+            "id": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
+          }
+        },
+        {
+          "op": "replace",
+          "path": "/scene_templates/fixture.room/layers/0/visible_if",
+          "value": [
+            {
+              "field": "facilities.granary",
+              "equals": 2147483647
+            },
+            {
+              "field": "facilities.granary",
+              "equals": 2147483647
+            },
+            {
+              "field": "facilities.granary",
+              "equals": 2147483647
+            },
+            {
+              "field": "facilities.granary",
+              "equals": 2147483647
+            },
+            {
+              "field": "facilities.granary",
+              "equals": 2147483647
+            },
+            {
+              "field": "facilities.granary",
+              "equals": 2147483647
+            },
+            {
+              "field": "facilities.granary",
+              "equals": 2147483647
+            },
+            {
+              "field": "facilities.granary",
+              "equals": 2147483647
+            }
+          ]
+        }
+      ],
+      "ok": true,
+      "code": "",
+      "path": ""
+    },
+    {
+      "name": "unsupported_command",
+      "patches": [
+        {
+          "op": "replace",
+          "path": "/scene_templates/fixture.room/layers/1/target_ref",
+          "value": {
+            "kind": "actor",
+            "id": "actor.chen"
+          }
+        },
+        {
+          "op": "remove",
+          "path": "/scene_templates/fixture.room/layers/1/profile_id"
+        },
+        {
+          "op": "replace",
+          "path": "/scene_templates/fixture.room/layers/2/candidate_selector",
+          "value": {
+            "command_kind": "demolish",
+            "params": {}
+          }
+        },
+        {
+          "op": "replace",
+          "path": "/scene_templates/fixture.room/layers/1/extent",
+          "value": [
+            25,
+            40
+          ]
+        }
+      ],
+      "ok": false,
+      "code": "UnsupportedSceneCommand",
+      "path": "/scene_templates/fixture.room/layers/2/candidate_selector/command_kind"
+    },
+    {
+      "name": "selector_without_target_binding",
+      "patches": [
+        {
+          "op": "replace",
+          "path": "/scene_templates/fixture.room/layers/2/candidate_selector",
+          "value": {
+            "command_kind": "talk",
+            "params": {
+              "role_id": "role.office"
+            }
+          }
+        }
+      ],
+      "ok": false,
+      "code": "InvalidSceneTarget",
+      "path": "/scene_templates/fixture.room/layers/2/candidate_selector/target_ref"
+    },
+    {
+      "name": "selector_wrong_target_kind",
+      "patches": [
+        {
+          "op": "replace",
+          "path": "/scene_templates/fixture.room/layers/1/target_ref",
+          "value": {
+            "kind": "actor",
+            "id": "actor.chen"
+          }
+        },
+        {
+          "op": "remove",
+          "path": "/scene_templates/fixture.room/layers/1/profile_id"
+        },
+        {
+          "op": "replace",
+          "path": "/scene_templates/fixture.room/layers/2/candidate_selector",
+          "value": {
+            "command_kind": "inspect",
+            "params": {}
+          }
+        },
+        {
+          "op": "replace",
+          "path": "/scene_templates/fixture.room/layers/1/extent",
+          "value": [
+            25,
+            40
+          ]
+        }
+      ],
+      "ok": false,
+      "code": "SceneTargetKind",
+      "path": "/scene_templates/fixture.room/layers/2/candidate_selector/target_ref"
+    },
+    {
+      "name": "selector_excess_params",
+      "patches": [
+        {
+          "op": "replace",
+          "path": "/scene_templates/fixture.room/layers/1/target_ref",
+          "value": {
+            "kind": "actor",
+            "id": "actor.chen"
+          }
+        },
+        {
+          "op": "remove",
+          "path": "/scene_templates/fixture.room/layers/1/profile_id"
+        },
+        {
+          "op": "replace",
+          "path": "/scene_templates/fixture.room/layers/2/candidate_selector",
+          "value": {
+            "command_kind": "talk",
+            "params": {
+              "role_id": "role.office",
+              "place_id": "west.office"
+            }
+          }
+        },
+        {
+          "op": "replace",
+          "path": "/scene_templates/fixture.room/layers/1/extent",
+          "value": [
+            25,
+            40
+          ]
+        }
+      ],
+      "ok": false,
+      "code": "InvalidSceneSelector",
+      "path": "/scene_templates/fixture.room/layers/2/candidate_selector/params"
+    },
+    {
+      "name": "selector_missing_params",
+      "patches": [
+        {
+          "op": "replace",
+          "path": "/scene_templates/fixture.room/layers/1/target_ref",
+          "value": {
+            "kind": "actor",
+            "id": "actor.chen"
+          }
+        },
+        {
+          "op": "remove",
+          "path": "/scene_templates/fixture.room/layers/1/profile_id"
+        },
+        {
+          "op": "replace",
+          "path": "/scene_templates/fixture.room/layers/2/candidate_selector",
+          "value": {
+            "command_kind": "talk"
+          }
+        },
+        {
+          "op": "replace",
+          "path": "/scene_templates/fixture.room/layers/1/extent",
+          "value": [
+            25,
+            40
+          ]
+        }
+      ],
+      "ok": false,
+      "code": "",
+      "path": ""
+    },
+    {
+      "name": "selector_missing_role",
+      "patches": [
+        {
+          "op": "replace",
+          "path": "/scene_templates/fixture.room/layers/1/target_ref",
+          "value": {
+            "kind": "actor",
+            "id": "actor.chen"
+          }
+        },
+        {
+          "op": "remove",
+          "path": "/scene_templates/fixture.room/layers/1/profile_id"
+        },
+        {
+          "op": "replace",
+          "path": "/scene_templates/fixture.room/layers/2/candidate_selector",
+          "value": {
+            "command_kind": "talk",
+            "params": {}
+          }
+        },
+        {
+          "op": "replace",
+          "path": "/scene_templates/fixture.room/layers/1/extent",
+          "value": [
+            25,
+            40
+          ]
+        }
+      ],
+      "ok": false,
+      "code": "InvalidSceneSelector",
+      "path": "/scene_templates/fixture.room/layers/2/candidate_selector/params"
+    },
+    {
+      "name": "actor_wrong_target",
+      "patches": [
+        {
+          "op": "replace",
+          "path": "/scene_templates/fixture.room/layers/1/target_ref",
+          "value": {
+            "kind": "estate",
+            "id": "estate.home"
+          }
+        }
+      ],
+      "ok": false,
+      "code": "SceneTargetKind",
+      "path": "/scene_templates/fixture.room/layers/1/target_ref"
+    },
+    {
+      "name": "unbound_actor_without_profile",
+      "patches": [
+        {
+          "op": "remove",
+          "path": "/scene_templates/fixture.room/layers/1/profile_id"
+        }
+      ],
+      "ok": false,
+      "code": "",
+      "path": ""
+    },
+    {
+      "name": "target_empty_id",
+      "patches": [
+        {
+          "op": "replace",
+          "path": "/scene_templates/fixture.room/layers/0/target_ref",
+          "value": {
+            "kind": "place",
+            "id": ""
+          }
+        }
+      ],
+      "ok": false,
+      "code": "",
+      "path": ""
+    },
+    {
+      "name": "target_large_id",
+      "patches": [
+        {
+          "op": "replace",
+          "path": "/scene_templates/fixture.room/layers/0/target_ref",
+          "value": {
+            "kind": "place",
+            "id": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+          }
+        }
+      ],
+      "ok": false,
+      "code": "",
+      "path": ""
+    },
+    {
+      "name": "target_wrong_kind",
+      "patches": [
+        {
+          "op": "replace",
+          "path": "/scene_templates/fixture.room/layers/0/target_ref",
+          "value": {
+            "kind": "role",
+            "id": "role.office"
+          }
+        }
+      ],
+      "ok": false,
+      "code": "",
+      "path": ""
+    },
+    {
+      "name": "target_extra_key",
+      "patches": [
+        {
+          "op": "replace",
+          "path": "/scene_templates/fixture.room/layers/0/target_ref",
+          "value": {
+            "kind": "place",
+            "id": "west.office",
+            "visible": true
+          }
+        }
+      ],
+      "ok": false,
+      "code": "",
+      "path": ""
+    },
+    {
+      "name": "target_wrong_type",
+      "patches": [
+        {
+          "op": "replace",
+          "path": "/scene_templates/fixture.room/layers/0/target_ref",
+          "value": {
+            "kind": "place",
+            "id": 42
+          }
+        }
+      ],
+      "ok": false,
+      "code": "",
+      "path": ""
+    },
+    {
+      "name": "visibility_requires_estate",
+      "patches": [
+        {
+          "op": "replace",
+          "path": "/scene_templates/fixture.room/layers/0/visible_if",
+          "value": []
+        }
+      ],
+      "ok": false,
+      "code": "ScenePredicateTarget",
+      "path": "/scene_templates/fixture.room/layers/0/visible_if"
+    },
+    {
+      "name": "visibility_rejects_nonestate",
+      "patches": [
+        {
+          "op": "replace",
+          "path": "/scene_templates/fixture.room/layers/0/target_ref",
+          "value": {
+            "kind": "place",
+            "id": "west.office"
+          }
+        },
+        {
+          "op": "replace",
+          "path": "/scene_templates/fixture.room/layers/0/visible_if",
+          "value": []
+        }
+      ],
+      "ok": false,
+      "code": "ScenePredicateTarget",
+      "path": "/scene_templates/fixture.room/layers/0/visible_if"
+    },
+    {
+      "name": "visibility_too_many",
+      "patches": [
+        {
+          "op": "replace",
+          "path": "/scene_templates/fixture.room/layers/0/target_ref",
+          "value": {
+            "kind": "estate",
+            "id": "estate.home"
+          }
+        },
+        {
+          "op": "replace",
+          "path": "/scene_templates/fixture.room/layers/0/visible_if",
+          "value": [
+            {
+              "field": "facilities.farm",
+              "equals": 1
+            },
+            {
+              "field": "facilities.farm",
+              "equals": 1
+            },
+            {
+              "field": "facilities.farm",
+              "equals": 1
+            },
+            {
+              "field": "facilities.farm",
+              "equals": 1
+            },
+            {
+              "field": "facilities.farm",
+              "equals": 1
+            },
+            {
+              "field": "facilities.farm",
+              "equals": 1
+            },
+            {
+              "field": "facilities.farm",
+              "equals": 1
+            },
+            {
+              "field": "facilities.farm",
+              "equals": 1
+            },
+            {
+              "field": "facilities.farm",
+              "equals": 1
+            }
+          ]
+        }
+      ],
+      "ok": false,
+      "code": "",
+      "path": ""
+    },
+    {
+      "name": "visibility_negative",
+      "patches": [
+        {
+          "op": "replace",
+          "path": "/scene_templates/fixture.room/layers/0/target_ref",
+          "value": {
+            "kind": "estate",
+            "id": "estate.home"
+          }
+        },
+        {
+          "op": "replace",
+          "path": "/scene_templates/fixture.room/layers/0/visible_if",
+          "value": [
+            {
+              "field": "facilities.farm",
+              "equals": -1
+            }
+          ]
+        }
+      ],
+      "ok": false,
+      "code": "",
+      "path": ""
+    },
+    {
+      "name": "visibility_overflow",
+      "patches": [
+        {
+          "op": "replace",
+          "path": "/scene_templates/fixture.room/layers/0/target_ref",
+          "value": {
+            "kind": "estate",
+            "id": "estate.home"
+          }
+        },
+        {
+          "op": "replace",
+          "path": "/scene_templates/fixture.room/layers/0/visible_if",
+          "value": [
+            {
+              "field": "facilities.farm",
+              "equals": 2147483648
+            }
+          ]
+        }
+      ],
+      "ok": false,
+      "code": "",
+      "path": ""
+    },
+    {
+      "name": "visibility_fraction",
+      "patches": [
+        {
+          "op": "replace",
+          "path": "/scene_templates/fixture.room/layers/0/target_ref",
+          "value": {
+            "kind": "estate",
+            "id": "estate.home"
+          }
+        },
+        {
+          "op": "replace",
+          "path": "/scene_templates/fixture.room/layers/0/visible_if",
+          "value": [
+            {
+              "field": "facilities.farm",
+              "equals": 1.5
+            }
+          ]
+        }
+      ],
+      "ok": false,
+      "code": "",
+      "path": ""
+    },
+    {
+      "name": "visibility_boolean",
+      "patches": [
+        {
+          "op": "replace",
+          "path": "/scene_templates/fixture.room/layers/0/target_ref",
+          "value": {
+            "kind": "estate",
+            "id": "estate.home"
+          }
+        },
+        {
+          "op": "replace",
+          "path": "/scene_templates/fixture.room/layers/0/visible_if",
+          "value": [
+            {
+              "field": "facilities.farm",
+              "equals": true
+            }
+          ]
+        }
+      ],
+      "ok": false,
+      "code": "",
+      "path": ""
+    },
+    {
+      "name": "visibility_damage",
+      "patches": [
+        {
+          "op": "replace",
+          "path": "/scene_templates/fixture.room/layers/0/target_ref",
+          "value": {
+            "kind": "estate",
+            "id": "estate.home"
+          }
+        },
+        {
+          "op": "replace",
+          "path": "/scene_templates/fixture.room/layers/0/visible_if",
+          "value": [
+            {
+              "field": "damage",
+              "equals": 0
+            }
+          ]
+        }
+      ],
+      "ok": false,
+      "code": "",
+      "path": ""
+    },
+    {
+      "name": "visibility_open",
+      "patches": [
+        {
+          "op": "replace",
+          "path": "/scene_templates/fixture.room/layers/0/target_ref",
+          "value": {
+            "kind": "estate",
+            "id": "estate.home"
+          }
+        },
+        {
+          "op": "replace",
+          "path": "/scene_templates/fixture.room/layers/0/visible_if",
+          "value": [
+            {
+              "field": "business.open",
+              "equals": 0
+            }
+          ]
+        }
+      ],
+      "ok": false,
+      "code": "",
+      "path": ""
+    },
+    {
+      "name": "visibility_or",
+      "patches": [
+        {
+          "op": "replace",
+          "path": "/scene_templates/fixture.room/layers/0/target_ref",
+          "value": {
+            "kind": "estate",
+            "id": "estate.home"
+          }
+        },
+        {
+          "op": "replace",
+          "path": "/scene_templates/fixture.room/layers/0/visible_if",
+          "value": [
+            {
+              "field": "facilities.farm",
+              "equals": 0,
+              "or": true
+            }
+          ]
+        }
+      ],
+      "ok": false,
+      "code": "",
+      "path": ""
+    },
+    {
+      "name": "actor_extent_zero_width",
+      "patches": [
+        {
+          "op": "replace",
+          "path": "/scene_templates/fixture.room/layers/1/target_ref",
+          "value": {
+            "kind": "actor",
+            "id": "actor.chen"
+          }
+        },
+        {
+          "op": "remove",
+          "path": "/scene_templates/fixture.room/layers/1/profile_id"
+        },
+        {
+          "op": "replace",
+          "path": "/scene_templates/fixture.room/layers/2/candidate_selector",
+          "value": {
+            "command_kind": "talk",
+            "params": {
+              "role_id": "role.office"
+            }
+          }
+        },
+        {
+          "op": "replace",
+          "path": "/scene_templates/fixture.room/layers/1/extent",
+          "value": [
+            0,
+            40
+          ]
+        }
+      ],
+      "ok": false,
+      "code": "SceneActorExtent",
+      "path": "/scene_templates/fixture.room/layers/1/extent"
+    },
+    {
+      "name": "actor_extent_zero_height",
+      "patches": [
+        {
+          "op": "replace",
+          "path": "/scene_templates/fixture.room/layers/1/target_ref",
+          "value": {
+            "kind": "actor",
+            "id": "actor.chen"
+          }
+        },
+        {
+          "op": "remove",
+          "path": "/scene_templates/fixture.room/layers/1/profile_id"
+        },
+        {
+          "op": "replace",
+          "path": "/scene_templates/fixture.room/layers/2/candidate_selector",
+          "value": {
+            "command_kind": "talk",
+            "params": {
+              "role_id": "role.office"
+            }
+          }
+        },
+        {
+          "op": "replace",
+          "path": "/scene_templates/fixture.room/layers/1/extent",
+          "value": [
+            25,
+            0
+          ]
+        }
+      ],
+      "ok": false,
+      "code": "SceneActorExtent",
+      "path": "/scene_templates/fixture.room/layers/1/extent"
+    },
+    {
+      "name": "actor_extent_negative",
+      "patches": [
+        {
+          "op": "replace",
+          "path": "/scene_templates/fixture.room/layers/1/target_ref",
+          "value": {
+            "kind": "actor",
+            "id": "actor.chen"
+          }
+        },
+        {
+          "op": "remove",
+          "path": "/scene_templates/fixture.room/layers/1/profile_id"
+        },
+        {
+          "op": "replace",
+          "path": "/scene_templates/fixture.room/layers/2/candidate_selector",
+          "value": {
+            "command_kind": "talk",
+            "params": {
+              "role_id": "role.office"
+            }
+          }
+        },
+        {
+          "op": "replace",
+          "path": "/scene_templates/fixture.room/layers/1/extent",
+          "value": [
+            -1,
+            40
+          ]
+        }
+      ],
+      "ok": false,
+      "code": "",
+      "path": ""
+    },
+    {
+      "name": "actor_extent_overflow",
+      "patches": [
+        {
+          "op": "replace",
+          "path": "/scene_templates/fixture.room/layers/1/target_ref",
+          "value": {
+            "kind": "actor",
+            "id": "actor.chen"
+          }
+        },
+        {
+          "op": "remove",
+          "path": "/scene_templates/fixture.room/layers/1/profile_id"
+        },
+        {
+          "op": "replace",
+          "path": "/scene_templates/fixture.room/layers/2/candidate_selector",
+          "value": {
+            "command_kind": "talk",
+            "params": {
+              "role_id": "role.office"
+            }
+          }
+        },
+        {
+          "op": "replace",
+          "path": "/scene_templates/fixture.room/layers/1/extent",
+          "value": [
+            25,
+            101
+          ]
+        }
+      ],
+      "ok": false,
+      "code": "",
+      "path": ""
+    },
+    {
+      "name": "actor_extent_fraction",
+      "patches": [
+        {
+          "op": "replace",
+          "path": "/scene_templates/fixture.room/layers/1/target_ref",
+          "value": {
+            "kind": "actor",
+            "id": "actor.chen"
+          }
+        },
+        {
+          "op": "remove",
+          "path": "/scene_templates/fixture.room/layers/1/profile_id"
+        },
+        {
+          "op": "replace",
+          "path": "/scene_templates/fixture.room/layers/2/candidate_selector",
+          "value": {
+            "command_kind": "talk",
+            "params": {
+              "role_id": "role.office"
+            }
+          }
+        },
+        {
+          "op": "replace",
+          "path": "/scene_templates/fixture.room/layers/1/extent",
+          "value": [
+            25,
+            1.5
+          ]
+        }
+      ],
+      "ok": false,
+      "code": "",
+      "path": ""
+    },
+    {
+      "name": "actor_extent_wrong_type",
+      "patches": [
+        {
+          "op": "replace",
+          "path": "/scene_templates/fixture.room/layers/1/target_ref",
+          "value": {
+            "kind": "actor",
+            "id": "actor.chen"
+          }
+        },
+        {
+          "op": "remove",
+          "path": "/scene_templates/fixture.room/layers/1/profile_id"
+        },
+        {
+          "op": "replace",
+          "path": "/scene_templates/fixture.room/layers/2/candidate_selector",
+          "value": {
+            "command_kind": "talk",
+            "params": {
+              "role_id": "role.office"
+            }
+          }
+        },
+        {
+          "op": "replace",
+          "path": "/scene_templates/fixture.room/layers/1/extent",
+          "value": "wide"
+        }
+      ],
+      "ok": false,
+      "code": "",
+      "path": ""
+    },
+    {
+      "name": "bound_actor_missing_extent",
+      "patches": [
+        {
+          "op": "replace",
+          "path": "/scene_templates/fixture.room/layers/1/target_ref",
+          "value": {
+            "kind": "actor",
+            "id": "actor.chen"
+          }
+        },
+        {
+          "op": "remove",
+          "path": "/scene_templates/fixture.room/layers/1/profile_id"
+        },
+        {
+          "op": "replace",
+          "path": "/scene_templates/fixture.room/layers/2/candidate_selector",
+          "value": {
+            "command_kind": "talk",
+            "params": {
+              "role_id": "role.office"
+            }
+          }
+        }
+      ],
+      "ok": false,
+      "code": "SceneActorExtent",
+      "path": "/scene_templates/fixture.room/layers/1/extent"
+    },
+    {
+      "name": "legacy_actor_optional_extent",
+      "patches": [
+        {
+          "op": "replace",
+          "path": "/scene_templates/fixture.room/layers/1/extent",
+          "value": [
+            25,
+            40
+          ]
+        }
+      ],
+      "ok": true,
+      "code": "",
+      "path": ""
+    },
+    {
+      "name": "bound_actor_extent_bounds",
+      "patches": [
+        {
+          "op": "replace",
+          "path": "/scene_templates/fixture.room/layers/1/target_ref",
+          "value": {
+            "kind": "actor",
+            "id": "actor.chen"
+          }
+        },
+        {
+          "op": "remove",
+          "path": "/scene_templates/fixture.room/layers/1/profile_id"
+        },
+        {
+          "op": "replace",
+          "path": "/scene_templates/fixture.room/layers/2/candidate_selector",
+          "value": {
+            "command_kind": "talk",
+            "params": {
+              "role_id": "role.office"
+            }
+          }
+        },
+        {
+          "op": "replace",
+          "path": "/scene_templates/fixture.room/layers/1/extent",
+          "value": [
+            1,
+            100
+          ]
+        }
+      ],
+      "ok": true,
+      "code": "",
+      "path": ""
+    }
+  ],
+  "selectors": [
+    {
+      "name": "move_local_{}",
+      "selector": {
+        "command_kind": "move_local",
+        "params": {}
+      },
+      "target_ref": {
+        "kind": "place",
+        "id": "actual.runtime.object"
+      },
+      "ok": true
+    },
+    {
+      "name": "inspect_{}",
+      "selector": {
+        "command_kind": "inspect",
+        "params": {}
+      },
+      "target_ref": {
+        "kind": "prop",
+        "id": "actual.runtime.object"
+      },
+      "ok": true
+    },
+    {
+      "name": "talk_{'role_id': 'role.office'}",
+      "selector": {
+        "command_kind": "talk",
+        "params": {
+          "role_id": "role.office"
+        }
+      },
+      "target_ref": {
+        "kind": "actor",
+        "id": "actual.runtime.object"
+      },
+      "ok": true
+    },
+    {
+      "name": "estate_build_{'facility': 'farm'}",
+      "selector": {
+        "command_kind": "estate_build",
+        "params": {
+          "facility": "farm"
+        }
+      },
+      "target_ref": {
+        "kind": "estate",
+        "id": "actual.runtime.object"
+      },
+      "ok": true
+    },
+    {
+      "name": "estate_build_{'facility': 'granary'}",
+      "selector": {
+        "command_kind": "estate_build",
+        "params": {
+          "facility": "granary"
+        }
+      },
+      "target_ref": {
+        "kind": "estate",
+        "id": "actual.runtime.object"
+      },
+      "ok": true
+    },
+    {
+      "name": "estate_build_{'facility': 'palisade'}",
+      "selector": {
+        "command_kind": "estate_build",
+        "params": {
+          "facility": "palisade"
+        }
+      },
+      "target_ref": {
+        "kind": "estate",
+        "id": "actual.runtime.object"
+      },
+      "ok": true
+    },
+    {
+      "name": "unsupported",
+      "selector": {
+        "command_kind": "open",
+        "params": {}
+      },
+      "target_ref": {
+        "kind": "place",
+        "id": "a"
+      },
+      "ok": false,
+      "code": "UnsupportedSceneCommand"
+    },
+    {
+      "name": "missing_kind",
+      "selector": {
+        "params": {}
+      },
+      "target_ref": {
+        "kind": "place",
+        "id": "a"
+      },
+      "ok": false,
+      "code": "InvalidSceneSelector"
+    },
+    {
+      "name": "missing_params",
+      "selector": {
+        "command_kind": "inspect"
+      },
+      "target_ref": {
+        "kind": "prop",
+        "id": "a"
+      },
+      "ok": false,
+      "code": "InvalidSceneSelector"
+    },
+    {
+      "name": "extra_selector",
+      "selector": {
+        "command_kind": "inspect",
+        "params": {},
+        "enabled": true
+      },
+      "target_ref": {
+        "kind": "prop",
+        "id": "a"
+      },
+      "ok": false,
+      "code": "InvalidSceneSelector"
+    },
+    {
+      "name": "array",
+      "selector": [],
+      "target_ref": {},
+      "ok": false,
+      "code": "InvalidSceneSelector"
+    },
+    {
+      "name": "params_array",
+      "selector": {
+        "command_kind": "inspect",
+        "params": []
+      },
+      "target_ref": {
+        "kind": "prop",
+        "id": "a"
+      },
+      "ok": false,
+      "code": "InvalidSceneSelector"
+    },
+    {
+      "name": "move_extra",
+      "selector": {
+        "command_kind": "move_local",
+        "params": {
+          "place_id": "a"
+        }
+      },
+      "target_ref": {
+        "kind": "place",
+        "id": "a"
+      },
+      "ok": false,
+      "code": "InvalidSceneSelector"
+    },
+    {
+      "name": "inspect_extra",
+      "selector": {
+        "command_kind": "inspect",
+        "params": {
+          "prop_id": "a"
+        }
+      },
+      "target_ref": {
+        "kind": "prop",
+        "id": "a"
+      },
+      "ok": false,
+      "code": "InvalidSceneSelector"
+    },
+    {
+      "name": "talk_missing",
+      "selector": {
+        "command_kind": "talk",
+        "params": {}
+      },
+      "target_ref": {
+        "kind": "actor",
+        "id": "a"
+      },
+      "ok": false,
+      "code": "InvalidSceneSelector"
+    },
+    {
+      "name": "talk_empty",
+      "selector": {
+        "command_kind": "talk",
+        "params": {
+          "role_id": ""
+        }
+      },
+      "target_ref": {
+        "kind": "actor",
+        "id": "a"
+      },
+      "ok": false,
+      "code": "InvalidSceneSelector"
+    },
+    {
+      "name": "talk_large",
+      "selector": {
+        "command_kind": "talk",
+        "params": {
+          "role_id": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+        }
+      },
+      "target_ref": {
+        "kind": "actor",
+        "id": "a"
+      },
+      "ok": false,
+      "code": "InvalidSceneSelector"
+    },
+    {
+      "name": "bad_facility",
+      "selector": {
+        "command_kind": "estate_build",
+        "params": {
+          "facility": "gate"
+        }
+      },
+      "target_ref": {
+        "kind": "estate",
+        "id": "a"
+      },
+      "ok": false,
+      "code": "InvalidSceneSelector"
+    },
+    {
+      "name": "extra_facility",
+      "selector": {
+        "command_kind": "estate_build",
+        "params": {
+          "facility": "farm",
+          "amount": 2
+        }
+      },
+      "target_ref": {
+        "kind": "estate",
+        "id": "a"
+      },
+      "ok": false,
+      "code": "InvalidSceneSelector"
+    },
+    {
+      "name": "missing_target",
+      "selector": {
+        "command_kind": "inspect",
+        "params": {}
+      },
+      "target_ref": {},
+      "ok": false,
+      "code": "InvalidSceneTarget"
+    },
+    {
+      "name": "target_empty",
+      "selector": {
+        "command_kind": "inspect",
+        "params": {}
+      },
+      "target_ref": {
+        "kind": "prop",
+        "id": ""
+      },
+      "ok": false,
+      "code": "InvalidSceneTarget"
+    },
+    {
+      "name": "target_large",
+      "selector": {
+        "command_kind": "inspect",
+        "params": {}
+      },
+      "target_ref": {
+        "kind": "prop",
+        "id": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+      },
+      "ok": false,
+      "code": "InvalidSceneTarget"
+    },
+    {
+      "name": "target_extra",
+      "selector": {
+        "command_kind": "inspect",
+        "params": {}
+      },
+      "target_ref": {
+        "kind": "prop",
+        "id": "a",
+        "enabled": true
+      },
+      "ok": false,
+      "code": "InvalidSceneTarget"
+    },
+    {
+      "name": "wrong_kind",
+      "selector": {
+        "command_kind": "inspect",
+        "params": {}
+      },
+      "target_ref": {
+        "kind": "actor",
+        "id": "a"
+      },
+      "ok": false,
+      "code": "SceneTargetKind"
+    }
+  ],
+  "references": [
+    {
+      "name": "all_scales",
+      "record": {
+        "id": "west.office",
+        "scene_template_ids": {
+          "world": "fixture.world",
+          "city": "fixture.city",
+          "interior": "fixture.room"
+        }
+      },
+      "ok": true,
+      "code": ""
+    },
+    {
+      "name": "empty_optional_map",
+      "record": {
+        "id": "west.office",
+        "scene_template_ids": {}
+      },
+      "ok": true,
+      "code": ""
+    },
+    {
+      "name": "legacy_city",
+      "record": {
+        "id": "west.office",
+        "scene_template_id": "fixture.city"
+      },
+      "ok": true,
+      "code": ""
+    },
+    {
+      "name": "legacy_room",
+      "record": {
+        "id": "west.office",
+        "scene_template_id": "fixture.room"
+      },
+      "ok": true,
+      "code": ""
+    },
+    {
+      "name": "legacy_world",
+      "record": {
+        "id": "west.office",
+        "scene_template_id": "fixture.world"
+      },
+      "ok": false,
+      "code": "SceneScale"
+    },
+    {
+      "name": "wrong_city",
+      "record": {
+        "id": "west.office",
+        "scene_template_ids": {
+          "city": "fixture.room"
+        }
+      },
+      "ok": false,
+      "code": "SceneScale"
+    },
+    {
+      "name": "wrong_interior",
+      "record": {
+        "id": "west.office",
+        "scene_template_ids": {
+          "interior": "fixture.city"
+        }
+      },
+      "ok": false,
+      "code": "SceneScale"
+    },
+    {
+      "name": "wrong_world",
+      "record": {
+        "id": "west.office",
+        "scene_template_ids": {
+          "world": "fixture.city"
+        }
+      },
+      "ok": false,
+      "code": "SceneScale"
+    },
+    {
+      "name": "unknown_template",
+      "record": {
+        "id": "west.office",
+        "scene_template_ids": {
+          "city": "missing"
+        }
+      },
+      "ok": false,
+      "code": "UnknownPresentation"
+    },
+    {
+      "name": "empty_template",
+      "record": {
+        "id": "west.office",
+        "scene_template_ids": {
+          "city": ""
+        }
+      },
+      "ok": false,
+      "code": "UnknownPresentation"
+    },
+    {
+      "name": "invalid_scale",
+      "record": {
+        "id": "west.office",
+        "scene_template_ids": {
+          "battle": "fixture.world"
+        }
+      },
+      "ok": false,
+      "code": "SceneScale"
+    },
+    {
+      "name": "invalid_map",
+      "record": {
+        "id": "west.office",
+        "scene_template_ids": "fixture.room"
+      },
+      "ok": false,
+      "code": "SceneScale"
+    },
+    {
+      "name": "nonstr_value",
+      "record": {
+        "id": "west.office",
+        "scene_template_ids": {
+          "city": 3
+        }
+      },
+      "ok": false,
+      "code": "UnknownPresentation"
+    }
+  ]
+}

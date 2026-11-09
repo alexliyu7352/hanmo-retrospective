@@ -1,0 +1,18 @@
+// 精确原Task/资金/知情身份的本域只读辅助；不从今日余额倒证已经完成的拨款。
+#pragma once
+#include "task_personal_acceptance_contract.hpp"
+#include "resident/domains/tasks/personal_messages/task_personal_message_detail.hpp"
+namespace hanmo::resident::personal_acceptance_detail {
+using personal_message_detail::serial;using personal_message_detail::before;using personal_message_detail::identity;
+using personal_message_detail::narrative;using personal_message_detail::context;
+inline Outcome<Integer> through(const TaskPersonalAcceptanceSources& x){auto value=personal_message_detail::through(x.common,x.phase,x.exact_clock);if(!value.ok)return {false,{},common_failure("TaskPersonalAcceptancePhaseInvalid").error};return value;}
+inline const TaskPersonalAcceptanceStart* start_for_action(const TaskPersonalAcceptanceState& state,const StableId& action){const TaskPersonalAcceptanceStart* found=nullptr;for(const auto& row:state.starts.rows())if(row.second.action_id==action){if(found)return nullptr;found=&row.second;}return found;}
+inline const TaskPersonalAcceptanceEnd* end_for_start(const TaskPersonalAcceptanceState& state,const StableId& start){const TaskPersonalAcceptanceEnd* found=nullptr;for(const auto& row:state.endings.rows())if(row.second.start_fact_id==start){if(found)return nullptr;found=&row.second;}return found;}
+inline bool knowledge(const TaskPersonalAcceptanceKnowledge& a,const TaskPersonalAcceptanceKnowledge& b){return a.discovered_tick==b.discovered_tick&&a.source_kind==b.source_kind&&a.source_id==b.source_id;}
+// 原Interaction知识仍只有原discover_offer写者；既有条目与原作者discovery来源都须匹配。
+inline Outcome<TaskPersonalAcceptanceKnowledge> known_offer(const TaskPersonalAcceptanceSources& x,const StableId& actor,const StableId& offer,Integer before_tick){const KnowledgeRecord* found=nullptr;bool seen_actor=false;for(const auto& k:x.interaction.knowledge)if(k.actor_id==actor){if(seen_actor)return {false,{},common_failure("AmbiguousTaskPersonalAcceptanceKnowledge",offer).error};seen_actor=true;for(const auto& row:k.offers)if(row.offer_id==offer){if(found)return {false,{},common_failure("AmbiguousTaskPersonalAcceptanceKnowledge",offer).error};found=&row;}}
+ if(!found||found->discovered_tick<0||found->discovered_tick>before_tick||before_tick>x.common.tick())return {false,{},common_failure("SourceUnknown",offer).error};const OfferDiscoveryDefinition* original=nullptr;for(const auto& d:x.interaction_catalog.discoveries)if(d.offer_id==offer){if(original)return {false,{},common_failure("AmbiguousTaskPersonalAcceptanceDiscovery",offer).error};original=&d;}
+ bool permitted=false;if(original)for(const auto& source:original->sources)if(source.kind==found->source.kind&&source.id==found->source.id)permitted=true;if(!permitted)return {false,{},common_failure("SourceUnknown",offer).error};return {true,{found->discovered_tick,found->source.kind,found->source.id},{}};}
+inline Integer reserved(const CommonStore& c,const StableId& wallet,const StableId& action){const auto* w=c.wallet(wallet);Integer found=-1;if(w)for(const auto& r:w->reserved)if(r.action_id==action){if(found!=-1)return -1;found=r.amount;}return found;}
+inline Status presence(const TaskPersonalAcceptanceSources& x,const StableId& actor,Integer tick,const StableId& fact){if(!x.presence_before)return common_failure("TaskPersonalAcceptancePresenceRequired",fact);auto p=x.presence_before(actor,tick,fact);if(!p.ok)return {false,{},p.error};if(!identity(p.value.source_identity,x.common.state().identity)||p.value.actor_id!=actor||p.value.before_fact_id!=fact||p.value.observed_tick!=tick||!p.value.alive)return common_failure("TaskPersonalAcceptancePersonNotPresent",fact);return common_success();}
+}

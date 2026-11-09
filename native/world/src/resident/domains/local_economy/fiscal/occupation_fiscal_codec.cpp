@@ -1,0 +1,10 @@
+// 冷读只解析严格新段，不恢复缺失账期、不重算旧债，也不把新政策冒作旧财政1。
+#include "resident/checkpoint/checkpoint_decode_lifecycle.hpp"
+#include "occupation_fiscal_codec.hpp"
+#include "../economic_payload_guard.hpp"
+namespace hanmo::resident {
+Status emit_occupation_fiscal_settlement_fields(ProjectionWriter& writer,const OccupationFiscalSettlementState& state){try{if(state.version!=1)boundary::fail("UnsupportedOccupationFiscalSettlementVersion","/occupation_fiscal_settlement/version");return dynamic_economy_codec::emit_fields(writer,state);}catch(const boundary::DecodeFailure&failure){return writer.reject(failure.error.original.code,failure.error.original.path);}}
+BoundaryValue encode_occupation_fiscal_settlement(const OccupationFiscalSettlementState& state){BoundaryValue out;BoundaryProjectionWriter writer(out);auto valid=writer.object("",[&](auto&fields){return emit_occupation_fiscal_settlement_fields(fields,state);});if(valid.ok)valid=writer.finish();if(!valid.ok)throw boundary::DecodeFailure{valid.error};return out;}
+Outcome<OccupationFiscalSettlementState> decode_occupation_fiscal_settlement(const BoundaryValue& value){auto fields=validate_economic_payload_fields(value);if(!fields.ok)return {false,{},fields.error};try{auto state=dynamic_economy_codec::decode_root<OccupationFiscalSettlementState>(value,"/occupation_fiscal_settlement");if(state.version!=1)boundary::fail("UnsupportedOccupationFiscalSettlementVersion","/occupation_fiscal_settlement/version");return {true,std::move(state),{}};}catch(const boundary::DecodeFailure& failure){return {false,{},failure.error};}}
+Status visit_occupation_fiscal_settlement_checkpoint(CodecVisitor& codec,OccupationFiscalSettlementState& state){if(!codec.reading()&&state.version!=1)return codec.reject("UnsupportedOccupationFiscalSettlementVersion","occupation_fiscal_settlement");auto result=dynamic_economy_codec::checkpoint(codec,"occupation_fiscal_settlement",state);if(!result.ok)return result;return state.version==1?codec.status():codec.reject("UnsupportedOccupationFiscalSettlementVersion","occupation_fiscal_settlement");}
+}

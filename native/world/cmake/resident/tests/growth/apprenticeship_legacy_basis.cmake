@@ -1,0 +1,7 @@
+# 成长与教学消费者登记：保留本组目标、测试、条件与局部变量的原执行顺序。
+# 弟子原控制账与实际结果绑定必要门；不代自然死亡全链。
+add_executable(test_resident_apprenticeship_legacy_basis tests/resident/apprenticeship_legacy_basis_test.cpp)
+target_link_libraries(test_resident_apprenticeship_legacy_basis PRIVATE hanmo_resident)
+target_include_directories(test_resident_apprenticeship_legacy_basis PRIVATE src)
+target_compile_options(test_resident_apprenticeship_legacy_basis PRIVATE -UNDEBUG -fno-fast-math -ffp-contract=off)
+add_test(NAME resident_apprenticeship_legacy_basis COMMAND test_resident_apprenticeship_legacy_basis)

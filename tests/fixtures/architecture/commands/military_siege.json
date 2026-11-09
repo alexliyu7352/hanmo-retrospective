@@ -1,0 +1,190 @@
+{
+  "case_id": "military_siege",
+  "scenario_id": "scenario.alpha_life",
+  "content": "res://data/generated/alpha_life.hmcatalog.json",
+  "description": "固定作者seed，输入经实际Kernel展开；稳定节点包含完整字节存档",
+  "commands": [
+    {
+      "op": "submit",
+      "kind": "move_local",
+      "params": {
+        "place_id": "west.camp"
+      }
+    },
+    {
+      "op": "checkpoint",
+      "label": "01-before-start"
+    },
+    {
+      "op": "submit",
+      "kind": "office_accept",
+      "params": {
+        "office_id": "office.qingchuan.army"
+      },
+      "context_role": "role.qingchuan.0"
+    },
+    {
+      "op": "checkpoint",
+      "label": "02-after-appointment-start"
+    },
+    {
+      "op": "advance",
+      "ticks": 1
+    },
+    {
+      "op": "submit",
+      "kind": "campaign_accept",
+      "params": {
+        "template_id": "order.qingchuan.army"
+      },
+      "context_role": "role.qingchuan.0"
+    },
+    {
+      "op": "submit",
+      "kind": "army_form",
+      "params": {
+        "order_id": "@campaign",
+        "unit_ids": [
+          "unit.qingchuan.infantry",
+          "unit.qingchuan.archer",
+          "unit.qingchuan.cavalry"
+        ],
+        "food_quantity": 500,
+        "money": 300
+      }
+    },
+    {
+      "op": "checkpoint",
+      "label": "03-before-formation-completion"
+    },
+    {
+      "op": "advance",
+      "ticks": 1
+    },
+    {
+      "op": "checkpoint",
+      "label": "04-after-formation"
+    },
+    {
+      "op": "submit",
+      "kind": "move_local",
+      "params": {
+        "place_id": "west.street"
+      }
+    },
+    {
+      "op": "submit",
+      "kind": "campaign_depart",
+      "params": {
+        "campaign_id": "@campaign"
+      }
+    },
+    {
+      "op": "travel_until",
+      "city": "",
+      "military_contact": true,
+      "limit": 24
+    },
+    {
+      "op": "checkpoint",
+      "label": "05-military-contact"
+    },
+    {
+      "op": "battle_until_result",
+      "military": true
+    },
+    {
+      "op": "checkpoint",
+      "label": "06-before-battle-close"
+    },
+    {
+      "op": "submit",
+      "kind": "military_close",
+      "params": {
+        "battle_id": "@battle"
+      }
+    },
+    {
+      "op": "travel_until",
+      "city": "village.east"
+    },
+    {
+      "op": "checkpoint",
+      "label": "07-before-siege"
+    },
+    {
+      "op": "submit",
+      "kind": "siege_start",
+      "params": {
+        "campaign_id": "@campaign"
+      }
+    },
+    {
+      "op": "checkpoint",
+      "label": "08-after-siege-start"
+    },
+    {
+      "op": "siege_until_result"
+    },
+    {
+      "op": "checkpoint",
+      "label": "09-before-siege-close"
+    },
+    {
+      "op": "submit",
+      "kind": "siege_close",
+      "params": {
+        "siege_id": "@siege"
+      }
+    },
+    {
+      "op": "checkpoint",
+      "label": "10-after-siege"
+    },
+    {
+      "op": "submit",
+      "kind": "campaign_return",
+      "params": {
+        "campaign_id": "@campaign"
+      }
+    },
+    {
+      "op": "travel_until",
+      "city": "city.west"
+    },
+    {
+      "op": "submit",
+      "kind": "move_local",
+      "params": {
+        "place_id": "west.camp"
+      }
+    },
+    {
+      "op": "submit",
+      "kind": "army_return",
+      "params": {
+        "army_id": "@army"
+      }
+    },
+    {
+      "op": "checkpoint",
+      "label": "11-before-return-completion"
+    },
+    {
+      "op": "advance",
+      "ticks": 1
+    },
+    {
+      "op": "submit",
+      "kind": "campaign_report",
+      "params": {
+        "campaign_id": "@campaign"
+      },
+      "context_role": "role.qingchuan.0"
+    },
+    {
+      "op": "checkpoint",
+      "label": "12-after-completion"
+    }
+  ]
+}

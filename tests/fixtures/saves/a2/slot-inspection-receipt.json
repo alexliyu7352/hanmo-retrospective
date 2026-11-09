@@ -1,0 +1,46 @@
+{
+  "base_commit": "eb375420173c97fa6ce3da708572002d1980ec86",
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "format": "HM-A2-STORAGE-SLOT-INSPECTION-RECEIPT/1",
+  "log_sha256": {
+    "adjacent-storage-after-slots.log": "cbb3aecc92c68b710639925faef6f8b954ed24439eb4afe8dafabad7bedddf41",
+    "green-slot-inspection.log": "c6c70ac8111ba178eaf2c56f70455b64e82a351880614e0a602ee3448b0b2b96",
+    "storage-profiles-after-slots.log": "ca3f352055eaed1856b47bd8b5e927abe9dac2a403149c51a0bf3106ca67f1f4"
+  },
+  "not_run": [
+    "M3_FULL_RESTORE",
+    "V2_SAVE_WRITE",
+    "UI_CONTINUE",
+    "full_suite",
+    "long_matrix",
+    "Web_runtime"
+  ],
+  "source_files": [
+    {
+      "path": "game/storage/native_storage.gd",
+      "sha256": "f93af9806fdecba892bde7437606989f8e215007b98338c2c0fd6008cf2a9c14"
+    },
+    {
+      "path": "game/tests/test_storage_slot_inspection.gd",
+      "sha256": "d5d78c7eac9e3514cd976711e713d428863b926e33b1f7affee3067bd26fc7d6"
+    }
+  ],
+  "tests": [
+    {
+      "checks": 111,
+      "failures": 0,
+      "script": "game/tests/test_storage_slot_inspection.gd"
+    },
+    {
+      "checks": 86,
+      "failures": 0,
+      "script": "game/tests/test_storage.gd",
+      "warnings": "3 existing Exponent too high warnings; no SCRIPT ERROR/ERROR"
+    },
+    {
+      "elapsed_seconds": 8.18,
+      "passed": 1,
+      "script": "tests/test_storage_profiles.py"
+    }
+  ]
+}

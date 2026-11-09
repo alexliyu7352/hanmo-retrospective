@@ -1,0 +1,16 @@
+{
+  "commit": "e6ba39894c6fd24f76bf23c8b3a23dc50dbd6009",
+  "adaptation": "world_kernel.gd 仅重定向冻结 Builtin 路径；业务逻辑及其余内容保持原提交字节",
+  "sources": {
+    "world_kernel.gd": {
+      "path": "game/core/world_kernel.gd",
+      "original_sha256": "c5ddd2e9e558203522faf494b5b85424a0cb83a66ebca2814b403fce13a066c3",
+      "fixture_sha256": "24b777af62ac96d047f9cc1423daa8f67a92c298db8cc5471468a91b4fd51eba"
+    },
+    "builtin_modules.gd": {
+      "path": "game/core/runtime/builtin_modules.gd",
+      "original_sha256": "4eb8e6f6371c29dbb234d91874ed239070540a0416f3832e3c8a59e4d8aba728",
+      "fixture_sha256": "4eb8e6f6371c29dbb234d91874ed239070540a0416f3832e3c8a59e4d8aba728"
+    }
+  }
+}
